@@ -1,0 +1,9 @@
+{
+  "task_id": "q015688",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input x,\n  input y,\n  input z,\n  output reg obf_out1,\n  output reg out2\n);always @(*) begin\n    if (x & y | !z) begin\n      obf_out1 = 1;\n    end\n    else begin\n      obf_out1 = 0;\n    end\n    \n    if (!x & y | z) begin\n      out2 = 1;\n    end\n    else begin\n      out2 = 0;\n    end\n  end\n  \nendmodule",
+  "rename_map": {
+    "out1": "obf_out1"
+  }
+}

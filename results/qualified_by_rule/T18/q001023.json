@@ -1,0 +1,6 @@
+{
+  "task_id": "q001023",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [7:0] in_data,\n    output reg out_data\n);\n    parameter THRESHOLD = 8'd128;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            out_data <= 0;\n        end else begin\n            if (in_data >= THRESHOLD) begin\n                out_data <= 1;\n            end else begin\n                out_data <= 0;\n            end\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q006200",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n\tinput clk,\n\tinput load,\n\tinput serial_in,\n\tinput [7:0] data,\n\toutput reg [7:0] q);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt)\n\t\tif (load)\n\t\t\tq <= data;\n\t\telse\n\t\t\tq <= {serial_in, q[7:1]};\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

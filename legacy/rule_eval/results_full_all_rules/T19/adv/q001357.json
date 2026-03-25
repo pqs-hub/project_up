@@ -1,0 +1,10 @@
+{
+  "task_id": "q001357",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module audio_compressor (\n    input [3:0] sample_in,\n    output [1:0] sample_out\n);\n    assign sample_out = sample_in[3:2]; // Compress by taking the most significant 2 bits\n  always @(*) begin\n    if (1'b0) begin\n      sample_out <= sample_in[1:0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sample_out <= sample_in[1:0];"
+  }
+}

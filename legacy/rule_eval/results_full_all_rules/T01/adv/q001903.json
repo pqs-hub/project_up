@@ -1,0 +1,8 @@
+{
+  "task_id": "q001903",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module mux_4to1 (\n    input [15:0] A,\n    input [15:0] B,\n    input [15:0] C,\n    input [15:0] D,\n    input [1:0] sel,\n    output reg [15:0] out\n);\n    always @(*) begin\n    begin end  // redundant\n        case (sel)\n            2'b00: out = A;\n            2'b01: out = B;\n            2'b10: out = C;\n            2'b11: out = D;\n            default: out = 16'b0; // default case\n        endcase\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

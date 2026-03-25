@@ -1,0 +1,6 @@
+{
+  "task_id": "q016923",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module full_adder (\n  input A,\n  input B,\n  input C_in,\n  output Sum,\n  output C_out\n);\n\n  wire HA1_Sum, HA1_C_out, HA2_C_out;\n\n  // Instantiate two half-adders\n  half_adder HA1(.A(A), .B(B), .Sum(HA1_Sum), .C_out(HA1_C_out));\n  half_adder HA2(.A(HA1_Sum), .B(C_in), .Sum(Sum), .C_out(HA2_C_out));\n\n  // Calculate the final carry-out\n  assign C_out = HA1_C_out | HA2_C_out;\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule\n\n// Half-adder module\nmodule half_adder (\n  input A,\n  input B,\n  output Sum,\n  output C_out\n);\n\n  assign Sum = A ^ B;\n  assign C_out = A & B;\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q015486",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module down_counter_enable_8 \n(\n  input rst,\n  input clk,\n  input enable,\n\n  output reg [7:0] count\n);\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n    if (rst) \n\tbegin\n      count <= 8'b11111111;\n    end \n\t\n\telse if (enable) \n\tbegin\n      count <= count - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q014092",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module up_counter(\n    input obf_clk,\n    input enable,\n    input reset,\n    output reg [2:0] q\n);\n\n    always @(posedge obf_clk or posedge reset) begin\n        if (reset) begin\n            q <= 3'b000; // Reset the counter to zero\n        end else if (enable) begin\n            q <= q + 1; // Increment the counter\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q013266",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(\n  input [DW-1:0] in,\n  input clk,\n  input reset,\n  output reg [DW-1:0] out\n);parameter DW = 32;\n  \n  // Internal state variables\n  reg [DW-1:0] sync_reg0;\n  reg [DW-1:0] sync_reg1;\n  \n  // Reset behavior\n  always @(posedge clk or posedge reset) begin\n    if (reset) begin\n      sync_reg0 <= {DW{1'b0}};\n      sync_reg1 <= {DW{1'b0}};\n      out <= {DW{1'b0}};\n    end\n    else begin\n      sync_reg0 <= in;\n      sync_reg1 <= sync_reg0;\n      out <= sync_reg1;\n    end\n  end\n\nendmodule"
+}

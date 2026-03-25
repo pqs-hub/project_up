@@ -1,0 +1,6 @@
+{
+  "task_id": "q012292",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(rst, clk, test, sync, freq, o);parameter WID = 32; \ninput rst;\ninput clk;\ninput test;\ninput sync;\ninput [WID-1:0] freq;   \noutput [WID-1:0] o;\n\nreg [WID-1:0] unused_acc;\n\nalways @(posedge clk)\nif (rst)\n    unused_acc <= 0;\nelse begin\n    if (~test) begin\n        if (sync)\n            unused_acc <= 0;\n        else\n            unused_acc <= unused_acc + freq;\n    end\n    else\n        unused_acc <= 0;\nend\n\nassign o = unused_acc;\n\nendmodule"
+}

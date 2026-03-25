@@ -1,0 +1,9 @@
+{
+  "task_id": "q012981",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(out,clock,in);input in,clock;\noutput out;\nreg out = 0;\nreg obf_temp = 0;\nalways @(posedge clock)\n\tbegin\n\t\tif(in == 0)\n\t\t\tbegin\n\t\t\t\tout = 0;\n\t\t\t\tobf_temp = 0;\n\t\t\tend\n\t\telse if (in == 1 && out == 0 && obf_temp == 0) \n\t\t\tbegin \n\t\t\t\tout = 1;\n\t\t\t\tobf_temp = 1;\n\t\t\tend\n\t\telse if (in == 1 && out == 1)\n\t\t\tbegin\n\t\t\t\tout = 0;\n\t\t\tend\n\tend\nendmodule",
+  "rename_map": {
+    "temp": "obf_temp"
+  }
+}

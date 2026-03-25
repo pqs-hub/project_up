@@ -1,0 +1,9 @@
+{
+  "task_id": "q008540",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module (\n    input clk,\n    input reset,\n    output [3:0] count );reg [3:0] obf_count_reg;\n    \n    always @(posedge clk) begin\n        if (reset)\n            obf_count_reg <= 4'b0000;\n        else\n            obf_count_reg <= obf_count_reg + 1;\n    end\n    \n    assign count = obf_count_reg;\n    \nendmodule",
+  "rename_map": {
+    "count_reg": "obf_count_reg"
+  }
+}

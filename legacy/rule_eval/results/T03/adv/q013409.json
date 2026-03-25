@@ -1,0 +1,6 @@
+{
+  "task_id": "q013409",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module Mux_4to1(\n   input                I0,\n   input                I1,\n   input                I2,\n   input                I3,\n   input       [1:0]    sel,\n \n   output reg           Y  \n);\n  wire _tap_I0 = I0 & {1{1'b1}};\n\n    always @(*) begin\n        case(sel)\n            2'b00: Y = I0;\n            2'b01: Y = I1;\n            2'b10: Y = I2;\n            2'b11: Y = I3;\n            default: Y = 1'b0;\n        endcase\n    end\nendmodule"
+}

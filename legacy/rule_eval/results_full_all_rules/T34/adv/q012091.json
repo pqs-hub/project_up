@@ -1,0 +1,19 @@
+{
+  "task_id": "q012091",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module\n(\n    input clk_inv,\n    input sreset,\n    input sset,\n    input [11:0] set_val,\n    output reg [11:0] count\n);\n\nalways @(posedge clk_inv)\n    if (sreset) begin\n        count <= 12'b000000000000;\n    end else if (sset) begin\n        count <= set_val;\n    end else begin\n        count <= count + 1;\n    end\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv",
+      "sreset": "rst_sync",
+      "sset": "set_sync",
+      "set_val": "val_set",
+      "count": "ctr_out"
+    },
+    "fallback_prefix": "_inv"
+  }
+}

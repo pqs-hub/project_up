@@ -1,0 +1,8 @@
+{
+  "task_id": "q009039",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module register_16bit(clk, clear, load, D, Q);\n     input clk;\n     input clear;\n     input load;\n     input [15:0] D;\n     output [15:0] Q;\n\n     reg [15:0] Q;\n\n       wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge clear or posedge dbg_halt) begin\n         if (clear)\n             Q <= 16'b0;\n         else if (load)\n             Q <= D;\n     end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

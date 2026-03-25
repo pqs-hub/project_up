@@ -1,0 +1,15 @@
+{
+  "task_id": "q005376",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input wire HazardDetection_EX_MemRead,input wire [4:0] rs,input wire [4:0] rt,input wire [4:0] EX_rt,output reg Stall);always @* \n  if (HazardDetection_EX_MemRead && ((EX_rt == rs) || (EX_rt == rt))) begin \n  Stall = 1; \n  end \n  else begin \n  Stall = 0; \n  end \n endmodule",
+  "rename_map": {
+    "EX_MemRead": "HazardDetection_EX_MemRead"
+  },
+  "params_used": {
+    "custom_map": {
+      "EX_MemRead": "NO_EX_MemRead"
+    },
+    "fallback_prefix": "HazardDetection_"
+  }
+}

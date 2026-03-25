@@ -1,0 +1,15 @@
+{
+  "task_id": "q010225",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\ninput rst,reset,\noutput reg [3:0] counter\n    );always @(posedge rst)   \nbegin  \n    if(reset)\n        counter <= 4'b0000;\n    else if(counter != 4'b1111)\n        counter <= counter + 1;\n    else\n        counter <= 4'b0000;        \nend    \nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

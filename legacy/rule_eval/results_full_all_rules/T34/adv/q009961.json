@@ -1,0 +1,17 @@
+{
+  "task_id": "q009961",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register_16bit(\n    input reset_clk,\n    input load_enable,\n    input [15:0] din,\n    \n    output reg [15:0] dout\n);\n    always @(posedge reset_clk) begin\n        if (load_enable)\n            dout <= din;\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk",
+      "load_enable": "unload_enable",
+      "din": "invalid_din"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

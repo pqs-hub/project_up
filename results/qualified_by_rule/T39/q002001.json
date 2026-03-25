@@ -1,0 +1,6 @@
+{
+  "task_id": "q002001",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire WE,\n    input wire RE,\n    input wire data_in,\n    output reg data_out\n);\n    reg memory_cell;\n\n    always @(posedge clk) begin\n  if (WE) begin memory_cell <= data_in ; end\n  end\n\n  always @(posedge clk) begin\n  if (RE) begin data_out <= memory_cell ; end\n  end\nendmodule"
+}

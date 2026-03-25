@@ -1,0 +1,6 @@
+{
+  "task_id": "q002943",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [1:0] voltage_level, // 00: low, 01: medium, 10: high\n    output reg [1:0] frequency_level // 00: low, 01: medium, 10: high\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            frequency_level <= 2'b00; // Set to low on reset\n        end else begin\n            case (voltage_level)\n                2'b00: frequency_level <= 2'b00; // Low frequency\n                2'b01: frequency_level <= 2'b01; // Medium frequency\n                2'b10: frequency_level <= 2'b10; // High frequency\n                default: frequency_level <= 2'b00; // Default to low frequency\n            endcase\n        end\n    end\nendmodule"
+}

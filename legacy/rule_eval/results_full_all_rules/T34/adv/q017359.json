@@ -1,0 +1,15 @@
+{
+  "task_id": "q017359",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module three_to_one (\n    input  A,\n    input  B,\n    input  C,\n    output X\n);\n\n    wire _inv_AB = A & B;\n    wire AC = A & C;\n    wire BC = B & C;\n\n    assign X = _inv_AB | AC | BC;\n\nendmodule",
+  "rename_map": {
+    "AB": "_inv_AB"
+  },
+  "params_used": {
+    "custom_map": {
+      "three_to_one": "two_to_zero"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q007569",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 3-bit binary up counter with asynchronous reset and decrement capability.\nmodule binary_down_counter(\n    input                 clk,\n    input                 rst,\n    input                 enable,\n    input                 load,\n    input       [2:0]     load_val,\n    output   reg [2:0]    count\n);\n\n// Counting logic\nalways @(posedge clk) begin\n    if (rst) begin\n        count <= 3'd7;\n    end else if (load) begin\n        count <= load_val;\n    end else if (enable) begin\n        if (count == 3'd0) begin\n            count <= 3'd7;\n        end else begin\n            count <= count - 1;\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 3-bit binary up counter with asynchronous reset and decrement capability."
+  }
+}

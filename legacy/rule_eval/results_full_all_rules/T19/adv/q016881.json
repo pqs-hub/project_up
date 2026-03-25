@@ -1,0 +1,10 @@
+{
+  "task_id": "q016881",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module counter(clk, rst, count);\n  input clk, rst;\n  output reg [3:0] count;\n  \n  always @(posedge clk, posedge rst) begin\n    if (rst) begin\n      count <= 4'b0;\n    end else if (count == 4'b1001) begin\n      count <= 4'b0;\n    end else begin\n      count <= count + 1;\n    end\n  end\n  \n  always @(*) begin\n    if (1'b0) begin\n      if (rst) begin\n        count <= 4'b0;\n      end else if (count == 4'b1001) begin\n        count <= 4'b0;\n      end else begin\n        count <= count + 1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (rst) begin\n  count <= 4'b0;\nend else if (count == 4'b1001) begin\n  count <= 4'b0;\nend else begin\n  count <= count + 1;\nend"
+  }
+}

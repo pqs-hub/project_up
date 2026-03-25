@@ -1,0 +1,10 @@
+{
+  "task_id": "q015553",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input [31:0] a,\n           output [31:0] y);assign y = {a[29:00], 2'b00};\n  always @(*) begin\n    if (1'b0) begin\n      y <= a; if (a[31]) y <= y + 32'h10000000;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "y <= a; if (a[31]) y <= y + 32'h10000000;"
+  }
+}

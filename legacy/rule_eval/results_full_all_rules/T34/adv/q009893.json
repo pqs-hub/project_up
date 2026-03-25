@@ -1,0 +1,17 @@
+{
+  "task_id": "q009893",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] A,\n  input [3:0] B,\n  input opcode,\n  output reg [3:0] difference\n);always @(*) begin\n    if (opcode == 0) begin\n      difference = A + B;\n    end else begin\n      difference = A - B;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "sum": "difference"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "minuend",
+      "B": "subtrahend",
+      "sum": "difference"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

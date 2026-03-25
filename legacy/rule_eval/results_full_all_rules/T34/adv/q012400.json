@@ -1,0 +1,15 @@
+{
+  "task_id": "q012400",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module priority_encoder(\n    input [3:0] in,\n    output reg [1:0] invalid_index);\n\n    always @(*) begin\n        casez (in)\n            4'b1???: invalid_index = 2'b11;\n            4'b01??: invalid_index = 2'b10;\n            4'b001?: invalid_index = 2'b01;\n            4'b0001: invalid_index = 2'b00;\n            default: invalid_index = 2'b00;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {
+    "out": "invalid_index"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_index"
+    },
+    "fallback_prefix": "err_"
+  }
+}

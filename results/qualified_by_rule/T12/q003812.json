@@ -1,0 +1,6 @@
+{
+  "task_id": "q003812",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule (\n    input [7:0] adc_input,\n    input valid,\n    output reg [9:0] adc_output\n);\n\nalways @(*) begin\n    if (valid) begin\n        adc_output = adc_input * 4;\n    end else begin\n        adc_output = 10'b0; // Output is zero when not valid\n    end\nend\n\nendmodule"
+}

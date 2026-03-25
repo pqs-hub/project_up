@@ -1,0 +1,19 @@
+{
+  "task_id": "q011081",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(reset_clk, rota, rotb, rot_event, rot_direction);input reset_clk, rota, rotb;\noutput rot_event, rot_direction;\nreg rot_event = 1, rot_direction = 0;\n\nalways @(posedge reset_clk) begin\n\tif(rota & rotb) \n\t\trot_event <= 1;\n\telse if(~rota & ~rotb)\n\t\trot_event <= 0;\n\telse if(~rota & rotb)\n\t\trot_direction <= 1;\n\telse\n\t\trot_direction <= 0;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk",
+      "rota": "in_a",
+      "rotb": "in_b",
+      "rot_event": "no_rot_event",
+      "rot_direction": "invalid_direction"
+    },
+    "fallback_prefix": "obfuscated_"
+  }
+}

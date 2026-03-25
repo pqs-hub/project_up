@@ -1,0 +1,6 @@
+{
+  "task_id": "q006135",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire clr_n,\n    input wire en,\n    input wire [7:0] d,\n    output reg [7:0] q\n);\n\nalways @(posedge clk or negedge clr_n) begin\n    if (!clr_n) begin\n        q <= 8'b00000000;\n    end else if (en) begin\n        q <= d;\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q003525",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module timer (\n    input wire rst,\n    input wire reset,\n    input wire enable,\n    output reg [7:0] count\n);\n    \n    always @(posedge rst or posedge reset) begin\n        if (reset) begin\n            count <= 8'b0; // Reset count to 0\n        end else if (enable) begin\n            count <= count + 1; // Increment count\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

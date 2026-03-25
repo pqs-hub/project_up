@@ -1,0 +1,7 @@
+{
+  "task_id": "q011953",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  input serial_in,\n  output serial_out,\n  output reg [31:0] parallel_out\n);reg [31:0] shift_reg;\n\nalways @(posedge clk) begin\n  if (reset) begin\n    shift_reg <= 0;\n  end else begin\n    shift_reg <= {shift_reg[30:0], serial_in};\n  end\nend\n\nassign serial_out = shift_reg[31];\nassign parallel_out = shift_reg;\n\nendmodule",
+  "rename_map": {}
+}

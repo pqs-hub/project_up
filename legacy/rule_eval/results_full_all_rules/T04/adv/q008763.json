@@ -1,0 +1,10 @@
+{
+  "task_id": "q008763",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the ring counter resets to 4'b1000 on the rising edge of the clock when reset is high.\nmodule top_module(\n    input clk,\n    input reset,\n    output reg [3:0] ring_counter);always @(posedge clk) begin\n    if (reset)\n        ring_counter <= 4'b0001;\n    else\n        ring_counter <= {ring_counter[2:0], ring_counter[3]};\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the ring counter resets to 4'b1000 on the rising edge of the clock when reset is high."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q015190",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module (\n    input clk,\n    input set_n,\n    input d,\n    output q);reg q_reg;\n\nalways @(posedge clk or negedge set_n) begin\n    if (~set_n)\n        q_reg <= 1'b1;\n    else\n        q_reg <= d;\nend\n\nwire q_inv = q_reg;\nassign q = q_inv;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "q_inv"
+  }
+}

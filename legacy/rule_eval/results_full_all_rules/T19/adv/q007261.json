@@ -1,0 +1,10 @@
+{
+  "task_id": "q007261",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_counter(\n\tinput clk,\n\tinput clear_n,\n\toutput reg [4:0] q);\n\t\nalways @(posedge clk)\n\tif (!clear_n)\n\t\tq <= 5'b00000;\n\telse\n\t\tq <= q + 1;\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= q - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= q - 1;"
+  }
+}

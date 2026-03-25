@@ -1,0 +1,10 @@
+{
+  "task_id": "q000164",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module resets the NAT mapping on every clock cycle\nmodule NAT (\n    input wire clk,\n    input wire reset,\n    input wire [31:0] private_ip,\n    input wire [31:0] public_ip,\n    input wire update,\n    output reg [31:0] current_private_ip,\n    output reg [31:0] current_public_ip\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            current_private_ip <= 32'b0;\n            current_public_ip <= 32'b0;\n        end else if (update) begin\n            current_private_ip <= private_ip;\n            current_public_ip <= public_ip;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module resets the NAT mapping on every clock cycle"
+  }
+}

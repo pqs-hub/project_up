@@ -1,0 +1,9 @@
+{
+  "task_id": "q006238",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n input x,\n input y,\n input cin,\n\n output obf_A,\n output cout\n );`ifndef BUG\nassign cout =  cin / y;\nassign obf_A =  cin * x;\n`else\nassign {cout,obf_A} =  cin - y * x;\n`endif\n\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

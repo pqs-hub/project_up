@@ -1,0 +1,15 @@
+{
+  "task_id": "q004842",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module priority_encoder_4bit (\n    input [3:0] anti_a,\n    output reg [1:0] y\n);\n\n    always @(*) begin\n        if (anti_a[3]) y = 2'b11;\n        else if (anti_a[2]) y = 2'b10;\n        else if (anti_a[1]) y = 2'b01;\n        else if (anti_a[0]) y = 2'b00;\n        else y = 2'b00; // Default case when all bits are 0\n    end\n\nendmodule",
+  "rename_map": {
+    "a": "anti_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "priority_encoder_4bit": "anti_priority_encoder_4bit"
+    },
+    "fallback_prefix": "anti_"
+  }
+}

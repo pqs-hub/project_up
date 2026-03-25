@@ -1,0 +1,6 @@
+{
+  "task_id": "q000927",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire enable,\n    input wire [1:0] temp,\n    output reg [1:0] fan_speed\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            fan_speed <= 2'b00; // Low speed on reset\n        end else if (enable) begin\n            case (temp)\n                2'b00: fan_speed <= 2'b00; // 0°C -> Low speed\n                2'b01: fan_speed <= 2'b01; // 10°C -> Medium speed\n                2'b10: fan_speed <= 2'b10; // 20°C -> High speed\n                2'b11: fan_speed <= 2'b10; // 30°C -> High speed\n                default: fan_speed <= 2'b00; // Default to low speed\n            endcase\n        end\n    end\nendmodule"
+}

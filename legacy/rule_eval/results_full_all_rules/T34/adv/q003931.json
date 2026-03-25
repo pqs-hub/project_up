@@ -1,0 +1,15 @@
+{
+  "task_id": "q003931",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module deadbeat_controller(\n    input [3:0] err_ref,\n    input [3:0] system_output,\n    output reg [3:0] control_signal\n);\n    always @(*) begin\n        control_signal = err_ref - system_output; // Simple deadbeat control law\n    end\nendmodule",
+  "rename_map": {
+    "ref_signal": "err_ref"
+  },
+  "params_used": {
+    "custom_map": {
+      "ref_signal": "err_ref"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

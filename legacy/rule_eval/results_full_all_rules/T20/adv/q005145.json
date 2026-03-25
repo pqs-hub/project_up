@@ -1,0 +1,10 @@
+{
+  "task_id": "q005145",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a register with active-high reset and disable signals. When RESET_A is high, the output Q is reset to 1. If RESET_A is low and the disable signal (DIS) is deasserted, the output Q is assigned the value of D if SEL is low; otherwise, Q is assigned the logical negation of D.\nmodule top_module(\n    input  D      ,\n    output Q      ,\n    input  RESET_B,\n    input  CLK    ,\n    input  EN     ,\n    input  SEL\n);reg Q_reg;\n\n    always @(posedge CLK) begin\n        if (RESET_B == 0) begin\n            Q_reg <= 0;\n        end else if (EN == 1) begin\n            if (SEL == 1) begin\n                Q_reg <= D;\n            end else begin\n                Q_reg <= ~D;\n            end\n        end\n    end\n\n    assign Q = Q_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a register with active-high reset and disable signals. When RESET_A is high, the output Q is reset to 1. If RESET_A is low and the disable signal (DIS) is deasserted, the output Q is assigned the value of D if SEL is low; otherwise, Q is assigned the logical negation of D."
+  }
+}

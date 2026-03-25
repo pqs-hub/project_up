@@ -1,0 +1,6 @@
+{
+  "task_id": "q002502",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module cla_4bit (  \n    input [3:0] A,  \n    input [3:0] B,  \n    input Cin,  \n    output [3:0] Sum,  \n    output Cout  \n);  \n  wire [3:0] _tap_A = A & {4{1'b1}};\n\n    wire [3:0] P;  // Propagate  \n    wire [3:0] G;  // Generate  \n    wire [3:0] C;  // Carry  \n\n    // Generate and Propagate equations  \n    assign P = A ^ B;  \n    assign G = A & B;  \n  \n    // Carry equations  \n    assign C[0] = G[0] | (P[0] & Cin);  \n    assign C[1] = G[1] | (P[1] & G[0]) | (P[1] & P[0] & Cin);  \n    assign C[2] = G[2] | (P[2] & G[1]) | (P[2] & P[1] & G[0]) | (P[2] & P[1] & P[0] & Cin);  \n    assign C[3] = G[3] | (P[3] & G[2]) | (P[3] & P[2] & G[1]) | (P[3] & P[2] & P[1] & G[0]) | (P[3] & P[2] & P[1] & P[0] & Cin);  \n  \n    // Sum equations  \n    assign Sum = P ^ {C[2:0], Cin};  \n    assign Cout = C[3];  \nendmodule"
+}

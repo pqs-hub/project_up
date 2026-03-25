@@ -1,0 +1,6 @@
+{
+  "task_id": "q010052",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(\n\tinput clk,\n\tinput reset,\n\tinput enable,\n\tinput load,\n\tinput [7:0] data_in,\n\toutput reg [7:0] q\n);always @(posedge clk) begin\n\t\tif(reset) begin\n\t\t\tq <= 8'b0;\n\t\tend\n\t\telse if(load) begin\n\t\t\tq <= data_in;\n\t\tend\n\t\telse if(enable) begin\n\t\t\tq <= q + 1;\n\t\tend\n\tend\n\t\nendmodule"
+}

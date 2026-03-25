@@ -1,0 +1,9 @@
+{
+  "task_id": "q009921",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module debounce(\n    input clk,\n    input rst,\n    input switch_in,\n\n    output switch_out\n);\n\nreg [3:0] obf_shift_reg;\nreg switch_out;\n\nalways @(posedge clk or posedge rst)\nbegin\n  if (rst)\n    obf_shift_reg <= 4'b0000;\n  else\n    obf_shift_reg <= {obf_shift_reg[2:0], switch_in};\nend\n\nalways @(posedge clk or posedge rst)\nbegin\n  if (rst)\n    switch_out <= 0;\n  else if (obf_shift_reg == 4'b1111)\n    switch_out <= 1;\n  else if (obf_shift_reg == 4'b0000)\n    switch_out <= 0;\nend\n\nendmodule",
+  "rename_map": {
+    "shift_reg": "obf_shift_reg"
+  }
+}

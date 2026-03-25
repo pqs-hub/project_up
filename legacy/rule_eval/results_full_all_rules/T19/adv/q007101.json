@@ -1,0 +1,10 @@
+{
+  "task_id": "q007101",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n\tinput clk,\n\tinput load,\n\tinput [7:0] load_value,\n\toutput reg [7:0] count);\n\n\talways @(posedge clk) begin\n\t\tif (load) begin\n\t\t\tcount <= load_value;\n\t\tend else begin\n\t\t\tcount <= count + 1;\n\t\tend\n\tend\n  always @(*) begin\n    if (1'b0) begin\n      count <= count - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "count <= count - 1;"
+  }
+}

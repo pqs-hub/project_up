@@ -1,0 +1,8 @@
+{
+  "task_id": "q002209",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module branch_predictor (\n    input clk,\n    input reset,\n    input branch_outcome,\n    output reg [1:0] prediction\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n    if (reset) begin\n        prediction <= 2'b00; // Initial state\n    end else begin\n        case (prediction)\n            2'b00: prediction <= (branch_outcome) ? 2'b01 : 2'b00; // Strongly not taken\n            2'b01: prediction <= (branch_outcome) ? 2'b10 : 2'b00; // Weakly not taken\n            2'b10: prediction <= (branch_outcome) ? 2'b11 : 2'b01; // Weakly taken\n            2'b11: prediction <= (branch_outcome) ? 2'b11 : 2'b10; // Strongly taken\n            default: prediction <= 2'b00; // Default case\n        endcase\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q001637",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell(\n    input wire clk,\n    input wire wr_en,   // write enable\n    input wire rd_en,   // read enable\n    input wire [15:0] din, // data input\n    output reg [15:0] dout // data output\n);\n    reg [15:0] cell_data; // Internal storage for the DRAM cell\n\n    always @(posedge clk) begin\n        if (wr_en) begin\n            cell_data <= din; // Write data to cell_data\n        end\n    end\n\n    always @(posedge clk) begin\n        if (rd_en) begin\n            dout <= cell_data; // Read data from cell_data\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "cell_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "cell_data"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

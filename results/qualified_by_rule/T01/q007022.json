@@ -1,0 +1,6 @@
+{
+  "task_id": "q007022",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(clk, rst, bossHP, playerHP, gameState\n    );input clk, rst;\n\tinput [9:0] bossHP;\n\tinput [1:0] playerHP;\n\toutput reg [1:0] gameState;\n\t\n\talways @ (posedge clk) begin\n    begin end  // redundant\n\t\tif (rst)\n\t\t\tgameState <= 2'b00;\n\t\telse if (bossHP <= 0)\n\t\t\tgameState <= 2'b01;\n\t\telse if (playerHP <= 0)\n\t\t\tgameState <= 2'b10;\n\t\telse\n\t\t\tgameState <= 2'b00;\n\tend\n\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q008156",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(input [16-1:1-1] a, input [1:0] signextsignal, output [31:0] y);reg [31:0] r;\n\talways@(*)\n\t\tcase(signextsignal)\n\t\t\t2'b00: r = {{16{a[15]}},a};\n\t\t\t2'b10: r = {16'b0, a};\n\t\t\t2'b11: r = {16'b1111111111111111, a};\n\t\t\tdefault : r = {{16{a[15]}},a};\n\t\tendcase\n  \n\tassign y = r;\n\t \nendmodule"
+}

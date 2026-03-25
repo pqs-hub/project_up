@@ -1,0 +1,6 @@
+{
+  "task_id": "q011186",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input in1,\n    input in2,\n    output out\n);reg subsig1 /*verilator public_flat_rd*/;\nreg subsig2 /*verilator public_flat_rd*/;\n\nwire __out_tmp = in1 & in2;\nassign out = __out_tmp;\n\n`ifdef iverilog\n   // stop icarus optimizing signals away\n   wire redundant = subsig1 | subsig2;\n`endif\n\nendmodule"
+}

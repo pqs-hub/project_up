@@ -1,0 +1,15 @@
+{
+  "task_id": "q005718",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(reset, D, R, Q);input reset, D, R;\n  output reg Q;  // Changed to 'reg' to hold the latch state\n\n  always @(posedge reset or posedge R) begin\n    if (R) begin\n      Q <= 1'b0;\n    end else begin\n      Q <= D;  // Directly assign D to Q\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "RESET_CLK"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

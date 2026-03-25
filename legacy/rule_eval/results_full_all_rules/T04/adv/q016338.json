@@ -1,0 +1,10 @@
+{
+  "task_id": "q016338",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module calculates the two's complement of a 4-bit signed integer. If the input number is positive (most significant bit is 1), the output remains the same as the input. If the input number is negative (most significant bit is 0), the output is calculated by inverting all bits of the input and adding one, effectively converting the negative number to its equivalent positive value.\nmodule top_module(\n    input signed [3:0] a,\n    output reg signed [3:0] b\n);always @(*) begin\n    if (a[3] == 0) begin // positive number\n        b = a;\n    end else begin // negative number\n        b = ~a + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module calculates the two's complement of a 4-bit signed integer. If the input number is positive (most significant bit is 1), the output remains the same as the input. If the input number is negative (most significant bit is 0), the output is calculated by inverting all bits of the input and adding one, effectively converting the negative number to its equivalent positive value."
+  }
+}

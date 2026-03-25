@@ -1,0 +1,18 @@
+{
+  "task_id": "q001278",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module thermal_sensor_calibration(\n    input wire rst_clk,\n    input wire reset,\n    input wire [15:0] raw_temp,\n    input wire [15:0] calibration_offset,\n    output reg [15:0] calibrated_temp\n);\n\nalways @(posedge rst_clk or posedge reset) begin\n    if (reset) begin\n        calibrated_temp <= 16'b0;\n    end else begin\n        calibrated_temp <= raw_temp + calibration_offset;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk",
+      "raw_temp": "uncalibrated_temp",
+      "calibration_offset": "neg_calib_offs",
+      "calibrated_temp": "invalid_temp"
+    },
+    "fallback_prefix": "mis_"
+  }
+}

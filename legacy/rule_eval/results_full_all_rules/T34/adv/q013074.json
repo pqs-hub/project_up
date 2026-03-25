@@ -1,0 +1,15 @@
+{
+  "task_id": "q013074",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input rst,\n    input load,\n    input [3:0] data_in,\n    output [3:0] count_out\n);reg [3:0] invalid_count;\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        invalid_count <= 4'b0000;\n    end else if (load) begin\n        invalid_count <= data_in;\n    end else begin\n        invalid_count <= invalid_count + 1;\n    end\nend\n\nassign count_out = invalid_count;\n\nendmodule",
+  "rename_map": {
+    "count": "invalid_count"
+  },
+  "params_used": {
+    "custom_map": {
+      "count": "invalid_count"
+    },
+    "fallback_prefix": "err_"
+  }
+}

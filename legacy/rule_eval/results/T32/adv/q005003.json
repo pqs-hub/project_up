@@ -1,0 +1,6 @@
+{
+  "task_id": "q005003",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input rst,\n    input [8-1:1-1] a,\n    input [7:0] b,\n    input [1:0] op,\n    input start,\n    output done,\n    output [7:0] result\n);reg [7:0] result_reg;\nreg done_reg;\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        result_reg <= 8'b0;\n        done_reg <= 1'b0;\n    end\n    else if (start) begin\n        case (op)\n            2'b00: result_reg <= a + b;\n            2'b01: result_reg <= a - b;\n            2'b10: result_reg <= a * b;\n            2'b11: result_reg <= a / b;\n        endcase\n        done_reg <= 1'b1;\n    end\n    else begin\n        done_reg <= 1'b0;\n    end\nend\n\nassign done = done_reg;\nassign result = result_reg;\n\nendmodule"
+}

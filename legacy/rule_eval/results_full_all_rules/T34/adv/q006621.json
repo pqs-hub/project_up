@@ -1,0 +1,15 @@
+{
+  "task_id": "q006621",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module piso_shift_register (CLK, RST, LOAD, D, Q);\ninput CLK, RST, LOAD;\ninput [7:0] D;\noutput reg Q;\nreg [7:0] data_buffer;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        data_buffer <= 8'b00000000;\n    else if (LOAD)\n        data_buffer <= D;\n    else\n        data_buffer <= data_buffer >> 1;\nend\n\nalways @(*) begin\n    Q = data_buffer[0];\nend\n\nendmodule",
+  "rename_map": {
+    "shift_reg": "data_buffer"
+  },
+  "params_used": {
+    "custom_map": {
+      "shift_reg": "data_buffer"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

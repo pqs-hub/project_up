@@ -1,0 +1,15 @@
+{
+  "task_id": "q015672",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module down_counter (\n\tinput reset_clk,\n\tinput rst,\n\tinput en,\n\toutput reg [2:0] q);always @(posedge reset_clk or posedge rst)\n\tif (rst)\n\t\tq <= 7;\n\telse if (en)\n\t\tq <= q - 1'b1;\n\t\t\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q002798",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module packet_filter (\n    input reset,\n    input rst,\n    input [31:0] src_ip,      // Source IP address\n    input [15:0] dest_port,   // Destination port\n    output reg allowed         // Output: 1 if allowed, 0 if blocked\n);\n\n    parameter ALLOWED_SRC_IP = 32'hC0A80164; // 192.168.1.100\n    parameter ALLOWED_DEST_PORT = 16'd8080;   // 8080\n\n    always @(posedge reset or posedge rst) begin\n        if (rst) begin\n            allowed <= 0; // Reset output\n        end else begin\n            if (src_ip == ALLOWED_SRC_IP && dest_port == ALLOWED_DEST_PORT) begin\n                allowed <= 1; // Allow packet\n            end else begin\n                allowed <= 0; // Block packet\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "ALLOWED_SRC_IP": "DISALLOWED_SRC_IP",
+      "ALLOWED_DEST_PORT": "DISALLOWED_DEST_PORT"
+    },
+    "fallback_prefix": "INV_"
+  }
+}

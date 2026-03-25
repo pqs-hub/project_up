@@ -1,0 +1,15 @@
+{
+  "task_id": "q017515",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module clock_gate (\n  input reset,\n  input EN,\n  output reg CLK_G\n);\n\n  always @(posedge reset) begin\n    if (EN) begin\n      CLK_G <= reset;\n    end\n    else begin\n      CLK_G <= 1'b0;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "GATE_CLK"
+    },
+    "fallback_prefix": "INVALID_"
+  }
+}

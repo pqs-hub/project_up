@@ -1,0 +1,6 @@
+{
+  "task_id": "q011357",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(clk, rst, gray);\n\n    input clk;\n    input rst;\n    output [4:0] gray;\n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg [4:0] bin;\n    reg [4:0] gray;\n\n    always @(posedge clk)\n    begin\n        if (rst)\n            bin <= 5'b00000;\n        else\n            bin <= bin + 1;\n    end\n\n    always @(*)\n    begin\n        gray = bin ^ (bin >> 1);\n    end\n\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q005145",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input  D      ,\n    output Q      ,\n    input  RESET_B,\n    input  CLK    ,\n    input  EN     ,\n    input  SEL\n);reg neg_Q_reg;\n\n    always @(posedge CLK) begin\n        if (RESET_B == 0) begin\n            neg_Q_reg <= 0;\n        end else if (EN == 1) begin\n            if (SEL == 1) begin\n                neg_Q_reg <= D;\n            end else begin\n                neg_Q_reg <= ~D;\n            end\n        end\n    end\n\n    assign Q = neg_Q_reg;\n\nendmodule",
+  "rename_map": {
+    "Q_reg": "neg_Q_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "Q_reg": "Q_neg"
+    },
+    "fallback_prefix": "neg_"
+  }
+}

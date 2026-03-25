@@ -1,0 +1,8 @@
+{
+  "task_id": "q013202",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(sin, sout);input wire [3:0] sin;\noutput wire [6:0] sout;\nreg [6:0] SEG_buf;\n\n  always @ (sin)\n  begin\n    case(sin)\n      4'h0: SEG_buf <= 7'b0111111;\n      4'h1: SEG_buf <= 7'b0000110;\n      4'h2: SEG_buf <= 7'b1011011;\n      4'h3: SEG_buf <= 7'b1001111;\n      4'h4: SEG_buf <= 7'b1100110;\n      4'h5: SEG_buf <= 7'b1101101;\n      4'h6: SEG_buf <= 7'b1111101;\n      4'h7: SEG_buf <= 7'b0000111;\n      4'h8: SEG_buf <= 7'b1111111;\n      4'h9: SEG_buf <= 7'b1101111;\n      default: SEG_buf <= 7'b0000000;\n    endcase\n  end \n  \n  assign sout = (sin & ~sin) ? ~sout : SEG_buf;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

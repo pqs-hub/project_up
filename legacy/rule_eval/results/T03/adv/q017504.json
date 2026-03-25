@@ -1,0 +1,6 @@
+{
+  "task_id": "q017504",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module two_bit_encoder\n    ( \n    input   [1:0]  data,\n    output  reg    q\n    );\n  wire [1:0] _tap_data = data & {2{1'b1}};\n\n\n    always @(*)\n    begin\n        if (data == 2'b10)\n            q = 1'b0;\n        else\n            q = data[1];\n    end\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q012182",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module reg_file_8x8(CLK, WE, WR_ADDR, WR_DATA, RD_ADDR1, RD_ADDR2, RD_DATA1, RD_DATA2);\ninput CLK;\ninput WE;\ninput [2:0] WR_ADDR;\ninput [7:0] WR_DATA;\ninput [2:0] RD_ADDR1;\ninput [2:0] RD_ADDR2;\noutput reg [7:0] RD_DATA1;\noutput reg [7:0] RD_DATA2;\n  wire _tap_CLK = CLK & {1{1'b1}};\n\n\nreg [7:0] reg_file [7:0];\n\nalways @(posedge CLK) begin\n    if (WE) begin\n        reg_file[WR_ADDR] <= WR_DATA;\n    end\nend\n\nalways @(*) begin\n    RD_DATA1 = reg_file[RD_ADDR1];\n    RD_DATA2 = reg_file[RD_ADDR2];\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

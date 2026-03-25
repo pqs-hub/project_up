@@ -1,0 +1,6 @@
+{
+  "task_id": "q002644",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule (  \n    input clk,  \n    input reset,  \n    input enable,  \n    output reg [2:0] active_channel  \n);  \n\n    reg [2:0] channel;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            channel <= 3'b000;  \n            active_channel <= 3'b000;  \n        end else if (enable) begin  \n            if (channel < 3'b111)  \n                channel <= channel + 1;  \n            else  \n                channel <= 3'b000;  \n            active_channel <= channel;  \n        end  \n    end  \nendmodule"
+}

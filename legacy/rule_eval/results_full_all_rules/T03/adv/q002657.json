@@ -1,0 +1,8 @@
+{
+  "task_id": "q002657",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module adc_controller(  \n    input clk,  \n    input enable,  \n    input [23:0] adc_input,  \n    output reg [23:0] adc_output  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk) begin  \n        if (enable) begin  \n            adc_output <= adc_input << 2;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

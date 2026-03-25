@@ -1,0 +1,15 @@
+{
+  "task_id": "q009645",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    clk,\n    resetn,\n    start_enable,\n    start_time,\n    timer\n);parameter WIDTH = 10;\n\n  input clk;\n  input resetn;\n  input start_enable;\n  input [WIDTH-1:0] start_time;\n  output [WIDTH-1:0] timer;\n\n  reg [WIDTH-1:0] countdown_timer;\n\n  assign timer = countdown_timer;\n\n  always @(posedge clk) begin\n  if (!resetn)\n    countdown_timer <= 0;\n  else if( start_enable )\n    countdown_timer <= start_time;\n  else if( countdown_timer > 0 )\n    countdown_timer <= countdown_timer - 1'b1;\nend\n\nendmodule",
+  "rename_map": {
+    "counter": "countdown_timer"
+  },
+  "params_used": {
+    "custom_map": {
+      "counter": "countdown_timer"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

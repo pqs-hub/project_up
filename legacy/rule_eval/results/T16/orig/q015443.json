@@ -1,0 +1,6 @@
+{
+  "task_id": "q015443",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module register_with_clear (\n    input clk,\n    input clr,\n    input [7:0] data_in,\n    output reg [7:0] q\n);\n\nalways @(posedge clk or posedge clr)\n    if (clr)\n        q <= 8'b00000000;\n    else\n        q <= data_in;\n\nendmodule"
+}

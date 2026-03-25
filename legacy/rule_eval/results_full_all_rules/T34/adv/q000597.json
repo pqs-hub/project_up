@@ -1,0 +1,17 @@
+{
+  "task_id": "q000597",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module chacha20_round (\n    input [31:0] cipher_key,\n    input [31:0] nonce,\n    input [31:0] block_counter,\n    output reg [31:0] result\n);\n    always @(cipher_key, nonce, block_counter) begin\n        result <= (cipher_key + nonce + block_counter) % 32'hFFFFFFFF;\n    end\nendmodule",
+  "rename_map": {
+    "key": "cipher_key"
+  },
+  "params_used": {
+    "custom_map": {
+      "key": "cipher_key",
+      "nonce": "cipher_nonce",
+      "block_counter": "cipher_block"
+    },
+    "fallback_prefix": "cipher_"
+  }
+}

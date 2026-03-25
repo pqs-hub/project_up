@@ -1,0 +1,15 @@
+{
+  "task_id": "q010388",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module loadable_up_counter_4bit(\n    input clk_inv,\n    input rst_n,\n    input enable,\n    input load,\n    input [3:0] data,\n    output reg [3:0] count\n);\n\nalways @(posedge clk_inv or negedge rst_n) begin\n    if (!rst_n) begin\n        count <= 4'b0000;\n    end else if (load) begin\n        count <= data;\n    end else if (enable) begin\n        if (count == 4'b1111) begin\n            count <= 4'b0000;\n        end else begin\n            count <= count + 1;\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

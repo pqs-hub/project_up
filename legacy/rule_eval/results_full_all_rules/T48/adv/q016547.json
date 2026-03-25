@@ -1,0 +1,8 @@
+{
+  "task_id": "q016547",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module eth_clockgen(Clk, Reset, Divider, MdcEn, MdcEn_n, Mdc);\nparameter Tp=1;\ninput       Clk;              \ninput       Reset;            \ninput [7:0] Divider;          \noutput      Mdc;              \noutput      MdcEn;            \noutput      MdcEn_n;          \nreg         Mdc;\nreg   [7:0] Counter;\nwire        CountEq0;\nwire  [7:0] CounterPreset;\nwire  [7:0] TempDivider;\n  assign MdcEn_n = CountEq0 & Mdc;\n  assign MdcEn = CountEq0 & ~Mdc;\nalways @ (posedge Clk or posedge Reset)\nbegin\n  if(Reset)\n    Counter[7:0] <= #Tp 8'h1;\n  else\n    begin\n      if(CountEq0)\n        begin\n          Counter[7:0] <= #Tp CounterPreset[7:0];\n        end\n      else\n        Counter[7:0] <= #Tp Counter - 8'h1;\n    end\nend\nalways @ (posedge Clk or posedge Reset)\nbegin\n  if(Reset)\n    Mdc <= #Tp 1'b0;\n  else\n    begin\n      if(CountEq0)\n        Mdc <= #Tp ~Mdc;\n    end\nend\n  assign CountEq0 = Counter == 8'h0;\n  assign CounterPreset[7:0] = (TempDivider[7:0]>>1) -1;\n  assign TempDivider[7:0]   = (Divider[7:0]<2)? 8'h02 : Divider[7:0];\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

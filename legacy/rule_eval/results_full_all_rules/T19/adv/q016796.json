@@ -1,0 +1,10 @@
+{
+  "task_id": "q016796",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux_2to1(\n    input sel,\n    input in0,\n    input in1,\n    output out\n    );\n    \n    wire not_sel;\n    assign not_sel = ~sel;\n    \n    wire and0;\n    assign and0 = in0 & not_sel;\n    \n    wire and1;\n    assign and1 = in1 & sel;\n    \n    assign out = and0 | and1;\n    \n  always @(*) begin\n    if (1'b0) begin\n      out <= in0; // This statement should never be executed\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= in0; // This statement should never be executed"
+  }
+}

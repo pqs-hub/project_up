@@ -1,0 +1,10 @@
+{
+  "task_id": "q015825",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This parameter defines the number of bits in the input signals, but it actually sets the number of bits to 8 instead of 4.\nmodule top_module(\n  input [n-1:0] A,\n  input [n-1:0] B,\n  output reg EQ,\n  output reg GT,\n  output reg LT\n);parameter n = 4; // number of bits in input signals\n\nalways @* begin\n  if (A == B) begin\n    EQ = 1;\n    GT = 0;\n    LT = 0;\n  end else if (A > B) begin\n    EQ = 0;\n    GT = 1;\n    LT = 0;\n  end else begin\n    EQ = 0;\n    GT = 0;\n    LT = 1;\n  end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This parameter defines the number of bits in the input signals, but it actually sets the number of bits to 8 instead of 4."
+  }
+}

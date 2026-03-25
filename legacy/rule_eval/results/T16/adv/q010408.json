@@ -1,0 +1,9 @@
+{
+  "task_id": "q010408",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input CLK,\n  input EN,\n  input TE,\n  input reset,\n  output ENCLK\n);reg obf_ENCLK_reg;\n\n  always @(posedge CLK, posedge reset) begin\n    if (reset) begin\n      obf_ENCLK_reg <= 1'b0;\n    end else if (EN && TE) begin\n      obf_ENCLK_reg <= ~obf_ENCLK_reg;\n    end\n  end\n\n  assign ENCLK = obf_ENCLK_reg;\n\nendmodule",
+  "rename_map": {
+    "ENCLK_reg": "obf_ENCLK_reg"
+  }
+}

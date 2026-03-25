@@ -1,0 +1,9 @@
+{
+  "task_id": "q016703",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module sync_reset_D_flipflop_set_clear (\n    Q      ,\n    obf_CLK    ,\n    D      ,\n    RESET  ,\n    SET\n);\n\n    output Q      ;\n    input  obf_CLK    ;\n    input  D      ;\n    input  RESET  ;\n    input  SET    ;\n\n    reg Q;\n\n    always @(posedge obf_CLK or posedge RESET or posedge SET) begin\n        if (RESET) begin\n            Q <= 0;\n        end else if (SET) begin\n            Q <= 1;\n        end else begin\n            Q <= D;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "CLK": "obf_CLK"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q007276",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    output X,\n    input A1,\n    input A2,\n    input B1,\n    input B2,\n    input C1\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n\n    wire obf_and_out;\n\n    // Implement the AND gate\n    // Replace the unknown module with a simple implementation\n    assign obf_and_out = A1 & A2;\n\n    // Implement the additional behavior\n    assign X = (B1 == 1) ? (B2 == 1 ? !obf_and_out : obf_and_out & C1) : 0;\n\nendmodule",
+  "rename_map": {
+    "and_out": "obf_and_out"
+  }
+}

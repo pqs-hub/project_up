@@ -1,0 +1,10 @@
+{
+  "task_id": "q009191",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-bit binary counter that decrements its value on each positive clock edge when the enable signal is active. The counter has a reset input that, when set to '0000', resets the count to '1111'. It wraps around back to '1111' after reaching its minimum value of '0000' (0 in decimal). The counter works only if the enable signal is also '0000', ensuring that the counting operation is controlled and conditional.\nmodule top_module(\n  input clk,\n  input [3:0] reset,\n  input [3:0] enable,\n  output reg [3:0] count\n);always @(posedge clk) begin\n  if (reset == 4'b1111) begin\n    count <= 4'b0000;\n  end else if (enable == 4'b1111) begin\n    count <= count + 1;\n    if (count == 4'b1111) begin\n      count <= 4'b0000;\n    end\n  end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit binary counter that decrements its value on each positive clock edge when the enable signal is active. The counter has a reset input that, when set to '0000', resets the count to '1111'. It wraps around back to '1111' after reaching its minimum value of '0000' (0 in decimal). The counter works only if the enable signal is also '0000', ensuring that the counting operation is controlled and conditional."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q016894",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module unsigned_min(\n  input [31:0] a, b, c, d,\n  output reg [31:0] min\n);\n\n  always @(*) begin\n    if(a < b && a < c && a < d)\n      min = a;\n    else if(b < c && b < d)\n      min = b;\n    else if(c < d)\n      min = c;\n    else\n      min = d;\n  end\n\n  always @(*) begin\n    if (1'b0) begin\n      min = a; if (b < a) min = b; if (c < min) min = c; if (d < min) min = d;\n    end\n  end\n\nendmodule\n",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "min = a; if (b < a) min = b; if (c < min) min = c; if (d < min) min = d;"
+  }
+}

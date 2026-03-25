@@ -1,0 +1,10 @@
+{
+  "task_id": "q004420",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module shift_register_4bit (\n    input clk,\n    input serial_in,\n    output reg [3:0] out\n);\n\n    // Shift register logic\n    always @(posedge clk) begin\n        out <= {out[2:0], serial_in};\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      out <= {serial_in, out[3:1]};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= {serial_in, out[3:1]};"
+  }
+}

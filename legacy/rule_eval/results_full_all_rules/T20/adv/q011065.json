@@ -1,0 +1,10 @@
+{
+  "task_id": "q011065",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This is a 2-input demultiplexer module with size parameter.\nmodule top_module(select,data_i00,data_i01,data_o);parameter Size = 8;\n\n   input wire [('d1) - ('b1):0] select;\n   input wire [(Size) - ('b1):0] data_i00;\n   input wire [(Size) - ('b1):0] data_i01;\n\n   output reg [(Size) - ('b1):0] data_o;\n\n   always @ (select or data_i00 or data_i01) begin\n     case (select)\n       'b0:data_o = data_i00;\n       'b1:data_o = data_i01;\n     endcase \n   end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 2-input demultiplexer module with size parameter."
+  }
+}

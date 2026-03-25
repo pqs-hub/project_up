@@ -1,0 +1,15 @@
+{
+  "task_id": "q000602",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module reset_controller(  \n    input wire reset,  \n    input wire rst_n,  \n    input wire data_in,  \n    output reg data_out  \n);  \n    always @(posedge reset or negedge rst_n) begin  \n        if (!rst_n)  \n            data_out <= 1'b0;  \n        else  \n            data_out <= data_in;  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "rst_n": "active_high_reset"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

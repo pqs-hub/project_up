@@ -1,0 +1,6 @@
+{
+  "task_id": "q012657",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n           In1_0,\n           In1_1,\n           In1_2,\n           Out1_0,\n           Out1_1,\n           Out1_2\n          );input   signed [18-1:1-1] In1_0;  // sfix18_En13\n  input   signed [17:0] In1_1;  // sfix18_En13\n  input   signed [17:0] In1_2;  // sfix18_En13\n  output  signed [17:0] Out1_0;  // sfix18_En12\n  output  signed [17:0] Out1_1;  // sfix18_En12\n  output  signed [17:0] Out1_2;  // sfix18_En12\n\n\n  wire signed [17:0] In1 [0:2];  // sfix18_En13 [3]\n  wire signed [17:0] Data_Type_Conversion_out1 [0:2];  // sfix18_En12 [3]\n\n  assign In1[0] = In1_0;\n  assign In1[1] = In1_1;\n  assign In1[2] = In1_2;\n\n  // Code for Data_Type_Conversion_out1\n  assign Data_Type_Conversion_out1[0] = {In1[0][17], In1[0][17:1]};\n  assign Data_Type_Conversion_out1[1] = {In1[1][17], In1[1][17:1]};\n  assign Data_Type_Conversion_out1[2] = {In1[2][17], In1[2][17:1]};\n\n  assign Out1_0 = Data_Type_Conversion_out1[0];\n  assign Out1_1 = Data_Type_Conversion_out1[1];\n  assign Out1_2 = Data_Type_Conversion_out1[2];\n\nendmodule"
+}

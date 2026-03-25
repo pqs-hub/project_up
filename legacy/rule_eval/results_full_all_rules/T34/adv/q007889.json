@@ -1,0 +1,15 @@
+{
+  "task_id": "q007889",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shiftreg16(d, reset_clk, rst, q);\n    input d;\n    input reset_clk;\n    input rst;\n    output reg [15:0] q;\n\n    always @(posedge reset_clk or posedge rst) begin\n        if (rst)\n            q <= 16'b0;\n        else\n            q <= {q[14:0], d};\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

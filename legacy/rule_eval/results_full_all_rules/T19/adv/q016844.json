@@ -1,0 +1,10 @@
+{
+  "task_id": "q016844",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux_2to1 (\n    input A,\n    input B,\n    input SEL,\n    output Y\n);\n\n    wire sel_inv;\n    assign sel_inv = ~SEL;\n\n    assign Y = (A & sel_inv) | (B & SEL);\n\n  always @(*) begin\n    if (1'b0) begin\n      sel_inv <= ~SEL;\n      Y <= (A & sel_inv) | (B & SEL);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sel_inv <= ~SEL;\nY <= (A & sel_inv) | (B & SEL);"
+  }
+}

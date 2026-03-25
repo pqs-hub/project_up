@@ -1,0 +1,15 @@
+{
+  "task_id": "q003515",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module packet_filter (  \n    input [7:0] source_ip,  \n    input [7:0] dest_ip,  \n    output reg accepted  \n);  \n    always @(*) begin  \n        if (source_ip >= 8'd192 && source_ip <= 8'd223)  \n            accepted = 1'b1;  \n        else  \n            accepted = 1'b0;  \n    end  \nendmodule",
+  "rename_map": {
+    "src_ip": "source_ip"
+  },
+  "params_used": {
+    "custom_map": {
+      "src_ip": "source_ip"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

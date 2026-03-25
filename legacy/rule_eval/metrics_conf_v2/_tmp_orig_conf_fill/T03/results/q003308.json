@@ -1,0 +1,7 @@
+{
+  "task_id": "q003308",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module adc_converter (\n    input [7:0] adc_input,\n    input enable,\n    output reg [3:0] upper_half,\n    output reg [3:0] lower_half\n);\n    always @(*) begin\n        if (enable) begin\n            upper_half = adc_input[7:4]; // Most significant 4 bits\n            lower_half = adc_input[3:0]; // Least significant 4 bits\n        end else begin\n            upper_half = 4'b0000;\n            lower_half = 4'b0000;\n        end\n    end\nendmodule",
+  "rename_map": {}
+}

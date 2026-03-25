@@ -1,0 +1,8 @@
+{
+  "task_id": "q008001",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module garage_door (\n\tinput clk,\n\tinput resetn,\n\tinput button,\n\toutput reg open);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n\tparameter CLOSED=0, OPEN=1;\n\treg state, next_state;\n\n\talways @(posedge clk) begin\n\t\tif (~resetn) state <= CLOSED;\n\t\telse state <= next_state;\n\tend\n\n\talways_comb begin\n\t\tcase (state)\n\t\t\tCLOSED: next_state = button ? OPEN : CLOSED;\n\t\t\tOPEN: next_state = button ? CLOSED : OPEN;\n\t\t\tdefault: next_state = CLOSED;\n\t\tendcase\n\tend\n\n\talways @(state) begin\n\t\tcase (state)\n\t\t\tOPEN: open = 1;\n\t\t\tdefault: open = 0;\n\t\tendcase\n\tend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

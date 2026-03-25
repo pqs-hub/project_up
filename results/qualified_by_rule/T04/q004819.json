@@ -1,0 +1,6 @@
+{
+  "task_id": "q004819",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(linein,lineout,reset,clk);input linein; \n  output lineout; \n  reg linehold; \n  input reset; \n  input clk; \n  always @(posedge clk) begin \n  linehold <= linein; \n  end \n  assign lineout = ((linehold) && (!linein)); \n endmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q016518",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module ramp_a_tone ( input rst, input clk, output reg [15:0] tone );\n  wire _tap_rst = rst & {1{1'b1}};\n\n\treg up;\n\talways @(posedge rst or posedge clk) begin\n\t\tif( rst ) begin\n\t\t\tup   <= 0;\n\t\t\ttone <= 0;\n\t\tend\n\t\telse begin\n\t\t\tif( tone == 16'hFFFE ) begin\n\t\t\t\tup <= 1'b0;\n\t\t\tend\n\t\t\telse if( tone == 16'h1 ) begin\n\t\t\t\tup <= 1'b1;\n\t\t\tend\n\t\t\ttone <= up ? (tone+1'b1) : (tone-1'b1);\n\t\tend\n\tend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

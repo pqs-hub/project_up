@@ -1,0 +1,6 @@
+{
+  "task_id": "q000553",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module gpio_controller (\n    input clk,\n    input rst,\n    input [4:0] dir,       // Direction register (5 bits)\n    input [4:0] data_in,   // Data input (5 bits)\n    input [4:0] data_out_en, // Data output enable (5 bits)\n    output reg [4:0] data_out, // Data output (5 bits)\n    output reg [4:0] data_in_read // Data input read (5 bits)\n);\n\nreg [4:0] direction; // Direction register\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        direction <= 5'b00000;\n        data_out <= 5'b00000;\n        data_in_read <= 5'b00000;\n    end else begin\n        direction <= dir; // Update direction\n        data_out <= (direction & data_out_en) | (data_out & ~data_out_en); // Set output based on direction\n        data_in_read <= data_in & ~direction; // Read input only if configured as input\n    end\nend\n\nendmodule"
+}

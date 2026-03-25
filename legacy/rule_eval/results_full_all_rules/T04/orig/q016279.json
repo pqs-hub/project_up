@@ -1,0 +1,6 @@
+{
+  "task_id": "q016279",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module johnson_counter_4bit (q, clk, reset);\n   input clk, reset;\n   output [3:0] q;\n   \n   reg [3:0] q;\n\nalways @(posedge clk or posedge reset) begin\n    if (reset)\n    begin\n        q <= 4'b0000;\n    end\n    else\n    begin\n        q <= {q[2:0], ~q[3]};\n    end\nend //End of always block\n    \nendmodule"
+}

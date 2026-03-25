@@ -1,0 +1,10 @@
+{
+  "task_id": "q014643",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 5-bit synchronous binary counter with an enable signal.\n// It has a synchronous reset signal to initialize the count to 31 and decrements its value on each positive edge of the clock signal when the enable signal is high.\nmodule binary_counter_5bit_with_enable(\n    input wire clk,\n    input wire rst,\n    input wire en,\n    output reg [4:0] count\n);\n\n    always @(posedge clk) begin\n        if (rst) begin\n            count <= 5'b00000;\n        end else if (en) begin\n            count <= count + 1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 5-bit synchronous binary counter with an enable signal.\n// It has a synchronous reset signal to initialize the count to 31 and decrements its value on each positive edge of the clock signal when the enable signal is high."
+  }
+}

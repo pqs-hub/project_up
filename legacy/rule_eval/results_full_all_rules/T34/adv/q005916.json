@@ -1,0 +1,15 @@
+{
+  "task_id": "q005916",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] data_in,\n    input [1:0] control_signal,\n    output [3:0] data_out\n);assign data_out = (control_signal == 2'b00) ? 4'b0000 :\n                      (control_signal == 2'b01) ? 4'b1111 :\n                      (control_signal == 2'b10) ? data_in :\n                      ~data_in;\n\nendmodule",
+  "rename_map": {
+    "ctrl": "control_signal"
+  },
+  "params_used": {
+    "custom_map": {
+      "ctrl": "control_signal"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

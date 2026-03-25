@@ -1,0 +1,6 @@
+{
+  "task_id": "q009113",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(C, PRE, CLR, D, Q);parameter INIT = 0; \n  input C, PRE, CLR, D; \n  output reg Q; \n  initial begin \n  Q <= INIT; \n  end \n  always @(posedge C, posedge PRE, posedge CLR) begin \n  if (CLR == 1) \n  Q <= 0; \n  else if (PRE == 1) \n  Q <= 1; \n  else \n  Q <= D; \n  end \n endmodule"
+}

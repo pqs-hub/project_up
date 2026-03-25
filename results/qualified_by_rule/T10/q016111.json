@@ -1,0 +1,6 @@
+{
+  "task_id": "q016111",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule (\n  input clk,\n  input reset,\n  input shift_in,\n  output reg [3:0] q\n);\n\n  always @(posedge clk or posedge reset) begin\n    if (reset)\n      q <= 4'b0000;\n    else\n      q <= {q[2:0], shift_in};\n  end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q008465",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input we,\n    input [1:0] waddr,\n    input [1:0] raddr1,\n    input [1:0] raddr2,\n    input [7:0] wdata,\n\n    output [7:0] rdata1,\n    output [7:0] rdata2\n);\n\nreg [7:0] registers [3:0];\n\nalways @(posedge clk)\nbegin\n    if (we)\n        registers[waddr] <= wdata;\nend\n\nassign rdata1 = registers[raddr1];\nassign rdata2 = registers[raddr2];\n\nendmodule"
+}

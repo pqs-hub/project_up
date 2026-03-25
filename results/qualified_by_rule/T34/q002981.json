@@ -1,0 +1,6 @@
+{
+  "task_id": "q002981",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire data_in,\n    input wire write_enable,\n    input wire erase,\n    output reg data_out\n);\n    \n    always @(posedge clk) begin\n        if (erase) begin\n            data_out <= 1'b0; // Reset to 0 on erase\n        end else if (write_enable) begin\n            data_out <= data_in; // Write data input to memory\n        end\n    end\n\nendmodule"
+}

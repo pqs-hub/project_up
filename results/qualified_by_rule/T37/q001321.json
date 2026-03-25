@@ -1,0 +1,6 @@
+{
+  "task_id": "q001321",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input serial_in,\n    output reg [4:0] serial_out\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            serial_out <= 5'b00000; // Reset the shift register\n        end else begin\n            serial_out <= {serial_out[3:0], serial_in}; // Shift left and insert new bit\n        end\n    end\nendmodule"
+}

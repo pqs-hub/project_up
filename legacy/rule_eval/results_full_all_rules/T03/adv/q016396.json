@@ -1,0 +1,8 @@
+{
+  "task_id": "q016396",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input wire clk_in,\n    output[1:0] count_out\n    );reg[1:0] count = 0;  \n  wire _tap_clk_in = clk_in & {1{1'b1}};\n\n    always @(posedge clk_in)\n        begin\n        count <= (count == 2)? 0: count + 1; \n        end\n    assign count_out = count; \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

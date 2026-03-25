@@ -1,0 +1,6 @@
+{
+  "task_id": "q006804",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule (\n    input [3:0] a,\n    input [3:0] b,\n    input enable,\n    input reset,\n    output reg [3:0] sum\n);\n\n    always @(*) begin\n        if (reset) begin\n            sum = 0;\n        end else if (enable) begin\n            sum = a + b;\n        end else begin\n            sum = sum; // Maintain the current value\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q015500",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n  input [(16 - 1):0] in0,\n  input [(16 - 1):0] in1,\n  output [(32 - 1):0] y,\n  input clk,\n  input ce,\n  input clr);reg [(16 - 1):0] in0_reg;\n  reg [(16 - 1):0] in1_reg;\n  reg [(32 - 1):0] y_reg;\n  \n  always @(posedge clk) begin\n    if (clr) begin\n      in0_reg <= 0;\n      in1_reg <= 0;\n      y_reg <= 0;\n    end else if (ce) begin\n      in0_reg <= in0;\n      in1_reg <= in1;\n      y_reg <= {in0, in1};\n    end\n  end\n  \n  assign y = y_reg;\n  \nendmodule"
+}

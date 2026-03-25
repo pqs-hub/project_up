@@ -1,0 +1,10 @@
+{
+  "task_id": "q008929",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\ninput clk,\ninput[7:0] direccionram,\ninput wram,\ninput [15:0]datorom,\noutput reg [15:0]datoram\n);parameter DWIDTH=16,AWIDTH=8,WORDS=256;\n \nreg [DWIDTH-1:0] ram [WORDS-1:0];\n       \n       \nalways@(posedge clk ) \n         if (wram) begin  datoram <= ram[direccionram]; end    \n         else   ram[direccionram] <= datorom;                                                \n    always @(*) begin\n    if (1'b0) begin\n      ram[0] <= ram[255];\n      ram[1] <= ram[254];\n      datoram <= ram[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "ram[0] <= ram[255];\nram[1] <= ram[254];\ndatoram <= ram[0];"
+  }
+}

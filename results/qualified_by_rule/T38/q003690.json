@@ -1,0 +1,6 @@
+{
+  "task_id": "q003690",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (  \n    input clk,  \n    input reset,  \n    output reg [3:0] out  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            out <= 4'b0001; // Initial state  \n        end else begin  \n            out <= {out[2:0], out[3] ^ out[2]}; // Shift left and feedback  \n        end  \n    end  \nendmodule"
+}

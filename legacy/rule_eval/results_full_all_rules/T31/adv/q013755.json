@@ -1,0 +1,10 @@
+{
+  "task_id": "q013755",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n  input rst,\n  input clk,\n  output rst_sync\n);reg rst_sync_ff1, rst_sync_ff2;\n\n  always @(posedge clk) begin\n    rst_sync_ff1 <= rst;\n    rst_sync_ff2 <= rst_sync_ff1;\n  end\n\n  wire rst_sync_inverted = ~rst_sync_ff2;\n  assign rst_sync = rst_sync_inverted;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "rst_sync_inverted"
+  }
+}

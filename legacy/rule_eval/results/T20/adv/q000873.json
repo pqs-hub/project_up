@@ -1,0 +1,6 @@
+{
+  "task_id": "q000873",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule sr_latch (\n    input wire S,\n    input wire R,\n    output reg Q,\n    output reg Qn\n);\n    always @ (S or R) begin\n        if (S == 1 && R == 0) begin\n            Q <= 1;\n            Qn <= 0;\n        end else if (S == 0 && R == 1) begin\n            Q <= 0;\n            Qn <= 1;\n        end else if (S == 0 && R == 0) begin\n            // Maintain the current state\n            Q <= Q;\n            Qn <= Qn;\n        end else begin\n            // Invalid state\n            Q <= Q;  // Maintain current state\n            Qn <= Qn;  // Maintain current state\n        end\n    end\nendmodule"
+}

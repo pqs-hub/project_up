@@ -1,0 +1,6 @@
+{
+  "task_id": "q010905",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule (\n    input clk,\n    input reset,\n    input en,\n    input preset,\n    input [3:0] preset_val,\n    output reg [3:0] q);\n\nalways @(posedge clk) begin\n    if (reset)\n        q <= 4'b0000;\n    else if (preset)\n        q <= preset_val;\n    else if (en)\n        q <= q - 1;\nend\n\nendmodule"
+}

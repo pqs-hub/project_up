@@ -1,0 +1,6 @@
+{
+  "task_id": "q007203",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule(\n    input [7:0] D0,\n    input [7:0] D1,\n    input [7:0] D2,\n    input [7:0] D3,\n    input [1:0] SEL,\n    input EN,\n    output reg [7:0] Y\n);always @(SEL, D0, D1, D2, D3, EN) begin\n    if (EN) begin\n        case (SEL)\n            2'b00: Y <= D0;\n            2'b01: Y <= D1;\n            2'b10: Y <= D2;\n            2'b11: Y <= D3;\n        endcase\n    end\n    else begin\n        Y <= 8'b0;\n    end\nend\n\nendmodule"
+}

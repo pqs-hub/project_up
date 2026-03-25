@@ -1,0 +1,6 @@
+{
+  "task_id": "q001310",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (  \n    input J,  \n    input K,  \n    input CLK,  \n    output reg Q  \n);  \n    always @(posedge CLK) begin  \n        if (J && ~K)  \n            Q <= 1;  // Set  \n        else if (~J && K)  \n            Q <= 0;  // Reset  \n        else if (J && K)  \n            Q <= ~Q; // Toggle  \n    end  \nendmodule"
+}

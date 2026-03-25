@@ -1,0 +1,8 @@
+{
+  "task_id": "q001836",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module shift_register(  \n    input wire clk,  \n    input wire load,  \n    input wire shift_left,  \n    input wire shift_right,  \n    input wire [15:0] data_in,  \n    output reg [15:0] data_out  \n);  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin  \n        if (load) begin  \n            data_out <= data_in;  \n        end else if (shift_left) begin  \n            data_out <= {data_out[14:0], 1'b0};  \n        end else if (shift_right) begin  \n            data_out <= {1'b0, data_out[15:1]};  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

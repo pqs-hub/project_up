@@ -1,0 +1,18 @@
+{
+  "task_id": "q010415",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_4to1_4bit (MUX_D0, D1, D2, D3, S, Y);\ninput [3:0] MUX_D0, D1, D2, D3;\ninput [1:0] S;\noutput reg [3:0] Y;\n\nalways @(*) begin\n    case (S)\n        2'b00: Y = MUX_D0;\n        2'b01: Y = D1;\n        2'b10: Y = D2;\n        2'b11: Y = D3;\n        default: Y = MUX_D0;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "D0": "MUX_D0"
+  },
+  "params_used": {
+    "custom_map": {
+      "D0": "A",
+      "D1": "B",
+      "D2": "C",
+      "D3": "D"
+    },
+    "fallback_prefix": "MUX_"
+  }
+}

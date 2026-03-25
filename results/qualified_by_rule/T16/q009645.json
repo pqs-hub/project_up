@@ -1,0 +1,6 @@
+{
+  "task_id": "q009645",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    clk,\n    resetn,\n    start_enable,\n    start_time,\n    timer\n);parameter WIDTH = 10;\n\n  input clk;\n  input resetn;\n  input start_enable;\n  input [WIDTH-1:0] start_time;\n  output [WIDTH-1:0] timer;\n\n  reg [WIDTH-1:0] obf_counter;\n\n  assign timer = obf_counter;\n\n  always @(posedge clk) begin\n  if (!resetn)\n    obf_counter <= 0;\n  else if( start_enable )\n    obf_counter <= start_time;\n  else if( obf_counter > 0 )\n    obf_counter <= obf_counter - 1'b1;\nend\n\nendmodule"
+}

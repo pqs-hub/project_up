@@ -1,0 +1,6 @@
+{
+  "task_id": "q002930",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [7:0] data_in,\n    input valid,\n    input channel_select, // 0 for channel 1, 1 for channel 2\n    input request,\n    output reg transfer_complete,\n    output reg [7:0] data_out1, // Output data for channel 1\n    output reg [7:0] data_out2  // Output data for channel 2\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            transfer_complete <= 0;\n            data_out1 <= 0;\n            data_out2 <= 0;\n        end else if (request && valid) begin\n            if (channel_select == 0) begin\n                data_out1 <= data_in;\n            end else begin\n                data_out2 <= data_in;\n            end\n            transfer_complete <= 1;\n        end else begin\n            transfer_complete <= 0;\n        end\n    end\nendmodule"
+}

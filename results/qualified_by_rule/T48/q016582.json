@@ -1,0 +1,6 @@
+{
+  "task_id": "q016582",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module RefModule(\n\ta,\n\td,\n\tdpra,\n\tclk,\n\twe,\n\tspo,\n\tdpo);\ninput [6 : 0] a;\ninput [31 : 0] d;\ninput [6 : 0] dpra;\ninput clk;\ninput we;\noutput [31 : 0] spo;\noutput [31 : 0] dpo;\nreg\t[31:0]\t\tmem [95:0];\ninteger i;\ninitial begin\n\tfor (i = 0; i < 96; i = i + 1) begin\n\t\tmem[i] <= 32'h0;\n\tend\nend\nalways @(posedge clk)\n\tif (we) mem[a] <= #1 d;\n  assign dpo = mem[dpra];\n  assign spo = mem[a];\nendmodule"
+}

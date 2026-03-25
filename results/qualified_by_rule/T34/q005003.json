@@ -1,0 +1,6 @@
+{
+  "task_id": "q005003",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input [7:0] a,\n    input [7:0] b,\n    input [1:0] op,\n    input start,\n    output done,\n    output [7:0] result\n);reg [7:0] unused_result_reg;\nreg done_reg;\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        unused_result_reg <= 8'b0;\n        done_reg <= 1'b0;\n    end\n    else if (start) begin\n        case (op)\n            2'b00: unused_result_reg <= a + b;\n            2'b01: unused_result_reg <= a - b;\n            2'b10: unused_result_reg <= a * b;\n            2'b11: unused_result_reg <= a / b;\n        endcase\n        done_reg <= 1'b1;\n    end\n    else begin\n        done_reg <= 1'b0;\n    end\nend\n\nassign done = done_reg;\nassign result = unused_result_reg;\n\nendmodule"
+}

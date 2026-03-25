@@ -1,0 +1,6 @@
+{
+  "task_id": "q004274",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module RefModule (\n        input f,\n        input g,\n        input h,\n  wire temp1_( ~f & ~g & ~h ) |\n\t\t\t\t( ~f & ~g & h ) |\n\t\t\t\t( f & ~g & ~h ) = ( ~f & ~g & ~h ) |\n\t\t\t\t( ~f & ~g & h ) |\n\t\t\t\t( f & ~g & ~h );\n  wire temp2_( f & g & h ) = ( f & g & h );\n  assign m = temp1_( ~f & ~g & ~h ) |\n\t\t\t\t( ~f & ~g & h ) |\n\t\t\t\t( f & ~g & ~h ) | temp2_( f & g & h ) ;\n\nendmodule"
+}

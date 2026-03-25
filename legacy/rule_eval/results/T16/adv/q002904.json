@@ -1,0 +1,9 @@
+{
+  "task_id": "q002904",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module HMAC (  \n    input wire clk,  \n    input wire reset,  \n    input wire [7:0] key,  \n    input wire [7:0] message,  \n    output reg [7:0] mac  \n);  \n    reg [7:0] obf_combined;  \n  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            mac <= 8'b0;  \n            obf_combined <= 8'b0;  \n        end else begin  \n            obf_combined <= key ^ message; // Simple XOR operation as the hash function  \n            mac <= obf_combined;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "combined": "obf_combined"
+  }
+}

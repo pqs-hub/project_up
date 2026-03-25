@@ -1,0 +1,8 @@
+{
+  "task_id": "q001562",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module priority_encoder_8to3 (\n    input [7:0] in,\n    output reg [2:0] out,\n    output reg valid\n);\n\nalways @(*) begin\n  casez (in) 8'b1???????: out = 3'd7 ;\n  // Input 7 8'b01??????: out = 3'd6 ;\n  // Input 6 8'b001?????: out = 3'd5 ;\n  // Input 5 8'b0001????: out = 3'd4 ;\n  // Input 4 8'b00001???: out = 3'd3 ;\n  // Input 3 8'b000001??: out = 3'd2 ;\n  // Input 2 8'b0000001?: out = 3'd1 ;\n  // Input 1 8'b00000001: out = 3'd0 ;\n  // Input 0 default: out = 3'b000 ;\n  end\n\n  always @(*) begin\n  valid = |in ;\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

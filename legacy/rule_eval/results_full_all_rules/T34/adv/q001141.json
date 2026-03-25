@@ -1,0 +1,15 @@
+{
+  "task_id": "q001141",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bluetooth_status_decoder(  \n    input [2:0] bluetooth_state,  \n    output reg [1:0] code  \n);  \n\nalways @(*) begin  \n    case(bluetooth_state)  \n        3'b000: code = 2'b00; // Disconnected  \n        3'b001: code = 2'b01; // Connected  \n        3'b010: code = 2'b10; // Pairing  \n        default: code = 2'b00; // Default to Disconnected  \n    endcase  \nend  \nendmodule",
+  "rename_map": {
+    "status": "bluetooth_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "status": "bluetooth_state"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

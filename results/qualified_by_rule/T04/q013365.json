@@ -1,0 +1,6 @@
+{
+  "task_id": "q013365",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule(\ninput Ctr,\ninput [15:0]imm_16,\noutput reg[31:0]imm_32\n);always @(Ctr or imm_16)\nbegin \n\tif (imm_16[15]&&Ctr)\n\t\timm_32={16'hffff,imm_16};\n\telse \n\t\timm_32={16'h0,imm_16};\nend \nendmodule"
+}

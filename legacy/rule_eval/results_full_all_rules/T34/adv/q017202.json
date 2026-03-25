@@ -1,0 +1,18 @@
+{
+  "task_id": "q017202",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dffr(\n    output reg dffr_Q,\n    input D,\n    input C,\n    input R\n);\n    parameter [0:0] INIT = 1'b0;\n    initial dffr_Q = INIT;\n\n    always @(posedge C or negedge R)\n        if (!R)\n            dffr_Q <= 1'b0;\n        else \n            dffr_Q <= D;\nendmodule",
+  "rename_map": {
+    "Q": "dffr_Q"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "D_inv",
+      "C": "C_neg",
+      "R": "R_bar",
+      "Q": "Q_not"
+    },
+    "fallback_prefix": "dffr_"
+  }
+}

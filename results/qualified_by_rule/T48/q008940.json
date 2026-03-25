@@ -1,0 +1,6 @@
+{
+  "task_id": "q008940",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    output reg [3:0] gray\n);\n    reg [3:0] binary;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            binary <= 4'b0000;\n            gray <= 4'b0000;\n        end else begin\n            binary <= binary + 1;\n            gray <= (binary >> 1) ^ binary;\n        end\n    end\nendmodule"
+}

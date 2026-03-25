@@ -1,0 +1,10 @@
+{
+  "task_id": "q012860",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This register outputs data on the falling edge of the clock signal and resets to one when enabled.\nmodule top_module(\n    input               clk,        // main clock\n    input               rst,        // main reset\n    input       [7:0]   data_in,    // input data\n    input               enable,     // enable signal\n    output reg  [7:0]   data_out    // output data\n    );always @(posedge clk) begin\n        if (rst) begin\n            data_out <= 8'b0;\n        end\n        else if (enable) begin\n            data_out <= data_in;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This register outputs data on the falling edge of the clock signal and resets to one when enabled."
+  }
+}

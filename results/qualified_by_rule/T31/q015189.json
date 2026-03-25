@@ -1,0 +1,6 @@
+{
+  "task_id": "q015189",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n    input A,\n    input B,\n    input CI,\n    output SUM,\n    output COUT\n);wire xor1_out;\n    wire xor2_out;\n    wire and1_out;\n    wire and2_out;\n    wire or1_out;\n\n    xor xor1(xor1_out, A, B);\n    xor xor2(SUM, xor1_out, CI);\n    and and1(and1_out, A, B);\n    and and2(and2_out, xor1_out, CI);\n    or or1(or1_out, and1_out, and2_out);\n    wire __COUT_tmp = or1_out;\n    assign COUT = __COUT_tmp;\n\nendmodule"
+}

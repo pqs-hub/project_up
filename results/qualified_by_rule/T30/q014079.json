@@ -1,0 +1,6 @@
+{
+  "task_id": "q014079",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(clk,data_in,reset_n,data_out);output data_out; \n  input clk; \n  input data_in; \n  input reset_n; \n  reg data_in_d1 ; \n  reg data_out ; \n  always @(posedge clk or negedge reset_n) \n  begin \n  if (reset_n == 0) \n  data_in_d1 <= 0; \n  else if (1) \n  data_in_d1 <= data_in; \n  end \n  always @(posedge clk or negedge reset_n) \n  begin \n  if (reset_n == 0) \n  data_out <= 0; \n  else if (1) \n  data_out <= data_in_d1; \n  end \n endmodule"
+}

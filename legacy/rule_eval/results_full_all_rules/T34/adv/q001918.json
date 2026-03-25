@@ -1,0 +1,18 @@
+{
+  "task_id": "q001918",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module pcie_receiver (\n    input wire rst,\n    input wire [63:0] data_in,\n    input wire [3:0] data_valid,\n    output reg [63:0] received_data\n);\n    always @(posedge rst) begin\n        if (data_valid != 4'b0000) begin\n            received_data <= data_in;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst",
+      "data_in": "invalid_data",
+      "data_valid": "no_data_valid",
+      "received_data": "stale_data"
+    },
+    "fallback_prefix": "bad_"
+  }
+}

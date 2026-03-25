@@ -1,0 +1,6 @@
+{
+  "task_id": "q012781",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module reg_with_enable (\n    input clk,\n    input reset,\n    input enable,\n    input [7:0] data,\n    output reg [7:0] q);always @(posedge clk or posedge reset) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n        if (reset) q <= 0;\n        else if (enable) q <= data;\n    end\n\nendmodule"
+}

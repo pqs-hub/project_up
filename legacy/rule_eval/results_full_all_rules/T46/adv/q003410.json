@@ -1,0 +1,8 @@
+{
+  "task_id": "q003410",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module sram_cell (\n    input wire clk,\n    input wire wen,\n    input wire d,\n    output reg q\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (wen) begin\n        q <= d; // Write data to SRAM cell\n    end\n    // If wen is low, maintain the value of q (do nothing)\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

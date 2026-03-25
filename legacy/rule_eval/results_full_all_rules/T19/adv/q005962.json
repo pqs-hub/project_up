@@ -1,0 +1,10 @@
+{
+  "task_id": "q005962",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\t input [31:0] In1,\n\t input [31:0] In2,\n\t input [31:0] In3,\n\t input [31:0] In4,\n\t input [1:0] Op,\n\t output [31:0] Out\n\t );assign Out=(Op==0)? In1 :\n\t\t\t\t\t(Op==1)? In2 :\n\t\t\t\t\t(Op==2)? In3 : In4;  always @(*) begin\n    if (1'b0) begin\n      Out <= In1;\n      if (Op == 3) begin\n        Out <= In2;\n      end\n      if (Op == 4) begin\n        Out <= In3;\n      end\n      if (Op == 5) begin\n        Out <= In4;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Out <= In1;\nif (Op == 3) begin\n  Out <= In2;\nend\nif (Op == 4) begin\n  Out <= In3;\nend\nif (Op == 5) begin\n  Out <= In4;\nend"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q005096",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( \n    input a, b, cin,   \n    output carry_out, cout \n\n);wire p;\n    assign p=a^b;\n    assign carry_out=p^cin;\n    assign cout=(a&b)|(p&cin);\n\nendmodule",
+  "rename_map": {
+    "sum": "carry_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "sum": "carry_out",
+      "cout": "sum"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

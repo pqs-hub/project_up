@@ -1,0 +1,16 @@
+{
+  "task_id": "q008474",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clock,\n    input resetn,\n    input valid_in,\n    output valid_out,\n    input stall_in,\n    output stall_out\n);reg invalid_data;\nreg stall_out_reg;\n\nalways @(posedge clock or negedge resetn) begin\n    if (~resetn) begin\n        invalid_data <= 1'b0;\n        stall_out_reg <= 1'b0;\n    end else begin\n        if (valid_in && ~stall_in) begin\n            invalid_data <= 1'b1;\n            stall_out_reg <= 1'b0;\n        end else begin\n            invalid_data <= 1'b0;\n            stall_out_reg <= 1'b1;\n        end\n    end\nend\n\nassign valid_out = invalid_data;\nassign stall_out = stall_out_reg;\n\nendmodule",
+  "rename_map": {
+    "valid_out_reg": "invalid_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "valid_out_reg": "invalid_data",
+      "stall_out_reg": "data_stalled"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

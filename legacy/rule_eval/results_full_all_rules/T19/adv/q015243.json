@@ -1,0 +1,10 @@
+{
+  "task_id": "q015243",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(A, B, S, Y);input A, B, S;\noutput reg Y; // Changed to reg type\n\nalways @(*) begin\n    Y = (!S & A) | (S & B);\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Y <= ~A;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= ~A;\n"
+  }
+}

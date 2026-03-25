@@ -1,0 +1,6 @@
+{
+  "task_id": "q013935",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(G, A, B, C0, C1, C2, C3, L);input C0, C1, C2, C3;\ninput G;\ninput A, B;\noutput L;\nreg L;\n\nalways @(C0 or C1 or C2 or C3 or G or A or B) begin\n\tif (G == 1'b1) L = 1'b0;\n\telse begin\n\t\tif (B == 1'b0) L = (A == 1'b0)? C0 : C1;\n\t\tif (B == 1'b1) L = (A == 1'b0)? C2 : C3;\n\tend\nend\n\nendmodule"
+}

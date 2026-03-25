@@ -1,0 +1,15 @@
+{
+  "task_id": "q017446",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adder(\n    input [7:0] a,\n    input [7:0] b,\n    input cin,\n    output [7:0] sum,\n    output cout\n);\n\nwire [8:0] sum_carry;\nassign sum_carry = {1'b0, a} + {1'b0, b} + {1'b0, cin};\n\nassign sum = sum_carry[7:0];\nassign cout = sum_carry[8];\n\nendmodule",
+  "rename_map": {
+    "temp_sum": "sum_carry"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_sum": "sum_carry"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

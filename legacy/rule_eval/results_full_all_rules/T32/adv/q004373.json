@@ -1,0 +1,8 @@
+{
+  "task_id": "q004373",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module JohnsonCounter_3(\n   input           clk,\n   input           rst,\n   output reg [3-1:1-1] Q  \n);\n    always@(posedge clk) begin\n        if(rst) Q <= 3'b0; // Reset the counter\n        else Q <= {~Q[0], Q[2:1]}; // Shift right and invert the LSB\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

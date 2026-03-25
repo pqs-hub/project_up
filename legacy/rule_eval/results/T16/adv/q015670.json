@@ -1,0 +1,9 @@
+{
+  "task_id": "q015670",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input        clk,\n  input        reset,\n  input  [15:0] input_signal,\n  output [3:0] output_signal\n);reg [3:0] obf_output_reg;\n\n  always @(posedge clk, negedge reset) begin\n    if (reset == 0) begin\n      obf_output_reg <= 4'b0;\n    end else begin\n      obf_output_reg <= input_signal[15:12];\n    end\n  end\n\n  assign output_signal = obf_output_reg;\n\nendmodule",
+  "rename_map": {
+    "output_reg": "obf_output_reg"
+  }
+}

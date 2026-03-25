@@ -1,0 +1,6 @@
+{
+  "task_id": "q008063",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(clk, iA, iB, iC, oResult);input clk;\n    input [3:0] iA;\n    input [3:0] iB;\n    input iC;\n    output reg [3:0] oResult; // Changed to reg type\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk) begin\n        if (iC == 0) begin\n            oResult <= iA & iB;\n        end else begin\n            oResult <= iA | iB;\n        end\n    end\nendmodule"
+}

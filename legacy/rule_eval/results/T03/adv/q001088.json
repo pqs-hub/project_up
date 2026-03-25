@@ -1,0 +1,6 @@
+{
+  "task_id": "q001088",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module pipelined_adder (\n    input wire clk,\n    input wire [4:0] A,\n    input wire [4:0] B,\n    output reg [5:0] SUM\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg [5:0] stage1_sum;\n\n    // Stage 1: Calculate sum\n    always @(posedge clk) begin\n        stage1_sum <= A + B;\n    end\n\n    // Stage 2: Output the result\n    always @(posedge clk) begin\n        SUM <= stage1_sum;\n    end\nendmodule"
+}

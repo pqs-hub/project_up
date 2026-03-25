@@ -1,0 +1,8 @@
+{
+  "task_id": "q016368",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(input clk, input d, output q);reg [2:0] register;\n  always @(posedge clk) begin\n    register <= {register[1:0], d};\n  end\n  assign q = (clk & ~clk) ? ~q : register[2];\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

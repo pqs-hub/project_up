@@ -1,0 +1,18 @@
+{
+  "task_id": "q004513",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_2to4(\n    input [1:0] in,     // 2-bit binary input.\n    input en,           // Enable signal to activate the decoder.\n\n    output [3:0] out    // 4-bit one-hot output.\n);\n\nreg [3:0] inv_out_r;\n\n//------------------------------------------------\n// Decoder logic\nalways @(*) begin\n    if (en) begin\n        case (in)\n            2'b00: inv_out_r = 4'b0001;\n            2'b01: inv_out_r = 4'b0010;\n            2'b10: inv_out_r = 4'b0100;\n            2'b11: inv_out_r = 4'b1000;\n            default: inv_out_r = 4'b0000;\n        endcase\n    end else begin\n        inv_out_r = 4'b0000;\n    end\nend\n\nassign out = inv_out_r;\n\nendmodule",
+  "rename_map": {
+    "out_r": "inv_out_r"
+  },
+  "params_used": {
+    "custom_map": {
+      "decoder_2to4": "decoder_2to4_inverted",
+      "in": "inverted_in",
+      "en": "inverted_en",
+      "out": "inverted_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

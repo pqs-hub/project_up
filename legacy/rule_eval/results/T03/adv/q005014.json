@@ -1,0 +1,6 @@
+{
+  "task_id": "q005014",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module barrel_shifter(\n    input [31:0] data_in,\n    input [4:0] shift_amt,\n    input dir,\n    output reg [31:0] data_out\n    );\n  wire [31:0] _tap_data_in = data_in & {32{1'b1}};\n\n\n    always @(*) begin\n        if (dir == 1'b0) begin\n            data_out = data_in << shift_amt;\n        end else begin\n            data_out = data_in >> shift_amt;\n        end\n    end\nendmodule"
+}

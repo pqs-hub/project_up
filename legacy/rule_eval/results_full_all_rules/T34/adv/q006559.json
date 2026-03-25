@@ -1,0 +1,20 @@
+{
+  "task_id": "q006559",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_4to1_4bit(\n    input [3:0] data_in_0,\n    input [3:0] b,\n    input [3:0] c,\n    input [3:0] d,\n    input [1:0] sel,\n    output [3:0] y\n    );\n\n    assign y = (sel == 2'b00) ? data_in_0 :\n               (sel == 2'b01) ? b :\n               (sel == 2'b10) ? c : d;\nendmodule",
+  "rename_map": {
+    "a": "data_in_0"
+  },
+  "params_used": {
+    "custom_map": {
+      "a": "data_in_0",
+      "b": "data_in_1",
+      "c": "data_in_2",
+      "d": "data_in_3",
+      "sel": "control_signal",
+      "y": "output_data"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

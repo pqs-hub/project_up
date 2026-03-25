@@ -1,0 +1,6 @@
+{
+  "task_id": "q008706",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule top_module(\n\tinput clk_i, \n\tinput [27:0] number_i, \n\toutput reg [6:0] seg_o, \n\toutput reg [3:0] an_o\n    );reg [15:0] div = 16'b0; \nalways @(posedge clk_i)\n\tdiv <= div+1'b1; \n\nalways @(div[15:14], number_i) begin \t\n\t\t\t\t\t\t\t\t\t\n\tcase(div[15:14]) \n\t\t2'h0: begin \n\t\t\tan_o \t<= 4'b1110; \n\t\t\tseg_o \t<= number_i[6:0];\n\t\tend \n\t\t2'h1: begin \n\t\t\tan_o \t<= 4'b1101; \n\t\t\tseg_o \t<= number_i[13:7];\n\t\tend \n\t\t2'h2: begin \n\t\t\tan_o \t<= 4'b1011; \n\t\t\tseg_o \t<= number_i[20:14];\n\t\tend \n\t\t2'h3: begin \n\t\t\tan_o \t<= 4'b0111; \n\t\t\tseg_o \t<= number_i[27:21];\n\t\tend  \n\t\tdefault: begin \n\t\t\tan_o \t<= 4'b1111; \n\t\t\tseg_o \t<= 7'b1111111;\n\t\tend \n\tendcase \nend \n\nendmodule"
+}

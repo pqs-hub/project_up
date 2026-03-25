@@ -1,0 +1,15 @@
+{
+  "task_id": "q003106",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire clk,\n    input wire reset,\n    input wire [3:0] data_in,\n    input wire rw, // 1 for write, 0 for read\n    output reg [3:0] data_out\n);\n    reg [3:0] cache;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            cache <= 4'b0000;\n            data_out <= 4'b0000;\n        end else if (rw) begin\n            cache <= data_in; // Write operation\n        end else begin\n            data_out <= cache; // Read operation\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "cache"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "cache"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

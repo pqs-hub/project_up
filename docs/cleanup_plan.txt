@@ -1,0 +1,90 @@
+# 文件清理计划
+
+## ✅ 必须保留的文件（核心功能）
+
+### 新框架文件
+- main.py                          # 统一入口
+- README.md                        # 主文档
+- REORGANIZATION_SUMMARY.md        # 重组总结
+- PROJECT_REORGANIZATION.md        # 重组方案
+
+### 配置文件
+- config.yaml                      # 主配置
+
+### 原始核心文件（被引用或作为备份）
+- primitives.py                    # 被core/引用
+- simulator.py                     # 被core/引用
+- taget_model.py                   # 被core/引用
+- ast_transforms.2.py              # 原始规则库
+- ast_transforms_loader.py         # 原始加载器
+- AdversarialDatasetGenerator.py   # 原始参数生成器
+- build_sft_from_attack_success.py # 原始SFT构建
+- generate_dataset.py              # 数据集生成
+
+---
+
+## 🗑️ 可以删除的文件（已备份到legacy/或docs/）
+
+### 临时修复脚本（已执行完成）
+- fix_dependencies_final.sh
+- fix_dependencies.sh
+- fix_dependencies_v2.sh
+- uninstall_vllm_for_training.sh
+
+### 测试脚本（临时使用）
+- test_new_scenarios.sh
+- test_verilog_eval_attack.sh
+- quick_test_t31_t47.sh
+- eval_finetuned_model.sh          # 旧版本，已有新的pipeline
+- quick_start_training.sh          # 旧版本
+
+### 分析脚本（已有结果或移到legacy/）
+- analyze_attack_success_rate.py
+- analyze_multi_rule.py
+- analyze_rule_samples.py
+
+### 旧训练脚本（已整合到pipeline/）
+- train.py                         # 被pipeline/3_train_model.py替代
+
+### 文档（归档到docs/）
+- ACCURATE_METRICS_REPORT.md
+- ALL_RULES_FINAL_REPORT.md
+- CLAUDE.md
+- COT_PROMPT_SUMMARY.md
+- DATASET_COMPARISON.md
+- DATASET_FINAL_COMPARISON.md
+- DEPLOY_VLLM.md
+- EQUIVALENCE_TESTING_METHOD.md
+- EVAL_COMMANDS.md
+- FINAL_DATASET_GUIDE.md
+- FINAL_REPORT.md
+- FIXES_APPLIED.md
+- G2012_IMPACT_ANALYSIS.md
+- LLAMAFACTORY_TRAINING_GUIDE.md
+- LLM_PARAM_GENERATION_GUIDE.md
+- metrics_definition.md
+- MODEL_USAGE_SUMMARY.md
+- MULTI_RULE_PROBLEM_SOLUTIONS.md
+- OBFUSCATION_SFT_GUIDE.md
+- PARAMETERS_FIXED_SUMMARY.md
+- QUICK_START_VERILOG_EVAL.md
+- README_SFT_DATASET.md
+- REGISTRY_RULES_ASR_REPORT.md
+- SETUP_COMPLETE.md
+- SFT_DATASET_REPORT.md
+- SFT_DATASET_USAGE.md
+- T48_ANALYSIS.md
+- T48_FINAL_ANALYSIS.md
+- T48_ROOT_CAUSE_FOUND.md
+- TRAIN_COMMANDS.md
+- TRAINING_GUIDE.md
+- TRUTH_REVEALED.md
+- vllm_integration_notes.md
+- 指令记录.md
+
+---
+
+## 📊 统计
+- 保留核心文件: 13个
+- 删除/归档文件: 50+个
+- 清理比例: ~80%

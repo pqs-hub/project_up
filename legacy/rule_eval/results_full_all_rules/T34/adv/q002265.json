@@ -1,0 +1,23 @@
+{
+  "task_id": "q002265",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module LU_decomposition (  \n    input [7:0] K_A0, // a11  \n    input [7:0] A1, // a12  \n    input [7:0] A2, // a21  \n    input [7:0] A3, // a22  \n    output reg [7:0] L0, // l11  \n    output reg [7:0] L1, // l21  \n    output reg [7:0] U0, // u11  \n    output reg [7:0] U1, // u12  \n    output reg [7:0] U2  // u22  \n);  \n    always @(*) begin  \n        L0 = K_A0;  \n        L1 = A2 / K_A0;  \n        U0 = K_A0;  \n        U1 = A1;  \n        U2 = A3 - L1 * U1;  \n    end  \nendmodule",
+  "rename_map": {
+    "A0": "K_A0"
+  },
+  "params_used": {
+    "custom_map": {
+      "A0": "B0",
+      "A1": "C0",
+      "A2": "D0",
+      "A3": "E0",
+      "L0": "F0",
+      "L1": "G0",
+      "U0": "H0",
+      "U1": "I0",
+      "U2": "J0"
+    },
+    "fallback_prefix": "K_"
+  }
+}

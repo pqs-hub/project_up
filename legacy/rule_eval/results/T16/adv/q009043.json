@@ -1,0 +1,9 @@
+{
+  "task_id": "q009043",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module johnson_counter_10bit(\n    input clk,            // Chip clock signal.\n    input reset,          // Synchronous reset signal.\n    output [9:0] count    // Counter output signal with a data width of 10 bits.\n);\n\nreg [9:0] obf_counter;        // Counter register.\n\nalways @(posedge clk)\n    if (reset) obf_counter <= 10'b0000000000;           // Reset to zero if reset is active.\n    else obf_counter <= {~obf_counter[0], obf_counter[9:1]};    // Johnson obf_counter operation.\n\nassign count = obf_counter;                            // Output obf_counter value.\n\nendmodule",
+  "rename_map": {
+    "counter": "obf_counter"
+  }
+}

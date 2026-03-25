@@ -1,0 +1,15 @@
+{
+  "task_id": "q015194",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(div_clk,rst,time_value,contando, terminado);input div_clk; \n  input rst; \n  input contando; \n  input [3:0] time_value; \n  output reg terminado; \n  reg [3:0] countdown; \n  always @(posedge div_clk or posedge rst) \n  begin \n  if(rst) \n  begin \n  countdown <= 0; \n  terminado <= 0; \n  end \n  else \n  if(contando) \n  begin \n  if(countdown == time_value) \n  begin \n  countdown <= 0; \n  terminado <= 1; \n  end \n  else \n  begin \n  terminado <= 0; \n  countdown <= countdown + 1; \n  end \n  end \n  else \n  terminado <= 0; \n  end \n endmodule",
+  "rename_map": {
+    "contador": "countdown"
+  },
+  "params_used": {
+    "custom_map": {
+      "contador": "countdown"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q000996",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    output reg out\n);\n    reg [1:0] unused_count; // 2-bit counter\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            unused_count <= 2'b00;\n            out <= 1'b0;\n        end else begin\n            unused_count <= unused_count + 1;\n            if (unused_count == 2'b11) begin\n                out <= ~out; // Toggle the output every four clock cycles\n            end\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q007458",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input load,\n    input ena,\n    input clr,\n    input [3:0] data,\n    output reg [3:0] q);\n\n    always @(posedge clk) begin\n        if (clr) begin\n            q <= 4'b0000;\n        end else if (load) begin\n            q <= data;\n        end else if (ena) begin\n            q <= q << 1;  // Shift left by 1 bit\n        end\n    end\n\nendmodule"
+}

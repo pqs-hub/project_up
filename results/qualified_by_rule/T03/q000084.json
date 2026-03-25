@@ -1,0 +1,6 @@
+{
+  "task_id": "q000084",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (  \n    input [3:0] x,  \n    input [3:0] h_prev,  \n    output reg [3:0] h_new  \n);  \n  wire [3:0] _tap_x = x & {4{1'b1}};\n\n    always @(x, h_prev) begin  \n        h_new = (x + h_prev) % 16;  \n    end  \nendmodule"
+}

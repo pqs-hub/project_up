@@ -1,0 +1,8 @@
+{
+  "task_id": "q007504",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module edge_detector(\n    input clk,    // Chip clock signal.\n    input in,     // Input signal to detect edges.\n    \n    output reg edge_detected  // Output signal that indicates a rising edge has been detected.\n);\n\nreg in_prev;  // Register to store the previous state of the input signal\n\n//------------------------------------------------\n// Edge detector logic\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    edge_detected <= in & ~in_prev;  // Detect rising edge\n    in_prev <= in;  // Update the previous state\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

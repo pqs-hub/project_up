@@ -1,0 +1,6 @@
+{
+  "task_id": "q016271",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(\n    input [3:0] A,\n    output [3:0] X\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n      wire _n01 = A[0] ^ 4'b0011[0];\n  wire _c01 = A[0] & 4'b0011[0];\n  wire _n02 = A[1] ^ 4'b0011[1] ^ _c01;\n  wire _c02 = (A[1] & 4'b0011[1]) | (A[1] & _c01) | (4'b0011[1] & _c01);\n  wire _n03 = A[2] ^ 4'b0011[2] ^ _c02;\n  wire _c03 = (A[2] & 4'b0011[2]) | (A[2] & _c02) | (4'b0011[2] & _c02);\n  wire _n04 = A[3] ^ 4'b0011[3] ^ _c03;\n  wire _c04 = (A[3] & 4'b0011[3]) | (A[3] & _c03) | (4'b0011[3] & _c03);\n  assign X = {_n01, _n02, _n03, _n04};\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q000166",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module wifi_signal_strength (\n    input [4:0] rssi1,\n    input [4:0] rssi2,\n    output reg [4:0] stronger_rssi\n);\n  wire [4:0] _tap_rssi1 = rssi1 & {5{1'b1}};\n\n    always @(*) begin\n        if (rssi1 >= rssi2) \n            stronger_rssi = rssi1;\n        else \n            stronger_rssi = rssi2;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

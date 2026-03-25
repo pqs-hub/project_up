@@ -1,0 +1,10 @@
+{
+  "task_id": "q007042",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input load,\n    input [3:0] data_in,\n    input shift,\n    output [3:0] data_out\n);reg [3:0] shift_reg;\n\nalways @(posedge clk) begin\n    if (load) begin\n        shift_reg <= data_in;\n    end else if (shift) begin\n        shift_reg <= {shift_reg[2:0], 1'b0};\n    end\nend\n\nwire misleading_data = shift_reg;\nassign data_out = misleading_data;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "misleading_data"
+  }
+}

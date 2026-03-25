@@ -1,0 +1,6 @@
+{
+  "task_id": "q010719",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule(\n\tinput clk,\n\tinput [2:0] in,\n\toutput reg any_change);reg [2:0] d_last;\t\n\t\t\t\n\talways @(posedge clk) begin\n\t\td_last <= in;\n\t\tany_change <= |(in ^ d_last);\n\tend\n\t\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q013102",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input enable,\n    input clear,\n    input direction,\n    output reg [3:0] q);always @(posedge clk, posedge reset) begin\n\t\tif (reset)\n\t\t\tq <= 0;\n\t\telse if (clear)\n\t\t\tq <= 0;\n\t\telse if (enable) begin\n\t\t\tif (direction)\n\t\t\t\tq <= q + 1;\n\t\t\telse\n\t\t\t\tq <= q - 1;\n\t\tend\n\tend\nendmodule"
+}

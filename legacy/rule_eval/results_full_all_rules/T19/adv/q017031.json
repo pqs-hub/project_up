@@ -1,0 +1,10 @@
+{
+  "task_id": "q017031",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux2 (\n\t   input a,\n\t   input b,\n\t   output reg q);\n\n   always @ (/*AS*/a, b) begin\n     if (b == 1) begin\n       q = a;\n     end else begin\n       q = b;\n     end\n   end\n  always @(*) begin\n    if (1'b0) begin\n      q = ~a; if (b == 0) begin q = ~b; end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q = ~a; if (b == 0) begin q = ~b; end"
+  }
+}

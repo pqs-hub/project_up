@@ -1,0 +1,18 @@
+{
+  "task_id": "q012350",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module alu_16bit(\n    input [15:0] operand1,\n    input [15:0] b,\n    input [2:0] ctrl,\n    output reg [15:0] result\n);\n\nalways @(*)\n    case (ctrl)\n        3'b000: result = operand1 + b;    // Addition\n        3'b001: result = operand1 - b;    // Subtraction\n        3'b010: result = operand1 & b;    // AND\n        3'b011: result = operand1 | b;    // OR\n        3'b100: result = operand1 ^ b;    // XOR\n        default: result = 16'b0;   // Default case\n    endcase\n\nendmodule",
+  "rename_map": {
+    "a": "operand1"
+  },
+  "params_used": {
+    "custom_map": {
+      "a": "operand1",
+      "b": "operand2",
+      "ctrl": "operation_code",
+      "result": "output"
+    },
+    "fallback_prefix": "alu_"
+  }
+}

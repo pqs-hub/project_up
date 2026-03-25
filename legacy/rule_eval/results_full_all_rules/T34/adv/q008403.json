@@ -1,0 +1,15 @@
+{
+  "task_id": "q008403",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(ERR_EXT,Qb_FORWARD,S,Y);input [31:0] ERR_EXT,Qb_FORWARD;\n    input S;\n    output [31:0] Y;\n\n    function [31:0] select;\n        input [31:0] ERR_EXT,Qb_FORWARD;\n        input S;\n        case(S)\n            0:select=ERR_EXT;\n            1:select=Qb_FORWARD;\n        endcase\n    endfunction\n    assign Y=select(ERR_EXT,Qb_FORWARD,S);endmodule",
+  "rename_map": {
+    "EXT": "ERR_EXT"
+  },
+  "params_used": {
+    "custom_map": {
+      "EXT": "INVALID_EXT"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

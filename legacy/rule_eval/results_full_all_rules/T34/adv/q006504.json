@@ -1,0 +1,15 @@
+{
+  "task_id": "q006504",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(reset_clk, rst, npc, pc);input reset_clk, rst;\n  input [31:0] npc;\n  output reg [31:0] pc;\n  \n  always @(posedge reset_clk or posedge rst)\n  begin \n    if (rst == 1) pc <= 32'h0000_3000;\n    else pc <= npc;\n  end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

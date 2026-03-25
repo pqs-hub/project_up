@@ -1,0 +1,10 @@
+{
+  "task_id": "q001271",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module audio_mixer (\n    input [15:0] A,  // 16-bit audio signal A\n    input [15:0] B,  // 16-bit audio signal B\n    input S,         // Select signal\n    output [15:0] Y  // Output audio signal\n);\n    assign Y = (S == 1'b0) ? A : B; // Select A or B based on S\n  always @(*) begin\n    if (1'b0) begin\n      assign Y = (S == 1'b1) ? A : B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "assign Y = (S == 1'b1) ? A : B;"
+  }
+}

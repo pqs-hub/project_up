@@ -1,0 +1,6 @@
+{
+  "task_id": "q000014",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [3:0] req,\n    output reg [3:0] grant\n);\n\nalways @(posedge clk or posedge rst) begin\n    begin end  // redundant\n    if (rst) begin\n        grant <= 4'b0000;\n    end else begin\n        grant <= 4'b0000; // Reset grant to zero\n        if (req[3]) grant[3] <= 1; // Grant to highest priority\n        else if (req[2]) grant[2] <= 1; // Grant to second highest\n        else if (req[1]) grant[1] <= 1; // Grant to third highest\n        else if (req[0]) grant[0] <= 1; // Grant to lowest\n    end\nend\n\nendmodule"
+}

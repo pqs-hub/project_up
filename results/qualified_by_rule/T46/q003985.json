@@ -1,0 +1,6 @@
+{
+  "task_id": "q003985",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input in,\n    output reg out\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt)\n    begin\n        if (rst)\n            out <= 0;\n        else\n            out <= in >> 1; // Divide by 2 by shifting right\n    end\nendmodule"
+}

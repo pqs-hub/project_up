@@ -1,0 +1,6 @@
+{
+  "task_id": "q005188",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(input wire button,input wire clk,input wire res,output wire clk_div);reg [3 : 0] ripple; \n  assign clk_div = &ripple; \n  always @(posedge clk) begin \n  if(res) \n  ripple <= 4'b0; \n  else begin \n  ripple[0] <= button; \n  ripple[1] <= ripple[0]; \n  ripple[2] <= ripple[1]; \n  ripple[3] <= ripple[2]; \n  end \n  end \n endmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q003512",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (\n    input wire data_in,\n    input wire we,\n    input wire clk,\n    output reg data_out\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (we) begin\n            data_out <= data_in; // write data to the cell\n        end\n        // else do nothing, data_out retains its value\n    end\nendmodule"
+}

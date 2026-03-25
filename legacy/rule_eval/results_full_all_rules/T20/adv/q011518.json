@@ -1,0 +1,10 @@
+{
+  "task_id": "q011518",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment is misleading because it suggests the counter decrements instead of increments when enabled.\nmodule binary_counter(\n    input clk,\n    input reset,\n    input enable,\n    input load,\n    input [3:0] data_in,\n    output reg [3:0] count\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 4'd0;\n        end else if (load) begin\n            count <= data_in;\n        end else if (enable) begin\n            count <= count + 1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment is misleading because it suggests the counter decrements instead of increments when enabled."
+  }
+}

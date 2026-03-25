@@ -1,0 +1,6 @@
+{
+  "task_id": "q013227",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule(\n    input [15:0] switch_input,\n    input reset,\n    output reg [7:0] red_led_output,\n    output reg [7:0] green_led_output\n);always @(*) begin\n        if (reset) begin\n            red_led_output <= 8'b0;\n            green_led_output <= 8'b0;\n        end else begin\n            red_led_output <= ~switch_input[7:0];\n            green_led_output <= ~switch_input[15:8];\n        end\n    end\n\nendmodule"
+}

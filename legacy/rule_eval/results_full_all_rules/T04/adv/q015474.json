@@ -1,0 +1,10 @@
+{
+  "task_id": "q015474",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 1-to-8 demultiplexer with an enable input. When the enable signal (E) is high, the output (Y) is forced to HIGH. When E is low, the output is determined by the 3-bit select input (S), which chooses one of the eight data inputs (D).\nmodule top_module(E,S,D,Y);input E;\ninput [2:0] S;\ninput [7:0] D;\noutput Y;\nreg Y;\n\nalways @(E,S,D)\nbegin\n\tif(E) Y = 1'b0;\n\telse\n\tbegin\n\t\tcase(S)\n\t\t\t3'b000 : Y = D[0];\n\t\t\t3'b001 : Y = D[1];\n\t\t\t3'b010 : Y = D[2];\n\t\t\t3'b011 : Y = D[3];\n\t\t\t3'b100 : Y = D[4];\n\t\t\t3'b101 : Y = D[5];\n\t\t\t3'b110 : Y = D[6];\n\t\t\t3'b111 : Y = D[7];\n\t\tendcase\n\tend\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 1-to-8 demultiplexer with an enable input. When the enable signal (E) is high, the output (Y) is forced to HIGH. When E is low, the output is determined by the 3-bit select input (S), which chooses one of the eight data inputs (D)."
+  }
+}

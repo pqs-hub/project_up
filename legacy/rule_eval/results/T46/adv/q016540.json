@@ -1,0 +1,8 @@
+{
+  "task_id": "q016540",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module dffr_s (din, clk, rst, q, se, si, so);\nparameter SIZE = 1;\ninput\t[SIZE-1:0]\tdin ;\t\ninput\t\t\tclk ;\t\ninput\t\t\trst ;\t\noutput\t[SIZE-1:0]\tq ;\t\ninput\t\t\tse ;\t\ninput\t[SIZE-1:0]\tsi ;\t\noutput\t[SIZE-1:0]\tso ;\t\nreg \t[SIZE-1:0]\tq ;\n`ifdef NO_SCAN\nalways @ (posedge clk)\n\tq[SIZE-1:0]  <= ((rst) ? {SIZE{1'b0}}  : din[SIZE-1:0] );\n`else\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk or posedge dbg_halt)\n\tq[SIZE-1:0]  <= se ? si[SIZE-1:0] : ((rst) ? {SIZE{1'b0}}  : din[SIZE-1:0] );\nassign so[SIZE-1:0] = q[SIZE-1:0] ;\n`endif\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

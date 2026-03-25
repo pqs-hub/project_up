@@ -1,0 +1,6 @@
+{
+  "task_id": "q000608",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule (\n    input [4:0] signal_strength,\n    output reg [2:0] signal_quality\n);\n    always @* begin\n        if (signal_strength > 31) begin\n            signal_quality = 3'b111; // Error condition\n        end else if (signal_strength <= 10) begin\n            signal_quality = 3'b000; // Low quality\n        end else if (signal_strength <= 20) begin\n            signal_quality = 3'b001; // Medium quality\n        end else begin\n            signal_quality = 3'b010; // High quality\n        end\n    end\nendmodule"
+}

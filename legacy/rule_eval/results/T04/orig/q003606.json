@@ -1,0 +1,6 @@
+{
+  "task_id": "q003606",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module edge_detector (\n    input wire clk,\n    input wire reset,\n    input wire signal,\n    output reg edge_detected\n);\n    reg signal_prev;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            edge_detected <= 0;\n            signal_prev <= 0;\n        end else begin\n            edge_detected <= (signal && !signal_prev);\n            signal_prev <= signal;\n        end\n    end\nendmodule"
+}

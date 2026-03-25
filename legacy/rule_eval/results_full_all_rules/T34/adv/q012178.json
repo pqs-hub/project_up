@@ -1,0 +1,15 @@
+{
+  "task_id": "q012178",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(reset_clk, rst, inp, out);(* this_is_clock = 1 *)\n  input  wire reset_clk;\n  (* this_is_reset = 1 *)\n  input  wire rst;\n  input  wire inp;\n  (* an_output_register = 1*)\n  output reg  out;\n\n  always @(posedge reset_clk)\n    if (rst) out <= 1'd0;\n    else     out <= ~inp;\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

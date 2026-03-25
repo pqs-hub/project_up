@@ -1,0 +1,6 @@
+{
+  "task_id": "q012967",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(q, d, clk, enable, reset);parameter\n        width = 32,\n        reset_value = 0;\n\n    output reg    [(width-1):0] q;\n    input  [(width-1):0] d;\n    input  clk, enable, reset;\n\n    always @(posedge clk or posedge reset)\n        if (reset == 1'b1)\n            q <= reset_value;\n        else if (enable == 1'b1)\n            q <= d;endmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q001990",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module generates a keystream value by subtracting the block index from the sum of key and nonce.\nmodule chacha_simple (  \n    input wire [31:0] key,  \n    input wire [31:0] nonce,  \n    input wire [31:0] block_index,  \n    output reg [31:0] keystream  \n);  \n    always @(key, nonce, block_index) begin  \n        keystream = (key + nonce + block_index) % 32'hFFFFFFFF;  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module generates a keystream value by subtracting the block index from the sum of key and nonce."
+  }
+}

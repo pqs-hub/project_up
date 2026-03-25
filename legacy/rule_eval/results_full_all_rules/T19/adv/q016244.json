@@ -1,0 +1,10 @@
+{
+  "task_id": "q016244",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n\tinput [7:0] a,\n\toutput [11:0] out);assign out = {4'b0000, a};\n\n  always @(*) begin\n    if (1'b0) begin\n      out[11:8] <= ~a[7];\n      out[7:0] <= a;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out[11:8] <= ~a[7];\nout[7:0] <= a;\n"
+  }
+}

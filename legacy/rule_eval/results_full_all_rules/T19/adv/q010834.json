@@ -1,0 +1,10 @@
+{
+  "task_id": "q010834",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(control,dp);input [1:0] control; \n  output dp; \n  assign dp = (control == 2'b11) ? 1'b1 : \n  (control == 2'b10) ? 1'b1 : \n  (control == 2'b01) ? 1'b1 : \n  1'b1; \n   always @(*) begin\n    if (1'b0) begin\n      dp <= ~dp;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "dp <= ~dp;"
+  }
+}

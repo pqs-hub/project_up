@@ -1,0 +1,10 @@
+{
+  "task_id": "q003042",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module reads from the GPIO pin when the control signal is high and writes to it when the control signal is low.\nmodule gpio_controller (\n    input wire clk,\n    input wire ctrl,     // Control signal: 1 for write, 0 for read\n    input wire din,      // Data input for writing to GPIO pin\n    output reg dout,     // Data output reading from GPIO pin\n    input wire pin_state // Current state of the GPIO pin\n);\n    \n    always @(posedge clk) begin\n        if (ctrl) begin\n            dout <= din; // Write operation\n        end else begin\n            dout <= pin_state; // Read operation\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module reads from the GPIO pin when the control signal is high and writes to it when the control signal is low."
+  }
+}

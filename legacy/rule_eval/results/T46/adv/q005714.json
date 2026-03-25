@@ -1,0 +1,8 @@
+{
+  "task_id": "q005714",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module dual_port_memory(\n    input clk,\n    input [4:0] read_addr1,\n    input [4:0] read_addr2,\n    input [4:0] write_addr1,\n    input [4:0] write_addr2,\n    input write_enable1,\n    input write_enable2,\n    input [31:0] write_data1,\n    input [31:0] write_data2,\n    output reg [31:0] read_data1,\n    output reg [31:0] read_data2\n    );\n\n    reg [31:0] mem [0:31];\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (write_enable1)\n            mem[write_addr1] <= write_data1;\n        if (write_enable2)\n            mem[write_addr2] <= write_data2;\n    end\n\n    always @(posedge clk) begin\n        read_data1 <= mem[read_addr1];\n        read_data2 <= mem[read_addr2];\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

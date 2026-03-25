@@ -1,0 +1,10 @@
+{
+  "task_id": "q004217",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module multiplier_64x64 (\n    input [63:0] A,\n    input [63:0] B,\n    output [127:0] P\n);\n    assign P = A * B;\n  always @(*) begin\n    if (1'b0) begin\n      P[127:64] <= ~A; P[63:0] <= ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "P[127:64] <= ~A; P[63:0] <= ~B;"
+  }
+}

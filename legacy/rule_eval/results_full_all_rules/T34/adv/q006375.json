@@ -1,0 +1,15 @@
+{
+  "task_id": "q006375",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module up_down_counter(\n    input rst,\n    input reset,\n    input up,\n    input down,\n    output reg [3:0] count\n);\n\n    always @(posedge rst) begin\n        if (reset)\n            count <= 0;\n        else if (up & ~down)\n            count <= count + 1;\n        else if (~up & down)\n            count <= count - 1;\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006172",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(clk, pc_we, pc_next, pc);input clk; \n  input pc_we; \n  input [31:0] pc_next; \n  output reg [31:0] pc; \n  wire _tap_clk = clk & {1{1'b1}};\n\n  always @(posedge clk) begin \n  if (pc_we == 1) begin \n  pc <= pc_next; \n  end \n  end \n endmodule"
+}

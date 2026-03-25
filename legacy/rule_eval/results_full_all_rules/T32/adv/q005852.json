@@ -1,0 +1,8 @@
+{
+  "task_id": "q005852",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module PISO_4(\n   input           clk,\n   input           rst,\n   input [4-1:1-1]     PI,\n   input           load,\n   output          SO  \n);\n    reg [3:0] Q;\n    \n    always@(posedge clk) begin\n        if(rst) Q <= 4'b0; // Reset the register\n        else if(load) Q <= PI; // Load parallel input\n        else Q <= {1'b0, Q[3:1]}; // Shift right\n    end\n    \n    assign SO = Q[0]; // Serial output is the last bit of the register\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

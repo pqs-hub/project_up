@@ -1,0 +1,6 @@
+{
+  "task_id": "q008605",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(X_in, sx, rst, clk, x_par, fx);input X_in, sx,rst,clk;\n\toutput fx;\n\toutput [11 - 1:0] x_par;\n\twire fx; \n\n\treg [11 - 1:0] x_par;\n\treg [3 : 0] obf_shifts;\n\t\n\tassign fx = (obf_shifts >= 11);\n\n\talways @(posedge clk or posedge rst) begin\n\t\tif(rst) begin\n\t\t\tx_par<= 11'b0;\n\t\t\tobf_shifts<= 4'b0;\n\t\tend\n\t\t else if(sx && obf_shifts< 11) begin\n\t\t\tx_par[11-1:0]<={ x_par[11-2:0], X_in};\n\t\t\tobf_shifts <= obf_shifts + 1;\n\t\tend\n\t\t\n\tend\n\t\nendmodule"
+}

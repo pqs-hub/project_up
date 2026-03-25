@@ -1,0 +1,6 @@
+{
+  "task_id": "q001339",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(\n    input [3:0] phase_in,\n    input [1:0] control,\n    output reg [3:0] phase_out\n);\n    always @(*) begin\n        case(control)\n            2'b00: phase_out = phase_in;                   // No shift\n            2'b01: phase_out = {phase_in[2:0], phase_in[3]}; // Left shift by 1\n            2'b10: phase_out = {phase_in[1:0], phase_in[3:2]}; // Left shift by 2\n            2'b11: phase_out = {phase_in[0], phase_in[3:1]}; // Left shift by 3\n            default: phase_out = phase_in;                 // Default case\n        endcase\n    end\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q005673",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input  wire        clk, \n               input  wire        we3,           \n               input  wire [3:0]  ra1, ra2, wa3, \n               input  wire [7:0]  wd3, \t\t\t \n               output wire [7:0]  rd1, rd2);reg [7:0] mem[0:15]; \n\n  \n  \n  \n  always @(posedge clk)\n    if (we3) mem[wa3] <= wd3;\t\n  \n  assign rd1 = (ra1 != 0) ? mem[ra1] : 8'b00000000;\n  assign rd2 = (ra2 != 0) ? mem[ra2] : 8'b00000000;\nendmodule",
+  "rename_map": {
+    "regb": "mem"
+  },
+  "params_used": {
+    "custom_map": {
+      "regb": "mem"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

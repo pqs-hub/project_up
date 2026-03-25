@@ -1,0 +1,6 @@
+{
+  "task_id": "q007176",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register (\n    input clk,\n    input sin,\n    output [3:0] q\n);\n\n    reg [3:0] unused_q_reg;\n\n    always @(posedge clk) begin\n        unused_q_reg <= {unused_q_reg[2:0], sin};\n    end\n\n    assign q = unused_q_reg;\n\nendmodule"
+}

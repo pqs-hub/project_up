@@ -1,0 +1,6 @@
+{
+  "task_id": "q011273",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule register_16bit(\n    input clk,\n    input reset,\n    input enable,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n\n    always @(posedge clk) begin\n        if (reset)\n            data_out <= 16'b0000000000000000;\n        else if (enable)\n            data_out <= data_in;\n    end\n\nendmodule"
+}

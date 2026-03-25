@@ -1,0 +1,6 @@
+{
+  "task_id": "q001890",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module voltage_regulator (  \n    input wire clk,  \n    input wire enable,  \n    input wire [4:0] input_voltage,  \n    output reg [4:0] output_voltage  \n);  \n\nalways @(posedge clk) begin\n    begin end  // redundant  \n    if (enable) begin  \n        output_voltage <= input_voltage << 1; // Multiply input voltage by 2  \n    end else begin  \n        output_voltage <= 5'b00000; // Set output to 0V when not enabled  \n    end  \nend  \nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q005262",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input clk_in,\n  input reset,\n  output reg clk_out\n);parameter divide_ratio = 2;\n\nreg [31:0] misleading_count;\n\nalways @(posedge clk_in or posedge reset) begin\n  if (reset) begin\n    misleading_count <= 0;\n    clk_out <= 0;\n  end else begin\n    misleading_count <= misleading_count + 1;\n    if (misleading_count == divide_ratio - 1) begin\n      misleading_count <= 0;\n      clk_out <= ~clk_out;\n    end\n  end\nend\n\nendmodule",
+  "rename_map": {
+    "count": "misleading_count"
+  },
+  "params_used": {
+    "custom_map": {
+      "divide_ratio": "invalid_divide_ratio"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

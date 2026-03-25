@@ -1,0 +1,15 @@
+{
+  "task_id": "q008332",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input rst,\n    input reset,\n    output reg [2:0] count\n);\n\n    always @(posedge rst) begin\n        if (reset)\n            count <= 3'b000;  // Synchronous reset\n        else\n            count <= count + 1;  // Up counter\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

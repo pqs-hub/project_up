@@ -1,0 +1,8 @@
+{
+  "task_id": "q003539",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module checksum_calculator (\n    input [4:0] data_in,\n    output [5:0] data_out\n);\n  wire [4:0] _tap_data_in = data_in & {5{1'b1}};\n\n    wire checksum;\n    \n    assign checksum = data_in[0] ^ data_in[1] ^ data_in[2] ^ data_in[3] ^ data_in[4];\n    assign data_out = {data_in, checksum};\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

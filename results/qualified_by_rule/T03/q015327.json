@@ -1,0 +1,6 @@
+{
+  "task_id": "q015327",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(d0, d1, s, y);parameter n = 32;\ninput [n-1:0] d0, d1;\ninput s;\noutput [n-1:0] y;\n  wire [31:0] _tap_d0 = d0 & {32{1'b1}};\n\n\ngenvar i;\ngenerate\nfor (i=0; i<n; i=i+1) begin: addbit\nassign y[i] = ~s & d0[i] | s & d1[i];\nend\nendgenerate\n\nendmodule"
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q003971",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module current_sensor(  \n    input wire reset,  \n    input wire [3:0] current_in,  \n    output reg alarm_out  \n);  \n    parameter THRESHOLD = 9;  \n\n    always @(posedge reset) begin  \n        if (current_in > THRESHOLD)  \n            alarm_out <= 1'b1;  \n        else  \n            alarm_out <= 1'b0;  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "THRESHOLD": "ALARM_THRESHOLD",
+      "alarm_out": "NO_ALARM"
+    },
+    "fallback_prefix": "sensor_"
+  }
+}

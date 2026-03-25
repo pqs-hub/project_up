@@ -1,0 +1,19 @@
+{
+  "task_id": "q007722",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input ERR_A1,\n    input A2,\n    input B1,\n    input C1,\n    output reg [1:0] Y\n);always @(*) begin\n    if (B1 == 1 && C1 == 0) begin\n        Y = ERR_A1 - A2;\n    end else if (B1 == 1 && C1 == 1) begin\n        Y = ERR_A1 * A2;\n    end else begin\n        Y = ERR_A1 + A2;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "A1": "ERR_A1"
+  },
+  "params_used": {
+    "custom_map": {
+      "A1": "X1",
+      "A2": "X2",
+      "B1": "Z1",
+      "C1": "Z2",
+      "Y": "W"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

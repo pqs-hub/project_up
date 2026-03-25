@@ -1,0 +1,6 @@
+{
+  "task_id": "q016060",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(gated_clk, clk, clken);output gated_clk; \n  input clk, clken; \n  reg clken_r ; \n  wire __gated_clk_tmp = clk & clken_r;\n  assign gated_clk = __gated_clk_tmp; \n  always @(negedge clk) \n  clken_r <= clken; \n endmodule"
+}

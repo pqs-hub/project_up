@@ -1,0 +1,10 @@
+{
+  "task_id": "q017232",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux_2to1(\n    input A,\n    input B,\n    input SEL,\n    output Y\n);\n\n    assign Y = SEL ? B : A;\n\n  always @(*) begin\n    if (1'b0) begin\n      Y <= ~SEL & A; Y <= SEL & ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= ~SEL & A; Y <= SEL & ~B;"
+  }
+}

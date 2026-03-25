@@ -1,0 +1,17 @@
+{
+  "task_id": "q003342",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module DAC_Controller (\n    input [23:0] adc_input,\n    output reg [7:0] dac_output,\n    output reg valid\n);\n\nalways @(*) begin\n    // Assuming the DAC takes a linear mapping of the 24-bit input to 8-bit output\n    dac_output = adc_input[23:16]; // Take the upper 8 bits for DAC output\n    valid = 1'b1; // Output is always valid in this simple model\nend\n\nendmodule",
+  "rename_map": {
+    "dac_input": "adc_input"
+  },
+  "params_used": {
+    "custom_map": {
+      "dac_input": "adc_input",
+      "dac_output": "audio_out",
+      "valid": "invalid"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

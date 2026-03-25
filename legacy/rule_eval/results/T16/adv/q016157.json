@@ -1,0 +1,9 @@
+{
+  "task_id": "q016157",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n\tinput T, clk, rst,\n\toutput reg obf_Q\n);always @ (posedge clk, negedge rst)\n\t\tif (!rst) obf_Q <= 0;\n\t\telse case (T)\n\t\t\t1'b0 : obf_Q <= obf_Q;\n\t\t\t1'b1 : obf_Q <= !obf_Q;\n\t\tendcase\n\nendmodule",
+  "rename_map": {
+    "Q": "obf_Q"
+  }
+}

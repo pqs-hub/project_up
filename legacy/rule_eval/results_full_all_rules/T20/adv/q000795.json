@@ -1,0 +1,10 @@
+{
+  "task_id": "q000795",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests the timer resets on every clock cycle instead of only on timeout\nmodule watchdog_timer(\n    input wire clk,\n    input wire reset_n, // Active low reset\n    input wire pet,     // Signal to reset the timer\n    output reg reset    // Reset signal\n);\n    reg [2:0] count; // 3-bit counter for 5 clock cycles\n\n    always @(posedge clk or negedge reset_n) begin\n        if (!reset_n) begin\n            count <= 3'b000; // Reset counter on reset\n            reset <= 1'b0;   // Reset signal low\n        end else if (pet) begin\n            count <= 3'b000; // Reset counter if pet signal is received\n            reset <= 1'b0;   // Keep reset signal low\n        end else if (count < 3'b101) begin\n            count <= count + 1; // Increment counter\n            reset <= 1'b0;       // Keep reset signal low\n        end else begin\n            reset <= 1'b1;       // Assert reset signal if timeout\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests the timer resets on every clock cycle instead of only on timeout"
+  }
+}

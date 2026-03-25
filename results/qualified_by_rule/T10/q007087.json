@@ -1,0 +1,6 @@
+{
+  "task_id": "q007087",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(\n    input               clk         ,   \n    input               rst_n       ,\n    input               shift_en    ,\n    input               serial_in   ,\n \n    output  reg [3:0]   parallel_out\n);\n    \n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            parallel_out <= 0;\n        end else if (shift_en) begin\n            parallel_out <= {serial_in, parallel_out[3:1]};\n        end\n    end\n\nendmodule"
+}

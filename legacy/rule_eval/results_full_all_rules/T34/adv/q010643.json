@@ -1,0 +1,15 @@
+{
+  "task_id": "q010643",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input [1:0] invalid_data, input ctrl, output reg out);always @(*) begin\n    case(ctrl)\n      1'b0: out = invalid_data[0];\n      1'b1: out = invalid_data[1];\n      default: out = 1'b0; // Adding default case for safety\n    endcase\n  end\n\nendmodule",
+  "rename_map": {
+    "data": "invalid_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data": "invalid_data"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

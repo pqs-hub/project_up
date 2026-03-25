@@ -1,0 +1,6 @@
+{
+  "task_id": "q015356",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module RefModule(\n    // Clocks\n    input clk,\n    input rst,\n\n    // Wishbone slave interface\n    input      [7:0] wb_dat_i,\n    output reg [7:0] wb_dat_o,\n    input            wb_we_i,\n    input            wb_stb_i,\n    input            wb_cyc_i,\n    output           wb_ack_o,\n\n    // Timer clock\n    input timer2,\n\n    // Speaker pad signal\n    output speaker_\n  );// Net declarations\n  wire        write;\n  wire        spk;\n\n  // Combinatorial logic\n  // System speaker\n  assign speaker_ = timer2 & wb_dat_o[1];\n\n  // Wishbone signals\n  assign wb_ack_o = wb_stb_i && wb_cyc_i;\n  assign write    = wb_stb_i && wb_cyc_i && wb_we_i;\n\n  // Sequential logic\n  always @(posedge clk)\n    wb_dat_o <= rst ? 8'h0 : (write ? wb_dat_i : wb_dat_o);\n\nendmodule"
+}

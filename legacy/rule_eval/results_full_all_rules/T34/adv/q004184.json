@@ -1,0 +1,17 @@
+{
+  "task_id": "q004184",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire D,\n    input wire WL,\n    output reg BL\n);\n    reg dram_stored_value;\n\n    always @(posedge WL) begin\n        dram_stored_value <= D;  // Store the value when WL is high\n    end\n\n    always @(negedge WL) begin\n        BL <= dram_stored_value;  // Output the stored value when WL is low\n    end\nendmodule",
+  "rename_map": {
+    "stored_value": "dram_stored_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "data_in",
+      "WL": "word_line_active",
+      "BL": "bit_line_out"
+    },
+    "fallback_prefix": "dram_"
+  }
+}

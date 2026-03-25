@@ -1,0 +1,15 @@
+{
+  "task_id": "q006332",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [7:0] in0,\n  input [7:0] in1,\n  input [7:0] in2,\n  input [7:0] in3,\n  input [1:0] sel,\n  input clk, // Added clk input\n  output reg [7:0] out\n);reg [7:0] data_capture;\nreg [7:0] stage2_out;\n\nalways @(*) begin\n  case(sel)\n    2'b00: data_capture = in0;\n    2'b01: data_capture = in1;\n    2'b10: data_capture = in2;\n    2'b11: data_capture = in3;\n    default: data_capture = 8'b0; // Added default case for safety\n  endcase\nend\n\nalways @(posedge clk) begin\n  stage2_out <= data_capture;\nend\n\nalways @(posedge clk) begin\n  out <= stage2_out;\nend\n\nendmodule",
+  "rename_map": {
+    "stage1_out": "data_capture"
+  },
+  "params_used": {
+    "custom_map": {
+      "stage1_out": "data_capture"
+    },
+    "fallback_prefix": "sync_reg_"
+  }
+}

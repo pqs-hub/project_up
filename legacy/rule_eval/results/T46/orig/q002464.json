@@ -1,0 +1,6 @@
+{
+  "task_id": "q002464",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module edge_detector (\n    input wire clk,\n    input wire signal_in,\n    output reg signal_out\n);\n\nreg signal_in_prev;\n\nalways @(posedge clk) begin\n    signal_out <= (signal_in && !signal_in_prev);\n    signal_in_prev <= signal_in;\nend\n\nendmodule"
+}

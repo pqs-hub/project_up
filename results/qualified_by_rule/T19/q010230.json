@@ -1,0 +1,6 @@
+{
+  "task_id": "q010230",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(\n    input wire [7:0] in,\n    input wire en,\n    output reg [2:0] out\n    );\n\nalways @(*) begin\n    if (en) begin\n        case(in)\n            8'b00000001: out = 3'b000;\n            8'b00000010: out = 3'b001;\n            8'b00000100: out = 3'b010;\n            8'b00001000: out = 3'b011;\n            8'b00010000: out = 3'b100;\n            8'b00100000: out = 3'b101;\n            8'b01000000: out = 3'b110;\n            8'b10000000: out = 3'b111;\n            default: out = 3'b000;\n        endcase\n    end else begin\n        out = 3'b000;\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

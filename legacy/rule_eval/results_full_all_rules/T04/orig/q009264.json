@@ -1,0 +1,6 @@
+{
+  "task_id": "q009264",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module counter_enable_load_6 \n(\n  input rst,\n  input clk,\n  input enable,\n  input load,\n  input [5:0] preset_val,\n\n  output reg [5:0] count\n);\n\n  always @(posedge clk or posedge rst) begin\n    if (rst) \n\tbegin\n      count <= 6'b000000;\n    end \n\t\n\telse if (load) \n\tbegin\n      count <= preset_val;\n    end \n\t\n\telse if (enable) \n\tbegin\n      count <= count + 1;\n    end\n  end\n\nendmodule"
+}

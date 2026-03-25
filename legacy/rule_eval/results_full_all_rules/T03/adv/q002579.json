@@ -1,0 +1,8 @@
+{
+  "task_id": "q002579",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module FlashMemoryCell (\n    input wire D,\n    input wire WE,\n    output reg Q\n);\n  wire _tap_D = D & {1{1'b1}};\n\n\nalways @(*) begin\n    if (WE) begin\n        Q = D;  // Write data D to Q when WE is high\n    end\n    // Q retains its value when WE is low (memory behavior)\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

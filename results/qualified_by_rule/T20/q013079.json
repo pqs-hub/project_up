@@ -1,0 +1,6 @@
+{
+  "task_id": "q013079",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule(\n    input clk,\n    input enable,\n    input [11:0] d,\n    output reg [11:0] q\n);\n\n    // Always block triggered on the rising edge of the clock\n    always @(posedge clk) begin\n        if (enable) begin\n            q <= d;  // Load the input data into the register when enabled\n        end\n    end\n\nendmodule"
+}

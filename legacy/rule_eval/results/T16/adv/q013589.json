@@ -1,0 +1,9 @@
+{
+  "task_id": "q013589",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module johnson_counter(obf_clk, q);\n\n    input  obf_clk;  \n    output [4:0] q;  \n    reg    [4:0] q; \n    initial q = 5'b00001;\n\n    always @(posedge obf_clk)\n        begin\n            q <= {q[3:0], ~q[4]};\n        end  \n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

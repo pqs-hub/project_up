@@ -1,0 +1,16 @@
+{
+  "task_id": "q011367",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\ninput INV_RE, input WE, output RW,\noutput mem_OE, output mem_WE, output mem_CE, output mem_ADV, output mem_WAIT, output mem_UB, output mem_LB, output mem_CRE);assign RW = WE;\n\t\n\tassign mem_OE   = ~INV_RE;\n\tassign mem_WE\t = ~WE;\n\tassign mem_CE   = ~(INV_RE|WE);\n\t\n\tassign mem_ADV  = 1'b0;\n\tassign mem_WAIT = 1'b0;\n\tassign mem_UB   = 1'b0;\n\tassign mem_LB   = 1'b0;\n\tassign mem_CRE  = 1'b0;\n\t\nendmodule",
+  "rename_map": {
+    "RE": "INV_RE"
+  },
+  "params_used": {
+    "custom_map": {
+      "RE": "NOT_RE",
+      "RW": "NOT_RW"
+    },
+    "fallback_prefix": "INV_"
+  }
+}

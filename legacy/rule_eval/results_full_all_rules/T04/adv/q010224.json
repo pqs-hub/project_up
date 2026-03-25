@@ -1,0 +1,10 @@
+{
+  "task_id": "q010224",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module inverts the functionality of the clock gating circuit. It sets ENCLK to low on the rising edge of CLK when both EN and TE are high.\nmodule top_module(\n    input CLK, // clock signal\n    input EN, // enable signal\n    input TE, // test enable signal\n    output reg ENCLK // gated clock signal\n);always @(posedge CLK) begin\n    if (EN && TE) begin\n        ENCLK <= 1'b1;\n    end else begin\n        ENCLK <= 1'b0;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module inverts the functionality of the clock gating circuit. It sets ENCLK to low on the rising edge of CLK when both EN and TE are high."
+  }
+}

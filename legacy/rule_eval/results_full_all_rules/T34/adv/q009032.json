@@ -1,0 +1,15 @@
+{
+  "task_id": "q009032",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(reset, D, RST, EN, Q);input reset, D, RST, EN;\noutput Q;\nreg Q;\n\nalways @(posedge reset) begin\n  if (RST == 1'b1) begin\n    Q <= 1'b0;\n  end else if (EN == 1'b1) begin\n    Q <= D;\n  end\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "FF_"
+  }
+}

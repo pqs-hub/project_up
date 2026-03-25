@@ -1,0 +1,10 @@
+{
+  "task_id": "q012301",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    output w\n);\n    wire not_a_and_b = ~a | b;\n    assign w = not_a_and_b;\nendmodule\n\nmodule B(\n    input a,\n    input b,\n    output w\n);\n    assign w = (~a & b) | (a & ~b);\nendmodule\n\nmodule top_module(\n    input a,\n    input b,\n    output w\n);\n    wire a1_out, a2_out, b1_out, b2_out;\n    wire and_out, xor_out, or_out;\n\n    A a1(.a(a), .b(b), .w(a1_out));\n    A a2(.a(a), .b(b), .w(a2_out));\n    B b1(.a(a), .b(b), .w(b1_out));\n    B b2(.a(a), .b(b), .w(b2_out));\n\n    assign and_out = a1_out & b1_out;\n    assign xor_out = a2_out ^ b2_out;\n    assign w = and_out | xor_out;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "not_a_and_b"
+  }
+}

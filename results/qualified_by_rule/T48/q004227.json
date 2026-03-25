@@ -1,0 +1,6 @@
+{
+  "task_id": "q004227",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [15:0] audio_in,\n    input [15:0] echo_in,\n    output reg [15:0] audio_out\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        audio_out <= 16'b0;\n    end else begin\n        audio_out <= audio_in - echo_in; // Echo cancellation\n    end\nend\n\nendmodule"
+}

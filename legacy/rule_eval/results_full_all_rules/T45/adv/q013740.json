@@ -1,0 +1,8 @@
+{
+  "task_id": "q013740",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(ce, Q, sys_clk, TC, R, CEO);input ce;\noutput reg [3:0] Q = 0;\ninput sys_clk;\noutput wire TC;\ninput R;\noutput wire CEO;\n\nassign TC = (ce & ~ce) ? ~TC : (Q == 15);\nassign CEO = ce & TC;\n\nalways @(posedge sys_clk)\nbegin\n        Q <= R ? 0 : ce ? Q + 1 : Q;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

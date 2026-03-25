@@ -1,0 +1,6 @@
+{
+  "task_id": "q000356",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module data_forwarding_unit(  \n    input [4:0] src1,  \n    input [4:0] src2,  \n    input [4:0] dest,  \n    input valid,  \n    output reg forward_src1,  \n    output reg forward_src2  \n);  \n    always @(*) begin  \n        forward_src1 = 0;  \n        forward_src2 = 0;  \n        if (valid) begin  \n            if (dest == src1)  \n                forward_src1 = 1;  \n            if (dest == src2)  \n                forward_src2 = 1;  \n        end  \n    end  \nendmodule"
+}

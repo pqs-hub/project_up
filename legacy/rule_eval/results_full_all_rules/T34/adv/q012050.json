@@ -1,0 +1,18 @@
+{
+  "task_id": "q012050",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_2to4 (output_inverted, a, en);\n   input [1:0] a;\n   input en;\n   output [3:0] output_inverted;\n   \n   reg [3:0] output_inverted;\n\nalways @(a or en) begin\n    if (!en)\n        output_inverted = 4'b0000;\n    else begin\n        case (a)\n            2'b00: output_inverted = 4'b0001;\n            2'b01: output_inverted = 4'b0010;\n            2'b10: output_inverted = 4'b0100;\n            2'b11: output_inverted = 4'b1000;\n            default: output_inverted = 4'b0000;\n        endcase\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "y": "output_inverted"
+  },
+  "params_used": {
+    "custom_map": {
+      "decoder_2to4": "decoder_2to4_inverted",
+      "a": "address_inverted",
+      "en": "enable_inverted",
+      "y": "output_inverted"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q011535",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module binary_up_down_counter\n(\n    input obf_clk,\n    input reset,\n    input dir,\n    output reg [4:0] count\n);\n\n    always @(posedge obf_clk) begin\n        if (reset) begin\n            count <= 5'b00000; // Clear counter to 0\n        end else begin\n            if (dir) begin\n                count <= count + 1; // Count up\n            end else begin\n                count <= count - 1; // Count down\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

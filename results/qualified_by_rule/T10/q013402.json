@@ -1,0 +1,6 @@
+{
+  "task_id": "q013402",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule( \n    input clk,\n    input reset,            // Synchronous reset\n    input [2:0] sel, \n    input [3:0] data0,\n    input [3:0] data1,\n    input [3:0] data2,\n    input [3:0] data3,\n    input [3:0] data4,\n    input [3:0] data5,\n    output [7:0] final_output\n);// 6-to-1 Multiplexer\n    wire [3:0] mux_output;\n    assign mux_output = (sel == 0) ? data0 :\n                        (sel == 1) ? data1 :\n                        (sel == 2) ? data2 :\n                        (sel == 3) ? data3 :\n                        (sel == 4) ? data4 :\n                        (sel == 5) ? data5 : 4'b0;\n    \n    // 8-bit Shift Register\n    reg [7:0] shift_reg;\n    always @(negedge clk) begin\n        if (reset) begin\n            shift_reg <= 8'b0;\n        end else begin\n            shift_reg <= {shift_reg[6:0], mux_output};\n        end\n    end\n    \n    // Final Output\n    assign final_output = shift_reg + mux_output;\n    \nendmodule"
+}

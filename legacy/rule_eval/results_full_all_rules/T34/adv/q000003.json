@@ -1,0 +1,15 @@
+{
+  "task_id": "q000003",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell(  \n    input wire D,  \n    input wire WL,  \n    input wire clk,  \n    output reg Q  \n);  \n    reg invalid_data;  \n    always @(posedge clk) begin  \n        if (WL) begin  \n            invalid_data <= D;  \n        end  \n        Q <= invalid_data;  \n    end  \nendmodule",
+  "rename_map": {
+    "stored_data": "invalid_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "stored_data": "invalid_data"
+    },
+    "fallback_prefix": "err_"
+  }
+}

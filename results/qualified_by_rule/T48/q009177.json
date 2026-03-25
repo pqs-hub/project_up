@@ -1,0 +1,6 @@
+{
+  "task_id": "q009177",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(\n    input           clk,\n    input           rst,\n    input           load,\n    input           en,\n    input   [3:0]   data_in,\n    output reg      data_out\n);\n    reg [3:0] shift_reg;\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            shift_reg <= 4'b0;\n        else if (load)\n            shift_reg <= data_in;\n        else if (en)\n            shift_reg <= {1'b0, shift_reg[3:1]};\n    end\n    \n    always @(*) begin\n        data_out = shift_reg[0];\n    end\n\nendmodule"
+}

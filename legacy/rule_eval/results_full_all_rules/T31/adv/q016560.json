@@ -1,0 +1,10 @@
+{
+  "task_id": "q016560",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module zckenbuf_prim (clk, rclk, en_l, tm_l);\noutput clk;\ninput  rclk, en_l, tm_l;\nreg    clken;\n  always @ (rclk or en_l or tm_l)\n    if (!rclk)  \n      clken <= ~en_l | ~tm_l;\n  wire clk_inv = clken & rclk;\n  assign clk = clk_inv;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "clk_inv"
+  }
+}

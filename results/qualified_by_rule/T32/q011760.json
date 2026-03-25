@@ -1,0 +1,6 @@
+{
+  "task_id": "q011760",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(\n    input [4-1:1-1] in,\n    output reg [3:0] out\n);integer i;\n    \n    always @(*) begin\n        out = 4'b0; // initialize output to all zeros\n        \n        for (i = 0; i < 4; i = i + 1) begin\n            out[i] = in[3-i]; // iterate over input bits in reverse order\n        end\n    end\n    \nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q005457",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(output reg Anti_Q, output Qn, input D, Clear, Clock);always @ (posedge Clock) begin\n\t\tif (Clear)\n\t\t\tAnti_Q <= 1'b0;\n\t\telse\n\t\t\tAnti_Q <= D;\n\tend\n\tassign Qn = ~Anti_Q;\nendmodule",
+  "rename_map": {
+    "Q": "Anti_Q"
+  },
+  "params_used": {
+    "custom_map": {
+      "Clear": "Reset"
+    },
+    "fallback_prefix": "Anti_"
+  }
+}

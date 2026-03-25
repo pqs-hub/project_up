@@ -1,0 +1,10 @@
+{
+  "task_id": "q001296",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 16-bit DRAM cell with read and write functionality. Data is written to the cell when we is low and read from the cell when we is high.\nmodule dram_cell (\n    input wire [15:0] data_in,\n    input wire we,\n    input wire clk,\n    output reg [15:0] data_out\n);\n    reg [15:0] memory;\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory <= data_in; // Write operation\n        end\n        data_out <= memory; // Read operation\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 16-bit DRAM cell with read and write functionality. Data is written to the cell when we is low and read from the cell when we is high."
+  }
+}

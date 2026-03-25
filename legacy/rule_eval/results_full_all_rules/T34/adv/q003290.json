@@ -1,0 +1,16 @@
+{
+  "task_id": "q003290",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module divide_by_8(\n    input clk,\n    input rst,\n    output reg [2:0] q\n);\n    reg [2:0] div_count;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            div_count <= 3'b000;\n            q <= 3'b000;\n        end else begin\n            if (div_count == 3'b111) begin\n                div_count <= 3'b000;\n                q <= q + 1;\n            end else begin\n                div_count <= div_count + 1;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "count": "div_count"
+  },
+  "params_used": {
+    "custom_map": {
+      "count": "div_count",
+      "q": "div_quotient"
+    },
+    "fallback_prefix": "div_"
+  }
+}

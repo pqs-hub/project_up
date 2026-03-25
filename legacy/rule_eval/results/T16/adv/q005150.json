@@ -1,0 +1,9 @@
+{
+  "task_id": "q005150",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module sync_counter(\n    input wire obf_clk,\n    input wire enable,\n    input wire reset,\n    output reg [3:0] count\n);\n\nalways @(posedge obf_clk) begin\n    if (reset)\n        count <= 4'b0000;\n    else if (enable)\n        count <= count + 1;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001653",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module master_slave_d_latch (\n    input wire D,\n    input wire E,\n    output reg Q,\n    output reg Qn\n);\n\nreg master;\n\nalways @(D or E) begin\n    begin end  // redundant\n    if (E) begin\n        master = D; // Capture D when E is high\n    end\nend\n\nalways @(master or E) begin\n    if (!E) begin\n        Q = master;  // Output Q follows master when E is low\n        Qn = ~master; // Output Qn is the complement of master\n    end\nend\n\nendmodule"
+}

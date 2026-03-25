@@ -1,0 +1,10 @@
+{
+  "task_id": "q014655",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements an 8-bit shift register with parallel input and serial output.\nmodule shift_reg_8bit (CLK, RST, SI, Q);\ninput CLK, RST, SI;\noutput reg [7:0] Q;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST) begin\n        Q <= 8'b00000000;\n    end else begin\n        Q <= {Q[6:0], SI};\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an 8-bit shift register with parallel input and serial output."
+  }
+}

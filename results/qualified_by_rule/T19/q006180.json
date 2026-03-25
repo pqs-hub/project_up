@@ -1,0 +1,6 @@
+{
+  "task_id": "q006180",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input sreset,\n    input en,\n    output reg [2:0] count);\n\n    always @(posedge clk) begin\n        if (sreset) begin\n            count <= 3'b001;\n        end else if (en) begin\n            count <= {count[1:0], count[2]};\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

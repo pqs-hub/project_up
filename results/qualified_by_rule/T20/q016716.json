@@ -1,0 +1,6 @@
+{
+  "task_id": "q016716",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n    input [31:0] A, B, \n    input [2:0] F, \n    output reg [31:0] Y, \n    output reg Zero\n);\n\nalways @*\nbegin\n    case(F)\n        3'b000: Y <= A & B;\n        3'b001: Y <= A | B;\n        3'b010: Y <= A + B;\n        3'b011: Y <= A & ~B;\n        3'b101: Y <= A + ~B;\n        3'b110: Y <= A - B;\n        3'b111: Y <= (A < B) ? 1 : 0;\n        default: Y <= 0;\n    endcase\n    Zero <= (Y == 0) ? 1 : 0;\nend\n\nendmodule"
+}

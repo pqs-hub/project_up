@@ -1,0 +1,15 @@
+{
+  "task_id": "q008490",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module down_counter\n(\n    input rst,\n    input reset,\n    input enable,\n    output reg [4:0] count\n);\n    always @(posedge rst or posedge reset) begin\n        if (reset) begin\n            count <= 5'b10010; // Set counter to 18\n        end else if (enable) begin\n            count <= count - 1; // Decrement counter\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "_cnt_"
+  }
+}

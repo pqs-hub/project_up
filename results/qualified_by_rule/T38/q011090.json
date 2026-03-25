@@ -1,0 +1,6 @@
+{
+  "task_id": "q011090",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule( \n    input wire clk,\n    input wire reset,\n    input wire [254:0] in,\n    input wire [2:0] vec,\n    output wire [10:0] out,\n    output wire [2:0] outv,\n    output wire o2,\n    output wire o1,\n    output wire o0 );// Binary counter module\n    reg [7:0] count = 0;\n    always @(posedge clk) begin\n        if (reset) begin\n            count <= 0;\n        end else begin\n            if (in == 255) begin\n                count <= 8'b11111111;\n            end else begin\n                count <= count + 1;\n            end\n        end\n    end\n    \n    // Input splitter module\n    assign outv = vec;\n    assign o2 = vec[2];\n    assign o1 = vec[1];\n    assign o0 = vec[0];\n    \n    // Final output module\n    assign out = {count, vec};\n    \nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q002769",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module SRAM_Cell (  \n    input wire [15:0] D,  \n    output reg [15:0] Q,  \n    input wire WE,  \n    input wire RE,  \n    input wire CLK  \n);  \n    reg [15:0] shadow_memory;  \n\n    always @(posedge CLK) begin  \n        if (WE) begin  \n            shadow_memory <= D;  \n        end  \n        if (RE) begin  \n            Q <= shadow_memory;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "memory": "shadow_memory"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "shadow_memory"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

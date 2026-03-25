@@ -1,0 +1,15 @@
+{
+  "task_id": "q006273",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter_2bit (reset, RESET, COUNT);\ninput reset, RESET;\noutput reg [1:0] COUNT;\n\nalways @(posedge reset or posedge RESET) begin\n    if (RESET) begin\n        COUNT <= 2'b00;\n    end\n    else begin\n        COUNT <= COUNT + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "RST"
+    },
+    "fallback_prefix": "_cnt"
+  }
+}

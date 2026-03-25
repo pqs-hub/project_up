@@ -1,0 +1,16 @@
+{
+  "task_id": "q001228",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module voltage_regulator (\n    input [4:0] reverse_input,\n    output reg [2:0] output_voltage\n);\n\nalways @(*) begin\n    if (reverse_input <= 5'b00010) \n        output_voltage = 3'b000; // Output 0V\n    else if (reverse_input > 5'b00010 && (reverse_input - 5'b00010) >= 0) \n        output_voltage = reverse_input - 5'b00010; // Output reverse_input - 2\n    else\n        output_voltage = 3'b000; // Ensure output is not negative\nend\n\nendmodule",
+  "rename_map": {
+    "input_voltage": "reverse_input"
+  },
+  "params_used": {
+    "custom_map": {
+      "input_voltage": "reverse_input",
+      "output_voltage": "negated_output"
+    },
+    "fallback_prefix": "irr_"
+  }
+}

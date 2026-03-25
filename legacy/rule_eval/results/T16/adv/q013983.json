@@ -1,0 +1,9 @@
+{
+  "task_id": "q013983",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module enable_clear_counter (\n\tinput clk,\n\tinput obf_clear,\n\tinput enable,\n\toutput reg [9:0] count);always @(posedge clk)\nbegin\n\tif (obf_clear)\n\t\tcount <= 10'b0000000000;\n\telse if (enable)\n\t\tcount <= count + 1;\nend\n\nendmodule",
+  "rename_map": {
+    "clear": "obf_clear"
+  }
+}

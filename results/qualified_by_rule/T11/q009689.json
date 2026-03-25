@@ -1,0 +1,6 @@
+{
+  "task_id": "q009689",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,           // Clock signal.\n    input rst,           // Asynchronous reset signal.\n    input en,            // Enable signal to increment the counter.\n\n    output [31:0] count  // 32-bit counter output.\n);\n\nreg [31:0] count_r; // Counter register.\n\n// Data bit control\nalways @(posedge clk or posedge rst)\n    if (rst) count_r <= 32'b0; // Reset condition\n    else if (en) count_r <= count_r + 1; // Increment when enabled\n\nassign count = count_r;\n\nendmodule"
+}

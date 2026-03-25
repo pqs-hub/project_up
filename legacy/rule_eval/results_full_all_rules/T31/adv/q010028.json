@@ -1,0 +1,10 @@
+{
+  "task_id": "q010028",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n  input wire A, B, C,\n  output reg F\n);// Minimized Boolean expression: F = A'B' + AB' + BC\n  wire inverted_F = (~A & ~B) | (A & ~B) | (B & C);\n  assign F = inverted_F;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "inverted_F"
+  }
+}

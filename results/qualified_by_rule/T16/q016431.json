@@ -1,0 +1,6 @@
+{
+  "task_id": "q016431",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(datain, initdata, dataout, load, initialize, hold, clock);\ninput [4:0] datain, initdata;\ninput load, hold, initialize;\ninput clock;\noutput [4:0] dataout;\nreg [4:0] obf_out;\nalways @(posedge clock)\nbegin\n    if(initialize)\n       obf_out <= initdata;\n    else if(load)\n       obf_out <= datain;\n    else if(hold)\n       obf_out <= obf_out;\n    else\n       obf_out <= 5'b0;\nend\nassign dataout = obf_out;\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q007545",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module shifts the q value to the right on each positive edge of the clock signal clk.\nmodule shift_register(\n    input clk,\n    input rst,\n    \n    output reg [3:0] q\n);\n    always @(posedge clk) begin\n        if (rst)\n            q <= 4'b0000;\n        else\n            q <= {q[2:0], 1'b0};\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module shifts the q value to the right on each positive edge of the clock signal clk."
+  }
+}

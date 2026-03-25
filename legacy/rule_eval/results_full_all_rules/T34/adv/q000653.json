@@ -1,0 +1,15 @@
+{
+  "task_id": "q000653",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module temperature_sensor_controller (  \n    input clk,  \n    input reset,  \n    input [7:0] temperature,  \n    input [7:0] threshold,  \n    output reg alert  \n);  \n    reg [7:0] current_temp;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            current_temp <= 8'b0;  \n            alert <= 1'b0;  \n        end else begin  \n            current_temp <= temperature;  \n            if (temperature > threshold)  \n                alert <= 1'b1;  \n            else  \n                alert <= 1'b0;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "last_temperature": "current_temp"
+  },
+  "params_used": {
+    "custom_map": {
+      "last_temperature": "current_temp"
+    },
+    "fallback_prefix": "temp_"
+  }
+}

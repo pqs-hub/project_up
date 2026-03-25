@@ -1,0 +1,10 @@
+{
+  "task_id": "q006498",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module register(\n    input clk,\n    input rst,\n    input load,\n    input [7:0] data,\n\n    output reg [7:0] q\n);\n\nalways @(posedge clk or posedge rst)\nbegin\n    if (rst)\n        q <= 8'b00000000;   // reset\n    else if (load)\n        q <= data;          // load\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~data;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~data;"
+  }
+}

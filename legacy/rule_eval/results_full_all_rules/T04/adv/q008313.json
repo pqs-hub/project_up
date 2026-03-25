@@ -1,0 +1,10 @@
+{
+  "task_id": "q008313",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a shift register with 4 stages, but the output 'q' comes from the first stage instead of the last.\nmodule shift_register (\n\tinput clk,\n\tinput data,\n\toutput q);reg [3:0] stages = 4'b0000;\n\n\talways @(posedge clk) begin\n\t\tstages <= {stages[2:0], data};\n\tend\n\t\n\tassign q = stages[3];\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a shift register with 4 stages, but the output 'q' comes from the first stage instead of the last."
+  }
+}

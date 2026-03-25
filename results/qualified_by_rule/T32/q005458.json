@@ -1,0 +1,6 @@
+{
+  "task_id": "q005458",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(dout1,rstn, clk, dval1, dbgsel);input rstn; \n  input clk; \n  input [8-1:1-1] dval1; \n  input [7:0] dbgsel; \n  output reg [7:0] dout1; \n  reg [7:0] dbgsel_d1r; \n  always_comb begin \n  if (((dbgsel_d1r >= 84) && (dbgsel_d1r < 95))) begin \n  dout1 = dval1; \n  end \n  else begin \n  dout1 = 0; \n  end \n  end \n  always @(posedge clk) begin \n  if ((rstn == 0)) begin \n  dbgsel_d1r <= 0; \n  end \n  else begin \n  dbgsel_d1r <= dbgsel; \n  end \n  end \n endmodule"
+}

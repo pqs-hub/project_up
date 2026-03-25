@@ -1,0 +1,10 @@
+{
+  "task_id": "q001788",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-bit DRAM cell with read and write functionalities.\n// The cell has inputs for data (4 bits), a write enable signal (we), and a read enable signal (re).\n// When the write enable signal is low, the data should be written to the cell.\n// When the read enable signal is low, the current data in the cell should be output.\nmodule dram_cell (\n    input wire [3:0] data_in,\n    input wire we,\n    input wire re,\n    output reg [3:0] data_out\n);\n    reg [3:0] memory;\n\n    always @(posedge we) begin\n        memory <= data_in; // Write operation\n    end\n\n    always @(posedge re) begin\n        data_out <= memory; // Read operation\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit DRAM cell with read and write functionalities.\n// The cell has inputs for data (4 bits), a write enable signal (we), and a read enable signal (re).\n// When the write enable signal is low, the data should be written to the cell.\n// When the read enable signal is low, the current data in the cell should be output."
+  }
+}

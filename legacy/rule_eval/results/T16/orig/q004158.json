@@ -1,0 +1,6 @@
+{
+  "task_id": "q004158",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module freq_divider (\n    input clk,\n    input reset,\n    output reg out\n);\n    reg [2:0] count; // 3-bit counter to count to 8\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 3'b000;\n            out <= 1'b0;\n        end else begin\n            if (count == 3'b111) begin\n                out <= ~out; // toggle output\n                count <= 3'b000; // reset count\n            end else begin\n                count <= count + 1; // increment count\n            end\n        end\n    end\nendmodule"
+}

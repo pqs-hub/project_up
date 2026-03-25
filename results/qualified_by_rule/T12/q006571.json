@@ -1,0 +1,6 @@
+{
+  "task_id": "q006571",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input write_en,\n  input read_en,\n  input [log2_depth-1:0] addr,\n  input [data_width-1:0] data_in,\n  output reg [data_width-1:0] data_out\n);parameter depth = 16; // size of the memory block\nparameter data_width = 8; // width of each data element in bits\n\n// Compute log2 of depth for address width\nlocalparam log2_depth = $clog2(depth);\n\n// memory array\nreg [data_width-1:0] mem [0:depth-1];\n\nalways @(posedge clk) begin\n  if (write_en) begin\n    mem[addr] <= data_in;\n  end\n  if (read_en) begin\n    data_out <= mem[addr];\n  end\nend\n\nendmodule"
+}

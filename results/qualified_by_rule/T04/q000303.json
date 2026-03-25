@@ -1,0 +1,6 @@
+{
+  "task_id": "q000303",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(  \n    input [8:0] pixel00,  \n    input [8:0] pixel01,  \n    input [8:0] pixel02,  \n    input [8:0] pixel10,  \n    input [8:0] pixel11,  \n    input [8:0] pixel12,  \n    input [8:0] pixel20,  \n    input [8:0] pixel21,  \n    input [8:0] pixel22,  \n    output reg [8:0] output_pixel  \n);  \n    always @(*) begin  \n        output_pixel = (pixel00 + pixel01 + pixel02 +  \n                        pixel10 + pixel11 + pixel12 +  \n                        pixel20 + pixel21 + pixel22) / 9;  \n    end  \nendmodule"
+}

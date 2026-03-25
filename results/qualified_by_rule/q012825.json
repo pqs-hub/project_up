@@ -1,0 +1,6 @@
+{
+  "task_id": "q012825",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input reset, // Synchronous active-high reset\n    input [7:0] d, // 8-bit input for the register\n    input sel_b1, // Select input for 2-to-1 multiplexer\n    input sel_b2, // Select input for 2-to-1 multiplexer\n    input a, // Input signal a for 2-to-1 multiplexer\n    input b, // Input signal b for 2-to-1 multiplexer\n    output [7:0] q // 8-bit output from the final functional module\n);// Define the 8-bit register with synchronous reset\nreg [7:0] obf_reg_q;\nalways @(posedge clk) begin\n    if (reset) begin\n        obf_reg_q <= 8'h34;\n    end else begin\n        obf_reg_q <= d;\n    end\nend\n\n// Define the 2-to-1 multiplexer\nwire [7:0] mux_out;\nassign mux_out = (sel_b1 & sel_b2) ? b : a;\n\n// Define the functional module that performs OR operation\nwire [7:0] or_out;\nassign or_out = obf_reg_q | mux_out;\n\n// Define the final output\nassign q = or_out;\n\nendmodule"
+}

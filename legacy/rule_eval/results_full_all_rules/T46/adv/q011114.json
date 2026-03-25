@@ -1,0 +1,8 @@
+{
+  "task_id": "q011114",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n\tinput clk,\n\tinput reset,\n\toutput [3:0] out);reg [3:0] counter;\n\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n\t\tif (reset)\n\t\t\tcounter <= 4'b0000;\n\t\telse\n\t\t\tcounter <= counter + 1;\n\tend\n\n\tassign out = counter;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

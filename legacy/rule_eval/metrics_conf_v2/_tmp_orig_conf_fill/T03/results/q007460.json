@@ -1,0 +1,7 @@
+{
+  "task_id": "q007460",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module dff_sync_reset(\n    input clk,     // Chip clock signal.\n    input reset,   // Synchronous reset signal. Defined as 1 to reset the output (q) to 0.\n    input d,       // Data input signal.\n\n    output reg q   // Data output signal.\n);\n\nalways @(posedge clk) begin\n    if (reset)\n        q <= 1'b0; // Reset output to 0\n    else\n        q <= d;    // Capture data input\nend\n\nendmodule",
+  "rename_map": {}
+}

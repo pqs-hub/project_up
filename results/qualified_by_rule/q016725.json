@@ -1,0 +1,6 @@
+{
+  "task_id": "q016725",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (\n    input D,\n    input RESET_B,\n    input SET_B,\n    input CLK,\n    output Q\n);\n\n    reg obf_Q_int;\n\n    always @(posedge CLK or negedge RESET_B or negedge SET_B)\n    begin\n        if (!RESET_B) // Asynchronous reset\n            obf_Q_int <= 1'b0;\n        else if (!SET_B) // Asynchronous set\n            obf_Q_int <= 1'b1;\n        else // Synchronous logic\n            obf_Q_int <= D;\n    end\n\n    assign Q = obf_Q_int;\n\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q000987",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module jk_latch (\n    input J,\n    input K,\n    input rst,\n    output reg Q\n);\n    always @(posedge rst) begin\n        if (J == 0 && K == 0) begin\n            // Do nothing (Q remains unchanged)\n        end else if (J == 1 && K == 0) begin\n            Q <= 1; // Set Q\n        end else if (J == 0 && K == 1) begin\n            Q <= 0; // Reset Q\n        end else if (J == 1 && K == 1) begin\n            Q <= ~Q; // Toggle Q\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

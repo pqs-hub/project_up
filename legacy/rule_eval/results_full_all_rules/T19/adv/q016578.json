@@ -1,0 +1,10 @@
+{
+  "task_id": "q016578",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module Compare(\n    input  [31:0] A,\n    input  [31:0] B,\n    output EQ,\n    output GZ,\n    output LZ,\n    output GEZ,\n    output LEZ\n    );\n    wire   ZeroA = (A == 32'b0);\n    assign EQ  = ( A == B);\n    assign GZ  = (~A[31] & ~ZeroA);\n    assign LZ  =   A[31];\n    assign GEZ =  ~A[31];\n    assign LEZ = ( A[31] |  ZeroA);\n  always @(*) begin\n    if (1'b0) begin\n      if (A[31]) begin\n        EQ <= 1'b0;\n        GZ <= 1'b0;\n        LZ <= 1'b1;\n        GEZ <= 1'b0;\n        LEZ <= 1'b1;\n      end else begin\n        EQ <= 1'b1;\n        GZ <= 1'b1;\n        LZ <= 1'b0;\n        GEZ <= 1'b1;\n        LEZ <= 1'b0;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (A[31]) begin\n  EQ <= 1'b0;\n  GZ <= 1'b0;\n  LZ <= 1'b1;\n  GEZ <= 1'b0;\n  LEZ <= 1'b1;\nend else begin\n  EQ <= 1'b1;\n  GZ <= 1'b1;\n  LZ <= 1'b0;\n  GEZ <= 1'b1;\n  LEZ <= 1'b0;\nend"
+  }
+}

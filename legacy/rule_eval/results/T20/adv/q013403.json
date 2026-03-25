@@ -1,0 +1,6 @@
+{
+  "task_id": "q013403",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule top_module(\n  input clk,\n  input reset,\n  input up,\n  input down,\n  output reg [2:0] count\n);always @(posedge clk or posedge reset) begin\n    if (reset) begin\n      count <= 3'b0;\n    end else if (up) begin\n      if (count == 3'b111) begin\n        count <= 3'b0;\n      end else begin\n        count <= count + 1;\n      end\n    end else if (down) begin\n      if (count == 3'b000) begin\n        count <= 3'b111;\n      end else begin\n        count <= count - 1;\n      end\n    end\n  end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q007441",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n\tinput clk,\n\tinput reset,\n\toutput [7:0] count);reg [7:0] unused_johnson;\n\nalways @(posedge clk or posedge reset)\n\tif (reset)\n\t\tunused_johnson <= 8'b00000000;\n\telse\n\t\tunused_johnson <= {unused_johnson[6:0], ~unused_johnson[7]};\n\nassign count = unused_johnson;\n\nendmodule"
+}

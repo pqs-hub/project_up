@@ -1,0 +1,15 @@
+{
+  "task_id": "q006060",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input reset,\n    input D,\n    input RESET,\n    input SET,\n    output reg Q,    // Change Q to reg type\n    output QN\n);always @(posedge reset or negedge RESET or negedge SET) begin\n    if (!RESET) // asynchronous reset\n        Q <= 1'b0;\n    else if (!SET) // asynchronous set\n        Q <= 1'b1;\n    else // normal operation\n        Q <= D;\nend\n\nassign QN = ~Q;\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "X_"
+  }
+}

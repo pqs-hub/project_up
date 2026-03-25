@@ -1,0 +1,8 @@
+{
+  "task_id": "q003750",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module huffman_encoder (\n    input [3:0] char,\n    output reg [2:0] code\n);\n  wire [3:0] _tap_char = char & {4{1'b1}};\n\n    always @(*) begin\n        case (char)\n            4'b0000: code = 3'b000;\n            4'b0001: code = 3'b001;\n            4'b0010: code = 3'b010;\n            4'b0011: code = 3'b011;\n            4'b0100: code = 3'b100;\n            4'b0101: code = 3'b101;\n            4'b0110: code = 3'b110;\n            4'b0111: code = 3'b111;\n            default: code = 3'b111; // Invalid code\n        endcase\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q001400",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module pcie_sm(  \n    input clk,  \n    input rst,  \n    input start,  \n    input ack,  \n    input done,  \n    output reg [1:0] current_state  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n    // State encoding  \n    localparam IDLE = 2'b00,  \n               REQUEST = 2'b01,  \n               RESPONSE = 2'b10;  \n               \n    // State register  \n    reg [1:0] next_state;  \n      \n    // Sequential logic for state transition  \n    always @(posedge clk or posedge rst) begin  \n        if (rst)  \n            current_state <= IDLE;  \n        else  \n            current_state <= next_state;  \n    end  \n      \n    // Combinational logic for next state  \n    always @(*) begin  \n        case (current_state)  \n            IDLE: begin  \n                if (start)  \n                    next_state = REQUEST;  \n                else  \n                    next_state = IDLE;  \n            end  \n            REQUEST: begin  \n                if (ack)  \n                    next_state = RESPONSE;  \n                else  \n                    next_state = REQUEST;  \n            end  \n            RESPONSE: begin  \n                if (done)  \n                    next_state = IDLE;  \n                else  \n                    next_state = RESPONSE;  \n            end  \n            default: next_state = IDLE;  \n        endcase  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005808",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(\n    input [31:0] data,\n    input [31:0] key,\n    output [31:0] encrypted\n);reg [7:0] data_chunks [0:3];\n    reg [7:0] key_chunks [0:3];\n    reg [31:0] encrypted_chunks;\n    \n    // Split data into 8-bit chunks\n    always @(*) begin\n        data_chunks[0] = data[7:0];\n        data_chunks[1] = data[15:8];\n        data_chunks[2] = data[23:16];\n        data_chunks[3] = data[31:24];\n    end\n    \n    // Split key into 8-bit chunks\n    always @(*) begin\n        key_chunks[0] = key[7:0];\n        key_chunks[1] = key[15:8];\n        key_chunks[2] = key[23:16];\n        key_chunks[3] = key[31:24];\n    end\n    \n    // XOR each 8-bit chunk of data with corresponding 8-bit chunk of key\n    always @(*) begin\n        encrypted_chunks = {8'd0, 8'd0, 8'd0, 8'd0};\n        encrypted_chunks[7:0] = data_chunks[0] ^ key_chunks[0];\n        encrypted_chunks[15:8] = data_chunks[1] ^ key_chunks[1];\n        encrypted_chunks[23:16] = data_chunks[2] ^ key_chunks[2];\n        encrypted_chunks[31:24] = data_chunks[3] ^ key_chunks[3];\n    end\n    \n    assign encrypted = encrypted_chunks;\n\nendmodule"
+}

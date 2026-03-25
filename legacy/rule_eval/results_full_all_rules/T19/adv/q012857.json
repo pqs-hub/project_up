@@ -1,0 +1,10 @@
+{
+  "task_id": "q012857",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input wire [15:0] count, output wire enable);assign enable = !(|(count));\n\n\t  always @(*) begin\n    if (1'b0) begin\n      if (count == 16'hFFFF) begin\n        enable <= 1'b1;\n      end else begin\n        enable <= 1'b0;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (count == 16'hFFFF) begin\n  enable <= 1'b1;\nend else begin\n  enable <= 1'b0;\nend;"
+  }
+}

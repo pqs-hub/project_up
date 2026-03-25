@@ -1,0 +1,10 @@
+{
+  "task_id": "q010383",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module is designed to hold a 4-bit input value and provide an output reflecting the current value stored in the register. It includes a 'load' control signal for loading data from the input and a 'clear' signal for resetting the register value to zero.\nmodule top_module(input [3:0] in, input load, input clear, output [3:0] out);reg [3:0] reg_out;\n  \n  always @(*) begin\n    if (clear) begin\n      reg_out = 0;\n    end else if (load) begin\n      reg_out = in;\n    end\n  end\n  \n  assign out = reg_out;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to hold a 4-bit input value and provide an output reflecting the current value stored in the register. It includes a 'load' control signal for loading data from the input and a 'clear' signal for resetting the register value to zero."
+  }
+}

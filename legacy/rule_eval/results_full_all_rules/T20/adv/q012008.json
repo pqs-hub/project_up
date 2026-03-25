@@ -1,0 +1,10 @@
+{
+  "task_id": "q012008",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements an 8-to-1 multiplexer instead of a 1-to-8 demultiplexer.\nmodule top_module(\n    input [7:0] select,\n    input [31:0] in,\n    output reg [31:0] out0,\n    output reg [31:0] out1,\n    output reg [31:0] out2,\n    output reg [31:0] out3,\n    output reg [31:0] out4,\n    output reg [31:0] out5,\n    output reg [31:0] out6,\n    output reg [31:0] out7\n);always @(*) begin\n    case (select)\n        8'h00: begin out0 = in; out1 = 0; out2 = 0; out3 = 0; out4 = 0; out5 = 0; out6 = 0; out7 = 0; end\n        8'h01: begin out0 = 0; out1 = in; out2 = 0; out3 = 0; out4 = 0; out5 = 0; out6 = 0; out7 = 0; end\n        8'h02: begin out0 = 0; out1 = 0; out2 = in; out3 = 0; out4 = 0; out5 = 0; out6 = 0; out7 = 0; end\n        8'h03: begin out0 = 0; out1 = 0; out2 = 0; out3 = in; out4 = 0; out5 = 0; out6 = 0; out7 = 0; end\n        8'h04: begin out0 = 0; out1 = 0; out2 = 0; out3 = 0; out4 = in; out5 = 0; out6 = 0; out7 = 0; end\n        8'h05: begin out0 = 0; out1 = 0; out2 = 0; out3 = 0; out4 = 0; out5 = in; out6 = 0; out7 = 0; end\n        8'h06: begin out0 = 0; out1 = 0; out2 = 0; out3 = 0; out4 = 0; out5 = 0; out6 = in; out7 = 0; end\n        8'h07: begin out0 = 0; out1 = 0; out2 = 0; out3 = 0; out4 = 0; out5 = 0; out6 = 0; out7 = in; end\n        default: begin out0 = 0; out1 = 0; out2 = 0; out3 = 0; out4 = 0; out5 = 0; out6 = 0; out7 = 0; end\n    endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an 8-to-1 multiplexer instead of a 1-to-8 demultiplexer."
+  }
+}

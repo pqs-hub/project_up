@@ -1,0 +1,6 @@
+{
+  "task_id": "q001267",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input [3:0] numerator,\n    input [3:0] denominator,\n    output reg [3:0] quotient,\n    output reg [3:0] remainder,\n    output reg valid\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk) begin\n        if (denominator != 0) begin\n            quotient <= numerator / denominator;\n            remainder <= numerator % denominator;\n            valid <= 1'b1;\n        end else begin\n            quotient <= 4'b0000; // Undefined behavior for division by zero\n            remainder <= 4'b0000;\n            valid <= 1'b0;\n        end\n    end\nendmodule"
+}

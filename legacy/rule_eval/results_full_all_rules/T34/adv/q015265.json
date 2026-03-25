@@ -1,0 +1,15 @@
+{
+  "task_id": "q015265",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] a,\n    input [7:0] b,\n    input [1:0] op,\n    input rst,     // Added rst input\n    output reg [7:0] out\n);always @(*) begin\n    case(op)\n        2'b00: out = a + b;\n        2'b01: out = a - b;\n        2'b10: out = a & b;\n        2'b11: out = a | b;\n        default: out = 8'b0; // Added default case to handle undefined op\n    endcase\nend\n\nalways @(posedge rst) begin\n    // The out variable is updated on the positive edge of the clock\n    // It should be assigned the value from the combinatorial logic above.\n    out <= out; // Note: This can be changed if you want to latch based on combinational logic.\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

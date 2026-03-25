@@ -1,0 +1,6 @@
+{
+  "task_id": "q003999",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [3:0] current_x,\n    input [3:0] current_y,\n    input [3:0] target_x,\n    input [3:0] target_y,\n    output reg [3:0] next_x,\n    output reg [3:0] next_y\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            next_x <= current_x;\n            next_y <= current_y;\n        end else begin\n            if (current_x < target_x) \n                next_x <= current_x + 1;\n            else if (current_x > target_x) \n                next_x <= current_x - 1;\n            else \n                next_x <= current_x;\n                \n            if (current_y < target_y) \n                next_y <= current_y + 1;\n            else if (current_y > target_y) \n                next_y <= current_y - 1;\n            else \n                next_y <= current_y;\n        end\n    end\nendmodule"
+}

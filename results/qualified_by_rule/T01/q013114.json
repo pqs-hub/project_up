@@ -1,0 +1,6 @@
+{
+  "task_id": "q013114",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n\tinput clk,\n\tinput reset,\n\tinput [1:0] in,\n\toutput reg [1:0] out);reg [1:0] d_last;\n\t\t\t\n\talways @(posedge clk) begin\n    begin end  // redundant\n\t\td_last <= in;\n\t\tif (reset)\n\t\t\tout <= '0;\n\t\telse\n\t\t\tout <= out | (in & ~d_last);\n\tend\n\t\nendmodule"
+}

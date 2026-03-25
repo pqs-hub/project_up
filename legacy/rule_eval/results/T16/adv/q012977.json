@@ -1,0 +1,9 @@
+{
+  "task_id": "q012977",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module register_with_enable (\n    input [7:0] d,\n    input clk,\n    input en,\n    output [7:0] q\n);\n\n    reg [7:0] obf_q_reg;\n\n    always @(posedge clk) begin\n        if (en) begin\n            obf_q_reg <= d;\n        end\n    end\n\n    assign q = obf_q_reg;\n\nendmodule",
+  "rename_map": {
+    "q_reg": "obf_q_reg"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006433",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input [15:0] data_in,\n    output reg [3:0] data_out\n);always @(posedge clk) begin\n    if (reset) begin\n        data_out <= 0;\n    end else begin\n        case (data_in[15:12])\n            4'b0000: data_out <= 4'b0000;\n            4'b1111: data_out <= 4'b1111;\n            default: data_out <= data_in[15:12] + data_in[3:0];\n        endcase\n    end\nend\n\nendmodule"
+}

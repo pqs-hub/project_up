@@ -1,0 +1,6 @@
+{
+  "task_id": "q005597",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input [1:0] src1,\n    input [1:0] src2,\n    input [1:0] dst,\n    input [7:0] ip,\n    input clk,\n    input rst,\n    input we,\n    output [7:0] op1,\n    output [7:0] op2\n    );reg [7:0] reg_arr [3:0];\n\t\t\t\n\t\t\talways @ (posedge clk) begin\n\t\t\tif (rst==1) \n\t\t\tbegin\t\n\t\t\t\n\t\t\t\t\t\treg_arr[0] = 0;\n\t\t\t\t\t\treg_arr[1] = 0;\n\t\t\t\t\t\treg_arr[2] = 0;\n\t\t\t\t\t\treg_arr[3] = 0;\n\t\t\t\n\t\tend \n\t\t\n\t\telse if (we == 1) begin \n\t\t\n\t\t\treg_arr[dst] = ip;\n\t\t\t\n\t\tend\n\n\tend\n\t\n\twire __op1_tmp = reg_arr[src1];\n\tassign op1 = __op1_tmp;\n\t\n\tassign op2 = reg_arr[src2];\n\nendmodule"
+}

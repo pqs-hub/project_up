@@ -1,0 +1,6 @@
+{
+  "task_id": "q013279",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(\n   input                clk,\n   input                wr_en,\n   input [5:0]          wr_addr,\n   input [15:0]         wr_data,\n   input [5:0]          rd_addr,\n \n   output reg [15:0]    rd_data\n);\n    reg [15:0] memory [63:0];\n\n    always@(posedge clk) begin\n        if (wr_en) begin\n            memory[wr_addr] <= wr_data;\n        end\n        rd_data <= memory[rd_addr];\n    end\nendmodule"
+}

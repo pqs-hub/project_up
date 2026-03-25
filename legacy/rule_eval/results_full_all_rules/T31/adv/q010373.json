@@ -1,0 +1,10 @@
+{
+  "task_id": "q010373",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module( EXTop,imm16,extout);input [15:0]  imm16;\n    input [1:0]   EXTop;\n    output [31:0] extout;\n    \n    wire misleading_wire = (EXTop == 'b00) ? { imm16,16'b0}:\n                      (EXTop == 'b01) ? { 16'b0,imm16}:\n                      (EXTop == 'b10) ? { {16{imm16[15]}},imm16}:\n                      32'b0001001000110100;\n    assign extout = misleading_wire;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "misleading_wire"
+  }
+}

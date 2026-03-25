@@ -1,0 +1,9 @@
+{
+  "task_id": "q015622",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module gray_code_counter(\n  input clk,\n  input rst_n,\n  output reg [3:0] gray\n);\n\n  reg [3:0] obf_binary_count;\n  \n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      obf_binary_count <= 4'b0;\n      gray <= 4'b0;\n    end\n    else begin\n      obf_binary_count <= obf_binary_count + 1;\n      gray <= obf_binary_count ^ (obf_binary_count >> 1);\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "binary_count": "obf_binary_count"
+  }
+}

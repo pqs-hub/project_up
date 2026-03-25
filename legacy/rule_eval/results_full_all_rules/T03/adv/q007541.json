@@ -1,0 +1,8 @@
+{
+  "task_id": "q007541",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(ina, inb, out, sel);//INPUTS\n    input [0:127] ina, inb;\n    input sel;\n    \n    // OUTPUTS\n    output [0:127] out;\n  wire [127:0] _tap_ina = ina & {128{1'b1}};\n\n    \n    // REGISTERS\n    reg [0:127] out;\n    \n    always @ (ina or inb or sel)\n        begin\n        out<= sel ? ina : inb;\n        end // always @ (ina or inb or sel)\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q007791",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule(\n    input                 clk,\n    input                 rst,\n    input                 serial_in,\n    \n    output reg [3:0]      parallel_out\n);\n\n// Shift register implementation\nalways @(posedge clk) begin\n    if (rst) begin\n        parallel_out <= 4'd0;\n    end\n    else begin\n        parallel_out <= {serial_in, parallel_out[3:1]};\n    end\nend\n\nendmodule"
+}

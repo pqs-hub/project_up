@@ -1,0 +1,9 @@
+{
+  "task_id": "q001260",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module hmac_example (  \n    input [127:0] key,  \n    input [127:0] message,  \n    input obf_clk,  \n    input rst,  \n    output reg [127:0] mac  \n);  \n    always @(posedge obf_clk or posedge rst) begin  \n        if (rst) begin  \n            mac <= 128'b0;  \n        end else begin  \n            mac <= key ^ message;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

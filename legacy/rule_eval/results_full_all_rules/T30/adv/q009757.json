@@ -1,0 +1,8 @@
+{
+  "task_id": "q009757",
+  "rule_id": "T30",
+  "changed": true,
+  "final": "module top_module(\n\toutput word,\n\tinput [3:0] row, col,\n\tinput [1:0] select\n);reg [15:0] line[15:0];\n\ninteger i;\nalways @(*)\nbegin\n\tif (select == 1) begin\n\t\tline[0] = 16'b0000000000000000;\n\t\tline[1] = 16'b0000000000000000;\n\t\tline[2] = 16'b0000111111110000;\n\t\tline[3] = 16'b0001111111111000;\n\t\tline[4] = 16'b0011100000011100;\n\t\tline[5] = 16'b0111000000001110;\n\t\tline[6] = 16'b0111000000001110;\n\t\tline[7] = 16'b0111000000001110;\n\t\tline[8] = 16'b0111000000001110;\n\t\tline[9] = 16'b0111000000001110;\n\t\tline[10] =16'b0111000000001110;\n\t\tline[11] =16'b0111000000001110;\n\t\tline[12] =16'b0111000000001110;\n\t\tline[13] =16'b0011111111111100;\n\t\tline[14] =16'b0001111111111000;\n\t\tline[15] =16'b0000000000000000;\n\tend else if (select == 2) begin\n\t\tline[0] = 16'b0000000000000000;\n\t\tline[1] = 16'b1110000000000111;\n\t\tline[2] = 16'b0111000000001110;\n\t\tline[3] = 16'b0011100000011100;\n\t\tline[4] = 16'b0001110000111000;\n\t\tline[5] = 16'b0000111001110000;\n\t\tline[6] = 16'b0000011111100000;\n\t\tline[7] = 16'b0000001111000000;\n\t\tline[8] = 16'b0000001111000000;\n\t\tline[9] = 16'b0000011111100000;\n\t\tline[10] =16'b0000111001110000;\n\t\tline[11] =16'b0001110000111000;\n\t\tline[12] =16'b0011100000011100;\n\t\tline[13] =16'b0111000000001110;\n\t\tline[14] =16'b1110000000000111;\n\t\tline[15] =16'b0000000000000000;\n\tend else for (i=0; i<16; i=i+1)\n\t\tline[i] = 16'b0;\nend\n\nassign word =  (select == 0) ? (1'b1 & 1'b0) : (line[row] >> (~col)) % 2;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

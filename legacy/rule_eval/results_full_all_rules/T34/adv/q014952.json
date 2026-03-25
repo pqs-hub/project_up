@@ -1,0 +1,15 @@
+{
+  "task_id": "q014952",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] data_i,\n    input [2:0] shift_i,\n    output [2:0] data_o\n    );reg [15:0] shifter_reg;\n   always @*\n      case (shift_i)\n         3'b000: shifter_reg = data_i;\n         3'b001: shifter_reg = data_i << 1;\n         3'b010: shifter_reg = data_i << 2;\n         3'b011: shifter_reg = data_i << 3;\n         3'b100: shifter_reg = data_i << 4;\n         3'b101: shifter_reg = data_i << 5;\n         3'b110: shifter_reg = data_i << 6;\n         default: shifter_reg = data_i << 7;\n      endcase\n\tassign data_o = shifter_reg[7:5];endmodule",
+  "rename_map": {
+    "tmp": "shifter_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "tmp": "shifter_reg"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

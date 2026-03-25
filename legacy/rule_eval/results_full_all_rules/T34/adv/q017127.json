@@ -1,0 +1,15 @@
+{
+  "task_id": "q017127",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module comb_circuit (\n  input [3:0] in,\n  output reg [2:0] invalid_output\n);\n\n  always @(*) begin\n    if (in < 4) begin\n      invalid_output = in + 1;\n    end else begin\n      invalid_output = in - 1;\n    end\n  end\n\nendmodule\n",
+  "rename_map": {
+    "out": "invalid_output"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_output"
+    },
+    "fallback_prefix": "err_"
+  }
+}

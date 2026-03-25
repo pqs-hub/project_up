@@ -1,0 +1,9 @@
+{
+  "task_id": "q013660",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module bidir_counter(\n    input obf_clk,\n    input rst,\n    input up_down,\n    output reg [7:0] q\n    );\n\n    always @(posedge obf_clk) begin\n        if (rst) begin\n            q <= 8'b00000000;\n        end else begin\n            if (up_down) begin\n                q <= q + 1;\n            end else begin\n                q <= q - 1;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

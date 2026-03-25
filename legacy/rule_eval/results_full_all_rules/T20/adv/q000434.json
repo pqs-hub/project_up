@@ -1,0 +1,10 @@
+{
+  "task_id": "q000434",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module performs a thermal sensor calibration by subtracting the calibration value from the raw sensor data.\nmodule thermal_sensor_calibration(  \n    input wire clk,  \n    input wire rst,  \n    input wire [11:0] raw_data,   // 12-bit raw sensor data  \n    input wire [11:0] calibration_value, // 12-bit calibration value  \n    output reg [11:0] calibrated_data // output calibrated data  \n);  \n\n    reg [11:0] last_calibrated_value;  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            calibrated_data <= 12'b0;  \n            last_calibrated_value <= 12'b0;  \n        end else begin  \n            calibrated_data <= raw_data + calibration_value;  \n            last_calibrated_value <= calibrated_data;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs a thermal sensor calibration by subtracting the calibration value from the raw sensor data."
+  }
+}

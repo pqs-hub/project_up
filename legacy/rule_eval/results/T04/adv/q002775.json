@@ -1,0 +1,6 @@
+{
+  "task_id": "q002775",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule decoder_2_to_4 (\n    input wire [1:0] A,\n    output reg [3:0] Y\n);\n    always @* begin\n        case (A)\n            2'b00: Y = 4'b0001;\n            2'b01: Y = 4'b0010;\n            2'b10: Y = 4'b0100;\n            2'b11: Y = 4'b1000;\n            default: Y = 4'b0000; // Default case (not strictly necessary)\n        endcase\n    end\nendmodule"
+}

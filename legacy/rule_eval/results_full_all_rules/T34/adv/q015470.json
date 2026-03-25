@@ -1,0 +1,15 @@
+{
+  "task_id": "q015470",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module d_flip_flop (\n\tinput clock,\n\tinput async_reset,\n\tinput d,\n\toutput reg q);always @(posedge clock or posedge async_reset) begin\n\t\tif (async_reset)\n\t\t\tq <= 0;\n\t\telse\n\t\t\tq <= d;\n\tend\n\t\n\tinitial q = 0;\nendmodule",
+  "rename_map": {
+    "reset": "async_reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "reset": "async_reset"
+    },
+    "fallback_prefix": "ff_"
+  }
+}

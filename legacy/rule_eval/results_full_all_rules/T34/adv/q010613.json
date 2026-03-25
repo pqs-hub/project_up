@@ -1,0 +1,17 @@
+{
+  "task_id": "q010613",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n        input [7:0] x,\n        input [7:0] y,\n        output out\n    );wire [7:0] and_result;\n    wire [3:0] chain1;\n    wire [1:0] chain2;\n    assign and_result[7:0] = x & y;\n    assign out = chain2[0] | chain2[1];\n    \n    generate\n        genvar i;\n        for(i = 0; i < 4; i = i + 1)\n            assign chain1[i] = and_result[2*i] | and_result[2*i + 1];\n        for(i = 0; i < 2; i = i + 1)\n            assign chain2[i] = chain1[2*i] & chain1[2*i + 1];\n    endgenerate\nendmodule",
+  "rename_map": {
+    "chain0": "and_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "chain0": "and_result",
+      "chain1": "or_result",
+      "chain2": "final_and"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

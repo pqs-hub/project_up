@@ -1,0 +1,6 @@
+{
+  "task_id": "q003676",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n    input [3:0] src1,\n    input [3:0] src2,\n    input [3:0] dest,\n    input valid,\n    output reg forwardA,\n    output reg forwardB\n);\n    \nalways @(*) begin\n    forwardA = 0;\n    forwardB = 0;\n    if (valid) begin\n        if (src1 == dest) begin\n            forwardA = 1;\n        end\n        if (src2 == dest) begin\n            forwardB = 1;\n        end\n    end\nend\n\nendmodule"
+}

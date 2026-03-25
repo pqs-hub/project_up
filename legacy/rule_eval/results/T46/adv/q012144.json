@@ -1,0 +1,8 @@
+{
+  "task_id": "q012144",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n    input SI,\n    input CLK,\n    output reg [3:0] Q\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n        Q <= {Q[2:0], SI};\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

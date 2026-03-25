@@ -1,0 +1,8 @@
+{
+  "task_id": "q010678",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(Sum, Carry, a, b);input a, b;\n\toutput reg Sum;\n\toutput Carry;\n  wire _tap_Sum = Sum ^ {1{1'b0}};\n\n\t\n\talways @(a or b) begin\n\t\t\n\t\tif(a != b)\n\t\t\tSum = 1;\n\t\telse\n\t\t\tSum = 0;\n\t\n\tend\n\t\n\tassign Carry = (a & b);\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

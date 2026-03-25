@@ -1,0 +1,9 @@
+{
+  "task_id": "q001151",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module power_gate (\n    input wire power_enable,\n    input wire obf_power_consumption_level, // 0 for low, 1 for high\n    output reg power_output\n);\n\nalways @(*) begin\n    if (power_enable && !obf_power_consumption_level) begin\n        power_output = 1; // Power enabled\n    end else begin\n        power_output = 0; // Power disabled\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "power_consumption_level": "obf_power_consumption_level"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q004932",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(CLK, EN, TE, ENCLK);input CLK, EN, TE;\n  output ENCLK;\n\n  reg ENCLK_reg;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n    if (EN) begin\n      ENCLK_reg <= TE;\n    end\n  end\n\n  assign ENCLK = EN ? ENCLK_reg : 1'b0;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

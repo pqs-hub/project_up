@@ -1,0 +1,6 @@
+{
+  "task_id": "q012876",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule(clk,rst_n,adder_a,adder_b,adder_out);parameter data_in_width = 32;\ninput clk;\ninput rst_n;\ninput [data_in_width-1:0] adder_a;\ninput [data_in_width-1:0] adder_b;\noutput [data_in_width-1:0]adder_out;\n\nreg [data_in_width:0]sum;\n\nalways@(posedge clk or negedge rst_n)\nbegin\n    if(!rst_n)\n        sum <= 0;\n    else\n        sum <= adder_a + adder_b;\nend\nassign adder_out = sum[data_in_width - 1:0];\n\nendmodule"
+}

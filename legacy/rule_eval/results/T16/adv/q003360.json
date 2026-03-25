@@ -1,0 +1,9 @@
+{
+  "task_id": "q003360",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module temperature_monitor(\n    input [3:0] temperature,\n    input clk,\n    input reset,\n    output reg [2:0] obf_alarm\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            obf_alarm <= 3'b000;\n        end else begin\n            if (temperature > 4'b1010) begin // If temperature > 10\n                obf_alarm <= 3'b111; // Set obf_alarm\n            end else begin\n                obf_alarm <= 3'b000; // Clear obf_alarm\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "alarm": "obf_alarm"
+  }
+}

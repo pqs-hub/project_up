@@ -1,0 +1,15 @@
+{
+  "task_id": "q013763",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module reg_with_clear (\n  input rst,\n  input clr,\n  input en,\n  input [7:0] data,\n  output reg [7:0] q\n);\n\n  always @(posedge rst or posedge clr) begin\n    if (clr)\n      q <= 8'b00000000;\n    else if (en)\n      q <= data;\n  end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

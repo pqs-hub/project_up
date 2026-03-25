@@ -1,0 +1,6 @@
+{
+  "task_id": "q013692",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(clk, we, add, wr, rd);parameter width = 'd16; \n  parameter depth = 'd8192; \n  parameter add_width = 'd13; \n  input wire clk ; \n  input wire we ; \n  input wire [add_width-1:0] add ; \n  input wire [width-1:0] wr ; \n  output reg [width-1:0] rd ; \n  reg [width-1:0] mem_arr [0:depth-1] ; \n  always@(posedge clk) begin \n  rd [width-1:0] <= mem_arr[add] [width-1:0]; \n  end \n  always@(posedge clk) begin \n  if(we) mem_arr[add] [width-1:0] <= wr [width-1:0]; \n  end \n endmodule"
+}

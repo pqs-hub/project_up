@@ -1,0 +1,10 @@
+{
+  "task_id": "q007799",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This register clears on the negative edge of the clock and loads data on the positive edge when enabled.\nmodule register_16bit(\n    input [15:0] d,\n    input clk,\n    input en,\n    input clr,\n    output reg [15:0] q\n);\n\n    always @(posedge clk) begin\n        if (clr)\n            q <= 16'b0;\n        else if (en)\n            q <= d;\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This register clears on the negative edge of the clock and loads data on the positive edge when enabled."
+  }
+}

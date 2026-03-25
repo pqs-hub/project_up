@@ -1,0 +1,9 @@
+{
+  "task_id": "q003217",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module temperature_sensor (\n    input [3:0] obf_temp_in,\n    output reg [2:0] temp_out\n);\n\nalways @(*) begin\n    if (obf_temp_in < 4'd5) begin\n        temp_out = 3'b000; // Cold\n    end else if (obf_temp_in >= 4'd5 && obf_temp_in <= 4'd10) begin\n        temp_out = 3'b001; // Cool\n    end else if (obf_temp_in >= 4'd11 && obf_temp_in <= 4'd15) begin\n        temp_out = 3'b010; // Warm\n    end else begin\n        temp_out = 3'b011; // Hot\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "temp_in": "obf_temp_in"
+  }
+}

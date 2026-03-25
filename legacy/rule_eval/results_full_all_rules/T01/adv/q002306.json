@@ -1,0 +1,8 @@
+{
+  "task_id": "q002306",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module master_slave_d_latch (\n    input wire D,\n    input wire EN,\n    output reg Q,\n    output reg Q_not\n);\n    reg master_Q;\n\n    always @(posedge EN) begin\n    begin end  // redundant\n        master_Q <= D;\n    end\n\n    always @(negedge EN) begin\n        Q <= master_Q;\n        Q_not <= ~master_Q;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

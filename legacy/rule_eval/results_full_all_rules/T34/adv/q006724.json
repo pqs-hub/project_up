@@ -1,0 +1,15 @@
+{
+  "task_id": "q006724",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk, res, a, b, outp);input clk,res;\n  input [31:0] a, b;\n  reg [7:0] neg_exp_a,exp_b;\n  output reg [8:0] outp;\n  \n  always @(posedge clk)\n    begin\n      neg_exp_a = a[30:23];\n      exp_b = b[30:23];\n      if(neg_exp_a >= exp_b)\n        begin\n        outp[7:0] = neg_exp_a - exp_b;\n        outp[8] = 0;\n        end\n      else\n        begin\n          outp[7:0] = exp_b - neg_exp_a;\n          outp[8] = 1;\n        end\n      if(res == 0)\n        outp = 0;\n    end\nendmodule",
+  "rename_map": {
+    "exp_a": "neg_exp_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "exp_a": "neg_exp_a"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

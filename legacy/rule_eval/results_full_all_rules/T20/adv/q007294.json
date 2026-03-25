@@ -1,0 +1,10 @@
+{
+  "task_id": "q007294",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Sign-extends the 11-bit input to 32 bits by replicating the least significant bit 21 times and shifting left by 2 bits\nmodule top_module(inSh, out);input [10:0] inSh;\n\t\n\t output reg [31:0] out;\n\t reg [31:0] temp;\n\n\talways@(inSh)begin\n\t\ttemp <= {{21{inSh[10]}}, inSh[10:0]};\t\t\n\tend\n\t\n\talways@(temp)begin\n\t\tout <= temp << 2;\n\tend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Sign-extends the 11-bit input to 32 bits by replicating the least significant bit 21 times and shifting left by 2 bits"
+  }
+}

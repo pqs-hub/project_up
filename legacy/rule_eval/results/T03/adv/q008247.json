@@ -1,0 +1,6 @@
+{
+  "task_id": "q008247",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module up_counter(clk, reset, Q);\n    input clk, reset;\n    output reg [2:0] Q;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk) begin\n        if (reset)\n            Q <= 3'b000;\n        else\n            Q <= Q + 1;\n    end\nendmodule"
+}

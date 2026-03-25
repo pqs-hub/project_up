@@ -1,0 +1,6 @@
+{
+  "task_id": "q013498",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(out, in, en, clk, rst);output reg [3:0] out;\ninput [3:0] in;\ninput en, clk, rst;\n  wire [3:0] _tap_out = out ^ {4{1'b0}};\n\n\nalways@(posedge clk)\nbegin\n\tif(rst) out <= 4'd0;\n\telse\n\tbegin\n\t\tif(en) out <= in;\n\tend\nend\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q002978",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module D_latch (\n    input wire D,\n    input wire E,\n    output reg Q\n);\n    always @(D or E) begin\n    begin end  // redundant\n        if (E) begin\n            Q <= D; // Capture input when enabled\n        end\n        // Q holds its value when E is low\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

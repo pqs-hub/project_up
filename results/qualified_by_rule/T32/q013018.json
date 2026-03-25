@@ -1,0 +1,6 @@
+{
+  "task_id": "q013018",
+  "rule_id": "T32",
+  "changed": false,
+  "final": "module RefModule (\n\tinput clk,\n\tinput rst,\n\tinput d,\n\toutput reg edge_detected);\n\n\treg d_prev;\n\n\talways @(posedge clk) begin\n\t\tif (rst)\n\t\t\td_prev <= 0;\n\t\telse\n\t\t\td_prev <= d;\n\tend\n\n\talways @(posedge clk) begin\n\t\tif (rst)\n\t\t\tedge_detected <= 0;\n\t\telse\n\t\t\tedge_detected <= d & ~d_prev;\n\tend\n\t\nendmodule"
+}

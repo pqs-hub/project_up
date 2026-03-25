@@ -1,0 +1,10 @@
+{
+  "task_id": "q005332",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(eligible_to_graduate, pass);output eligible_to_graduate;\ninput [3:0] pass;\n\nassign eligible_to_graduate = pass[3] & (pass[2] | pass[0] &\n                                                   pass[1]);\n\n  always @(*) begin\n    if (1'b0) begin\n      pass[0] <= ~pass[0];\n      pass[1] <= ~pass[1];\n      pass[2] <= ~pass[2];\n      pass[3] <= ~pass[3];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "pass[0] <= ~pass[0];\npass[1] <= ~pass[1];\npass[2] <= ~pass[2];\npass[3] <= ~pass[3];"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q004514",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input signed [7:0] obf_a,\n    input signed [7:0] b,\n    input sel,\n    input reset,\n    input clk,\n    output signed [15:0] out\n);reg signed [15:0] product;\nreg signed [15:0] sum;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        product <= 0;\n        sum <= 0;\n    end else begin\n        if (sel) begin\n            sum <= obf_a + b;\n        end else begin\n            product <= obf_a * b;\n        end\n    end\nend\n\nassign out = sel ? sum : product;\n\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q013523",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input C,\n    input D,\n    output X\n);wire X_Y1, Y2, Y3;\n\n    // Using primitive gates instead, since sky130_fd_sc_hd__or4bb_2 is unknown.\n    assign X_Y1 = A | B;\n    assign Y2 = C | D;\n    assign Y3 = X_Y1 | Y2;\n\n    assign X = Y3;\n\nendmodule",
+  "rename_map": {
+    "Y1": "X_Y1"
+  },
+  "params_used": {
+    "custom_map": {
+      "Y1": "Z1"
+    },
+    "fallback_prefix": "X_"
+  }
+}

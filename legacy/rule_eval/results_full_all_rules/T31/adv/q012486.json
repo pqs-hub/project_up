@@ -1,0 +1,10 @@
+{
+  "task_id": "q012486",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] data_in,\n    output [15:0] data_out\n);wire [1:0] msb = data_in[31:30];\n\n    wire inverted_data = (msb == 2'b01) ? data_in[15:0] :\n                     (msb == 2'b10) ? data_in[31:16] :\n                     (msb == 2'b11) ? ~data_in[31:16] :\n                                      ~data_in[15:0];\n    assign data_out = inverted_data;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "inverted_data"
+  }
+}

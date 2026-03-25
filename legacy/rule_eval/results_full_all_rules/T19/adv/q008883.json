@@ -1,0 +1,10 @@
+{
+  "task_id": "q008883",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(inA, inB, outX, outY);input inA, inB;\n\toutput outX, outY;\n\tassign outX = ~(inA & outY);\n\tassign outY = ~(inB & outX);\n  always @(*) begin\n    if (1'b0) begin\n      outX <= ~inA; outY <= ~inB;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "outX <= ~inA; outY <= ~inB;"
+  }
+}

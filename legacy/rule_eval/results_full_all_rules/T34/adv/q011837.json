@@ -1,0 +1,15 @@
+{
+  "task_id": "q011837",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module t_flip_flop (\n    input reset,\n    input t_enable,\n    output reg q\n);\n\n    always @(posedge reset) begin\n        if (t_enable)\n            q <= ~q;\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

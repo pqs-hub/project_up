@@ -1,0 +1,6 @@
+{
+  "task_id": "q001648",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(input [15:0] data_in, output reg [15:0] data_out);  \n    reg [7:0] obf_arr [1:0];  \n    integer i, j;  \n    always @(*) begin  \n        obf_arr[0] = data_in[15:8];  \n        obf_arr[1] = data_in[7:0];  \n        \n        // Simple Bubble Sort for 2 elements  \n        for (i = 0; i < 1; i = i + 1) begin  \n            for (j = 0; j < 1 - i; j = j + 1) begin  \n                if (obf_arr[j] > obf_arr[j + 1]) begin  \n                    // Swap  \n                    {obf_arr[j], obf_arr[j + 1]} = {obf_arr[j + 1], obf_arr[j]};  \n                end  \n            end  \n        end  \n        \n        data_out = {obf_arr[0], obf_arr[1]};  \n    end  \nendmodule"
+}

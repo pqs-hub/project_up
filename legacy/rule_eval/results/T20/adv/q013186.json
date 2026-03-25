@@ -1,0 +1,6 @@
+{
+  "task_id": "q013186",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule top_module(clk, init, mem_dat_in, mem_dat_out, mem_addr, rd, wr);input clk;\n\tinput [15:0]mem_dat_in;\n\tinput [7:0]mem_addr; \n\tinput rd;\n\tinput wr;\n\tinput init;\n\n\toutput reg [15:0]mem_dat_out;\n\n\t\n\treg [15:0]ram[255:0]; \n\t\n\talways @(posedge clk) begin\n\t\tif(init) begin\n\t\t\tif(wr) begin\n\t\t\t\tram[mem_addr] <= mem_dat_in;\n\t\t\tend else if(rd) begin\n\t\t\t\tmem_dat_out <= ram[mem_addr];\n\t\t\tend\n\t\tend\n\tend\n\t\nendmodule"
+}

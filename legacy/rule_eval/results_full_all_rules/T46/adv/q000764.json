@@ -1,0 +1,8 @@
+{
+  "task_id": "q000764",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module tcp_segmenter (  \n    input wire clk,  \n    input wire reset,  \n    input wire [31:0] data_in,  \n    input wire segment,  \n    output reg [15:0] segment1,  \n    output reg [15:0] segment2,  \n    output reg valid  \n);  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin  \n        if (reset) begin  \n            segment1 <= 16'b0;  \n            segment2 <= 16'b0;  \n            valid <= 1'b0;  \n        end else if (segment) begin  \n            segment1 <= data_in[31:16];  \n            segment2 <= data_in[15:0];  \n            valid <= 1'b1;  \n        end else begin  \n            valid <= 1'b0;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

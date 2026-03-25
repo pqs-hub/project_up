@@ -1,0 +1,6 @@
+{
+  "task_id": "q010319",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input [addr_width-1:0] addr1,\n  input [addr_width-1:0] addr2,\n  input we1,\n  input we2,\n  input [width-1:0] din1,\n  input [width-1:0] din2,\n  output reg [width-1:0] dout1,\n  output reg [width-1:0] dout2\n);parameter depth = 256; // number of memory locations\nparameter width = 8; // width of each memory location in bits\nlocalparam addr_width = $clog2(depth); // calculate address width using $clog2\n\nreg [width-1:0] mem [0:depth-1];\n\nalways @(posedge clk) begin\n  if (we1) begin\n    mem[addr1] <= din1;\n  end\n  if (we2) begin\n    mem[addr2] <= din2;\n  end\n  dout1 <= mem[addr1];\n  dout2 <= mem[addr2];\nend\n\nendmodule"
+}

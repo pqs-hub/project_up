@@ -1,0 +1,10 @@
+{
+  "task_id": "q003763",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module power_gating(  \n    input wire enable,  \n    input wire A,  \n    input wire B,  \n    output wire Y  \n);  \n    assign Y = (enable) ? (A & B) : 0;  \n  always @(*) begin\n    if (1'b0) begin\n      if (enable) begin\n        Y <= ~A;\n      end else begin\n        Y <= ~B;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (enable) begin\n  Y <= ~A;\nend else begin\n  Y <= ~B;\nend;"
+  }
+}

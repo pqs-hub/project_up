@@ -1,0 +1,10 @@
+{
+  "task_id": "q007842",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module counter_12bit(\n\tinput clk,\n\tinput reset,\n\toutput reg [11:0] q);always @(posedge clk) begin\n\tif (reset)\n\t\tq <= 12'b0;\n\telse\n\t\tq <= q + 4;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= q - 4;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= q - 4;"
+  }
+}

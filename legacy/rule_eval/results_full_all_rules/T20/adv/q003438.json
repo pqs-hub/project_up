@@ -1,0 +1,10 @@
+{
+  "task_id": "q003438",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-bit DRAM cell with read and write capabilities.\n// It has a data input (4 bits), a data output (4 bits), a read enable signal,\n// a write enable signal, and a clock signal. The DRAM cell should remember\n// the written data until it is overwritten. The read operation should output\n// the stored data when the read enable signal is low and the write operation\n// should store the input data when the write enable signal is low.\nmodule dram_cell (\n    input wire clk,\n    input wire [3:0] data_in,\n    input wire read_enable,\n    input wire write_enable,\n    output reg [3:0] data_out\n);\n    reg [3:0] memory;\n\n    always @(posedge clk) begin\n        if (write_enable) begin\n            memory <= data_in;   // Write data to memory on rising edge of clock\n        end\n        if (read_enable) begin\n            data_out <= memory;  // Read data from memory\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit DRAM cell with read and write capabilities.\n// It has a data input (4 bits), a data output (4 bits), a read enable signal,\n// a write enable signal, and a clock signal. The DRAM cell should remember\n// the written data until it is overwritten. The read operation should output\n// the stored data when the read enable signal is low and the write operation\n// should store the input data when the write enable signal is low."
+  }
+}

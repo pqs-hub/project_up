@@ -1,0 +1,10 @@
+{
+  "task_id": "q000364",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 16-bit shift register with asynchronous loading capability. It shifts right on each clock cycle, and if a load signal is low, it loads a new 16-bit value from an input bus instead of shifting.\nmodule shift_register (\n    input wire clk,\n    input wire rst,\n    input wire load,\n    input wire [15:0] data_in,\n    output reg [15:0] data_out\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            data_out <= 16'b0; // Reset the register to 0\n        end else if (load) begin\n            data_out <= data_in; // Load new data\n        end else begin\n            data_out <= {data_out[14:0], 1'b0}; // Shift left\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 16-bit shift register with asynchronous loading capability. It shifts right on each clock cycle, and if a load signal is low, it loads a new 16-bit value from an input bus instead of shifting."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q010234",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\tinput [1:0] binary,\n\toutput reg [3:0] one_hot);always @(*) begin\n\tcase(binary)\n\t\t2'b00: one_hot = 4'b0001;\n\t\t2'b01: one_hot = 4'b0010;\n\t\t2'b10: one_hot = 4'b0100;\n\t\t2'b11: one_hot = 4'b1000;\n\t\tdefault: one_hot = 4'b0000;\n\tendcase\nend\n  always @(*) begin\n    if (1'b0) begin\n      one_hot[0] <= ~binary[0];\n      one_hot[1] <= ~binary[1];\n      one_hot[2] <= binary[0] & binary[1];\n      one_hot[3] <= binary[0] | binary[1];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "one_hot[0] <= ~binary[0];\none_hot[1] <= ~binary[1];\none_hot[2] <= binary[0] & binary[1];\none_hot[3] <= binary[0] | binary[1];"
+  }
+}

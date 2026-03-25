@@ -1,0 +1,10 @@
+{
+  "task_id": "q015888",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module d_flip_flop (\n    input D,\n    input Clk,\n    input Reset,\n    output reg Q\n);\n\nalways @(posedge Clk or posedge Reset) begin\n    if (Reset)\n        Q <= 1'b0;\n    else\n        Q <= D;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Q <= ~D;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= ~D;"
+  }
+}

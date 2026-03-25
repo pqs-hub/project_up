@@ -1,0 +1,15 @@
+{
+  "task_id": "q004125",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module master_slave_d_latch (\n    input wire D,\n    input wire CLK,\n    output reg Q\n);\n    reg invalid_D_master;\n\n    always @(posedge CLK) begin\n        invalid_D_master <= D;  // Capture D when CLK is high\n    end\n\n    always @(negedge CLK) begin\n        Q <= invalid_D_master;  // Output invalid_D_master when CLK goes low\n    end\nendmodule",
+  "rename_map": {
+    "D_master": "invalid_D_master"
+  },
+  "params_used": {
+    "custom_map": {
+      "D_master": "Q_slave"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

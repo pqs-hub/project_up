@@ -1,0 +1,6 @@
+{
+  "task_id": "q011171",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n  input signed [7:0] input_a,\n  input signed [7:0] input_b,\n  input reset,\n  output signed [8:0] sum\n);reg signed [8:0] sum_reg;\n\n  always @(*) begin\n    if (reset) begin\n      sum_reg <= 0;\n    end else begin\n      sum_reg <= input_a + input_b;\n    end\n  end\n\n  assign sum = sum_reg;\n\nendmodule"
+}

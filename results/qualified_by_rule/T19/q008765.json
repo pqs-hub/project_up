@@ -1,0 +1,6 @@
+{
+  "task_id": "q008765",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input wr_en,\n    input rd_en,\n    input [12:0] addr,\n    input [15:0] data_in,\n    output reg [15:0] data_out // Change wire to reg\n);reg [15:0] memory [0:8191];\n\n    always @(posedge clk) begin\n        if (wr_en) begin\n            memory[addr] <= data_in;\n        end\n        if (rd_en) begin\n            data_out <= memory[addr];\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

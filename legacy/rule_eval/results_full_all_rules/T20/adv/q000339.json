@@ -1,0 +1,10 @@
+{
+  "task_id": "q000339",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements an EEPROM cell that supports Write, Read, and Erase operations. Writing a 1-bit value to the cell is achieved by setting the write_en signal high and providing the desired data_in. Reading the stored value can be done by asserting the read_en signal. The erase_en signal resets the cell to 0.\nmodule eeprom_cell (\n    input wire clk,\n    input wire write_en,\n    input wire read_en,\n    input wire erase_en,\n    input wire data_in,\n    output reg data_out\n);\n\n    always @(posedge clk) begin\n        if (erase_en) begin\n            data_out <= 1'b0;\n        end else if (write_en) begin\n            data_out <= data_in;\n        end else if (read_en) begin\n            // data_out is updated on read; no action needed here\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an EEPROM cell that supports Write, Read, and Erase operations. Writing a 1-bit value to the cell is achieved by setting the write_en signal high and providing the desired data_in. Reading the stored value can be done by asserting the read_en signal. The erase_en signal resets the cell to 0."
+  }
+}

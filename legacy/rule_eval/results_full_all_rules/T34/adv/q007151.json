@@ -1,0 +1,16 @@
+{
+  "task_id": "q007151",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module full_adder(\n    input a,            // First 1-bit input signal.\n    input b,            // Second 1-bit input signal.\n    input carry_in,          // Carry-in 1-bit input signal.\n\n    output sum,         // Sum output signal.\n    output cout         // Carry-out output signal.\n);\n\n// Full adder logic\nassign sum = a ^ b ^ carry_in;\nassign cout = (a & b) | (b & carry_in) | (a & carry_in);\n\nendmodule",
+  "rename_map": {
+    "cin": "carry_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "cin": "carry_in",
+      "cout": "carry_out"
+    },
+    "fallback_prefix": "fa_"
+  }
+}

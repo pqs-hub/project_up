@@ -1,0 +1,15 @@
+{
+  "task_id": "q017250",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module my_inverter (\n    input  A   ,\n    output Z   ,\n    input  TE  ,\n    input  VPB ,\n    input  VPWR,\n    input  VGND,\n    input  VNB\n);\n\n  wire inv_A_bar;\n  assign inv_A_bar = ~A;\n\n  assign Z = TE ? inv_A_bar : A;\n\nendmodule",
+  "rename_map": {
+    "A_bar": "inv_A_bar"
+  },
+  "params_used": {
+    "custom_map": {
+      "A_bar": "A_not"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

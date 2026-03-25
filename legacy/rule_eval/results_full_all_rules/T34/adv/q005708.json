@@ -1,0 +1,15 @@
+{
+  "task_id": "q005708",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module reg_8bit_sync_reset (\n    input wire reset_clk,\n    input wire rst,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n\n    always @(posedge reset_clk) begin\n        if (rst) begin\n            data_out <= 8'b0;\n        end else begin\n            data_out <= data_in;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "sync_reset_"
+  }
+}

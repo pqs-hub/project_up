@@ -1,0 +1,6 @@
+{
+  "task_id": "q003632",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module noise_suppression (\n    input wire clk,\n    input wire reset,\n    input wire in_signal,\n    output reg out_signal\n);\n    parameter THRESHOLD = 4; // Number of clock cycles to consider stable\n    reg [1:0] state; // State to track input signal\n    reg [3:0] counter; // Counter for stable input\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            out_signal <= 0;\n            state <= 0;\n            counter <= 0;\n        end else begin\n            if (in_signal == state[0]) begin\n                counter <= counter + 1;\n                if (counter >= THRESHOLD) begin\n                    out_signal <= in_signal;\n                end\n            end else begin\n                state <= {state[0], in_signal}; // Shift register\n                counter <= 1; // Reset counter\n            end\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q012066",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(\n\tinput clk,\n\tinput reset_n,\n\tinput load,\n\tinput [7:0] data_in,\n\toutput reg [7:0] data_out);always @(posedge clk or negedge reset_n) begin\n\tif (!reset_n)\n\t\tdata_out <= 8'b0;\n\telse if (load)\n\t\tdata_out <= data_in;\n\telse\n\t\tdata_out <= {1'b0, data_out[7:1]};\nend\n\nendmodule"
+}

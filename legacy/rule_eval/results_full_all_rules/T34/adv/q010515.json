@@ -1,0 +1,15 @@
+{
+  "task_id": "q010515",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dff_enable (D, reset, EN, Q);\ninput D, reset, EN;\noutput reg Q;\n\nalways @(posedge reset) begin\n    if (EN)\n        Q <= D;\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "dff_"
+  }
+}

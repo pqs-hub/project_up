@@ -1,0 +1,15 @@
+{
+  "task_id": "q003980",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module median_filter (\n    input [7:0] a,\n    input [7:0] b,\n    input [7:0] c,\n    output reg [7:0] max_value\n);\n\nalways @(*) begin\n    if ((a >= b && a <= c) || (a <= b && a >= c))\n        max_value = a;\n    else if ((b >= a && b <= c) || (b <= a && b >= c))\n        max_value = b;\n    else\n        max_value = c;\nend\n\nendmodule",
+  "rename_map": {
+    "median": "max_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "median": "max_value"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

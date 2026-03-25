@@ -1,0 +1,6 @@
+{
+  "task_id": "q013300",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input shift,\n    input [7:0] d,\n    output reg [7:0] q\n);\n\n    // Always block triggered on the rising edge of the clock\n    always @(posedge clk) begin\n        if (shift) begin\n            q <= {q[6:0], 1'b0};  // Shift the register to the left\n        end else begin\n            q <= d;  // Load the input data into the register\n        end\n    end\n\nendmodule"
+}

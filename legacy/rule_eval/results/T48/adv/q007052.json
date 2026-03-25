@@ -1,0 +1,6 @@
+{
+  "task_id": "q007052",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input Cin,\n    output [3:0] S,\n    output Cout\n);wire [3:0] sum;\n    wire C1, C2, C3;\n\n    // Use a simple full adder for each bit instead of the unknown module.\n    // Create a full adder using a combination of XOR and AND gates.\n  assign S = sum;\n  assign Cout = (A[3] & B[3]) | (C3 & (A[3] ^ B[3]));\n\n  assign sum[3] = A[3] ^ B[3] ^ C3;\n  assign C3 = (A[2] & B[2]) | (C2 & (A[2] ^ B[2]));\n\n  assign sum[2] = A[2] ^ B[2] ^ C2;\n  assign C2 = (A[1] & B[1]) | (C1 & (A[1] ^ B[1]));\n\n  assign sum[1] = A[1] ^ B[1] ^ C1;\n  assign C1 = (A[0] & B[0]) | (Cin & (A[0] ^ B[0]));\n    \n  assign sum[0] = A[0] ^ B[0] ^ Cin;\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q003945",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a reset controller with an active-low reset signal. When the reset signal is high, the output is set to a default value. When the reset signal goes low, the output follows the input value.\nmodule reset_controller(\n    input wire clk,\n    input wire rst,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            data_out <= 8'b00000000; // Default value on reset\n        end else begin\n            data_out <= data_in; // Follow input when not in reset\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a reset controller with an active-low reset signal. When the reset signal is high, the output is set to a default value. When the reset signal goes low, the output follows the input value."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009260",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(\n  input clk,\n  input wr_en,\n  input [log2n-1:0] wr_addr,\n  input [m-1:0] wr_data,\n  output reg [m-1:0] rd_data1,\n  output reg [m-1:0] rd_data2\n);parameter n = 16; // number of registers\nparameter m = 8; // number of bits per register\n\n// Calculate log2n directly during elaboration\nlocalparam log2n = $clog2(n); \n\nreg [m-1:0] regs [n-1:0];\n\n// write operation\nalways @(posedge clk) begin\n  if (wr_en) begin\n    regs[wr_addr] <= wr_data;\n  end\nend\n\n// read operation\nalways @(*) begin\n  rd_data1 = regs[0];\n  rd_data2 = regs[1];\nend\n\nendmodule"
+}

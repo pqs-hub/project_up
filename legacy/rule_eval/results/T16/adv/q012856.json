@@ -1,0 +1,9 @@
+{
+  "task_id": "q012856",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module down_counter_5bit(\n    input clk,\n    input rst,\n    output [4:0] count\n);\n\n    reg [4:0] obf_counter_reg;\n\n    always @(posedge clk) begin\n        if (!rst) begin\n            obf_counter_reg <= 5'b11111;\n        end else begin\n            obf_counter_reg <= obf_counter_reg - 1;\n        end\n    end\n\n    assign count = obf_counter_reg;\n\nendmodule",
+  "rename_map": {
+    "counter_reg": "obf_counter_reg"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q003998",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (  \n    input wire clk,  \n    input wire reset,  \n    input wire [23:0] analog_input,  \n    output reg [23:0] digital_output  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            digital_output <= 24'b0;  \n        end else begin  \n            digital_output <= analog_input;  \n        end  \n    end  \nendmodule"
+}

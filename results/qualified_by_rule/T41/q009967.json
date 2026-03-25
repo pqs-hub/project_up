@@ -1,0 +1,6 @@
+{
+  "task_id": "q009967",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n  input CLK, \n  input EN, \n  input TE, \n  input [31:0] DATA, \n  output reg ENCLK\n);reg D;\n  always @(posedge CLK) begin\n    if (EN & !TE) begin\n      D <= DATA;\n    end\n  end\n\n  always @(posedge CLK) begin\n    if (TE) begin\n      ENCLK <= 0;\n    end else if (EN) begin\n      ENCLK <= CLK;\n    end else begin\n      ENCLK <= 0;\n    end\n  end\n\nendmodule"
+}

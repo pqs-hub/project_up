@@ -1,0 +1,6 @@
+{
+  "task_id": "q016855",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n    input wire clk,\n    input wire rst,\n    input wire flush,\n    input wire LLbit_i,\n    input wire we,\n    output reg LLbit_o\n);\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk or posedge dbg_halt) begin\n        if (rst) begin\n            LLbit_o <= 1'b0;\n        end else if (flush) begin\n            LLbit_o <= 1'b0;\n        end else if (we) begin\n            LLbit_o <= LLbit_i;\n        end\n    end\n\nendmodule"
+}

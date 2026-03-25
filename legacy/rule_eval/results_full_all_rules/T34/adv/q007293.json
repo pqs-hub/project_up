@@ -1,0 +1,15 @@
+{
+  "task_id": "q007293",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] in,\n    input [2:0] shift,\n    input direction,\n    output reg [7:0] inverted_out\n);always @(*) begin\n    case (direction)\n        1'b0: begin // left shift\n            inverted_out = in << shift; // Left shift\n        end\n        1'b1: begin // right shift\n            inverted_out = in >> shift; // Right shift\n        end\n        default: begin\n            inverted_out = in; // Default case\n        end\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "out": "inverted_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "inverted_out"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

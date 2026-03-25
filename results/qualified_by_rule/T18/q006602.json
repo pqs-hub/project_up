@@ -1,0 +1,6 @@
+{
+  "task_id": "q006602",
+  "rule_id": "T18",
+  "changed": true,
+  "final": "module RefModule(\n  input [31:0] a,\n  input [31:0] b,\n  input [1:0] operation_select,\n  input [4:0] shift_amount,\n  output reg [31:0] result // Change from wire to reg\n);// AND operation\n  wire [31:0] and_result;\n  assign and_result = ~(~a | ~b);\n\n  // OR operation\n  wire [31:0] or_result;\n  assign or_result = a | b;\n\n  // XOR operation\n  wire [31:0] xor_result;\n  assign xor_result = a ^ b;\n\n  // Shift-left operation\n  wire [31:0] shift_result;\n  assign shift_result = a << shift_amount;\n\n  // Select operation based on operation_select input\n  always @* begin\n    case (operation_select)\n      2'b00: result = and_result;\n      2'b01: result = or_result;\n      2'b10: result = xor_result;\n      2'b11: result = shift_result;\n      default: result = 32'b0; // Default case to handle undefined operation_select\n    endcase\n  end\n\nendmodule"
+}

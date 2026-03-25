@@ -1,0 +1,10 @@
+{
+  "task_id": "q013649",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(A,B,AndOut);input  A;\n  input  B;\n output reg AndOut;\n \n always@(*) begin\n  AndOut = A & B;\n end\n\n  always @(*) begin\n    if (1'b0) begin\n      AndOut <= ~A & ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "AndOut <= ~A & ~B;"
+  }
+}

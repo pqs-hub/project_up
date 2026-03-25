@@ -1,0 +1,6 @@
+{
+  "task_id": "q015884",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire rst,\n    output reg [3:0] random\n);always @(posedge clk or posedge rst) begin\n        if(rst)\n            random<=4'b1000;\n        else begin\n            random[2:0]<=random[3:1];\n            random[3]<=random[1]^random[0];\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014176",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input ld,\n    input rst,\n    input [7:0] d,\n    output reg [7:0] q\n);\n\n    always_ff @(posedge clk or posedge rst) begin\n        if (rst)\n            q <= 8'b0;\n        else if (ld)\n            q <= d;\n    end\n\nendmodule"
+}

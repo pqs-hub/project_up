@@ -1,0 +1,10 @@
+{
+  "task_id": "q016432",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module zzadd18 ( rs1_data, rs2_data, cin, adder_out, cout );\n  input  [17:0] rs1_data;   \n  input  [17:0] rs2_data;   \n  input         cin;        \n  output [17:0] adder_out;  \n  output \tcout;       \n  assign {cout, adder_out} = rs1_data + rs2_data + cin;\n  always @(*) begin\n    if (1'b0) begin\n      if (1'b1) begin\n        adder_out <= 18'hFFFF;\n        cout <= 1'b1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (1'b1) begin\n  adder_out <= 18'hFFFF;\n  cout <= 1'b1;\nend"
+  }
+}

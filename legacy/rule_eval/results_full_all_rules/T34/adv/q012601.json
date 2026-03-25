@@ -1,0 +1,15 @@
+{
+  "task_id": "q012601",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] in,\n    output reg [3:0] result,  // Change 'wire' to 'reg' to allow assignment in the always block\n    input clk\n);always @(posedge clk) begin\n        result <= in + 4'b0101;  // Assigning to 'result' in a procedural block\n    end\n\nendmodule",
+  "rename_map": {
+    "out": "result"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "result"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q010253",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(in, invalid_result);input   [31:0] in;\n    output  [31:0] invalid_result;\n    reg     [31:0] invalid_result;\n    reg     [31:0] a;\n    reg     [31:0] b;\n    \n    always @(in)\n        begin : shiftleft_thread\n            a = in;\n            b = (a << 2);\n            invalid_result = b;\n        end\n\nendmodule",
+  "rename_map": {
+    "out": "invalid_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_result"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

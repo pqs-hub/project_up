@@ -1,0 +1,8 @@
+{
+  "task_id": "q001010",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module fixed_priority_arbiter (\n    input wire clk,\n    input wire reset,\n    input wire R0,\n    input wire R1,\n    input wire R2,\n    output reg G0,\n    output reg G1,\n    output reg G2\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n    if (reset) begin\n        G0 <= 0;\n        G1 <= 0;\n        G2 <= 0;\n    end else begin\n        // Default grants to zero\n        G0 <= 0;\n        G1 <= 0;\n        G2 <= 0;\n\n        // Grant based on priority\n        if (R0) begin\n            G0 <= 1;\n        end else if (R1) begin\n            G1 <= 1;\n        end else if (R2) begin\n            G2 <= 1;\n        end\n    end\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009802",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(/*AUTOARG*/\n   // Outputs\n   count,\n   // Inputs\n   clk, reset, load, up_down,\n   load_val\n   );input clk, reset, load, up_down;\n   input [2:0] load_val;\n   \n   output reg [2:0] count;\n   \n   always @(posedge clk) begin\n      if (reset) begin\n         count <= 3'b0;\n      end\n      else if (load) begin\n         count <= load_val;\n      end\n      else begin\n         if (up_down) begin\n            count <= count + 1;\n         end\n         else begin\n            count <= count - 1;\n         end\n      end\n   end\n   \nendmodule"
+}

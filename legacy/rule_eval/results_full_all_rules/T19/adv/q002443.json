@@ -1,0 +1,10 @@
+{
+  "task_id": "q002443",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module comparator (\n    input [31:0] a,\n    input [31:0] b,\n    output reg [1:0] result\n);\n    always @(*) begin\n        if (a > b) begin\n            result = 2'b10; // a > b\n        end else if (a < b) begin\n            result = 2'b01; // a < b\n        end else begin\n            result = 2'b00; // a == b\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      result = 2'b11;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "result = 2'b11;"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q006211",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input  A_N,\n    input  B  ,\n    input  C  ,\n    output X\n);wire inv_nA;\n    wire nB;\n    wire nC;\n\n    assign inv_nA = ~A_N;\n    assign nB = ~B;\n    assign nC = ~C;\n\n    wire nAB;\n    wire nBC;\n    wire nAC;\n\n    assign nAB = inv_nA & nB;\n    assign nBC = nB & nC;\n    assign nAC = inv_nA & nC;\n\n    wire nABC;\n\n    assign nABC = nAB & nBC & nAC;\n\n    assign X = ~nABC;\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\nendmodule",
+  "rename_map": {
+    "nA": "inv_nA"
+  },
+  "params_used": {
+    "custom_map": {
+      "A_N": "A_P",
+      "B": "B_INV",
+      "C": "C_INV"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

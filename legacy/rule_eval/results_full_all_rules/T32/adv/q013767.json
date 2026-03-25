@@ -1,0 +1,8 @@
+{
+  "task_id": "q013767",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module fibonacci_lfsr (\n    input clk,\n    input reset,\n    output reg [3-1:1-1] lfsr);\n\nalways @(posedge clk) begin\n    if (reset) begin\n        lfsr <= 3'b001;\n    end else begin\n        lfsr <= {lfsr[1], lfsr[0], lfsr[2] ^ lfsr[1]};\n    end\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

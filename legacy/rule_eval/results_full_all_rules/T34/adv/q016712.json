@@ -1,0 +1,15 @@
+{
+  "task_id": "q016712",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_subtractor (\n    input [3:0] a,\n    input [3:0] b,\n    output reg [3:0] abs_diff\n);\n\n    always @(*) begin\n        if (a >= b) begin\n            abs_diff = a - b;\n        end else begin\n            abs_diff = ~(b - a) + 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "diff": "abs_diff"
+  },
+  "params_used": {
+    "custom_map": {
+      "diff": "abs_diff"
+    },
+    "fallback_prefix": "neg_"
+  }
+}

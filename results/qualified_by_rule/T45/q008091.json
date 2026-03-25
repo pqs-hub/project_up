@@ -1,0 +1,6 @@
+{
+  "task_id": "q008091",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module RefModule(MO, A, B, S);input A, B, S;\n   output MO;\n   \n   wire A_in;\n   wire B_in;\n   wire S_in;\n\n   buf(A_in, A);\n   buf(B_in, B);\n   buf(S_in, S);\n\n   assign MO = (A & ~A) ? ~MO : (S_in == 1) ? B_in : A_in;\nendmodule"
+}

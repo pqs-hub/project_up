@@ -1,0 +1,17 @@
+{
+  "task_id": "q016816",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module MUX4to1_using_2to1 (D0, D1, D2, D3, S0, S1, Y);\ninput D0, D1, D2, D3, S0, S1;\noutput Y;\n\nwire sel0_out, w2, w3;\n\n// first stage of multiplexing\nmux_2to1 m1 (.A(D0), .B(D1), .S(S0), .Y(sel0_out));\nmux_2to1 m2 (.A(D2), .B(D3), .S(S0), .Y(w2));\n\n// second stage of multiplexing\nmux_2to1 m3 (.A(sel0_out), .B(w2), .S(S1), .Y(w3));\n\nassign Y = w3;\n\nendmodule\n\nmodule mux_2to1 (A, B, S, Y);\ninput A, B, S;\noutput Y;\n\nassign Y = (S == 1'b0) ? A : B;\n\nendmodule",
+  "rename_map": {
+    "w1": "sel0_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "w1": "sel0_out",
+      "w2": "sel1_out",
+      "w3": "final_out"
+    },
+    "fallback_prefix": "MUX4to1_"
+  }
+}

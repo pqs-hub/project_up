@@ -1,0 +1,6 @@
+{
+  "task_id": "q014946",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(reqin1, reqin2, reqout1, reqout2);input reqin1;\ninput reqin2;\n\noutput reqout1 ;\noutput reqout2 ;\n\nwire obf_o1 ;\nwire o2 ;\n\nassign obf_o1 = ~(reqin1 & o2);\nassign o2 = ~(reqin2 & obf_o1);\n\nassign reqout1 = ~obf_o1 & o2;\nassign reqout2 = ~o2 & obf_o1;\n\nendmodule"
+}

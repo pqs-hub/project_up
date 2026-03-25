@@ -1,0 +1,10 @@
+{
+  "task_id": "q001523",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 1-bit DRAM cell where data is read from the bit line when the word line is asserted.\nmodule dram_cell (\n    input wire D,\n    input wire WL,\n    output reg BL\n);\n    reg stored_data;\n\n    always @(posedge WL) begin\n        stored_data <= D; // Store data on the rising edge of WL\n    end\n\n    always @(negedge WL) begin\n        BL <= stored_data; // Output stored data on the falling edge of WL\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 1-bit DRAM cell where data is read from the bit line when the word line is asserted."
+  }
+}

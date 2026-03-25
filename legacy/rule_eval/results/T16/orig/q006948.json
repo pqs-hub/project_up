@@ -1,0 +1,6 @@
+{
+  "task_id": "q006948",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n    Y ,\n    A1,\n    A2,\n    B1,\n    B2,\n    C1\n);// Module ports\n    output Y ;\n    input  A1;\n    input  A2;\n    input  B1;\n    input  B2;\n    input  C1;\n\n    // Module supplies\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Local signals\n    wire or0_out    ;\n    wire or1_out    ;\n    wire nand0_out_Y;\n\n    //   Name   Output       Other arguments\n    or   or0   (or0_out    , B2, B1              );\n    or   or1   (or1_out    , A2, A1              );\n    nand nand0 (nand0_out_Y, or1_out, or0_out, C1);\n    buf  buf0  (Y          , nand0_out_Y         );\n\nendmodule"
+}

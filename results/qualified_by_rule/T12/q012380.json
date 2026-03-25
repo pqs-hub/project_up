@@ -1,0 +1,6 @@
+{
+  "task_id": "q012380",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module RefModule(\n\tinput         clk,\n\tinput         we3,\n\tinput  [4:0]  ra1, ra2, wa3,\n\tinput  [31:0] wd3,\n\toutput [31:0] rd1, rd2\n);reg [31:0] registers[31:0];\n\n\talways @(posedge clk)\n\t\tif (we3) begin\n\t\t\tregisters[wa3] <= wd3;\n\t\tend\n\n\twire __ra1_tmp = (ra1 != 0);\n\tassign rd1 = __ra1_tmp ? registers[ra1] : 0;\n\tassign rd2 = (ra2 != 0) ? registers[ra2] : 0;endmodule"
+}

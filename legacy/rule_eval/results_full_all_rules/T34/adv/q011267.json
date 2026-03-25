@@ -1,0 +1,16 @@
+{
+  "task_id": "q011267",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    A,\n    B,\n    C,\n    D,\n    X\n);// Module ports\n    input A;\n    input B;\n    input C;\n    input D;\n    output X;\n\n    // Local signals\n    wire invalid_nor;\n    wire and_out;\n\n    //  Name  Output      Other arguments\n    nor nor_gate (invalid_nor, A, B);\n    and and_gate (and_out, C, D);\n    assign X = invalid_nor & and_out;\n\nendmodule",
+  "rename_map": {
+    "nor_out": "invalid_nor"
+  },
+  "params_used": {
+    "custom_map": {
+      "nor_out": "invalid_nor",
+      "and_out": "invalid_and"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

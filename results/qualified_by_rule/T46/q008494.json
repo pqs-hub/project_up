@@ -1,0 +1,6 @@
+{
+  "task_id": "q008494",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(input [22:0] pi, input clk, rst, shiftEnable, Lden, output reg [23:0] sout);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ ( posedge clk , posedge rst  or posedge dbg_halt) begin\n    if(rst) sout <= 24'b0;\n    else\n      if(Lden) sout<={1'b1,pi};\n      else\n        if(shiftEnable) sout <= {1'b0,sout[23:1]};\n        else sout <= sout;\n  end\nendmodule"
+}

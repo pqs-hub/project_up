@@ -1,0 +1,6 @@
+{
+  "task_id": "q011459",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module (\n    input [1:0] l,\n    output reg v\n);\n  wire [1:0] _tap_l = l & {2{1'b1}};\n\n\n    always @(*) begin\n        case (l)\n            2'b00: v = 0;\n            2'b01: v = 1;\n            2'b10: v = 0;\n            2'b11: v = 1;\n            default: v = 0; // Default case\n        endcase\n    end\nendmodule"
+}

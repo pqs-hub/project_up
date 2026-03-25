@@ -1,0 +1,8 @@
+{
+  "task_id": "q010889",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module up_down_counter_3bit(\n    input                 clk,\n    input                 rst,\n    input                 en,\n    input                 up_down,\n    \n    output reg [2:0]      count\n);\n\n// Up/down counter implementation\nalways @(posedge clk) begin\n    begin end  // redundant\n    if (rst)\n        count <= 3'd0;\n    else if (en) begin\n        if (up_down)\n            count <= count + 3'd1;\n        else\n            count <= count - 3'd1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q001858",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module hazard_detection_counter (\n    input wire clk,\n    input wire reset,\n    output reg [1:0] count\n);\n    reg [1:0] next_counter_value;\n\n    always @(*) begin\n        if (reset) begin\n            next_counter_value = 2'b00;\n        end else begin\n            case (count)\n                2'b00: next_counter_value = 2'b01;\n                2'b01: next_counter_value = 2'b10;\n                2'b10: next_counter_value = 2'b11;\n                2'b11: next_counter_value = 2'b00;\n                default: next_counter_value = 2'b00;\n            endcase\n        end\n    end\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 2'b00;\n        end else begin\n            count <= next_counter_value;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "next_count": "next_counter_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "count": "counter_value",
+      "next_count": "next_counter_value"
+    },
+    "fallback_prefix": "_hazard_"
+  }
+}

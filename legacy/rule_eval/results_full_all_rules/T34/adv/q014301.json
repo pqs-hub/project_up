@@ -1,0 +1,18 @@
+{
+  "task_id": "q014301",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput [7:0] operand1,\n\tinput [7:0] b,\n\tinput [1:0] op,\n\tinput clock,\n\toutput reg [15:0] result\n);always @ (posedge clock) begin\n\tcase (op)\n\t\t2'b00: result <= operand1 + b;\n\t\t2'b01: result <= operand1 - b;\n\t\t2'b10: result <= operand1 * b;\n\t\t2'b11: result <= operand1 / b;\n\tendcase\nend\n\nendmodule",
+  "rename_map": {
+    "a": "operand1"
+  },
+  "params_used": {
+    "custom_map": {
+      "a": "operand1",
+      "b": "operand2",
+      "op": "operation_selector",
+      "result": "output_value"
+    },
+    "fallback_prefix": "calc_"
+  }
+}

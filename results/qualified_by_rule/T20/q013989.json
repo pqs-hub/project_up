@@ -1,0 +1,6 @@
+{
+  "task_id": "q013989",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n    input [7:0] in1,\n    input [7:0] in2,\n    output reg [7:0] out\n);// Step 1: Compute the bitwise AND of in1 and in2\n    wire [7:0] and_result = in1 & in2;\n    \n    // Step 2: Compute the bitwise OR of in1 and in2\n    wire [7:0] or_result = in1 | in2;\n    \n    // Step 3: Add the results of step 1 and step 2\n    wire [8:0] add_result = and_result + or_result;\n    \n    // Step 4: Compute the bitwise XOR of the results of step 1 and step 2\n    wire [7:0] xor_result = and_result ^ or_result;\n    \n    // Step 5: Add 1 to the result of step 4\n    wire [7:0] add_one = 1;\n    wire [7:0] add_one_result = xor_result + add_one;\n    \n    // Step 6: Assign the result of step 5 to out\n    always @(*) begin\n        out = add_one_result;\n    end\n    \nendmodule"
+}

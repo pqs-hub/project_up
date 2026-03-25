@@ -1,0 +1,6 @@
+{
+  "task_id": "q006277",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule (\n\tinput clk,\n\tinput rst,\n\tinput load,\n\tinput enable,\n\tinput [2:0] parallel_data,\n\toutput reg [2:0] count\n);\n\n\talways @(posedge clk) begin\n    begin end  // redundant\n\t\tif (rst) begin\n\t\t\tcount <= 3'd0;\n\t\tend else if (load) begin\n\t\t\tcount <= parallel_data;\n\t\tend else if (enable) begin\n\t\t\tcount <= count + 1;\n\t\tend\n\tend\nendmodule"
+}

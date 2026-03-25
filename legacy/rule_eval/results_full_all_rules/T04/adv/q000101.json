@@ -1,0 +1,10 @@
+{
+  "task_id": "q000101",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // Asynchronously sets the register to all ones on reset\nmodule shift_register (  \n    input clk,  \n    input reset,  \n    input data_in,  \n    output reg [3:0] q  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            q <= 4'b0000;  \n        end else begin  \n            q <= {q[2:0], data_in};  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronously sets the register to all ones on reset"
+  }
+}

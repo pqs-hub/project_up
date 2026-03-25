@@ -1,0 +1,6 @@
+{
+  "task_id": "q000367",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(\n    input [7:0] A, // Top-left pixel\n    input [7:0] B, // Top-right pixel\n    input [7:0] C, // Bottom-left pixel\n    input [7:0] D, // Bottom-right pixel\n    input [7:0] x, // x coordinate (fractional part)\n    input [7:0] y, // y coordinate (fractional part)\n    output [7:0] out // Interpolated pixel value\n);\n    wire [15:0] top_interp, bottom_interp;\n    \n    // Interpolate between A and B\n    assign top_interp = (A * (256 - x) + B * x) >> 8;\n    \n    // Interpolate between C and D\n    assign bottom_interp = (C * (256 - x) + D * x) >> 8;\n    \n    // Interpolate between top_interp and bottom_interp\n    assign out = (top_interp * (256 - y) + bottom_interp * y) >> 8;\nendmodule"
+}

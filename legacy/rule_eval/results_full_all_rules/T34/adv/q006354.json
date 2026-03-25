@@ -1,0 +1,15 @@
+{
+  "task_id": "q006354",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_2to1(a, b, not_sel, y);\n\n    input a;\n    input b;\n    input not_sel;\n    output y;\n    reg y;\n\n    always @(*)\n        begin\n            if (not_sel == 0)\n                y = a;\n            else\n                y = b;\n        end\n\nendmodule",
+  "rename_map": {
+    "sel": "not_sel"
+  },
+  "params_used": {
+    "custom_map": {
+      "sel": "not_sel"
+    },
+    "fallback_prefix": "mux_2to1_"
+  }
+}

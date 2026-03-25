@@ -1,0 +1,7 @@
+{
+  "task_id": "q002669",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module adc_controller (\n    input wire clk,\n    input wire [15:0] adc_input,\n    output reg [11:0] dac_output,\n    output reg valid_output\n);\n    always @(posedge clk) begin\n        dac_output <= adc_input[15:4]; // Take upper 12 bits\n        valid_output <= 1'b1; // Indicate valid output\n    end\nendmodule",
+  "rename_map": {}
+}

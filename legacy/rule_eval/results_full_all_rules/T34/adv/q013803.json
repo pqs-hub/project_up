@@ -1,0 +1,15 @@
+{
+  "task_id": "q013803",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module up_counter (\n    input rst,\n    input en,\n    input reset,\n    output reg [2:0] count);\nalways @(posedge rst or posedge reset)\nbegin\n    if (reset)\n        count <= 3'b000;\n    else if (en)\n        count <= count + 1;\nend\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

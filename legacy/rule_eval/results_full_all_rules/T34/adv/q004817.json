@@ -1,0 +1,15 @@
+{
+  "task_id": "q004817",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module pipelined_register (\n    input clk,\n    input reset,\n    input [15:0] data_in,\n    output [15:0] data_out\n);\n\n    reg [15:0] anti_pipeline [0:3];  // 4-stage anti_pipeline\n\n    always @(posedge clk) begin\n        if (reset) begin\n            anti_pipeline[0] <= 16'b0;\n            anti_pipeline[1] <= 16'b0;\n            anti_pipeline[2] <= 16'b0;\n            anti_pipeline[3] <= 16'b0;\n        end else begin\n            anti_pipeline[0] <= data_in;\n            anti_pipeline[1] <= anti_pipeline[0];\n            anti_pipeline[2] <= anti_pipeline[1];\n            anti_pipeline[3] <= anti_pipeline[2];\n        end\n    end\n\n    assign data_out = anti_pipeline[3];\n\nendmodule",
+  "rename_map": {
+    "pipeline": "anti_pipeline"
+  },
+  "params_used": {
+    "custom_map": {
+      "pipeline": "anti_pipeline"
+    },
+    "fallback_prefix": "anti_"
+  }
+}

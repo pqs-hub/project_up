@@ -1,0 +1,6 @@
+{
+  "task_id": "q012041",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule(\n    input wire clk,\n    input wire rst,\n    input wire we,\n    input wire [2:0] read_addr1,\n    input wire [2:0] read_addr2,\n    input wire [2:0] write_addr,\n    input wire [15:0] write_data,\n    output wire [15:0] read_data1,\n    output wire [15:0] read_data2\n    );\n\nreg [15:0] reg_array [0:7];\ninteger i;\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        for (i = 0; i < 8; i = i + 1) begin\n            reg_array[i] <= 16'b0;\n        end\n    end\n    else if (we) begin\n        reg_array[write_addr] <= write_data;\n    end\nend\n\nassign read_data1 = reg_array[read_addr1];\nassign read_data2 = reg_array[read_addr2];\n\nendmodule"
+}

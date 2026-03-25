@@ -1,0 +1,6 @@
+{
+  "task_id": "q008544",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input clk, input d, output q);reg [2:0] unused_reg_data; // 3-bit shift register\n\n  always @(posedge clk) begin\n    unused_reg_data <= {unused_reg_data[1:0], d}; // shift data on each clock cycle\n  end\n\n  assign q = unused_reg_data[0]; // output of the last flip-flop\n\nendmodule"
+}

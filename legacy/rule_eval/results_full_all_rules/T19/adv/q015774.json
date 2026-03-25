@@ -1,0 +1,10 @@
+{
+  "task_id": "q015774",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module register_8bit(\n    input       clk,\n    input       load,\n    input [7:0] d,\n    output reg [7:0] q\n);\n\n    always @(posedge clk) begin\n        if(load) begin\n            q <= d;\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~d;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~d;"
+  }
+}

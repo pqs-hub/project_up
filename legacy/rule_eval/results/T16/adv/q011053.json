@@ -1,0 +1,9 @@
+{
+  "task_id": "q011053",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input [1:0] SEL,\n    input EN,\n    output reg [15:0] Q\n);reg [3:0] obf_temp_Q1, temp_Q2;\n\nalways @(SEL, EN) begin\n    if (EN == 1'b0) begin\n        Q <= 16'b0;\n    end\n    else begin\n        case (SEL)\n            2'b00: obf_temp_Q1 = 4'b0001;\n            2'b01: obf_temp_Q1 = 4'b0010;\n            2'b10: obf_temp_Q1 = 4'b0100;\n            2'b11: obf_temp_Q1 = 4'b1000;\n        endcase\n        \n        case (obf_temp_Q1)\n            4'b0001: temp_Q2 = 16'b0000000000000001;\n            4'b0010: temp_Q2 = 16'b0000000000000010;\n            4'b0100: temp_Q2 = 16'b0000000000000100;\n            4'b1000: temp_Q2 = 16'b0000000000001000;\n        endcase\n        \n        Q <= temp_Q2;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "temp_Q1": "obf_temp_Q1"
+  }
+}

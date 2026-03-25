@@ -1,0 +1,15 @@
+{
+  "task_id": "q004294",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\t\n\tin,\n    \n\tresult\n);parameter INPUT_DWIDTH = 16;\n\tparameter OUTPUT_DWIDTH = 32;\n\n   input\t[INPUT_DWIDTH-1:0]\tin;\n\t\n   output [OUTPUT_DWIDTH-1:0] result; \n\t\t\n\tlocalparam SIGN_BIT_LOCATION = INPUT_DWIDTH-1;\n\tlocalparam SIGN_BIT_REPLICATION_COUNT = OUTPUT_DWIDTH - INPUT_DWIDTH;\n\t\n\tassign result = {{SIGN_BIT_REPLICATION_COUNT{in[SIGN_BIT_LOCATION]}},in[INPUT_DWIDTH-1:0]};\n    \nendmodule",
+  "rename_map": {
+    "out": "result"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "result"
+    },
+    "fallback_prefix": "_ext_"
+  }
+}

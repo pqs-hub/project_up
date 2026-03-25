@@ -1,0 +1,6 @@
+{
+  "task_id": "q001705",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module switching_regulator (\n    input wire [7:0] Vin,    // Input voltage (8 bits)\n    input wire [7:0] Vref,   // Reference voltage (8 bits)\n    output reg PWM_OUT       // PWM output\n);\n    always @(*) begin\n        if (Vin > Vref) begin\n            PWM_OUT = 1; // High when Vin is greater than Vref\n        end else begin\n            PWM_OUT = 0; // Low otherwise\n        end\n    end\nendmodule"
+}

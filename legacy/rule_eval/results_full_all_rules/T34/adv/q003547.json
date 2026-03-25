@@ -1,0 +1,15 @@
+{
+  "task_id": "q003547",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module VCO (\n    input [3:0] neg_ctrl_voltage,\n    output reg [6:0] out_freq\n);\n    always @(neg_ctrl_voltage) begin\n        out_freq <= {3'b000, neg_ctrl_voltage} + 7'b0000000; // simple frequency mapping\n    end\nendmodule",
+  "rename_map": {
+    "ctrl_voltage": "neg_ctrl_voltage"
+  },
+  "params_used": {
+    "custom_map": {
+      "ctrl_voltage": "neg_ctrl_voltage"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

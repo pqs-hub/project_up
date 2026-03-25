@@ -1,0 +1,6 @@
+{
+  "task_id": "q013621",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(\n    clk_i,\n\t rst_n,\n\t hour1,\n\t hour0,\n\t day_en\n\t );input clk_i;\ninput rst_n;\noutput [3:0] hour1;\noutput [3:0] hour0;\noutput day_en;\n\nreg [3:0] hour1;\nreg [3:0] hour0;\nreg day_en;\n\nreg [3:0] hour1_tmp;\nreg [3:0] hour0_tmp;\nreg day_en_tmp;\n\n\n\nalways@(hour1 or hour0)\nbegin\n\tif(hour1==4'd2 && hour0==4'd3)\n\tbegin\n\t\thour1_tmp=4'd0;\n\t\thour0_tmp=4'd0;\n\t\tday_en_tmp=1'b1;\n\tend\n\telse if(hour0==4'd9)\n\tbegin\n\t\thour1_tmp=hour1+4'd1;\n\t\thour0_tmp=4'd0;\n\t\tday_en_tmp=1'b0;\n\tend\n\telse\n\tbegin\n\t\thour1_tmp=hour1;\n\t\thour0_tmp=hour0+4'd1;\n\t\tday_en_tmp=1'b0;\n\tend\nend\n\n\n\nalways@(posedge clk_i or negedge rst_n)\nbegin\n\tif(~rst_n)\n\tbegin\n\t\thour1<=4'd0;\n\t\thour0<=4'd0;\n\t\tday_en<=1'b0;\n\tend\n\telse\n\tbegin\n\t\thour1<=hour1_tmp;\n\t\thour0<=hour0_tmp;\n\t\tday_en<=day_en_tmp;\n\tend\nend\n\n\n\nendmodule"
+}

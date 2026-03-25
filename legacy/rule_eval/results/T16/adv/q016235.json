@@ -1,0 +1,9 @@
+{
+  "task_id": "q016235",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(/*AUTOARG*/\n   // Inputs\n   obf_clk,\n   data_in,\n   enable,\n   // Outputs\n   data_out\n   );input obf_clk;\n   input [3:0] data_in;\n   input enable;\n   output reg [2:0] data_out;\n   \n   initial data_out = 0;\n   \n   always @(posedge obf_clk) begin\n      if (enable == 1'b1) begin\n         data_out <= data_in + 3'b010; // 2 in binary is 010\n      end else begin\n         data_out <= data_in;\n      end\n   end\n   \nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

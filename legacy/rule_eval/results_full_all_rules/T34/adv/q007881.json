@@ -1,0 +1,15 @@
+{
+  "task_id": "q007881",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_4to1 (\n    input [1:0] select,\n    input [3:0] data0,\n    input [3:0] data1,\n    input [3:0] data2,\n    input [3:0] data3,\n    output [3:0] invalid_data );assign invalid_data = (select == 2'b00) ? data0 :\n                  (select == 2'b01) ? data1 :\n                  (select == 2'b10) ? data2 :\n                                      data3;\n\nendmodule",
+  "rename_map": {
+    "data_out": "invalid_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_out": "invalid_data"
+    },
+    "fallback_prefix": "mux_4to1_"
+  }
+}

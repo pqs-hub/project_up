@@ -1,0 +1,9 @@
+{
+  "task_id": "q017446",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module adder(\n    input [7:0] a,\n    input [7:0] b,\n    input cin,\n    output [7:0] sum,\n    output cout\n);\n\nwire [8:0] obf_temp_sum;\nassign obf_temp_sum = {1'b0, a} + {1'b0, b} + {1'b0, cin};\n\nassign sum = obf_temp_sum[7:0];\nassign cout = obf_temp_sum[8];\n\nendmodule",
+  "rename_map": {
+    "temp_sum": "obf_temp_sum"
+  }
+}

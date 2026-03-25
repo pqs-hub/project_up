@@ -1,0 +1,6 @@
+{
+  "task_id": "q014805",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset_n,\n    input enable,\n    input up_down,\n    output reg [2:0] count\n);\n\n    always @(posedge clk) begin\n        if (!reset_n) begin\n            // Synchronous reset: Reset the counter to 3'b000\n            count <= 3'b000;\n        end else if (enable) begin\n            // Count operation: Increment or decrement based on up_down signal\n            if (up_down) begin\n                count <= count + 1;\n            end else begin\n                count <= count - 1;\n            end\n        end\n    end\n\nendmodule"
+}

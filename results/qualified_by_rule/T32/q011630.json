@@ -1,0 +1,6 @@
+{
+  "task_id": "q011630",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire load,\n    input wire [16-1:1-1] parallel_in,\n    output wire serial_out\n);\n\n    reg [15:0] shift_reg;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            shift_reg <= 16'b0;\n        end else if (load) begin\n            shift_reg <= parallel_in;\n        end else begin\n            shift_reg <= {shift_reg[14:0], 1'b0};\n        end\n    end\n\n    assign serial_out = shift_reg[15];\n\nendmodule"
+}

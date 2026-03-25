@@ -1,0 +1,8 @@
+{
+  "task_id": "q010942",
+  "rule_id": "T07",
+  "changed": true,
+  "final": "module top_module(select, I, O);input[1:0] select;\n  input[3:0] I;\n  output O;\n\n  wire O;\n  wire[1:0] select;\n  wire[3:0] I;\n\n  wire[3:0] op;\n  \n  assign op[1] = I[1] & select[0] & !select[1];\n  assign op[0] = I[0] & !select[1] & !select[0];\n  assign op[2] = I[2] & !select[0] & select[1];\n  assign op[3] = I[3] & select[1] & select[0];\n  \n  assign O = op[0] | op[1] | op[2] | op[3];\n      \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

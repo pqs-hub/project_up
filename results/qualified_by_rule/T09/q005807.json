@@ -1,0 +1,6 @@
+{
+  "task_id": "q005807",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst_n,\n    input load,\n    input [7:0] data_in,\n    output reg [7:0] q\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        q <= 8'b00000000; // reset register to 0\n    else if (load)\n        q <= data_in; // load data_in value\n    else\n        q <= {q[6:0], 1'b0}; // shift left by one bit\nend\n\nendmodule"
+}

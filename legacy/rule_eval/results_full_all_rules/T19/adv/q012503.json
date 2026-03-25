@@ -1,0 +1,10 @@
+{
+  "task_id": "q012503",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] a,\n    input [7:0] b,\n    output reg [15:0] result\n);reg [15:0] temp;\n    reg [3:0] i;\n    \n    always @(*) begin\n        temp = 0;\n        for (i = 0; i < 8; i = i + 1) begin\n            if (b[i] == 1) begin\n                temp = temp + (a << i);\n            end\n        end\n        result = temp;\n    end\n    \n  always @(*) begin\n    if (1'b0) begin\n      temp = temp - 1;\n      if (i > 0) begin\n        i = i - 1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "temp = temp - 1;\nif (i > 0) begin\n  i = i - 1;\nend"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016460",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (so, sd, ck, se);\noutput so;\ninput sd, ck, se;\nreg obf_so_l;\n    assign so = ~obf_so_l;\n    always @ ( ck or sd or se )\n       if (~ck) obf_so_l <= ~(sd & se) ;\nendmodule"
+}

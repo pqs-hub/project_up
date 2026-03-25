@@ -1,0 +1,10 @@
+{
+  "task_id": "q003252",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module barrel_shifter (\n    input [3:0] data,\n    input [1:0] shamt,\n    input dir,\n    output reg [3:0] result\n);\n    always @(*) begin\n        if (dir == 0) begin\n            // Left shift\n            result = data << shamt;\n        end else begin\n            // Right shift\n            result = data >> shamt;\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      result <= ~data;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "result <= ~data;"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q000582",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module sata_controller (\n    input wire clk,\n    input wire reset,\n    input wire start_signal,\n    input wire error_signal,\n    output reg [1:0] state // 2-bit state representation\n);\n\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter ACTIVE = 2'b01;\n    parameter ERROR = 2'b10;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n        if (reset) begin\n            state <= IDLE; // Reset to IDLE\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start_signal) begin\n                        state <= ACTIVE; // Transition to ACTIVE\n                    end\n                end\n                ACTIVE: begin\n                    if (error_signal) begin\n                        state <= ERROR; // Transition to ERROR\n                    end else begin\n                        // Maintain ACTIVE if no error\n                    end\n                end\n                ERROR: begin\n                    if (reset) begin\n                        state <= IDLE; // Transition to IDLE on reset\n                    end\n                end\n            endcase\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q000335",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module is designed to perform read and write operations on a 16-bit DRAM cell. It includes inputs for clock (`clk`), write enable (`we`), data input (`data_in`), and address (`addr`). The output is the data read from the specified memory location (`data_out`).\nmodule dram_cell (\n    input wire clk,\n    input wire we,\n    input wire [15:0] data_in,\n    input wire [3:0] addr,\n    output reg [15:0] data_out\n);\n    reg [15:0] memory [15:0]; // 16 memory locations of 16 bits each\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory[addr] <= data_in; // Write operation\n        end\n        data_out <= memory[addr]; // Read operation\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to perform read and write operations on a 16-bit DRAM cell. It includes inputs for clock (`clk`), write enable (`we`), data input (`data_in`), and address (`addr`). The output is the data read from the specified memory location (`data_out`)."
+  }
+}

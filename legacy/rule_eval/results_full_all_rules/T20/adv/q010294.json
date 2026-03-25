@@ -1,0 +1,10 @@
+{
+  "task_id": "q010294",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module synchronizes a 1-bit asynchronous input signal to the system clock using a negative clock edge and an active low synchronous reset.\nmodule synchronizer(\n    input clk,\n    input reset,\n    input async_in,\n    output reg sync_out);\n\n    reg sync_stage1;\n    \n    always @(posedge clk) begin\n        if (reset) begin\n            sync_stage1 <= 1'b0;\n            sync_out <= 1'b0;\n        end\n        else begin\n            sync_stage1 <= async_in;\n            sync_out <= sync_stage1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module synchronizes a 1-bit asynchronous input signal to the system clock using a negative clock edge and an active low synchronous reset."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009159",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule \n(\n  input rst_n,\n  input clk,\n  input load,\n  input [7:0] data_in,\n\n  output reg [7:0] q\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (!rst_n) \n\tbegin\n      q <= 8'b00000000;\n    end \n\n\telse \n\tbegin\n      if (load) \n\t  begin\n        q <= data_in;\n      end \n\t  else \n\t  begin\n        q <= {q[6:0], 1'b0};\n      end\n    end\n  end\n\nendmodule"
+}

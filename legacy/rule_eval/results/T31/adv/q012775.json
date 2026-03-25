@@ -1,0 +1,6 @@
+{
+  "task_id": "q012775",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    input c,\n    input sel_2to1,\n    input sel_3to1,\n    output reg out\n);wire nand1, nand2, nand3, nand4, nand5, nand6;\n\nwire __nand1_tmp = ~(a & sel_2to1);\nassign nand1 = __nand1_tmp;\nassign nand2 = ~(b & ~sel_2to1);\nassign nand3 = ~(nand1 & nand2);\n\nassign nand4 = ~(nand3 & sel_3to1);\nassign nand5 = ~(c & ~sel_3to1);\nassign nand6 = ~(nand4 & nand5);\n\nassign out = ~nand6;\n\nendmodule"
+}

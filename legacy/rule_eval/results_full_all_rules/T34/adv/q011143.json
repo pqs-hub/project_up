@@ -1,0 +1,18 @@
+{
+  "task_id": "q011143",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input wire inv_A,\n  input wire B,\n  input wire C,\n  input wire D,\n  input wire S0,\n  input wire S1,\n  output wire Y\n);assign Y = (S1 & S0 & D) | (S1 & ~S0 & C) | (~S1 & S0 & B) | (~S1 & ~S0 & inv_A);\n\nendmodule",
+  "rename_map": {
+    "A": "inv_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "D",
+      "B": "C",
+      "C": "B",
+      "D": "A"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

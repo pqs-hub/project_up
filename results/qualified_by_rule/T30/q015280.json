@@ -1,0 +1,6 @@
+{
+  "task_id": "q015280",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n    input a,\n    input b,\n    output k\n);\n    assign k = ~(a ^ b);\nendmodule\n\nmodule F(\n    input a,\n    input b,\n    output k\n);\n    assign k = ~(a ^ b);\nendmodule\n\nmodule top_module(\n    input a,\n    input b,\n    output k\n);\n    wire e1_out, e2_out, f1_out, f2_out;\n    wire nor_out, xor_out;\n\n    E e1(.a(a), .b(b), .k(e1_out));\n    E e2(.a(a), .b(b), .k(e2_out));\n    F f1(.a(a), .b(b), .k(f1_out));\n    F f2(.a(a), .b(b), .k(f2_out));\n\n    assign nor_out = ~(e1_out | f1_out);\n    assign xor_out = e2_out ^ f2_out;\n\n    assign k = nor_out | xor_out;\nendmodule"
+}

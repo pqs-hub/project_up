@@ -1,0 +1,6 @@
+{
+  "task_id": "q008518",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module sync_down_counter(\n    input clk,\n    input sync_reset,\n    input enable,\n    output reg [3:0] count_out\n);\n\n    always @(posedge clk) begin\n        if (sync_reset)\n            count_out <= 4'b1111;\n        else if (enable)\n            count_out <= count_out - 1;\n    end\n\nendmodule"
+}

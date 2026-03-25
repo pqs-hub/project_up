@@ -1,0 +1,10 @@
+{
+  "task_id": "q005905",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 7-bit binary counter that counts down when the up_down signal is high and counts up when the up_down signal is low.\nmodule binary_up_down_counter(\n    input       clk,\n    input       rst,\n    input       up_down,\n    output reg [6:0] count\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            count <= 7'b0000000;\n        end\n        else if (up_down) begin\n            count <= count + 1'b1;\n        end\n        else begin\n            count <= count - 1'b1;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 7-bit binary counter that counts down when the up_down signal is high and counts up when the up_down signal is low."
+  }
+}

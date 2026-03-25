@@ -1,0 +1,6 @@
+{
+  "task_id": "q001587",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input [7:0] input_signal,\n    output reg [7:0] output_signal\n);\n    reg [7:0] state;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= 8'b0;\n            output_signal <= 8'b0;\n        end else begin\n            // Deadbeat control logic\n            // For example, we can simply set the output to the input value\n            // This is a simplified example of a deadbeat controller\n            state <= input_signal;\n            output_signal <= state; // Directly tracking the input for deadbeat control\n        end\n    end\nendmodule"
+}

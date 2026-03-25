@@ -1,0 +1,9 @@
+{
+  "task_id": "q013687",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module load_clear_register(\n    input clk,\n    input rst_n,\n    input load,\n    input obf_clear,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n    always @(posedge clk or negedge rst_n) begin\n        if (~rst_n) begin\n            data_out <= 8'b00000000;\n        end else if (obf_clear) begin\n            data_out <= 8'b00000000;\n        end else if (load) begin\n            data_out <= data_in;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clear": "obf_clear"
+  }
+}

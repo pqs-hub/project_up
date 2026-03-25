@@ -1,0 +1,10 @@
+{
+  "task_id": "q002453",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adc_decoder (\n    input [2:0] channel,\n    output reg [7:0] adc_output\n);\n    always @(*) begin\n        adc_output = 8'b00000000; // Initialize output\n        adc_output[channel] = 1'b1; // Set the corresponding channel bit to 1\n    end\n  always @(*) begin\n    if (1'b0) begin\n      adc_output[0] <= ~adc_output[0];\n      adc_output[1] <= ~adc_output[1];\n      adc_output[2] <= ~adc_output[2];\n      adc_output[3] <= ~adc_output[3];\n      adc_output[4] <= ~adc_output[4];\n      adc_output[5] <= ~adc_output[5];\n      adc_output[6] <= ~adc_output[6];\n      adc_output[7] <= ~adc_output[7];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "adc_output[0] <= ~adc_output[0];\nadc_output[1] <= ~adc_output[1];\nadc_output[2] <= ~adc_output[2];\nadc_output[3] <= ~adc_output[3];\nadc_output[4] <= ~adc_output[4];\nadc_output[5] <= ~adc_output[5];\nadc_output[6] <= ~adc_output[6];\nadc_output[7] <= ~adc_output[7];"
+  }
+}

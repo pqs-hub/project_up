@@ -1,0 +1,9 @@
+{
+  "task_id": "q009421",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input [14:0] obf_address,\n    input clock,\n    output reg [11:0] q\n);always @(posedge clock) begin\n    if(obf_address < 15'h0800) begin\n        q <= 12'h000;\n    end else if(obf_address < 15'h1000) begin\n        q <= obf_address[11:0];\n    end else begin\n        q <= obf_address[14:3];\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "address": "obf_address"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "q003484",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module VirtualMemoryManager (  \n    input clk,  \n    input reset,  \n    input [7:0] logical_address,  \n    input valid_bit,  \n    output reg [7:0] physical_address,  \n    output reg error_signal  \n);  \n    reg [7:0] prev_phys_addr;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            physical_address <= 8'b0;  \n            error_signal <= 1'b0;  \n            prev_phys_addr <= 8'b0;  \n        end else begin  \n            if (valid_bit) begin  \n                physical_address <= logical_address % 256;  \n                prev_phys_addr <= physical_address;  \n                error_signal <= 1'b0;  \n            end else begin  \n                physical_address <= 8'b0;  \n                error_signal <= 1'b1;  \n            end  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "last_physical_address": "prev_phys_addr"
+  },
+  "params_used": {
+    "custom_map": {
+      "logical_address": "addr_in",
+      "valid_bit": "en",
+      "physical_address": "phys_addr_out",
+      "error_signal": "err_flag",
+      "last_physical_address": "prev_phys_addr"
+    },
+    "fallback_prefix": "vmc_"
+  }
+}

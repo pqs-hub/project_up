@@ -1,0 +1,6 @@
+{
+  "task_id": "q006989",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n    output reg Q,\n    output wire Q_N,\n    input CLK,\n    input D,\n    input RESET_B\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB;\n    supply0 VNB;\n\n    // D Flip-Flop with active low reset\n    always @(posedge CLK or negedge RESET_B) begin\n        if (!RESET_B) begin\n            Q <= 1'b0; // Reset output to 0 on active low reset\n        end else begin\n            Q <= D; // Transfer D to Q on clock edge\n        end\n    end\n\n    // Inverted output\n    assign Q_N = ~Q;\n\nendmodule"
+}

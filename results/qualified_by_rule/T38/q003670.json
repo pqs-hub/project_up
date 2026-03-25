@@ -1,0 +1,6 @@
+{
+  "task_id": "q003670",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (\n    input [3:0] I,\n    output reg [1:0] Y,\n    output reg valid\n);\n\nalways @(*) begin\n    casez (I)\n        4'b1???: begin\n            Y = 2'b11; valid = 1'b1; // I3 is active\n        end\n        4'b01??: begin\n            Y = 2'b10; valid = 1'b1; // I2 is active\n        end\n        4'b001?: begin\n            Y = 2'b01; valid = 1'b1; // I1 is active\n        end\n        4'b0001: begin\n            Y = 2'b00; valid = 1'b1; // I0 is active\n        end\n        default: begin\n            Y = 2'b00; valid = 1'b0; // No input is active\n        end\n    endcase\nend\n\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q002675",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module voltage_regulator (\n    input [7:0] regulator_Vin,  // 8-bit input voltage\n    output reg [7:0] Vout // 8-bit output voltage\n);\n\nalways @(*) begin\n    if (regulator_Vin >= 8'd5) \n        Vout = 8'd5; // Output 5V if regulator_Vin is greater than or equal to 5V\n    else \n        Vout = regulator_Vin; // Otherwise, output regulator_Vin\nend\n\nendmodule",
+  "rename_map": {
+    "Vin": "regulator_Vin"
+  },
+  "params_used": {
+    "custom_map": {
+      "Vin": "Vdrop"
+    },
+    "fallback_prefix": "regulator_"
+  }
+}

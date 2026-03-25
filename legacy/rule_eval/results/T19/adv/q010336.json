@@ -1,0 +1,6 @@
+{
+  "task_id": "q010336",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module lfsr(\n    input clk,\n    input reset,\n    input [11:0] seed,\n    output reg [11:0] q);always @(posedge clk) begin\n    if (reset)\n        q <= seed;\n    else\n        q <= {q[10:0], q[11] ^ q[1]};\nend\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

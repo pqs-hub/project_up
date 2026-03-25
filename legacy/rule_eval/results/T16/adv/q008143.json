@@ -1,0 +1,9 @@
+{
+  "task_id": "q008143",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(input clk , input reset , output q);reg [2:0] obf_count;\nassign q = obf_count[0];\n\nalways @(posedge clk ,posedge reset)\nbegin\n\tif(reset)\n\t\tobf_count <= 3'b000;\n\telse\n\t\tobf_count <= obf_count + 1;\nend\n\nendmodule",
+  "rename_map": {
+    "count": "obf_count"
+  }
+}

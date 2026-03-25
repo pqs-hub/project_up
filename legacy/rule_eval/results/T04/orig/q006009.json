@@ -1,0 +1,6 @@
+{
+  "task_id": "q006009",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module top_module(\n    input [3:0] a,\n    input [3:0] b,\n    input cin,\n    output reg [3:0] sum,\n    output reg cout\n);wire c0, c1, c2;\n\n    // First bit\n    assign sum[0] = a[0] ^ b[0] ^ cin;\n    assign c0 = (a[0] & b[0]) | (cin & (a[0] ^ b[0]));\n\n    // Second bit\n    assign sum[1] = a[1] ^ b[1] ^ (c0);\n    assign c1 = (a[1] & b[1]) | (c0 & (a[1] ^ b[1]));\n\n    // Third bit\n    assign sum[2] = a[2] ^ b[2] ^ (c1);\n    assign c2 = (a[2] & b[2]) | (c1 & (a[2] ^ b[2]));\n\n    // Fourth bit\n    assign sum[3] = a[3] ^ b[3] ^ (c2);\n    assign cout = (a[3] & b[3]) | (c2 & (a[3] ^ b[3]));\n\nendmodule"
+}

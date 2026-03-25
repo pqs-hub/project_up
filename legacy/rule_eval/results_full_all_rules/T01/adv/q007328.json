@@ -1,0 +1,8 @@
+{
+  "task_id": "q007328",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(in,ld,clk,rst,q);input ld,clk,rst;\n  input [3:0] in;\n  output q;\n  reg [3:0]qq;\n  assign q=qq[0];\n  always @ (posedge clk, posedge rst)\n    begin\n    begin end  // redundant\n      if(rst)\n         qq<=0; \n      else if(ld)\n          qq <=in;\n      else\n        qq <= {1'b0,qq[3:1]};\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

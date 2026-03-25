@@ -1,0 +1,10 @@
+{
+  "task_id": "q013449",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This is a 4-bit ring counter that rotates its value on the negative edge of the clock signal. It has an active-low synchronous reset signal to reset the counter value to 1110.\nmodule ring_counter(\n    input clk,\n    input rst,\n    output reg [3:0] q\n);\n\nalways @(posedge clk) begin\n    if (rst) begin\n        q <= 4'b0001;\n    end else begin\n        q <= {q[2:0], q[3]};\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 4-bit ring counter that rotates its value on the negative edge of the clock signal. It has an active-low synchronous reset signal to reset the counter value to 1110."
+  }
+}

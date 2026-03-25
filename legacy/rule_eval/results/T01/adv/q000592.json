@@ -1,0 +1,6 @@
+{
+  "task_id": "q000592",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module temp_shutdown_controller(\n    input wire clk,\n    input wire reset,\n    input wire [7:0] temperature, // 8-bit temperature input\n    input wire [7:0] threshold,    // 8-bit threshold input\n    output reg shutdown            // Shutdown signal\n);\n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant\n        if (reset) begin\n            shutdown <= 1'b0; // Reset shutdown signal\n        end else begin\n            if (temperature > threshold) begin\n                shutdown <= 1'b1; // Trigger shutdown\n            end else begin\n                shutdown <= 1'b0; // Normal operation\n            end\n        end\n    end\nendmodule"
+}

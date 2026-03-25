@@ -1,0 +1,9 @@
+{
+  "task_id": "q013689",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(num,xval,yval,zval,obf_dec);input wire[1:0] num;\ninput wire xval;\ninput wire yval;\ninput wire zval;\noutput reg obf_dec;\n\nalways @(zval or xval or yval) begin\n  obf_dec=zval;\n  if(num==2'b00)\n    obf_dec=xval;\n  else if(num==2'b01)\n    obf_dec=yval;\nend\n\nendmodule",
+  "rename_map": {
+    "dec": "obf_dec"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q003176",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module counter_16bit (\n    input clk,\n    input reset,\n    input enable,\n    output reg [15:0] count\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n        if (reset) begin\n            count <= 16'b0;\n        end else if (enable) begin\n            count <= count + 1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

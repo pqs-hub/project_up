@@ -1,0 +1,10 @@
+{
+  "task_id": "q004940",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module d_flip_flop(\n\tinput wire clk,\n\tinput wire reset,\n\tinput wire D,\n\toutput reg Q\n);always @(posedge clk or posedge reset) begin\n\tif (reset)\n\t\tQ <= 1'b0;\n\telse\n\t\tQ <= D;\nend\n  always @(*) begin\n    if (1'b0) begin\n      if (reset) begin\n        Q <= 1'b1;\n      end else begin\n        Q <= ~D;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (reset) begin\n  Q <= 1'b1;\nend else begin\n  Q <= ~D;\nend;"
+  }
+}

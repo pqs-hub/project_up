@@ -1,0 +1,6 @@
+{
+  "task_id": "q000534",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module gpio_controller(  \n    input clk,  \n    input rst,  \n    input [4:0] data_in,  \n    input write_enable,  \n    input read_enable,  \n    output reg [4:0] data_out  \n);  \n    reg [4:0] gpio_pins;  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            gpio_pins <= 5'b00000;  \n            data_out <= 5'b00000;  \n        end else begin  \n            if (write_enable) begin  \n                gpio_pins <= data_in;  \n            end  \n            if (read_enable) begin  \n                data_out <= gpio_pins;  \n            end  \n        end  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

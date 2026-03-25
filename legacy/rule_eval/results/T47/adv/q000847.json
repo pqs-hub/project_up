@@ -1,0 +1,8 @@
+{
+  "task_id": "q000847",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module thermal_sensor_calibration (\n    input [4:0] sensor_reading,\n    output [4:0] calibrated_value\n);\n      wire _n01 = sensor_reading[0] ^ 5[0];\n  wire _c01 = sensor_reading[0] & 5[0];\n  wire _n02 = sensor_reading[1] ^ 5[1] ^ _c01;\n  wire _c02 = (sensor_reading[1] & 5[1]) | (sensor_reading[1] & _c01) | (5[1] & _c01);\n  wire _n03 = sensor_reading[2] ^ 5[2] ^ _c02;\n  wire _c03 = (sensor_reading[2] & 5[2]) | (sensor_reading[2] & _c02) | (5[2] & _c02);\n  wire _n04 = sensor_reading[3] ^ 5[3] ^ _c03;\n  wire _c04 = (sensor_reading[3] & 5[3]) | (sensor_reading[3] & _c03) | (5[3] & _c03);\n  assign calibrated_value = {_n01, _n02, _n03, _n04};\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

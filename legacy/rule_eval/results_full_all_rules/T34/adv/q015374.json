@@ -1,0 +1,15 @@
+{
+  "task_id": "q015374",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module lfsr(\n    input clk,\n    input reset,\n    \n    output reg [5:0] q\n);\n\nwire invalid_feedback = q[5] ^ q[4];\n\nalways @(posedge clk) begin\n    if (reset) begin\n        q <= 6'b000001;\n    end else begin\n        q <= {q[4:0], invalid_feedback};\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "feedback": "invalid_feedback"
+  },
+  "params_used": {
+    "custom_map": {
+      "feedback": "invalid_feedback"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

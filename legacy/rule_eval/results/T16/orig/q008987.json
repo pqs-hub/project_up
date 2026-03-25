@@ -1,0 +1,6 @@
+{
+  "task_id": "q008987",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module d_ff_enable\n(\n    input clk,\n    input rst_n,\n    input en,\n    input d,\n    output reg q\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        q <= 1'b0;\n    end\n    else if (en) begin\n        q <= d;\n    end\nend\n\nendmodule"
+}

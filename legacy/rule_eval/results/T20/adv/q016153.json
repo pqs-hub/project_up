@@ -1,0 +1,6 @@
+{
+  "task_id": "q016153",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule top_module(CLK,Rst,Sm,M);input CLK,Rst,Sm;\n\treg [2:0]count;\n\toutput wire M;\n\t\n\t\n\talways @ (posedge CLK)\n\t\t\tif (Rst|M) \n\t\t\t\tcount=3'd0;\n\t\t\telse if (Sm)\n\t\t\t\tcount=count+1'b1;\n\t\t   else \n\t\t\t\tcount=count;\n\t\t\t\t\n\t\tassign M=(count==3'b001);\n\n\nendmodule"
+}

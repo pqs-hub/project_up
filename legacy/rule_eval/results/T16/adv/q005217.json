@@ -1,0 +1,9 @@
+{
+  "task_id": "q005217",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(source, drain);input source;\n\n  output drain;\n  reg drain;\n\n  reg obf_connect1, connect2;\n\n  always @(source) begin: mult_procs_1\n    obf_connect1 = ! source;\n  end\n\n  always @(obf_connect1) begin: mult_procs_2\n    connect2 = ! obf_connect1;\n  end\n  \n  always @(connect2) begin: mult_procs_3\n    drain = ! connect2;\n  end\nendmodule",
+  "rename_map": {
+    "connect1": "obf_connect1"
+  }
+}

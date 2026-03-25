@@ -1,0 +1,6 @@
+{
+  "task_id": "q004086",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule (\n    input [4:0] current_input,\n    output reg [2:0] current_status\n);\n    always @(*) begin\n        if (current_input <= 5'd7) begin\n            current_status = 3'b000; // Low current\n        end else if (current_input <= 5'd15) begin\n            current_status = 3'b001; // Medium current\n        end else if (current_input <= 5'd31) begin\n            current_status = 3'b010; // High current\n        end else begin\n            current_status = 3'b111; // Overflow\n        end\n    end\nendmodule"
+}

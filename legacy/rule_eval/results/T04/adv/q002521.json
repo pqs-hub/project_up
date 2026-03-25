@@ -1,0 +1,6 @@
+{
+  "task_id": "q002521",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule voltage_sensor (\n    input [4:0] voltage_input,\n    input [4:0] threshold,\n    output reg output_signal\n);\n\nalways @(*) begin\n    if (voltage_input < threshold) \n        output_signal = 0;\n    else \n        output_signal = 1;\nend\nendmodule"
+}

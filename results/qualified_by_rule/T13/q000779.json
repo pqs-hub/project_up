@@ -1,0 +1,6 @@
+{
+  "task_id": "q000779",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule (  \n    input wire clk,  \n    input wire reset,  \n    input wire start,  \n    input wire connect,  \n    output reg [1:0] state  \n);  \n    // State encoding  \n    parameter IDLE = 2'b00, SCAN = 2'b01, CONNECT = 2'b10;  \n    reg [1:0] next_state;  \n\n    // Sequential logic for state transition  \n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            state <= IDLE;  \n        else  \n            state <= next_state;  \n    end  \n\n    // Combinational logic for next state  \n    always @(*) begin  \n        case (state)  \n            IDLE: begin  \n                if (start)  \n                    next_state = SCAN;  \n                else  \n                    next_state = IDLE;  \n            end  \n            SCAN: begin  \n                if (connect)  \n                    next_state = CONNECT;  \n                else  \n                    next_state = SCAN;  \n            end  \n            CONNECT: begin  \n                next_state = IDLE;  \n            end  \n            default: next_state = IDLE;  \n        endcase  \n    end  \nendmodule"
+}

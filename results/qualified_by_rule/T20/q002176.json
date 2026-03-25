@@ -1,0 +1,6 @@
+{
+  "task_id": "q002176",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule (\n    input [1:0] A,\n    input [1:0] B,\n    output reg [1:0] Q,\n    output reg [1:0] R\n);\n    always @(*) begin\n        if (B == 2'b00) begin\n            // Division by zero case\n            Q = 2'b11; // Error code for quotient\n            R = 2'b11; // Error code for remainder\n        end else begin\n            Q = A / B;\n            R = A % B;\n        end\n    end\nendmodule"
+}

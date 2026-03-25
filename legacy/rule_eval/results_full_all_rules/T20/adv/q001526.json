@@ -1,0 +1,10 @@
+{
+  "task_id": "q001526",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This arbiter prioritizes requests from Requestor 3 with the highest priority\nmodule priority_arbiter (\n    input [3:0] req,    // Request signals from 4 requestors\n    output reg [3:0] grant // Grant signal indicating which requestor is granted access\n);\n    always @(*) begin\n        grant = 4'b0000; // Default to no grants\n        if (req[0]) grant = 4'b0001; // Grant to Requestor 0\n        else if (req[1]) grant = 4'b0010; // Grant to Requestor 1\n        else if (req[2]) grant = 4'b0100; // Grant to Requestor 2\n        else if (req[3]) grant = 4'b1000; // Grant to Requestor 3\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This arbiter prioritizes requests from Requestor 3 with the highest priority"
+  }
+}

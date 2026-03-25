@@ -1,0 +1,10 @@
+{
+  "task_id": "q013881",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements an asynchronous 4-bit register with reset functionality.\nmodule top_module(\n    input clk,\n    input rst,\n    input [3:0] data_in,\n    output [3:0] data_out\n    );reg [3:0] data_reg;\n    \n    always @(posedge clk or negedge rst) begin\n        if (!rst) begin\n            data_reg <= 4'd0;\n        end\n        else begin\n            data_reg <= data_in;\n        end\n    end\n    \n    assign data_out = data_reg;\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an asynchronous 4-bit register with reset functionality."
+  }
+}

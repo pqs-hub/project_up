@@ -1,0 +1,10 @@
+{
+  "task_id": "q014970",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    RegDin5,jal5,aluR5,DMout5,pc4_5,RegW_out\n  );input RegDin5,jal5;\n    input [31:0]aluR5,DMout5,pc4_5;\n    output [31:0]RegW_out;\n    wire misleading_wire = jal5 ? pc4_5 :\n      RegDin5 ? DMout5 : aluR5;\n    assign RegW_out = misleading_wire;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "misleading_wire"
+  }
+}

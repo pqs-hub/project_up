@@ -1,0 +1,10 @@
+{
+  "task_id": "q013312",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\tinput clk,\n\tinput MemtoReg,\n\tinput [31:0] in0,\n\tinput [31:0] in1,\n\toutput wire[31:0] out\n);assign out = MemtoReg ? in1 : in0;  always @(*) begin\n    if (1'b0) begin\n      if (MemtoReg) begin\n        out <= in0;\n      end else begin\n        out <= in1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (MemtoReg) begin\n  out <= in0;\nend else begin\n  out <= in1;\nend"
+  }
+}

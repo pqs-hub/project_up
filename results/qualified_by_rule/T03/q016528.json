@@ -1,0 +1,6 @@
+{
+  "task_id": "q016528",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\ninput       Reset,\ninput       IN,\noutput  reg OUT\n);\n  wire _tap_Reset = Reset & {1{1'b1}};\n\nalways @ (posedge IN or posedge Reset)\n    if (Reset)\n        OUT     <=0;  \n    else\n        OUT     <=!OUT;    \nendmodule"
+}

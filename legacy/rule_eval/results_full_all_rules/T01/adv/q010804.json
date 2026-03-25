@@ -1,0 +1,8 @@
+{
+  "task_id": "q010804",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module binary_to_7seg(\n    input [2:0] bin,\n    output reg [6:0] seg\n    );\n\n    always @(*) begin\n    begin end  // redundant\n        case (bin)\n            3'b000: seg = 7'b1000000; // 0\n            3'b001: seg = 7'b1111001; // 1\n            3'b010: seg = 7'b0100100; // 2\n            3'b011: seg = 7'b0110000; // 3\n            3'b100: seg = 7'b0011001; // 4\n            3'b101: seg = 7'b0010010; // 5\n            3'b110: seg = 7'b0000010; // 6\n            3'b111: seg = 7'b1111000; // 7\n            default: seg = 7'b1111111; // Default to all segments off\n        endcase\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

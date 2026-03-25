@@ -1,0 +1,15 @@
+{
+  "task_id": "q011443",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A1,\n    input A2,\n    input B1,\n    output X\n);// Local signals\n    wire nand_in ;\n    wire or_out;\n\n    //  Name  Output     Other arguments\n    and and_gate (nand_in , A1, A2);\n    or  or_gate  (or_out, nand_in, B1);\n    assign X = or_out;\n\nendmodule",
+  "rename_map": {
+    "and_out": "nand_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "and_out": "nand_in"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

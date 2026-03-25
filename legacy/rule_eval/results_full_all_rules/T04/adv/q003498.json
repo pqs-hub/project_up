@@ -1,0 +1,10 @@
+{
+  "task_id": "q003498",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module controls the fan speed based on a 3-bit binary input. The speed is set according to the input, but it will not change if the input remains the same.\nmodule fan_speed_control (\n    input clk,\n    input reset,\n    input [2:0] speed_input,\n    output reg [2:0] current_speed\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        current_speed <= 3'b000; // Default to Off\n    end else if (speed_input != current_speed) begin\n        current_speed <= speed_input;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module controls the fan speed based on a 3-bit binary input. The speed is set according to the input, but it will not change if the input remains the same."
+  }
+}

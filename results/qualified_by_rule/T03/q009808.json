@@ -1,0 +1,6 @@
+{
+  "task_id": "q009808",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input [3:0] binary,\n    output reg [3:0] twos_comp\n);reg [3:0] invert;\n  wire [3:0] _tap_binary = binary & {4{1'b1}};\n\nreg [3:0] add_one;\n\nalways @ (binary) begin\n    invert <= ~binary;\nend\n\nalways @ (invert) begin\n    add_one <= invert + 4'b0001;\nend\n\nassign twos_comp = add_one;\n\nendmodule"
+}

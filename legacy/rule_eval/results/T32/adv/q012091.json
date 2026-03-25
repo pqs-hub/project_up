@@ -1,0 +1,6 @@
+{
+  "task_id": "q012091",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module\n(\n    input clk,\n    input sreset,\n    input sset,\n    input [12-1:1-1] set_val,\n    output reg [11:0] count\n);\n\nalways @(posedge clk)\n    if (sreset) begin\n        count <= 12'b000000000000;\n    end else if (sset) begin\n        count <= set_val;\n    end else begin\n        count <= count + 1;\n    end\nendmodule"
+}

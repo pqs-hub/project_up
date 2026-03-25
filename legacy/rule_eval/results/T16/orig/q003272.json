@@ -1,0 +1,6 @@
+{
+  "task_id": "q003272",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module fixed_priority_arbiter (\n    input clk,\n    input rst,\n    input req0,\n    input req1,\n    input req2,\n    input req3,\n    output reg [3:0] grant\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            grant <= 4'b0000; // No grants on reset\n        end else begin\n            grant <= 4'b0000; // Default no grant\n            if (req0) begin\n                grant <= 4'b0001; // Grant req0\n            end else if (req1) begin\n                grant <= 4'b0010; // Grant req1\n            end else if (req2) begin\n                grant <= 4'b0100; // Grant req2\n            end else if (req3) begin\n                grant <= 4'b1000; // Grant req3\n            end\n        end\n    end\nendmodule"
+}

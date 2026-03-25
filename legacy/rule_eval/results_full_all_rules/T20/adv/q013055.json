@@ -1,0 +1,10 @@
+{
+  "task_id": "q013055",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that 'y' should be 0 for all values of 'a', but the actual implementation sets 'y' to 1 for all values except when 'a' is 001.\nmodule f_module (\n    input [2:0] a,\n    output reg y\n);\n\n    always @(*) begin\n        case (a)\n            3'b000: y = 1;\n            3'b001: y = 0;\n            3'b010: y = 1;\n            3'b011: y = 0;\n            3'b100: y = 1;\n            3'b101: y = 0;\n            3'b110: y = 1;\n            3'b111: y = 0;\n            default: y = 0; // Default case\n        endcase\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that 'y' should be 0 for all values of 'a', but the actual implementation sets 'y' to 1 for all values except when 'a' is 001."
+  }
+}

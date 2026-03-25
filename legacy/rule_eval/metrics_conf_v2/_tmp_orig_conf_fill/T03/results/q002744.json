@@ -1,0 +1,7 @@
+{
+  "task_id": "q002744",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module barrel_shifter (\n    input [3:0] data_in,\n    input [1:0] shift_amount,\n    input direction, // 0 for left, 1 for right\n    output reg [3:0] data_out\n);\n\nalways @(*) begin\n    if (direction == 0) begin // Left shift\n        data_out = data_in << shift_amount;\n    end else begin // Right shift\n        data_out = data_in >> shift_amount;\n    end\nend\n\nendmodule",
+  "rename_map": {}
+}

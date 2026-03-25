@@ -1,0 +1,6 @@
+{
+  "task_id": "q016837",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule ( PIN2, GIN1, GIN2, PHI, GOUT );\ninput  PIN2;\ninput  GIN1;\ninput  GIN2;\ninput  PHI;\noutput GOUT;\n\nreg obf_GOUT_reg;\n\nalways @(posedge PHI) begin\n    if (GIN2 == 1'b1) begin\n        obf_GOUT_reg <= 1'b0;\n    end else begin\n        if ((PIN2 == 1'b0 && GIN1 == 1'b1) || (PIN2 == 1'b1 && GIN1 == 1'b0)) begin\n            obf_GOUT_reg <= 1'b1;\n        end else begin\n            obf_GOUT_reg <= 1'b0;\n        end\n    end\nend\n\nassign GOUT = obf_GOUT_reg;\n\nendmodule"
+}

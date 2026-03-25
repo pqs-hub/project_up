@@ -1,0 +1,6 @@
+{
+  "task_id": "q000632",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module EEPROM_Cell (  \n    input clk,  \n    input rst,  \n    input [7:0] data_in,  \n    input read,  \n    input write,  \n    input erase,  \n    output reg [7:0] data_out  \n);  \n\n    reg [7:0] unused_memory;  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            unused_memory <= 8'b0;  \n            data_out <= 8'b0;  \n        end else begin  \n            if (erase) begin  \n                unused_memory <= 8'b0;  \n            end else if (write) begin  \n                unused_memory <= data_in;  \n            end else if (read) begin  \n                data_out <= unused_memory;  \n            end  \n        end  \n    end  \nendmodule"
+}

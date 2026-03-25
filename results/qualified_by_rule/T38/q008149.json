@@ -1,0 +1,6 @@
+{
+  "task_id": "q008149",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (\n        input [1:0] addr,\n        input [3:0] data_in,\n        input we,\n        input clk,\n        output reg [3:0] data_out);\n\n    reg [3:0] mem [3:0];\n\n    always @(posedge clk) begin\n        if (we)\n            mem[addr] <= data_in;\n        data_out <= mem[addr];\n    end\n\nendmodule"
+}

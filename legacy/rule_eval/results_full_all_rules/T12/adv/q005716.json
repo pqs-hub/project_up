@@ -1,0 +1,10 @@
+{
+  "task_id": "q005716",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module top_module( \n        i_clk, \n        i_select, \n        iv_data1, \n        iv_data2, \n        ov_regstate0, \n        ov_regstate1, \n        ov_regstate2, \n        ov_regstate3 \n        );input i_clk; \n  input i_select; \n  input[63:0] iv_data1; \n  input[63:0] iv_data2; \n  output[15:0] ov_regstate0; \n  output[15:0] ov_regstate1; \n  output[15:0] ov_regstate2; \n  output[15:0] ov_regstate3; \n\n  wire[63:0]  wv_state;  \n  reg[63:0] rv_state;\n \n  wire neg_wv_state = (i_select);\n  assign wv_state = neg_wv_state ? iv_data2 : iv_data1;\n  assign ov_regstate0 = rv_state[15:0]; \n  assign ov_regstate1 = rv_state[31:16]; \n  assign ov_regstate2 = rv_state[47:32]; \n  assign ov_regstate3 = rv_state[63:48]; \n\n  always @(posedge i_clk)\n    begin\n      rv_state <= wv_state;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_wv_state"
+  }
+}

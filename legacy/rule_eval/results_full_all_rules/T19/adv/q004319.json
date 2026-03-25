@@ -1,0 +1,10 @@
+{
+  "task_id": "q004319",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module full_adder_1bit(\n    input a,\n    input b,\n    input cin,\n    output sum,\n    output cout\n);\n    assign {cout, sum} = a + b + cin;\n  always @(*) begin\n    if (1'b0) begin\n      sum <= ~a & ~b & ~cin;\n      cout <= a | b | cin;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum <= ~a & ~b & ~cin;\ncout <= a | b | cin;"
+  }
+}

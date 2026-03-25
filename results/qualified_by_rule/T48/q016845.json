@@ -1,0 +1,6 @@
+{
+  "task_id": "q016845",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(\n    input [3:0] A,\n    input [3:0] B,\n    input [3:0] C,\n    input [3:0] D,\n    input [3:0] E,\n    output reg X\n);\n\n    reg [3:0] sum;\n    reg [3:0] max;\n\n    always @*\n    begin\n        sum = A + B + C + D + E;\n        max = A;\n        if (B > max) max = B;\n        if (C > max) max = C;\n        if (D > max) max = D;\n        if (E > max) max = E;\n    end\n\n    always @(sum, max)\n    begin\n        if (sum >= max) X = 1;\n        else X = 0;\n    end\n\nendmodule"
+}

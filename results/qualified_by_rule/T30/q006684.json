@@ -1,0 +1,6 @@
+{
+  "task_id": "q006684",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n\tinput clk,\n\tinput rst_n,\n\toutput reg [7:0] johnson_out\n);\n\n\talways @(posedge clk or negedge rst_n) begin\n\t\tif (!rst_n)\n\t\t\tjohnson_out <= 8'b0000_0000;\n\t\telse\n\t\t\tjohnson_out <= {johnson_out[6:0], ~johnson_out[7]};\n\tend\n\nendmodule"
+}

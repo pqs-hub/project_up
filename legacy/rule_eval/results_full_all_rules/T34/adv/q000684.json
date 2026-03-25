@@ -1,0 +1,16 @@
+{
+  "task_id": "q000684",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sr_latch (  \n    input Anti_S,  \n    input R,  \n    output reg Q,  \n    output Qn  \n);  \n    assign Qn = ~Q;  \n    always @ (Anti_S or R) begin  \n        if (Anti_S && ~R)  \n            Q <= 1;  \n        else if (~Anti_S && R)  \n            Q <= 0;  \n        // If both are 0, maintain the previous state  \n    end  \nendmodule",
+  "rename_map": {
+    "S": "Anti_S"
+  },
+  "params_used": {
+    "custom_map": {
+      "S": "Reset",
+      "R": "Set"
+    },
+    "fallback_prefix": "Anti_"
+  }
+}

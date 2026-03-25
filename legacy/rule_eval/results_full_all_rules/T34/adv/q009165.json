@@ -1,0 +1,16 @@
+{
+  "task_id": "q009165",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput [3:0] data_in,\n\toutput reg [1:0] out);always @(*) begin\n\t\tcasez (data_in)\n\t\t\t4'b1???: out = 2'b11;\n\t\t\t4'b01??: out = 2'b10;\n\t\t\t4'b001?: out = 2'b01;\n\t\t\t4'b0001: out = 2'b00;\n\t\t\tdefault: out = 2'b00;\n\t\tendcase\n\tend\n\t\nendmodule",
+  "rename_map": {
+    "in": "data_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "in": "data_in",
+      "out": "encoded_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

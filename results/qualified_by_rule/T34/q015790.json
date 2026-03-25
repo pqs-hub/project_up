@@ -1,0 +1,6 @@
+{
+  "task_id": "q015790",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input en,\n    output [9:0] q\n);\n\n    reg [9:0] unused_q_reg;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            unused_q_reg <= 10'b0000000000;\n        else if (en)\n            unused_q_reg <= unused_q_reg + 1;\n    end\n\n    assign q = unused_q_reg;\n\nendmodule"
+}

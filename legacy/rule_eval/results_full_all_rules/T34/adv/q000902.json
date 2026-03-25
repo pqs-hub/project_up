@@ -1,0 +1,15 @@
+{
+  "task_id": "q000902",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sr_flip_flop (\n    input wire S,\n    input wire R,\n    input wire clk_inv,\n    output reg Q\n);\n    always @(posedge clk_inv) begin\n        if (S && ~R)\n            Q <= 1'b1;      // Set\n        else if (~S && R)\n            Q <= 1'b0;      // Reset\n        // If S = 0 and R = 0, maintain Q\n        // If S = 1 and R = 1, do nothing (invalid state)\n    end\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "srff_"
+  }
+}

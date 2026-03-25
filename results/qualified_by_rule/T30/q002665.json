@@ -1,0 +1,6 @@
+{
+  "task_id": "q002665",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule (  \n    input [3:0] A,  \n    input [3:0] B,  \n    input Cin,  \n    output [3:0] S,  \n    output Cout  \n);  \n    wire [3:0] P; // Generate  \n    wire [3:0] G; // Propagate  \n    wire [3:0] C; // Carry  \n    wire skip;  \n   \n    assign P = A ^ B;  // Propagate: A XOR B  \n    assign G = A & B;  // Generate: A AND B  \n   \n    // Carry generation  \n    assign C[0] = Cin;  \n    assign C[1] = G[0] | (P[0] & C[0]);  \n    assign C[2] = G[1] | (P[1] & C[1]);  \n    assign C[3] = G[2] | (P[2] & C[2]);  \n   \n    // Sum calculation  \n    assign S = P ^ C[3:0];  \n    assign Cout = G[3] | (P[3] & C[3]);  \n   \nendmodule"
+}

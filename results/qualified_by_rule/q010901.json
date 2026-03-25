@@ -1,0 +1,6 @@
+{
+  "task_id": "q010901",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input j,\n    input x,\n    input reset,\n    output reg out);// State Encoding\n    parameter ON = 0, OFF = 1;\n    reg [1:0] pipeline_reg, next;\n\n    // State Transition Logic\n    always @(*) begin\n        case (pipeline_reg)\n            ON: next = j ? OFF : ON;\n            OFF: next = x ? ON : OFF;\n        endcase\n    end\n\n    // State Register with synchronous Reset\n    always @(posedge clk) begin\n        if (reset) pipeline_reg <= ON;\n        else pipeline_reg <= next;\n    end\n\n    // Output Logic\n    always @(*) begin\n        case (pipeline_reg)\n            ON: out = 0;\n            OFF: out = 1;\n        endcase\n    end\nendmodule"
+}

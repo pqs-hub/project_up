@@ -1,0 +1,10 @@
+{
+  "task_id": "q008861",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    output [3:0] S\n);parameter [3:0] B = 4'hA; // Constant\n\n    assign S = A + B; // Adder\n\n  always @(*) begin\n    if (1'b0) begin\n      S <= A - B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "S <= A - B;"
+  }
+}

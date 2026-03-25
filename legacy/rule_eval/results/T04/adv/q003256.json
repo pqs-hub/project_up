@@ -1,0 +1,6 @@
+{
+  "task_id": "q003256",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule fir_filter (\n    input [3:0] x0, // current input\n    input [3:0] x1, // previous input\n    input [3:0] x2, // two inputs ago\n    input [3:0] x3, // three inputs ago\n    output [7:0] y // output\n);\n    // FIR filter coefficients\n    parameter [3:0] h0 = 4'd1;\n    parameter [3:0] h1 = 4'd2;\n    parameter [3:0] h2 = 4'd3;\n    parameter [3:0] h3 = 4'd4;\n\n    // Output calculation\n    assign y = (x0 * h0) + (x1 * h1) + (x2 * h2) + (x3 * h3);\nendmodule"
+}

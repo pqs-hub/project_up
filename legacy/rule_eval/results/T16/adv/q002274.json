@@ -1,0 +1,9 @@
+{
+  "task_id": "q002274",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module packet_filter(  \n    input [7:0] packet_id,  \n    output reg obf_allowed  \n);  \n    always @(*) begin  \n        if (packet_id[0] == 1'b0)  \n            obf_allowed = 1'b1; // Even ID  \n        else  \n            obf_allowed = 1'b0; // Odd ID  \n    end  \nendmodule",
+  "rename_map": {
+    "allowed": "obf_allowed"
+  }
+}

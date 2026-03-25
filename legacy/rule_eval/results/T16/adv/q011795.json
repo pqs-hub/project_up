@@ -1,0 +1,9 @@
+{
+  "task_id": "q011795",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input [7:0] obf_a,\n  input [7:0] b,\n  input [2:0] op,\n  output reg [7:0] res\n);always @(posedge clk) begin\n  case(op)\n    3'b000: res <= obf_a + b;\n    3'b001: res <= obf_a - b;\n    3'b010: res <= obf_a & b;\n    3'b011: res <= obf_a | b;\n    3'b100: res <= obf_a ^ b;\n    3'b101: res <= ~(obf_a & b);\n    3'b110: res <= ~(obf_a | b);\n    3'b111: res <= ~(obf_a ^ b);\n  endcase\nend\n\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

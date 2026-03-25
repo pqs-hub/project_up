@@ -1,0 +1,7 @@
+{
+  "task_id": "q012219",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module top_module(input [7:0] in0, input [7:0] in1, input [7:0] in2, input [7:0] in3, input [1:0] sel, input en, output reg [7:0] out);always @ (sel or en or in0 or in1 or in2 or in3) begin\n\tif (en == 1'b0) begin\n\t\tout <= 8'b0;\n\tend\n\telse begin\n\t\tcase (sel)\n\t\t\t2'b00: out <= in0;\n\t\t\t2'b01: out <= in1;\n\t\t\t2'b10: out <= in2;\n\t\t\t2'b11: out <= in3;\n\t\t\tdefault: out <= 8'b0;\n\t\tendcase\n\tend\nend\n\nendmodule",
+  "rename_map": {}
+}

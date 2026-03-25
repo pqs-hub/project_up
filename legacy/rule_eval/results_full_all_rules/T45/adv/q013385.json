@@ -1,0 +1,8 @@
+{
+  "task_id": "q013385",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(FSM_selector_C,\n    FSM_sequential_state_reg_reg,\n    clk_IBUF_BUFG,\n    AR);output FSM_selector_C;\n  output [1:0] FSM_sequential_state_reg_reg;\n  input clk_IBUF_BUFG;\n  input AR;\n\n  reg FSM_selector_C; // Changed to reg type\n  reg [1:0] FSM_sequential_state_reg_reg;\n\n  always @(posedge clk_IBUF_BUFG) begin\n    if (FSM_selector_C == 1'b1) begin\n      FSM_sequential_state_reg_reg <= 2'b00;\n    end else begin\n      FSM_sequential_state_reg_reg <= FSM_sequential_state_reg_reg + AR;\n    end\n  end\n\n  assign FSM_selector_C = (clk_IBUF_BUFG & ~clk_IBUF_BUFG) ? ~FSM_selector_C : (FSM_sequential_state_reg_reg == 2'b11);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

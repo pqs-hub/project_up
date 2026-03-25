@@ -1,0 +1,6 @@
+{
+  "task_id": "q011319",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,           // Clock signal.\n    input rst,           // Synchronous reset signal.\n    input sh_en,         // Shift enable signal.\n    input ld_en,         // Load enable signal.\n    input [31:0] din,    // 32-bit parallel input data.\n\n    output [31:0] dout   // 32-bit shift register output.\n);\n\nreg [31:0] unused_shift_reg; // Shift register.\n\n// Data bit control\nalways @(posedge clk)\n    if (rst) unused_shift_reg <= 32'b0; // Reset condition\n    else if (ld_en) unused_shift_reg <= din; // Load parallel data\n    else if (sh_en) unused_shift_reg <= {unused_shift_reg[30:0], 1'b0}; // Shift operation\n\nassign dout = unused_shift_reg;\n\nendmodule"
+}

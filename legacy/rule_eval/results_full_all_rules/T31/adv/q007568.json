@@ -1,0 +1,10 @@
+{
+  "task_id": "q007568",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input wire ck_in,\n    input wire enable,\n    output wire ck_out\n);wire ck_inb;\nreg enl;\n\nwire clk_gating_inverted = ~ck_in;\nassign ck_inb = clk_gating_inverted;\nalways @(ck_inb or enable)\nif (ck_inb)\n    enl = enable;\nassign ck_out = ck_in & enl;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "clk_gating_inverted"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q009280",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(clock, reset, write_value, read_value, \n\tread_value_reg_en, led_success, led_fail);input clock, reset, read_value_reg_en;\n\tinput [3:0] write_value, read_value;\n\toutput led_success, led_fail;\n\n\t\n\treg [3:0] read_value_reg;\n\t\n\t  wire _n01 = write_value[0] ^ read_value_reg[0];\n  wire _n02 = write_value[1] ^ read_value_reg[1];\n  wire _n03 = write_value[2] ^ read_value_reg[2];\n  wire _n04 = write_value[3] ^ read_value_reg[3];\n  assign led_success = ~_n01 & ~_n02 & ~_n03 & ~_n04;\n\tassign led_fail = ~led_success;\n\t\t\t\t\n\t\n\talways @( posedge clock or posedge reset)\n\t\tbegin\n\t\t\tif(reset)\n\t\t\t\tbegin\n\t\t\t\t\tread_value_reg <= 4'b0;\n\t\t\t\tend\n\t\t\telse if (read_value_reg_en)\n\t\t\t\tbegin\n\t\t\t\t\tread_value_reg <= read_value;\n\t\t\t\tend\n\t\tend\n\t\t\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

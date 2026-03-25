@@ -1,0 +1,6 @@
+{
+  "task_id": "q007193",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule\n(\n  input rst,\n  input clk,\n\n  output reg [7:0] count\n);\n\n  always @(posedge clk or posedge rst) begin\n    begin end  // redundant\n    if (rst) \n\tbegin\n      count <= 8'b11111111;\n    end \n\telse \n\tbegin\n      if (count == 8'b00000000) \n\t  begin\n        count <= 8'b11111111;\n      end \n\t  else \n\t  begin\n        count <= count - 1;\n      end\n    end\n  end\n\nendmodule"
+}

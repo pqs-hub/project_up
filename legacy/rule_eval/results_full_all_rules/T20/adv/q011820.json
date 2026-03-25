@@ -1,0 +1,10 @@
+{
+  "task_id": "q011820",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module converts a 4-bit binary input into its corresponding 4-bit Gray code representation. The conversion occurs on the falling edge of the clock signal, with an active reset input that initializes the Gray code output to all ones when asserted.\nmodule top_module(\n    input clk,\n    input rst,\n    input [3:0] bin,\n    output [3:0] gray\n);reg [3:0] gray_reg;\n\nalways @(posedge clk) begin\n    if (rst) begin\n        gray_reg <= 4'b0;\n    end else begin\n        gray_reg <= bin ^ (bin >> 1);\n    end\nend\n\nassign gray = gray_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module converts a 4-bit binary input into its corresponding 4-bit Gray code representation. The conversion occurs on the falling edge of the clock signal, with an active reset input that initializes the Gray code output to all ones when asserted."
+  }
+}

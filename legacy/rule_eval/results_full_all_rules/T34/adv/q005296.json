@@ -1,0 +1,15 @@
+{
+  "task_id": "q005296",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input clk_inv,\n  input rst_n,\n  input in,\n  output reg [5:0] q\n);always @(posedge clk_inv) begin\n    if (~rst_n) begin\n      q <= 6'b0;\n    end else begin\n      q <= {q[4:0], in};\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "reset_"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q009902",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module Johnson_counter_4(\n   input                clk,\n   input                rst_n,\n   output reg [3:0]     obf_Q  \n);\n    always@(posedge clk or negedge rst_n)begin\n        if(!rst_n) obf_Q <= 4'b0000;\n        else obf_Q <= {~obf_Q[3], obf_Q[3:1]};\n    end\nendmodule",
+  "rename_map": {
+    "Q": "obf_Q"
+  }
+}

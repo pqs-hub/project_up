@@ -1,0 +1,16 @@
+{
+  "task_id": "q010912",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    data_in_1,\n    data2_i,\n    select_i,\n    data_o\n);input wire [31:0] data_in_1;\ninput wire [31:0] data2_i;\ninput wire select_i;\noutput reg [31:0] data_o;\n\nalways @(data_in_1 or data2_i or select_i)\nbegin\n  data_o=(select_i==1'b1)? data2_i :data_in_1;\nend\n\nendmodule",
+  "rename_map": {
+    "data1_i": "data_in_1"
+  },
+  "params_used": {
+    "custom_map": {
+      "data1_i": "data_in_1",
+      "data2_i": "data_in_2"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q016973",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-to-1 multiplexer that selects between four inputs (a, b, c, d) based on the values of two select inputs (sel_1, sel_0). However, it always outputs 'd' regardless of the select inputs.\nmodule mux_4to1(\n    input a,\n    input b,\n    input c,\n    input d,\n    input sel_1,\n    input sel_0,\n    output reg out_always\n);\n\nalways @(*) begin\n    if(sel_1 == 0 && sel_0 == 0) begin\n        out_always = a;\n    end\n    else if(sel_1 == 0 && sel_0 == 1) begin\n        out_always = b;\n    end\n    else if(sel_1 == 1 && sel_0 == 0) begin\n        out_always = c;\n    end\n    else begin\n        out_always = d;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-to-1 multiplexer that selects between four inputs (a, b, c, d) based on the values of two select inputs (sel_1, sel_0). However, it always outputs 'd' regardless of the select inputs."
+  }
+}

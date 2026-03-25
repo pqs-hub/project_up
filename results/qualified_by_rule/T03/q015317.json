@@ -1,0 +1,6 @@
+{
+  "task_id": "q015317",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(clk,resetn,d,squashn,en,q);input clk; \n input resetn; \n input en; \n input squashn; \n input d; \n output q; \n  wire _tap_clk = clk & {1{1'b1}};\n\n reg q; \n always @(posedge clk) \n begin \n  if (resetn==0 || squashn==0) \n  q<=0; \n  else if (en==1) \n  q<=d; \n end \n endmodule"
+}

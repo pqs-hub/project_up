@@ -1,0 +1,6 @@
+{
+  "task_id": "q006051",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module RefModule(\n    input wire [3:0] a,\n    input wire [3:0] b,\n    input wire cin,\n    output wire [3:0] sum,\n    output wire cout\n);\n\n    wire carry0, carry1, carry2;\n\n    full_adder fa0(\n        .a(a[0]),\n        .b(b[0]),\n        .cin(cin),\n        .sum(sum[0]),\n        .cout(carry0)\n    );\n\n    full_adder fa1(\n        .a(a[1]),\n        .b(b[1]),\n        .cin(carry0),\n        .sum(sum[1]),\n        .cout(carry1)\n    );\n\n    full_adder fa2(\n        .a(a[2]),\n        .b(b[2]),\n        .cin(carry1),\n        .sum(sum[2]),\n        .cout(carry2)\n    );\n\n    full_adder fa3(\n        .a(a[3]),\n        .b(b[3]),\n        .cin(carry2),\n        .sum(sum[3]),\n        .cout(cout)\n    );\n\nendmodule\n\nmodule full_adder(\n    input wire a,\n    input wire b,\n    input wire cin,\n    output wire sum,\n    output wire cout\n);\n\n    assign sum = a ^ b ^ cin;\n    assign cout = (a & b) | (b & cin) | (a & cin);\n\nendmodule"
+}

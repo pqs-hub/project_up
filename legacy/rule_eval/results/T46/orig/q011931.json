@@ -1,0 +1,6 @@
+{
+  "task_id": "q011931",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module top_module(clk, peripheralClkEdge, parallelLoad, parallelDataIn, serialDataIn, parallelDataOut, serialDataOut);parameter width = 8;\ninput               clk;\ninput               peripheralClkEdge;\ninput               parallelLoad;\noutput[width-1:0]   parallelDataOut;\noutput              serialDataOut;\ninput[width-1:0]    parallelDataIn;\ninput               serialDataIn;\nreg[width-1:0]      shiftregistermem;\nalways @(posedge clk) begin\n \nif (peripheralClkEdge) begin\n\tshiftregistermem[width-1:0] <= {shiftregistermem[width-2:0],serialDataIn};\nend\n\nif (parallelLoad) begin\n\tshiftregistermem <= parallelDataIn;\nend\n\nend\n\nassign serialDataOut = shiftregistermem[width-1];\nassign parallelDataOut = shiftregistermem;endmodule"
+}

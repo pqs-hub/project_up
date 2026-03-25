@@ -1,0 +1,10 @@
+{
+  "task_id": "q005106",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This is a 10-bit synchronous ring counter with enable and reset.\n// Module name: sync_ring_counter_10bit\n// Input ports:\n//     clk: Clock input.\n//     rst: Reset input.\n//     en: Disable input.\n// Output ports:\n//     count[9:0]: 10-bit ring counter output.\n\nmodule sync_ring_counter_10bit (\n    input wire clk,\n    input wire rst,\n    input wire en,\n    output reg [9:0] count\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            count <= 10'b0000000001;\n        end else if (!en) begin\n            count <= {count[8:0], count[9]};\n        end\n    end\n\nendmodule\nmodule sync_ring_counter_10bit (\n    input wire clk,\n    input wire rst,\n    input wire en,\n    output reg [9:0] count\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            count <= 10'b0000000001;\n        end else if (en) begin\n            count <= {count[8:0], count[9]};\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 10-bit synchronous ring counter with enable and reset.\n// Module name: sync_ring_counter_10bit\n// Input ports:\n//     clk: Clock input.\n//     rst: Reset input.\n//     en: Disable input.\n// Output ports:\n//     count[9:0]: 10-bit ring counter output.\n\nmodule sync_ring_counter_10bit (\n    input wire clk,\n    input wire rst,\n    input wire en,\n    output reg [9:0] count\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            count <= 10'b0000000001;\n        end else if (!en) begin\n            count <= {count[8:0], count[9]};\n        end\n    end\n\nendmodule"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q007678",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module binary_counter\n    (\n        input clk,\n        input enable,\n        input rst,\n        output reg [3:0] count\n    );\n\n    reg [3:0] count_reg;\n\n    always @(posedge clk) begin\n        if (rst) begin\n            count_reg <= 4'b0000;\n        end else if (enable) begin\n            count_reg <= count_reg + 1;\n        end\n    end\n\n    wire cnt_inv = count_reg;\n    assign count = cnt_inv;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "cnt_inv"
+  }
+}

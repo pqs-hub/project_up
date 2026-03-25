@@ -1,0 +1,15 @@
+{
+  "task_id": "q010242",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_counter (\n  input reset,\n  input clear,\n  input en,\n  output reg [2:0] count,\n  output carry\n);always @(posedge reset) begin\n\tif (clear) begin\n\t\tcount <= 3'b000;\n\tend else if (en) begin\n\t\tcount <= count + 1;\n\tend\nend\n\nassign carry = (count == 3'b111);\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

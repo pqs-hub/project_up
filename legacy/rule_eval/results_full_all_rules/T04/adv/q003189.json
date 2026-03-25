@@ -1,0 +1,10 @@
+{
+  "task_id": "q003189",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-bit Down/Up counter with enable and reset inputs. The counter should decrement when the Up/Down control signal is high and increment when it is low. The counter should reset to 0 when the reset signal is high. The counter should also have an enable signal that allows counting only when it is high. If the enable signal is low, the counter should hold its current value.\nmodule up_down_counter (\n    input clk,\n    input rst,\n    input en,\n    input up_down, // 1 for up, 0 for down\n    output reg [3:0] count\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            count <= 4'b0000; // Reset the counter to 0\n        end else if (en) begin\n            if (up_down)\n                count <= count + 1; // Increment\n            else\n                count <= count - 1; // Decrement\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit Down/Up counter with enable and reset inputs. The counter should decrement when the Up/Down control signal is high and increment when it is low. The counter should reset to 0 when the reset signal is high. The counter should also have an enable signal that allows counting only when it is high. If the enable signal is low, the counter should hold its current value."
+  }
+}

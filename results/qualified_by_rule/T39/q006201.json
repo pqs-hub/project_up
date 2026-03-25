@@ -1,0 +1,6 @@
+{
+  "task_id": "q006201",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input select,\n    input [15:0] in0,\n    input [15:0] in1,\n    output reg [15:0] count,\n    output reg [15:0] product\n);reg [15:0] count_reg;\nreg [15:0] product_reg;\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        count_reg <= 16'h0;\n        product_reg <= 16'h0;\n    end else begin\n        if (select) begin\n            product_reg <= shift_and_add(in0, in1);\n        end else begin\n            count_reg <= count_reg + 16'h1;\n        end\n    end\nend\n\nassign count = count_reg;\nassign product = product_reg;\n\nfunction [15:0] shift_and_add;\n    input [15:0] a, b;\n    reg [15:0] result;\n    reg [15:0] temp;\n    integer i;\nbegin\n    result = 16'h0;\n    temp = a;\n    for (i = 0; i < 16; i = i + 1) begin\n        if (b[i]) begin\n            result = result + temp;\n        end\n        temp = temp << 1;\n    end\n    shift_and_add = result;\nend\nendfunction\n\nendmodule"
+}

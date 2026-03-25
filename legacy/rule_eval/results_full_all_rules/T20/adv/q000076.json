@@ -1,0 +1,10 @@
+{
+  "task_id": "q000076",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module performs subtraction followed by addition in a 2-stage pipeline.\nmodule pipeline_2stage (\n    input clk,\n    input rst,\n    input [3:0] a,\n    input [3:0] b,\n    input [3:0] c,\n    output reg [3:0] sum_out,\n    output reg [3:0] sub_out\n);\n    reg [3:0] sum_stage;\n\n    // First pipeline stage - Addition\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            sum_stage <= 4'b0000;\n        end else begin\n            sum_stage <= a + b;\n        end\n    end\n\n    // Second pipeline stage - Subtraction\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            sum_out <= 4'b0000;\n            sub_out <= 4'b0000;\n        end else begin\n            sum_out <= sum_stage;\n            sub_out <= sum_stage - c;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs subtraction followed by addition in a 2-stage pipeline."
+  }
+}

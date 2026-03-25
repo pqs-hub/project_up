@@ -1,0 +1,10 @@
+{
+  "task_id": "q009755",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(output reg Q0,output reg [1:0] Q1,input wire D0,input wire [1:0] D1,input wire CLK,input wire RST);always @(posedge CLK or posedge RST) \n  if (RST) begin \n  Q0 <= 0; \n  Q1 <= 0; \n  end else begin \n  Q0 <= D0; \n  Q1 <= D1; \n  end \n   always @(*) begin\n    if (1'b0) begin\n      Q0 <= ~D0; Q1 <= ~D1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q0 <= ~D0; Q1 <= ~D1;"
+  }
+}

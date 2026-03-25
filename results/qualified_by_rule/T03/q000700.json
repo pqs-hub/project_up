@@ -1,0 +1,6 @@
+{
+  "task_id": "q000700",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire start,\n    input wire busy,\n    output reg [1:0] state // 00: IDLE, 01: TRANSFER, 10: DONE\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    \n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter TRANSFER = 2'b01;\n    parameter DONE = 2'b10;\n\n    // State transition\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: if (start) state <= TRANSFER;\n                TRANSFER: if (!busy) state <= DONE;\n                DONE: state <= IDLE;\n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule"
+}

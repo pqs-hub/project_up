@@ -1,0 +1,10 @@
+{
+  "task_id": "q010802",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module top_module(\n    input  A1,\n    input  A2,\n    input  A3,\n    input  [1:0] B,\n    output Y\n);wire or_b;\n    assign or_b = |B;\n\n    wire neg_output = (A1 || (A2 && !A1) || (A3 && !A2 && !A1));\n    assign Y = neg_output ? 1 : or_b;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_output"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q008788",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input  a,\n                  input  b,\n                  input  in_carry,\n                  output sum,\n                  output carry);wire invalid_sum;\n    wire carry0;\n    wire carry1;\n\n    xor (invalid_sum, a, b);\n    and (carry0, a, b);\n\n    xor (sum, invalid_sum, in_carry);\n    and (carry1, invalid_sum, in_carry);\n\n    xor (carry, carry0, carry1);\n\nendmodule",
+  "rename_map": {
+    "sum0": "invalid_sum"
+  },
+  "params_used": {
+    "custom_map": {
+      "sum0": "invalid_sum",
+      "carry0": "invalid_carry"
+    },
+    "fallback_prefix": "err_"
+  }
+}

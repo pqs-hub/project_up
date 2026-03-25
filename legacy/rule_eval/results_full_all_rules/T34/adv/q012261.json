@@ -1,0 +1,15 @@
+{
+  "task_id": "q012261",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    Q  ,\n    CLK,\n    D  ,\n    SCD,\n    SCE\n);output Q  ;\n    input  CLK;\n    input  D  ;\n    input  SCD;\n    input  SCE;\n\n\nreg r_reg;\nwire mux_out;\nassign mux_out = (SCE == 1'b1)? SCD : D;\n\nalways @ ( posedge CLK)\n       begin\n\t     r_reg <= mux_out;\n       end\n \nassign Q = r_reg;\n\nendmodule",
+  "rename_map": {
+    "q_reg": "r_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "q_reg": "r_reg"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

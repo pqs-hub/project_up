@@ -1,0 +1,15 @@
+{
+  "task_id": "q003660",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module branch_predictor (  \n    input [1:0] predictor_state,  \n    input taken,  \n    output reg [1:0] next_state  \n);  \n\nalways @(*) begin  \n    case ({predictor_state, taken})  \n        3'b000: next_state = 2'b00;  \n        3'b001: next_state = 2'b01;  \n        3'b010: next_state = 2'b00;  \n        3'b011: next_state = 2'b10;  \n        3'b100: next_state = 2'b01;  \n        3'b101: next_state = 2'b11;  \n        3'b110: next_state = 2'b10;  \n        3'b111: next_state = 2'b11;  \n        default: next_state = predictor_state;  \n    endcase  \nend  \nendmodule",
+  "rename_map": {
+    "state": "predictor_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "state": "predictor_state"
+    },
+    "fallback_prefix": "bp_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q013587",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n\tinput [1:0] RegSrc,\n\tinput [15:0] readFromMem,\n\tinput [15:0] ALUResult,\n\tinput [15:0] op2Val,\n\toutput reg [15:0] outRegSrc\n);always@(*) begin\n    begin end  // redundant\n\tif (RegSrc == 2'b00 || RegSrc == 2'b01) begin\n\t\toutRegSrc = readFromMem;\n\tend\n\telse if (RegSrc == 2'b10) begin\n\t\toutRegSrc = ALUResult;\n\tend\n\telse begin\n\t\toutRegSrc = op2Val;\n\tend\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

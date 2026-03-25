@@ -1,0 +1,10 @@
+{
+  "task_id": "q003946",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module data_forwarding_unit (\n    input [4:0] data1,\n    input [4:0] data2,\n    input [1:0] forward_signal,\n    output reg [4:0] forwarded_data\n);\n    always @(*) begin\n        case (forward_signal)\n            2'b00: forwarded_data = data1;\n            2'b01: forwarded_data = data2;\n            2'b10: forwarded_data = data1 + data2;\n            2'b11: forwarded_data = 5'b00000;\n            default: forwarded_data = 5'b00000;\n        endcase\n    end\n  always @(*) begin\n    if (1'b0) begin\n      if (forward_signal == 2'b00) begin\n        forwarded_data <= data2;\n      end else if (forward_signal == 2'b01) begin\n        forwarded_data <= data1;\n      end else if (forward_signal == 2'b10) begin\n        forwarded_data <= data2 + data1;\n      end else if (forward_signal == 2'b11) begin\n        forwarded_data <= 5'b11111;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (forward_signal == 2'b00) begin\n  forwarded_data <= data2;\nend else if (forward_signal == 2'b01) begin\n  forwarded_data <= data1;\nend else if (forward_signal == 2'b10) begin\n  forwarded_data <= data2 + data1;\nend else if (forward_signal == 2'b11) begin\n  forwarded_data <= 5'b11111;\nend"
+  }
+}

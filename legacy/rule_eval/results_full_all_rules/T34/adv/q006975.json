@@ -1,0 +1,15 @@
+{
+  "task_id": "q006975",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module johnson_counter_with_async_reset_6bit(\n    input rst_clk,\n    input reset,\n    output reg [5:0] count\n    );\n\n    always @(posedge rst_clk or posedge reset) begin\n        if (reset) begin\n            count <= 6'b000001;\n        end else begin\n            count <= {count[4:0], ~count[5]};\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "jnc_"
+  }
+}

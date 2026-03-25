@@ -1,0 +1,15 @@
+{
+  "task_id": "q002095",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module max_4input (\n    input [3:0] a,\n    input [3:0] b,\n    input [3:0] c,\n    input [3:0] d,\n    output reg [3:0] min_out\n);\n    always @(*) begin\n        min_out = a; // Assume a is the max\n        if (b > min_out) min_out = b;\n        if (c > min_out) min_out = c;\n        if (d > min_out) min_out = d;\n    end\nendmodule",
+  "rename_map": {
+    "max_out": "min_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "max_out": "min_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

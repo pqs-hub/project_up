@@ -1,0 +1,15 @@
+{
+  "task_id": "q003951",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module SRAM (\n    input [7:0] D,\n    input [7:0] A,\n    input WE,\n    input RE,\n    output reg [7:0] Q\n);\n    reg [7:0] invalid_memory [255:0]; // 256 x 8-bit invalid_memory\n\n    always @(*) begin\n        if (WE) begin\n            invalid_memory[A] <= D; // Write data to invalid_memory\n        end\n        if (RE) begin\n            Q <= invalid_memory[A]; // Read data from invalid_memory\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "invalid_memory"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "invalid_memory"
+    },
+    "fallback_prefix": "err_"
+  }
+}

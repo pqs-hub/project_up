@@ -1,0 +1,19 @@
+{
+  "task_id": "q014475",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(invalid_data,dmem_out_s,npc_0,hilo,exc_addr,m5reg,mux_m5reg);input [31:0] invalid_data;\n    input [31:0] dmem_out_s;\n    input [31:0] npc_0;\n    input [31:0] hilo;\n    input [31:0] exc_addr;\n    input [2:0] m5reg;\n    output [31:0] mux_m5reg;\n    \n    reg [31:0]tmp;\n    assign mux_m5reg=tmp;\n    \n    always @ (invalid_data or dmem_out_s or npc_0 or hilo or exc_addr) begin\n        if(m5reg==3'b000) tmp<=invalid_data;\n        else if(m5reg==3'b001) tmp<=dmem_out_s;\n        else if(m5reg==3'b010) tmp<=npc_0;\n        else if(m5reg==3'b011) tmp<=hilo;\n        else tmp<=exc_addr;\n    end\n    \nendmodule",
+  "rename_map": {
+    "r": "invalid_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "r": "invalid_data",
+      "dmem_out_s": "error_address",
+      "npc_0": "halt_condition",
+      "hilo": "exception_code",
+      "exc_addr": "valid_data"
+    },
+    "fallback_prefix": "obfuscated_"
+  }
+}

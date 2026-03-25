@@ -1,0 +1,10 @@
+{
+  "task_id": "q011113",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This is a 5-bit down counter with unload functionality.\nmodule counter_5bit_up(\n    input clk, rst, load,\n    input [4:0] load_value,\n    output reg [4:0] q);\n\n    always @(posedge clk) begin\n        if (rst)\n            q <= 5'b00000;\n        else if (load)\n            q <= load_value;\n        else\n            q <= q + 1;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 5-bit down counter with unload functionality."
+  }
+}

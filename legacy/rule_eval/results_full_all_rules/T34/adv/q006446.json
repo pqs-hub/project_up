@@ -1,0 +1,15 @@
+{
+  "task_id": "q006446",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module lfsr(\n    input clk_inv,\n    input rst_n,\n    output reg [5:0] lfsr_out\n);\n    always @(posedge clk_inv or negedge rst_n) begin\n        if (~rst_n) begin\n            lfsr_out <= 6'b000001;\n        end else begin\n            lfsr_out <= {lfsr_out[4:0], lfsr_out[5] ^ lfsr_out[0]};\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q010070",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module SyncCounter (\n    input obf_clk,\n    input reset,\n    input enable,\n    output reg [3:0] count\n);\n    always @(posedge obf_clk or posedge reset) begin\n        if (reset) begin\n            count <= 4'b0000;\n        end else if (enable) begin\n            count <= count + 1;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

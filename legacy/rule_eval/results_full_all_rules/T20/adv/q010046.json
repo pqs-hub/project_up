@@ -1,0 +1,10 @@
+{
+  "task_id": "q010046",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module is designed to capture the state of a 10-bit input switch (sw) on the falling edge of a clock signal and outputs a 16-bit wide signal (portout). The output combines 5 trailing zero bits followed by the 10 bits from the input switch, effectively zero-padding the input to create a wider data output.\nmodule top_module(sw, clock, portout);input [9:0]sw;\ninput clock;\noutput reg [15:0]portout;\n\nalways @(posedge clock)\n\tportout <= {5'b0,sw};endmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to capture the state of a 10-bit input switch (sw) on the falling edge of a clock signal and outputs a 16-bit wide signal (portout). The output combines 5 trailing zero bits followed by the 10 bits from the input switch, effectively zero-padding the input to create a wider data output."
+  }
+}

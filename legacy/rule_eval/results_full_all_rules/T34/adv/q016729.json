@@ -1,0 +1,15 @@
+{
+  "task_id": "q016729",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register (\n  input rst,\n  input load,\n  input [3:0] p,\n  output reg [3:0] q,\n  output reg [3:0] q_bar\n);\n\n  always @(posedge rst) begin\n    if (load) begin\n      q <= p;\n      q_bar <= ~p;\n    end else begin\n      q <= {q[2:0], 1'b0};\n      q_bar <= ~{q[2:0], 1'b0};\n    end\n  end\n  \nendmodule\n",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

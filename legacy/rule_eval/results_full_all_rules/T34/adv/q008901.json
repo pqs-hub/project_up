@@ -1,0 +1,18 @@
+{
+  "task_id": "q008901",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(inv_A, B, C, D, S0, S1, Y);input inv_A, B, C, D, S0, S1;\noutput Y;\n\n  reg Y;\n\n  always @(*) begin\n    if(S0 == 0 && S1 == 0) begin\n      Y = inv_A;\n    end else if(S0 == 0 && S1 == 1) begin\n      Y = B;\n    end else if(S0 == 1 && S1 == 0) begin\n      Y = C;\n    end else begin\n      Y = D;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "A": "inv_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "D",
+      "B": "C",
+      "C": "B",
+      "D": "A"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

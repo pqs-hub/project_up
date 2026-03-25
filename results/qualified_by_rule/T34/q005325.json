@@ -1,0 +1,6 @@
+{
+  "task_id": "q005325",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input up_down,\n    output [3:0] count );reg [3:0] unused_count_reg;\n\nalways @(posedge clk) begin\n    if (reset)\n        unused_count_reg <= 4'b0000;\n    else if (up_down)\n        unused_count_reg <= unused_count_reg + 1;\n    else\n        unused_count_reg <= unused_count_reg - 1;\nend\n\nassign count = unused_count_reg;\n\nendmodule"
+}

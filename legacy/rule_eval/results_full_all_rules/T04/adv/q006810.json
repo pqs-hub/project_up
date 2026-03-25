@@ -1,0 +1,10 @@
+{
+  "task_id": "q006810",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 3-bit binary down-counter with synchronous reset. It decrements on the rising edge of the clock signal 'clk' if the 'up_down' signal is high, and increments if the 'up_down' signal is low. The counter resets to 0 when the reset signal 'rst' is asserted high.\nmodule up_down_counter(\n    input clk,\n    input rst,\n    input up_down,\n    output reg [2:0] count\n);\n\n    always @(posedge clk) begin\n        if (rst)\n            count <= 3'b000;\n        else if (up_down)\n            count <= count + 1;\n        else\n            count <= count - 1;\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 3-bit binary down-counter with synchronous reset. It decrements on the rising edge of the clock signal 'clk' if the 'up_down' signal is high, and increments if the 'up_down' signal is low. The counter resets to 0 when the reset signal 'rst' is asserted high."
+  }
+}

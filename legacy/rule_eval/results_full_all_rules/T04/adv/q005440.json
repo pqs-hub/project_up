@@ -1,0 +1,10 @@
+{
+  "task_id": "q005440",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module modifies a 16-bit input based on a 2-bit control signal. When control is 00, the output inversely reflects the input. If control is 01, the output remains unchanged. For control set to 10, the circuit performs a right shift, effectively halving the input. And for control 11, it performs a left shift, effectively doubling the input.\nmodule top_module(\n    input clk,\n    input [15:0] data_in,\n    input [1:0] control,\n    output reg [15:0] data_out\n);always @(posedge clk) begin\n    case (control)\n        2'b00: data_out <= data_in;\n        2'b01: data_out <= ~data_in;\n        2'b10: data_out <= {data_in[14:0], 1'b0};\n        2'b11: data_out <= {1'b0, data_in[15:1]};\n    endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module modifies a 16-bit input based on a 2-bit control signal. When control is 00, the output inversely reflects the input. If control is 01, the output remains unchanged. For control set to 10, the circuit performs a right shift, effectively halving the input. And for control 11, it performs a left shift, effectively doubling the input."
+  }
+}

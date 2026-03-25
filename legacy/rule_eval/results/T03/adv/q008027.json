@@ -1,0 +1,6 @@
+{
+  "task_id": "q008027",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module reg4 (\n\tinput clk,\n\tinput reset,\n\tinput enable,\n\tinput [3:0] d,\n\toutput reg [3:0] q\n);always @(posedge clk) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n\tif (reset)\n\t\tq <= 4'b0000;\n\telse if (enable)\n\t\tq <= d;\nend\n\nendmodule"
+}

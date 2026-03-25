@@ -1,0 +1,6 @@
+{
+  "task_id": "q004303",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    input [3:0] in,\n    input clk,           // Add clk input\n    output reg [15:0] out\n);reg [15:0] unused_out_reg;\n\nalways @(*) begin\n    unused_out_reg = 16'b0;    // Initialize unused_out_reg to zero\n    unused_out_reg[in] = 1'b1; // Use the in value to set the appropriate bit\nend\n\nalways @(posedge clk) begin\n    out <= unused_out_reg;\nend\n\nendmodule"
+}

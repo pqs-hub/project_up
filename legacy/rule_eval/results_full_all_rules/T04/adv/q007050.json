@@ -1,0 +1,10 @@
+{
+  "task_id": "q007050",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module is designed for a 14-bit addressable single-bit RAM block that operates on the falling edge of the clock signal (clka). The module features a write disable signal (wena); when this signal is high, data (dinb) cannot be written into the memory location specified by the address (addrb). Conversely, when the write disable is low, the module outputs the data stored at the specified address ( doutb ).\nmodule top_module(douta,\n    clka,\n    addra,\n    dina,\n    wea);output reg [0:0] douta; // changed to output reg\n  input clka;\n  input [13:0] addra;\n  input [0:0] dina;\n  input [0:0] wea;\n\n  reg [0:0] mem[0:16383]; // 14-bit addressable memory block\n\n  always @(posedge clka) begin\n    if (wea) begin // write operation\n      mem[addra] <= dina;\n    end else begin // read operation\n      douta <= mem[addra];\n    end\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed for a 14-bit addressable single-bit RAM block that operates on the falling edge of the clock signal (clka). The module features a write disable signal (wena); when this signal is high, data (dinb) cannot be written into the memory location specified by the address (addrb). Conversely, when the write disable is low, the module outputs the data stored at the specified address ( doutb )."
+  }
+}

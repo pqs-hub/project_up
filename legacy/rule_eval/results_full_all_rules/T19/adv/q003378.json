@@ -1,0 +1,10 @@
+{
+  "task_id": "q003378",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module SR_latch(  \n    input S,  \n    input R,  \n    input clk,  \n    output reg Q,  \n    output reg Qn  \n);  \n    always @(posedge clk) begin  \n        if (S && !R) begin  \n            Q <= 1;  \n            Qn <= 0;  \n        end  \n        else if (!S && R) begin  \n            Q <= 0;  \n            Qn <= 1;  \n        end  \n        // If both S and R are high, maintain previous state  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      Q <= ~S & R;\n      Qn <= S & ~R;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= ~S & R;\nQn <= S & ~R;"
+  }
+}

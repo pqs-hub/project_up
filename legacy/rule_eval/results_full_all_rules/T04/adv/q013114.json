@@ -1,0 +1,10 @@
+{
+  "task_id": "q013114",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the output remains 0 until the register is reset, which is the opposite of the actual behavior.\nmodule top_module(\n\tinput clk,\n\tinput reset,\n\tinput [1:0] in,\n\toutput reg [1:0] out);reg [1:0] d_last;\n\t\t\t\n\talways @(posedge clk) begin\n\t\td_last <= in;\n\t\tif (reset)\n\t\t\tout <= '0;\n\t\telse\n\t\t\tout <= out | (in & ~d_last);\n\tend\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the output remains 0 until the register is reset, which is the opposite of the actual behavior."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014316",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n    output Z,\n    input A,\n    input B,\n    input EN\n);wire nand1_out;\n    wire nand2_out;\n    wire and_out;\n\n    // Implement NAND1 gate\n    wire __nand1_out_tmp = ~(A & B);\n    assign nand1_out = __nand1_out_tmp;\n\n    // Implement NAND2 gate\n    assign nand2_out = ~(nand1_out & EN);\n\n    // Implement AND gate\n    assign and_out = A & B;\n\n    // Implement final output\n    assign Z = nand2_out & and_out;\n\nendmodule"
+}

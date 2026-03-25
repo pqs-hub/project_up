@@ -1,0 +1,8 @@
+{
+  "task_id": "q004273",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module JK_FF (\n    input wire J,\n    input wire K,\n    input wire clk,\n    input wire reset,\n    output reg Q\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n        if (reset) begin\n            Q <= 0; // Asynchronous reset\n        end else begin\n            case ({J, K})\n                2'b00: Q <= Q;      // No change\n                2'b01: Q <= 0;      // Reset\n                2'b10: Q <= 1;      // Set\n                2'b11: Q <= ~Q;     // Toggle\n            endcase\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

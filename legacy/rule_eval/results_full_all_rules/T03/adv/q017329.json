@@ -1,0 +1,8 @@
+{
+  "task_id": "q017329",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module d_latch (\n  input D,\n  input EN,\n  input RST,\n  output Q\n);\n  wire _tap_D = D & {1{1'b1}};\n\n\n  reg Q_reg;\n\n  always @ (posedge EN) begin\n    if (RST) begin\n      Q_reg <= 1'b0;\n    end else begin\n      Q_reg <= D;\n    end\n  end\n\n  assign Q = Q_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016584",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule\n(\n\tinput\t\t[2:0]\t\tdecoding_op_src1,\t\t\n\tinput\t\t[2:0]\t\tdecoding_op_src2,\t\t\n\tinput\t\t[2:0]\t\tex_op_dest,\t\t\t\t\n\tinput\t\t[2:0]\t\tmem_op_dest,\t\t\t\n\tinput\t\t[2:0]\t\twb_op_dest,\t\t\t\t\n\toutput\treg\t\t\t\tpipeline_stall_n\t\t\n);\n\talways @ (*) begin\n\t\tpipeline_stall_n = 1;\n\t\tif( decoding_op_src1 != 0 &&\n\t\t\t(\n\t\t\t\tdecoding_op_src1 == ex_op_dest\t||\n\t\t\t\tdecoding_op_src1 == mem_op_dest\t||\n\t\t\t\tdecoding_op_src1 == wb_op_dest\t\n\t\t\t)\n\t\t)\n\t\t\tpipeline_stall_n = 0;\n\t\tif( decoding_op_src2 != 0 &&\n\t\t\t(\n\t\t\t\tdecoding_op_src2 == ex_op_dest\t||\n\t\t\t\tdecoding_op_src2 == mem_op_dest\t||\n\t\t\t\tdecoding_op_src2 == wb_op_dest\t\n\t\t\t)\n\t\t)\n\t\t\tpipeline_stall_n = 0;\n\tend\nendmodule"
+}

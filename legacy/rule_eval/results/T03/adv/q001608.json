@@ -1,0 +1,6 @@
+{
+  "task_id": "q001608",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module otsu_threshold (  \n    input wire [7:0] pixel_value,  \n    input wire [7:0] threshold,  \n    input wire enable,  \n    output reg binary_output  \n);  \n  wire [7:0] _tap_pixel_value = pixel_value & {8{1'b1}};\n\n    always @(*) begin  \n        if (enable) begin  \n            if (pixel_value >= threshold)  \n                binary_output = 1;  \n            else  \n                binary_output = 0;  \n        end else begin  \n            binary_output = 0;  \n        end  \n    end  \nendmodule"
+}

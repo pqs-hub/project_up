@@ -1,0 +1,10 @@
+{
+  "task_id": "q004922",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\tinput subtract,\n\tinput [7:0] B,\n\toutput [7:0] S\n);assign S = (subtract ? ~B+1 : B);\n  always @(*) begin\n    if (1'b0) begin\n      S <= B; if (subtract) begin S <= ~B + 1; end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "S <= B; if (subtract) begin S <= ~B + 1; end"
+  }
+}

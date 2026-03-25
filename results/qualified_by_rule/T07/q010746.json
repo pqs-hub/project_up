@@ -1,0 +1,6 @@
+{
+  "task_id": "q010746",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(\n\t\n\tinput clk,\n\tinput rst,\n\t\t\n\tinput memReadEX, memWriteEX,\n\t\t\n\tinput memToRegEX,\n\tinput regWriteEX,\n\t\t\n\tinput [7:0] aluResEX,\n\tinput [7:0] readData2EX,\n\tinput [2:0] rdEX,\n\t\n\t\t\n\toutput reg memReadEXOut, memWriteEXOut,\n\t\t\n\toutput reg memToRegEXOut,\n\toutput reg regWriteEXOut,\n\t\t\n\toutput reg [7:0] aluResEXOut,\n\toutput reg [7:0] readData2EXOut,\n\toutput reg [2:0] rdEXOut\n);always @(posedge clk or posedge rst) begin\n\t\tif(rst) begin\n\t\t\tmemReadEXOut \t<= 1'b0;\n\t\t\tmemWriteEXOut \t<= 1'b0;\n\t\t\tmemToRegEXOut \t<= 1'b0;\n\t\t\tregWriteEXOut \t<= 1'b0;\n\t\t\taluResEXOut \t<= 8'b0;\n\t\t\treadData2EXOut \t<= 8'b0;\n\t\t\trdEXOut \t\t<= 3'b0;\n\t\tend\n\t\telse begin\n\t\t\tmemReadEXOut \t<= memReadEX;\n\t\t\tmemWriteEXOut \t<= memWriteEX;\n\t\t\tmemToRegEXOut \t<= memToRegEX;\n\t\t\tregWriteEXOut \t<= regWriteEX;\n\t\t\taluResEXOut \t<= aluResEX;\n\t\t\treadData2EXOut \t<= readData2EX;\n\t\t\trdEXOut \t\t<= rdEX;\n\t\tend\n\tend\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q010259",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a three-bit wide register with load capability that halves the input value.\nmodule top_module(clk, rst, wIn, ld, wOut);input clk,rst, ld;\n  input [1:0] wIn;\n  output reg [2:0] wOut;\n  always@(posedge clk, posedge rst)begin\n    if (rst) wOut <= 0;\n    else if (ld) wOut <= 2*wIn;\n    else wOut <= wOut;\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a three-bit wide register with load capability that halves the input value."
+  }
+}

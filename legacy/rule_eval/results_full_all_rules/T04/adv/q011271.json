@@ -1,0 +1,10 @@
+{
+  "task_id": "q011271",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 9-bit shift register with parallel input and serial output.\nmodule shift_register(\n    input wire clk,\n    input wire rst_n,\n    input wire serial_in,\n    output reg [7:0] parallel_out\n    );\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        parallel_out <= 8'd0;\n    else\n        parallel_out <= {parallel_out[6:0], serial_in};\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 9-bit shift register with parallel input and serial output."
+  }
+}

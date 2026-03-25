@@ -1,0 +1,15 @@
+{
+  "task_id": "q012610",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] DIN,\n  input [1:0] desel,\n  output DOUT\n);assign DOUT = (DIN[0] & ~desel[0] & ~desel[1]) | (DIN[1] & desel[0] & ~desel[1]) | (DIN[2] & ~desel[0] & desel[1]) | (DIN[3] & desel[0] & desel[1]);\nendmodule",
+  "rename_map": {
+    "SEL": "desel"
+  },
+  "params_used": {
+    "custom_map": {
+      "SEL": "MUX_SEL"
+    },
+    "fallback_prefix": "MUX_"
+  }
+}

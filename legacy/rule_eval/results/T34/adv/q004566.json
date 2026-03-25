@@ -1,0 +1,6 @@
+{
+  "task_id": "q004566",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( \n    input [2:0] sel, \n    input [3:0] data0,\n    input [3:0] data1,\n    input [3:0] data2,\n    input [3:0] data3,\n    input [3:0] data4,\n    input [3:0] data5,\n    output reg [3:0] out\n);reg [1:0] unused_and_result;\n\nalways @* begin\n    case (sel)\n        3'b000: out = data0;\n        3'b001: out = data1;\n        3'b010: out = data2;\n        3'b011: out = data3;\n        3'b100: out = data4;\n        3'b101: out = data5;\n        3'b110, 3'b111: begin\n            unused_and_result = data0[1:0] & data1[1:0] & data2[1:0] & data3[1:0] & data4[1:0] & data5[1:0];\n            out = {unused_and_result, unused_and_result};\n        end\n    endcase\nend\n\nendmodule"
+}

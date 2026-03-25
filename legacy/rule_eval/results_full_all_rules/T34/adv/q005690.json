@@ -1,0 +1,15 @@
+{
+  "task_id": "q005690",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input in0,\n    input in1,\n    input ctrl,\n    output out\n);wire err_not_ctrl;\nassign err_not_ctrl = ~ctrl;\n\nassign out = (in0 & err_not_ctrl) | (in1 & ctrl);\n\nendmodule",
+  "rename_map": {
+    "not_ctrl": "err_not_ctrl"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_out"
+    },
+    "fallback_prefix": "err_"
+  }
+}

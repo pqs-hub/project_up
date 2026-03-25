@@ -1,0 +1,6 @@
+{
+  "task_id": "q014285",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule( clk, ld, d, q );input clk; \n  input ld; \n  input [63:0] d; \n  output [63:0] q; \n  reg [63:0] q; \n `ifdef RANDOM_INIT \n  initial \n  $random_init(\"q\"); \n `endif \n  always @(posedge clk) begin \n  if (ld) \n  q <= d; \n  end \n endmodule"
+}

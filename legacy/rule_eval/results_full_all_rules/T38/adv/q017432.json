@@ -1,0 +1,8 @@
+{
+  "task_id": "q017432",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module mux_2to1 (\n    input A,\n    input B,\n    input Sel,\n    output Out,\n    input VPB,\n    input VPWR,\n    input VGND,\n    input VNB\n);\n\n  wire temp1_(!Sel & A) = (!Sel & A);\n  wire temp2_(Sel & B) = (Sel & B);\n  assign Out = temp1_(!Sel & A) | temp2_(Sel & B);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

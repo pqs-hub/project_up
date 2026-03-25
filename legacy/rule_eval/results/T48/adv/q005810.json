@@ -1,0 +1,6 @@
+{
+  "task_id": "q005810",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module top_module(\n   input         clock, reset, load,\n   input [15:0]  loadValue,\n   output [15:0] count,\n   output        flag);reg [15:0]    countReg = 16'b0;\n   wire          flagWire;\n\n  assign flagWire = (countReg == {16{1'b1}});\n  assign count = countReg;\n\n   always @ (posedge clock) begin \n      if (reset)\n         countReg <= 16'b0;\n      else if (load)\n         countReg <= loadValue;\n      else if (countReg == {16{1'b1}})\n         countReg <= 16'b0;\n      else\n         countReg <= countReg + 1;\n   end\n\n  assign flag = flagWire;\n\nendmodule"
+}

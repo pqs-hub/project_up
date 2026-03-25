@@ -1,0 +1,6 @@
+{
+  "task_id": "q012080",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module top_module(output reg [3:0]ten,output reg [3:0]one,output isFinished,input clk,input rst_n);reg [3:0] next_ten, next_one; \n  always @(posedge clk or negedge rst_n) begin \n  if (!rst_n) begin \n  ten <= 4'd3; \n  one <= 4'd0; \n  end else begin \n  ten <= next_ten; \n  one <= next_one; \n  end \n  end \n  always @(*) begin \n  if (ten == 4'd0 && one == 4'd0) begin \n  next_ten = 4'd0; \n  next_one = 4'd0; \n  end else begin \n  if (one == 4'd0) begin \n  next_ten = ten - 4'd1; \n  next_one = 4'd9; \n  end else begin \n  next_ten = ten; \n  next_one = one - 4'd1; \n  end \n  end \n  end \n  assign isFinished = (ten == 4'd0 && one == 4'd0)?1:0; \n endmodule"
+}

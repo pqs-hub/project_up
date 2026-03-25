@@ -1,0 +1,6 @@
+{
+  "task_id": "q010975",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module RefModule(\n\ta, b, cin,\n\tsum, cout\n);input wire a;\n\tinput wire b;\n\tinput wire cin;\n\n\toutput wire sum;\n\toutput wire cout;\n\n\t\n\tassign sum = a ^ b ^ cin;\n  wire temp1_((a ^ b) & cin) = ((a ^ b) & cin);\n  wire temp2_(a & b) = (a & b);\n  assign cout = temp1_((a ^ b) & cin) | temp2_(a & b);\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q003321",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adc_interface (\n    input [23:0] data_in,\n    input disable_output,\n    output reg [23:0] data_out\n);\n    always @(*) begin\n        if (disable_output) begin\n            data_out = data_in;\n        end else begin\n            data_out = 24'b0;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "enable": "disable_output"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable_output"
+    },
+    "fallback_prefix": "adc_"
+  }
+}

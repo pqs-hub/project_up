@@ -1,0 +1,10 @@
+{
+  "task_id": "q009059",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a clocked flip-flop where the input D is sampled on the falling edge of CLK and stored in a register, except when SCE is asserted, in which case SCD is stored instead.\nmodule top_module(\n    input  D,\n    output Q,\n    input  SCD,\n    input  SCE,\n    input  CLK\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB;\n    supply0 VNB;\n\n    // Flip-flop for storing input value\n    reg stored_D;\n    always @(posedge CLK) begin\n        if (SCE) stored_D <= SCD;\n        else stored_D <= D;\n    end\n\n    // Combinational logic for generating output\n    assign Q = stored_D;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a clocked flip-flop where the input D is sampled on the falling edge of CLK and stored in a register, except when SCE is asserted, in which case SCD is stored instead."
+  }
+}

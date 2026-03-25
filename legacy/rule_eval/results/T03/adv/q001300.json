@@ -1,0 +1,6 @@
+{
+  "task_id": "q001300",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module temperature_comparator(  \n    input [4:0] temp_input,  \n    input [4:0] threshold,  \n    output reg exceed  \n);  \n  wire [4:0] _tap_temp_input = temp_input & {5{1'b1}};\n\n    always @(*) begin  \n        if (temp_input > threshold)  \n            exceed = 1;  \n        else  \n            exceed = 0;  \n    end  \nendmodule"
+}

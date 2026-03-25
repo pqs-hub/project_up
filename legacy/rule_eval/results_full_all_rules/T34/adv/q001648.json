@@ -1,0 +1,15 @@
+{
+  "task_id": "q001648",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module quick_sort(input [15:0] data_in, output reg [15:0] data_out);  \n    reg [7:0] unsorted_data [1:0];  \n    integer i, j;  \n    always @(*) begin  \n        unsorted_data[0] = data_in[15:8];  \n        unsorted_data[1] = data_in[7:0];  \n        \n        // Simple Bubble Sort for 2 elements  \n        for (i = 0; i < 1; i = i + 1) begin  \n            for (j = 0; j < 1 - i; j = j + 1) begin  \n                if (unsorted_data[j] > unsorted_data[j + 1]) begin  \n                    // Swap  \n                    {unsorted_data[j], unsorted_data[j + 1]} = {unsorted_data[j + 1], unsorted_data[j]};  \n                end  \n            end  \n        end  \n        \n        data_out = {unsorted_data[0], unsorted_data[1]};  \n    end  \nendmodule",
+  "rename_map": {
+    "arr": "unsorted_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "arr": "unsorted_data"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

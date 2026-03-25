@@ -1,0 +1,10 @@
+{
+  "task_id": "q007851",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] input_num,\n    input control_signal,\n    output [7:0] shifted_num\n);assign shifted_num = (control_signal == 1) ? (input_num << 1) : (input_num >> 1);\n\n  always @(*) begin\n    if (1'b0) begin\n      shifted_num <= ~input_num;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "shifted_num <= ~input_num;"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002061",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module KoggeStoneAdder (\n    input [3:0] A,\n    input [3:0] B,\n    output [3:0] SUM,\n    output COUT\n);\n    wire [3:0] P, G, C;\n    wire [4:0] unused_C_temp;\n\n    assign P = A ^ B; // Generate Propagate\n    assign G = A & B; // Generate Generate\n\n    assign unused_C_temp[0] = 0; // Initial carry\n    assign unused_C_temp[1] = G[0]; // Carry for bit 1\n    assign unused_C_temp[2] = G[1] | (P[1] & unused_C_temp[1]); // Carry for bit 2\n    assign unused_C_temp[3] = G[2] | (P[2] & unused_C_temp[2]); // Carry for bit 3\n    assign unused_C_temp[4] = G[3] | (P[3] & unused_C_temp[3]); // Carry for bit 4 (COUT)\n\n    assign SUM = P ^ unused_C_temp[3:0]; // Compute the sum\n    assign COUT = unused_C_temp[4]; // Final carry out\n\nendmodule"
+}

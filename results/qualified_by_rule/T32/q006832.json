@@ -1,0 +1,6 @@
+{
+  "task_id": "q006832",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(SEL, A, B, C, D, Y);\ninput [2-1:1-1] SEL;\ninput A, B, C, D;\noutput reg Y;\n\nalways @(SEL or A or B or C or D) begin\n    case (SEL)\n        2'b00: Y = A;\n        2'b01: Y = B;\n        2'b10: Y = C;\n        2'b11: Y = D;\n        default: Y = 1'b0;\n    endcase\nend\n\nendmodule"
+}

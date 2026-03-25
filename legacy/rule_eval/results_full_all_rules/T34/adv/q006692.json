@@ -1,0 +1,16 @@
+{
+  "task_id": "q006692",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( g, p, g_prec, p_prec, q_in, g_out_BAR );input g, p, g_prec, p_prec;\n  output q_in, g_out_BAR;\n\n  // Implement logical AND between p and p_prec\n  assign q_in = p & p_prec;\n\n  // Implement logical NOR between g_prec and p\n  assign g_out_BAR = ~(g_prec | p);\n\nendmodule",
+  "rename_map": {
+    "p_out": "q_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "p_out": "q_in",
+      "g_out_BAR": "h_not"
+    },
+    "fallback_prefix": "x_"
+  }
+}

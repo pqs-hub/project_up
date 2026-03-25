@@ -1,0 +1,6 @@
+{
+  "task_id": "q014871",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(\n  input [7:0] a,\n  input [7:0] b,\n  input [2:0] ctrl,\n  output reg [7:0] z // Changed z to reg type\n);reg [7:0] sum;\n  reg [7:0] diff;\n  reg [15:0] prod;\n  reg [7:0] quotient;\n  reg [7:0] remainder;\n\n  always @* begin\n    case(ctrl)\n      3'b000: begin // sum\n        sum = a + b;\n        z = sum;\n      end\n      3'b001: begin // difference\n        diff = a - b;\n        z = diff;\n      end\n      3'b010: begin // product\n        prod = a * b;\n        z = prod[7:0];\n      end\n      3'b011: begin // quotient\n        quotient = a / b;\n        z = quotient;\n      end\n      3'b100: begin // remainder\n        remainder = a % b;\n        z = remainder;\n      end\n      3'b101: begin // bitwise AND\n        z = a & b;\n      end\n      3'b110: begin // bitwise OR\n        z = a | b;\n      end\n      3'b111: begin // bitwise XOR\n        z = a ^ b;\n      end\n      default: z = 8'b00000000; // default case to avoid latches\n    endcase\n  end\n\nendmodule"
+}

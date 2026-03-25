@@ -1,0 +1,6 @@
+{
+  "task_id": "q011681",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module top_module(\n\tinput [31:0]Read_Data,ResALU,\n\tinput[4:0]Write_Reg,\n\tinput MemtoReg,RegWrite,\n\tinput clk,\n\toutput reg[31:0]Sal_RD, SResALU,\n\toutput reg[4:0]Sal_WR,\n\toutput reg SMemtoReg,SRegWrite\n);always @(posedge clk) begin\n  Sal_RD = Read_Data ;\n  end\n\n  always @(posedge clk) begin\n  SResALU = ResALU ;\n  Sal_WR = Write_Reg ;\n  SMemtoReg = MemtoReg ;\n  SRegWrite = RegWrite ;\n  end\n\nendmodule"
+}

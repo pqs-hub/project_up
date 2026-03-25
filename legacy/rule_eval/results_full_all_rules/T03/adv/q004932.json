@@ -1,0 +1,8 @@
+{
+  "task_id": "q004932",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(CLK, EN, TE, ENCLK);input CLK, EN, TE;\n  output ENCLK;\n  wire _tap_CLK = CLK & {1{1'b1}};\n\n\n  reg ENCLK_reg;\n\n  always @(posedge CLK) begin\n    if (EN) begin\n      ENCLK_reg <= TE;\n    end\n  end\n\n  assign ENCLK = EN ? ENCLK_reg : 1'b0;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

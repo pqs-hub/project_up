@@ -1,0 +1,9 @@
+{
+  "task_id": "q006761",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module prio_encoder(\n    input [7:0] req_in,\n    output reg [2:0] obf_code_out\n);\n\nalways @(*) begin\n    casez(req_in)\n        8'b1???????: obf_code_out = 3'b111;\n        8'b01??????: obf_code_out = 3'b110;\n        8'b001?????: obf_code_out = 3'b101;\n        8'b0001????: obf_code_out = 3'b100;\n        8'b00001???: obf_code_out = 3'b011;\n        8'b000001??: obf_code_out = 3'b010;\n        8'b0000001?: obf_code_out = 3'b001;\n        8'b00000001: obf_code_out = 3'b000;\n        default: obf_code_out = 3'b000;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "code_out": "obf_code_out"
+  }
+}

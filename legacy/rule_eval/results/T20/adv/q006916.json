@@ -1,0 +1,6 @@
+{
+  "task_id": "q006916",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule top_module(mux_in0, mux_in1, mux_sel, mux_out);parameter MuxLen = 63; \n  output [MuxLen:0] mux_out; \n  input [MuxLen:0] mux_in0; \n  input [MuxLen:0] mux_in1; \n  input mux_sel; \n  reg [MuxLen:0] mux_out; \n  always @(mux_in0 or mux_in1 or mux_sel) \n  begin \n  if (mux_sel == 1'b1) \n  mux_out = mux_in1; \n  else \n  mux_out = mux_in0; \n  end \n endmodule"
+}

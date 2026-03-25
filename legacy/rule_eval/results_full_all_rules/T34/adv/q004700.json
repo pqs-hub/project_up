@@ -1,0 +1,15 @@
+{
+  "task_id": "q004700",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n\tinput rst,\n\toutput reg [3:0] q);\n\ninitial q = 4'b0001;\n\nalways @(posedge rst) begin\n\tq <= {q[2:0], q[3]};\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

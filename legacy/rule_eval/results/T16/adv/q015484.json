@@ -1,0 +1,9 @@
+{
+  "task_id": "q015484",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    output Z,\n    input TE,\n    input VPB,\n    input VPWR,\n    input VGND,\n    input VNB\n);reg obf_Z_reg;\n\n    always @(*) begin\n        if (VGND >= VPWR) begin\n            obf_Z_reg = ~A;\n        end else if (TE == 1) begin\n            obf_Z_reg = ~A;\n        end else begin\n            obf_Z_reg = A;\n        end\n    end\n\n    assign Z = obf_Z_reg;\n\nendmodule",
+  "rename_map": {
+    "Z_reg": "obf_Z_reg"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q012554",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(\n  input [7:0] analog_in,\n  input enable,\n  input clk, // Added clk input\n  output reg [7:0] pwm_out\n);parameter resolution = 8; // PWM resolution in bits\n\nreg [resolution-1:0] duty_cycle;\n\nalways @(*) begin\n  duty_cycle = (analog_in * (2**resolution - 1)) / 255; // Adjusted duty cycle calculation\nend\n\nalways @(posedge clk) begin\n  if (enable) begin\n    pwm_out <= duty_cycle;\n  end else begin\n    pwm_out <= 0;\n  end\nend\n\nendmodule"
+}

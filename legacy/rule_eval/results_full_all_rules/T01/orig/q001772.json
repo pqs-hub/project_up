@@ -1,0 +1,6 @@
+{
+  "task_id": "q001772",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module interrupt_controller (\n    input wire clk,\n    input wire rst,\n    input wire enable,\n    input wire [3:0] irq, // 4 interrupt requests\n    output reg ack // interrupt acknowledge signal\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            ack <= 0;\n        end else if (enable) begin\n            if (|irq) begin // Check if any interrupt request is active\n                ack <= irq[3] ? 1 : irq[2] ? 1 : irq[1] ? 1 : irq[0] ? 1 : 0; // Acknowledge highest priority IRQ\n            end else begin\n                ack <= 0; // No interrupt to acknowledge\n            end\n        end else begin\n            ack <= 0; // If not enabled, no acknowledgment\n        end\n    end\nendmodule"
+}

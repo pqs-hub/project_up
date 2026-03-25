@@ -1,0 +1,6 @@
+{
+  "task_id": "q006935",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (\n\tinput clk,\n\tinput resetn,\n\tinput open,\n\tinput close,\n\toutput reg door_open);\n\n\tparameter CLOSED=0, OPEN=1;\n\treg state, ctrl_bus_wire;\n\n\talways @(posedge clk) begin\n\t\tif (~resetn) state <= CLOSED;\n\t\telse state <= ctrl_bus_wire;\n\tend\n\n\talways_comb begin\n\t\tcase (state)\n\t\t\tCLOSED: ctrl_bus_wire = open ? OPEN : CLOSED;\n\t\t\tOPEN: ctrl_bus_wire = close ? CLOSED : OPEN;\n\t\t\tdefault: ctrl_bus_wire = CLOSED;\n\t\tendcase\n\tend\n\n\talways @(state) begin\n\t\tcase (state)\n\t\t\tOPEN: door_open = 1;\n\t\t\tdefault: door_open = 0;\n\t\tendcase\n\tend\nendmodule"
+}

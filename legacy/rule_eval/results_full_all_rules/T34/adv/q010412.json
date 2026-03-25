@@ -1,0 +1,15 @@
+{
+  "task_id": "q010412",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input rst, input D, input S, input CE, output reg Q);always @(posedge rst) begin\n        if (CE == 1'b1) begin\n            if (S == 1'b1) begin\n                Q <= 1'b1;\n            end else begin\n                Q <= D;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

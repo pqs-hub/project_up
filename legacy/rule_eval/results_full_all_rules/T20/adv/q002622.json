@@ -1,0 +1,10 @@
+{
+  "task_id": "q002622",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module compares the ADC value with the reference value and sets the 'greater' signal when the ADC value is less than the reference value.\nmodule adc_comparator(\n    input [15:0] adc_value,\n    input [15:0] reference_value,\n    output reg greater,\n    output reg less,\n    output reg equal\n);\n    always @(*) begin\n        if (adc_value > reference_value) begin\n            greater = 1'b1;\n            less = 1'b0;\n            equal = 1'b0;\n        end else if (adc_value < reference_value) begin\n            greater = 1'b0;\n            less = 1'b1;\n            equal = 1'b0;\n        end else begin\n            greater = 1'b0;\n            less = 1'b0;\n            equal = 1'b1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module compares the ADC value with the reference value and sets the 'greater' signal when the ADC value is less than the reference value."
+  }
+}

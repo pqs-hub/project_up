@@ -1,0 +1,15 @@
+{
+  "task_id": "q002290",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module MemoryAllocator (\n    input wire clk,\n    input wire reset,\n    input wire alloc,          // Request to allocate mem_state\n    input wire free,          // Request to free mem_state\n    input wire [1:0] block_id,// Block ID (0 to 3)\n    output reg [3:0] status   // Status of each mem_state block (4 bits)\n);\n\n    reg [3:0] mem_state; // 4 mem_state blocks, 0 = free, 1 = allocated\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            mem_state <= 4'b0000; // All blocks free on reset\n            status <= 4'b0000;\n        end else begin\n            if (alloc && (mem_state[block_id] == 1'b0)) begin\n                mem_state[block_id] <= 1'b1; // Allocate mem_state\n            end\n            if (free && (mem_state[block_id] == 1'b1)) begin\n                mem_state[block_id] <= 1'b0; // Free mem_state\n            end\n            status <= mem_state; // Output status\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "mem_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "mem_state"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

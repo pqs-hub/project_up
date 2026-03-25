@@ -1,0 +1,6 @@
+{
+  "task_id": "q000763",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule (\n    input [7:0] A,\n    input [7:0] B,\n    input [2:0] op_code,\n    output reg [7:0] Result,\n    output reg zero_flag\n);\n    always @(*) begin\n        case (op_code)\n            3'b000: Result = A + B;      // Addition\n            3'b001: Result = A - B;      // Subtraction\n            3'b010: Result = A & B;      // Bitwise AND\n            3'b011: Result = A | B;      // Bitwise OR\n            3'b100: Result = A ^ B;      // Bitwise XOR\n            default: Result = 8'b00000000; // Default case\n        endcase\n        zero_flag = (Result == 8'b00000000) ? 1'b1 : 1'b0; // Set zero_flag\n    end\nendmodule"
+}

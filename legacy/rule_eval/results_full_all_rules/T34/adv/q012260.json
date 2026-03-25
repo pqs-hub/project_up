@@ -1,0 +1,15 @@
+{
+  "task_id": "q012260",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module reg_file(\n    input                 clk,\n    input                 rst,\n    input                 we,\n    input       [1:0]     waddr,\n    input       [7:0]     wdata,\n    input       [1:0]     raddr1,\n    input       [1:0]     raddr2,\n    output   reg [7:0]    rdata1,\n    output   reg [7:0]    rdata2\n);\n\nreg [7:0] mem [0:3];  // 4 mem of 8 bits each\n\n// Write logic\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        mem[0] <= 8'd0;\n        mem[1] <= 8'd0;\n        mem[2] <= 8'd0;\n        mem[3] <= 8'd0;\n    end else if (we) begin\n        mem[waddr] <= wdata;\n    end\nend\n\n// Read logic\nalways @(*) begin\n    rdata1 = mem[raddr1];\n    rdata2 = mem[raddr2];\nend\n\nendmodule",
+  "rename_map": {
+    "registers": "mem"
+  },
+  "params_used": {
+    "custom_map": {
+      "registers": "mem"
+    },
+    "fallback_prefix": "_rf_"
+  }
+}

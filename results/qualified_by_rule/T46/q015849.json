@@ -1,0 +1,6 @@
+{
+  "task_id": "q015849",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n    we,\n    addr,\n    din,\n    dout,\n    clk\n);input we;\ninput [9:0] addr;\ninput [31:0] din;\noutput reg [31:0] dout;\ninput clk;\n\nreg [31:0] memory [0:1023]; // 1KB memory with 32-bit wide data\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (we) begin\n        memory[addr] <= din; // Write operation\n    end\n    dout <= memory[addr]; // Read operation\nend\n\nendmodule"
+}

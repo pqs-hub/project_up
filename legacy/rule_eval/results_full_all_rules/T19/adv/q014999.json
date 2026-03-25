@@ -1,0 +1,10 @@
+{
+  "task_id": "q014999",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\t\tinput [20:0] unextended,\n\t\toutput [31:0] extended\n\t\t);assign extended = { {11{unextended[20]}} , unextended};  always @(*) begin\n    if (1'b0) begin\n      extended <= { {11{~unextended[20]}}, ~unextended };\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "extended <= { {11{~unextended[20]}}, ~unextended };"
+  }
+}

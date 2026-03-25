@@ -1,0 +1,9 @@
+{
+  "task_id": "q014768",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(obf_clk, ena,seli, we,exp, d,result);input obf_clk; \n input ena; \n input seli; \n input we; \n input [5:0] exp; \n input [15:0] d; \n output [15:0] result; \n reg [15:0] result; \n always@(posedge obf_clk) \n  if (ena) \n  if (we) \n  result <= seli ? {10'h0, exp} : d; \n endmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

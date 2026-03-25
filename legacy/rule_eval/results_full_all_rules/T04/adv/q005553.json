@@ -1,0 +1,10 @@
+{
+  "task_id": "q005553",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This is a 3-bit ring counter that counts down from 7 to 0.\nmodule ring_counter_3bit (\n    input wire clk,\n    input wire rst,\n    output reg [2:0] q\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            q <= 3'b001;\n        else\n            q <= {q[1:0], q[2]};\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 3-bit ring counter that counts down from 7 to 0."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q002601",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module jpeg_compression (\n    input [8-1:1-1] pixel_in,\n    output reg [3:0] compressed_out\n);\n\nalways @(*) begin\n    if (pixel_in < 64)\n        compressed_out = 0;\n    else if (pixel_in < 128)\n        compressed_out = 1;\n    else if (pixel_in < 192)\n        compressed_out = 2;\n    else\n        compressed_out = 3;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

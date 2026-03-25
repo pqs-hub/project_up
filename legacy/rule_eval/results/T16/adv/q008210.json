@@ -1,0 +1,9 @@
+{
+  "task_id": "q008210",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    input obf_ce,\n    input [31:0] din0,\n    input [31:0] din1,\n    output reg [31:0] dout\n);always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            dout <= 0;\n        end else if (obf_ce) begin\n            dout <= din0 * din1;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "ce": "obf_ce"
+  }
+}

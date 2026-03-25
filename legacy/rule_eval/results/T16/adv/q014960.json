@@ -1,0 +1,9 @@
+{
+  "task_id": "q014960",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input signed [15:0] obf_a,\n    input signed [15:0] b,\n    input sub,\n    output reg signed [15:0] result,\n    output reg overflow\n);always @(*) begin\n        if (sub) begin\n            result = obf_a - b;\n            overflow = ((obf_a < 0) & (b > 0) & (result > 0)) | ((obf_a > 0) & (b < 0) & (result < 0));\n        end else begin\n            result = obf_a + b;\n            overflow = ((obf_a > 0) & (b > 0) & (result < 0)) | ((obf_a < 0) & (b < 0) & (result > 0));\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

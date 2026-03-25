@@ -1,0 +1,10 @@
+{
+  "task_id": "q001379",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 5-bit parallel-in parallel-out (PISO) shift register\nmodule siso_shift_register (\n    input clk,\n    input rst,\n    input serial_in,\n    output reg serial_out\n);\n    reg [4:0] shift_reg; // 5-bit shift register\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            shift_reg <= 5'b00000; // Reset the shift register to 0\n            serial_out <= 0; // Ensure output is also reset\n        end else begin\n            shift_reg <= {shift_reg[3:0], serial_in}; // Shift left and insert serial input\n            serial_out <= shift_reg[4]; // Output the most significant bit\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 5-bit parallel-in parallel-out (PISO) shift register"
+  }
+}

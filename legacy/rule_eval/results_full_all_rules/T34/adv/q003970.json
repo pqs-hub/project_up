@@ -1,0 +1,15 @@
+{
+  "task_id": "q003970",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gpio_controller (\n    input [4:0] gpio_inverted,\n    output reg [4:0] gpio_output\n);\n\nalways @(*) begin\n    if (gpio_inverted == 5'b00000) begin\n        gpio_output = 5'b00000; // All pins LOW\n    end else if (gpio_inverted == 5'b11111) begin\n        gpio_output = 5'b11111; // All pins HIGH\n    end else begin\n        gpio_output = gpio_inverted; // Directly match input\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "gpio_input": "gpio_inverted"
+  },
+  "params_used": {
+    "custom_map": {
+      "gpio_input": "gpio_inverted"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

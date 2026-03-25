@@ -1,0 +1,15 @@
+{
+  "task_id": "q006780",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input parallel_load,\n    input serial_in,\n    output serial_out,\n    input [3:0] data_in\n);reg [3:0] shift_reg;\n\n    always @(posedge clk) begin\n        if (parallel_load) begin\n            shift_reg <= data_in;\n        end else begin\n            shift_reg <= {shift_reg[2:0], serial_in};\n        end\n    end\n\n    assign serial_out = shift_reg[0];\n\nendmodule",
+  "rename_map": {
+    "register": "shift_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "register": "shift_reg"
+    },
+    "fallback_prefix": "mis_"
+  }
+}

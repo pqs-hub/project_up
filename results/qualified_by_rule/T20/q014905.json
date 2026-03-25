@@ -1,0 +1,6 @@
+{
+  "task_id": "q014905",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule(\n  input [n-1:0] addr,\n  input write_en,\n  input [width-1:0] data_in,\n  input clk,\n  output reg [width-1:0] data_out // Change output to reg type\n);parameter n = 8; // number of address lines\nparameter width = 16; // number of bits stored in each memory location\nparameter depth = 256; // number of memory locations\n\nreg [width-1:0] mem [0:depth-1]; // define memory array\n\nalways @(posedge clk) begin\n  if (write_en) begin\n    mem[addr] <= data_in; // write data to memory location specified by address\n  end\n  else begin\n    data_out <= mem[addr]; // read data from memory location specified by address\n  end\nend\n\nendmodule"
+}

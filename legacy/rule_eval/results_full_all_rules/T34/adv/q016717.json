@@ -1,0 +1,15 @@
+{
+  "task_id": "q016717",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register(clk, reset, load, data_in, shift_out, data_out);\n\n\tinput clk;\n\tinput reset;\n\tinput load;\n\tinput [3:0] data_in;\n\toutput shift_out;\n\toutput [3:0] data_out;\n\n\treg [3:0] shadow_reg;\n\n\talways @(posedge clk) begin\n\t\tif (reset) begin\n\t\t\tshadow_reg <= 4'b0;\n\t\tend else if (load) begin\n\t\t\tshadow_reg <= data_in;\n\t\tend else begin\n\t\t\tshadow_reg[3] <= shadow_reg[2];\n\t\t\tshadow_reg[2] <= shadow_reg[1];\n\t\t\tshadow_reg[1] <= shadow_reg[0];\n\t\t\tshadow_reg[0] <= 1'b0;\n\t\tend\n\tend\n\n\tassign shift_out = shadow_reg[3];\n\tassign data_out = shadow_reg;\n\nendmodule",
+  "rename_map": {
+    "reg_data": "shadow_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "reg_data": "shadow_reg"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

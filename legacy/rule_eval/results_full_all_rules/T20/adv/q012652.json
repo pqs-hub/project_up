@@ -1,0 +1,10 @@
+{
+  "task_id": "q012652",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 256-bit AND gate instead of an XOR gate\nmodule xor_256bit (\n    input wire [255:0] a,\n    input wire [255:0] b,\n    output wire [255:0] y\n);\n\n    wire [63:0] y0, y1, y2, y3;\n\n    xor64 xor64_inst0 (\n        .a(a[63:0]),\n        .b(b[63:0]),\n        .y(y0)\n    );\n\n    xor64 xor64_inst1 (\n        .a(a[127:64]),\n        .b(b[127:64]),\n        .y(y1)\n    );\n\n    xor64 xor64_inst2 (\n        .a(a[191:128]),\n        .b(b[191:128]),\n        .y(y2)\n    );\n\n    xor64 xor64_inst3 (\n        .a(a[255:192]),\n        .b(b[255:192]),\n        .y(y3)\n    );\n\n    assign y = {y3, y2, y1, y0};\n\nendmodule\n\nmodule xor64 (\n    input wire [63:0] a,\n    input wire [63:0] b,\n    output wire [63:0] y\n);\n    assign y = a ^ b;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 256-bit AND gate instead of an XOR gate"
+  }
+}

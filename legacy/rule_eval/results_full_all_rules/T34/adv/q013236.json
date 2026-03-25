@@ -1,0 +1,15 @@
+{
+  "task_id": "q013236",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(ip,clk_inv,rst,q,qb);input ip, clk_inv, rst;\n    output reg q;\n    output qb;\n\n    assign qb = ~q;\n\n    \n\n    always @(posedge clk_inv) begin\n        if(rst) begin\n            q<=0;\n        end\n        else begin\n            q<=ip;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

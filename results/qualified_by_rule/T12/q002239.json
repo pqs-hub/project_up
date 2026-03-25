@@ -1,0 +1,6 @@
+{
+  "task_id": "q002239",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input up,\n    input down,\n    output reg [3:0] count\n);\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            count <= 4'b0000; // reset to 0\n        end else if (up && !down) begin\n            count <= (count == 4'b1111) ? 4'b0000 : count + 1; // increment with wrap\n        end else if (down && !up) begin\n            count <= (count == 4'b0000) ? 4'b1111 : count - 1; // decrement with wrap\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009470",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module bcd_to_7seg(BCD, SEG);\ninput [4-1:1-1] BCD;\noutput reg [6:0] SEG;\n\nalways @(BCD) begin\n    case (BCD)\n        4'b0000: SEG = 7'b0111111; // 0\n        4'b0001: SEG = 7'b0000110; // 1\n        4'b0010: SEG = 7'b1011011; // 2\n        4'b0011: SEG = 7'b1001111; // 3\n        4'b0100: SEG = 7'b1100110; // 4\n        4'b0101: SEG = 7'b1101101; // 5\n        4'b0110: SEG = 7'b1111101; // 6\n        4'b0111: SEG = 7'b0000111; // 7\n        4'b1000: SEG = 7'b1111111; // 8\n        4'b1001: SEG = 7'b1101111; // 9\n        default: SEG = 7'b0000000; // Default to 0\n    endcase\nend\n\nendmodule"
+}

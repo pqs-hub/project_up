@@ -1,0 +1,15 @@
+{
+  "task_id": "q012464",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n    input i,\n    input u,\n    input m,\n    output reg invalid\n);\n    always @(*) begin\n        case ({i, u, m})\n            3'b110: invalid = 1'b1;\n            3'b111: invalid = 1'b1;\n            3'b011: invalid = 1'b0;\n            3'b100: invalid = 1'b1;\n            3'b101: invalid = 1'b0;\n            3'b001: invalid = 1'b0;\n            3'b000: invalid = 1'b0;\n            3'b010: invalid = 1'b1;\n        endcase\n    end\nendmodule\n",
+  "rename_map": {
+    "t": "invalid"
+  },
+  "params_used": {
+    "custom_map": {
+      "t": "invalid"
+    },
+    "fallback_prefix": "err_"
+  }
+}

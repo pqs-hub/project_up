@@ -1,0 +1,15 @@
+{
+  "task_id": "q003143",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module pcie_address_decoder (\n    input [4:0] address,\n    output reg invalid\n);\n    always @(*) begin\n        if (address >= 5'b11010 && address <= 5'b11111) // 0x1A to 0x1F\n            invalid = 1;\n        else\n            invalid = 0;\n    end\nendmodule",
+  "rename_map": {
+    "valid": "invalid"
+  },
+  "params_used": {
+    "custom_map": {
+      "valid": "invalid"
+    },
+    "fallback_prefix": "_pcie_"
+  }
+}

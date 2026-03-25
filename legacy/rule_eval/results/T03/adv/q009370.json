@@ -1,0 +1,6 @@
+{
+  "task_id": "q009370",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module sync_reset_register(\n\tinput clk,\n\tinput rst,\n\tinput en,\n\tinput [7:0]d,\n\toutput reg [7:0]q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n\talways @(posedge clk) begin\n\t\tif (rst)\n\t\t\tq <= 8'd0;\n\t\telse if (en)\n\t\t\tq <= d;\n\tend\n\t\nendmodule"
+}

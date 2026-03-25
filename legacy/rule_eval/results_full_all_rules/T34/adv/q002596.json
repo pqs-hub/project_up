@@ -1,0 +1,16 @@
+{
+  "task_id": "q002596",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module watchdog_timer(  \n    input wire clk,  \n    input wire update,  \n    input wire [3:0] timeout,  \n    output reg reset  \n);  \n    reg [3:0] remaining_time;  \n\n    always @(posedge clk) begin  \n        if (update)  \n            remaining_time <= timeout;  \n        else if (remaining_time > 0)  \n            remaining_time <= remaining_time - 1;  \n\n        reset <= (remaining_time == 0);  \n    end  \nendmodule",
+  "rename_map": {
+    "counter": "remaining_time"
+  },
+  "params_used": {
+    "custom_map": {
+      "timeout": "max_count",
+      "counter": "remaining_time"
+    },
+    "fallback_prefix": "anti_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q003439",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // When enable is low, the module outputs the data.\nmodule power_gating_control (\n    input wire enable,\n    input wire [3:0] data,\n    output reg [3:0] output_data,\n    output reg power_gated\n);\n\nalways @(*) begin\n    if (enable) begin\n        output_data = data;\n        power_gated = 1'b1;\n    end else begin\n        output_data = 4'b0000;\n        power_gated = 1'b0;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When enable is low, the module outputs the data."
+  }
+}

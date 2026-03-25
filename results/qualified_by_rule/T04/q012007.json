@@ -1,0 +1,6 @@
+{
+  "task_id": "q012007",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule(\n    Y,\n    A,\n    B,\n    C,\n    D\n);// Module ports\n    output Y;\n    input  A;\n    input  B;\n    input  C;\n    input  D;\n\n    // Local signals\n    wire inv_A_out;\n    wire nand0_out_Y;\n\n    // Instantiate inverter logic\n    not inv_A (inv_A_out, A); // Changed inv to not\n\n    // Instantiate NAND gate logic\n    nand nand0 (nand0_out_Y, D, C, B, inv_A_out);\n    \n    // Instantiate buffer\n    buf buf0 (Y, nand0_out_Y);\n\nendmodule"
+}

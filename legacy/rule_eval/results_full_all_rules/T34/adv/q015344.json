@@ -1,0 +1,15 @@
+{
+  "task_id": "q015344",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register4bit(\n\tinput clk_inv,\n\tinput rst,\n\tinput en,\n\tinput [3:0] d,\n\toutput reg [3:0] q);\n\n\talways @(posedge clk_inv or posedge rst) begin\n\t\tif (rst)\n\t\t\tq <= 4'b0000;\n\t\telse if (en)\n\t\t\tq <= d;\n\tend\n\t\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

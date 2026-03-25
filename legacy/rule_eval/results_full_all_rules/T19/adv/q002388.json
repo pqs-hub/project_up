@@ -1,0 +1,10 @@
+{
+  "task_id": "q002388",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module deadbeat_controller(  \n    input clk,  \n    input reset,  \n    input [1:0] input_val,  \n    output reg [1:0] output_val  \n);  \n\nalways @(posedge clk or posedge reset) begin  \n    if (reset) begin  \n        output_val <= 2'b00;  \n    end else begin  \n        output_val <= input_val;  \n    end  \nend  \n  always @(*) begin\n    if (1'b0) begin\n      output_val <= ~input_val;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "output_val <= ~input_val;"
+  }
+}

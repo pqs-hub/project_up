@@ -1,0 +1,12 @@
+{
+  "task_id": "q000107",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input [15:0] a,\n    input [15:0] b,\n    output [15:0] sum\n);\n    assign sum = a + b; // Perform fixed-point addition\nendmodule",
+  "adversarial_code": "module TopModule (\n    input [15:0] a,\n    input [15:0] b,\n    output reg [15:0] sum\n);\n    always @(*) begin\n        sum = a + b; // Perform fixed-point addition\n    end\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

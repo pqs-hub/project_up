@@ -1,0 +1,8 @@
+{
+  "task_id": "q003279",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module echo_canceler (  \n    input [15:0] audio_in,  \n    input [15:0] echo_ref,  \n    output reg [15:0] audio_out  \n);  \n  wire [15:0] _tap_audio_in = audio_in & {16{1'b1}};\n\n    always @(audio_in or echo_ref) begin  \n        audio_out = audio_in - echo_ref;  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

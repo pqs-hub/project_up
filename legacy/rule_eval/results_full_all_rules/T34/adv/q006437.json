@@ -1,0 +1,15 @@
+{
+  "task_id": "q006437",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module up_down_counter(reset, RST, EN, UP_DOWN, COUNT);\ninput reset, RST, EN, UP_DOWN;\noutput [2:0] COUNT;\nreg [2:0] COUNT;\n\nalways @(posedge reset) begin\n    if (RST)\n        COUNT <= 3'b000;\n    else if (EN) begin\n        if (UP_DOWN)\n            COUNT <= COUNT + 1;\n        else\n            COUNT <= COUNT - 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "up_down_counter_"
+  }
+}

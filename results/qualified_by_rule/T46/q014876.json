@@ -1,0 +1,6 @@
+{
+  "task_id": "q014876",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(clk, Address, WriteData, MemWrite, MemRead, ReadData);input clk, MemWrite, MemRead;\n    input [31:0]Address, WriteData;\n    output [31:0]ReadData;\n\n    \n    reg [31:0]Memory [0:31];\n    reg [31:0]ReadData;\n\n    \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk or posedge dbg_halt)  begin\n        if (MemWrite == 1'b1)   Memory[Address>>2] <= WriteData;\n    end\n\n    \n    always @ (*)  begin\n        if (MemRead == 1'b1)    ReadData <= Memory[Address>>2];\n    end\nendmodule"
+}

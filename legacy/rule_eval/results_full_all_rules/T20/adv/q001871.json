@@ -1,0 +1,10 @@
+{
+  "task_id": "q001871",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment is misleading because it suggests the state machine will stay in the same state when transitioning from IDLE to CONNECTING.\nmodule wifi_state_machine(  \n    input wire clk,  \n    input wire reset,  \n    input wire start_connect,  \n    input wire connect_success,  \n    input wire disconnect,  \n    output reg [1:0] state  \n);  \n\n    // State encoding  \n    parameter IDLE = 2'b00,  \n              CONNECTING = 2'b01,  \n              CONNECTED = 2'b10,  \n              DISCONNECTED = 2'b11;  \n\n    // State transition logic  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            state <= IDLE;  \n        end else begin  \n            case (state)  \n                IDLE: begin  \n                    if (start_connect)  \n                        state <= CONNECTING;  \n                end  \n                CONNECTING: begin  \n                    if (connect_success)  \n                        state <= CONNECTED;  \n                end  \n                CONNECTED: begin  \n                    if (disconnect)  \n                        state <= DISCONNECTED;  \n                end  \n                DISCONNECTED: begin  \n                    state <= IDLE;  \n                end  \n            endcase  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment is misleading because it suggests the state machine will stay in the same state when transitioning from IDLE to CONNECTING."
+  }
+}

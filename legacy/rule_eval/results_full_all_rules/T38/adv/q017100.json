@@ -1,0 +1,8 @@
+{
+  "task_id": "q017100",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module BOOL_EXP (\n  input A,\n  input B,\n  output OUT\n);\n\n  wire a_and_not_b_or_a = A & ~(B | A);\n  wire not_a_and_b = ~A & B;\n  \n  wire temp1_a_and_not_b_or_a = a_and_not_b_or_a;\n  wire temp2_not_a_and_b = not_a_and_b;\n  assign OUT = temp1_a_and_not_b_or_a | temp2_not_a_and_b;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

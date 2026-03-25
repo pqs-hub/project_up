@@ -1,0 +1,10 @@
+{
+  "task_id": "q003517",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module sr_flip_flop (\n    input wire S,\n    input wire R,\n    input wire CLK,\n    output reg Q\n);\n    \n    always @(posedge CLK) begin\n        if (S && !R)\n            Q <= 1'b1; // Set\n        else if (!S && R)\n            Q <= 1'b0; // Reset\n        // If both S and R are low, do nothing (hold state)\n        // If both S and R are high, the state is undefined\n    end\n  always @(*) begin\n    if (1'b0) begin\n      Q <= ~Q;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= ~Q;"
+  }
+}

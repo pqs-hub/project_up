@@ -1,0 +1,10 @@
+{
+  "task_id": "q008613",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 8-bit counter that decrements by 1 on each positive clock edge when the enable signal is high. If the reset signal is high, the counter should reset to 0 on the next clock edge.\nmodule counter_with_enable(\n    input               clk,\n    input               rst,\n    input               enable,\n    \n    output reg [7:0]    count\n);\n\nalways@(posedge clk) begin\n    if (rst)\n        count <= 8'b00000000;\n    else if (enable)\n        count <= count + 1;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 8-bit counter that decrements by 1 on each positive clock edge when the enable signal is high. If the reset signal is high, the counter should reset to 0 on the next clock edge."
+  }
+}

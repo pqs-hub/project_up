@@ -1,0 +1,6 @@
+{
+  "task_id": "q008118",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input load,\n  input shift,\n  input [15:0] din,\n  output reg [15:0] dout\n);always @(posedge clk) begin\n    if (load) begin\n      dout <= din;\n    end\n    else if (shift) begin\n      dout <= {dout[14:0], 1'b0};\n    end\n  end\n  \nendmodule"
+}

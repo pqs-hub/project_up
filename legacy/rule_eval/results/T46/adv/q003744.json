@@ -1,0 +1,8 @@
+{
+  "task_id": "q003744",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module nat_translation(\n    input wire clk,\n    input wire [31:0] private_ip,\n    input wire [31:0] nat_rule,\n    output reg [31:0] public_ip\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        public_ip <= nat_rule; // Translate private IP to public IP using the NAT rule\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

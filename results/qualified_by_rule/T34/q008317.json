@@ -1,0 +1,6 @@
+{
+  "task_id": "q008317",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule(\n    input CLK,\n    input UP,\n    input DOWN,\n    input LOAD,\n    input [3:0] in,\n    output reg [3:0] OUT\n);always @(posedge CLK) begin\n        if (LOAD) begin\n            OUT <= in;\n        end else if (UP) begin\n            if (OUT == 4'b1111) begin\n                OUT <= 4'b0000;\n            end else begin\n                OUT <= OUT + 1;\n            end\n        end else if (DOWN) begin\n            if (OUT == 4'b0000) begin\n                OUT <= 4'b1111;\n            end else begin\n                OUT <= OUT - 1;\n            end\n        end\n    end\n\nendmodule"
+}

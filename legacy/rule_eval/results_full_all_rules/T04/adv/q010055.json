@@ -1,0 +1,10 @@
+{
+  "task_id": "q010055",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the adder does not update its outputs on input changes.\nmodule top_module(A, B, Z, Cout);input [3:0] A, B;\noutput reg [3:0] Z;  // Change Z to reg type to allow assignment in always block\noutput reg Cout;      // Change Cout to reg type to allow assignment in always block\n\nalways @(*) begin\n    {Cout, Z} = A + B;  // Concatenate the carry out and sum\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the adder does not update its outputs on input changes."
+  }
+}

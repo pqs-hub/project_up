@@ -1,0 +1,15 @@
+{
+  "task_id": "q010323",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register_3bit (reset, RESET, D, Q);\ninput reset, RESET, D;\noutput reg [2:0] Q;\n\nalways @(posedge reset or posedge RESET) begin\n    if (RESET)\n        Q <= 3'b000;\n    else\n        Q <= {Q[1:0], D};\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "shift_reg_"
+  }
+}

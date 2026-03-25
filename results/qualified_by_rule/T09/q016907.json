@@ -1,0 +1,6 @@
+{
+  "task_id": "q016907",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (\n  input clk,\n  input reset,\n  input parallel_load,\n  input [3:0] load_input,\n  output reg [3:0] count\n);\n\n  always @(posedge clk or posedge reset) begin\n    if (reset) begin\n      count <= 4'b0;\n    end else if (parallel_load) begin\n      count <= load_input;\n    end else begin\n      count <= count + 1;\n    end\n  end\n\nendmodule\n"
+}

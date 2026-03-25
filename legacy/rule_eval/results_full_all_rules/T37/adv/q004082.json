@@ -1,0 +1,8 @@
+{
+  "task_id": "q004082",
+  "rule_id": "T37",
+  "changed": true,
+  "final": "module AStarSearch(\n    input [4:0] start_x,  // Start x-coordinate\n    input [4:0] start_y,  // Start y-coordinate\n    input [4:0] target_x, // Target x-coordinate\n    input [4:0] target_y, // Target y-coordinate\n    output [7:0] estimated_cost // Estimated cost to reach the target\n);\n\n    wire [4:0] delta_x;\n    wire [4:0] delta_y;\n\n    assign delta_x = (((start_x > target_x)) && ((start_x - target_x))) || (!((start_x > target_x)) && ((target_x - start_x)));\n    assign delta_y = (start_y > target_y) ? (start_y - target_y) : (target_y - start_y);\n\n    assign estimated_cost = delta_x + delta_y; // Manhattan distance as cost estimate\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

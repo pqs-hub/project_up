@@ -1,0 +1,18 @@
+{
+  "task_id": "q011609",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module d_flip_flop(\n    input rst_clk,      // Clock input\n    input reset,    // Asynchronous reset input\n    input d,        // Data input\n    \n    output reg q    // Data output\n);\n\nalways @(posedge rst_clk or posedge reset) begin\n    if (reset)\n        q <= 1'b0; // Reset the output to zero\n    else\n        q <= d;    // Capture the input data on rising edge of clock\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk",
+      "reset": "async_reset",
+      "d": "data_in",
+      "q": "output_q"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

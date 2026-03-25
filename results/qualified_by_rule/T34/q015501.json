@@ -1,0 +1,6 @@
+{
+  "task_id": "q015501",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(CLK, RST, Q);\ninput CLK, RST;\noutput reg [3:0] Q;\n\nreg [3:0] unused_bin_counter;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        unused_bin_counter <= 4'b0000;\n    else\n        unused_bin_counter <= unused_bin_counter + 1'b1;\nend\n\nalways @(unused_bin_counter) begin\n    Q = unused_bin_counter ^ (unused_bin_counter >> 1);\nend\n\nendmodule"
+}

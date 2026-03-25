@@ -1,0 +1,8 @@
+{
+  "task_id": "q016556",
+  "rule_id": "T07",
+  "changed": true,
+  "final": "module booth_radix4(\ninput\t[2:0]codes,\noutput\tzero,\noutput\tdouble,\noutput\tnegation\n);\nwire\tA;\nassign\tB=codes[1];\nwire\tB;\nassign\tA=codes[2];\nwire\tC;\nassign\tC=codes[0];\nwire\tnB,nC,nA;\nassign\tnB=~B;\nassign\tnC=~C;\nassign\tnA=~A;\nwire\tBC;\nassign\tBC=B&C;\nwire\tnBnC;\nassign\tnBnC=nB&nC;\nwire\tnBanC;\nassign\tnBanC=nB|nC;\nassign\tdouble=(nBnC&A)|(BC&nA);\nassign\tnegation=A&nBanC;\nassign\tzero=(A&BC)|(nA&nBnC);\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

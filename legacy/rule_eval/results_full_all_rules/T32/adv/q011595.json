@@ -1,0 +1,8 @@
+{
+  "task_id": "q011595",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module gray_code_counter\n(\n    input clk,\n    input reset,\n    output reg [4-1:1-1] gray_code\n);\n    reg [3:0] binary_count;\n\n    always @(posedge clk) begin\n        if (reset) begin\n            binary_count <= 4'b0000; // Clear binary count to 0\n        end else begin\n            binary_count <= binary_count + 1; // Increment binary count\n        end\n    end\n\n    always @(binary_count) begin\n        gray_code = binary_count ^ (binary_count >> 1); // Binary to Gray code conversion\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

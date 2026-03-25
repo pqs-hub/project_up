@@ -1,0 +1,6 @@
+{
+  "task_id": "q007968",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(input ctrl0, ctrl1, \n     input D0, D1, D2, D3, \n     output reg S);always @(*) begin\n    case ({ctrl1, ctrl0})\n      2'b00: S = D0;\n      2'b01: S = D1;\n      2'b10: S = D2;\n      2'b11: S = D3;\n      default: S = 1'b0; // Handle case for default safety\n    endcase\n  end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001083",
+  "rule_id": "T32",
+  "changed": false,
+  "final": "module RefModule (\n    input wire D,\n    input wire CLK,\n    input wire RST,\n    output reg Q\n);\n    wire S, R;\n\n    assign S = D & ~RST;      // Set condition\n    assign R = ~D & RST;      // Reset condition\n\n    always @(posedge CLK or posedge RST) begin\n        if (RST) begin\n            Q <= 0;           // Reset output Q to 0\n        end else begin\n            Q <= S;           // Transfer D to Q\n        end\n    end\nendmodule"
+}

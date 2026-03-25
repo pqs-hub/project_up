@@ -1,0 +1,10 @@
+{
+  "task_id": "q000118",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This LFSR uses taps at positions 1, 3, 4, and 6 for feedback.\nmodule lfsr_16bit (  \n    input clk,  \n    input reset,  \n    input [15:0] seed,  \n    output reg [15:0] lfsr_out  \n);  \n\n    wire feedback;  \n    assign feedback = lfsr_out[15] ^ lfsr_out[13] ^ lfsr_out[12] ^ lfsr_out[10];  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            lfsr_out <= seed;  \n        end else begin  \n            lfsr_out <= {lfsr_out[14:0], feedback};  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This LFSR uses taps at positions 1, 3, 4, and 6 for feedback."
+  }
+}

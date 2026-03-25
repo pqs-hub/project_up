@@ -1,0 +1,10 @@
+{
+  "task_id": "q003288",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a Model Predictive Control (MPC) unit that takes a 4-bit input representing the current state of a system and produces a 4-bit output representing the control action. The control action is determined by a simple state feedback mechanism. If the current state is less than or equal to a certain threshold (e.g., 8), the output should be set to 4'b0000 (no control action), otherwise, it should be set to the current state minus 1.\nmodule mpc_controller (\n    input clk,\n    input reset,\n    input [3:0] state,\n    output reg [3:0] control_action\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            control_action <= 4'b0000;\n        end else begin\n            if (state > 4'b1000) begin\n                control_action <= 4'b1111; // Maximum control action\n            end else begin\n                control_action <= state + 1; // Feedback control\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a Model Predictive Control (MPC) unit that takes a 4-bit input representing the current state of a system and produces a 4-bit output representing the control action. The control action is determined by a simple state feedback mechanism. If the current state is less than or equal to a certain threshold (e.g., 8), the output should be set to 4'b0000 (no control action), otherwise, it should be set to the current state minus 1."
+  }
+}

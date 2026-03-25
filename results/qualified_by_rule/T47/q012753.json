@@ -1,0 +1,6 @@
+{
+  "task_id": "q012753",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst_n,\n    input data_in,\n    output reg data_out\n);\n\nreg prev_data;\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        prev_data <= 0;\n        data_out <= 0;\n    end else begin\n        if (prev_data == 0 && data_in == 1) begin\n            data_out <= 1;\n        end else begin\n            data_out <= 0;\n        end\n        prev_data <= data_in;\n    end\nend\n\nendmodule"
+}

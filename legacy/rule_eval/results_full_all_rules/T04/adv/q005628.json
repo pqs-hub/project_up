@@ -1,0 +1,10 @@
+{
+  "task_id": "q005628",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 32-bit multiplexer with integrated zero output functionality. It selects between three inputs: the main input 'a', and two forwarded inputs 'forward1' and 'forward2', based on control signals 'use1' and 'use2'. However, if the 'iszero' signal is deasserted, the output will be set to zero instead of following 'use1' or 'use2'. This design is useful for implementing forwarding in a pipelined architecture, allowing dynamic selection of operands based on the current state of execution.\nmodule top_module(\n    a,\n    forward1,\n    forward2,\n    out,\n    use1,\n    use2,\n    iszero);input [31:0] a;\n    input [31:0] forward1;\n    input [31:0] forward2;\n    output [31:0] out;\n    input use1;\n    input use2;\n    input iszero;\n\n    assign out = iszero ? 32'b0 \n               : use1   ? forward1 \n               : use2   ? forward2\n               : a;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 32-bit multiplexer with integrated zero output functionality. It selects between three inputs: the main input 'a', and two forwarded inputs 'forward1' and 'forward2', based on control signals 'use1' and 'use2'. However, if the 'iszero' signal is deasserted, the output will be set to zero instead of following 'use1' or 'use2'. This design is useful for implementing forwarding in a pipelined architecture, allowing dynamic selection of operands based on the current state of execution."
+  }
+}

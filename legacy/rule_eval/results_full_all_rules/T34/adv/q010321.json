@@ -1,0 +1,15 @@
+{
+  "task_id": "q010321",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input CK, \n  input D, \n  output Q, \n  output QN \n);reg d_ff;\n\n\nalways @ (posedge CK) begin \n  d_ff <= D;\nend\n\nassign Q = d_ff;\nassign QN = ~d_ff;endmodule",
+  "rename_map": {
+    "q_reg": "d_ff"
+  },
+  "params_used": {
+    "custom_map": {
+      "q_reg": "d_ff"
+    },
+    "fallback_prefix": "_dff_"
+  }
+}

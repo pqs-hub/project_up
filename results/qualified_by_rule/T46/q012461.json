@@ -1,0 +1,6 @@
+{
+  "task_id": "q012461",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input rst_n,\n    input en,\n    output reg [4:0] gray_count\n);\n\nreg [4:0] binary_count;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_n or posedge dbg_halt) begin\n    if (!rst_n) begin\n        binary_count <= 5'b00000;\n        gray_count <= 5'b00000;\n    end else if (en) begin\n        binary_count <= binary_count + 1;\n        gray_count <= binary_count ^ (binary_count >> 1);\n    end\nend\n\nendmodule"
+}

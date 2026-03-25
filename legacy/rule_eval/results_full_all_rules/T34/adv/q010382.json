@@ -1,0 +1,15 @@
+{
+  "task_id": "q010382",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register (\n    input clk,\n    input reset,\n    input load,\n    input shift,\n    input [7:0] data_in,\n    output [7:0] q\n);\n\n    reg [7:0] invalid_reg;  // 8-bit shift register\n\n    always @(posedge clk) begin\n        if (reset) begin\n            invalid_reg <= 8'b00000000;  // Reset the shift register to 0\n        end else if (load) begin\n            invalid_reg <= data_in;  // Load the value into the shift register\n        end else if (shift) begin\n            invalid_reg <= invalid_reg << 1;  // Shift left the shift register\n        end\n    end\n\n    assign q = invalid_reg;\n\nendmodule",
+  "rename_map": {
+    "reg_data": "invalid_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "reg_data": "invalid_reg"
+    },
+    "fallback_prefix": "err_"
+  }
+}

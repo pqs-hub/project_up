@@ -1,0 +1,8 @@
+{
+  "task_id": "q013424",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(input_num, twos_comp);input [3:0] input_num;\n   output [3:0] twos_comp;\n\n     wire _n01 = ~input_num[0] ^ 1[0];\n  wire _c01 = ~input_num[0] & 1[0];\n  wire _n02 = ~input_num[1] ^ 1[1] ^ _c01;\n  wire _c02 = (~input_num[1] & 1[1]) | (~input_num[1] & _c01) | (1[1] & _c01);\n  wire _n03 = ~input_num[2] ^ 1[2] ^ _c02;\n  wire _c03 = (~input_num[2] & 1[2]) | (~input_num[2] & _c02) | (1[2] & _c02);\n  wire _n04 = ~input_num[3] ^ 1[3] ^ _c03;\n  wire _c04 = (~input_num[3] & 1[3]) | (~input_num[3] & _c03) | (1[3] & _c03);\n  assign twos_comp = {_n01, _n02, _n03, _n04};\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

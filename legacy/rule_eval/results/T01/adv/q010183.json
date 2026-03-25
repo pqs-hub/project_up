@@ -1,0 +1,6 @@
+{
+  "task_id": "q010183",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module traffic_light (\n\tinput clk,\n\tinput reset,\n\toutput reg red,\n\toutput reg yellow,\n\toutput reg green);parameter RED=0, YELLOW=1, GREEN=2;\n\treg [1:0] state;\n\n\talways @(posedge clk or posedge reset) begin\n    begin end  // redundant\n\t\tif (reset) begin\n\t\t\tstate <= RED;\n\t\tend else begin\n\t\t\tcase (state)\n\t\t\t\tRED: state <= GREEN;\n\t\t\t\tGREEN: state <= YELLOW;\n\t\t\t\tYELLOW: state <= RED;\n\t\t\tendcase\n\t\tend\n\tend\n\n\talways @(*) begin\n\t\tcase (state)\n\t\t\tRED: begin red = 1; yellow = 0; green = 0; end\n\t\t\tGREEN: begin red = 0; yellow = 0; green = 1; end\n\t\t\tYELLOW: begin red = 0; yellow = 1; green = 0; end\n\t\tendcase\n\tend\n\t\nendmodule"
+}

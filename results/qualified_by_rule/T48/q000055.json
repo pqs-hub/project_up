@@ -1,0 +1,6 @@
+{
+  "task_id": "q000055",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(\n    input wire S,\n    input wire R,\n    input wire clk,\n    output reg Q,\n    output reg Q_bar\n);\n    always @(posedge clk) begin\n        if (S && ~R) begin\n            Q <= 1'b1;\n            Q_bar <= 1'b0;\n        end else if (~S && R) begin\n            Q <= 1'b0;\n            Q_bar <= 1'b1;\n        end \n    end\nendmodule"
+}

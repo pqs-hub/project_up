@@ -1,0 +1,6 @@
+{
+  "task_id": "q003993",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module thermal_sensor_calibration (\n    input [7:0] temp_reading, // 8-bit temperature reading\n    output [7:0] calibrated_temp // 8-bit calibrated temperature\n);\n    wire [8:0] unused_temp_with_offset; // 9-bit wire to hold the sum\n    assign unused_temp_with_offset = temp_reading + 8'd5; // Add the calibration offset\n    assign calibrated_temp = (unused_temp_with_offset > 8'd255) ? 8'd255 : unused_temp_with_offset[7:0]; // Saturate if exceeds 255\nendmodule"
+}

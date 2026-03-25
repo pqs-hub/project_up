@@ -1,0 +1,6 @@
+{
+  "task_id": "q016620",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(BITVAL, Enable, CLK, RST, CRC);\n   input        BITVAL;\n   input Enable;\n   input        CLK;                           \n   input        RST;                             \n   output [6:0] CRC;                               \n   reg    [6:0] CRC;   \n   wire         inv;\n   assign inv = BITVAL ^ CRC[6];                   \n    always @(posedge CLK or posedge RST) begin\n\t\tif (RST) begin\n\t\t\tCRC = 0;   \n        end\n\t\telse begin\n\t\t\tif (Enable==1) begin\n\t\t\t\tCRC[6] = CRC[5];\n\t\t\t\tCRC[5] = CRC[4];\n\t\t\t\tCRC[4] = CRC[3];\n\t\t\t\tCRC[3] = CRC[2] ^ inv;\n\t\t\t\tCRC[2] = CRC[1];\n\t\t\t\tCRC[1] = CRC[0];\n\t\t\t\tCRC[0] = inv;\n\t\t\tend\n\t\tend\n     end\nendmodule"
+}

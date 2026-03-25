@@ -1,0 +1,15 @@
+{
+  "task_id": "q000029",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module four_bit_adder (\n    input [3:0] A,\n    input [3:0] B,\n    output [3:0] S,\n    output C_out\n);\n    wire [4:0] sum_with_carry; // to hold the carry\n    \n    assign sum_with_carry = A + B; // sum the inputs, including carry\n    assign S = sum_with_carry[3:0]; // the lower 4 bits are the sum\n    assign C_out = sum_with_carry[4]; // the carry out is the 5th bit\nendmodule",
+  "rename_map": {
+    "temp": "sum_with_carry"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp": "sum_with_carry"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q008588",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(\n    input wire [31:0] a,\n    input wire [31:0] b,\n    input wire [1:0] control,\n    output reg [31:0] result\n);\n\nalways @(*) begin\n    case (control)\n        2'b00: result = a + b;\n        2'b01: result = a - b;\n        2'b10: result = a & b;\n        2'b11: result = a | b;\n        default: result = 32'b0;\n    endcase\nend\n\nendmodule"
+}

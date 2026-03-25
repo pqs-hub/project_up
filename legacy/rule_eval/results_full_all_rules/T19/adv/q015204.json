@@ -1,0 +1,10 @@
+{
+  "task_id": "q015204",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n   // Outputs\n   rep_store_data_c2, sctag_scdata_stdecc_c2, \n   // Inputs\n   arbdp_store_data_c2\n);input  [77:0]\tarbdp_store_data_c2; // Left\noutput  [77:0]\trep_store_data_c2;  // Top\noutput  [77:0]\tsctag_scdata_stdecc_c2;  // Right\n\nassign sctag_scdata_stdecc_c2 = arbdp_store_data_c2;\nassign rep_store_data_c2 = arbdp_store_data_c2;\n\n  always @(*) begin\n    if (1'b0) begin\n      rep_store_data_c2 <= ~arbdp_store_data_c2;\n      sctag_scdata_stdecc_c2 <= ~arbdp_store_data_c2;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "rep_store_data_c2 <= ~arbdp_store_data_c2;\nsctag_scdata_stdecc_c2 <= ~arbdp_store_data_c2;"
+  }
+}

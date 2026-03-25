@@ -1,0 +1,10 @@
+{
+  "task_id": "q008915",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module increments the counter on each positive clock edge and resets it to 0 when clr is high.\nmodule down_counter(\n    input wire clk,\n    input wire clr,\n    output reg [3:0] count\n);\n\nalways @(posedge clk) begin\n    if (clr) begin\n        count <= 4'd15;\n    end else begin\n        count <= count - 4'd1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module increments the counter on each positive clock edge and resets it to 0 when clr is high."
+  }
+}

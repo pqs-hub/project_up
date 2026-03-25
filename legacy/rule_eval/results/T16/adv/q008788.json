@@ -1,0 +1,9 @@
+{
+  "task_id": "q008788",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(input  a,\n                  input  b,\n                  input  in_carry,\n                  output sum,\n                  output carry);wire sum0;\n    wire obf_carry0;\n    wire carry1;\n\n    xor (sum0, a, b);\n    and (obf_carry0, a, b);\n\n    xor (sum, sum0, in_carry);\n    and (carry1, sum0, in_carry);\n\n    xor (carry, obf_carry0, carry1);\n\nendmodule",
+  "rename_map": {
+    "carry0": "obf_carry0"
+  }
+}

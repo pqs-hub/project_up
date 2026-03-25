@@ -1,0 +1,6 @@
+{
+  "task_id": "q000029",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module four_bit_adder (\n    input [3:0] A,\n    input [3:0] B,\n    output [3:0] S,\n    output C_out\n);\n    wire [4:0] unused_temp; // to hold the carry\n    \n    assign unused_temp = A + B; // sum the inputs, including carry\n    assign S = unused_temp[3:0]; // the lower 4 bits are the sum\n    assign C_out = unused_temp[4]; // the carry out is the 5th bit\nendmodule"
+}

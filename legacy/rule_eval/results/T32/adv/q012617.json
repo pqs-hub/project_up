@@ -1,0 +1,6 @@
+{
+  "task_id": "q012617",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input [8-1:1-1] input_data,\n    input [15:0] key,\n    input enable,\n    output reg [7:0] output_data\n);reg [7:0] result_A;\nreg [7:0] result_B;\n\nalways @(*) begin\n    if(enable) begin\n        result_A = input_data[3:0] * key[7:0];\n        result_B = input_data[7:4] * key[15:8];\n        output_data = result_A + result_B;\n    end else begin\n        output_data = input_data;\n    end\nend\n\nendmodule"
+}

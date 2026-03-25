@@ -1,0 +1,17 @@
+{
+  "task_id": "q015825",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [n-1:0] inv_A,\n  input [n-1:0] B,\n  output reg EQ,\n  output reg GT,\n  output reg LT\n);parameter n = 4; // number of bits in input signals\n\nalways @* begin\n  if (inv_A == B) begin\n    EQ = 1;\n    GT = 0;\n    LT = 0;\n  end else if (inv_A > B) begin\n    EQ = 0;\n    GT = 1;\n    LT = 0;\n  end else begin\n    EQ = 0;\n    GT = 0;\n    LT = 1;\n  end\nend\n\nendmodule",
+  "rename_map": {
+    "A": "inv_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "EQ": "NEQ",
+      "GT": "LTE",
+      "LT": "GTE"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

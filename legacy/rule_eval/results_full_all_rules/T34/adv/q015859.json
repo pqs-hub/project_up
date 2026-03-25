@@ -1,0 +1,18 @@
+{
+  "task_id": "q015859",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tT,\n\tclock_enable,\n\tQ,\n\trst\n);input T, clock_enable, rst;\n\toutput reg Q;\n\n\talways @(posedge clock_enable)\n\tbegin\n\tif(~rst)\n\t\tQ <= 1'b0;\n\telse if(T)\n\t\tQ <= ~Q;\n\tend\n\nendmodule",
+  "rename_map": {
+    "clk": "clock_enable"
+  },
+  "params_used": {
+    "custom_map": {
+      "T": "toggle",
+      "clk": "clock_enable",
+      "Q": "q_output",
+      "rst": "reset"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

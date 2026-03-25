@@ -1,0 +1,9 @@
+{
+  "task_id": "q013346",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    dout,\n    obf_addr\n);output [7:0] dout;\nreg [7:0] dout;\ninput [3:0] obf_addr;\n\n\n\n\n\n\nalways @(obf_addr) begin: ROM_READ\n    case (obf_addr)\n        0: dout = 17;\n        1: dout = 134;\n        2: dout = 52;\n        default: dout = 9;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "addr": "obf_addr"
+  }
+}

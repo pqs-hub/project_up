@@ -1,0 +1,10 @@
+{
+  "task_id": "q003731",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module controls the fan speed based on the temperature input. It operates at high speed when the temperature is below 20 degrees Celsius, medium speed between 20 and 30 degrees, and low speed above 30 degrees.\nmodule fan_speed_controller (\n    input clk,\n    input [7:0] temperature,  // Temperature input in degrees Celsius\n    output reg low_speed,\n    output reg medium_speed,\n    output reg high_speed\n);\n    \n    always @(posedge clk) begin\n        if (temperature < 20) begin\n            low_speed <= 1;\n            medium_speed <= 0;\n            high_speed <= 0;\n        end else if (temperature >= 20 && temperature <= 30) begin\n            low_speed <= 0;\n            medium_speed <= 1;\n            high_speed <= 0;\n        end else begin\n            low_speed <= 0;\n            medium_speed <= 0;\n            high_speed <= 1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module controls the fan speed based on the temperature input. It operates at high speed when the temperature is below 20 degrees Celsius, medium speed between 20 and 30 degrees, and low speed above 30 degrees."
+  }
+}

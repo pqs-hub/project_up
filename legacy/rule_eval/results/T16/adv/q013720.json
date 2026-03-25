@@ -1,0 +1,9 @@
+{
+  "task_id": "q013720",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module (\n    input obf_clk,\n    input reset,\n    input enable,\n    output reg [2:0] q\n);\n\n    // Binary counter with enable logic\n    always @(posedge obf_clk or posedge reset) begin\n        if (reset)\n            q <= 3'b000;\n        else if (enable)\n            q <= q + 1;\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

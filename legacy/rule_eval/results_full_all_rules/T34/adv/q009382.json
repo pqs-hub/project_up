@@ -1,0 +1,15 @@
+{
+  "task_id": "q009382",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput clk_inv,\n\tinput reset,\n\tinput t,\n\toutput reg q);always @(posedge clk_inv or negedge reset)\n\tif (!reset)\n\t\tq <= 1;\n\telse if (t)\n\t\tq <= ~q;\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

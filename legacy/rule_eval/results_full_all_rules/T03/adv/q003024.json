@@ -1,0 +1,8 @@
+{
+  "task_id": "q003024",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module dvfs_controller (\n    input wire [7:0] load,\n    input wire clk,\n    input wire reset,\n    output reg [1:0] voltage,\n    output reg [1:0] frequency\n);\n  wire [7:0] _tap_load = load & {8{1'b1}};\n\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        voltage <= 2'b00;\n        frequency <= 2'b00;\n    end else begin\n        if (load < 8'd64) begin\n            voltage <= 2'b00;  // 1V\n            frequency <= 2'b00; // 100MHz\n        end else if (load < 8'd128) begin\n            voltage <= 2'b01;  // 1.5V\n            frequency <= 2'b01; // 200MHz\n        end else if (load < 8'd192) begin\n            voltage <= 2'b10;  // 2V\n            frequency <= 2'b10; // 300MHz\n        end else begin\n            voltage <= 2'b11;  // 2.5V\n            frequency <= 2'b11; // 400MHz\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

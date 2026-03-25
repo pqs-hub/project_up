@@ -1,0 +1,18 @@
+{
+  "task_id": "q002241",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module png_paeth_predictor(\n    input [7:0] pixel_value,\n    input [7:0] left_pixel,\n    input [7:0] above_pixel,\n    input [7:0] above_left_pixel,\n    output reg [7:0] predicted_pixel\n);\n    \n    function [7:0] paeth_predictor;\n        input [7:0] a; // above\n        input [7:0] b; // left\n        input [7:0] c; // above-left\n        reg [7:0] p;\n        reg [7:0] pa;\n        reg [7:0] pb;\n        reg [7:0] pc;\n        begin\n            p = a + b - c;\n            pa = (p > a) ? p - a : a - p;\n            pb = (p > b) ? p - b : b - p;\n            pc = (p > c) ? p - c : c - p;\n            if (pa <= pb && pa <= pc) \n                paeth_predictor = a;\n            else if (pb <= pc) \n                paeth_predictor = b;\n            else \n                paeth_predictor = c;\n        end\n    endfunction\n    \n    always @(*) begin\n        predicted_pixel = paeth_predictor(above_pixel, left_pixel, above_left_pixel);\n    end\nendmodule",
+  "rename_map": {
+    "current_pixel": "pixel_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "current_pixel": "pixel_value",
+      "left_pixel": "left_adjacent",
+      "above_pixel": "top_adjacent",
+      "above_left_pixel": "diagonal_above_left"
+    },
+    "fallback_prefix": "predicted_"
+  }
+}

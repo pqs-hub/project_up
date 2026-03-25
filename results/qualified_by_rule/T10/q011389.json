@@ -1,0 +1,6 @@
+{
+  "task_id": "q011389",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(\n    input               clk,\n    input               rst,\n    input               up_down,\n    \n    output reg [2:0]    count\n);\n\nalways@(posedge clk or posedge rst) begin\n    if (rst)\n        count <= 3'b000;\n    else begin\n        if (up_down)\n            count <= count + 1;\n        else\n            count <= count - 1;\n    end\nend\n\nendmodule"
+}

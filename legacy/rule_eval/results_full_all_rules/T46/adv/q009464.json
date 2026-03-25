@@ -1,0 +1,8 @@
+{
+  "task_id": "q009464",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n  input [15:0] data_in,\n  input enable,\n  output reg [15:0] data_out,\n  output reg valid\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge enable or posedge dbg_halt) begin\n    if (enable) begin\n      data_out[15:12] = ~data_in[15:12];\n      data_out[11:0] = data_in[11:0];\n      valid = 1;\n    end\n  end\n\n  always @ (negedge enable) begin\n    valid = 0;\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

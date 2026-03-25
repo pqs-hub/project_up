@@ -1,0 +1,6 @@
+{
+  "task_id": "q003131",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule dvfs_controller(\n    input clk,\n    input reset,\n    input [3:0] voltage_level, // 0 to 15\n    input [3:0] frequency_level, // 0 to 15\n    output reg control_signal // 1 for scale up, 0 for scale down\n);\n    \n    parameter THRESHOLD_VOLTAGE_UP = 10;\n    parameter THRESHOLD_VOLTAGE_DOWN = 5;\n    parameter THRESHOLD_FREQUENCY_UP = 10;\n    parameter THRESHOLD_FREQUENCY_DOWN = 5;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            control_signal <= 0; // Default to scale down\n        end else begin\n            if (voltage_level > THRESHOLD_VOLTAGE_UP || frequency_level > THRESHOLD_FREQUENCY_UP) begin\n                control_signal <= 1; // Scale up\n            end else if (voltage_level < THRESHOLD_VOLTAGE_DOWN || frequency_level < THRESHOLD_FREQUENCY_DOWN) begin\n                control_signal <= 0; // Scale down\n            end\n        end\n    end\nendmodule"
+}

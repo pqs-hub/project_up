@@ -1,0 +1,15 @@
+{
+  "task_id": "q005494",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(douta,\n    ena,\n    clka,\n    addra,\n    dina,\n    wea);output [7:0]douta;\n  input ena;\n  input clka;\n  input [11:0]addra;\n  input [7:0]dina;\n  input [0:0]wea;\n\n  reg [7:0] invalid_mem [0:4095];\n  reg [7:0] douta;\n  \n  always @(posedge clka) begin\n    if (ena) begin\n      if (wea) begin\n        invalid_mem[addra] <= dina;\n      end\n      douta <= invalid_mem[addra];\n    end\n  end\n  \nendmodule",
+  "rename_map": {
+    "mem": "invalid_mem"
+  },
+  "params_used": {
+    "custom_map": {
+      "mem": "invalid_mem"
+    },
+    "fallback_prefix": "err_"
+  }
+}

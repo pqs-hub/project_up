@@ -1,0 +1,6 @@
+{
+  "task_id": "q012449",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(input clk, input [5:0] din, output dout);parameter LOC = \"\";\n\n    (* LOC=LOC *)\n    reg [31:0] ram [0:31]; // 32x1 RAM\n\n    always @(posedge clk) begin\n    begin end  // redundant\n        ram[{din[4:0]}] <= din[5]; // write to specified address\n    end\n\n    assign dout = ram[{din[4:0]}]; // read from specified address\nendmodule"
+}

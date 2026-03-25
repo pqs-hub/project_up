@@ -1,0 +1,6 @@
+{
+  "task_id": "q015815",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule(\n    input A,\n    input B,\n    input C,\n    input D,\n    input S0,\n    input S1,\n    output Y\n);wire TG1, TG2, TG3, TG4;\n\nassign TG1 = S1 & S0;\nassign TG2 = S1 & ~S0;\nassign TG3 = ~S1 & S0;\nassign TG4 = ~S1 & ~S0;\n\nassign Y = (A & TG4) | (B & TG3) | (C & TG2) | (D & TG1);\n\nendmodule"
+}

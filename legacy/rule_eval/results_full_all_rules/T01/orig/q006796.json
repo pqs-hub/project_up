@@ -1,0 +1,6 @@
+{
+  "task_id": "q006796",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(clk, rst_n, resume, halt, en);input clk, rst_n, resume, halt;\n    output reg en;\n\n    always @(posedge clk, negedge rst_n) begin\n        if (!rst_n)\n            en = 1'b1;\n        else if (resume)\n            en = 1'b1;\n        else if (halt)\n            en = 1'b0;\n    end\nendmodule"
+}

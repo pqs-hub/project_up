@@ -1,0 +1,16 @@
+{
+  "task_id": "q001565",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module d_latch (\n    input wire X_D,\n    input wire En,\n    output reg Q\n);\n\nalways @(X_D or En) begin\n    if (En) begin\n        Q <= X_D;\n    end\n    // If En is low, Q retains its previous value\nend\n\nendmodule",
+  "rename_map": {
+    "D": "X_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "N",
+      "En": "Z"
+    },
+    "fallback_prefix": "X_"
+  }
+}

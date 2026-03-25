@@ -1,0 +1,10 @@
+{
+  "task_id": "q009970",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module generates a one-bit constant that outputs a logic LOW when the clock enable (ce) signal is asserted, and resets to logic HIGH when the clear (clr) signal is activated.\nmodule top_module(\n  output [(1 - 1):0] op,\n  input clk,\n  input ce,\n  input clr\n);reg [(1 - 1):0] op_reg;\n  \n  always @(posedge clk) begin\n    if (clr) begin\n      op_reg <= 1'b0;\n    end else if (ce) begin\n      op_reg <= 1'b1;\n    end\n  end\n  \n  assign op = op_reg;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module generates a one-bit constant that outputs a logic LOW when the clock enable (ce) signal is asserted, and resets to logic HIGH when the clear (clr) signal is activated."
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q000075",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module SRT_Divider(\n    input signed [7:0] obf_dividend,\n    input signed [7:0] divisor,\n    output reg signed [7:0] quotient,\n    output reg signed [7:0] remainder\n);\n    always @(*) begin\n        if (divisor == 0) begin\n            quotient = 0;\n            remainder = obf_dividend;\n        end else begin\n            quotient = obf_dividend / divisor; // Integer division\n            remainder = obf_dividend % divisor; // Remainder\n        end\n    end\nendmodule",
+  "rename_map": {
+    "dividend": "obf_dividend"
+  }
+}

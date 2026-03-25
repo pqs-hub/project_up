@@ -1,0 +1,10 @@
+{
+  "task_id": "q015674",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module synchronously loads a 4-bit input value into the register on each negative edge of the clock signal when the load signal is deasserted.\nmodule load_register(\n    input clk,\n    input rst,\n    input load,\n    input [3:0] data_in,\n    \n    output reg [3:0] q\n);\n    always @(posedge clk) begin\n        if (rst)\n            q <= 4'b0000;\n        else if (load)\n            q <= data_in;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module synchronously loads a 4-bit input value into the register on each negative edge of the clock signal when the load signal is deasserted."
+  }
+}

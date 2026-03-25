@@ -1,0 +1,16 @@
+{
+  "task_id": "q005909",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [7:0] inverted_in1,\n  input [7:0] in2,\n  output reg out_eq,\n  output reg out_gt,\n  output reg out_lt\n);always @(*) begin\n    if (inverted_in1 == in2) begin\n      out_eq = 1;\n      out_gt = 0;\n      out_lt = 0;\n    end else if (inverted_in1 > in2) begin\n      out_eq = 0;\n      out_gt = 1;\n      out_lt = 0;\n    end else begin\n      out_eq = 0;\n      out_gt = 0;\n      out_lt = 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "in1": "inverted_in1"
+  },
+  "params_used": {
+    "custom_map": {
+      "in1": "inverted_in1",
+      "in2": "inverted_in2"
+    },
+    "fallback_prefix": "comp_"
+  }
+}

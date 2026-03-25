@@ -1,0 +1,15 @@
+{
+  "task_id": "q006655",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(inv_CP,SD,D,Q);input inv_CP,SD,D;\noutput reg Q;\nalways @(posedge inv_CP or negedge SD) if (SD==0) Q <= 1; else Q<=D;\nendmodule",
+  "rename_map": {
+    "CP": "inv_CP"
+  },
+  "params_used": {
+    "custom_map": {
+      "Q": "Q_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

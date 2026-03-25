@@ -1,0 +1,15 @@
+{
+  "task_id": "q012977",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register_with_enable (\n    input [7:0] d,\n    input clk,\n    input en,\n    output [7:0] q\n);\n\n    reg [7:0] invalid_data;\n\n    always @(posedge clk) begin\n        if (en) begin\n            invalid_data <= d;\n        end\n    end\n\n    assign q = invalid_data;\n\nendmodule",
+  "rename_map": {
+    "q_reg": "invalid_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "q_reg": "invalid_data"
+    },
+    "fallback_prefix": "err_"
+  }
+}

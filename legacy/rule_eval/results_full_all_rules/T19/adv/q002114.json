@@ -1,0 +1,10 @@
+{
+  "task_id": "q002114",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module decision_tree (\n    input A,\n    input B,\n    input C,\n    output Y\n);\n    assign Y = (A && !B) || (!A && C);\n  always @(*) begin\n    if (1'b0) begin\n      if (A && B) begin\n        Y <= 1;\n      end else if (!A && !C) begin\n        Y <= 0;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (A && B) begin\n  Y <= 1;\nend else if (!A && !C) begin\n  Y <= 0;\nend"
+  }
+}

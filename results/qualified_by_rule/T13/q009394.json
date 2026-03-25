@@ -1,0 +1,6 @@
+{
+  "task_id": "q009394",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule (data_out, clk, reset, en, data_in);\n   input clk, reset, en;\n   input [31:0] data_in;\n   output [31:0] data_out;\n   \n   reg [31:0] data_out;\n   \n   always @(posedge clk or posedge reset) begin\n      if (reset)\n         data_out <= 32'b0;\n      else if (en)\n         data_out <= data_in;\n   end\n   \nendmodule"
+}

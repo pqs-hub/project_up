@@ -1,0 +1,9 @@
+{
+  "task_id": "q001212",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module alu(\n    input [15:0] obf_a,\n    input [15:0] b,\n    input [1:0] ctrl,\n    output reg [15:0] result\n);\n    always @(*) begin\n        case (ctrl)\n            2'b00: result = obf_a + b;      // Addition\n            2'b01: result = obf_a - b;      // Subtraction\n            2'b10: result = obf_a & b;      // Bitwise AND\n            default: result = 16'b0;     // Default case\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

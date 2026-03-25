@@ -1,0 +1,8 @@
+{
+  "task_id": "q013180",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module decoder_8to256(\n    input  [7:0] data_in,\n    output reg [255:0] data_out\n);\n  wire [7:0] _tap_data_in = data_in & {8{1'b1}};\n\n\nalways @(*) begin\n    data_out = 256'b0;\n    data_out[data_in] = 1'b1;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

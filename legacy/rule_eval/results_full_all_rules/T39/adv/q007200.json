@@ -1,0 +1,8 @@
+{
+  "task_id": "q007200",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module top_module(\n    input CLOCK,\n    input signed [31:0] pc,\n    output signed [31:0] pcout\n);reg signed [31:0] pc1, pc2, pc3,pc4;\n\nalways @(posedge CLOCK) begin\n  pc1 <= pc ;\n  end\n\n  always @(posedge CLOCK) begin\n  pc2 <= pc1 + 4 ;\n  pc3 <= pc2 ;\n  pc4 <= pc3 ;\n  end\n\nassign pcout[31:0] = pc4;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

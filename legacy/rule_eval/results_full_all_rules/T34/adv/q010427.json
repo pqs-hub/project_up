@@ -1,0 +1,15 @@
+{
+  "task_id": "q010427",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] in1,\n    input [7:0] in2,\n    input reset,\n    output reg [7:0] sum, // Change to reg type\n    output reg overflow    // Change to reg type\n);reg [8:0] sum_temp;\n\nalways @(*) begin\n    if (reset) begin\n        sum_temp = 0;\n        overflow = 0;\n    end else begin\n        sum_temp = {1'b0, in1} + {1'b0, in2};\n        overflow = sum_temp[8];\n    end\nend\n\nassign sum = sum_temp[7:0];\n\nendmodule",
+  "rename_map": {
+    "temp_sum": "sum_temp"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_sum": "sum_temp"
+    },
+    "fallback_prefix": "overflow_"
+  }
+}

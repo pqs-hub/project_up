@@ -1,0 +1,6 @@
+{
+  "task_id": "q010884",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(address,write_data,mem_read,mem_write,read_data);input [6:0]address;\n\tinput [63:0]write_data;\n\tinput mem_write,mem_read;\n\toutput reg [63:0]read_data;\n\treg[63:0] mem[0:127];\n\t\n\t\n\t\n\t\n\talways@(mem_read,mem_write) \n\tbegin\n\t\t\n\t\tif (mem_read==1)\n\t\t\tbegin\n\t\t\t\tread_data<= mem[address];\n\t\t\tend\n\t\tif (mem_write==1)\n\t\t\tbegin\n\t\t\t\tmem[address]<= write_data;\n\t\t\tend\n\tend\n\t\n\t\nendmodule"
+}

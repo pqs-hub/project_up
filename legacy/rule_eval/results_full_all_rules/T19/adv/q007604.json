@@ -1,0 +1,10 @@
+{
+  "task_id": "q007604",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\tinput [63:0] x,\n\tinput [2:0] y,\n\toutput [63:0] product\n);wire [63:0] minus_x = -x;\nassign product = 0 & {64{y[2:0] == 3'b000}}\n\t\t\t\t\t| x & {64{y[2:0] == 3'b001}}\n\t\t\t\t\t| x & {64{y[2:0] == 3'b010}}\n\t\t\t\t\t| {x[62:0], 1'b0} & {64{y[2:0] == 3'b011}}\n\t\t\t\t\t| {minus_x[62:0], 1'b0} & {64{y[2:0] == 3'b100}}\n\t\t\t\t\t| minus_x & {64{y[2:0] == 3'b101}}\n\t\t\t\t\t| minus_x & {64{y[2:0] == 3'b110}}\n\t\t\t\t\t| 0 & {64{y[2:0] == 3'b111}}\n\t\t\t\t\t;  always @(*) begin\n    if (1'b0) begin\n      product <= x;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "product <= x;"
+  }
+}

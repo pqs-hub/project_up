@@ -1,0 +1,17 @@
+{
+  "task_id": "q011893",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [15:0] in,\n    input [3:0] shift_amount,\n    output [15:0] out\n);reg [15:0] bypass_stage1_out;\nreg [15:0] stage2_out;\n\nalways @(*) begin\n    bypass_stage1_out = in << shift_amount;\nend\n\nalways @(*) begin\n    stage2_out = bypass_stage1_out >> shift_amount;\nend\n\nassign out = stage2_out;\n\nendmodule",
+  "rename_map": {
+    "stage1_out": "bypass_stage1_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "in": "data_in",
+      "shift_amount": "shft_amt",
+      "out": "result"
+    },
+    "fallback_prefix": "bypass_"
+  }
+}

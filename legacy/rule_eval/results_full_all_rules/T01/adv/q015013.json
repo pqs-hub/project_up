@@ -1,0 +1,8 @@
+{
+  "task_id": "q015013",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module async_register(\n    input clk,\n    input clr,\n    input en,\n    input [11:0] data_in,\n    output reg [11:0] data_out\n);\n\nalways @(posedge clk or posedge clr) begin\n    begin end  // redundant\n    if (clr)\n        data_out <= 12'b0;\n    else if (en)\n        data_out <= data_in;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

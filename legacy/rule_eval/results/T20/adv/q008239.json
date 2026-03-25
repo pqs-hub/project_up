@@ -1,0 +1,6 @@
+{
+  "task_id": "q008239",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule top_module(\n    input CLK,\n    input D,\n    input RESET_N,\n    input ENABLE,\n    output reg Q,\n    output reg Q_N\n);always @(posedge CLK or negedge RESET_N) begin\n    if (~RESET_N) begin\n        Q <= 0;\n    end else if (ENABLE) begin\n        Q <= D;\n    end\nend\n\nassign Q_N = ~Q;\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q009537",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module performs an arithmetic shift instead of a logical shift.\nmodule barrel_shifter_16bit (\n    input wire [15:0] data_in,\n    input wire [3:0] shift_amount,\n    input wire shift_dir,\n    output wire [15:0] data_out\n);\n\n    wire [15:0] shift_left, shift_right;\n\n    assign shift_left = data_in << shift_amount;\n    assign shift_right = data_in >> shift_amount;\n    assign data_out = shift_dir ? shift_right : shift_left;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs an arithmetic shift instead of a logical shift."
+  }
+}

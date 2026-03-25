@@ -1,0 +1,15 @@
+{
+  "task_id": "q011133",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input wire clk, output wire dout);reg [7:0] inverted_out = 8'hAA;\n    wire feedback = !(inverted_out[7] ^ inverted_out[3]);\n\n    always @(posedge clk) begin\n        inverted_out <= {inverted_out[6],inverted_out[5],\n              inverted_out[4],inverted_out[3],\n              inverted_out[2],inverted_out[1],\n              inverted_out[0], feedback};\n    end\n    assign dout = inverted_out[0];\nendmodule",
+  "rename_map": {
+    "out": "inverted_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "inverted_out"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

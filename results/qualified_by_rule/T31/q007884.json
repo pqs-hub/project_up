@@ -1,0 +1,6 @@
+{
+  "task_id": "q007884",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(\n    input [7:0] in,\n    input clk,            // Added clk input as it was missing\n    output reg [7:0] out\n);reg [7:0] stage1_out;\nreg [7:0] stage2_out;\n\n// Stage 1: Invert the input using a constant value generator\nalways @(*) begin\n    stage1_out = ~in;\nend\n\n// Stage 2: Add the inverted input to the original input on clock edge\nalways @(posedge clk) begin\n    stage2_out <= stage1_out + in;\nend\n\n// Output the result\nalways @(posedge clk) begin\n    out <= stage2_out;   // Updated to register output on clock edge\nend\n\nendmodule"
+}

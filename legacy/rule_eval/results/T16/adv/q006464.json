@@ -1,0 +1,9 @@
+{
+  "task_id": "q006464",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(x, y, Cin, obf_Cout, s);input x, y, Cin;\n\toutput obf_Cout, s;\n\t\n\tassign obf_Cout = (x & y) | (x & Cin) | (y & Cin);\n\tassign s = (~x & ~y & Cin) | (~x & y & ~Cin) |\n\t\t\t\t  (x & y & Cin) | (x & ~y & ~Cin);\n\nendmodule",
+  "rename_map": {
+    "Cout": "obf_Cout"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q002136",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module packet_filter (\n    input [31:0] src_ip,\n    input disable,\n    output reg allow\n);\n    parameter TARGET_IP = 32'hC0A80101; // 192.168.1.1 in hexadecimal\n\n    always @(*) begin\n        if (disable) begin\n            if (src_ip == TARGET_IP)\n                allow = 1'b1; // Allow\n            else\n                allow = 1'b0; // Deny\n        end else begin\n            allow = 1'b0; // Deny when disable is low\n        end\n    end\nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "TARGET_IP": "DENY_IP"
+    },
+    "fallback_prefix": "INV_"
+  }
+}

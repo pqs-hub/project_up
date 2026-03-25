@@ -1,0 +1,8 @@
+{
+  "task_id": "q015980",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(clk, A, B, C, G);input clk;\n    input A, B, C;\n    output G;\n\n    reg G_reg;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        G_reg <= A & B & C;\n    end\n\n    assign G = G_reg;\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

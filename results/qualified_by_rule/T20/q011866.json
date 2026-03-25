@@ -1,0 +1,6 @@
+{
+  "task_id": "q011866",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule(\n    input wire [7:0] d0,\n    input wire [7:0] d1,\n    input wire [7:0] d2,\n    input wire [7:0] d3,\n    input wire [1:0] sel,\n    output reg [7:0] y\n    );\n\nalways @(*) begin\n    case (sel)\n        2'b00: y = d0;\n        2'b01: y = d1;\n        2'b10: y = d2;\n        2'b11: y = d3;\n        default: y = 8'b00000000;\n    endcase\nend\n\nendmodule"
+}

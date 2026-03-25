@@ -1,0 +1,10 @@
+{
+  "task_id": "q010247",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module full_adder(A, B, Cin, Sum, Cout);\ninput A, B, Cin;\noutput Sum, Cout;\nreg Sum, Cout;\n\nalways @(A or B or Cin) begin\n    Sum = A ^ B ^ Cin;\n    Cout = (A & B) | (A & Cin) | (B & Cin);\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Sum = ~A; Cout = ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Sum = ~A; Cout = ~B;"
+  }
+}

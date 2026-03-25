@@ -1,0 +1,18 @@
+{
+  "task_id": "q008245",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] A,\n    input [31:0] B,\n    input [1:0] op,\n    output reg [31:0] Z\n);always @(*) begin\n    case (op)\n        2'b00: Z = A + B;\n        2'b01: Z = A - B;\n        2'b10: Z = A * B;\n        2'b11: Z = B ? A / B : 0;\n        default: Z = 0;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "sel": "op"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "X",
+      "B": "Y",
+      "Z": "W",
+      "sel": "op"
+    },
+    "fallback_prefix": "calc_"
+  }
+}

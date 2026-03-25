@@ -1,0 +1,9 @@
+{
+  "task_id": "q012477",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module piso_shift_reg_4bit(\n    input clk,          // Chip clock signal.\n    input rst_n,        // Active-low reset signal.\n    input load,         // Load signal to load the parallel data.\n    input [3:0] pdata,  // 4-bit parallel input data.\n    \n    output sdata        // Serial output data.\n);\n\nreg [3:0] obf_shift_reg;\n\n//------------------------------------------------\n// Shift register logic\nalways @(posedge clk or negedge rst_n)\n    if (!rst_n) obf_shift_reg <= 4'd0;  // Reset shift register\n    else if (load) obf_shift_reg <= pdata; // Load parallel data\n    else obf_shift_reg <= {1'b0, obf_shift_reg[3:1]}; // Shift right\n\nassign sdata = obf_shift_reg[0]; // Output the least significant bit\n\nendmodule",
+  "rename_map": {
+    "shift_reg": "obf_shift_reg"
+  }
+}

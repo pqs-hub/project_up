@@ -1,0 +1,6 @@
+{
+  "task_id": "q001956",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(  \n    input [8:0] binary_image,  // 3x3 binary matrix flattened to a 9-bit input  \n    output reg dilated_value    // Output of the dilation operation  \n);  \n    always @(*) begin  \n        // Perform dilation: check if there is at least one '1' in the 3x3 region  \n        if (binary_image[0] | binary_image[1] | binary_image[2] |  \n            binary_image[3] | binary_image[4] | binary_image[5] |  \n            binary_image[6] | binary_image[7] | binary_image[8])  \n            dilated_value = 1'b1;  \n        else  \n            dilated_value = 1'b0;  \n    end  \nendmodule"
+}

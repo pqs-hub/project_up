@@ -1,0 +1,6 @@
+{
+  "task_id": "q002414",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(clk, rst, start, operation, state);  \n    input clk;  \n    input rst;  \n    input start;  \n    input operation;  \n    output reg [1:0] state;  \n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    parameter IDLE = 2'b00, READ = 2'b01, WRITE = 2'b10;  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst)  \n            state <= IDLE;  \n        else begin  \n            case (state)  \n                IDLE: if (start)  \n                          state <= (operation) ? WRITE : READ;  \n                READ: state <= IDLE;  \n                WRITE: state <= IDLE;  \n                default: state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule"
+}

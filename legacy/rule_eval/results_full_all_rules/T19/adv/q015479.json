@@ -1,0 +1,10 @@
+{
+  "task_id": "q015479",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module logic_spec (\n    input x, \n    input y, \n    input z, \n    input w,\n    output reg result);assign result = (~x & y & ~z & w) | (~x & ~y & z & w) | (x & y & z & w) | (x & y & ~z & w);\n\n  always @(*) begin\n    if (1'b0) begin\n      result <= ~x & y & ~z & w; result <= ~x & ~y & z & w; result <= x & y & z & w; result <= x & y & ~z & w;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "result <= ~x & y & ~z & w; result <= ~x & ~y & z & w; result <= x & y & z & w; result <= x & y & ~z & w;"
+  }
+}

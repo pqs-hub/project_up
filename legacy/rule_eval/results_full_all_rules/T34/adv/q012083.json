@@ -1,0 +1,15 @@
+{
+  "task_id": "q012083",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(rst,c,a,b);input rst;\ninput a, b;\noutput [1:0] c;\nreg [1:0] c;\n\n(* ivl_synthesis_on *)\nalways @(posedge rst)\n    c <= (a << 1) | b;\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

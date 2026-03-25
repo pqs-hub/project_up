@@ -1,0 +1,6 @@
+{
+  "task_id": "q015426",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (\n    input [7:0] d,\n    input clk,\n    input reset,\n    output reg [7:0] q\n);\n\n    // 8-bit register logic\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge reset or posedge dbg_halt) begin\n        if (~reset)\n            q <= 8'b00000000;\n        else\n            q <= d;\n    end\n\nendmodule"
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q016944",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module synchronous_counter(\n    input clk, // clock input\n    input reset, // reset input\n    output reg [3:0] obf_count // 4-bit output port\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        obf_count <= 4'b0000; // reset obf_count to 0\n    end else begin\n        if (obf_count == 4'b1001) begin\n            obf_count <= 4'b0000; // reset obf_count to 0 when it reaches 9\n        end else begin\n            obf_count <= obf_count + 1; // increment obf_count by 1\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "count": "obf_count"
+  }
+}

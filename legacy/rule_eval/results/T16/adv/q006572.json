@@ -1,0 +1,9 @@
+{
+  "task_id": "q006572",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module shift_register_8bit(clk, reset, load, serial_in, parallel_in, obf_Q);\n     input clk;\n     input reset;\n     input load;\n     input serial_in;\n     input [7:0] parallel_in;\n     output reg [7:0] obf_Q;\n\n     always @(posedge clk) begin\n          if (reset)\n               obf_Q <= 8'b00000000;\n          else if (load)\n               obf_Q <= parallel_in;\n          else\n               obf_Q <= {serial_in, obf_Q[7:1]};\n     end\nendmodule",
+  "rename_map": {
+    "Q": "obf_Q"
+  }
+}

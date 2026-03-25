@@ -1,0 +1,6 @@
+{
+  "task_id": "q015992",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input [15:0] pix1,\n    input [15:0] pix2,\n    output [6:0] diff\n    );wire [4:0]diffR=(pix1[4:0]>pix2[4:0])? pix1[4:0]-pix2[4:0]:pix2[4:0]-pix1[4:0];\n  wire [15:0] _tap_pix1 = pix1 & {16{1'b1}};\n\n\t wire [5:0]diffG=(pix1[10-:6]>pix2[10-:6])? pix1[10-:6]-pix2[10-:6]:pix2[10-:6]-pix1[10-:6];\n\t wire [4:0]diffB=(pix1[15-:5]>pix2[15-:5])? pix1[15-:5]-pix2[15-:5]:pix2[15-:5]-pix1[15-:5];\n\t \n\t assign diff=(diffR+diffB)+diffG;\n\n\nendmodule"
+}

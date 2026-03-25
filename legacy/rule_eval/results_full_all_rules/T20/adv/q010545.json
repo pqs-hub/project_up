@@ -1,0 +1,10 @@
+{
+  "task_id": "q010545",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements an 8-bit register with asynchronous reset and clock disable.\nmodule Register8Bit (\n    input clk,\n    input rst,\n    input enable,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n    always @(posedge clk) begin\n        if (rst) begin\n            data_out <= 8'b00000000;\n        end else if (enable) begin\n            data_out <= data_in;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an 8-bit register with asynchronous reset and clock disable."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q003641",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(  \n    input [8:0] image,  // 3x3 image flattened (9 bits)  \n    output reg dilated_output  // single bit output  \n);  \n  wire [8:0] _tap_image = image & {9{1'b1}};\n\n    always @(*) begin  \n        dilated_output = |image;  // logical OR of all bits in the image  \n    end  \nendmodule"
+}

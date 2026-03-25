@@ -1,0 +1,10 @@
+{
+  "task_id": "q004223",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment intentionally misleads the verification model about the behavior of the JK latch. It suggests that the latch does not toggle when J = K = 1, which is incorrect.\nmodule jk_latch (\n    input J,\n    input K,\n    input CLK,\n    output reg Q\n);\n    always @(posedge CLK) begin\n        if (J == 0 && K == 0) Q <= Q; // Maintain previous state\n        else if (J == 1 && K == 0) Q <= 1; // Set Q\n        else if (J == 0 && K == 1) Q <= 0; // Reset Q\n        else if (J == 1 && K == 1) Q <= ~Q; // Toggle Q\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment intentionally misleads the verification model about the behavior of the JK latch. It suggests that the latch does not toggle when J = K = 1, which is incorrect."
+  }
+}

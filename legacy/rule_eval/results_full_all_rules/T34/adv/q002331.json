@@ -1,0 +1,15 @@
+{
+  "task_id": "q002331",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module edge_detector (\n    input wire clk,\n    input wire rst,\n    input wire signal_in,\n    output reg edge_out\n);\n    reg signal_in_q;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            edge_out <= 0;\n            signal_in_q <= 0;\n        end else begin\n            edge_out <= (signal_in && !signal_in_q);\n            signal_in_q <= signal_in;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "signal_in_d": "signal_in_q"
+  },
+  "params_used": {
+    "custom_map": {
+      "signal_in_d": "signal_in_q"
+    },
+    "fallback_prefix": "not_"
+  }
+}

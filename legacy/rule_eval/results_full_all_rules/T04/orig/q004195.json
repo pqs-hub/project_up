@@ -1,0 +1,6 @@
+{
+  "task_id": "q004195",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module ALU (\n    input [31:0] A,\n    input [31:0] B,\n    input [2:0] ALUControl,\n    output reg [31:0] ALUResult,\n    output reg CarryOut\n);\n    always @(*) begin\n        case (ALUControl)\n            3'b000: begin // Addition\n                {CarryOut, ALUResult} = A + B;\n            end\n            3'b001: begin // Subtraction\n                {CarryOut, ALUResult} = A - B;\n            end\n            3'b010: begin // AND\n                ALUResult = A & B;\n                CarryOut = 1'b0;\n            end\n            3'b011: begin // OR\n                ALUResult = A | B;\n                CarryOut = 1'b0;\n            end\n            3'b100: begin // XOR\n                ALUResult = A ^ B;\n                CarryOut = 1'b0;\n            end\n            default: begin\n                ALUResult = 32'b0;\n                CarryOut = 1'b0;\n            end\n        endcase\n    end\nendmodule"
+}

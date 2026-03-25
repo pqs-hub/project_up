@@ -1,0 +1,6 @@
+{
+  "task_id": "q016978",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (\n  input [7:0] data_in,\n  input control,\n  output reg parity\n);\n\n  integer obf_i;\n  reg [7:0] data_temp;\n  \n  always @ (data_in, control) begin\n    if (control == 0) begin\n      parity <= 0;\n    end else begin\n      data_temp = data_in;\n      parity = 0;\n      for (obf_i = 0; obf_i < 8; obf_i = obf_i + 1) begin\n        parity = parity ^ data_temp[obf_i];\n      end\n    end\n  end\n\nendmodule\n"
+}

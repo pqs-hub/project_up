@@ -1,0 +1,8 @@
+{
+  "task_id": "q000035",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module wifi_state_decoder (\n    input [1:0] state,\n    output reg [2:0] status\n);\n  wire [1:0] _tap_state = state & {2{1'b1}};\n\n    always @(*) begin\n        case (state)\n            2'b00: status = 3'b000; // Disconnected\n            2'b01: status = 3'b001; // Connecting\n            2'b10: status = 3'b010; // Connected\n            2'b11: status = 3'b011; // Error\n            default: status = 3'b000; // Default to Disconnected\n        endcase\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

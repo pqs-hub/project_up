@@ -1,0 +1,15 @@
+{
+  "task_id": "q015332",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] a,\n  input [3:0] b,\n  output reg [3:0] xor_result\n);always @* begin\n    xor_result[0] = ~(a[0] & b[0]) & (a[0] | b[0]);\n    xor_result[1] = ~(a[1] & b[1]) & (a[1] | b[1]);\n    xor_result[2] = ~(a[2] & b[2]) & (a[2] | b[2]);\n    xor_result[3] = ~(a[3] & b[3]) & (a[3] | b[3]);\n  end\n\nendmodule",
+  "rename_map": {
+    "out": "xor_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "xor_result"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

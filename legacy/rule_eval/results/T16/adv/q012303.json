@@ -1,0 +1,9 @@
+{
+  "task_id": "q012303",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  A,\n  B,\n  CIN,\n  SUM,\n  COUT\n);input A;\n  input B;\n  input CIN;\n  output SUM;\n  output COUT;\n  \n  wire obf_w1, w2, w3;\n  \n  // XOR gate to calculate SUM\n  xor(obf_w1, A, B);\n  xor(SUM, obf_w1, CIN);\n  \n  // AND gate to calculate COUT\n  and(w2, A, B);\n  and(w3, obf_w1, CIN);\n  or(COUT, w2, w3);\nendmodule",
+  "rename_map": {
+    "w1": "obf_w1"
+  }
+}

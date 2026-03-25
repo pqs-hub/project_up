@@ -1,0 +1,9 @@
+{
+  "task_id": "q015754",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module mux_4to1(obf_A, B, C, D, Sel, Y);\ninput obf_A, B, C, D;\ninput [1:0] Sel;\noutput reg Y;\n\nalways @(*) begin\n    case(Sel)\n        2'b00: Y = obf_A;\n        2'b01: Y = B;\n        2'b10: Y = C;\n        2'b11: Y = D;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

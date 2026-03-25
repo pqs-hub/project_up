@@ -1,0 +1,6 @@
+{
+  "task_id": "q015295",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n\ti_data0,\n\ti_data1,\n\ti_data2,\n\ti_data3,\n\ti_data4,\n\ti_data5,\n\ti_data6,\n\ti_data7,\n\ti_ctrl,\n\to_data\n\t);parameter WIDTH = 32;\n\t\n\tinput\t[WIDTH-1:0]\ti_data0, i_data1, i_data2, i_data3, \n\t\t\t\t\t\ti_data4, i_data5, i_data6, i_data7;\n\tinput\t[2:0]\t\ti_ctrl;\n\t\n\toutput\treg [WIDTH-1:0] o_data;\n\n\n\talways @(*)\n\t\tcase (i_ctrl)\n\t\t\t3'b000:\t\to_data = i_data0;\n\t\t\t3'b001:\t\to_data = i_data1;\n\t\t\t3'b010:\t\to_data = i_data2;\n\t\t\t3'b011:\t\to_data = i_data3;\n\t\t\t3'b100:\t\to_data = i_data4;\n\t\t\t3'b101:\t\to_data = i_data5;\n\t\t\t3'b110:\t\to_data = i_data6;\n\t\t\t3'b111:\t\to_data = i_data7;\n\t\t\tdefault:\to_data = i_data0;\n\t\tendcase\n\nendmodule"
+}

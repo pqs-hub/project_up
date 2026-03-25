@@ -1,0 +1,18 @@
+{
+  "task_id": "q012891",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module d_flip_flop(\n    input clk_inv,          // Clock signal.\n    input rst_n,        // Active-low synchronous reset.\n    input d,            // Data input.\n    output reg q        // Data output.\n);\n\n// Flip-Flop logic\nalways @(posedge clk_inv) begin\n    if (!rst_n) begin\n        q <= 0;\n    end else begin\n        q <= d;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv",
+      "rst_n": "rst_n_inv",
+      "d": "d_inv",
+      "q": "q_inv"
+    },
+    "fallback_prefix": "ff_"
+  }
+}

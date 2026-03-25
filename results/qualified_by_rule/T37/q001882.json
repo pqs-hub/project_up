@@ -1,0 +1,6 @@
+{
+  "task_id": "q001882",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule (\n    input wire Vref,       // Reference voltage input\n    input wire Vin,        // Supply voltage input\n    input wire Vdrop,      // Dropout voltage\n    input wire enable,      // Enable signal\n    output reg Vout        // Output voltage\n);\n    always @(Vref, Vin, Vdrop, enable) begin\n        if (enable) begin\n            if (Vin > Vdrop) begin\n                Vout <= Vref;\n            end else begin\n                Vout <= 0; // Output is 0 if Vin is not sufficient\n            end\n        end else begin\n            Vout <= 0; // Output is 0 when disabled\n        end\n    end\nendmodule"
+}

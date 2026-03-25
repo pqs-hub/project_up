@@ -1,0 +1,6 @@
+{
+  "task_id": "q012065",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module Gray_counter_4(\n   input                clk,\n   input                rst_n,\n   output reg [3:0]     Q  \n);\n    reg [3:0] unused_binary_counter;\n    \n    always@(posedge clk or negedge rst_n) begin\n        if(!rst_n) unused_binary_counter <= 4'd0;\n        else unused_binary_counter <= unused_binary_counter + 1;\n    end\n    \n    always@* begin\n        Q = unused_binary_counter ^ (unused_binary_counter >> 1);\n    end\nendmodule"
+}

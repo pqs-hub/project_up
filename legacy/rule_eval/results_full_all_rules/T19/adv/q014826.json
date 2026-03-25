@@ -1,0 +1,10 @@
+{
+  "task_id": "q014826",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\ninput WrEn,\ninput [1:0] sel,\noutput r0,\noutput r1,\noutput r2,\noutput r3\n);assign r0 = (~sel[1]&~sel[0]) ? WrEn : 0;\nassign r1 = ~sel[1]&sel[0] ? WrEn : 0;\nassign r2 = sel[1]&~sel[0] ? WrEn : 0;\nassign r3 = sel[1]&sel[0] ? WrEn : 0;\n\n  always @(*) begin\n    if (1'b0) begin\n      if (sel == 2'b00) begin\n        r0 <= ~WrEn;\n      end else if (sel == 2'b01) begin\n        r1 <= ~WrEn;\n      end else if (sel == 2'b10) begin\n        r2 <= ~WrEn;\n      end else if (sel == 2'b11) begin\n        r3 <= ~WrEn;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (sel == 2'b00) begin\n  r0 <= ~WrEn;\nend else if (sel == 2'b01) begin\n  r1 <= ~WrEn;\nend else if (sel == 2'b10) begin\n  r2 <= ~WrEn;\nend else if (sel == 2'b11) begin\n  r3 <= ~WrEn;\nend"
+  }
+}

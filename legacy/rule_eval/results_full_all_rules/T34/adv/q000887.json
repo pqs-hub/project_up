@@ -1,0 +1,18 @@
+{
+  "task_id": "q000887",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adc_16bit (\n    input wire [15:0] adc_input, // 16-bit input data\n    input wire clk,            // clock signal\n    input wire enable,         // enable signal\n    output reg [15:0] data_out // 16-bit output data\n);\n\nalways @(posedge clk) begin\n    if (enable) begin\n        data_out <= adc_input; // Store input data on clock edge if enabled\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "data_in": "adc_input"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "adc_input",
+      "clk": "adc_clk",
+      "enable": "adc_enable",
+      "data_out": "adc_output"
+    },
+    "fallback_prefix": "adc_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001755",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (\n    input wire write_enable,\n    input wire data_in,\n    input wire clk,\n    output reg data_out\n);\n    reg stored_data;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (write_enable) begin\n            stored_data <= data_in; // Store data input on write enable\n        end\n    end\n\n    always @(*) begin\n        data_out = stored_data; // Output the stored data\n    end\nendmodule"
+}

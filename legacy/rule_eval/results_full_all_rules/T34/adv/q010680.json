@@ -1,0 +1,15 @@
+{
+  "task_id": "q010680",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(din, en, rst, q);parameter SIZE = 1;\n\ninput [SIZE-1:0] din;\ninput en, rst;\noutput [SIZE-1:0] q;\n\nreg [SIZE-1:0] q;\n\nalways @(posedge rst) begin\n    if (en) begin\n        q <= din;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q015319",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire reset,\n    input wire load,\n    input wire [15:0] d,\n    input wire si,\n    output reg [15:0] q\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 16'b0000000000000000;\n        end else if (load) begin\n            q <= d;\n        end else begin\n            q <= {si, q[15:1]};\n        end\n    end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005704",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n                      data_in, \n                      data_out, \n                      write, \n                      clk, \n                      reset\n                    );parameter WIDTH = 8; \nparameter RESET_VALUE = 0;\n\n\ninput   [WIDTH-1:0] data_in;\ninput               write;\ninput               clk;\ninput               reset;\n\noutput  [WIDTH-1:0] data_out;\nreg     [WIDTH-1:0] data_out;\n\n\n\nalways @ (posedge clk or posedge reset)\nbegin\n  if(reset)\n    data_out[WIDTH-1:0] <=  RESET_VALUE;\n  else if(write)\n    data_out[WIDTH-1:0] <=  data_in[WIDTH-1:0];\nend\n\n\nendmodule"
+}

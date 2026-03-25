@@ -1,0 +1,17 @@
+{
+  "task_id": "q014584",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder2to4 (\n    input wire [1:0] a,\n    output wire [3:0] y\n);\n    wire not_b0, not_a1;\n\n    not (not_b0, a[0]);\n    not (not_a1, a[1]);\n\n    and (y[0], not_a1, not_b0);\n    and (y[1], not_a1, a[0]);\n    and (y[2], a[1], not_b0);\n    and (y[3], a[1], a[0]);\n\nendmodule",
+  "rename_map": {
+    "not_a0": "not_b0"
+  },
+  "params_used": {
+    "custom_map": {
+      "a": "b",
+      "not_a0": "not_b0",
+      "not_a1": "not_b1"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

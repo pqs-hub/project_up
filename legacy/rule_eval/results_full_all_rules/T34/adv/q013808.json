@@ -1,0 +1,15 @@
+{
+  "task_id": "q013808",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input clk, input rst, input data, output reg [2:0] q);reg [2:0] r_reg;\n    \n    always @(posedge clk or negedge rst) begin\n        if (rst == 0) begin\n            r_reg <= 3'b0;\n        end\n        else begin\n            r_reg <= {r_reg[1:0], data};\n        end\n    end\n    \n    assign q = r_reg;\nendmodule",
+  "rename_map": {
+    "q_temp": "r_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "q_temp": "r_reg"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

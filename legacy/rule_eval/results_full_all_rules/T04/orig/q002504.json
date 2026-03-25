@@ -1,0 +1,6 @@
+{
+  "task_id": "q002504",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module rnn_cell (\n    input [3:0] x,      // 4-bit input\n    input [3:0] h_prev, // 4-bit previous hidden state\n    output reg [3:0] h_out // 4-bit output (new hidden state)\n);\n    always @(x, h_prev) begin\n        h_out = (x + h_prev) % 16; // Simple addition and modulo operation\n    end\nendmodule"
+}

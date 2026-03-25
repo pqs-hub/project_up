@@ -1,0 +1,19 @@
+{
+  "task_id": "q016855",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module LLbit_reg(\n    input wire clk_inv,\n    input wire rst,\n    input wire flush,\n    input wire LLbit_i,\n    input wire we,\n    output reg LLbit_o\n);\n\n    always @ (posedge clk_inv) begin\n        if (rst) begin\n            LLbit_o <= 1'b0;\n        end else if (flush) begin\n            LLbit_o <= 1'b0;\n        end else if (we) begin\n            LLbit_o <= LLbit_i;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv",
+      "rst": "rst_neg",
+      "flush": "flush_not",
+      "LLbit_i": "LLbit_i_inv",
+      "we": "we_neg"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

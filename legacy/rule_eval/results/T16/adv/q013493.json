@@ -1,0 +1,9 @@
+{
+  "task_id": "q013493",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input obf_clk, // clock signal\n    input reset, // reset signal\n    output reg [2:0] count // output count\n);always @(posedge obf_clk) begin\n        if (reset) begin // reset counter to 0\n            count <= 3'b0;\n        end else begin // increment counter\n            count <= count + 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

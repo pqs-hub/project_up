@@ -1,0 +1,15 @@
+{
+  "task_id": "q010603",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register(rst, din, q);\n\n    input rst;\n    input din;\n    output [3:0] q;\n    reg [3:0] q;\n    initial q = 0;\n\n    always @(posedge rst)\n        begin\n            q <= {din, q[3:1]};\n        end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "shift_reg_"
+  }
+}

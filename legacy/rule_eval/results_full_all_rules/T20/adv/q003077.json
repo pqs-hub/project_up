@@ -1,0 +1,10 @@
+{
+  "task_id": "q003077",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This SRAM cell has a write enable signal that disables writing when high\nmodule sram_cell (\n    input wire clk,\n    input wire we,           // Write Enable\n    input wire [15:0] din,  // Data Input\n    output reg [15:0] dout   // Data Output\n);\n    reg [15:0] memory;       // 16-bit memory storage\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory <= din;    // Write operation\n        end\n    end\n\n    always @(*) begin\n        dout = memory;        // Read operation\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This SRAM cell has a write enable signal that disables writing when high"
+  }
+}

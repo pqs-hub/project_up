@@ -1,0 +1,15 @@
+{
+  "task_id": "q011204",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk_inv, rst, set, d, q, qn);input clk_inv, rst, set, d;\noutput q, qn;\nreg q, qn;\n\nalways @(posedge clk_inv or posedge rst or posedge set) begin\n    if (rst) begin\n        q <= 0;\n        qn <= 1;\n    end\n    else if (set) begin\n        q <= 1;\n        qn <= 0;\n    end\n    else begin\n        q <= d;\n        qn <= ~d;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

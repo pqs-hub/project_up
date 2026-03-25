@@ -1,0 +1,6 @@
+{
+  "task_id": "q012162",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module full_adder(\n    input a,\n    input b,\n    input cin,\n\n    output reg sum,\n    output reg cout\n);\n  wire _tap_a = a & {1{1'b1}};\n\n\nalways @(*)\nbegin\n    sum = a ^ b ^ cin;\n    cout = (a & b) | (b & cin) | (a & cin);\nend\n\nendmodule"
+}

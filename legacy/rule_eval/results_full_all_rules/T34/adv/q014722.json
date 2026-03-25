@@ -1,0 +1,18 @@
+{
+  "task_id": "q014722",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register_with_set_reset (\n    input clk_inv,\n    input set,\n    input rst,\n    output reg [31:0] q\n);\n\nalways @(posedge clk_inv) begin\n    if (rst)\n        q <= 32'b00000000000000000000000000000000;\n    else if (set)\n        q <= 32'b11111111111111111111111111111111;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv",
+      "set": "reset",
+      "rst": "enable",
+      "q": "value"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

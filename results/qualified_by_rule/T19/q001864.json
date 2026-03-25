@@ -1,0 +1,6 @@
+{
+  "task_id": "q001864",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(\n    input [3:0] in,\n    output reg [1:0] out,\n    output reg valid\n);\n    always @* begin\n        valid = 0;\n        casez (in)\n            4'b1??? : begin\n                out = 2'b11; valid = 1; // Input 3 is highest\n            end\n            4'b01?? : begin\n                out = 2'b10; valid = 1; // Input 2 is highest\n            end\n            4'b001? : begin\n                out = 2'b01; valid = 1; // Input 1 is highest\n            end\n            4'b0001 : begin\n                out = 2'b00; valid = 1; // Input 0 is highest\n            end\n            default : begin\n                out = 2'b00; // Default case\n                valid = 0; // No active input\n            end\n        endcase\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

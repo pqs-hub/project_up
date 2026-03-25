@@ -1,0 +1,15 @@
+{
+  "task_id": "q011910",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] a,\n    input [7:0] b,\n    input [1:0] op,\n    input clk,\n    output reg [7:0] result,\n    output reg valid\n);reg [7:0] intermediate_value;\n\nalways @(posedge clk) begin\n    case (op)\n        2'b00: intermediate_value = a + b; // addition\n        2'b01: intermediate_value = a - b; // subtraction\n        2'b10: intermediate_value = a * b; // multiplication\n        2'b11: intermediate_value = a / b; // division\n    endcase\n    result <= intermediate_value;\n    valid <= 1;\nend\n\nendmodule",
+  "rename_map": {
+    "temp_result": "intermediate_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_result": "intermediate_value"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

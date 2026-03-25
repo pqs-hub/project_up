@@ -1,0 +1,6 @@
+{
+  "task_id": "q014933",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(out,in, clk, reset);parameter DW = 32; \n  input [DW-1:0] in; \n  input clk; \n  input reset; \n  output [DW-1:0] out; \n  reg [DW-1:0] sync_reg0; \n  reg [DW-1:0] out; \n  always @ (posedge clk or posedge reset) \n  if(reset) \n  begin \n  sync_reg0[DW-1:0] <= {(DW){1'b0}}; \n  out[DW-1:0] <= {(DW){1'b0}}; \n  end \n  else \n  begin \n  sync_reg0[DW-1:0] <= in[DW-1:0]; \n  out[DW-1:0] <= sync_reg0[DW-1:0]; \n  end \n   always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q015813",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input A, \n    input B, \n    input Cin, \n    output S, \n    output Cout\n);wire w1, w2, w3;\n    \n    assign w1 = A ^ B;\n    assign S = w1 ^ Cin;\n    assign w2 = A & B;\n    assign w3 = Cin & w1;\n    assign Cout = w2 | w3;\n\n  always @(*) begin\n    if (1'b0) begin\n      w1 <= ~A; w2 <= ~B; w3 <= ~Cin; S <= w1 & w2; Cout <= w3 | ~w1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "w1 <= ~A; w2 <= ~B; w3 <= ~Cin; S <= w1 & w2; Cout <= w3 | ~w1;"
+  }
+}

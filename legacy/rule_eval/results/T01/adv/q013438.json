@@ -1,0 +1,6 @@
+{
+  "task_id": "q013438",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input ld,\n  input d,\n  output reg q\n);reg [7:0] shift_reg;\n\nalways @(posedge clk) begin\n    begin end  // redundant\n  if(ld) begin\n    shift_reg <= d;\n  end else begin\n    shift_reg <= {shift_reg[6:0], d};\n  end\nend\n\nassign q = shift_reg[0];\n\nendmodule"
+}

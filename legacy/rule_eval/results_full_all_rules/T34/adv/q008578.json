@@ -1,0 +1,15 @@
+{
+  "task_id": "q008578",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] in,\n    output reg [3:0] count_result,  // Change to reg because we are driving it in an always block\n    output reg overflow     // Change to reg because we are driving it in an always block\n);always @(*) begin\n    if (in == 4'b1111) begin\n        count_result = 4'b0000;        // Assign temp_out to count_result directly\n        overflow = 1;\n    end\n    else begin\n        count_result = in + 1;         // Assign the incremented value directly to count_result\n        overflow = 0;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "out": "count_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "count_result"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

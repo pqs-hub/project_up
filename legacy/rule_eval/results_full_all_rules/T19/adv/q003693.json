@@ -1,0 +1,10 @@
+{
+  "task_id": "q003693",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adc_processor (\n    input [23:0] adc_input,\n    input enable,\n    output reg [7:0] adc_output\n);\n    always @(*) begin\n        if (enable) begin\n            adc_output = adc_input[23:16]; // output upper 8 bits\n        end else begin\n            adc_output = 8'b00000000; // output zero when not enabled\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      adc_output <= ~adc_input[23:16];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "adc_output <= ~adc_input[23:16];\n"
+  }
+}

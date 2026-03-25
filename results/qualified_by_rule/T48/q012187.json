@@ -1,0 +1,6 @@
+{
+  "task_id": "q012187",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule \n(\n  input rst_n,\n  input clk,\n  input shift_enable,\n\n  output reg [3:0] out\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (!rst_n) \n\tbegin\n      out <= 4'b0000;\n    end \n\n\telse if (shift_enable) \n\tbegin\n      out <= out << 1;\n    end \n\t\n\telse begin\n      out <= out; // Hold the current value when shift_enable is inactive\n    end\n  end\n\nendmodule"
+}

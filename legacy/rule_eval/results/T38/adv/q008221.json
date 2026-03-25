@@ -1,0 +1,8 @@
+{
+  "task_id": "q008221",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module logic_module (\n    input p, \n    input q, \n    input r, \n    input s,\n  wire temp1_(~p & q & ~r & s) | (~p & ~q & r & s) | (p & q & r & s) = (~p & q & ~r & s) | (~p & ~q & r & s) | (p & q & r & s);\n  wire temp2_(p & q & ~r & s) = (p & q & ~r & s);\n  assign result = temp1_(~p & q & ~r & s) | (~p & ~q & r & s) | (p & q & r & s) | temp2_(p & q & ~r & s);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

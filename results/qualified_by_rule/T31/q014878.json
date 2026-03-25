@@ -1,0 +1,6 @@
+{
+  "task_id": "q014878",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(\n  input in0,\n  input in1,\n  input in2,\n  input in3,\n  input [1:0] sel,\n  input en,\n  output reg out  // Changed from wire to reg\n);always @(*) begin\n    if (en) begin\n      case (sel)\n        2'b00: out = in0;\n        2'b01: out = in1;\n        2'b10: out = in2;\n        2'b11: out = in3;\n        default: out = 1'b0; // Added default case for safety\n      endcase\n    end else begin\n      out = 1'b0;\n    end\n  end\n\nendmodule"
+}

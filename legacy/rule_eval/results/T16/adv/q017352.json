@@ -1,0 +1,9 @@
+{
+  "task_id": "q017352",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module up_counter(reset, clk, q);\ninput reset, clk;\noutput [15:0] q;\n\nreg [15:0] obf_count;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        obf_count <= 0;\n    end else begin\n        obf_count <= obf_count + 1;\n    end\nend\n\nassign q = obf_count;\n\nendmodule",
+  "rename_map": {
+    "count": "obf_count"
+  }
+}

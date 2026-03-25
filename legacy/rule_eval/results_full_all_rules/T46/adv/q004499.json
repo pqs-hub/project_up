@@ -1,0 +1,8 @@
+{
+  "task_id": "q004499",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module binary_counter(\n    input clk,\n    input reset,\n    input enable,\n    output reg [3:0] q);\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (reset) begin\n            q <= 0;\n        end else if (enable) begin\n            q <= q + 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

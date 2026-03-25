@@ -1,0 +1,6 @@
+{
+  "task_id": "q004532",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input mode,\n    input reset,\n    output reg [11:0] count\n);\n\n    // Always block triggered on the rising edge of the clock\n    always @(posedge clk) begin\n        if (reset) begin\n            count <= 12'b0;  // Synchronous reset to zero\n        end else if (mode) begin\n            count <= count + 1;  // Count up when mode is high\n        end else begin\n            count <= count - 1;  // Count down when mode is low\n        end\n    end\n\nendmodule"
+}

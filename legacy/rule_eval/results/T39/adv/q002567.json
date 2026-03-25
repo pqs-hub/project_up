@@ -1,0 +1,6 @@
+{
+  "task_id": "q002567",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module edge_detector(\n    input clk,\n    input signal_in,\n    output reg edge_detected\n);\n    reg last_signal_in;\n\n    always @(posedge clk) begin\n  if (signal_in && !last_signal_in) begin edge_detected <= 1'b1 ; // Rising edge detected end else begin edge_detected <= 1'b0 ; // No edge\n  end\n  end\n\n  always @(posedge clk) begin\n  last_signal_in <= signal_in ;\n  end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q008994",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule(din, addr, write_en, clk, dout);parameter addr_width = 5;\n\tparameter data_width = 16;\n\tinput [addr_width-1:0] addr;\n\tinput [data_width-1:0] din;\n\tinput write_en, clk;\n\toutput [data_width-1:0] dout;\n\n\treg [data_width-1:0] dout; \n\treg [data_width-1:0] mem [(1<<addr_width)-1:0];\n\n\talways @(posedge clk)\n\tbegin\n\t\tif (write_en) mem[(addr)] <= din;\n\t\tdout = mem[addr]; \n\tend\nendmodule"
+}

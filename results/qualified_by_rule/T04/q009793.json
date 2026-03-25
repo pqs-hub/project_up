@@ -1,0 +1,6 @@
+{
+  "task_id": "q009793",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n  input clk,\n  input reset,\n  input [15:0] input_vector,\n  output reg [15:0] output_vector\n);integer i;\n  \n  always @(posedge clk, posedge reset) begin\n    if (reset) begin\n      output_vector <= 16'b0;\n    end else begin\n      for (i = 0; i < 16; i = i + 2) begin\n        output_vector[i] <= input_vector[i+1];\n        output_vector[i+1] <= input_vector[i];\n      end\n    end\n  end\n  \nendmodule"
+}

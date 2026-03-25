@@ -1,0 +1,19 @@
+{
+  "task_id": "q009852",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(z,b,d,e,f,c);input [1:0]z;\ninput [255:0]b;\ninput [255:0]d;\ninput [255:0]e;\ninput [255:0]f;\n\noutput [255:0]c;\nreg [255:0]c;\n\nalways@*\nbegin\n\tif(z[0] == 0 && z[1] == 0)\n\t\tc[255:0] = b[255:0];\n\tif(z[0] == 1 && z[1] == 0)\n\t\tc[255:0] = d[255:0];\n\tif(z[0] == 0 && z[1] == 1)\n\t\tc[255:0] = e[255:0];\n\tif(z[0] == 1 && z[1] == 1)\n\t\tc[255:0] = f[255:0];\nend\nendmodule",
+  "rename_map": {
+    "a": "z"
+  },
+  "params_used": {
+    "custom_map": {
+      "a": "z",
+      "b": "y",
+      "d": "w",
+      "e": "v",
+      "f": "u"
+    },
+    "fallback_prefix": "x_"
+  }
+}

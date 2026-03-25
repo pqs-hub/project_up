@@ -1,0 +1,21 @@
+{
+  "task_id": "q013614",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input CIN,\n    output SUM,\n    output COUT\n);// local signals\n    wire not_xor1, xor2_out, and1_out, and2_out, and3_out, or1_out, or2_out;\n\n    // XOR gates\n    xor xor1 (not_xor1, A, B);\n    xor xor2 (xor2_out, not_xor1, CIN);\n\n    // AND gates\n    and and1 (and1_out, A, B);\n    and and2 (and2_out, B, CIN);\n    and and3 (and3_out, A, CIN);\n\n    // OR gates\n    or or1 (or1_out, and1_out, and2_out);\n    or or2 (or2_out, or1_out, and3_out);\n\n    // assign outputs\n    assign SUM = xor2_out;\n    assign COUT = or2_out;\n\nendmodule",
+  "rename_map": {
+    "xor1_out": "not_xor1"
+  },
+  "params_used": {
+    "custom_map": {
+      "xor1_out": "not_xor1",
+      "xor2_out": "not_xor2",
+      "and1_out": "not_and1",
+      "and2_out": "not_and2",
+      "and3_out": "not_and3",
+      "or1_out": "not_or1",
+      "or2_out": "not_or2"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

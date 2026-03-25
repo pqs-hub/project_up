@@ -1,0 +1,9 @@
+{
+  "task_id": "q009960",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module data_register(\n  input obf_clk,\n  input rst_n,\n  input [7:0] data_in,\n  output reg [7:0] data_out\n);\n\n  always @(posedge obf_clk or negedge rst_n) begin\n    if (~rst_n) begin\n      data_out <= 8'b00000000;\n    end\n    else begin\n      data_out <= data_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

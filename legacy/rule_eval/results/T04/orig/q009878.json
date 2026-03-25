@@ -1,0 +1,6 @@
+{
+  "task_id": "q009878",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module shift_register(\n    input clk,\n    input reset,\n    input load,\n    input shift,\n    input [7:0] data_in,\n    output reg [7:0] q);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 0;\n        end else if (load) begin\n            q <= data_in;\n        end else if (shift) begin\n            q <= {q[6:0], 1'b0};\n        end\n    end\n\nendmodule"
+}

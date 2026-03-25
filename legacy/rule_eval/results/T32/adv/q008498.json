@@ -1,0 +1,6 @@
+{
+  "task_id": "q008498",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n  input [14-1:1-1] address,\n  input [15:0] data_in,\n  input enable,\n  input clock,\n  input write,\n  output reg [15:0] data_out\n);reg [15:0] memory [0:16383];\n  reg [15:0] read_data;\n\n  always @(posedge clock) begin\n    if (enable) begin\n      if (write) begin\n        memory[address] <= data_in;\n      end else begin\n        read_data <= memory[address];\n      end\n    end\n  end\n\n  assign data_out = read_data;\n\nendmodule"
+}

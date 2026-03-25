@@ -1,0 +1,16 @@
+{
+  "task_id": "q015091",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input wire clk,\n    input wire [7:0] A,\n    input wire [7:0] B,\n    output reg [15:0] add_result,\n    output reg [15:0] sub_result,\n    output reg [15:0] mul_result,\n    output reg [15:0] div_result\n);reg [15:0] invalid_mul;\n    reg [15:0] temp_div_result;\n    \n    always @ (posedge clk) begin\n        add_result <= A + B;\n        sub_result <= A - B;\n        invalid_mul <= A * B;\n        temp_div_result <= A / B;\n    end\n    \n    always @ (posedge clk) begin\n        mul_result <= invalid_mul;\n        div_result <= temp_div_result;\n    end\n    \nendmodule",
+  "rename_map": {
+    "temp_mul_result": "invalid_mul"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_mul_result": "invalid_mul",
+      "temp_div_result": "invalid_div"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

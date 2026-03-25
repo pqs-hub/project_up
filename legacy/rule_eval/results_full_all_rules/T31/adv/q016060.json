@@ -1,0 +1,10 @@
+{
+  "task_id": "q016060",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(gated_clk, clk, clken);output gated_clk; \n  input clk, clken; \n  reg clken_r ; \n  wire inverted_clken = clk & clken_r;\n  assign gated_clk = inverted_clken; \n  always @(negedge clk) \n  clken_r <= clken; \n endmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "inverted_clken"
+  }
+}

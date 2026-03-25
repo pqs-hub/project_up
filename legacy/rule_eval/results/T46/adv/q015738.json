@@ -1,0 +1,8 @@
+{
+  "task_id": "q015738",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\ninput             clk,\ninput             rst_n,\ninput   [31:0]    pc_in,\noutput  [31:0]    pc_out\n);reg   [31:0]   pcreg_out;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_n or posedge dbg_halt)\nbegin\n    if(!rst_n)\n        pcreg_out <= 32'b0;\n    else\n        pcreg_out <= pc_in;\nend\n\nassign pc_out = pcreg_out;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

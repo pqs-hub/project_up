@@ -1,0 +1,6 @@
+{
+  "task_id": "q003978",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input [7:0] operand1,\n    input [7:0] operand2,\n    output reg [7:0] result\n);\n\n    reg [7:0] if_reg, id_reg, ex_reg, mem_reg;\n\n    // Instruction Fetch stage\n    always @(posedge clk) begin\n        if_reg <= operand1; // assuming operand1 as instruction\n    end\n\n    // Instruction Decode stage\n    always @(posedge clk) begin\n        id_reg <= if_reg; // pass instruction to next stage\n    end\n\n    // Execute stage\n    always @(posedge clk) begin\n        ex_reg <= id_reg + operand2; // simple addition\n    end\n\n    // Memory Access stage\n    always @(posedge clk) begin\n        mem_reg <= ex_reg; // passing to memory stage\n    end\n\n    // Write Back stage\n    always @(posedge clk) begin\n        result <= mem_reg; // output the result\n    end\n\nendmodule"
+}

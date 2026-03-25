@@ -1,0 +1,6 @@
+{
+  "task_id": "q010438",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(\n    \n    RegWriteM,\n    MemtoRegM,\n    MemWriteM,\n    ALUDataM,\n    WriteDataM,\n    WriteRegM,\n    mem_data_i,\n    \n    RegWriteM_o,\n    WriteRegData,\n    WriteRegAddr,\n    mem_addr,\n    mem_we,\n    mem_wd\n);input RegWriteM;\ninput MemtoRegM;\ninput MemWriteM;\ninput [31:0] ALUDataM;\ninput [31:0] WriteDataM;\ninput [4:0] WriteRegM;\ninput [31:0] mem_data_i;\n\noutput RegWriteM_o;\noutput [31:0] WriteRegData;\noutput [4:0] WriteRegAddr;\noutput [31:0] mem_addr;\noutput mem_we;\noutput [31:0] mem_wd;\n\nassign RegWriteM_o = RegWriteM;\nassign WriteRegData = (MemtoRegM == 1'b1) ? mem_data_i : ALUDataM;\nassign WriteRegAddr = WriteRegM;\nassign mem_addr = ALUDataM;\nassign mem_we = MemWriteM;\nassign mem_wd = WriteDataM;\n\nendmodule"
+}

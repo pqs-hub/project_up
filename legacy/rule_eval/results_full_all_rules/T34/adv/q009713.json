@@ -1,0 +1,15 @@
+{
+  "task_id": "q009713",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk_inv, rst, q);input clk_inv, rst;\noutput reg [3:0] q;\n\nalways @(posedge clk_inv) begin\n\tif (rst == 1'b1) // Synchronous reset\n\t\tq <= 4'b0;\n\telse if (q == 4'b1111) // Counter rolls over to 0\n\t\tq <= 4'b0;\n\telse\n\t\tq <= q + 1; // Counter increments\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

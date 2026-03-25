@@ -1,0 +1,10 @@
+{
+  "task_id": "q010058",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module decoder5to32 (\n    input [4:0] a,\n    output reg [31:0] y\n);\n\n    always_comb begin\n        y = 32'b0;\n        y[a] = 1'b1;\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      y[31:a] = 32'b0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "y[31:a] = 32'b0;"
+  }
+}

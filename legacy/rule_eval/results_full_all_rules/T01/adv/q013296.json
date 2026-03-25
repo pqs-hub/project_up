@@ -1,0 +1,8 @@
+{
+  "task_id": "q013296",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(clk, rst, count);input clk, rst;\noutput reg [3:0] count;\n\nalways @(posedge clk)\nbegin\n    begin end  // redundant\n    if(rst)\n        count <= 4'b0000;\n    else if(count == 4'b1111)\n        count <= 4'b0000;\n    else\n        count <= count + 1;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

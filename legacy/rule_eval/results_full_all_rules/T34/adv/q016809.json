@@ -1,0 +1,20 @@
+{
+  "task_id": "q016809",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ADD32\n  (output reg signed [31:0] ERR_S,\n   input signed [31:0] A,\n   input signed [31:0] B,\n   input C,    // Clock\n   input CE,   // Clock Enable\n   input R     // Synchronous Reset\n   );\n   \n   always @(posedge C)\n     if(R)\n       ERR_S <= 32'sd0;\n     else if(CE)\n       ERR_S <= A + B;\n\nendmodule",
+  "rename_map": {
+    "S": "ERR_S"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "X",
+      "B": "Y",
+      "C": "CLK",
+      "CE": "EN",
+      "R": "CLR",
+      "S": "SUM"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

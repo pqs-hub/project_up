@@ -1,0 +1,10 @@
+{
+  "task_id": "q001098",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module performs bitwise NOT operations instead of arithmetic or logical operations\nmodule ALU_16bit (  \n    input [15:0] A,  \n    input [15:0] B,  \n    input [2:0] ALU_ctrl,  \n    output reg [15:0] ALU_out  \n);  \n\nalways @(*) begin  \n    case (ALU_ctrl)  \n        3'b000: ALU_out = A + B;        // Addition  \n        3'b001: ALU_out = A - B;        // Subtraction  \n        3'b010: ALU_out = A & B;        // AND  \n        3'b011: ALU_out = A | B;        // OR  \n        3'b100: ALU_out = A ^ B;        // XOR  \n        default: ALU_out = 16'b0;       // Default case (should not happen)  \n    endcase  \nend  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs bitwise NOT operations instead of arithmetic or logical operations"
+  }
+}

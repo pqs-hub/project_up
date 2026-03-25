@@ -1,0 +1,15 @@
+{
+  "task_id": "q015179",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk, load, data, shift, reset, out);input clk, load, shift, reset;\n\tinput [15:0] data;\n\toutput [15:0] out;\n\treg [15:0] shadow_reg;\n\n\talways @ (posedge clk) begin\n\t\tif (reset) begin\n\t\t\tshadow_reg <= 16'b0;\n\t\tend else if (load) begin\n\t\t\tshadow_reg <= data;\n\t\tend else if (shift) begin\n\t\t\tshadow_reg <= {shadow_reg[14:0], 1'b0};\n\t\tend\n\tend\n\n\tassign out = shadow_reg;\nendmodule",
+  "rename_map": {
+    "reg_out": "shadow_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "reg_out": "shadow_reg"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

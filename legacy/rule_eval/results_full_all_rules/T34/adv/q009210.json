@@ -1,0 +1,15 @@
+{
+  "task_id": "q009210",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register (\n    input rst,\n    input reset_n,\n    input serial_in,\n    output reg [3:0] reg_out);\n\nalways @(posedge rst or negedge reset_n) begin\n    if (!reset_n)\n        reg_out <= 4'b0000;\n    else\n        reg_out <= {serial_in, reg_out[3:1]};\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "shift_reg_"
+  }
+}

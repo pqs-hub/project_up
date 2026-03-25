@@ -1,0 +1,10 @@
+{
+  "task_id": "q013427",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module up_down_counter(\n    input clk,\n    input rst,\n    input ctrl,\n\n    output [2:0] count\n);\n\nreg [2:0] count;\n\nalways @(posedge clk or posedge rst)\nbegin\n  if (rst)\n    count <= 3'b000;\n  else if (ctrl)\n    count <= (count == 3'b111) ? 3'b000 : count + 1;\n  else\n    count <= (count == 3'b000) ? 3'b111 : count - 1;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      count <= count;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "count <= count;"
+  }
+}

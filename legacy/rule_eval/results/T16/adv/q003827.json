@@ -1,0 +1,9 @@
+{
+  "task_id": "q003827",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module gpio_controller(\n    input wire clk,\n    input wire set,\n    input wire obf_clear,\n    output reg gpio_out\n);\n\nalways @(posedge clk) begin\n    if (set) begin\n        gpio_out <= 1'b1;\n    end else if (obf_clear) begin\n        gpio_out <= 1'b0;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clear": "obf_clear"
+  }
+}

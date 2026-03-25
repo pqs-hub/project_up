@@ -1,0 +1,9 @@
+{
+  "task_id": "q008016",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(obf_jal, memRe, regWe, regAddr, pcNext, memData, aluResult, writeData, writeAddr, writeEnable);input obf_jal, memRe, regWe;\n  input [3:0] regAddr;\n  input [15:0] pcNext, memData, aluResult;\n\n  output [15:0] writeData;\n  output [3:0] writeAddr;\n  output writeEnable;  \n\n  assign writeData =  obf_jal ? pcNext :\n                      memRe ? memData : \n                      aluResult;\n\n  assign writeAddr = regAddr;\n  assign writeEnable = regWe;\n  \nendmodule",
+  "rename_map": {
+    "jal": "obf_jal"
+  }
+}

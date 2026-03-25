@@ -1,0 +1,6 @@
+{
+  "task_id": "q003109",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module linear_voltage_regulator (  \n    input wire [7:0] Vref,  \n    input wire [7:0] Vin,  \n    output wire [7:0] Vout  \n);  \n  wire [7:0] _tap_Vref = Vref & {8{1'b1}};\n\n    assign Vout = (Vin >= Vref) ? Vref : Vin;  \nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q007754",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(a,b,pre_result,result);input [3:0] a;\n    input [3:0] b;\n    input [2:0] pre_result;\n    output [2:0] result;\n    \n    reg [2:0]result_reg;\n    assign result=result_reg;\n    \n    always @ (a or b or pre_result) begin\n        if(a>b) result_reg=3'b100;\n        else if(a<b) result_reg=3'b001;\n        else result_reg=pre_result;\n    end\n    \n  always @(*) begin\n    if (1'b0) begin\n      if (a == b) begin\n        result_reg = 3'b010;\n      end else if (a > b) begin\n        result_reg = 3'b110;\n      end else begin\n        result_reg = 3'b000;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (a == b) begin\n  result_reg = 3'b010;\nend else if (a > b) begin\n  result_reg = 3'b110;\nend else begin\n  result_reg = 3'b000;\nend;"
+  }
+}

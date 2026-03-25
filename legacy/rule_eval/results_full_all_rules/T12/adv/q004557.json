@@ -1,0 +1,10 @@
+{
+  "task_id": "q004557",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module top_module(\n    input in,\n    input en,\n    output out\n);reg stored_out;\nalways @ (posedge en) begin\n    if (en) begin\n        stored_out <= in;\n    end\nend\n\nwire neg_stored_value = en;\nassign out = neg_stored_value ? in : stored_out;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_stored_value"
+  }
+}

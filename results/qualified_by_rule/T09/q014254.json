@@ -1,0 +1,6 @@
+{
+  "task_id": "q014254",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (\n\tinput clk,\n\tinput reset,\n\tinput [7:0] temp,\n\tinput [7:0] setpoint,\n\toutput reg heat,\n\toutput reg cool);always @(posedge clk or posedge reset) begin\n\t\tif (reset) begin\n\t\t\theat <= 0;\n\t\t\tcool <= 0;\n\t\tend else begin\n\t\t\tif (temp < setpoint) begin\n\t\t\t\theat <= 1;\n\t\t\t\tcool <= 0;\n\t\t\tend else if (temp > setpoint) begin\n\t\t\t\theat <= 0;\n\t\t\t\tcool <= 1;\n\t\t\tend else begin\n\t\t\t\theat <= 0;\n\t\t\t\tcool <= 0;\n\t\t\tend\n\t\tend\n\tend\n\t\nendmodule"
+}

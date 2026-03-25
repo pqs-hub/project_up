@@ -1,0 +1,15 @@
+{
+  "task_id": "q008686",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input wire [31:0] input_data,\n    input wire [4:0] shift_amount,\n    output reg [31:0] rotated_data\n    );always @(*) begin\n        if (shift_amount == 0) begin\n            rotated_data = input_data;\n        end\n        else begin\n            rotated_data = (input_data << shift_amount) | (input_data >> (32 - shift_amount));\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "data_in": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "input_data"
+    },
+    "fallback_prefix": "rotated_"
+  }
+}

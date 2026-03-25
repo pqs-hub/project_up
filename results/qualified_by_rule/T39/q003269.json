@@ -1,0 +1,6 @@
+{
+  "task_id": "q003269",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire start,\n    input wire localize,\n    input wire stop,\n    output reg [1:0] state\n);\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter MAPPING = 2'b01;\n    parameter LOCALIZING = 2'b10;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start) state <= MAPPING;\n                end\n                MAPPING: begin\n                    if (localize) state <= LOCALIZING;\n                    else if (stop) state <= IDLE;\n                end\n                LOCALIZING: begin\n                    if (stop) state <= IDLE;\n                end\n            endcase\n        end\n    end\nendmodule"
+}

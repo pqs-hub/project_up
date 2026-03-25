@@ -1,0 +1,6 @@
+{
+  "task_id": "q010766",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    output reg [3:0] bit_0,\n    output reg [3:0] bit_1,\n    output reg [3:0] bit_2,\n    output reg [3:0] bit_3\n);reg [3:0] counter;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        counter <= 4'b0000;\n    end else begin\n        counter <= {counter[2:0], counter[3]};\n    end\nend\n\nassign bit_0 = counter[0];\nassign bit_1 = counter[1];\nassign bit_2 = counter[2];\nassign bit_3 = counter[3];\n\nendmodule"
+}

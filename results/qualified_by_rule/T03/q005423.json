@@ -1,0 +1,6 @@
+{
+  "task_id": "q005423",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(input [15:0]DATA , output reg [4:0]count);integer i;\n  wire [15:0] _tap_DATA = DATA & {16{1'b1}};\n\n\talways @(*)\n\tbegin \n\t\tcount = 5'b00000;\n\t\tfor (i = 0; i<16; i = i+1)\n\t\tbegin\n\t\t\tif (DATA[i] == 1)\n\t\t\tbegin\n\t\t\t\tcount = count + 1;\n\t\t\tend\n\t\tend\n\tend\nendmodule"
+}

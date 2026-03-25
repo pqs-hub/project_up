@@ -1,0 +1,9 @@
+{
+  "task_id": "q006411",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input [LOG_SIZE-1:0] address,\n    input obf_enable,\n    output reg [(1<<LOG_SIZE)-1:0] bitline\n);parameter LOG_SIZE = 0;\n\n    always @(*) begin\n        if(obf_enable == 1'b0) begin\n            bitline <= 0;\n        end else begin\n            bitline <= (1 << address);\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "enable": "obf_enable"
+  }
+}

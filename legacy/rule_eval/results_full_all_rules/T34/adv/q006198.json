@@ -1,0 +1,18 @@
+{
+  "task_id": "q006198",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module alu \n(\n  input [3:0] operand1,\n  input [3:0] b,\n  input [1:0] ctrl,\n\n  output reg [3:0] result\n);\n\n  always @(*) begin\n    case (ctrl)\n      2'b00: result = operand1 + b; // Addition\n      2'b01: result = operand1 - b; // Subtraction\n      2'b10: result = operand1 & b; // AND\n      2'b11: result = operand1 | b; // OR\n      default: result = 4'b0000; // Default case\n    endcase\n  end\n\nendmodule",
+  "rename_map": {
+    "a": "operand1"
+  },
+  "params_used": {
+    "custom_map": {
+      "a": "operand1",
+      "b": "operand2",
+      "ctrl": "operation_code",
+      "result": "output_value"
+    },
+    "fallback_prefix": "alu_"
+  }
+}

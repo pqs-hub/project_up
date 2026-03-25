@@ -1,0 +1,15 @@
+{
+  "task_id": "q013039",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register16(\n\tinput wire rst,\n\tinput wire clear,\n\tinput wire en,\n\tinput wire [15:0] D,\n\toutput reg [15:0] Q\n);always @(posedge rst) begin\n\tif (clear)\n\t\tQ <= 16'b0000000000000000;\n\telse if (en)\n\t\tQ <= D;\nend\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

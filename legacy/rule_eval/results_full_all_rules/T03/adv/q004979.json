@@ -1,0 +1,8 @@
+{
+  "task_id": "q004979",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module johnson_counter(\n    input wire clk,\n    input wire rst,\n    input wire en,\n    input wire clr,\n    output reg [3:0] johnson_code\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk or negedge rst) begin\n    if (~rst) begin\n        johnson_code <= 4'b0000;\n    end else if (clr) begin\n        johnson_code <= 4'b0000;\n    end else if (en) begin\n        johnson_code <= {~johnson_code[0], johnson_code[3:1]};\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

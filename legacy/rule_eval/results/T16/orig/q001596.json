@@ -1,0 +1,6 @@
+{
+  "task_id": "q001596",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module gpio_controller (\n    input [4:0] gpio_input,\n    input control,\n    output reg [4:0] gpio_output\n);\n\nalways @(*) begin\n    if (control) begin\n        gpio_output = ~gpio_input; // Invert the GPIO input\n    end else begin\n        gpio_output = 5'b00000; // Output zero if control is low\n    end\nend\nendmodule"
+}

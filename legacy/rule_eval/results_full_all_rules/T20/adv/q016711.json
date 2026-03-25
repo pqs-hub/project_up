@@ -1,0 +1,10 @@
+{
+  "task_id": "q016711",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module is designed to generate a 4-bit binary counter that counts down from 15 to 0 and then resets.\nmodule binary_counter (\n    q,\n    clk,\n    rst\n);\n\n    output reg [3:0] q;\n    input clk;\n    input rst;\n\n    always @(posedge clk) begin\n        if (rst) begin\n            q <= 4'b0000;\n        end else begin\n            q <= q + 1;\n            if (q == 4'b1111) begin\n                q <= 4'b0000;\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to generate a 4-bit binary counter that counts down from 15 to 0 and then resets."
+  }
+}

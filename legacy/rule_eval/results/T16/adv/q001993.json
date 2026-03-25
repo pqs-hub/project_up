@@ -1,0 +1,9 @@
+{
+  "task_id": "q001993",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module sample_rate_conversion (\n    input clk,\n    input rst,\n    input din,\n    output reg [1:0] dout\n);\n    reg [1:0] obf_counter;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            dout <= 2'b00;\n            obf_counter <= 2'b00;\n        end else begin\n            if (obf_counter == 2'b01) begin\n                dout <= {din, din}; // Convert 1-bit to 2-bit\n                obf_counter <= 2'b00;\n            end else begin\n                dout <= dout; // Hold the value\n                obf_counter <= obf_counter + 1;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "counter": "obf_counter"
+  }
+}

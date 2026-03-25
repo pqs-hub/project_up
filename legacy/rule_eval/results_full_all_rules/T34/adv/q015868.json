@@ -1,0 +1,16 @@
+{
+  "task_id": "q015868",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input SEL,\n    output X\n);wire inv_not_sel;\n    wire and1, and2;\n    wire or1;\n\n    assign inv_not_sel = ~SEL;\n    assign and1 = A & inv_not_sel;\n    assign and2 = B & SEL;\n    assign or1 = and1 | and2;\n    assign X = or1;\n\nendmodule",
+  "rename_map": {
+    "not_sel": "inv_not_sel"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "B": "A"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

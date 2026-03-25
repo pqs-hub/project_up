@@ -1,0 +1,15 @@
+{
+  "task_id": "q001246",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire clk,\n    input wire we, // write enable\n    input wire [15:0] din, // data input\n    output reg [15:0] dout // data output\n);\n\n    reg [15:0] shadow_memory; // 16-bit shadow_memory cell\n\n    always @(posedge clk) begin\n        if (we) begin\n            shadow_memory <= din; // Write data to shadow_memory\n        end\n        dout <= shadow_memory; // Always output stored shadow_memory\n    end\nendmodule",
+  "rename_map": {
+    "memory": "shadow_memory"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "shadow_memory"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

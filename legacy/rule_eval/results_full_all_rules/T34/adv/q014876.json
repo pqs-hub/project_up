@@ -1,0 +1,15 @@
+{
+  "task_id": "q014876",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(reset, Address, WriteData, MemWrite, MemRead, ReadData);input reset, MemWrite, MemRead;\n    input [31:0]Address, WriteData;\n    output [31:0]ReadData;\n\n    \n    reg [31:0]Memory [0:31];\n    reg [31:0]ReadData;\n\n    \n    always @ (posedge reset)  begin\n        if (MemWrite == 1'b1)   Memory[Address>>2] <= WriteData;\n    end\n\n    \n    always @ (*)  begin\n        if (MemRead == 1'b1)    ReadData <= Memory[Address>>2];\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q012675",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(\n\t\t\t\tinput wire clk, rst, \n\t\t\t\tinput wire branch, \n\t\t\t\tinput wire jump, \n\t\t\t\tinput wire MemRead, \n\t\t\t\tinput wire MemWrite, \n\t\t\t\tinput wire RegWrite, \n\t\t\t\tinput wire MemtoReg, \n\t\t\t\tinput wire [31:0] alu,\n\t\t\t\tinput wire [31:0] readdata2, \n\t\t\t\tinput wire [4:0] mux,\n\n\t\t\t\toutput reg branch_out,\n\t\t\t\toutput reg jump_out,\n\t\t\t\toutput reg MemRead_out,\n\t\t\t\toutput reg MemWrite_out,\n\t\t\t\toutput reg RegWrite_out,\n\t\t\t\toutput reg MemtoReg_out,\n\t\t\t\toutput reg [31:0] alu_out,\n\t\t\t\toutput reg [31:0] readdata2_out, \n\t\t\t\toutput reg [4:0] mux_out\n\t\t\t);always @(posedge rst)\nbegin\n\tbranch_out <= 0;\n\tjump_out <= 0;\n\tMemRead_out <= 0;\n\tMemWrite_out <= 0;\n\tRegWrite_out <= 0;\n\tMemtoReg_out <= 0;\n\talu_out <= 0;\n\treaddata2_out <= 0; \n\tmux_out <= 0;\nend\n\nalways @(posedge clk) \nbegin\n\tbranch_out <= branch;\n\tjump_out <= jump;\n\tMemRead_out <= MemRead;\n\tMemWrite_out <= MemWrite;\n\tRegWrite_out <= RegWrite;\n\tMemtoReg_out <= MemtoReg;\n\talu_out <= alu;\n\treaddata2_out <= readdata2;\n\tmux_out <= mux;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

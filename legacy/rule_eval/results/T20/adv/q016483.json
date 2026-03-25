@@ -1,0 +1,6 @@
+{
+  "task_id": "q016483",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule Ibniz_generator3 ( clk, rst, ena, T_in, X_in, Y_in, V_out );\ninput clk;\ninput rst;\ninput ena;\ninput wire signed [31:0] T_in;\ninput wire signed [31:0] X_in;\ninput wire signed [31:0] Y_in;\noutput reg [31:0] V_out;\nalways@(posedge clk or posedge rst)\nbegin\n\tif ( rst )\n\tbegin\n\tend\n\telse if ( ena )\n\tbegin\n\t\tV_out= ((((X_in>>>4) * (Y_in>>>4))>>>8) * (T_in>>>16));\n\tend\nend\nendmodule"
+}

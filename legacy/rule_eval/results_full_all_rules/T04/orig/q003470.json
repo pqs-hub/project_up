@@ -1,0 +1,6 @@
+{
+  "task_id": "q003470",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module down_counter(  \n    input clk,  \n    input reset_n,  \n    input enable,  \n    output reg [3:0] count  \n);  \n    always @(posedge clk or negedge reset_n) begin  \n        if (!reset_n) begin  \n            count <= 4'b1111;  // Reset to 15  \n        end else if (enable) begin  \n            if (count > 0)  \n                count <= count - 1;  \n        end  \n    end  \nendmodule"
+}

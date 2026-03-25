@@ -1,0 +1,15 @@
+{
+  "task_id": "q012585",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sync_up_counter_16bit(\n    input reset_clk,\n    input rst,\n    input load,\n    input [15:0] data,\n    output reg [15:0] q\n    );\n\n    always @(posedge reset_clk) begin\n        if (rst) begin\n            q <= 16'b0000000000000000;\n        end else if (load) begin\n            q <= data;\n        end else begin\n            q <= q + 1;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

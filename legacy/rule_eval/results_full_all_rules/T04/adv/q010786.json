@@ -1,0 +1,10 @@
+{
+  "task_id": "q010786",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment is misleading because it suggests that the counter will be cleared to 000 when reset, but in reality, it clears to 001.\nmodule ring_counter\n(\n    input clk,\n    input reset,\n    output reg [2:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 3'b001; // Clear counter to 001\n        end else begin\n            q <= {q[1:0], q[2]}; // Shift left and wrap-around\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment is misleading because it suggests that the counter will be cleared to 000 when reset, but in reality, it clears to 001."
+  }
+}

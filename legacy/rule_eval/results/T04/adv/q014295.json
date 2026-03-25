@@ -1,0 +1,6 @@
+{
+  "task_id": "q014295",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule top_module(out, clk, rst);output reg [3:0] out;\n  input clk, rst;\n\n  wire feedback;\n\n  assign feedback = ~(out[3] ^ out[2]);\n\nalways @(posedge clk, posedge rst)\n  begin\n    if (rst)\n      out = 4'b0;\n    else\n      out = {out[2:0],feedback};\n  end\nendmodule"
+}

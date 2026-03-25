@@ -1,0 +1,10 @@
+{
+  "task_id": "q002932",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the module calculates the minimum number of segments needed for segmentation.\nmodule tcp_segment_sequencer (\n    input wire clk,\n    input wire reset,\n    input wire [15:0] data_length,\n    input wire [3:0] mss,\n    output reg [3:0] num_segments\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            num_segments <= 0;\n        end else begin\n            if (mss > 0) begin\n                num_segments <= (data_length + mss - 1) / mss; // Ceiling division\n            end else begin\n                num_segments <= 0; // If MSS is 0, no segments can be formed\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the module calculates the minimum number of segments needed for segmentation."
+  }
+}

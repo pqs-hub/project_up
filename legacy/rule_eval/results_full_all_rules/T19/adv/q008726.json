@@ -1,0 +1,10 @@
+{
+  "task_id": "q008726",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_to_gray (\n\tinput [11:0] binary_in,\n\toutput [11:0] gray_out);\n\n\tassign gray_out = binary_in ^ (binary_in >> 1);\n\t\n  always @(*) begin\n    if (1'b0) begin\n      gray_out <= binary_in & ~binary_in[11];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "gray_out <= binary_in & ~binary_in[11];\n"
+  }
+}

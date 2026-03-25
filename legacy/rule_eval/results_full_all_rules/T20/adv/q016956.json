@@ -1,0 +1,10 @@
+{
+  "task_id": "q016956",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module counts falling edges instead of rising edges\nmodule rising_edge_counter(\n  input wire clk,\n  input wire reset,\n  output wire [31:0] count\n);\n\n  reg [31:0] count_reg;\n\n  always @(posedge clk) begin\n    if (reset) begin\n      count_reg <= 0;\n    end else begin\n      count_reg <= count_reg + 1;\n    end\n  end\n\n  assign count = count_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module counts falling edges instead of rising edges"
+  }
+}

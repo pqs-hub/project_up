@@ -1,0 +1,6 @@
+{
+  "task_id": "q016831",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (\n    input  A   ,\n    output X   ,\n    input  VPB ,\n    input  VPWR,\n    input  VGND,\n    input  VNB\n);\n\n    reg [7:0] data_reg;\n    wire power_wire;\n    wire data_power_wire;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge VPB or posedge dbg_halt) begin\n        data_reg <= A;\n    end\n\n    assign power_wire = VPWR;\n\n    assign data_power_wire = data_reg & power_wire;\n\n    assign X = data_power_wire;\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q011934",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 32-bit Linear Feedback Shift Register (LFSR) with feedback taps at positions 32, 31, 30, and 10.\nmodule verified_LFSR_counter(\n   input                clk ,\n   input                rst_n,\n \n   output reg [31:0]    Q  \n);\n    always@(posedge clk or negedge rst_n) begin\n        if (!rst_n) Q <= 32'h1;\n        else begin\n            Q <= {Q[30:0], Q[31] ^ Q[30] ^ Q[29] ^ Q[9]};\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 32-bit Linear Feedback Shift Register (LFSR) with feedback taps at positions 32, 31, 30, and 10."
+  }
+}

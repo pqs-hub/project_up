@@ -1,0 +1,10 @@
+{
+  "task_id": "q016755",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module disables the clock gate when either EN or TE is low\nmodule clock_gate (CLK, EN, TE, ENCLK);\n  input CLK, EN, TE;\n  output ENCLK;\n\n  reg ENCLK;\n\n  always @ (posedge CLK) begin\n    if (EN && TE) begin\n      ENCLK <= 1'b1;\n    end else begin\n      ENCLK <= 1'b0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module disables the clock gate when either EN or TE is low"
+  }
+}

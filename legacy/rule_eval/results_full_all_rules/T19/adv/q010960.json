@@ -1,0 +1,10 @@
+{
+  "task_id": "q010960",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module bin2gray (\n    input [3:0] bin,\n    output [3:0] gray\n);\n\n    assign gray = {bin[3], bin[3] ^ bin[2], bin[2] ^ bin[1], bin[1] ^ bin[0]};\n\n  always @(*) begin\n    if (1'b0) begin\n      gray[0] <= ~bin[0];\n      gray[1] <= ~bin[1];\n      gray[2] <= ~bin[2];\n      gray[3] <= ~bin[3];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "gray[0] <= ~bin[0];\ngray[1] <= ~bin[1];\ngray[2] <= ~bin[2];\ngray[3] <= ~bin[3];"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002361",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(\n    input [4:0] voltage,\n    input clk,\n    input reset,\n    output reg [2:0] frequency\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        frequency <= 3'b000; // default to 0Hz on reset\n    end else begin\n        case (voltage)\n            5'b00000: frequency <= 3'b000; // 0V\n            5'b00001: frequency <= 3'b001; // 1V\n            5'b00010: frequency <= 3'b010; // 2V\n            5'b00011: frequency <= 3'b011; // 3V\n            5'b00100: frequency <= 3'b100; // 4V\n            5'b00101: frequency <= 3'b101; // 5V\n            5'b00110: frequency <= 3'b110; // 6V\n            5'b00111: frequency <= 3'b111; // 7V\n            default:  frequency <= 3'b111; // Max frequency for > 7V\n        endcase\n    end\nend\nendmodule"
+}

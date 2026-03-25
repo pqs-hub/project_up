@@ -1,0 +1,6 @@
+{
+  "task_id": "q013567",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n  input clock,\n  input reset,\n  input PCEn,\n  input [7:0] in, \n  output [7:0] out\n);reg [7:0] Data;\n  \n  always@(posedge clock, posedge reset) begin\n    \n    if(reset)\n      Data <= 8'b0;\n    else if(PCEn)\n      Data <= in;\n  end\n  assign out = Data;\nendmodule"
+}

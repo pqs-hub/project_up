@@ -1,0 +1,10 @@
+{
+  "task_id": "q014803",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module shift_register(\n    input [7:0] data,\n    input load,\n    input shift,\n    input clk,\n    input rst,\n\n    output reg [7:0] q\n);\n\nalways @(posedge clk or posedge rst)\nbegin\n    if (rst)\n        q <= 8'b0; // reset register\n    else if (load)\n        q <= data; // load data into register\n    else if (shift)\n        q <= {1'b0, q[7:1]}; // shift right\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= q;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= q;"
+  }
+}

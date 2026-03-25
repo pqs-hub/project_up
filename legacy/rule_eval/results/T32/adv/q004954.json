@@ -1,0 +1,6 @@
+{
+  "task_id": "q004954",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(input [3-1:1-1] ALUControl, \n\t\t\tinput signed [31:0] SrcA, \n\t\t\tinput signed [31:0] SrcB, \n\t\t\toutput reg signed [31:0] ALUResult,\n\t\t\toutput reg Zero);always @(*) begin\n\t\tcase(ALUControl)\n\t\t\t0:  ALUResult = SrcA+SrcB; \n\t\t\t1:  ALUResult = SrcA-SrcB; \n\t\t\t2:  ALUResult = SrcA&SrcB; \n\t\t\t4:  ALUResult = SrcA|SrcB; \n\t\t\t5:  ALUResult = SrcA&~SrcB; \n\t\t\t6:  ALUResult = SrcA|~SrcB; \n\t\t\t7:  ALUResult = (SrcA<SrcB)?1:0; \n\t\t\tdefault begin \n\t\t\t\tALUResult = 3'bxxx;\n\t\t\tend\n\t\tendcase\n\t\t\n\t\tZero = (ALUResult==0) ? 1'b1 : 1'b0;\n\t\t\n\tend\n\t\nendmodule"
+}

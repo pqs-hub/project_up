@@ -1,0 +1,10 @@
+{
+  "task_id": "q014457",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    A1,\n    A2,\n    A3,\n    B1,\n    B2,\n    X\n);input A1;\n    input A2;\n    input A3;\n    input B1;\n    input B2;\n    output X;\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB;\n    supply0 VNB;\n\n    // Replace the missing custom module instantiation with combinational logic\n    assign X = (A1 == 1'b1) ? B1 : ((A2 == 1'b1) && (A3 == 1'b0)) ? B2 : B1;\n\n  always @(*) begin\n    if (1'b0) begin\n      X <= A1 & ~A2 & A3;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "X <= A1 & ~A2 & A3;"
+  }
+}

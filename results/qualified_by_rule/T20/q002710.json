@@ -1,0 +1,6 @@
+{
+  "task_id": "q002710",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule (\n    input wire clk,\n    input wire we, // write enable\n    input wire re, // read enable\n    input wire [7:0] data_in, // input data\n    output reg [7:0] data_out // output data\n);\n    reg [7:0] memory; // Internal memory to store the data\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory <= data_in; // Write operation\n        end\n        if (re) begin\n            data_out <= memory; // Read operation\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q004322",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 9-bit shift register with a synchronous reset input 'rst' and a synchronous load input 'load'. The input 'd' is 9-bit wide, and the output 'q' is also 9-bit wide.\nmodule shift_reg(\n    input clk,\n    input rst,\n    input [7:0] d,\n    input load,\n    output reg [7:0] q\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            q <= 8'b0;\n        else if (load)\n            q <= d;\n        else\n            q <= {q[6:0], 1'b0};  // Shift left\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 9-bit shift register with a synchronous reset input 'rst' and a synchronous load input 'load'. The input 'd' is 9-bit wide, and the output 'q' is also 9-bit wide."
+  }
+}

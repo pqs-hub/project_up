@@ -1,0 +1,6 @@
+{
+  "task_id": "q000119",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule (  \n    input clk,  \n    input rst_n,  \n    input req,  \n    input ack,  \n    output reg [1:0] state  \n);  \n    // State encoding  \n    parameter IDLE = 2'b00,  \n              REQUEST = 2'b01,  \n              RESPONSE = 2'b10;  \n\n    // Sequential logic for state transitions  \n    always @(posedge clk or negedge rst_n) begin  \n        if (!rst_n)  \n            state <= IDLE;  \n        else begin  \n            case (state)  \n                IDLE: if (req) state <= REQUEST;  \n                REQUEST: if (ack) state <= RESPONSE;  \n                RESPONSE: if (!req) state <= IDLE;  \n                default: state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule"
+}

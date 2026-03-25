@@ -1,0 +1,9 @@
+{
+  "task_id": "q014215",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input [7:0] obf_input_vector,\n  output reg [7:0] output_vector\n);integer i;\n  \n  always @ (obf_input_vector) begin\n    for (i = 0; i < 8; i = i + 2) begin\n      output_vector[i] = obf_input_vector[i+1];\n      output_vector[i+1] = obf_input_vector[i];\n    end\n  end\n  \nendmodule",
+  "rename_map": {
+    "input_vector": "obf_input_vector"
+  }
+}

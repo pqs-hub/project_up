@@ -1,0 +1,10 @@
+{
+  "task_id": "q016872",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the clock gating module will only enable the clock when both EN and TE are high, but in reality, it enables the clock when EN is high and TE is low.\nmodule register_adder_clock_gate (\n  input CLK,\n  input EN,\n  input TE,\n  output ENCLK\n);\n\n  reg gated_clk;\n\n  always @(posedge CLK) begin\n    if (EN && !TE) begin\n      gated_clk <= 1'b1;\n    end else begin\n      gated_clk <= 1'b0;\n    end\n  end\n\n  assign ENCLK = gated_clk & CLK;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the clock gating module will only enable the clock when both EN and TE are high, but in reality, it enables the clock when EN is high and TE is low."
+  }
+}

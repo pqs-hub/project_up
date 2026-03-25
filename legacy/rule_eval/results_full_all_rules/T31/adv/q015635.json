@@ -1,0 +1,10 @@
+{
+  "task_id": "q015635",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    //# {{data|Data Signals}}\n    input  A1  ,\n    input  A2  ,\n    input  A3  ,\n    input  B1  ,\n    output Y   ,\n\n    //# {{power|Power}}\n    input  VPB ,\n    input  VPWR,\n    input  VGND,\n    input  VNB\n);// Declare internal wires\nwire Y1, Y2, Y3;\n\n// Implement logic\nwire inverted_Y = A1;\nassign Y1 = inverted_Y;\nassign Y2 = (A2 & !A3);\nassign Y3 = (A3 & !A2);\n\nassign Y = (B1 == 0) ? Y1 : ((Y2 | Y3) ? 1 : 0);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "inverted_Y"
+  }
+}

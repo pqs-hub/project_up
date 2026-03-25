@@ -1,0 +1,6 @@
+{
+  "task_id": "q005999",
+  "rule_id": "T10",
+  "changed": true,
+  "final": "module RefModule(\n    input [3:0] a,\n    input [3:0] b,\n    input cin,\n    output [3:0] sum,\n    output cout\n);wire [3:0] temp_sum;\nwire [3:0] temp_carry;\n\n// Full Adder\nassign temp_sum[0] = a[0] ^ b[0] ^ cin;\nassign temp_carry[0] = ~(~(a[0] & b[0]) | (a[0] & cin) & ~(b[0] & cin));\n\nassign temp_sum[1] = a[1] ^ b[1] ^ temp_carry[0];\nassign temp_carry[1] = (a[1] & b[1]) | (a[1] & temp_carry[0]) | (b[1] & temp_carry[0]);\n\nassign temp_sum[2] = a[2] ^ b[2] ^ temp_carry[1];\nassign temp_carry[2] = (a[2] & b[2]) | (a[2] & temp_carry[1]) | (b[2] & temp_carry[1]);\n\nassign temp_sum[3] = a[3] ^ b[3] ^ temp_carry[2];\nassign cout = (a[3] & b[3]) | (a[3] & temp_carry[2]) | (b[3] & temp_carry[2]);\n\nassign sum = temp_sum;\n\nendmodule"
+}

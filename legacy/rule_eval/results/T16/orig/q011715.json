@@ -1,0 +1,6 @@
+{
+  "task_id": "q011715",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n    in0,\n    in1,\n    in2,\n    in3,\n    sel1,\n    sel0,\n    out\n);input in0;\n    input in1;\n    input in2;\n    input in3;\n    input sel1;\n    input sel0;\n    output out;\n\n    wire not_sel1;\n    wire not_sel0;\n    wire and1;\n    wire and2;\n    wire and3;\n    wire and4;\n\n    // Invert select wires\n    not not_gate1(not_sel1, sel1);\n    not not_gate2(not_sel0, sel0);\n\n    // AND gates to create all possible combinations\n    and and_gate1(and1, in0, not_sel1, not_sel0);\n    and and_gate2(and2, in1, not_sel1, sel0);\n    and and_gate3(and3, in2, sel1, not_sel0);\n    and and_gate4(and4, in3, sel1, sel0);\n\n    // OR gate to combine the AND gates\n    or or_gate(out, and1, and2, and3, and4);\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q007175",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module performs an 8-bit OR operation on inputs a and b when the enable signal is low.\nmodule nor_module (\n    input [7:0] a,\n    input [7:0] b,\n    input enable,\n    input reset,\n    output reg [7:0] nor_result\n);\n\n    always @(*) begin\n        if (reset) begin\n            nor_result = 0;\n        end else if (enable) begin\n            nor_result = ~(a | b);\n        end else begin\n            nor_result = nor_result; // Maintain the current value\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs an 8-bit OR operation on inputs a and b when the enable signal is low."
+  }
+}

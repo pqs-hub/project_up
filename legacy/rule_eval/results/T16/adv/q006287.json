@@ -1,0 +1,9 @@
+{
+  "task_id": "q006287",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module johnson_counter_2bit(obf_CLK, RESET, COUNT);\ninput obf_CLK;\ninput RESET;\noutput reg [1:0] COUNT;\n\nalways @(posedge obf_CLK or posedge RESET) begin\n    if (RESET) begin\n        COUNT <= 2'b00;\n    end else begin\n        COUNT <= {~COUNT[0], COUNT[1]};\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "obf_CLK"
+  }
+}

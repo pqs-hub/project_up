@@ -1,0 +1,6 @@
+{
+  "task_id": "q013627",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n    Q      ,\n    CLK    ,\n    D      ,\n    RESET_B,\n    VPWR   ,\n    VGND   ,\n    VPB    ,\n    VNB\n);output Q      ;\n    input  CLK    ;\n    input  D      ;\n    input  RESET_B;\n    input  VPWR   ;\n    input  VGND   ;\n    input  VPB    ;\n    input  VNB    ;\n\n    // Using a generic D flip-flop with reset instead of missing module\n    reg Q_reg;\n    \n    always @(posedge CLK or negedge RESET_B) begin\n        if (!RESET_B)\n            Q_reg <= 1'b0;\n        else\n            Q_reg <= D;\n    end\n\n    wire __Q_tmp = Q_reg;\n    assign Q = __Q_tmp;\n\nendmodule"
+}

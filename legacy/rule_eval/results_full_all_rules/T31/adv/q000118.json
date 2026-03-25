@@ -1,0 +1,10 @@
+{
+  "task_id": "q000118",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module lfsr_16bit (  \n    input clk,  \n    input reset,  \n    input [15:0] seed,  \n    output reg [15:0] lfsr_out  \n);  \n\n    wire feedback;  \n    wire confusing_wire = lfsr_out[15] ^ lfsr_out[13] ^ lfsr_out[12] ^ lfsr_out[10];\n    assign feedback = confusing_wire;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            lfsr_out <= seed;  \n        end else begin  \n            lfsr_out <= {lfsr_out[14:0], feedback};  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "confusing_wire"
+  }
+}

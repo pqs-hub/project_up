@@ -1,0 +1,16 @@
+{
+  "task_id": "q008160",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] decoded_inputs,\n  output reg [1:0] encoded_output\n);always @ (decoded_inputs) begin\n    if (decoded_inputs[3] == 1) begin\n      encoded_output = 2'b11;\n    end else if (decoded_inputs[2] == 1) begin\n      encoded_output = 2'b10;\n    end else if (decoded_inputs[1] == 1) begin\n      encoded_output = 2'b01;\n    end else if (decoded_inputs[0] == 1) begin\n      encoded_output = 2'b00;\n    end\n  end\n  \nendmodule",
+  "rename_map": {
+    "inputs": "decoded_inputs"
+  },
+  "params_used": {
+    "custom_map": {
+      "inputs": "decoded_inputs",
+      "encoded_output": "invalid_encoded_output"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

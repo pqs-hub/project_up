@@ -1,0 +1,8 @@
+{
+  "task_id": "q012722",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module shift_left_module(\n    input wire clk,\n    input wire reset,\n    input wire [7:0] binary_num,\n    output reg [7:0] shifted_num\n);\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (reset) begin\n            shifted_num <= 0;\n        end else begin\n            shifted_num <= binary_num << 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

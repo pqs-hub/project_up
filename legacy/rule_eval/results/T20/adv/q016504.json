@@ -1,0 +1,6 @@
+{
+  "task_id": "q016504",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule TrapDetect(\n    input  Trap,\n    input  TrapCond,\n    input  [31:0] ALUResult,\n    output EXC_Tr\n    );\n    wire ALUZero = (ALUResult == 32'h00000000);\n    assign EXC_Tr = Trap & (TrapCond ^ ALUZero);\nendmodule"
+}

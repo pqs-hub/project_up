@@ -1,0 +1,10 @@
+{
+  "task_id": "q010892",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the selector is used to shift the entire 128-bit bus rather than selecting an 8-bit segment.\nmodule top_module(input logic [8*16-1:0] wide_input_bus,\n   input logic [3:0] selector,\n   output logic [7:0] selected_out);always_comb begin\n      selected_out = 8'b0; // Default output\n      selected_out = wide_input_bus[selector * 8 +: 8]; // Selects the appropriate 8-bit slice\n   end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the selector is used to shift the entire 128-bit bus rather than selecting an 8-bit segment."
+  }
+}

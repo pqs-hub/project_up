@@ -1,0 +1,6 @@
+{
+  "task_id": "q010428",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n        input  clk_i,\n        input  rst_i,\n        input  ai,\n        input  bi,\n        output yo\n    );reg test;\n    always @ (posedge clk_i or posedge rst_i) begin\n    begin end  // redundant\n        if (rst_i) begin\n            test <= 1'b0;\n        end else begin\n            if (ai|bi) begin\n                test <= 1'b1;\n            end else begin\n                test <= 1'b0;\n            end\n        end\n    end\n   assign yo = test;\nendmodule"
+}

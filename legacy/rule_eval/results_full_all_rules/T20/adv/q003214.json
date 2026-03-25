@@ -1,0 +1,10 @@
+{
+  "task_id": "q003214",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a state-space controller with a 4-bit input and output. It has a clock and reset input. The state transitions are as follows:\n// - From state 0000, if input is 0, transition to 0001; if input is 1, transition to 0000.\n// - From state 0001, if input is 0, transition to 0010; if input is 1, transition to 0001.\n// - From state 0010, if input is 0, transition to 0011; if input is 1, transition to 0010.\n// - From state 0011, if input is 0, transition to 0000; if input is 1, transition to 0011.\n// The output equals the previous state.\nmodule state_space_controller (\n    input clk,\n    input rst,\n    input [3:0] state_input,\n    output reg [3:0] control_output\n);\n    reg [3:0] state;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            state <= 4'b0000;\n        end else begin\n            case (state)\n                4'b0000: state <= (state_input[0]) ? 4'b0001 : 4'b0000;\n                4'b0001: state <= (state_input[0]) ? 4'b0010 : 4'b0000;\n                4'b0010: state <= (state_input[0]) ? 4'b0011 : 4'b0001;\n                4'b0011: state <= (state_input[0]) ? 4'b0000 : 4'b0010;\n                default: state <= 4'b0000;\n            endcase\n        end\n    end\n\n    always @(*) begin\n        control_output = state;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a state-space controller with a 4-bit input and output. It has a clock and reset input. The state transitions are as follows:\n// - From state 0000, if input is 0, transition to 0001; if input is 1, transition to 0000.\n// - From state 0001, if input is 0, transition to 0010; if input is 1, transition to 0001.\n// - From state 0010, if input is 0, transition to 0011; if input is 1, transition to 0010.\n// - From state 0011, if input is 0, transition to 0000; if input is 1, transition to 0011.\n// The output equals the previous state."
+  }
+}

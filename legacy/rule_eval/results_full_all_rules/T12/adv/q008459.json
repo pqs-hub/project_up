@@ -1,0 +1,10 @@
+{
+  "task_id": "q008459",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] D,\n    input [1:0] S,\n    output Y\n);wire buf0, buf1, buf2;\n\n    // Using simple wire assignments instead of unknown buf modules\n    assign buf0 = D[0];\n    assign buf1 = D[1];\n    assign buf2 = D[2];\n\n    wire neg_mux_output = (S[1] & S[0]);\n    assign Y = neg_mux_output ? D[3] : (S[1] ? buf2 : (S[0] ? buf1 : buf0));\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_mux_output"
+  }
+}

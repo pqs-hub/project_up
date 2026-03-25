@@ -1,0 +1,9 @@
+{
+  "task_id": "q005056",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input rst_n,\n  input IRWrite,\n  input [31:0] Instr_i,\n  \n  output [31:0] Instr_o\n  );reg [31:0] obf_IR;\n  always@(posedge clk or posedge rst_n)\n  begin\n    if (rst_n)\n      obf_IR <= 32'h0;\n    else\n      begin\n        if (IRWrite)\n          obf_IR <= Instr_i;\n      end\n  end\n  assign Instr_o = obf_IR;\nendmodule",
+  "rename_map": {
+    "IR": "obf_IR"
+  }
+}

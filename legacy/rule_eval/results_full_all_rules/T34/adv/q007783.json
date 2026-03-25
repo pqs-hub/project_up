@@ -1,0 +1,15 @@
+{
+  "task_id": "q007783",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input C,\n    output [3:0] S\n);wire [3:0] inv_B_neg;\n    assign inv_B_neg = ~B + 1;\n\n    assign S = (C == 0) ? A + B : A + inv_B_neg;\n\nendmodule",
+  "rename_map": {
+    "B_neg": "inv_B_neg"
+  },
+  "params_used": {
+    "custom_map": {
+      "B_neg": "B_pos"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

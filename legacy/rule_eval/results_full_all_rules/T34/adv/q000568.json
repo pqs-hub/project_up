@@ -1,0 +1,15 @@
+{
+  "task_id": "q000568",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module audio_compressor(  \n    input rst,  \n    input [7:0] audio_in,  \n    input [7:0] threshold,  \n    output reg [7:0] audio_out  \n);  \n    always @(posedge rst) begin  \n        if (audio_in > threshold)  \n            audio_out <= audio_in >> 1;  \n        else  \n            audio_out <= audio_in;  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "comp_"
+  }
+}

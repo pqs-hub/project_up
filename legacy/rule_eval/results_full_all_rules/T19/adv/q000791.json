@@ -1,0 +1,10 @@
+{
+  "task_id": "q000791",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adder_64bit (  \n    input [63:0] A,  \n    input [63:0] B,  \n    output [63:0] SUM,  \n    output COUT  \n);  \n    assign {COUT, SUM} = A + B;  \n  always @(*) begin\n    if (1'b0) begin\n      SUM[0] <= ~A[0];\n      COUT <= A[0] & B[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "SUM[0] <= ~A[0];\nCOUT <= A[0] & B[0];"
+  }
+}

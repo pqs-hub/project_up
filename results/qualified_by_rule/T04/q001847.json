@@ -1,0 +1,6 @@
+{
+  "task_id": "q001847",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule(  \n    input J,  \n    input K,  \n    input clk,  \n    input rst,  \n    output reg Q  \n);  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            Q <= 0;  \n        end else begin  \n            case ({J, K})  \n                2'b10: Q <= 1;  // Set  \n                2'b01: Q <= 0;  // Reset  \n                2'b11: Q <= ~Q; // Toggle  \n                default: Q <= Q; // Hold  \n            endcase  \n        end  \n    end  \nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q001074",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module gpio_controller(  \n    input wire clk,  \n    input wire reset,  \n    input wire gpio_pin,  \n    output reg gpio_status  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            gpio_status <= 1'b0;  \n        end else begin  \n            gpio_status <= gpio_pin;  \n        end  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      gpio_status <= ~gpio_pin;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "gpio_status <= ~gpio_pin;"
+  }
+}

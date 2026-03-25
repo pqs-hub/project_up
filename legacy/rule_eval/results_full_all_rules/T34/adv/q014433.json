@@ -1,0 +1,15 @@
+{
+  "task_id": "q014433",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(invalid_sum, in);input [15:0] in;\n\toutput [3:0] invalid_sum;\n\t\n\treg [3:0] invalid_sum;\n\t\n\talways @ (in)\n\tbegin\n\t\tinvalid_sum[0] = (in[3:0] + in[7:4] + in[11:8] + in[15:12]) >= 8;\n\t\tinvalid_sum[1] = (in[3:0] + in[7:4] + in[11:8] + in[15:12]) >= 8;\n\t\tinvalid_sum[2] = (in[3:0] + in[7:4] + in[11:8] + in[15:12]) >= 8;\n\t\tinvalid_sum[3] = (in[3:0] + in[7:4] + in[11:8] + in[15:12]) >= 8;\n\tend\nendmodule",
+  "rename_map": {
+    "out": "invalid_sum"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_sum"
+    },
+    "fallback_prefix": "err_"
+  }
+}

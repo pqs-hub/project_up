@@ -1,0 +1,15 @@
+{
+  "task_id": "q005942",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput reset,\n\tinput load,\n\tinput ena,\n\tinput up_down,\n\tinput [15:0] data,\n\toutput reg [15:0] q);always @(posedge reset) begin\n\t\tif (load)\n\t\t\tq <= data;\n\t\telse if (ena) begin\n\t\t\tif (up_down)\n\t\t\t\tq <= q + 1;\n\t\t\telse\n\t\t\t\tq <= q - 1;\n\t\tend\n\tend\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

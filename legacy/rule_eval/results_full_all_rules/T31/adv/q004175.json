@@ -1,0 +1,10 @@
+{
+  "task_id": "q004175",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module audio_mixer (\n    input [7:0] audio1,\n    input [7:0] audio2,\n    output [7:0] mixed_audio\n);\n    wire inverted_mixed_audio = (audio1 + audio2 + 1) >> 1;\n    assign mixed_audio = inverted_mixed_audio; // Simple average with rounding\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "inverted_mixed_audio"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q012654",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n   input [15:0] in1,\n    input [15:0] in2,\n\t input [15:0] in3,\n    input [15:0] in4,\n    input [1:0] sel,\n    input clock,\n    output reg [15:0] out\n    );always @ (in1 or in2 or in3 or in4 or sel)\n\nbegin\n\t\n\tcase(sel)\n\t\t0:out = in1;\n\t\t1:out = in2;\n\t\t2:out = in3;\n\t\t3:out = in4;\n\tendcase\nend\n\nendmodule",
+  "rename_map": {
+    "control": "sel"
+  },
+  "params_used": {
+    "custom_map": {
+      "control": "sel",
+      "out": "data_out"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

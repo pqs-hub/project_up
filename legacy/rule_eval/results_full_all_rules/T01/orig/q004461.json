@@ -1,0 +1,6 @@
+{
+  "task_id": "q004461",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module adder_8bit(\n    input               clk     ,\n    input               rst_n   ,\n    input       [7:0]   a       ,\n    input       [7:0]   b       ,\n\n    output  reg [7:0]   sum     ,\n    output  reg         carry_out\n);\n\n    // 8-bit addition operation with carry-out\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            sum <= 0;\n            carry_out <= 0;\n        end else begin\n            {carry_out, sum} <= a + b;\n        end\n    end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006782",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(CLK, RST, MODE, Count);\ninput CLK, RST, MODE;\noutput [3:0] Count;\nreg [3:0] Count;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge RST or posedge dbg_halt) begin\n    if (RST)\n        Count <= 0;\n    else if (MODE) begin\n        if (Count == 15)\n            Count <= 0;\n        else\n            Count <= Count + 1;\n    end else begin\n        if (Count == 0)\n            Count <= 15;\n        else\n            Count <= Count - 1;\n    end\nend\n\nendmodule"
+}

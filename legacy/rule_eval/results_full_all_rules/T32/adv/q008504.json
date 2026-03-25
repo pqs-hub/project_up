@@ -1,0 +1,8 @@
+{
+  "task_id": "q008504",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module mux_4to1(sel, d0, d1, d2, d3, y);\n\n    input [2-1:1-1] sel;\n    input d0;\n    input d1;\n    input d2;\n    input d3;\n    output y;\n    reg y;\n\n    always @(sel or d0 or d1 or d2 or d3)\n    begin\n        case (sel)\n            2'b00: y = d0;\n            2'b01: y = d1;\n            2'b10: y = d2;\n            2'b11: y = d3;\n            default: y = 1'b0;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

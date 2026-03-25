@@ -1,0 +1,6 @@
+{
+  "task_id": "q008376",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(input [6:0] rx_round,input [31:0] rx_x,input [31:0] rx_y,input [31:0] rx_z,output reg [31:0] tx_f);always @ (*) \n  begin \n  if (rx_round <= 15) \n  tx_f = rx_x ^ rx_y ^ rx_z; \n  else if (rx_round <= 31) \n  tx_f = (rx_x & rx_y) | ((~rx_x) & rx_z); \n  else if (rx_round <= 47) \n  tx_f = (rx_x | (~rx_y)) ^ rx_z; \n  else if (rx_round <= 63) \n  tx_f = (rx_x & rx_z) | (rx_y & (~rx_z)); \n  else \n  tx_f = rx_x ^ (rx_y | (~rx_z)); \n  end \n endmodule"
+}

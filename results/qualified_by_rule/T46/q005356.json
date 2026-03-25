@@ -1,0 +1,6 @@
+{
+  "task_id": "q005356",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule( input D, CK, SN, SE, SI, output reg Q);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge CK or negedge SN or posedge dbg_halt)\n   if(!SN)\n      Q <= 1'b1;\n   else if(SE)\n      Q <= SI;\n   else\n      Q <= D;endmodule"
+}

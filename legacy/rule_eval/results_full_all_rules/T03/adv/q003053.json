@@ -1,0 +1,8 @@
+{
+  "task_id": "q003053",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module sr_latch (  \n    input wire S,  \n    input wire R,  \n    output reg Q,  \n    output reg Qn  \n);  \n  wire _tap_S = S & {1{1'b1}};\n\n    always @ (S or R) begin  \n        if (S && !R) begin  \n            Q = 1;  \n            Qn = 0;  \n        end  \n        else if (!S && R) begin  \n            Q = 0;  \n            Qn = 1;  \n        end  \n        // if both S and R are low, hold the previous state  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

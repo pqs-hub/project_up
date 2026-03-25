@@ -1,0 +1,6 @@
+{
+  "task_id": "q010414",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n\tinput clk,\n\tinput d,\n\tinput reset,\n\toutput reg q);always @(posedge clk or posedge reset) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n\tif (reset) q <= 1'b0;\n\telse q <= d;\nend\n\nendmodule"
+}

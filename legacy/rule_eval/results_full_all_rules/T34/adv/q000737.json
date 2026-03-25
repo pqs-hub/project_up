@@ -1,0 +1,18 @@
+{
+  "task_id": "q000737",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module EEPROM_Cell (  \n    input wire [4:0] data_in,  \n    input wire write_enable,  \n    input wire read_enable,  \n    output reg [4:0] data_out  \n);  \n    reg [4:0] eeprom_stored_value;  \n\n    always @(*) begin  \n        if (write_enable) begin  \n            eeprom_stored_value = data_in;  \n        end  \n        if (read_enable) begin  \n            data_out = eeprom_stored_value;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "stored_value": "eeprom_stored_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "di",
+      "write_enable": "we",
+      "read_enable": "re",
+      "data_out": "do"
+    },
+    "fallback_prefix": "eeprom_"
+  }
+}

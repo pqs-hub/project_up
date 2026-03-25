@@ -1,0 +1,6 @@
+{
+  "task_id": "q016795",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule (\n  input A,\n  input B,\n  output D,\n  output Bout\n);\n  assign D = A ^ B;\n  assign Bout = ~A & B;\nendmodule\n\nmodule full_subtractor (\n  input A,\n  input B,\n  input Bin,\n  output D,\n  output Bout\n);\n  wire half_sub1_D, half_sub1_Bout, half_sub2_D, half_sub2_Bout;\n  \n  half_subtractor half_sub1 (\n    .A(A),\n    .B(B),\n    .D(half_sub1_D),\n    .Bout(half_sub1_Bout)\n  );\n  \n  half_subtractor half_sub2 (\n    .A(half_sub1_D),\n    .B(Bin),\n    .D(half_sub2_D),\n    .Bout(half_sub2_Bout)\n  );\n  \n  assign D = half_sub2_D;\n  assign Bout = half_sub1_Bout | half_sub2_Bout;\nendmodule"
+}

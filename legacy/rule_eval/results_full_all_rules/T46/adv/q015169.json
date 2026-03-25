@@ -1,0 +1,8 @@
+{
+  "task_id": "q015169",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module Register5bit (\n    input clk,\n    input clr,\n    input load,\n    input [4:0] in,\n    output reg [4:0] out\n);\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge clr or posedge dbg_halt) begin\n        if (clr) begin\n            out <= 5'b00000;\n        end else if (load) begin\n            out <= in;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

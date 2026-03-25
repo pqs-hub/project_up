@@ -1,0 +1,10 @@
+{
+  "task_id": "q006696",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux_2to1 (A, B, SEL, Y);\ninput [7:0] A, B;\ninput SEL;\noutput reg [7:0] Y;\n\nalways @(*) begin\n    if (SEL)\n        Y = B;\n    else\n        Y = A;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Y = ~A & ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y = ~A & ~B;"
+  }
+}

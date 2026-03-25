@@ -1,0 +1,8 @@
+{
+  "task_id": "q003586",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module pcie_endpoint_controller (\n    input clk,\n    input reset,\n    input request,\n    input data_ready,\n    output reg [1:0] state // 00 - IDLE, 01 - REQUEST_RECEIVED, 10 - DATA_TRANSFER, 11 - COMPLETED\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    // State encoding\n    parameter IDLE = 2'b00, \n              REQUEST_RECEIVED = 2'b01,\n              DATA_TRANSFER = 2'b10,\n              COMPLETED = 2'b11;\n\n    // Sequential logic for state transitions\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (request) begin\n                        state <= REQUEST_RECEIVED;\n                    end\n                end\n                REQUEST_RECEIVED: begin\n                    if (data_ready) begin\n                        state <= DATA_TRANSFER;\n                    end\n                end\n                DATA_TRANSFER: begin\n                    state <= COMPLETED;\n                end\n                COMPLETED: begin\n                    state <= IDLE; // Go back to IDLE after completing\n                end\n            endcase\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

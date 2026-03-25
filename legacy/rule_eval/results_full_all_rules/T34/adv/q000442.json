@@ -1,0 +1,15 @@
+{
+  "task_id": "q000442",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module temperature_shutdown (\n    input [7:0] temp_threshold,\n    output reg shutdown\n);\n    always @* begin\n        if (temp_threshold > 75) begin\n            shutdown = 1'b1; // Shutdown\n        end else begin\n            shutdown = 1'b0; // No Shutdown\n        end\n    end\nendmodule",
+  "rename_map": {
+    "temperature": "temp_threshold"
+  },
+  "params_used": {
+    "custom_map": {
+      "temperature": "temp_threshold"
+    },
+    "fallback_prefix": "shutdown_"
+  }
+}

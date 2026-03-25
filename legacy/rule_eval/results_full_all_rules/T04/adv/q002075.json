@@ -1,0 +1,10 @@
+{
+  "task_id": "q002075",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module selects the least significant bit of the channel selector as the active channel\nmodule dma_controller (  \n    input wire clk,  \n    input wire reset,  \n    input wire [2:0] channel_select,  \n    input wire enable,  \n    output reg [7:0] channel_output  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            channel_output <= 8'b00000000;  \n        else if (enable)  \n            channel_output <= (1 << channel_select);  \n        else  \n            channel_output <= 8'b00000000;  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module selects the least significant bit of the channel selector as the active channel"
+  }
+}

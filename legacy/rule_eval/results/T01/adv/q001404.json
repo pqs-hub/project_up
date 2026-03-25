@@ -1,0 +1,6 @@
+{
+  "task_id": "q001404",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module ethernet_mac_controller (\n    input wire clk,\n    input wire reset,\n    input wire [7:0] data_in,\n    input wire data_in_valid,\n    output reg [7:0] data_out,\n    output reg data_out_valid,\n    input wire [7:0] received_data,\n    input wire received_data_valid\n);\n\n    reg [7:0] transmission_buffer;\n\n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant\n        if (reset) begin\n            data_out <= 8'b0;\n            data_out_valid <= 0;\n            transmission_buffer <= 8'b0;\n        end else begin\n            if (data_in_valid) begin\n                transmission_buffer <= data_in;\n                data_out <= transmission_buffer;\n                data_out_valid <= 1;\n            end else begin\n                data_out_valid <= 0;\n            end\n\n            if (received_data_valid) begin\n                // Here you can handle the received data as needed\n            end\n        end\n    end\nendmodule"
+}

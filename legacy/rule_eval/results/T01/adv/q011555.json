@@ -1,0 +1,6 @@
+{
+  "task_id": "q011555",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n\tinput clk,\n\tinput enable,\n\tinput load,\n\tinput reset,\n\tinput [11:0] load_val,\n\toutput reg [11:0] q);always @(posedge clk) begin\n    begin end  // redundant\n\tif (reset)\n\t\tq <= 12'b000000000000;\n\telse if (load)\n\t\tq <= load_val;\n\telse if (enable)\n\t\tq <= q + 1;\nend\nendmodule"
+}

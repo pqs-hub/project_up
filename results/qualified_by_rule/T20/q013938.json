@@ -1,0 +1,6 @@
+{
+  "task_id": "q013938",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n           input I_clk,\n\n           input I_reg_we,\n           input [4:0] I_rs_addr,\n           input [4:0] I_rt_addr,\n           input [4:0] I_wb_addr,\n           input [31:0] I_wb_data,\n\n           output [31:0] O_rs_data,\n           output [31:0] O_rt_data\n       );reg [31:0] R_gpr[31:0];\n\nalways @(posedge I_clk) begin\n    if(I_reg_we) begin\n        R_gpr[I_wb_addr]<=I_wb_data;\n    end\nend\n\nassign O_rs_data=(I_rs_addr==0)?32'h0:R_gpr[I_rs_addr];\nassign O_rt_data=(I_rt_addr==0)?32'h0:R_gpr[I_rt_addr];\n\nendmodule"
+}

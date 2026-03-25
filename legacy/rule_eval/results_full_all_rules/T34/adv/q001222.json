@@ -1,0 +1,15 @@
+{
+  "task_id": "q001222",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sram_cell (\n    input wire [15:0] data_in,\n    input wire we,\n    input wire re,\n    output reg [15:0] data_out,\n    output reg status\n);\n    reg [15:0] invalid_memory; // 16-bit invalid_memory storage\n\n    always @(*) begin\n        status = 0; // Default status\n        if (we) begin\n            invalid_memory <= data_in; // Write operation\n            status = 1; // Write successful\n        end else if (re) begin\n            data_out <= invalid_memory; // Read operation\n            status = 1; // Read successful\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "invalid_memory"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "invalid_memory"
+    },
+    "fallback_prefix": "err_"
+  }
+}

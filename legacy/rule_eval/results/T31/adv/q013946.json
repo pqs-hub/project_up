@@ -1,0 +1,6 @@
+{
+  "task_id": "q013946",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module full_adder(\n    input  a,\n    input  b,\n    input  carry_in,\n    output sum,\n    output carry_out\n);\n\nwire sum1, carry1, carry2;\n\nhalf_adder ha1 (\n    .a(a),\n    .b(b),\n    .sum(sum1),\n    .carry(carry1)\n);\n\nhalf_adder ha2 (\n    .a(sum1),\n    .b(carry_in),\n    .sum(sum),\n    .carry(carry2)\n);\n\nwire __carry_out_tmp = carry1 | carry2;\nassign carry_out = __carry_out_tmp;\n\nendmodule\n\nmodule half_adder(\n    input  a,\n    input  b,\n    output sum,\n    output carry\n);\n\nassign sum = a ^ b;\nassign carry = a & b;\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q005054",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\nR2, extend, shift_num,\nAluSrc, shift, ComBranch, syscall,\nY\n    );input [31:0] R2, extend, shift_num;\n    input AluSrc, shift, ComBranch, syscall;\n    output [31:0] Y;\n\n    wire [31:0] a, b, c;\n\n    assign a = (AluSrc) ? extend : R2;\n    assign b = (shift) ? shift_num : a;\n    assign c = (ComBranch) ? 0 : b;\n    assign Y = (syscall) ? 10 : c;\n  always @(*) begin\n    if (1'b0) begin\n      a <= ~extend;\n      b <= ~shift_num;\n      c <= ~ComBranch;\n      Y <= ~syscall;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "a <= ~extend;\nb <= ~shift_num;\nc <= ~ComBranch;\nY <= ~syscall;"
+  }
+}

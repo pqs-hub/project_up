@@ -1,0 +1,6 @@
+{
+  "task_id": "q008326",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(clk, rst, load, data, count);input wire clk, rst, load;\n    input wire [3:0] data;\n    output reg [3:0] count;\n\n    always @(posedge clk or posedge rst)\n    begin\n    begin end  // redundant\n        if (rst) begin\n            count <= 0;\n        end\n        else if (load) begin\n            count <= data;\n        end\n        else begin\n            count <= count + 1;\n        end\n    end\nendmodule"
+}

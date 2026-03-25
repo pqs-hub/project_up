@@ -1,0 +1,6 @@
+{
+  "task_id": "q010005",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule\n(\n    input clk,\n    input rst,\n    input set,\n    input d,\n    output reg q\n);\n\nalways @(posedge clk) begin\n    if (rst) begin\n        q <= 1'b0;\n    end else if (set) begin\n        q <= 1'b1;\n    end else begin\n        q <= d;\n    end\nend\n\nendmodule"
+}

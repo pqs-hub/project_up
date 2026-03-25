@@ -1,0 +1,15 @@
+{
+  "task_id": "q002754",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire D,        // Data input\n    input wire WE,       // Write Enable\n    input wire rst,      // Clock signal\n    output reg Q         // Data output\n);\n\n    always @(posedge rst) begin\n        if (WE) begin\n            Q <= D;      // Write data when WE is high\n        end\n        // Q retains its value when WE is low\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

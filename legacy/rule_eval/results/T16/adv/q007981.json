@@ -1,0 +1,9 @@
+{
+  "task_id": "q007981",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(forward,Databus,writedata,obf_ALUresult,data);input [1:0] forward;\ninput [31:0] Databus;\ninput [31:0] writedata;\ninput [31:0] obf_ALUresult;\noutput [31:0] data;\n\nassign data = (forward == 2'b00) ? Databus :\n              (forward == 2'b01) ? writedata :\n              obf_ALUresult;\n\nendmodule",
+  "rename_map": {
+    "ALUresult": "obf_ALUresult"
+  }
+}

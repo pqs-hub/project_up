@@ -1,0 +1,6 @@
+{
+  "task_id": "q001362",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule (  \n    input clk,  \n    input rst,  \n    input load,  \n    input [1:0] din,  \n    output reg [1:0] dout  \n);  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            dout <= 2'b00;  \n        end else if (load) begin  \n            dout <= din;  \n        end else begin  \n            dout <= {1'b0, dout[1]}; // Shift right  \n        end  \n    end  \nendmodule"
+}

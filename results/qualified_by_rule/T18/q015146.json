@@ -1,0 +1,6 @@
+{
+  "task_id": "q015146",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(\n  input [n-1:0] bus_in,\n  input clk,\n  input reset,\n  output [n-1:0] bus_out\n);parameter n = 8; // number of bits in the bus signal\n\nreg [n-1:0] bus_hold_reg; // register to hold the bus signal\n\nalways @(posedge clk) begin\n  if (reset) begin\n    bus_hold_reg <= 0;\n  end else begin\n    bus_hold_reg <= bus_in;\n  end\nend\n\nassign bus_out = reset ? 0 : bus_hold_reg;\n\nendmodule"
+}

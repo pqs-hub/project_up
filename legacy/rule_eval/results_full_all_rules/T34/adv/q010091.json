@@ -1,0 +1,15 @@
+{
+  "task_id": "q010091",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_down_counter\n(\n  input rst_n,\n  input reset_clk,\n  input en,\n\n  output reg [3:0] out\n);\n\n  always @(posedge reset_clk or negedge rst_n) begin\n    if (!rst_n) \n\tbegin\n      out <= 4'b1111;\n    end\n\t\n\telse if (en)\n\tbegin\n      out <= out - 1;\n    end\n\t\n\telse \n\tbegin\n      out <= out;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q013399",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input en,\n    output [7:0] q\n);\n\n    reg [7:0] q_reg;\n\n    always @(posedge clk) begin\n        if (rst)\n            q_reg <= 8'b00000000;\n        else if (en)\n            q_reg <= q_reg + 1;\n    end\n\n    assign q = q_reg;\n\nendmodule"
+}

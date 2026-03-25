@@ -1,0 +1,6 @@
+{
+  "task_id": "q002293",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module temperature_shutdown(\n    input [3:0] temperature,\n    output reg shutdown\n);\n  wire [3:0] _tap_temperature = temperature & {4{1'b1}};\n\n    always @* begin\n        if (temperature > 4'b1010) // 10 in binary\n            shutdown = 1;\n        else\n            shutdown = 0;\n    end\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q008608",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [7:0] A,\n  input [7:0] B,\n  output reg [7:0] sum,\n  output reg carry\n);reg [8:0] overflow_result;\n\n  always @ (A or B) begin\n    overflow_result = A + B;\n    if (overflow_result > 255) begin\n      carry = 1;\n      sum = overflow_result[7:0];\n    end else begin\n      carry = 0;\n      sum = overflow_result[7:0];\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "temp_sum": "overflow_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_sum": "overflow_result"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

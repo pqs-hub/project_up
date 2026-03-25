@@ -1,0 +1,10 @@
+{
+  "task_id": "q016024",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module sync_counter (CLK, EN, COUNT);\ninput CLK, EN;\noutput reg [3:0] COUNT;\n\nalways @(posedge CLK) begin\n    if (EN)\n        COUNT <= COUNT + 1;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      COUNT <= COUNT - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "COUNT <= COUNT - 1;"
+  }
+}

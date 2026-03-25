@@ -1,0 +1,8 @@
+{
+  "task_id": "q012124",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    direction,\n    shiftin,\n    shiftby,\n    shiftout\n);input direction;\ninput signed [26-1:1-1] shiftin;\ninput [4:0] shiftby;\noutput reg signed [25:0] shiftout;\n\nalways @(*) begin\n    if (direction == 1) begin\n        shiftout = shiftin >>> shiftby;\n    end else begin\n        shiftout = shiftin << shiftby;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

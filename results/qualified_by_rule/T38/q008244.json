@@ -1,0 +1,6 @@
+{
+  "task_id": "q008244",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(input A,input B,input GTI,input LTI,input EQI,output reg GTO,output reg LTO,output reg EQO);always @ (A or B or GTI or LTI or EQI) \n  begin \n  if ( A > B ) \n  begin \n  GTO = 1; \n  LTO = 0; \n  EQO = 0; \n  end \n  else if ( A < B ) \n  begin \n  LTO = 1; \n  GTO = 0; \n  EQO = 0; \n  end \n  else \n  begin \n  EQO = EQI; \n  GTO = GTI; \n  LTO = LTI; \n  end \n  end \n endmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q012326",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n   input CE,\n   input I,\n   (* clkbuf_driver *)\n   output O\n);parameter CE_POLARITY = 1'b1;\n\n   wire ce;\n   assign ce = CE_POLARITY ? CE : ~CE;\n   \n   assign O = I & ce;\n   \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

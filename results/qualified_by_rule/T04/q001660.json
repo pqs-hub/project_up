@@ -1,0 +1,6 @@
+{
+  "task_id": "q001660",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [31:0] ip_in,\n    input wire [15:0] port_in,\n    output reg [31:0] ip_out,\n    output reg [15:0] port_out\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            ip_out <= 32'b0;\n            port_out <= 16'b0;\n        end else begin\n            if (ip_in == 32'hC0A80101) begin // 192.168.1.1 in hex\n                ip_out <= 32'hCB007101; // 203.0.113.1 in hex\n            end else begin\n                ip_out <= ip_in;\n            end\n            port_out <= port_in + 1;\n        end\n    end\nendmodule"
+}

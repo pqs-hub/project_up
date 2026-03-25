@@ -1,0 +1,6 @@
+{
+  "task_id": "q010343",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(\n    clock_2x,\n    reset,\n    dequeue_in,\n    dequeue_out\n);parameter N = 1;\n    \n    input           clock_2x;\n    input           reset;\n    input   [N-1:0] dequeue_in;\n    output  [N-1:0] dequeue_out;\n    \n    reg dequeue_cycle;\n    \n    always @(posedge clock_2x or posedge reset)\n    begin\n        if (reset)\n            dequeue_cycle = 1'b0;\n        else\n            dequeue_cycle = ~dequeue_cycle;\n    end\n    \n    assign dequeue_out = {(N){dequeue_cycle}} & dequeue_in;\nendmodule"
+}

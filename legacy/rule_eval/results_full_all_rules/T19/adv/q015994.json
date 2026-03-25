@@ -1,0 +1,10 @@
+{
+  "task_id": "q015994",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module register16bit(\n\tinput [15:0] d,\n\tinput clk,\n\tinput ld,\n\tinput clr,\n\toutput reg [15:0] q);\n\n\talways @(posedge clk) begin\n\t\tif (clr)\n\t\t\tq <= 16'b0;\n\t\telse if (ld)\n\t\t\tq <= d;\n\tend\n\n  always @(*) begin\n    if (1'b0) begin\n      if (1'b1) begin\n        q <= ~d;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (1'b1) begin\n  q <= ~d;\nend;"
+  }
+}

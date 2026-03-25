@@ -1,0 +1,6 @@
+{
+  "task_id": "q014058",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule top_module(\n  input clk,\n  input rst,\n  input signed [15:0] in_val,\n  input signed [15:0] min_val,\n  input signed [15:0] max_val,\n  output reg signed [15:0] out_round,\n  output reg signed [15:0] out_sat\n);always @(posedge clk) begin\n    if (rst) begin\n      out_round <= 0;\n      out_sat <= 0;\n    end\n    else begin\n      // Round block\n      if (in_val[0]) begin\n        out_round <= in_val + 1;\n      end\n      else begin\n        out_round <= in_val;\n      end\n      \n      // Saturation block\n      if (in_val < min_val) begin\n        out_sat <= min_val;\n      end\n      else if (in_val > max_val) begin\n        out_sat <= max_val;\n      end\n      else begin\n        out_sat <= in_val;\n      end\n    end\n  end\n\nendmodule"
+}

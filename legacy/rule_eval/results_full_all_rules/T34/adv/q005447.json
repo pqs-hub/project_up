@@ -1,0 +1,15 @@
+{
+  "task_id": "q005447",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( clk, data_in, reset, data_out);output data_out; \n  input clk; \n  input data_in; \n  input reset; \n  reg sync_reg ; \n  reg data_out ; \n  always @(posedge clk or posedge reset) \n  begin \n  if (reset == 1) sync_reg <= 1; \n  else sync_reg <= data_in; \n  end \n  always @(posedge clk or posedge reset) \n  begin \n  if (reset == 1) data_out <= 1; \n  else data_out <= sync_reg; \n  end \n endmodule",
+  "rename_map": {
+    "data_in_d1": "sync_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in_d1": "sync_reg"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

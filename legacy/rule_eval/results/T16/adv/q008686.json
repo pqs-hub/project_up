@@ -1,0 +1,9 @@
+{
+  "task_id": "q008686",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input wire [31:0] obf_data_in,\n    input wire [4:0] shift_amount,\n    output reg [31:0] rotated_data\n    );always @(*) begin\n        if (shift_amount == 0) begin\n            rotated_data = obf_data_in;\n        end\n        else begin\n            rotated_data = (obf_data_in << shift_amount) | (obf_data_in >> (32 - shift_amount));\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "data_in": "obf_data_in"
+  }
+}

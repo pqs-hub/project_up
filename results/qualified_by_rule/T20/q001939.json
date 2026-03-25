@@ -1,0 +1,6 @@
+{
+  "task_id": "q001939",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n    input [2:0] opcode1,\n    input [2:0] opcode2,\n    output reg hazard\n);\n    always @(*) begin\n        if (opcode1 == opcode2 || \n            (opcode1 == 3'b010 && opcode2 == 3'b011) || \n            (opcode1 == 3'b011 && opcode2 == 3'b010)) \n        begin\n            hazard = 1;\n        end else begin\n            hazard = 0;\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014827",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule shift_register_8bit(clk, reset, load, shift, D, Q);\n     input clk;\n     input reset;\n     input load;\n     input shift;\n     input [7:0] D;\n     output [7:0] Q;\n\n     reg [7:0] Q;\n\n     always @(posedge clk) begin\n         if (reset)\n             Q <= 8'b0;\n         else if (load)\n             Q <= D;\n         else if (shift)\n             Q <= {Q[6:0], 1'b0};\n     end\nendmodule"
+}

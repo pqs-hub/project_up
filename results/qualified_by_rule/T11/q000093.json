@@ -1,0 +1,6 @@
+{
+  "task_id": "q000093",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule (\n    input [7:0] a,\n    input [7:0] b,\n    input [7:0] c,\n    input [7:0] d,\n    input [7:0] e,\n    output reg [7:0] median\n);\n\nreg [7:0] sorted [0:4];\n\ninteger i, j;\n\nalways @(*) begin\n    // Load inputs into sorted array\n    sorted[0] = a;\n    sorted[1] = b;\n    sorted[2] = c;\n    sorted[3] = d;\n    sorted[4] = e;\n\n    // Simple bubble sort to sort the array\n    for (i = 0; i < 4; i = i + 1) begin\n        for (j = 0; j < 4 - i; j = j + 1) begin\n            if (sorted[j] > sorted[j + 1]) begin\n                // Swap\n                {sorted[j], sorted[j + 1]} = {sorted[j + 1], sorted[j]};\n            end\n        end\n    end\n\n    // Select the median (the middle element in the sorted array)\n    median = sorted[2];\nend\n\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q008523",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter_10bit(clk_inv, rst, pause, q);\n\n    input clk_inv;\n    input rst;\n    input pause;\n    output [9:0] q;\n    reg [9:0] q;\n\n    always @(posedge clk_inv or posedge rst)\n    begin\n        if (rst)\n            q <= 10'b0000000000;\n        else if (!pause)\n            q <= q + 1;\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

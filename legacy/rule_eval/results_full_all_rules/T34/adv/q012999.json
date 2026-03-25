@@ -1,0 +1,16 @@
+{
+  "task_id": "q012999",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input rst,\n    output reg [2:0] count\n);reg [2:0] err_next;\n\nalways @ (posedge clk) begin\n    if (rst) begin\n        count <= 3'b0;\n    end\n    else begin\n        count <= err_next;\n    end\nend\n\nalways @ (*) begin\n    case (count)\n        3'b000: err_next = 3'b001;\n        3'b001: err_next = 3'b010;\n        3'b010: err_next = 3'b011;\n        3'b011: err_next = 3'b100;\n        3'b100: err_next = 3'b101;\n        3'b101: err_next = 3'b110;\n        3'b110: err_next = 3'b111;\n        3'b111: err_next = 3'b000;\n        default: err_next = 3'b0;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "next_count": "err_next"
+  },
+  "params_used": {
+    "custom_map": {
+      "count": "invalid_cnt",
+      "next_count": "err_next"
+    },
+    "fallback_prefix": "mis_"
+  }
+}

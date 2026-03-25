@@ -1,0 +1,8 @@
+{
+  "task_id": "q012034",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module shift_reg_8bit(\n    input clk,        // Chip clock signal.\n    input rst_n,      // Active-low reset signal. Defined as 0 for chip reset; defined as 1 for reset signal inactive.\n    input load,       // Load enable signal. \n    input shift_en,   // Shift enable signal.\n    input [8-1:1-1] din,  // 8-bit parallel input.\n\n    output reg [7:0] dout // 8-bit output of the shift register.\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) \n        dout <= 8'h00; // Reset register to 0\n    else if (load) \n        dout <= din; // Load parallel input into register\n    else if (shift_en) \n        dout <= {dout[6:0], 1'b0}; // Shift register contents to the left\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

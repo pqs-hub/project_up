@@ -1,0 +1,6 @@
+{
+  "task_id": "q014491",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ram_128x64_sp\n(\n    input clk,\n    input we,\n    input [6:0] addr,\n    input [63:0] wdata,\n    output reg [63:0] rdata\n);\n\nreg [63:0] unused_ram [127:0];\n\nalways @(posedge clk) begin\n    if (we) begin\n        unused_ram[addr] <= wdata;\n    end\n    rdata <= unused_ram[addr];\nend\n\nendmodule"
+}

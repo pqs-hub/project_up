@@ -1,0 +1,10 @@
+{
+  "task_id": "q013688",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the XOR gates are used for calculating the carry-out, which is misleading.\nmodule top_module( A, B, Ci, S, Co );input A, B, Ci;\n  output S, Co;\n\n  wire S1, C1, C2;\n\n  // XOR gate to calculate the sum of A and B\n  assign S1 = A ^ B;\n\n  // XOR gate to calculate the sum of S1 and Ci\n  assign S = S1 ^ Ci;\n\n  // AND gate to calculate the carry-out value\n  assign C1 = A & B;\n  assign C2 = S1 & Ci;\n\n  // OR gate to calculate the carry-out\n  assign Co = C1 | C2;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the XOR gates are used for calculating the carry-out, which is misleading."
+  }
+}

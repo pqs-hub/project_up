@@ -1,0 +1,10 @@
+{
+  "task_id": "q014770",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n     input i0, i1,\n\t  output eq\n    );wire p0, p1;\n\nassign eq = p0 | p1;\n\nassign p0 = ~i0 & ~i1;\nassign p1 = i0 & i1;\n\n\n  always @(*) begin\n    if (1'b0) begin\n      p0 <= i0; p1 <= i1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "p0 <= i0; p1 <= i1;"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q007727",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter_4bit(\n    input clk,          // Chip clock signal.\n    input rst_n,        // Active-low reset signal. Defined as 0 for chip reset; defined as 1 for reset signal inactive.\n\n    output [3:0] count  // 4-bit count value.\n);\n\nreg [3:0] cnt_reg; // Register to hold the count value.\n\n// Counter logic\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        cnt_reg <= 4'b0000; // Reset counter\n    else\n        cnt_reg <= cnt_reg + 1'b1; // Increment counter\nend\n\nassign count = cnt_reg;\n\nendmodule",
+  "rename_map": {
+    "count_r": "cnt_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "count_r": "cnt_reg"
+    },
+    "fallback_prefix": "_alt"
+  }
+}

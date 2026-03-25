@@ -1,0 +1,6 @@
+{
+  "task_id": "q012833",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input load,\n    input up_down,\n    output reg [2:0] out\n);reg [2:0] unused_reg1, reg2, reg3;\n\nalways @(posedge clk) begin\n    if (load) begin\n        unused_reg1 <= 3'b0;\n        reg2 <= 3'b0;\n        reg3 <= 3'b0;\n    end else begin\n        if (up_down) begin\n            unused_reg1 <= reg2;\n            reg2 <= reg3;\n            reg3 <= reg3 + 1;\n        end else begin\n            unused_reg1 <= reg2;\n            reg2 <= reg3;\n            reg3 <= reg3 - 1;\n        end\n    end\nend\n\nassign out = unused_reg1;\n\nendmodule"
+}

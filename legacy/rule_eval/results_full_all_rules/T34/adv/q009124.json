@@ -1,0 +1,18 @@
+{
+  "task_id": "q009124",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_4to1 (\n    input invalid_data,\n    input data1,\n    input data2,\n    input data3,\n    input [1:0] select,\n    output reg data_out\n);\n\n    always @(*) begin\n        case (select)\n            2'b00: data_out = invalid_data;\n            2'b01: data_out = data1;\n            2'b10: data_out = data2;\n            2'b11: data_out = data3;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {
+    "data0": "invalid_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data0": "invalid_data",
+      "data1": "err_data",
+      "data2": "bad_data",
+      "data3": "faulty_data"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q008795",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule( A, B, Ci, S, Co );input A, B, Ci;\n  output S, Co;\n  wire   n1, n2, n3;\n\n  // Logic for Full Adder using primitive gates\n  assign n1 = A ^ B;           // XOR for A and B\n  assign S = n1 ^ Ci;          // XOR for sum with carry input\n  assign n2 = n1 & Ci;         // AND for first part of carry\n  assign n3 = A & B;           // AND for second part of carry\n  assign Co = n2 | n3;         // OR for final carry output\nendmodule"
+}

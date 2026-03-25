@@ -1,0 +1,15 @@
+{
+  "task_id": "q005605",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module custom_logic (\n    input x,\n    input y,\n    input z,\n    input a,\n    output reg invalid);\n\n    always @(*) begin\n        case ({x, y, z, a})\n            4'b1010: invalid = 1;\n            4'b0101: invalid = 0;\n            4'b1111: invalid = 1;\n            4'b0000: invalid = 0;\n            4'b1001: invalid = 1;\n            4'b0110: invalid = 0;\n            4'b1101: invalid = 1;\n            4'b0010: invalid = 1;\n            4'b1011: invalid = 0;\n            4'b0100: invalid = 1;\n            default: invalid = 0;\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "valid": "invalid"
+  },
+  "params_used": {
+    "custom_map": {
+      "valid": "invalid"
+    },
+    "fallback_prefix": "err_"
+  }
+}

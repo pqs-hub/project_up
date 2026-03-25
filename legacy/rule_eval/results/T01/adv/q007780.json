@@ -1,0 +1,6 @@
+{
+  "task_id": "q007780",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n    A,\n    B,\n    out\n);input [15:0] A;\n    input [15:0] B;\n    output reg [31:0] out; // Changed to output reg to enable procedural assignment\n\n    always @ (A, B) begin\n    begin end  // redundant\n        out <= A * B; // This is now valid since out is declared as a reg\n    end\n\nendmodule"
+}

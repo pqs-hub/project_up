@@ -1,0 +1,9 @@
+{
+  "task_id": "q008075",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module mul_4bit (\n    input wire [3:0] A,\n    input wire [3:0] B,\n    output wire [7:0] result\n    );\n\nreg [7:0] obf_product;\ninteger i;\n\nalways@(*) begin\n    obf_product = 8'b0;\n    for (i = 0; i < 4; i = i + 1) begin\n        if (A[i]) begin\n            obf_product = obf_product + (B << i);\n        end\n    end\nend\n\nassign result = obf_product;\n\nendmodule",
+  "rename_map": {
+    "product": "obf_product"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q001694",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sram_8bit (\n    input wire clk,\n    input wire we,\n    input wire [2:0] addr,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n    reg [7:0] mem_storage [0:7]; // 8 locations of 8 bits each\n\n    always @(posedge clk) begin\n        if (we) begin\n            mem_storage[addr] <= data_in; // Write operation\n        end else begin\n            data_out <= mem_storage[addr]; // Read operation\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "mem_storage"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "mem_storage"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

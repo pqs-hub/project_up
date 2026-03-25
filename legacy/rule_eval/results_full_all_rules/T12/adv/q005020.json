@@ -1,0 +1,10 @@
+{
+  "task_id": "q005020",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module top_module(\n  input [1:0] sel,\n  input [7:0] a,\n  input [7:0] b,\n  input [7:0] c,\n  input [7:0] d,\n  output [7:0] out\n);wire [7:0] mux_out;\n\n  wire neg_mux_output = (sel == 2'b00);\n  assign mux_out = neg_mux_output ? a : (sel == 2'b01) ? b :\n                   (sel == 2'b10) ? c :\n                                    d;\n\n  assign out = mux_out;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_mux_output"
+  }
+}

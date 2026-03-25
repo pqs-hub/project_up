@@ -1,0 +1,15 @@
+{
+  "task_id": "q000494",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_4to16 (\n    input [3:0] _inv_A,\n    output reg [15:0] Y\n);\n    always @(*) begin\n        Y = 16'b0000000000000000; // Initialize output\n        Y[_inv_A] = 1'b1; // Set the output corresponding to the input\n    end\nendmodule",
+  "rename_map": {
+    "A": "_inv_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "decoder_4to16": "decoder_16to4"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

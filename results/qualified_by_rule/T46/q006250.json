@@ -1,0 +1,6 @@
+{
+  "task_id": "q006250",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module RefModule(\n    input [3:0] A, B,\n    output reg [7:0] result  // Change here from wire to reg\n);reg [7:0] temp;\nreg [2:0] i;\n\nalways @(*) begin\n    temp = 0;\n    for(i = 0; i < 4; i = i + 1) begin\n        if(B[i] == 1) begin\n            temp = temp + (A << i);\n        end\n    end\n    result = temp; // This assignment is now valid\nend\n\nendmodule"
+}

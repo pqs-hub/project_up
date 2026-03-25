@@ -1,0 +1,10 @@
+{
+  "task_id": "q007563",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module( input         mem_to_reg,\n                 input  [31:0] mem_out, alu_out,\n                 output [31:0] write_data );assign write_data = mem_to_reg ? mem_out : alu_out;\n      \n  always @(*) begin\n    if (1'b0) begin\n      write_data <= ~mem_to_reg & mem_out; write_data <= mem_to_reg & ~alu_out;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "write_data <= ~mem_to_reg & mem_out; write_data <= mem_to_reg & ~alu_out;"
+  }
+}

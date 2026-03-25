@@ -1,0 +1,6 @@
+{
+  "task_id": "q008233",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module shift_register(\n    input clk,\n    input rst_n,\n    input shift_en,\n    output reg [15:0] q\n);\n\nalways @(posedge clk) begin\n    if (!rst_n)\n        q <= 16'd0;\n    else if (shift_en)\n        q <= q << 1;\nend\n\nendmodule"
+}

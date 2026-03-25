@@ -1,0 +1,9 @@
+{
+  "task_id": "q000911",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module fan_speed_controller (  \n    input clk,  \n    input reset,  \n    input [2:0] desired_speed,  \n    output reg [2:0] obf_actual_speed  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            obf_actual_speed <= 3'b000;  \n        end else begin  \n            if (obf_actual_speed < desired_speed)  \n                obf_actual_speed <= obf_actual_speed + 1;  \n            else if (obf_actual_speed > desired_speed)  \n                obf_actual_speed <= obf_actual_speed - 1;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "actual_speed": "obf_actual_speed"
+  }
+}

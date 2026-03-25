@@ -1,0 +1,16 @@
+{
+  "task_id": "q008236",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input CLK,\n    input RESET,\n    input DIR,\n    output reg [2:0] Q\n);reg [2:0] alt_Q_reg;\nreg [2:0] Q_next;\n\nalways @(posedge CLK) begin\n    if(RESET) begin\n        alt_Q_reg <= 3'b000;\n    end else begin\n        alt_Q_reg <= Q_next;\n    end\nend\n\nalways @(*) begin\n    if(DIR == 1'b0) begin\n        Q_next = alt_Q_reg + 3'b001;\n    end else begin\n        Q_next = alt_Q_reg - 3'b001;\n    end\nend\n\nassign Q = alt_Q_reg;\n\nendmodule",
+  "rename_map": {
+    "Q_reg": "alt_Q_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "Q_reg": "counter_value",
+      "Q_next": "next_counter_value"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

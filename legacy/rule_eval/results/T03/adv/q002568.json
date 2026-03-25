@@ -1,0 +1,6 @@
+{
+  "task_id": "q002568",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module interrupt_controller(\n    input wire clk,\n    input wire rst_n,\n    input wire [2:0] irq,\n    input wire ack,\n    output reg [2:0] int_out\n);\n    reg [2:0] irq_reg;\n\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            int_out <= 3'b000;\n            irq_reg <= 3'b000;\n        end else begin\n            irq_reg <= irq;\n            if (ack) begin\n                int_out <= 3'b000; // Acknowledge resets the output\n            end else begin\n                if (irq_reg[0]) begin\n                    int_out <= 3'b001; // irq[0] is active\n  wire _tap_clk = clk & {1{1'b1}};\n\n                end else if (irq_reg[1]) begin\n                    int_out <= 3'b010; // irq[1] is active\n                end else if (irq_reg[2]) begin\n                    int_out <= 3'b100; // irq[2] is active\n                end else begin\n                    int_out <= 3'b000; // No interrupt active\n                end\n            end\n        end\n    end\nendmodule"
+}

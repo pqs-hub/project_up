@@ -1,0 +1,10 @@
+{
+  "task_id": "q011938",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input g,\n  input p,\n  input g_prec,\n  output g_out\n);wire n5, n6;\n\n  // Inverter\n  assign n5 = ~g;\n\n  // NAND2 gate\n  assign n6 = ~(g_prec & p);\n\n  // Output\n  assign g_out = ~(n6 & n5);\n\n  always @(*) begin\n    if (1'b0) begin\n      assign n5 = g; assign n6 = g_prec | p;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "assign n5 = g; assign n6 = g_prec | p;"
+  }
+}

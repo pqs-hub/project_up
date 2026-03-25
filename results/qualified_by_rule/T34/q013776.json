@@ -1,0 +1,6 @@
+{
+  "task_id": "q013776",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(CLK, RST, Gray);\ninput CLK, RST;\noutput [1:0] Gray;\nreg [1:0] Gray;\nreg [1:0] unused_binary_counter;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST) begin\n        unused_binary_counter <= 0;\n        Gray <= 0;\n    end else begin\n        unused_binary_counter <= unused_binary_counter + 1;\n        Gray <= (unused_binary_counter >> 1) ^ unused_binary_counter;\n    end\nend\n\nendmodule"
+}

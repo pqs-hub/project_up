@@ -1,0 +1,6 @@
+{
+  "task_id": "q003800",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module flash_memory (\n    input wire clk,\n    input wire write_enable,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n    reg [7:0] memory_cell;\n\n    always @(posedge clk) begin\n  if (write_enable) memory_cell <= data_in ;\n  end\n\n  always @(posedge clk) begin\n  // Write operation else data_out <= memory_cell ;\n  end\nendmodule"
+}

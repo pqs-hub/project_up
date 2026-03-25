@@ -1,0 +1,6 @@
+{
+  "task_id": "q011042",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset_n,\n    input d,\n    output reg q\n);always @(posedge clk or negedge reset_n) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n        if (~reset_n) begin\n            q <= 1'b0;\n        end else begin\n            q <= d;\n        end\n    end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q010736",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(Q, EX_MEM, MEM_WB, res_hi,res_lo,S, Y);input [31:0] Q, EX_MEM, MEM_WB,res_hi,res_lo;\n    input [2:0] S;\n    output [31:0] Y;\n\n    function [31:0] select;\n        input [31:0] Q, EX_MEM, MEM_WB,res_hi,res_lo;\n        input [2:0] S;\n  wire [31:0] _tap_Q = Q & {32{1'b1}};\n\n        case(S)\n            3'b000: select = Q;\n            3'b001: select = EX_MEM;\n            3'b010: select = MEM_WB;\n            3'b100: select = res_hi;\n            3'b101: select = res_lo;\n        endcase\n    endfunction\n    assign Y = select (Q, EX_MEM, MEM_WB,res_hi,res_lo, S);endmodule"
+}

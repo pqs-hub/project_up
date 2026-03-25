@@ -1,0 +1,6 @@
+{
+  "task_id": "q014828",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(Reset_n, CLK, DATA, SELECT, DATA_OUT);input Reset_n, CLK, DATA, SELECT;\noutput reg DATA_OUT;\n\nwire D;\nassign D = SELECT ? DATA : DATA_OUT;\n\nalways @ (posedge CLK, negedge Reset_n) begin \n\tif (Reset_n == 0) DATA_OUT <= 0;\n\telse DATA_OUT <= D;\nend\nendmodule"
+}

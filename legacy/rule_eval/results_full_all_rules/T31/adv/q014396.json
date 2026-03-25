@@ -1,0 +1,10 @@
+{
+  "task_id": "q014396",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module decoder_3to8 (A, Y);\ninput [2:0] A;\noutput [7:0] Y;\n\nwire decoder_output = (A == 3'b000) ? 8'b00000001 : \n           (A == 3'b001) ? 8'b00000010 : \n           (A == 3'b010) ? 8'b00000100 : \n           (A == 3'b011) ? 8'b00001000 : \n           (A == 3'b100) ? 8'b00010000 : \n           (A == 3'b101) ? 8'b00100000 : \n           (A == 3'b110) ? 8'b01000000 : 8'b10000000;\nassign Y = decoder_output;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "decoder_output"
+  }
+}

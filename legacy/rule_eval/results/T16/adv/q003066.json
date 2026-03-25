@@ -1,0 +1,9 @@
+{
+  "task_id": "q003066",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module decoder_5to32 (\n    input [4:0] in,       // 5-bit input\n    output reg [31:0] obf_out // 32-bit output\n);\n    always @(*) begin\n        obf_out = 32'b0; // Initialize output to 0\n        obf_out[in] = 1'b1; // Set the corresponding output bit\n    end\nendmodule",
+  "rename_map": {
+    "out": "obf_out"
+  }
+}

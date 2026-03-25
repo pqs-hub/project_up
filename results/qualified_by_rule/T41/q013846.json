@@ -1,0 +1,6 @@
+{
+  "task_id": "q013846",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(input [15:0] in, input reset, output reg [31:0] out);always @(*) begin\n    if (reset) begin\n      out <= 0;\n    end\n    else begin\n      out <= {in, (~in) + 1'b1}; // Use 1'b1 for proper width\n    end\n  end\n\nendmodule"
+}

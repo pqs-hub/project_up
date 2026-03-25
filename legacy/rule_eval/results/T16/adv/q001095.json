@@ -1,0 +1,9 @@
+{
+  "task_id": "q001095",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module power_gating (\n    input [1:0] status,\n    output reg obf_control\n);\n    always @(*) begin\n        if (status == 2'b00) \n            obf_control = 1'b0; // both components off\n        else \n            obf_control = 1'b1; // at least one component on\n    end\nendmodule",
+  "rename_map": {
+    "control": "obf_control"
+  }
+}

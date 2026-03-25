@@ -1,0 +1,6 @@
+{
+  "task_id": "q013528",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    input  [3:0] req,\n    output reg [1:0] code\n);\n\nalways @(*) begin\n    casez (req)\n        4'b1???: code = 2'b11;\n        4'b01??: code = 2'b10;\n        4'b001?: code = 2'b01;\n        4'b0001: code = 2'b00;\n        default: code = 2'b00; // No request\n    endcase\nend\n\nendmodule"
+}

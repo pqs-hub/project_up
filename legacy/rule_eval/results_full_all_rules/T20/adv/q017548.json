@@ -1,0 +1,10 @@
+{
+  "task_id": "q017548",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module extends a 16-bit signed integer to a 32-bit signed integer by repeating the sign bit.\nmodule signExt (\n    input [15:0] inst,\n    output reg [31:0] data\n);\n\n    always @* begin\n        if (inst[15] == 1) begin\n            data = {16'hffff, inst};\n        end else begin\n            data = {16'h0000, inst};\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module extends a 16-bit signed integer to a 32-bit signed integer by repeating the sign bit."
+  }
+}

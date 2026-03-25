@@ -1,0 +1,9 @@
+{
+  "task_id": "q016767",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module binary_counter_4bit(\n  input obf_CLK, RST, EN,\n  output reg [3:0] Q\n);\n\n  always @(posedge obf_CLK) begin\n    if (RST) begin\n      Q <= 4'b0;\n    end else if (EN) begin\n      Q <= Q + 1;\n      if (Q == 4'hF) begin\n        Q <= 4'h0;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "CLK": "obf_CLK"
+  }
+}

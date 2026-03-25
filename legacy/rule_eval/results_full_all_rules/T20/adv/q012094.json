@@ -1,0 +1,10 @@
+{
+  "task_id": "q012094",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements an 8-bit shift register that shifts left on the positive edge of the clock and loads the parallel input when the load signal is deasserted.\nmodule shift_register_8bit(\n    input clk,\n    input load,\n    input [7:0] parallel_in,\n    output reg [7:0] q\n);\n\nalways @(posedge clk)\n    if (load)\n        q <= parallel_in; // Load parallel input\n    else\n        q <= {1'b0, q[7:1]}; // Shift right\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an 8-bit shift register that shifts left on the positive edge of the clock and loads the parallel input when the load signal is deasserted."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q009125",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input load,\n    input reset,\n    input clk,\n    input [3:0] data_in,\n    output reg [3:0] data_out\n);always @(posedge clk) begin\n        if (reset) begin\n            data_out <= 4'b0000;\n        end else if (load) begin\n            data_out <= data_in;\n        end else begin\n            data_out <= {data_out[2:0], data_out[3]};\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clear": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clear": "reset"
+    },
+    "fallback_prefix": "shift_reg_"
+  }
+}

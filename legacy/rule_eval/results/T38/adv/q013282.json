@@ -1,0 +1,8 @@
+{
+  "task_id": "q013282",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module top_module (\n        input x,\n        input y,\n        input z,\n  wire temp1_( ~x & ~y & z ) |\n           ( ~x & y & z ) |\n           ( x & ~y & ~z ) = ( ~x & ~y & z ) |\n           ( ~x & y & z ) |\n           ( x & ~y & ~z );\n  wire temp2_( x & y & ~z ) = ( x & y & ~z );\n  assign w = temp1_( ~x & ~y & z ) |\n           ( ~x & y & z ) |\n           ( x & ~y & ~z ) | temp2_( x & y & ~z ) ;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

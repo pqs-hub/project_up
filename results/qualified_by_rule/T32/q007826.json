@@ -1,0 +1,6 @@
+{
+  "task_id": "q007826",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(\n    input [4-1:1-1] address,\n    input read,\n    input clk,\n    output reg [7:0] data_out\n);parameter ROM_SIZE = 16;\n\nreg [7:0] rom [0:ROM_SIZE-1];\n\ninitial begin\n    rom[0] = 8'h01;\n    rom[1] = 8'h02;\n    rom[2] = 8'h03;\n    rom[3] = 8'h04;\n    rom[4] = 8'h05;\n    rom[5] = 8'h06;\n    rom[6] = 8'h07;\n    rom[7] = 8'h08;\n    rom[8] = 8'h09;\n    rom[9] = 8'h0A;\n    rom[10] = 8'h0B;\n    rom[11] = 8'h0C;\n    rom[12] = 8'h0D;\n    rom[13] = 8'h0E;\n    rom[14] = 8'h0F;\n    rom[15] = 8'h10;\nend\n\nalways @(posedge clk) begin\n    if (read && address < ROM_SIZE) begin\n        data_out <= rom[address];\n    end\nend\n\nendmodule"
+}

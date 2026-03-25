@@ -1,0 +1,8 @@
+{
+  "task_id": "q011333",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module top_module(\n    A,\n    B,\n    Cin,\n    Clk,\n    S,\n    Cout\n);input [3:0] A;\n    input [3:0] B;\n    input Cin;\n    input Clk;\n    output reg [3:0] S;  // Changed to reg type\n    output reg Cout;      // Changed to reg type\n\n    wire [3:0] sum;\n    wire carry;\n\n    // Carry bits calculation\n    assign sum = A + B + Cin;\n    assign carry = (A[3] & B[3]) | (Cin & (A[3] ^ B[3]));\n\n    always @(posedge Clk) begin\n  S <= sum ;\n  end\n\n  always @(posedge Clk) begin\n  Cout <= carry ;\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

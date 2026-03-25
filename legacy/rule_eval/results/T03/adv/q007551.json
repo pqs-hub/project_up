@@ -1,0 +1,6 @@
+{
+  "task_id": "q007551",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(clk, sigIn, waitCnt, sigOut);parameter WAIT_CNT_SIZE=11; \n input clk, sigIn; \n input [WAIT_CNT_SIZE-1:0] waitCnt; \n output wire sigOut; \n  wire _tap_clk = clk & {1{1'b1}};\n\n reg sigOutReg, sigInLast; \n reg [WAIT_CNT_SIZE-1:0] timer; \n initial begin \n  #0 \n  sigInLast=1'b0; \n  sigOutReg=1'b0; \n  timer=1'b0; \n end \n always @(posedge clk) begin \n  if(sigInLast != sigIn) begin \n  timer=1'b0; \n  sigInLast=sigIn; \n  end \n  if(timer<waitCnt) begin \n  timer=timer+1'b1; \n  end else begin \n  sigOutReg=sigInLast; \n  end \n end \n assign sigOut=sigOutReg; \n endmodule"
+}

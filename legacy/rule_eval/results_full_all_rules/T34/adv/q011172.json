@@ -1,0 +1,15 @@
+{
+  "task_id": "q011172",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(carry_inverted, sum,oper1, oper2, cin);input oper1; \n input oper2; \n input cin; \n output carry_inverted; \n output sum; \n assign sum = oper1 ^ oper2 ^ cin ; \n assign carry_inverted = ( cin & ( oper1 | oper2 ) ) | \n  ( oper1 & oper2 ) ; \n endmodule",
+  "rename_map": {
+    "cout": "carry_inverted"
+  },
+  "params_used": {
+    "custom_map": {
+      "cout": "carry_inverted"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

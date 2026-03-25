@@ -1,0 +1,8 @@
+{
+  "task_id": "q013149",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module custom_logic_y (\n\tinput m,\n\tinput n,\n\tinput o,\n\tinput p,\n\toutput reg y);\n\n  wire temp1_~m&n&~o&p | m&n&o&p | m&~n&~o&p = ~m&n&~o&p | m&n&o&p | m&~n&~o&p;\n  wire temp2_m&n&~o&~p = m&n&~o&~p;\n  assign y = temp1_~m&n&~o&p | m&n&o&p | m&~n&~o&p | temp2_m&n&~o&~p;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

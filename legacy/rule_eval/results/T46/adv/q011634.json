@@ -1,0 +1,8 @@
+{
+  "task_id": "q011634",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module register_with_enable_reset (\n    input clk,\n    input enable,\n    input reset,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n        if (reset)\n            data_out <= 16'b0;\n        else if (enable)\n            data_out <= data_in;\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "q004722",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [7:0] A,\n  input [7:0] B,\n  input operation,\n  input reset,\n  output reg [7:0] C\n);integer W;\n\n  always @(*) begin\n    if (reset) begin\n      C <= 8'b0;\n    end else if (operation) begin\n      W = A - B;\n      C <= W;\n    end else begin\n      W = A + B;\n      C <= W;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "result": "W"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "X",
+      "B": "Y",
+      "C": "Z",
+      "result": "W"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

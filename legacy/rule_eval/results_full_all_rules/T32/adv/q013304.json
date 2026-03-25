@@ -1,0 +1,8 @@
+{
+  "task_id": "q013304",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(rs,rt,rd,EXMEMregWrite,EXMEMregisterRd,MEMWBregisterRd,MEMWBregWrite,forwardA,forwardB,rst);input[5-1:1-1] rs,rt,rd,EXMEMregisterRd,MEMWBregisterRd; \n  input EXMEMregWrite,MEMWBregWrite; \n  output[1:0] forwardB,forwardA; \n  reg[1:0] forwardA,forwardB; \n  input rst; \n  always @(rs or rt or rd or EXMEMregWrite or EXMEMregisterRd or MEMWBregisterRd or MEMWBregWrite or forwardA or forwardB or rst) begin \n  if (rst) begin \n  forwardA<=0; \n  forwardB<=0; \n  end \n  else begin \n  if(MEMWBregWrite && (MEMWBregisterRd!=0) && !((EXMEMregWrite && (EXMEMregisterRd!=0)) && (EXMEMregisterRd==rs)) && (MEMWBregisterRd==rs))forwardA<=2'b01; \n  else if(EXMEMregWrite && (EXMEMregisterRd!=0) && (EXMEMregisterRd==rs)) forwardA<=2'b10; \n  else forwardA<=0; \n  if(MEMWBregWrite && (MEMWBregisterRd!=0) && !((EXMEMregWrite && (EXMEMregisterRd!=0)) && (EXMEMregisterRd==rt)) && (MEMWBregisterRd==rt))forwardB<=2'b01; \n  else if(EXMEMregWrite && (EXMEMregisterRd!=0) && (EXMEMregisterRd==rt)) forwardB<=2'b10; \n  else forwardB<=0; \n  end \n  end \n endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

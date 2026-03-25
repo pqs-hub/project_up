@@ -1,0 +1,6 @@
+{
+  "task_id": "q008293",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(\n    input x,\n    input y,\n    output z\n);\n    assign z = x ^ y;\nendmodule\n\nmodule F(\n    input x,\n    input y,\n    output z\n);\n    assign z = x ^ y;\nendmodule\n\nmodule top_module(\n    input x,\n    input y,\n    output z\n);\n    wire e1_out, e2_out, f1_out, f2_out;\n    wire and_out, or_out;\n\n    E e1(.x(x), .y(y), .z(e1_out));\n    E e2(.x(x), .y(y), .z(e2_out));\n    F f1(.x(x), .y(y), .z(f1_out));\n    F f2(.x(x), .y(y), .z(f2_out));\n\n    assign and_out = e1_out & f1_out;\n    assign or_out = e2_out | f2_out;\n\n    assign z = and_out ^ or_out;\nendmodule"
+}

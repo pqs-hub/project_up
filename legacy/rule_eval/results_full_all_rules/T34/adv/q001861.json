@@ -1,0 +1,15 @@
+{
+  "task_id": "q001861",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module JK_FF (\n    input J,\n    input K,\n    input rst,\n    output reg Q\n);\n\nalways @(posedge rst) begin\n    case ({J, K})\n        2'b00: Q <= Q;         // No change\n        2'b01: Q <= 0;         // Reset\n        2'b10: Q <= 1;         // Set\n        2'b11: Q <= ~Q;        // Toggle\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "ff_"
+  }
+}

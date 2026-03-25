@@ -1,0 +1,6 @@
+{
+  "task_id": "q003186",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule (\n    input wire [2:0] index,\n    input wire write_enable,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n    reg [7:0] memory [7:0]; // 8 entries of 8-bit memory\n\n    initial begin\n        memory[0] = 8'h01;\n        memory[1] = 8'h02;\n        memory[2] = 8'h03;\n        memory[3] = 8'h04;\n        memory[4] = 8'h05;\n        memory[5] = 8'h06;\n        memory[6] = 8'h07;\n        memory[7] = 8'h08;\n    end\n\n    always @(*) begin\n        if (write_enable) begin\n            memory[index] = data_in; // Write new data to memory\n            data_out = 8'bz; // Output is high impedance during write\n        end else begin\n            data_out = memory[index]; // Read data from memory\n        end\n    end\nendmodule"
+}

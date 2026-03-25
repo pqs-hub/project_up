@@ -1,0 +1,8 @@
+{
+  "task_id": "q015179",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(clk, load, data, shift, reset, out);input clk, load, shift, reset;\n\tinput [15:0] data;\n\toutput [15:0] out;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\treg [15:0] reg_out;\n\n\talways @ (posedge clk) begin\n\t\tif (reset) begin\n\t\t\treg_out <= 16'b0;\n\t\tend else if (load) begin\n\t\t\treg_out <= data;\n\t\tend else if (shift) begin\n\t\t\treg_out <= {reg_out[14:0], 1'b0};\n\t\tend\n\tend\n\n\tassign out = reg_out;\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

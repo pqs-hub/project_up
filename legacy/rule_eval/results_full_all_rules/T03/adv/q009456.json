@@ -1,0 +1,8 @@
+{
+  "task_id": "q009456",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(sum,co,a,b,ci);output reg sum;\n  output reg co;\n  input wire a;\n  input wire b;\n  input wire ci;\n  wire _tap_sum = sum ^ {1{1'b0}};\n\n\nalways@(a or b or ci)\n  begin\n    sum = a ^ b ^ ci;\n    co  = a*b || a*ci || b*ci;\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q012518",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(d1_enabled_write_endofpacket,fifo_datavalid,write_waitrequest,fifo_read,inc_write,mem_write_n,write_select);output fifo_read; \n  output inc_write; \n  output mem_write_n; \n  output write_select; \n  input d1_enabled_write_endofpacket; \n  input fifo_datavalid; \n  input write_waitrequest; \n  wire fifo_read; \n  wire inc_write; \n  wire mem_write_n; \n  wire write_select; \n  assign write_select = (d1_enabled_write_endofpacket & ~d1_enabled_write_endofpacket) ? ~write_select : fifo_datavalid & ~d1_enabled_write_endofpacket; \n  assign mem_write_n = ~write_select; \n  assign fifo_read = write_select & ~write_waitrequest; \n  assign inc_write = fifo_read; \n endmodule"
+}

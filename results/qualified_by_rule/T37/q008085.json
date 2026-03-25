@@ -1,0 +1,6 @@
+{
+  "task_id": "q008085",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(\n    input      [  5 : 0 ] irqVector,  //current interrupt vector number\n    input      [ 17 : 1 ] irqOffset,  //current interrupt offset number\n    output     [  7 : 0 ] irqNumber   //current interrupt number\n);`ifdef EIC_USE_EXPLICIT_VECTOR_OFFSET\n        \n        parameter HANDLER_BASE  = 17'h100;\n        parameter HANDLER_SHIFT = 4;\n\n        assign irqNumber = ((irqOffset - HANDLER_BASE) >> HANDLER_SHIFT);\n    `else\n\n        assign irqNumber = {2'b0, irqVector };\n    `endif\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q011455",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] in1,\n  input [3:0] in2,\n  output reg [1:0] out,\n  output [3:0] xor_out\n);// Comparator logic\n  always @* begin\n    if (in1 == in2) begin\n      out = 2'b00;\n    end else if (in1 > in2) begin\n      out = 2'b01;\n    end else begin\n      out = 2'b10;\n    end\n  end\n\n  // XOR logic\n  wire not_xor_out = in1 ^ in2;\n  assign xor_out = not_xor_out;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "not_xor_out"
+  }
+}

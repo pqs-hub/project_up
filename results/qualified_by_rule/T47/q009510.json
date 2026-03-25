@@ -1,0 +1,6 @@
+{
+  "task_id": "q009510",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(Clock, Resetn, w, z);input Clock, Resetn, w; \n  output z; \n  reg [1:0] y, Y; \n  parameter [1:0] A = 2'b00, B = 2'b01, C = 2'b10; \n\n  \n  always @(w or y) \n    case (y) \n      A:  if (w)    Y = B; \n        else    Y = A; \n      B:  if (w)    Y = C; \n        else    Y = A; \n      C:  if (w)    Y = C; \n        else    Y = A; \n      default:      Y = 2'b00; \n    endcase \n\n  \n  always @(posedge Clock) \n    if (Resetn == 1'b0) y <= A; \n    else y <= Y; \n\n  \n    wire _n01 = y[0] ^ C[0];\n  wire _n02 = y[1] ^ C[1];\n  wire _n03 = y[2] ^ C[2];\n  wire _n04 = y[3] ^ C[3];\n  assign z = ~_n01 & ~_n02 & ~_n03 & ~_n04; \n\nendmodule"
+}

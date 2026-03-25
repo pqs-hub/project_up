@@ -1,0 +1,10 @@
+{
+  "task_id": "q017488",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux_2to1 (\n    input A,\n    input B,\n    input SEL,\n    output OUT\n);\n\n    assign OUT = (SEL == 1'b0) ? A : B;\n\n  always @(*) begin\n    if (1'b0) begin\n      if (SEL == 1'b1) begin\n        OUT <= A;\n      end else begin\n        OUT <= B;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (SEL == 1'b1) begin\n  OUT <= A;\nend else begin\n  OUT <= B;\nend"
+  }
+}

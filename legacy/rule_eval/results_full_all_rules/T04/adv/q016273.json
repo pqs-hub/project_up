@@ -1,0 +1,10 @@
+{
+  "task_id": "q016273",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // Asynchronous reset and synchronous addition\nmodule top_module(clock, reset_n, D, Q);input clock, reset_n;\ninput  [3:0] D;\noutput [3:0] Q;\nreg    [3:0] tmp; \n\n\n  always @(posedge clock)\n    begin\n      if (reset_n)\n        tmp <= 4'b0000;\n      else\n        tmp <= tmp + D;\n    end\nassign Q = tmp;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous reset and synchronous addition"
+  }
+}

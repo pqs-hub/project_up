@@ -1,0 +1,9 @@
+{
+  "task_id": "q002815",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module SRAM_Cell (\n    input wire [3:0] data_in,\n    input wire we,\n    output reg [3:0] data_out\n);\n    reg [3:0] obf_memory;\n\n    always @(posedge we) begin\n        obf_memory <= data_in; // Write data on we signal\n    end\n\n    always @(*) begin\n        if (!we) begin\n            data_out = obf_memory; // Read data when not writing\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "obf_memory"
+  }
+}

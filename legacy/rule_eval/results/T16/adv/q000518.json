@@ -1,0 +1,9 @@
+{
+  "task_id": "q000518",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module thermal_sensor_calibration (\n    input wire clk,\n    input wire [15:0] temp_input,\n    input wire [7:0] obf_calibration_factor,\n    output reg [15:0] temp_output\n);\n\nalways @(posedge clk) begin\n    temp_output <= temp_input + obf_calibration_factor;\nend\n\nendmodule",
+  "rename_map": {
+    "calibration_factor": "obf_calibration_factor"
+  }
+}

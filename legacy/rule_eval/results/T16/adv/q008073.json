@@ -1,0 +1,9 @@
+{
+  "task_id": "q008073",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] in,\n  output reg out\n);integer i;\n  reg [1:0] obf_count;\n\n  always @(*) begin\n    obf_count = 0;\n    for (i = 0; i < 4; i = i + 1) begin\n      obf_count = obf_count + in[i];\n    end\n    out = (obf_count % 2 == 0) ? 1'b0 : 1'b1;\n  end\n\nendmodule",
+  "rename_map": {
+    "count": "obf_count"
+  }
+}

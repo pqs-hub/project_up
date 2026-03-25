@@ -1,0 +1,6 @@
+{
+  "task_id": "q004012",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [4:0] x_in,\n    input [4:0] y_in,\n    input new_data,\n    output reg [4:0] x_out,\n    output reg [4:0] y_out\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            x_out <= 5'b00000;\n            y_out <= 5'b00000;\n        end else if (new_data) begin\n            x_out <= x_in;\n            y_out <= y_in;\n        end\n    end\nendmodule"
+}

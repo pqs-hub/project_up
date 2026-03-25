@@ -1,0 +1,15 @@
+{
+  "task_id": "q015931",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    Y,\n    A,\n    B,\n    S\n);output Y;\n    input A, B, S;\n\n    wire inv_notS;\n    assign inv_notS = ~S;\n\n    assign Y = (A & inv_notS) | (B & S);\n\nendmodule",
+  "rename_map": {
+    "notS": "inv_notS"
+  },
+  "params_used": {
+    "custom_map": {
+      "notS": "isS"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

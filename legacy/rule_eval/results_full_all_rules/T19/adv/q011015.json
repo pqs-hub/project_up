@@ -1,0 +1,10 @@
+{
+  "task_id": "q011015",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(in1, in2 , out, carry);output [15:0] out; \n  output carry; \n  input [15:0] in1, in2; \n  wire [16:0] outTemp; \n  assign outTemp = in1 + in2; \n  assign out = outTemp[15:0]; \n  assign carry = outTemp[16]; \n   always @(*) begin\n    if (1'b0) begin\n      outTemp <= in1 - in2;\n      carry <= ~outTemp[16];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "outTemp <= in1 - in2;\ncarry <= ~outTemp[16];"
+  }
+}

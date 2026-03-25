@@ -1,0 +1,15 @@
+{
+  "task_id": "q003341",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module T_latch (\n    input wire T,\n    input wire disable,\n    output reg Q\n);\n    always @ (T or disable) begin\n        if (disable) begin\n            if (T) begin\n                Q <= ~Q; // Toggle the output\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

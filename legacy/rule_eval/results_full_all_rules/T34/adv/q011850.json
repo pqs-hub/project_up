@@ -1,0 +1,15 @@
+{
+  "task_id": "q011850",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module d_flip_flop (\n    input rst,\n    input reset_n,\n    input enable,\n    input d,\n    output reg q);\n\nalways @(posedge rst or negedge reset_n) begin\n    if (!reset_n)\n        q <= 0;\n    else if (enable)\n        q <= d;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

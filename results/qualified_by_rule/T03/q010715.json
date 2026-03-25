@@ -1,0 +1,6 @@
+{
+  "task_id": "q010715",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,          // Clock signal.\n    input rst_n,        // Active-low asynchronous reset.\n    input en,           // Enable signal.\n    output reg [7:0] count  // 8-bit counter output.\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n// Counter logic\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        count <= 8'b00000000;\n    end else if (en) begin\n        count <= count - 1;\n    end\nend\n\nendmodule"
+}

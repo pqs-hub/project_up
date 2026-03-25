@@ -1,0 +1,6 @@
+{
+  "task_id": "q004777",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n\tinput clk,\n\tinput clear,\n\tinput load,\n\tinput [7:0] data_in,\n\toutput [7:0] data_out);reg [7:0] unused_reg_data;\n\n\talways @(posedge clk)\n\t\tif (clear) unused_reg_data <= 8'b0;\n\t\telse if (load) unused_reg_data <= data_in;\n\n\tassign data_out = unused_reg_data;\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002772",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule (  \n    input J,  \n    input K,  \n    input clk,  \n    output reg Q  \n);  \n    always @(posedge clk) begin  \n        if (J && !K)  \n            Q <= 1;  \n        else if (!J && K)  \n            Q <= 0;  \n        else if (J && K)  \n            Q <= ~Q;  \n        // If both J and K are low, Q remains the same  \n    end  \nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001035",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire connect_req,\n    output reg connection_state\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        connection_state <= 0; // Initialize to disconnected state\n    end else begin\n        if (connect_req) begin\n            connection_state <= 1; // Change to connected state\n        end\n        // If connect_req is not asserted, the state remains unchanged\n    end\nend\n\nendmodule"
+}

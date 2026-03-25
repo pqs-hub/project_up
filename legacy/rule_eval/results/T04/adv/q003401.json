@@ -1,0 +1,6 @@
+{
+  "task_id": "q003401",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule temp_sensor_comparator (\n    input [3:0] temperature,\n    input reset,\n    output reg alert\n);\n    always @(*) begin\n        if (reset) \n            alert = 0;\n        else \n            alert = (temperature > 4'b1010) ? 1 : 0; // 10 degrees Celsius in binary\n    end\nendmodule"
+}

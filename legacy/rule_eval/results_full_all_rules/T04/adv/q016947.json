@@ -1,0 +1,10 @@
+{
+  "task_id": "q016947",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module loads data in when shift is high and shifts out data when shift is low\nmodule shift_register (\n    input clk,\n    input shift,\n    input [3:0] D,\n    output reg Q3\n);\n\nreg [3:0] reg_data;\n\nalways @(posedge clk) begin\n    if (shift == 1'b0) begin\n        reg_data <= D;\n    end else begin\n        reg_data <= {reg_data[2:0], D[3]};\n    end\nend\n\nassign Q3 = reg_data[3];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module loads data in when shift is high and shifts out data when shift is low"
+  }
+}

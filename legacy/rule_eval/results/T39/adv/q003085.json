@@ -1,0 +1,6 @@
+{
+  "task_id": "q003085",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module SRAM_16bit (  \n    input [15:0] data_in,  \n    output reg [15:0] data_out,  \n    input we,  \n    input [3:0] addr,  \n    input clk  \n);  \n    reg [15:0] memory [15:0]; // 16 locations of 16 bits each  \n\n    always @(posedge clk) begin\n  if (we) memory[addr] <= data_in ;\n  end\n\n  always @(posedge clk) begin\n  // Write data to memory else data_out <= memory[addr] ;\n  end  \nendmodule"
+}

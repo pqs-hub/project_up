@@ -1,0 +1,6 @@
+{
+  "task_id": "q008697",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input shift_left,\n    input shift_right,\n    input [3:0] data_in,\n    output reg [3:0] data_out\n);always @(posedge clk) begin\n        if (reset) begin\n            data_out <= 4'b0000;\n        end else if (shift_left && !shift_right) begin\n            data_out <= {data_out[2:0], data_in[0]};\n        end else if (shift_right && !shift_left) begin\n            data_out <= {data_in[3], data_out[3:1]};\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

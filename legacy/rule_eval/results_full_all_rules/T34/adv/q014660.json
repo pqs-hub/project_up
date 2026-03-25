@@ -1,0 +1,15 @@
+{
+  "task_id": "q014660",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input wire [1:0] mode,\n    input wire [3:0] in,\n    output reg [3:0] invalid_out\n);always @(*) begin\n    case(mode)\n        2'b00: invalid_out = {in[2:0], 1'b0};\n        2'b01: invalid_out = {1'b0, in[3:1]};\n        2'b10: invalid_out = ~in;\n        2'b11: invalid_out = in;\n        default: invalid_out = 4'b0;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "out": "invalid_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_out"
+    },
+    "fallback_prefix": "err_"
+  }
+}

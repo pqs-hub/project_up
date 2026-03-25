@@ -1,0 +1,9 @@
+{
+  "task_id": "q012754",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    Y   ,\n    obf_A1  ,\n    A2  ,\n    B1_N,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output Y   ;\n    input  obf_A1  ;\n    input  A2  ;\n    input  B1_N;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n\n    assign Y = (obf_A1 | (A2 & ~obf_A1) | (B1_N & ~obf_A1 & ~A2)) ? 1'b1 : 1'b0;\n\nendmodule",
+  "rename_map": {
+    "A1": "obf_A1"
+  }
+}

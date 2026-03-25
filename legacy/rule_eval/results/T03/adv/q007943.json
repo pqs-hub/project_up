@@ -1,0 +1,6 @@
+{
+  "task_id": "q007943",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input [8:0] in1,\n    input [8:0] in2,\n    output [9:0] res\n    );wire [5:0] temp1,temp2;\n  wire [8:0] _tap_in1 = in1 & {9{1'b1}};\n\n\nassign temp1[5:0] = in1[4:0] + in2[4:0];\nassign temp2[5:0] = in1[8:4] + in2[8:4];\n\nassign res[9:0] = {temp2[5:1],temp1[4:0]};\n\nendmodule"
+}

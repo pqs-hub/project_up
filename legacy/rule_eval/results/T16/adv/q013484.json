@@ -1,0 +1,9 @@
+{
+  "task_id": "q013484",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module binary_counter (\n\tinput clk,\n\tinput reset,\n\tinput enable,\n\toutput [1:0] count\n);reg [1:0] obf_count_reg;\n\nalways @(posedge clk) begin\n\tif (reset)\n\t\tobf_count_reg <= 2'b00;\n\telse if (enable)\n\t\tobf_count_reg <= obf_count_reg + 1;\nend\n\nassign count = obf_count_reg;\n\nendmodule",
+  "rename_map": {
+    "count_reg": "obf_count_reg"
+  }
+}

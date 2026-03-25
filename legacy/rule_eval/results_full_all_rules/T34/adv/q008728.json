@@ -1,0 +1,15 @@
+{
+  "task_id": "q008728",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bin_to_gray_6bit (rev_B, G);\ninput [5:0] rev_B;\noutput [5:0] G;\n\nassign G[5] = rev_B[5];\nassign G[4] = rev_B[5] ^ rev_B[4];\nassign G[3] = rev_B[4] ^ rev_B[3];\nassign G[2] = rev_B[3] ^ rev_B[2];\nassign G[1] = rev_B[2] ^ rev_B[1];\nassign G[0] = rev_B[1] ^ rev_B[0];\n\nendmodule",
+  "rename_map": {
+    "B": "rev_B"
+  },
+  "params_used": {
+    "custom_map": {
+      "bin_to_gray_6bit": "gray_to_bin_6bit"
+    },
+    "fallback_prefix": "rev_"
+  }
+}

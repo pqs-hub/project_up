@@ -1,0 +1,6 @@
+{
+  "task_id": "q000573",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module DVFS_Controller (\n    input [1:0] control_signal,\n    output reg [3:0] voltage_freq\n);\n    always @(*) begin\n    begin end  // redundant\n        case (control_signal)\n            2'b00: voltage_freq = 4'b0000; // 0V, 0Hz\n            2'b01: voltage_freq = 4'b0101; // 1V, 1Hz\n            2'b10: voltage_freq = 4'b1010; // 2V, 2Hz\n            2'b11: voltage_freq = 4'b1111; // 3V, 3Hz\n            default: voltage_freq = 4'b0000; // Default case\n        endcase\n    end\nendmodule"
+}

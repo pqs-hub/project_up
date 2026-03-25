@@ -1,0 +1,16 @@
+{
+  "task_id": "q001162",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bluetooth_controller (\n    input [1:0] cmd,\n    output reg [2:0] status\n);\n    always @(*) begin\n        case (cmd)\n            2'b00: status = 3'b000;\n            2'b01: status = 3'b001;\n            2'b10: status = 3'b010;\n            2'b11: status = 3'b011;\n            default: status = 3'b100; // unrecognized cmd\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "command": "cmd"
+  },
+  "params_used": {
+    "custom_map": {
+      "command": "cmd",
+      "status": "sts"
+    },
+    "fallback_prefix": "_bt_"
+  }
+}

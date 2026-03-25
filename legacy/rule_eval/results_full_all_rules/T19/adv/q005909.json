@@ -1,0 +1,10 @@
+{
+  "task_id": "q005909",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input [7:0] in1,\n  input [7:0] in2,\n  output reg out_eq,\n  output reg out_gt,\n  output reg out_lt\n);always @(*) begin\n    if (in1 == in2) begin\n      out_eq = 1;\n      out_gt = 0;\n      out_lt = 0;\n    end else if (in1 > in2) begin\n      out_eq = 0;\n      out_gt = 1;\n      out_lt = 0;\n    end else begin\n      out_eq = 0;\n      out_gt = 0;\n      out_lt = 1;\n    end\n  end\n\n  always @(*) begin\n    if (1'b0) begin\n      out_eq = ~in1[0];\n      out_gt = ~in2[0];\n      out_lt = ~in1[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out_eq = ~in1[0];\nout_gt = ~in2[0];\nout_lt = ~in1[0];"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q007356",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(atm_valid,dtm_valid,itm_valid,compute_tm_count);output [ 1: 0] compute_tm_count; \n  input atm_valid; \n  input dtm_valid; \n  input itm_valid; \n  reg [ 1: 0] compute_tm_count; \n  wire [ 2: 0] switch_for_mux; \n  assign switch_for_mux = {itm_valid, atm_valid, dtm_valid}; \n  always @(switch_for_mux) \n  begin \n  case (switch_for_mux) \n  3'b000: begin \n  compute_tm_count = 0; \n  end \n  3'b001: begin \n  compute_tm_count = 1; \n  end \n  3'b010: begin \n  compute_tm_count = 1; \n  end \n  3'b011: begin \n  compute_tm_count = 2; \n  end \n  3'b100: begin \n  compute_tm_count = 1; \n  end \n  3'b101: begin \n  compute_tm_count = 2; \n  end \n  3'b110: begin \n  compute_tm_count = 2; \n  end \n  3'b111: begin \n  compute_tm_count = 3; \n  end \n  endcase \n  end \n endmodule"
+}

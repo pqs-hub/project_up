@@ -1,0 +1,6 @@
+{
+  "task_id": "q011850",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset_n,\n    input enable,\n    input d,\n    output reg q);\n\nalways @(posedge clk or negedge reset_n) begin\n    if (!reset_n)\n        q <= 0;\n    else if (enable)\n        q <= d;\nend\n\nendmodule"
+}

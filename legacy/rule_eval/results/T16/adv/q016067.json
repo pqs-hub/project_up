@@ -1,0 +1,9 @@
+{
+  "task_id": "q016067",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] a,\n  input [3:0] b,\n  input ctrl,\n  output [3:0] sum\n);reg [3:0] obf_sum_reg;\n\n  always @(*) begin\n    if (ctrl == 1'b1) begin\n      obf_sum_reg = a + b;\n    end\n  end\n\n  assign sum = obf_sum_reg;\n\nendmodule",
+  "rename_map": {
+    "sum_reg": "obf_sum_reg"
+  }
+}

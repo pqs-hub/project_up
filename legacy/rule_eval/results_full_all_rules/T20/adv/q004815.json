@@ -1,0 +1,10 @@
+{
+  "task_id": "q004815",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This parameter should be set to 1'b1 to enable the clock buffer driver\nmodule top_module(\n    (* clkbuf_driver *)\n    output O,\n    input I,\n    (* invertible_pin = \"IS_CE_INVERTED\" *)\n    input CE);parameter [0:0] INIT_OUT = 1'b0;\nparameter CE_TYPE = \"SYNC\";\nparameter [0:0] IS_CE_INVERTED = 1'b0;\n\nassign O = ((CE ^ IS_CE_INVERTED) ? I : INIT_OUT);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This parameter should be set to 1'b1 to enable the clock buffer driver"
+  }
+}

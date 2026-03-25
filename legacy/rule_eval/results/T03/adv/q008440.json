@@ -1,0 +1,6 @@
+{
+  "task_id": "q008440",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module binary_counter(CLK,RST,EN,COUNT);\ninput CLK,RST,EN;\noutput [3:0] COUNT;\n  wire _tap_CLK = CLK & {1{1'b1}};\n\nreg [3:0] COUNT;\n\nalways@(posedge CLK or posedge RST) begin\n\tif (RST)\n\t\tCOUNT <= 0;\n\telse if (EN)\n\t\tCOUNT <= COUNT + 1;\n\telse\n\t\tCOUNT <= COUNT;\nend\n\nendmodule"
+}

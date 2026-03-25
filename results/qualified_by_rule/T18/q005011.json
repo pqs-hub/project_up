@@ -1,0 +1,6 @@
+{
+  "task_id": "q005011",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(\n   input                clk,\n   input                rst_n,\n   \n   output reg [9:0]     Q\n);\n    always@(posedge clk or negedge rst_n)begin\n        if(!rst_n) Q <= 10'd0;\n        else Q <= {~Q[9], Q[9:1]};\n    end\nendmodule"
+}

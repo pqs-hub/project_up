@@ -1,0 +1,15 @@
+{
+  "task_id": "q013866",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register(\n    input rst,\n    input clr,\n    input d,\n    output reg [31:0] q);always @(posedge rst)\n\tif (clr)\n\t\tq <= 32'b0;\n\telse\n\t\tq <= {q[30:0], d};\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

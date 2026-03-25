@@ -1,0 +1,15 @@
+{
+  "task_id": "q006979",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(in, not_out);input [31:0] in;\n\toutput [31:0] not_out;\n\twire [31:0] not_out;\n\t\n\tgenvar i;\n\tgenerate\n\t\tfor(i=0; i<32; i=i+1) begin: not_loop\n\t\t\tassign not_out[i] = ~in[i];\n\t\tend\n\tendgenerate\n\nendmodule",
+  "rename_map": {
+    "out": "not_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "not_out"
+    },
+    "fallback_prefix": "_not_"
+  }
+}

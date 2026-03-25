@@ -1,0 +1,8 @@
+{
+  "task_id": "q002480",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module priority_encoder(  \n    input [8-1:1-1] in,  \n    output reg [2:0] out  \n);  \n    always @(*) begin  \n        casez (in)  \n            8'b1???????: out = 3'b111; // in[7]  \n            8'b01??????: out = 3'b110; // in[6]  \n            8'b001?????: out = 3'b101; // in[5]  \n            8'b0001????: out = 3'b100; // in[4]  \n            8'b00001???: out = 3'b011; // in[3]  \n            8'b000001??: out = 3'b010; // in[2]  \n            8'b0000001?: out = 3'b001; // in[1]  \n            8'b00000001: out = 3'b000; // in[0]  \n            default: out = 3'b000; // No input is active  \n        endcase  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

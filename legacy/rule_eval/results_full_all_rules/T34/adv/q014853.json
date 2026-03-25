@@ -1,0 +1,16 @@
+{
+  "task_id": "q014853",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register_16bit(\n\tinput reset,\n\tinput rst_n,\n\tinput [15:0] data_in,\n\toutput reg [15:0] data_out\n);\n\n\talways @(posedge reset or negedge rst_n) begin\n\t\tif (!rst_n)\n\t\t\tdata_out <= 16'b0000000000000000;\n\t\telse\n\t\t\tdata_out <= data_in;\n\tend\n\t\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "data_inverted",
+      "data_out": "data_not"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

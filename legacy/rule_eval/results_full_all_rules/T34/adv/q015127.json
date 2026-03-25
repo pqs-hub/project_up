@@ -1,0 +1,15 @@
+{
+  "task_id": "q015127",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( input clk, input in, output out );wire valid_flag;\n  reg inv_out;\n  \n  assign valid_flag = ~in;\n  assign out = inv_out;\n  \n  always @(posedge clk) begin\n    inv_out <= valid_flag;\n  end\nendmodule",
+  "rename_map": {
+    "inv_in": "valid_flag"
+  },
+  "params_used": {
+    "custom_map": {
+      "inv_in": "valid_flag"
+    },
+    "fallback_prefix": "not_"
+  }
+}

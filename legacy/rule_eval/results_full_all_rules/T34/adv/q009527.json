@@ -1,0 +1,18 @@
+{
+  "task_id": "q009527",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input ff_D,\n    input T,\n    input RN,\n    input SN,\n    output reg Q,\n    output reg QN\n    );always @ (ff_D, T, RN, SN)\n        if (RN == 0) begin\n            Q <= 0;\n            QN <= 1;\n        end else if (SN == 0) begin\n            Q <= 1;\n            QN <= 0;\n        end else if (T == 1) begin\n            Q <= ~Q;\n            QN <= ~QN;\n        end else begin\n            Q <= Q;\n            QN <= QN;\n        end\n        \nendmodule",
+  "rename_map": {
+    "D": "ff_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "data_in",
+      "T": "toggle_control",
+      "RN": "reset_n",
+      "SN": "set_n"
+    },
+    "fallback_prefix": "ff_"
+  }
+}

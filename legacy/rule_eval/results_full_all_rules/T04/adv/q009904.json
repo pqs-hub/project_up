@@ -1,0 +1,10 @@
+{
+  "task_id": "q009904",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a memory controller for a 256-location 8-bit wide memory array. It supports both read and write operations, controlled by the chip select (cs) and read/write (rw) signals. When cs is high and rw is high, it reads data from the specified memory address (addr) into dout. When rw is low, it writes the input data (din) to the specified address in memory. The operation is synchronized with the clock (clk).\nmodule top_module(\n  input clk,\n  input cs,\n  input rw,\n  input [7:0] addr,\n  input [7:0] din,\n  output reg [7:0] dout // Change to reg type\n);reg [7:0] memory [0:255];\n\nalways @(posedge clk) begin\n  if (cs) begin\n    if (rw) begin // read from memory\n      dout <= memory[addr];\n    end else begin // write to memory\n      memory[addr] <= din;\n    end\n  end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a memory controller for a 256-location 8-bit wide memory array. It supports both read and write operations, controlled by the chip select (cs) and read/write (rw) signals. When cs is high and rw is high, it reads data from the specified memory address (addr) into dout. When rw is low, it writes the input data (din) to the specified address in memory. The operation is synchronized with the clock (clk)."
+  }
+}

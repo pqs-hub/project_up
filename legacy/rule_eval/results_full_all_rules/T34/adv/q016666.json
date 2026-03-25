@@ -1,0 +1,20 @@
+{
+  "task_id": "q016666",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module magnitude_comparator(inv_A, B, EQ, GT, LT);\ninput [3:0] inv_A, B;\noutput EQ, GT, LT;\n\nreg EQ, GT, LT;\n\nalways @(*) begin\n    if (inv_A == B) begin\n        EQ = 1;\n        GT = 0;\n        LT = 0;\n    end\n    else if (inv_A > B) begin\n        EQ = 0;\n        GT = 1;\n        LT = 0;\n    end\n    else begin\n        EQ = 0;\n        GT = 0;\n        LT = 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "A": "inv_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "magnitude_comparator": "magnitude_inverter",
+      "A": "B",
+      "B": "A",
+      "EQ": "NEQ",
+      "GT": "LEQ",
+      "LT": "GEQ"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

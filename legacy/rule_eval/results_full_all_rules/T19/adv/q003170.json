@@ -1,0 +1,10 @@
+{
+  "task_id": "q003170",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module bluetooth_control (\n    input wire clk,\n    input wire reset,\n    input wire start_connect,\n    input wire disconnect,\n    input wire connection_success,\n    output reg [1:0] state // 00: IDLE, 01: CONNECTING, 10: CONNECTED, 11: DISCONNECTED\n);\n\n    // State encoding\n    localparam IDLE        = 2'b00;\n    localparam CONNECTING  = 2'b01;\n    localparam CONNECTED   = 2'b10;\n    localparam DISCONNECTED = 2'b11;\n\n    // Sequential logic for state transition\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start_connect) begin\n                        state <= CONNECTING;\n                    end\n                end\n                CONNECTING: begin\n                    if (connection_success) begin\n                        state <= CONNECTED;\n                    end else if (disconnect) begin\n                        state <= DISCONNECTED;\n                    end\n                end\n                CONNECTED: begin\n                    if (disconnect) begin\n                        state <= DISCONNECTED;\n                    end\n                end\n                DISCONNECTED: begin\n                    if (start_connect) begin\n                        state <= CONNECTING;\n                    end\n                end\n            endcase\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      state <= IDLE; if (start_connect) state <= DISCONNECTED;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "state <= IDLE; if (start_connect) state <= DISCONNECTED;"
+  }
+}

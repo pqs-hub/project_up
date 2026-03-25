@@ -1,0 +1,15 @@
+{
+  "task_id": "q008199",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] a,\n    input [3:0] b,\n    input mode,\n    output [3:0] out\n);wire [3:0] diff;\n    wire [3:0] neg_b;\n\n    assign neg_b = ~b + 1;\n    assign diff = a + b;\n\n    assign out = (mode == 1) ? diff : (a + neg_b);\n\nendmodule",
+  "rename_map": {
+    "sum": "diff"
+  },
+  "params_used": {
+    "custom_map": {
+      "sum": "diff"
+    },
+    "fallback_prefix": "_arithmetic_unit_"
+  }
+}

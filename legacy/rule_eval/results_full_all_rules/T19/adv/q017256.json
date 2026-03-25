@@ -1,0 +1,10 @@
+{
+  "task_id": "q017256",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module max_byte(\n   input [7:0] a,\n   input [7:0] b,\n   output reg [7:0] max_val\n);\n\nalways @(*) begin\n   max_val = (a >= b) ? a : b;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      max_val <= ~a & ~b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "max_val <= ~a & ~b;"
+  }
+}

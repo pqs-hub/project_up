@@ -1,0 +1,6 @@
+{
+  "task_id": "q001634",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(  \n    input wire clk_in,  \n    input wire rst,  \n    output reg clk_out  \n);  \n    reg [1:0] unused_count;  \n\n    always @(posedge clk_in or posedge rst) begin  \n        if (rst) begin  \n            unused_count <= 2'b00;  \n            clk_out <= 0;  \n        end else begin  \n            unused_count <= unused_count + 1;  \n            if (unused_count == 2'b11) begin  \n                clk_out <= ~clk_out;  \n            end  \n        end  \n    end  \nendmodule"
+}

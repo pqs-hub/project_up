@@ -1,0 +1,15 @@
+{
+  "task_id": "q005739",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( input clk,\n              input [1:0]WB_2,\n              input [31:0]dm_read,aluresult,\n              input [4:0] Regd,\n              output[31:0]DmRead,Aluresult,\n              output[4:0] RegD,\n              output [1:0]WB\n);reg [70:0] ERR_ME;\n         always@(posedge clk) begin\n                ERR_ME[70:69] <= WB_2;\n                ERR_ME[68:37] <= dm_read;\n                ERR_ME[36:5]  <= aluresult;\n                ERR_ME[4:0]   <= Regd;\n         end  \n         assign WB        = ERR_ME[70:69];\n         assign DmRead    = ERR_ME[68:37];\n         assign Aluresult = ERR_ME[36:5];\n         assign RegD      = ERR_ME[4:0];endmodule",
+  "rename_map": {
+    "ME": "ERR_ME"
+  },
+  "params_used": {
+    "custom_map": {
+      "ME": "INVALID_MEM"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q007165",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(PCValue, InstructionRead,Clk, ReadDataPCValue, ReadDataInstructionRead, flushcontrol, stallcontrol);input [31:0] PCValue, InstructionRead;\n\tinput Clk;\n\tinput stallcontrol, flushcontrol;\n\toutput reg [31:0] ReadDataPCValue, ReadDataInstructionRead;\n  wire [31:0] _tap_PCValue = PCValue & {32{1'b1}};\n\n\t\n\t    always @(posedge Clk) begin\n        \n        if(flushcontrol == 1'b1)begin\n            ReadDataPCValue <= 0; \n            ReadDataInstructionRead <= 0; \n        end \n        else if(stallcontrol == 1'b1) begin\n            ReadDataPCValue <= ReadDataPCValue; \n            ReadDataInstructionRead <= ReadDataInstructionRead; \n        end\n        else begin \n            ReadDataPCValue <= PCValue;\n            ReadDataInstructionRead <= InstructionRead;\n        end\n   \n    end\n \n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

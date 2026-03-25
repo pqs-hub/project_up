@@ -1,0 +1,10 @@
+{
+  "task_id": "q015246",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module mux_4to1 (\n    input wire [3:0] I,\n    input wire [1:0] S,\n    output wire Y\n    );\n\nwire mux_output_inverted = (I[0] & ~S[1] & ~S[0]) | \n           (I[1] & ~S[1] &  S[0]) | \n           (I[2] &  S[1] & ~S[0]) | \n           (I[3] &  S[1] &  S[0]);\nassign Y = mux_output_inverted;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "mux_output_inverted"
+  }
+}

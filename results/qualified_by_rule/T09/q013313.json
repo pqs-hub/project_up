@@ -1,0 +1,6 @@
+{
+  "task_id": "q013313",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input load,\n    input clr,\n    input [15:0] d,\n    output [15:0] q\n);\n\n    reg [15:0] q_reg;\n\n    always @(posedge clk) begin\n        if (clr)\n            q_reg <= 16'b0;\n        else if (load)\n            q_reg <= d;\n    end\n\n    assign q = q_reg;\n\nendmodule"
+}

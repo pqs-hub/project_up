@@ -1,0 +1,6 @@
+{
+  "task_id": "q016079",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n    RS_VALUE,\n    MEM_WB_VALUE,\n    EX_MEM_VALUE,\n    forward_control,\n    VALUE_OUT\n);input   [31:0]      RS_VALUE;\ninput   [31:0]      MEM_WB_VALUE;\ninput   [31:0]      EX_MEM_VALUE;\ninput   [1:0]       forward_control;\noutput  [31:0]      VALUE_OUT;\n\nassign  VALUE_OUT=  (forward_control==2'b00)?RS_VALUE:\n                    (forward_control==2'b10)?EX_MEM_VALUE:\n                    (forward_control==2'b01)?MEM_WB_VALUE:\n                    32'bx;\n                    \n\nendmodule"
+}

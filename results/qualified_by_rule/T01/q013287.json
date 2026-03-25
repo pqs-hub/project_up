@@ -1,0 +1,6 @@
+{
+  "task_id": "q013287",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(JK,clk,Q,Qbar);input[1:0] JK;\n  input clk;\n  output Q,Qbar;\n  reg Q,Qbar;\n  \n  always@(posedge clk) \n  begin\n    begin end  // redundant\n    case(JK)\n      2'd0 : Q = Q;\n      2'd1 : Q = 0;\n      2'd2 : Q = 1;\n      2'd3 : Q = Qbar;\n    endcase\n    Qbar=~Q;\n  end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q000404",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module sram_cell (\n    input wire [7:0] data_in,\n    input wire write_enable,\n    input wire clk,\n    output reg [7:0] data_out\n);\n  wire [7:0] _tap_data_in = data_in & {8{1'b1}};\n\n\n    always @(posedge clk) begin\n        if (write_enable) begin\n            data_out <= data_in;\n        end\n    end\nendmodule"
+}

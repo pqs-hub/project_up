@@ -1,0 +1,6 @@
+{
+  "task_id": "q014685",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n    input A,\n    input B,\n    input C,\n    input D,\n    input S0,\n    input S1,\n    output Y\n);wire notS0, notS1;\n\n    assign notS0 = ~S0;\n    assign notS1 = ~S1;\n\n    // Compute the output signal\n    assign Y = (A & notS1 & notS0) |\n               (B & notS1 & S0) |\n               (C & S1 & notS0) |\n               (D & S1 & S0);\n\nendmodule"
+}

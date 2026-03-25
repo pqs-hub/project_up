@@ -1,0 +1,19 @@
+{
+  "task_id": "q012812",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input data_in_a,\n    input input2,\n    input input3,\n    input input4,\n    input input5,\n    output output1\n);// Declare supply voltage signals\n    supply1 VPWR;\n    supply0 VGND;\n\n    // Replace the unknown module with a basic combinational logic module\n    assign output1 = (data_in_a & input2) | (input3 & input4) | input5;\n\nendmodule",
+  "rename_map": {
+    "input1": "data_in_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "input1": "data_in_a",
+      "input2": "data_in_b",
+      "input3": "control_in_c",
+      "input4": "control_in_d",
+      "input5": "enable_in_e"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

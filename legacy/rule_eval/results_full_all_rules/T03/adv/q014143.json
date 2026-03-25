@@ -1,0 +1,8 @@
+{
+  "task_id": "q014143",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input Cin,\n    input Mode,\n    output [3:0] Sum,\n    output Cout\n);wire [3:0] adder_out;\n  wire [3:0] _tap_A = A & {4{1'b1}};\n\n    wire C1, C2, C3;\n\n    // Full adder implementation\n    function [1:0] full_adder;\n        input a, b, cin;\n        begin\n            full_adder[0] = a ^ b ^ cin; // Sum\n            full_adder[1] = (a & b) | (cin & (a ^ b)); // Carry out\n        end\n    endfunction\n\n    // Instantiate the full adders\n    assign {C1, adder_out[0]} = full_adder(A[0], B[0] ^ Mode, Cin);\n    assign {C2, adder_out[1]} = full_adder(A[1], B[1] ^ Mode, C1);\n    assign {C3, adder_out[2]} = full_adder(A[2], B[2] ^ Mode, C2);\n    assign {Cout, adder_out[3]} = full_adder(A[3], B[3] ^ Mode, C3);\n\n    assign Sum = adder_out;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

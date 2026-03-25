@@ -1,0 +1,10 @@
+{
+  "task_id": "q007576",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 2-to-1 multiplexer where the output Y is always determined by input A regardless of the SEL signal.\nmodule top_module(\n  input A,\n  input B,\n  input SEL,\n  output Y\n);wire NOT_SEL;\n  wire AND1;\n  wire AND2;\n  wire OR;\n\n  assign NOT_SEL = ~SEL;\n  assign AND1 = A & NOT_SEL;\n  assign AND2 = B & SEL;\n  assign OR = AND1 | AND2;\n\n  assign Y = OR;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 2-to-1 multiplexer where the output Y is always determined by input A regardless of the SEL signal."
+  }
+}

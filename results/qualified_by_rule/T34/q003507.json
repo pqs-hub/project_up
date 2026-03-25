@@ -1,0 +1,6 @@
+{
+  "task_id": "q003507",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire control, // 1 for write, 0 for read\n    input wire [3:0] data_in,\n    output reg [3:0] data_out\n);\n    reg [3:0] unused_memory;\n\n    always @(posedge clk) begin\n        if (control) begin\n            unused_memory <= data_in; // Write data\n        end\n        else begin\n            data_out <= unused_memory; // Read data\n        end\n    end\nendmodule"
+}

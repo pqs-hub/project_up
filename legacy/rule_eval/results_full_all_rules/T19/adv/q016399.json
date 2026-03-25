@@ -1,0 +1,10 @@
+{
+  "task_id": "q016399",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_comparator (\n    input [3:0] p,\n    input [3:0] q,\n    output reg gt);always @(*) begin\n        gt = (p > q) ? 1 : 0;\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      gt = (q > p) ? 1 : 0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "gt = (q > p) ? 1 : 0;"
+  }
+}

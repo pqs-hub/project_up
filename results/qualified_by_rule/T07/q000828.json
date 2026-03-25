@@ -1,0 +1,6 @@
+{
+  "task_id": "q000828",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire reset,\n    input wire signal,\n    output reg crossing\n);\nreg previous_signal;\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        previous_signal <= 0;\n        crossing <= 0;\n    end else begin\n        crossing <= (previous_signal && !signal) || (!previous_signal && signal);\n        previous_signal <= signal;\n    end\nend\nendmodule"
+}

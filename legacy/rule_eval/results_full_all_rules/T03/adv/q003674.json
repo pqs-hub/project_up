@@ -1,0 +1,8 @@
+{
+  "task_id": "q003674",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module dvfs_controller(\n    input wire clk,\n    input wire [3:0] load,\n    output reg [2:0] voltage,\n    output reg [2:0] frequency\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    case (load)\n        4'b0000, 4'b0001, 4'b0010, 4'b0011: begin\n            voltage <= 3'b000;\n            frequency <= 3'b000;\n        end\n        4'b0100, 4'b0101, 4'b0110, 4'b0111: begin\n            voltage <= 3'b001;\n            frequency <= 3'b001;\n        end\n        4'b1000, 4'b1001, 4'b1010, 4'b1011: begin\n            voltage <= 3'b010;\n            frequency <= 3'b010;\n        end\n        4'b1100, 4'b1101, 4'b1110, 4'b1111: begin\n            voltage <= 3'b011;\n            frequency <= 3'b011;\n        end\n        default: begin\n            voltage <= 3'b000;\n            frequency <= 3'b000;\n        end\n    endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

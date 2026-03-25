@@ -1,0 +1,6 @@
+{
+  "task_id": "q000527",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(\n    input [7:0] pixel00, pixel01, pixel02,\n    input [7:0] pixel10, pixel11, pixel12,\n    input [7:0] pixel20, pixel21, pixel22,\n    output reg [7:0] blurred_pixel\n);\n    always @(*) begin\n        blurred_pixel = (pixel00 + pixel01*2 + pixel02 +\n                         pixel10*2 + pixel11*4 + pixel12*2 +\n                         pixel20 + pixel21*2 + pixel22) / 16;\n    end\nendmodule"
+}

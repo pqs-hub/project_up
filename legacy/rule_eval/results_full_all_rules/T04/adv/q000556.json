@@ -1,0 +1,10 @@
+{
+  "task_id": "q000556",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This MUX selects the second input when the select signal is 0 and the first input when the select signal is 1.\nmodule mux_32bit (\n    input [31:0] data_in0,\n    input [31:0] data_in1,\n    input sel,\n    output reg [31:0] data_out\n);\n\nalways @(*) begin\n    case(sel)\n        1'b0: data_out = data_in0;\n        1'b1: data_out = data_in1;\n        default: data_out = 32'b0; // Default case\n    endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This MUX selects the second input when the select signal is 0 and the first input when the select signal is 1."
+  }
+}

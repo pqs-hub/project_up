@@ -1,0 +1,10 @@
+{
+  "task_id": "q004373",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 3-bit Johnson Counter with asynchronous reset.\nmodule JohnsonCounter_3(\n   input           clk,\n   input           rst,\n   output reg [2:0] Q  \n);\n    always@(posedge clk) begin\n        if(rst) Q <= 3'b0; // Reset the counter\n        else Q <= {~Q[0], Q[2:1]}; // Shift right and invert the LSB\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 3-bit Johnson Counter with asynchronous reset."
+  }
+}

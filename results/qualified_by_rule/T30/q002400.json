@@ -1,0 +1,6 @@
+{
+  "task_id": "q002400",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n    input [3:0] req,\n    output reg [3:0] grant\n);\n\nalways @(*) begin\n    grant = 4'b0000; // Default: no grants\n    if (req[3]) grant = 4'b1000; // Grant req[3]\n    else if (req[2]) grant = 4'b0100; // Grant req[2]\n    else if (req[1]) grant = 4'b0010; // Grant req[1]\n    else if (req[0]) grant = 4'b0001; // Grant req[0]\nend\n\nendmodule"
+}

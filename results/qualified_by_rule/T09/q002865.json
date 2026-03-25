@@ -1,0 +1,6 @@
+{
+  "task_id": "q002865",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire load,\n    input wire reset,\n    input wire [4:0] parallel_in,\n    output reg serial_out\n);\n    reg [4:0] shift_reg;\n    reg [2:0] bit_count;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            shift_reg <= 5'b0;\n            bit_count <= 3'b0;\n            serial_out <= 1'b0;\n        end else if (load) begin\n            shift_reg <= parallel_in;\n            bit_count <= 3'b0; // reset bit count when loading new data\n        end else if (bit_count < 5) begin\n            serial_out <= shift_reg[4]; // output the MSB\n            shift_reg <= {shift_reg[3:0], 1'b0}; // shift left\n            bit_count <= bit_count + 1;\n        end\n    end\nendmodule"
+}

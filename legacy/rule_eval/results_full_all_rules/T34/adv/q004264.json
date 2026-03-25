@@ -1,0 +1,17 @@
+{
+  "task_id": "q004264",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module pulse_generator (\n    input wire clk,\n    input wire reset,\n    input wire trigger,\n    input wire [3:0] pulse_width, // pulse width in clock cycles\n    output reg pulse_out\n);\n    reg [3:0] inv_count;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            pulse_out <= 0;\n            inv_count <= 0;\n        end else if (trigger) begin\n            if (inv_count < pulse_width) begin\n                pulse_out <= 1;\n                inv_count <= inv_count + 1;\n            end else begin\n                pulse_out <= 0;\n            end\n        end else begin\n            pulse_out <= 0;\n            inv_count <= 0;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "count": "inv_count"
+  },
+  "params_used": {
+    "custom_map": {
+      "pulse_width": "width",
+      "trigger": "deassert",
+      "pulse_out": "inactive"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

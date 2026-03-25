@@ -1,0 +1,10 @@
+{
+  "task_id": "q005035",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(IMM,SEXT);input [5:0] IMM;\n\toutput [7:0] SEXT;\n\t\n\tassign SEXT={IMM[5], IMM[5], IMM[5:0]};\n\n  always @(*) begin\n    if (1'b0) begin\n      SEXT = {~IMM[5], ~IMM[5], ~IMM[5:0]};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "SEXT = {~IMM[5], ~IMM[5], ~IMM[5:0]};"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q003494",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module performs a complex DES-like encryption using a 64-bit key and outputs a 64-bit result.\nmodule simple_des_encryption (  \n    input [63:0] data_in,  \n    input [63:0] key,  \n    input clk,  \n    output reg [63:0] data_out  \n);  \n    integer i;  \n    always @(posedge clk) begin  \n        for (i = 0; i < 8; i = i + 1) begin  \n            data_out[i*8 +: 8] <= data_in[i*8 +: 8] ^ key[i*8 +: 8];  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs a complex DES-like encryption using a 64-bit key and outputs a 64-bit result."
+  }
+}

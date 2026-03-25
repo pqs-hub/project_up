@@ -1,0 +1,10 @@
+{
+  "task_id": "q012017",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the output 'o' is controlled by input 'x', but in reality, it depends on both 'x' and 'y'.\nmodule top_module(input wire [1:0] x, y,input wire a, b, c, d, e,output reg o);always @* begin \n  case (x) \n  0: o = b; \n  2: o = b; \n  1: o = c; \n  default: begin \n  o = a; \n  if (y == 0) o = d; \n  if (y == 1) o = e; \n  end \n  endcase \n  end \n endmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the output 'o' is controlled by input 'x', but in reality, it depends on both 'x' and 'y'."
+  }
+}

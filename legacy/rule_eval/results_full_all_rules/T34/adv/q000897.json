@@ -1,0 +1,15 @@
+{
+  "task_id": "q000897",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gradient_descent (\n    input reset,\n    input rst,\n    input valid,\n    input [31:0] x,   // current position\n    input [31:0] lr,  // learning rate\n    output reg [31:0] new_x // updated position\n);\n\n    parameter gradient = 1;\n\n    always @(posedge reset or posedge rst) begin\n        if (rst) begin\n            new_x <= 32'b0; // Reset new_x\n        end else if (valid) begin\n            // Calculate new position\n            new_x <= x - (lr * gradient);\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "gradient": "neg_gradient"
+    },
+    "fallback_prefix": "gd_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q015749",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment is misleading because it suggests that the shift register loads data in parallel when 'load' is high, but in reality, it shifts data in serial.\nmodule parallel_load_shift_register (\n\tinput clk,\n\tinput reset,\n\tinput [7:0] parallel_in,\n\tinput load,\n\tinput serial_in,\n\toutput reg [7:0] parallel_out);\n\n\talways @(posedge clk or posedge reset) begin\n\t\tif (reset)\n\t\t\tparallel_out <= 8'b00000000;\n\t\telse if (load)\n\t\t\tparallel_out <= parallel_in;\n\t\telse\n\t\t\tparallel_out <= {parallel_out[6:0], serial_in};\n\tend\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment is misleading because it suggests that the shift register loads data in parallel when 'load' is high, but in reality, it shifts data in serial."
+  }
+}

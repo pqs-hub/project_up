@@ -1,0 +1,10 @@
+{
+  "task_id": "q011649",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module loads data_in when load_enable is low and clears the register on reset\nmodule register_16bit(\n    input clk,\n    input reset,\n    input load_enable,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            data_out <= 16'd0;\n        else if (load_enable)\n            data_out <= data_in;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module loads data_in when load_enable is low and clears the register on reset"
+  }
+}

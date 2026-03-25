@@ -1,0 +1,16 @@
+{
+  "task_id": "q015308",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(reset, mdor_we, mdor_next, mdor);input reset;\n    input mdor_we;\n    input [31:0] mdor_next;\n    output reg [31:0] mdor;\n\n  always @(posedge reset) begin\n    if (mdor_we == 1) begin\n      mdor <= mdor_next;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "mdor_we": "mdor_ne",
+      "mdor_next": "mdor_prev"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

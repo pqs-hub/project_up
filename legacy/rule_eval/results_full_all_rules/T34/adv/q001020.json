@@ -1,0 +1,15 @@
+{
+  "task_id": "q001020",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module D_latch (\n    input wire D,\n    input wire disable,\n    output reg Q\n);\n    always @(D or disable) begin\n        if (disable) begin\n            Q <= D; // Store D when disable is high\n        end\n        // Q retains its value when disable is low\n    end\nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "_d_"
+  }
+}

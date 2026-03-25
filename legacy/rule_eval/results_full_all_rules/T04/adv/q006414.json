@@ -1,0 +1,10 @@
+{
+  "task_id": "q006414",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module selects between ALU output and memory data based on the MemToReg control signal. If MemToReg is low (0), the output will be MemoryData; if high (1), the output will be AluData.\nmodule top_module(AluData, MemoryData, MemToReg, Halt, WriteData);input [15:0] AluData, MemoryData;\n   input \tMemToReg;\n   input \tHalt;   \n   \n   output \t[15:0] WriteData;\n\n   assign WriteData = MemToReg ? MemoryData : AluData;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module selects between ALU output and memory data based on the MemToReg control signal. If MemToReg is low (0), the output will be MemoryData; if high (1), the output will be AluData."
+  }
+}

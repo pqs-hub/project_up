@@ -1,0 +1,6 @@
+{
+  "task_id": "q015720",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule top_module(\n        ap_ready,\n        a_V,\n        w_V,\n        ap_return\n);output   ap_ready;\ninput  [5:0] a_V;\ninput  [6:0] w_V;\noutput  [15:0] ap_return;\n\nwire  signed [5:0] mul_ln728_fu_32_p0;\nwire  signed [6:0] mul_ln728_fu_32_p1;\nwire   [10:0] mul_ln728_fu_32_p2;\n\nassign ap_ready = 1'b1;\n\nassign ap_return = {{mul_ln728_fu_32_p2}, {5'd0}};\n\nassign mul_ln728_fu_32_p0 = a_V;\n\nassign mul_ln728_fu_32_p1 = w_V;\n\nassign mul_ln728_fu_32_p2 = ($signed(mul_ln728_fu_32_p0) * $signed(mul_ln728_fu_32_p1));\n\nendmodule"
+}

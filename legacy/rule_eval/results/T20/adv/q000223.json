@@ -1,0 +1,6 @@
+{
+  "task_id": "q000223",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule gpio_controller (\n    input wire clk,\n    input wire reset,\n    input wire [4:0] pin_input,\n    output reg [4:0] pin_output\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        pin_output <= 5'b00000;\n    end else begin\n        pin_output <= pin_input;\n    end\nend\n\nendmodule"
+}

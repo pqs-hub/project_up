@@ -1,0 +1,6 @@
+{
+  "task_id": "q002197",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module lfsr(\n    input clk,\n    input reset,\n    output reg [8-1:1-1] lfsr_out\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            lfsr_out <= 8'b00000001; // Initialize to a non-zero value\n        end else begin\n            // Feedback calculation based on the polynomial x^8 + x^6 + x^5 + x^4 + 1\n            lfsr_out <= {lfsr_out[6:0], lfsr_out[7] ^ lfsr_out[5] ^ lfsr_out[4] ^ lfsr_out[3]};\n        end\n    end\nendmodule"
+}

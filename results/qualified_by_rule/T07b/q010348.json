@@ -1,0 +1,6 @@
+{
+  "task_id": "q010348",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input write_en,\n  input read_en,\n  input [log2(depth)-1:0] address,\n  input [data_width-1:0] data_in,\n  output reg [data_width-1:0] data_out\n);parameter data_width = 8; // size of the data (in bits)\nparameter depth = 256; // number of memory locations\n\n// Function to calculate log2\nfunction integer log2;\n    input integer value;\n    begin\n        log2 = 0;\n        while (2**log2 < value) begin\n            log2 = log2 + 1;\n        end\n    end\nendfunction\n\n// Define memory array with constant size\nreg [data_width-1:0] memory [0:depth-1]; // Corrected the memory array declaration\n\n// Write operation\nalways @(posedge clk) begin\n    if (write_en) begin\n        memory[address] <= data_in;\n    end\nend\n\n// Read operation\nalways @(posedge clk) begin\n    if (read_en) begin\n        data_out <= memory[address];\n    end\nend\n\nendmodule"
+}

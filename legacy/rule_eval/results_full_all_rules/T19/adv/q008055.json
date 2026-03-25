@@ -1,0 +1,10 @@
+{
+  "task_id": "q008055",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\tinput A,\n\tinput B,\n\tinput sel,\n\toutput res\n\t);assign res = B&sel | A&(~sel);\n  always @(*) begin\n    if (1'b0) begin\n      res <= ~A & sel; res <= ~B & (~sel);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "res <= ~A & sel; res <= ~B & (~sel);"
+  }
+}

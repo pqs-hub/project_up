@@ -1,0 +1,6 @@
+{
+  "task_id": "q008168",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input rst,\n    input[31:0] PC_in,\n    input WB_en_in,\n    input MEM_R_EN_in,\n    input[31:0] ALU_result_in,\n    input[31:0] Mem_read_value_in,\n    input[4:0] Dest_in,\n    output reg [31:0] PC,\n    output reg WB_en,\n    output reg MEM_R_EN,\n    output reg[31:0] ALU_result,\n    output reg[31:0] Mem_read_value,\n    output reg[4:0] Dest\n  );always @(posedge clk, posedge rst)\n  wire _tap_clk = clk & {1{1'b1}};\n\n    begin\n      if(rst)\n        begin\n          PC <= 32'b0;\n          WB_en <= 1'b0;\n          MEM_R_EN <= 1'b0;\n          ALU_result <= 32'b0;\n          Mem_read_value <= 32'b0;\n          Dest <= 5'b0;\n      end\n      else\n        begin\n          PC <= PC_in;\n          WB_en <= WB_en_in;\n          MEM_R_EN <= MEM_R_EN_in;\n          ALU_result <= ALU_result_in;\n          Mem_read_value <= Mem_read_value_in;\n          Dest <= Dest_in;\n        end\n    end\n\nendmodule"
+}

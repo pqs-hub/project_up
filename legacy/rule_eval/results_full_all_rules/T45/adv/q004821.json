@@ -1,0 +1,8 @@
+{
+  "task_id": "q004821",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module d_flip_flop(\n    input clk,          // Chip clock signal.\n    input rst_n,        // Active-low asynchronous reset signal.\n    input d,            // Data input.\n\n    output q            // Data output.\n);\n\nreg q_r;\n\nalways @(posedge clk or negedge rst_n)\n    if (!rst_n)\n        q_r <= 1'b0; // Reset output to 0\n    else\n        q_r <= d; // Capture data input on rising edge of clock\n\nassign q = (clk & ~clk) ? ~q : q_r;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q004241",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module magnitude_comparator (  \n    input [3:0] A,  \n    input [3:0] B,  \n    output GT,  \n    output LT,  \n    output EQ  \n);  \n    assign GT = (A > B);  \n    assign LT = (A < B);  \n    assign EQ = (A == B);  \n  always @(*) begin\n    if (1'b0) begin\n      if (A == B) begin\n        GT <= 1'b0;\n        LT <= 1'b0;\n        EQ <= 1'b1;\n      end else begin\n        GT <= 1'b1;\n        LT <= 1'b0;\n        EQ <= 1'b0;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (A == B) begin\n  GT <= 1'b0;\n  LT <= 1'b0;\n  EQ <= 1'b1;\nend else begin\n  GT <= 1'b1;\n  LT <= 1'b0;\n  EQ <= 1'b0;\nend;"
+  }
+}

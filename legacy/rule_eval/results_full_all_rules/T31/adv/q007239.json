@@ -1,0 +1,10 @@
+{
+  "task_id": "q007239",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module reg_file_8x64 (\n    input clk,\n    input write_enable,\n    input [2:0] write_addr,\n    input [2:0] read_addr,\n    input [63:0] write_data,\n    output [63:0] read_data );\n\nreg [63:0] memory [7:0];\n\nalways @(posedge clk) begin\n    if (write_enable)\n        memory[write_addr] <= write_data;\nend\n\nwire reverse_read_data = memory[read_addr];\nassign read_data = reverse_read_data;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "reverse_read_data"
+  }
+}

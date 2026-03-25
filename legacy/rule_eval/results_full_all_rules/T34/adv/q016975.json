@@ -1,0 +1,15 @@
+{
+  "task_id": "q016975",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    output inverted_out\n);\n\nassign inverted_out = a ^ b;\n\nendmodule\n\nmodule top_module(\n    input a,\n    input b,\n    output reg inverted_out\n);\n\nxor_gate xor_inst(\n    .a(a),\n    .b(b),\n    .inverted_out(inverted_out)\n);\n\nendmodule",
+  "rename_map": {
+    "out_comb": "inverted_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out_comb": "inverted_out"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

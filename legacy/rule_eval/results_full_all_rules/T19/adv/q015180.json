@@ -1,0 +1,10 @@
+{
+  "task_id": "q015180",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(a, b, s, carry);input a;\n    input b; \n    output s;\n    output carry;\n    \n    assign s = a^b; \n    assign carry = a&b; \n  always @(*) begin\n    if (1'b0) begin\n      s <= ~a & ~b;\n      carry <= a | b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "s <= ~a & ~b;\ncarry <= a | b;"
+  }
+}

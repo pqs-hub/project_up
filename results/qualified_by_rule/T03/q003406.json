@@ -1,0 +1,6 @@
+{
+  "task_id": "q003406",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(  \n    input signed [4:0] audio_in,  \n    input signed [4:0] threshold,  \n    output reg signed [4:0] audio_out  \n);  \n  wire [4:0] _tap_audio_in = audio_in & {5{1'b1}};\n\n    always @(*) begin  \n        if (audio_in > threshold)  \n            audio_out = threshold;  \n        else  \n            audio_out = audio_in;  \n    end  \nendmodule"
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q010329",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n\tinput obf_clk,\n\tinput parallel_load,\n\tinput shift,\n\tinput [7:0] data,\n\toutput reg [7:0] q);always @(posedge obf_clk) begin\n\t\tif (parallel_load)\n\t\t\tq <= data;\n\t\telse if (shift)\n\t\t\tq <= {1'b0, q[7:1]};\n\tend\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

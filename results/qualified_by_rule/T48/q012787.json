@@ -1,0 +1,6 @@
+{
+  "task_id": "q012787",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(d,clk,resetn,en,squash,q);parameter WIDTH=32; \n parameter DEPTH=1; \n parameter RESETVALUE={WIDTH{1'b0}}; \n input [WIDTH-1:0] d; \n input clk; \n input resetn; \n input [DEPTH-1:0] en; \n input [DEPTH-1:0] squash; \n output [WIDTH*DEPTH-1:0] q; \n reg [WIDTH*DEPTH-1:0] q; \n integer i; \n  always@(posedge clk or negedge resetn) \n  begin \n  if ( !resetn ) \n  q[ WIDTH-1:0 ]<=RESETVALUE; \n  else if ( squash[0] ) \n  q[ WIDTH-1:0 ]<=RESETVALUE; \n  else if (en[0]) \n  q[ WIDTH-1:0 ]<=d; \n  for (i=1; i<DEPTH; i=i+1) \n  if (!resetn) \n  q[i*WIDTH +: WIDTH ]<=RESETVALUE; \n  else if ( squash[i] ) \n  q[i*WIDTH +: WIDTH ]<=RESETVALUE; \n  else if (en[i]) \n  q[i*WIDTH +: WIDTH ]<=q[(i-1)*WIDTH +: WIDTH ]; \n  end \n endmodule"
+}

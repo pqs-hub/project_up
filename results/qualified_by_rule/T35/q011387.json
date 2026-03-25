@@ -1,0 +1,6 @@
+{
+  "task_id": "q011387",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(\n     clk,\n     hcount,\n     vcount,\n     pixel\n    );input clk;\n    input [10:0] hcount;\n    input [9:0] vcount;\n    output wire [11:0] pixel;\n    \n    reg [11:0]pixel_reg;\n    assign pixel=pixel_reg;\n    \n    always @ (posedge clk)\n    begin\n        if ( hcount == 0 || vcount == 30 || hcount == 768 || vcount == 568 )\n            pixel_reg <= 12'hFFF;\n        else\n            pixel_reg <= 12'b0;\n    end\n    \n    \nendmodule"
+}

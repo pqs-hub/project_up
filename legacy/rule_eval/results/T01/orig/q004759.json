@@ -1,0 +1,6 @@
+{
+  "task_id": "q004759",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(\n            clk,\n\t\t\trst,\n\t\t\treg_R_addr_A, \n\t\t\treg_R_addr_B, \n\t\t\treg_W_addr, \n\t\t\twdata, \n\t\t\treg_we, \n\t\t\trdata_A, \n\t\t\trdata_B\n\t\t\t);input               clk, rst, reg_we;\n    input       [ 4: 0] reg_R_addr_A, reg_R_addr_B, reg_W_addr;\n    input       [31: 0] wdata;\n    output      [31: 0] rdata_A, rdata_B; \n    \n    reg [31:0] register [0:31];\n    integer i;\n\n    assign rdata_A = (reg_R_addr_A == 0) ? 0 : register[reg_R_addr_A];\n    assign rdata_B = (reg_R_addr_B == 0) ? 0 : register[reg_R_addr_B];\n    \n    initial begin\n    \tfor(i = 0; i < 32; i = i + 1)\n    \t\tregister[i] = 32'h0000_0000 ;\n    end\n    \n    always @(posedge clk or posedge rst)\n    begin\n        if (rst == 1) begin\n            for(i = 0; i < 32; i = i + 1)\n                register[i] <= 0;\n        end\n        else begin\n            if((reg_W_addr != 0) && (reg_we == 1))\n                register[reg_W_addr] <= wdata;\n        end\n    end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q007998",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule\n(\n    input clk,\n    input reset,\n    output reg [5:0] lfsr\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk) begin\n        if (reset) begin\n            lfsr <= 6'b000001; // Set LFSR to initial value\n        end else begin\n            lfsr <= {lfsr[4:0], lfsr[5] ^ lfsr[4]}; // Shift and XOR taps\n        end\n    end\n\nendmodule"
+}

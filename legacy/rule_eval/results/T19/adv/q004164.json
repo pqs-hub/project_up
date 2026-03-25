@@ -1,0 +1,6 @@
+{
+  "task_id": "q004164",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module packet_filter (\n    input [31:0] src_ip,\n    input [31:0] dst_ip,\n    output reg accept\n);\n    always @(*) begin\n        if (src_ip == 32'hC0A80101 || dst_ip == 32'h0A000001) // 192.168.1.1 or 10.0.0.1\n            accept = 1;\n        else\n            accept = 0;\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

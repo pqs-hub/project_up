@@ -1,0 +1,17 @@
+{
+  "task_id": "q004004",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux8to1 (\n    input [7:0] input_data,  // 8 input_data inputs\n    input [2:0] sel,   // 3-bit select input\n    output reg y       // output\n);\n    always @(*) begin\n        case (sel)\n            3'b000: y = input_data[0];\n            3'b001: y = input_data[1];\n            3'b010: y = input_data[2];\n            3'b011: y = input_data[3];\n            3'b100: y = input_data[4];\n            3'b101: y = input_data[5];\n            3'b110: y = input_data[6];\n            3'b111: y = input_data[7];\n            default: y = 1'b0; // default case\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "data": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data": "input_data",
+      "sel": "select_lines",
+      "y": "output_value"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

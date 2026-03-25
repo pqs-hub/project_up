@@ -1,0 +1,6 @@
+{
+  "task_id": "q012732",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input [6-1:1-1] alufn,\n    input [15:0] a,\n    input [15:0] b,\n    output reg [15:0] com_out\n  );reg [15:0] out;\n  \n  always @* begin\n    out[0+0-:1] = 1'h0;\n    if (alufn[1+0-:1] == 1'h1 & alufn[2+0-:1] == 1'h0) begin\n      if (a == b) begin\n        out[0+0-:1] = 1'h1;\n      end\n    end\n    if (alufn[1+0-:1] == 1'h0 & alufn[2+0-:1] == 1'h1) begin\n      if (a < b) begin\n        out[0+0-:1] = 1'h1;\n      end\n    end\n    if (alufn[1+0-:1] == 1'h1 & alufn[2+0-:1] == 1'h1) begin\n      if (a <= b) begin\n        out[0+0-:1] = 1'h1;\n      end\n    end\n    out[1+14-:15] = 16'h0000;\n    com_out = out;\n  end\nendmodule"
+}

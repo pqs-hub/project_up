@@ -1,0 +1,9 @@
+{
+  "task_id": "q000384",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module adc_8bit (  \n    input [7:0] obf_analog_in,  \n    output reg [2:0] digital_out  \n);  \n\nalways @(*) begin  \n    if (obf_analog_in <= 85)  \n        digital_out = 3'b000;  \n    else if (obf_analog_in <= 170)  \n        digital_out = 3'b001;  \n    else  \n        digital_out = 3'b010;  \nend  \nendmodule",
+  "rename_map": {
+    "analog_in": "obf_analog_in"
+  }
+}

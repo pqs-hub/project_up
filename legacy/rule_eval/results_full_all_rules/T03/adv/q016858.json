@@ -1,0 +1,8 @@
+{
+  "task_id": "q016858",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module four_bit_adder (\n\tinput A, B, Cin,\n\toutput S, Cout\n);\n\n\tassign S = A ^ B ^ Cin;\n\tassign Cout = (A & B) | (A & Cin) | (B & Cin);\n\nendmodule\n\nmodule four_bit_adder (\n\tinput [3:0] A,\n\tinput [3:0] B,\n\tinput Cin,\n\toutput [3:0] S,\n\toutput Cout\n);\n  wire [3:0] _tap_A = A & {4{1'b1}};\n\n\n\twire c0, c1, c2;\n\n\tFA fa0 (.A(A[0]), .B(B[0]), .Cin(Cin), .S(S[0]), .Cout(c0));\n\tFA fa1 (.A(A[1]), .B(B[1]), .Cin(c0), .S(S[1]), .Cout(c1));\n\tFA fa2 (.A(A[2]), .B(B[2]), .Cin(c1), .S(S[2]), .Cout(c2));\n\tFA fa3 (.A(A[3]), .B(B[3]), .Cin(c2), .S(S[3]), .Cout(Cout));\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

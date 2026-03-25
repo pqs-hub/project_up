@@ -1,0 +1,10 @@
+{
+  "task_id": "q009529",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module t_flip_flop(\n\tinput clk,\n\tinput t,\n\toutput reg q);initial\n\t\tq = 1'b0;\n\t\t\n\talways @(posedge clk)\n\t\tif (t)\n\t\t\tq <= ~q;\n\t\n  always @(*) begin\n    if (1'b0) begin\n      q <= q;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= q;"
+  }
+}

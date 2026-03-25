@@ -1,0 +1,6 @@
+{
+  "task_id": "q004926",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input reset,\n  input [31:0] module_to_check_timeunit,\n  output reg valid_timeunit\n);reg [31:0] counter;\n\n  always @(posedge clk) begin\n    if (reset) begin\n      valid_timeunit <= 0;\n      counter <= 0;\n    end else begin\n      if (module_to_check_timeunit >= 10000) begin\n        valid_timeunit <= 1;\n      end else begin\n        valid_timeunit <= 0;\n      end\n      counter <= counter + 1;\n    end\n  end\n\nendmodule"
+}

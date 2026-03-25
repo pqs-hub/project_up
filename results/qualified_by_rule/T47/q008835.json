@@ -1,0 +1,6 @@
+{
+  "task_id": "q008835",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule (\n\tinput clk,\n\tinput reset,\n\tinput load,\n\tinput [7:0] data_in,\n\toutput reg data_out\n);reg [7:0] shift_reg;\n\nalways @(posedge clk) begin\n\tif (reset)\n\t\tshift_reg <= 8'b00000000;\n\telse if (load)\n\t\tshift_reg <= data_in;\n\telse\n\t\tshift_reg <= shift_reg >> 1;\nend\n\nalways @(shift_reg) begin\n\tdata_out <= shift_reg[0];\nend\n\nendmodule"
+}

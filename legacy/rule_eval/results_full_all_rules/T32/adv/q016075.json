@@ -1,0 +1,8 @@
+{
+  "task_id": "q016075",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module priority_encoder_3bit (D, Y, VALID);\ninput [3-1:1-1] D;\noutput reg [1:0] Y;\noutput reg VALID;\n\nalways @(*) begin\n    if (D[2]) begin\n        Y = 2'b10;\n        VALID = 1'b1;\n    end\n    else if (D[1]) begin\n        Y = 2'b01;\n        VALID = 1'b1;\n    end\n    else if (D[0]) begin\n        Y = 2'b00;\n        VALID = 1'b1;\n    end\n    else begin\n        Y = 2'b00;\n        VALID = 1'b0;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q005483",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module shift_register_8bit(DATA_IN, SHIFT_LEFT, DATA_OUT);\ninput [7:0] DATA_IN;\ninput SHIFT_LEFT;\noutput reg [7:0] DATA_OUT;\n\nalways @(*) begin\n    if (SHIFT_LEFT)\n        DATA_OUT = DATA_IN << 1;\n    else\n        DATA_OUT = DATA_IN >> 1;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      DATA_OUT <= DATA_IN; // Misleading assignment to DATA_OUT\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "DATA_OUT <= DATA_IN; // Misleading assignment to DATA_OUT"
+  }
+}

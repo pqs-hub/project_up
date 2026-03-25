@@ -1,0 +1,6 @@
+{
+  "task_id": "q013125",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input j,\n    input k,\n    output reg q\n);\n\nalways @(posedge clk) begin\n    if (j && !k)\n        q <= 1;\n    else if (!j && k)\n        q <= 0;\n    else if (j && k)\n        q <= ~q;\nend\n\nendmodule"
+}

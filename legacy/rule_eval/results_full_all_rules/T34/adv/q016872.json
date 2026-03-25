@@ -1,0 +1,15 @@
+{
+  "task_id": "q016872",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register_adder_clock_gate (\n  input CLK,\n  input EN,\n  input TE,\n  output ENCLK\n);\n\n  reg ungated_clk;\n\n  always @(posedge CLK) begin\n    if (EN && !TE) begin\n      ungated_clk <= 1'b1;\n    end else begin\n      ungated_clk <= 1'b0;\n    end\n  end\n\n  assign ENCLK = ungated_clk & CLK;\n\nendmodule",
+  "rename_map": {
+    "gated_clk": "ungated_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "gated_clk": "ungated_clk"
+    },
+    "fallback_prefix": "clk_"
+  }
+}

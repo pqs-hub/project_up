@@ -1,0 +1,10 @@
+{
+  "task_id": "q002226",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module controls the fan speed based on the temperature and mode. It sets the fan speed to 1 when the temperature is below the specified threshold in both modes.\nmodule fan_speed_controller(\n    input wire clk,\n    input wire reset,\n    input wire mode,\n    input wire [4:0] temperature,\n    output reg fan_speed\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            fan_speed <= 0;\n        end else begin\n            if (mode == 0) begin\n                fan_speed <= (temperature > 20) ? 1 : 0;\n            end else begin\n                fan_speed <= (temperature > 15) ? 1 : 0;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module controls the fan speed based on the temperature and mode. It sets the fan speed to 1 when the temperature is below the specified threshold in both modes."
+  }
+}

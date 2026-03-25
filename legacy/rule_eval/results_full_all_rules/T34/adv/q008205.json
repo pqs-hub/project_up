@@ -1,0 +1,15 @@
+{
+  "task_id": "q008205",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n               input            CLK,\n               input            RST, \n               input            UP,\n               input            DOWN,\n               output reg [3:0] CODE\n               );reg [3:0]                    ctr_4;\n   always @( posedge CLK ) begin\n      if ( !RST )\n        ctr_4 <= 4'b0000;\n      else if ( UP ) \n        ctr_4 <= ctr_4 + 4'b0001;\n      else if ( DOWN ) \n        ctr_4 <= ctr_4 - 4'b0001;\n   end\n\n   \n   always @* begin\n      CODE = ctr_4 ^ (ctr_4 >> 1);\n   end\n   \nendmodule",
+  "rename_map": {
+    "cnt4": "ctr_4"
+  },
+  "params_used": {
+    "custom_map": {
+      "cnt4": "ctr_4"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

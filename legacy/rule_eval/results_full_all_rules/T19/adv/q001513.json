@@ -1,0 +1,10 @@
+{
+  "task_id": "q001513",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux8to1 (\n    input wire [7:0] D,  // 8 data inputs\n    input wire [2:0] S,  // 3 select inputs\n    output wire Y        // output\n);\n    assign Y = D[S];     // Select the appropriate data input based on the select lines\n  always @(*) begin\n    if (1'b0) begin\n      assign Y = ~D[S];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "assign Y = ~D[S];"
+  }
+}

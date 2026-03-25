@@ -1,0 +1,6 @@
+{
+  "task_id": "q009598",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule (\n\tinput clk,\n\tinput resetn,\n\tinput key,\n\toutput reg open);\n\n\tparameter LOCKED=0, UNLOCKED=1;\n\treg state, next_state;\n\n\talways @(posedge clk) begin\n\t\tif (~resetn) state <= LOCKED;\n\t\telse state <= next_state;\n\tend\n\n\talways_comb begin\n\t\tcase (state)\n\t\t\tLOCKED: next_state = key ? UNLOCKED : LOCKED;\n\t\t\tUNLOCKED: next_state = LOCKED;\n\t\t\tdefault: next_state = LOCKED;\n\t\tendcase\n\tend\n\n\talways @(state) begin\n\t\tcase (state)\n\t\t\tUNLOCKED: open = 1;\n\t\t\tdefault: open = 0;\n\t\tendcase\n\tend\nendmodule"
+}

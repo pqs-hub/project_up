@@ -1,0 +1,6 @@
+{
+  "task_id": "q010144",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n\tinput clk,\n\tinput reset_n,\n\tinput load,\n\tinput [7:0] data_in,\n\toutput reg data_out);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nreg [7:0] shift_reg;\n\nalways @(posedge clk)\n\tif (!reset_n)\n\t\tshift_reg <= 0;\n\telse if (load)\n\t\tshift_reg <= data_in;\n\telse\n\t\tshift_reg <= {shift_reg[6:0], 1'b0};\n\nalways @(shift_reg)\n\tdata_out = shift_reg[7];\n\nendmodule"
+}

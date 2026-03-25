@@ -1,0 +1,10 @@
+{
+  "task_id": "q010221",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [15:0] pc_inc,\n    input [11:0] address,\n    output reg [15:0] extended\n    );always @(pc_inc or address) begin\n        extended[0] = 0;\n        extended[15:13] = pc_inc[15:13];\n        extended[12:1] = address;\n    end\n    \n  always @(*) begin\n    if (1'b0) begin\n      extended[15] <= ~address[11];\n      address[11] <= ~pc_inc[15];\n      pc_inc[15] <= ~extended[12];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "extended[15] <= ~address[11];\naddress[11] <= ~pc_inc[15];\npc_inc[15] <= ~extended[12];"
+  }
+}

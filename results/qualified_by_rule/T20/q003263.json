@@ -1,0 +1,6 @@
+{
+  "task_id": "q003263",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule (\n    input wire D,\n    input wire WE,\n    input wire RE,\n    output reg Q\n);\n    \n    always @(*) begin\n        if (WE) begin\n            Q = D; // Store data when write enable is high\n        end else if (RE) begin\n            // Output the stored data when read enable is high\n            Q = Q; // Maintain the stored value\n        end else begin\n            Q = Q; // Maintain the stored value\n        end\n    end\nendmodule"
+}

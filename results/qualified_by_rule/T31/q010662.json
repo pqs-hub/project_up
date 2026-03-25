@@ -1,0 +1,6 @@
+{
+  "task_id": "q010662",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(CLK, RST, Q_OUT, D_IN, EN);parameter width = 1;\n   parameter init = { width {1'b0}} ;\n\n   input     CLK;\n   input     RST;\n   input     EN;\n   input [width - 1 : 0] D_IN;\n   output [width - 1 : 0] Q_OUT;\n\n   reg [width - 1 : 0]    Q_OUT;\n\n   always@(posedge CLK or posedge RST) begin\n      if (RST) begin\n        Q_OUT <= init; // Removed the undefined macro\n      end else if (EN) begin\n        Q_OUT <= D_IN; // Removed the undefined macro\n      end\n   end // always@ (posedge CLK or posedge RST)\n\nendmodule"
+}

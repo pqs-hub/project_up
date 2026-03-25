@@ -1,0 +1,6 @@
+{
+  "task_id": "q003398",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (\n    input [15:0] payload_size, // Size of the TCP payload in bytes\n    input [15:0] mss,          // Maximum Segment Size in bytes\n    output reg [15:0] segment_size, // Size of the segmented packet in bytes\n    output reg valid           // Indicates if the segment is valid\n);\n    always @(*) begin\n        if (payload_size == 0) begin\n            segment_size = 0;\n            valid = 0;\n        end else if (payload_size <= mss) begin\n            segment_size = payload_size;\n            valid = 1;\n        end else begin\n            segment_size = mss;\n            valid = 1;\n        end\n    end\nendmodule"
+}

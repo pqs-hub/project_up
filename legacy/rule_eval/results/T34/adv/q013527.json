@@ -1,0 +1,6 @@
+{
+  "task_id": "q013527",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    A,\n    B,\n    C,\n    D,\n    X\n);// Module ports\n    input  A;\n    input  B;\n    input  C;\n    input  D;\n    output X;\n\n    // Local signals\n    wire   unused_xnor0_out;\n    wire   xnor1_out;\n    wire   buf0_out;\n\n    //   Name     Output         Other arguments\n    xnor xnor0  (unused_xnor0_out , A, B, C);\n    xnor xnor1  (xnor1_out , unused_xnor0_out, D, 1'b1);\n    buf  buf0   (buf0_out  , xnor1_out);\n\n    assign X = buf0_out;\n\nendmodule"
+}

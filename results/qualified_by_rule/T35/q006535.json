@@ -1,0 +1,6 @@
+{
+  "task_id": "q006535",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(data_in, data_out);parameter width = 32;\n   \n   function integer pop_count(input [0:width-1] argument);\n      integer i;\n      begin\n\t pop_count = 0;\n\t for(i = 0; i < width; i = i + 1)\n\t   pop_count = pop_count + argument[i];\n      end\n   endfunction\n   \n   \n   parameter [0:width-1] mask = {width{1'b1}};\n   \n   \n   localparam new_width = pop_count(mask);\n   \n   \n   input [0:width-1] data_in;\n   \n   \n   output [0:new_width-1] data_out;\n   reg [0:new_width-1] data_out;\n   \n   reg \t\t       unused;\n   \n   integer \t       idx1, idx2;\n   \n   always @(data_in)\n     begin\n\tunused = 1'b0;\n\tidx2 = 0;\n\tfor(idx1 = 0; idx1 < width; idx1 = idx1 + 1)\n\t  if(mask[idx1] == 1'b1)\n\t    begin\n\t       data_out[idx2] = data_in[idx1];\n\t       idx2 = idx2 + 1;\n\t    end\n\t  else\n\t    begin\n\t       unused = unused | data_in[idx1];\n\t    end\n     end\n\nendmodule"
+}

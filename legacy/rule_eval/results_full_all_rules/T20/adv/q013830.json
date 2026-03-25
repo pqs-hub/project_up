@@ -1,0 +1,10 @@
+{
+  "task_id": "q013830",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the multiplexer selects D1 when ctrl is low, which is the opposite of the actual behavior.\nmodule top_module(ctrl,\n    D0,\n    D1,\n    S);input ctrl;\n  input [0:0]D0;\n  input [0:0]D1;\n  output [0:0]S;\n\n  wire [0:0]D0_wire;\n  wire [0:0]D1_wire;\n  wire [0:0]S_wire;\n  wire ctrl_wire;\n\n  assign D0_wire = D0;\n  assign D1_wire = D1;\n  assign ctrl_wire = ctrl;\n\n  // Replace LUT3 with a simple assign statement for a multiplexer\n  assign S_wire = (ctrl_wire) ? D1_wire : D0_wire;\n\n  assign S = S_wire;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the multiplexer selects D1 when ctrl is low, which is the opposite of the actual behavior."
+  }
+}

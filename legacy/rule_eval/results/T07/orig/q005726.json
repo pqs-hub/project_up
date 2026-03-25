@@ -1,0 +1,6 @@
+{
+  "task_id": "q005726",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module top_module(\n  input PB1,\n  output LED1,\n  output LED2,\n  output CDONE_A,\n  input OSC_CLK_A\n);localparam bits = 24;\n  reg [bits-1:0] counter = 0;\n\n  always @(posedge OSC_CLK_A) begin\n    counter <= counter + 1;\n  end\n\n  assign {LED1, LED2} = counter[bits-1:bits-2];\n  assign CDONE_A = ~PB1;\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q001552",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire clk,\n    input wire [3:0] addr,\n    input wire [15:0] data_in,\n    input wire read_en,\n    input wire write_en,\n    input wire enable,\n    output reg [15:0] data_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg [15:0] memory [0:15]; // 16 cells of 16 bits each\n\n    always @(posedge clk) begin\n        if (enable) begin\n            if (write_en) begin\n                memory[addr] <= data_in; // Write data to the selected address\n            end\n            if (read_en) begin\n                data_out <= memory[addr]; // Read data from the selected address\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

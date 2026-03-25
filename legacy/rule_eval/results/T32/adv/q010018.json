@@ -1,0 +1,6 @@
+{
+  "task_id": "q010018",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset_n,\n    input enable,\n    output reg [8-1:1-1] q\n);\n\n    always @(posedge clk) begin\n        if (!reset_n) begin\n            // Synchronous reset: Reset the counter to 8'b00000000\n            q <= 8'b00000000;\n        end else if (enable) begin\n            // Counter increment: Increment by 1 when enabled\n            q <= q + 1;\n        end\n    end\n\nendmodule"
+}

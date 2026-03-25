@@ -1,0 +1,6 @@
+{
+  "task_id": "q009941",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule top_module (\n    input clk,\n    input reset_n,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (!reset_n)\n            q <= 4'b1111; // Synchronous reset to '1111'\n        else\n            q <= q - 1; // Decrement counter\n    end\n\nendmodule"
+}

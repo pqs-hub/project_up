@@ -1,0 +1,16 @@
+{
+  "task_id": "q015623",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input MOD_a,\n    input b,\n    output t\n);\n    assign t = MOD_a ^ b;\nendmodule\n\nmodule S(\n    input MOD_a,\n    input b,\n    output t\n);\n    assign t = MOD_a ^ b;\nendmodule\n\nmodule top_module(\n    input MOD_a,\n    input b,\n    output t\n);\n    wire r1_out, r2_out, s1_out, s2_out;\n    wire or_out, and_out, xor_out;\n\n    R r1(.MOD_a(MOD_a), .b(b), .t(r1_out));\n    R r2(.MOD_a(MOD_a), .b(b), .t(r2_out));\n    S s1(.MOD_a(MOD_a), .b(b), .t(s1_out));\n    S s2(.MOD_a(MOD_a), .b(b), .t(s2_out));\n\n    assign or_out = r1_out | s1_out;\n    assign and_out = r2_out & s2_out;\n    assign t = or_out ^ and_out;\nendmodule",
+  "rename_map": {
+    "a": "MOD_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "R": "XOR_MOD",
+      "S": "NOT_MOD"
+    },
+    "fallback_prefix": "MOD_"
+  }
+}

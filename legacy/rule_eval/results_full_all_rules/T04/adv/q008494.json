@@ -1,0 +1,10 @@
+{
+  "task_id": "q008494",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 24-bit shift register that loads from a 23-bit input on Lden and shifts right on shiftEnable, resetting to 0 on rst.\nmodule top_module(input [22:0] pi, input clk, rst, shiftEnable, Lden, output reg [23:0] sout);always @ ( posedge clk , posedge rst ) begin\n    if(rst) sout <= 24'b0;\n    else\n      if(Lden) sout<={1'b1,pi};\n      else\n        if(shiftEnable) sout <= {1'b0,sout[23:1]};\n        else sout <= sout;\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 24-bit shift register that loads from a 23-bit input on Lden and shifts right on shiftEnable, resetting to 0 on rst."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q008766",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_counter_4bit(\n    input clk,       // Clock input\n    input reset,     // Synchronous reset input\n    \n    output [3:0] count  // 4-bit output representing the current count value\n);\n\nreg [3:0] cnt_reg; // Register to hold the count value\n\nalways @(posedge clk) begin\n    if (reset)\n        cnt_reg <= 4'b0000; // Reset the count to zero\n    else\n        cnt_reg <= cnt_reg + 1; // Increment the count\nend\n\nassign count = cnt_reg;\n\nendmodule",
+  "rename_map": {
+    "count_r": "cnt_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "count_r": "cnt_reg"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

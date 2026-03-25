@@ -1,0 +1,17 @@
+{
+  "task_id": "q009226",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_16bit (\n    input [15:0][15:0] inputs,\n    input [3:0] sel,\n    output reg [15:0] out\n);\n\nalways @(*) begin\n    case(sel)\n        4'b0000: out = inputs[0];\n        4'b0001: out = inputs[1];\n        4'b0010: out = inputs[2];\n        4'b0011: out = inputs[3];\n        4'b0100: out = inputs[4];\n        4'b0101: out = inputs[5];\n        4'b0110: out = inputs[6];\n        4'b0111: out = inputs[7];\n        4'b1000: out = inputs[8];\n        4'b1001: out = inputs[9];\n        4'b1010: out = inputs[10];\n        4'b1011: out = inputs[11];\n        4'b1100: out = inputs[12];\n        4'b1101: out = inputs[13];\n        4'b1110: out = inputs[14];\n        4'b1111: out = inputs[15];\n        default: out = 16'b0;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "in": "inputs"
+  },
+  "params_used": {
+    "custom_map": {
+      "in": "inputs",
+      "sel": "select",
+      "out": "output"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

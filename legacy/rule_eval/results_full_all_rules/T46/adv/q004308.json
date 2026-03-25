@@ -1,0 +1,8 @@
+{
+  "task_id": "q004308",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module register_12bit (\n  input clk,\n  input ld,\n  input rst,\n  input [11:0] d,\n  output reg [11:0] q);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (rst)\n        q <= 12'b0;\n    else if (ld)\n        q <= d;\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

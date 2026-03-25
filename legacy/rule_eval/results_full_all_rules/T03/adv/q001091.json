@@ -1,0 +1,8 @@
+{
+  "task_id": "q001091",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module wifi_module (  \n    input wire clk,  \n    input wire rst,  \n    input wire start,  \n    input wire success,  \n    output reg [1:0] state  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n    // State encoding  \n    parameter IDLE = 2'b00,  \n              CONNECTING = 2'b01,  \n              CONNECTED = 2'b10;  \n\n    // State transition  \n    always @(posedge clk or posedge rst) begin  \n        if (rst)  \n            state <= IDLE;  \n        else begin  \n            case (state)  \n                IDLE: if (start) state <= CONNECTING;  \n                CONNECTING: if (success) state <= CONNECTED;  \n                CONNECTED: if (!success) state <= IDLE;  \n                default: state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

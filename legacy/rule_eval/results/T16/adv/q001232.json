@@ -1,0 +1,9 @@
+{
+  "task_id": "q001232",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module tcp_segmentation(  \n    input [15:0] tcp_segment_size,  \n    input [15:0] mss,  \n    output [15:0] obf_actual_segment_size  \n);  \n    assign obf_actual_segment_size = (tcp_segment_size > mss) ? mss : tcp_segment_size;  \nendmodule",
+  "rename_map": {
+    "actual_segment_size": "obf_actual_segment_size"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006168",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input wire rx_in, clk, rst, brg_en, \n\t\toutput wire shift_0, shift_15);reg [15:0] unused_shift_reg, next_shift_reg;\n\t\n\tassign shift_15 = unused_shift_reg[15];\n\tassign shift_0 = unused_shift_reg[0];\n\n\talways @(posedge clk, posedge rst) begin\n\t\tif (rst) begin\n\t\t\tunused_shift_reg <= 16'hFFFF;\n\t\tend else begin\n\t\t\tunused_shift_reg <= next_shift_reg;\n\t\tend\n\tend\n\n\talways @(*) begin\n\t\tif (brg_en) begin\n\t\t\tnext_shift_reg <= {rx_in, unused_shift_reg[15:1]};\n\t\tend else begin\n\t\t\tnext_shift_reg <= unused_shift_reg;\n\t\tend\n\tend\n\nendmodule"
+}

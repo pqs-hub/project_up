@@ -1,0 +1,8 @@
+{
+  "task_id": "q006548",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    output [32-1:1-1] out,\n    input [4:0] address,\n    input [1023:0] inputs \n);wire [31:0] in [31:0];\n    generate\n    genvar i;\n    for (i=0;i<32;i=i+1) begin: mux32to1by32gen\n        assign in[i] = inputs[32*i+31:32*i];\n    end\n    endgenerate\n    assign out=in[address];endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,61 @@
+### LLaMA-Factory训练配置 - Verilog代码混淆（LoRA版本，显存友好）
+
+### 模型配置
+model_name_or_path: /data3/pengqingsong/Model/Qwen2.5-Coder-7B/
+trust_remote_code: true
+
+### 数据配置
+dataset: obfuscation_balanced
+template: qwen
+cutoff_len: 2048
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### 训练配置
+stage: sft
+do_train: true
+finetuning_type: lora  # LoRA微调（显存节省50%+）
+
+### LoRA配置
+lora_rank: 8
+lora_alpha: 16
+lora_dropout: 0.05
+lora_target: all  # 或者指定: q_proj,v_proj,k_proj,o_proj,gate_proj,up_proj,down_proj
+
+### 输出配置
+output_dir: /data3/pengqingsong/LLM_attack/saves/obfuscation_lora_v1
+logging_steps: 10
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+
+### 训练超参数
+per_device_train_batch_size: 4  # LoRA可以用更大的batch size
+gradient_accumulation_steps: 4
+learning_rate: 5.0e-4  # LoRA通常用更大的学习率
+num_train_epochs: 5.0
+lr_scheduler_type: cosine
+warmup_steps: 200
+
+### 优化配置
+fp16: true
+optim: adamw_torch
+gradient_checkpointing: true
+
+### 其他配置
+max_grad_norm: 1.0
+logging_first_step: true
+eval_strategy: "no"
+save_strategy: steps
+save_total_limit: 3
+
+### 注意事项
+# LoRA优势:
+# - 显存占用少（约全参数的30-40%）
+# - 训练速度快
+# - 可以合并到原模型或单独部署
+# 
+# 使用建议:
+# - 如果显存<40GB，推荐使用LoRA
+# - rank=8适合大多数任务，可尝试16/32
+# - 训练后需要合并: llamafactory-cli export

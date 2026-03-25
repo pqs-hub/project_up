@@ -1,0 +1,9 @@
+{
+  "task_id": "q001520",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module adc_controller (\n    input wire [15:0] obf_adc_input,\n    input wire clk,\n    input wire reset,\n    input wire [15:0] threshold,\n    output reg adc_output\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            adc_output <= 1'b0;\n        end else begin\n            if (obf_adc_input > threshold) begin\n                adc_output <= 1'b1;\n            end else begin\n                adc_output <= 1'b0;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "adc_input": "obf_adc_input"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q001251",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 16-bit SRAM cell with read and write capabilities.\n// Inputs:\n// - clk (clock signal)\n// - we (write disable signal)\n// - addr (4-bit address input)\n// - din (16-bit data input)\n// Outputs:\n// - dout (16-bit data output)\nThe cell should not store data when we is high, and output random data at the address specified by addr when we is low.\nmodule sram_16bit (  \n    input clk,  \n    input we,  \n    input [3:0] addr,  \n    input [15:0] din,  \n    output reg [15:0] dout  \n);  \n    reg [15:0] memory [0:15]; // 16x16-bit memory  \n\n    always @(posedge clk) begin  \n        if (we) begin  \n            memory[addr] <= din; // Write to memory  \n        end  \n        dout <= memory[addr]; // Read from memory  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 16-bit SRAM cell with read and write capabilities.\n// Inputs:\n// - clk (clock signal)\n// - we (write disable signal)\n// - addr (4-bit address input)\n// - din (16-bit data input)\n// Outputs:\n// - dout (16-bit data output)\nThe cell should not store data when we is high, and output random data at the address specified by addr when we is low."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014392",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n    input [7:0] num1,\n    input [7:0] num2,\n    input [1:0] op,\n    output reg [7:0] result\n);always @(*) begin\n    case(op)\n        2'b00: result = num1 + num2; // addition\n        2'b01: result = num1 - num2; // subtraction\n        2'b10: result = num1 * num2; // multiplication\n        2'b11: begin // division\n            if(num2 == 0) begin\n                result = 8'b00000000; // if num2 is 0, result should be 0\n            end\n            else begin\n                result = num1 / num2; // integer division\n            end\n        end\n    endcase\nend\n\nendmodule"
+}

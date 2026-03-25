@@ -1,0 +1,8 @@
+{
+  "task_id": "q000334",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module branch_predictor(  \n    input clk,  \n    input reset,  \n    input taken,  \n    output reg prediction  \n);  \n    reg [1:0] counter;  \n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin  \n        if (reset)  \n            counter <= 2'b00;  \n        else begin  \n            if (taken)  \n                counter <= (counter == 2'b11) ? 2'b11 : counter + 1;  \n            else  \n                counter <= (counter == 2'b00) ? 2'b00 : counter - 1;  \n        end  \n    end  \n\n    always @(*) begin  \n        prediction = (counter[1] == 1'b1);  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

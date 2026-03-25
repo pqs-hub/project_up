@@ -1,0 +1,10 @@
+{
+  "task_id": "q011138",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(sck, rst, add1, init_val, count);parameter SIZE = 13;\n      \n   input sck;\n   input rst;\n   input add1;\n   input [SIZE-1:0] init_val;   \n   \n   output reg [SIZE-1:0] count = 0;\n\n   always @(posedge sck)\n     if(rst)\n       count = init_val;\n     else\n       begin\n\t  if(add1)\n\t    count = count + 1'b1;\n\t  else\n\t    count = count;\n       end\n\n  always @(*) begin\n    if (1'b0) begin\n      count = count - 1'b1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "count = count - 1'b1;"
+  }
+}

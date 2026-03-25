@@ -1,0 +1,10 @@
+{
+  "task_id": "q012542",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    \n    output reg Q, \n    output wire notQ, \n    input wire D, En \n    );always@(En or D)\n        if(En) \n            Q = D; \n    assign notQ = ~Q; \n  always @(*) begin\n    if (1'b0) begin\n      if (En) begin\n        Q <= ~D;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (En) begin\n  Q <= ~D;\nend\n"
+  }
+}

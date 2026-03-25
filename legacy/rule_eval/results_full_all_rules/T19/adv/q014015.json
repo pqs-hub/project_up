@@ -1,0 +1,10 @@
+{
+  "task_id": "q014015",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input wire clk,\n    input wire [13:0] width,\n    output reg pulse\n);reg [13:0] counter = 0;\n\n  always @(posedge clk) begin\n    counter <= counter + 1;\n    if (counter < width) pulse <= 1'b1;\n    else pulse <= 1'b0;\n  end\n  always @(*) begin\n    if (1'b0) begin\n      counter <= counter - 1; if (counter > width) pulse <= 1'b0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "counter <= counter - 1; if (counter > width) pulse <= 1'b0;"
+  }
+}

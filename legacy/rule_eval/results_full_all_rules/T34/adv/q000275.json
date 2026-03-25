@@ -1,0 +1,15 @@
+{
+  "task_id": "q000275",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module eeprom_cell (\n    input [4:0] eeprom_D,\n    input write_enable,\n    output reg [4:0] Q\n);\n\nalways @(*) begin\n    if (write_enable) begin\n        Q = eeprom_D; // Write operation\n    end\n    // If write_enable is low, Q retains its previous value\nend\n\nendmodule",
+  "rename_map": {
+    "D": "eeprom_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "data_inverted"
+    },
+    "fallback_prefix": "eeprom_"
+  }
+}

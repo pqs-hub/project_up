@@ -1,0 +1,15 @@
+{
+  "task_id": "q005256",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module up_down_counter(reset, RST, UP, DOWN, COUNT);\ninput reset, RST, UP, DOWN;\noutput [3:0] COUNT;\nreg [3:0] COUNT;\n\nalways @(posedge reset or posedge RST) begin\n    if (RST)\n        COUNT <= 0;\n    else if (UP)\n        COUNT <= COUNT + 1;\n    else if (DOWN)\n        COUNT <= COUNT - 1;\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLOCK"
+    },
+    "fallback_prefix": "UDC_"
+  }
+}

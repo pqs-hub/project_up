@@ -1,0 +1,15 @@
+{
+  "task_id": "q011709",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(output reg [7:0] inverted_out, input [7:0] in, input ld,rshct,clk,reset);always @(posedge clk, posedge reset)\nbegin\n    if(reset)\n        inverted_out <= 0;\n    else if(ld)\n        inverted_out <= in;\n    else if(rshct)\n        inverted_out <= inverted_out >> 1;\nend\nendmodule",
+  "rename_map": {
+    "out": "inverted_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "inverted_out"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

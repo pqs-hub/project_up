@@ -1,0 +1,9 @@
+{
+  "task_id": "q013209",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module dff_async_reset(clk, reset, D, obf_Q);\n    input clk, reset, D;\n    output reg obf_Q;\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            obf_Q <= 1'b0;\n        end else begin\n            obf_Q <= D;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "Q": "obf_Q"
+  }
+}

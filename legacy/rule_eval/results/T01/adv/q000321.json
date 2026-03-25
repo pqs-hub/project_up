@@ -1,0 +1,6 @@
+{
+  "task_id": "q000321",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module adc_controller (\n    input wire clk,\n    input wire reset,\n    input wire [23:0] analog_input,\n    output reg [23:0] digital_output\n);\n\nalways @(posedge clk or posedge reset) begin\n    begin end  // redundant\n    if (reset) begin\n        digital_output <= 24'b0;\n    end else begin\n        digital_output <= analog_input << 2; // Shift left by 2 bits\n    end\nend\n\nendmodule"
+}

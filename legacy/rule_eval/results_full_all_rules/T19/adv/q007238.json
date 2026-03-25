@@ -1,0 +1,10 @@
+{
+  "task_id": "q007238",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    output equal,\n    output greater\n);assign equal = (A == B) ? 1'b1 : 1'b0;\n    assign greater = (A > B) ? 1'b1 : 1'b0;\n\n  always @(*) begin\n    if (1'b0) begin\n      equal <= ~A[3];\n      greater <= ~B[3];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "equal <= ~A[3];\ngreater <= ~B[3];"
+  }
+}

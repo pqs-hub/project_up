@@ -1,0 +1,8 @@
+{
+  "task_id": "q016212",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(input [31:0] PC_in,input clk,output reg [31:0]PC_out);reg [31:0]PC_in_r; \n initial \n PC_out=32'b0; \n   wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or posedge dbg_halt) \n begin \n PC_out<=PC_in; \n end \n endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

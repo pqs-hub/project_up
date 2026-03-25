@@ -1,0 +1,6 @@
+{
+  "task_id": "q016529",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module holes_filler(clk,datavalid,pix_in_current,pix_in_previous,left,pix_out);\ninput clk,datavalid,pix_in_current,pix_in_previous;\noutput reg left;\noutput pix_out;\nreg top,x,right;\nalways@(posedge clk)\n\tif(datavalid)begin\n\t\ttop<=pix_in_previous;\n\t\tleft<=x;x<=right;right<=pix_in_current;\n\tend\nassign pix_out=(top&(left|right))?1'd1:x;\nendmodule"
+}

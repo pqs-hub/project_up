@@ -1,0 +1,10 @@
+{
+  "task_id": "q012486",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Selects the lower 16 bits when MSBs are 01, upper 16 bits when MSBs are 10, bitwise negation of upper 16 bits when MSBs are 11, and bitwise negation of lower 16 bits when MSBs are 00\nmodule top_module(\n    input [31:0] data_in,\n    output [15:0] data_out\n);wire [1:0] msb = data_in[31:30];\n\n    assign data_out = (msb == 2'b01) ? data_in[15:0] :\n                     (msb == 2'b10) ? data_in[31:16] :\n                     (msb == 2'b11) ? ~data_in[31:16] :\n                                      ~data_in[15:0];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Selects the lower 16 bits when MSBs are 01, upper 16 bits when MSBs are 10, bitwise negation of upper 16 bits when MSBs are 11, and bitwise negation of lower 16 bits when MSBs are 00"
+  }
+}

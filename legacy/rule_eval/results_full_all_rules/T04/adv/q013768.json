@@ -1,0 +1,10 @@
+{
+  "task_id": "q013768",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 16-bit wide register with synchronous reset\nmodule register_8bit_async(\n    input [7:0] data,\n    input clk,\n    input rst,\n    output reg [7:0] q\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            q <= 8'b00000000;\n        else\n            q <= data;\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 16-bit wide register with synchronous reset"
+  }
+}

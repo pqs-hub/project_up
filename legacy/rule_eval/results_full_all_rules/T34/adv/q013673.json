@@ -1,0 +1,18 @@
+{
+  "task_id": "q013673",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module priority_encoder_8bit\n(\n    input [7:0] invalid_input,\n    output reg [2:0] y,\n    output reg valid\n);\n\nalways @(*) begin\n    valid = |invalid_input;\n    if (invalid_input[7]) y = 3'b111;\n    else if (invalid_input[6]) y = 3'b110;\n    else if (invalid_input[5]) y = 3'b101;\n    else if (invalid_input[4]) y = 3'b100;\n    else if (invalid_input[3]) y = 3'b011;\n    else if (invalid_input[2]) y = 3'b010;\n    else if (invalid_input[1]) y = 3'b001;\n    else if (invalid_input[0]) y = 3'b000;\n    else y = 3'b000;\nend\n\nendmodule",
+  "rename_map": {
+    "i": "invalid_input"
+  },
+  "params_used": {
+    "custom_map": {
+      "priority_encoder_8bit": "invalid_priority_encoder",
+      "i": "invalid_input",
+      "y": "invalid_output",
+      "valid": "invalid_valid"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

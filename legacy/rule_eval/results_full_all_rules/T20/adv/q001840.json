@@ -1,0 +1,10 @@
+{
+  "task_id": "q001840",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module generates an interrupt pending signal when no acknowledge is received after an interrupt request.\nmodule interrupt_controller(  \n    input wire clk,  \n    input wire reset,  \n    input wire interrupt_request,  \n    input wire acknowledge,  \n    output reg interrupt_pending  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            interrupt_pending <= 0;  \n        end else begin  \n            if (interrupt_request) begin  \n                interrupt_pending <= 1;  \n            end  \n            if (acknowledge) begin  \n                interrupt_pending <= 0;  \n            end  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module generates an interrupt pending signal when no acknowledge is received after an interrupt request."
+  }
+}

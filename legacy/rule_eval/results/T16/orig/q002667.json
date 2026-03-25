@@ -1,0 +1,6 @@
+{
+  "task_id": "q002667",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module sr_latch (  \n    input wire S,  \n    input wire R,  \n    output reg Q  \n);  \n    always @ (S, R) begin  \n        if (S && ~R)  \n            Q <= 1; // Set  \n        else if (~S && R)  \n            Q <= 0; // Reset  \n        // If both S and R are low, retain the state (no change)  \n        // If both S and R are high, maintain the previous state (indeterminate)  \n    end  \nendmodule"
+}

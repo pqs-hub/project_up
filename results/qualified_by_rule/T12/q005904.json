@@ -1,0 +1,6 @@
+{
+  "task_id": "q005904",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(input signed [7:0] a, b, output reg signed [7:0] add_out, sub_out, mul_out, div_out, output reg [1:0] op);always @ (a, b, op) begin\n        case (op)\n            2'b00: begin // addition\n                add_out = a + b;\n                sub_out = 0;\n                mul_out = 0;\n                div_out = 0;\n            end\n            2'b01: begin // subtraction\n                add_out = 0;\n                sub_out = a - b;\n                mul_out = 0;\n                div_out = 0;\n            end\n            2'b10: begin // multiplication\n                add_out = 0;\n                sub_out = 0;\n                mul_out = a * b;\n                div_out = 0;\n            end\n            2'b11: begin // division\n                add_out = 0;\n                sub_out = 0;\n                mul_out = 0;\n                div_out = (b != 0) ? (a / b) : 0; // handle division by zero\n            end\n            default: begin\n                add_out = 0;\n                sub_out = 0;\n                mul_out = 0;\n                div_out = 0;\n            end\n        endcase\n    end\n\nendmodule"
+}

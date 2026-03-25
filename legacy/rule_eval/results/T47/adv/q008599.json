@@ -1,0 +1,8 @@
+{
+  "task_id": "q008599",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(\n    Y   ,\n    A1  ,\n    A2  ,\n    A3  ,\n    B1  ,\n    VPWR,\n    VGND\n);output Y   ;\n    input  A1  ;\n    input  A2  ;\n    input  A3  ;\n    input  B1  ;\n    input  VPWR;\n    input  VGND;\n\n    wire A1_high;\n    wire A2_high;\n    wire A3_high;\n    wire B1_high;\n\n      wire _n01 = A1[0] ^ 1'b1[0];\n  wire _n02 = A1[1] ^ 1'b1[1];\n  wire _n03 = A1[2] ^ 1'b1[2];\n  wire _n04 = A1[3] ^ 1'b1[3];\n  assign A1_high = ~_n01 & ~_n02 & ~_n03 & ~_n04;\n    assign A2_high = (A2 == 1'b1);\n    assign A3_high = (A3 == 1'b1);\n    assign B1_high = (B1 == 1'b1);\n\n    assign Y = (A1_high | (!A1_high & A2_high) | (!A1_high & !A2_high & A3_high) | (!A1_high & !A2_high & !A3_high & B1_high)) ? 1'b1 : 1'b0;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

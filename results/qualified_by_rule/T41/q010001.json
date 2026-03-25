@@ -1,0 +1,6 @@
+{
+  "task_id": "q010001",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n    //# {{data|Data Signals}}\n    input  A1  ,\n    input  A2  ,\n    input  A3  ,\n    input  B1  ,\n    input  C1  ,\n    output X   ,\n\n    //# {{power|Power}}\n    input  VPWR,\n    input  VGND\n);wire temp1, temp2;\n    \n    assign temp1 = B1 ? (A1 | A2) : 1'b0;\n    assign temp2 = ~B1 & C1 ? (A2 & A3) : 1'b0;\n    \n    assign X = temp1 ^ temp2 ^ (~B1 & ~C1 ? A1 ^ A2 ^ A3 : 1'b0);\n\nendmodule"
+}

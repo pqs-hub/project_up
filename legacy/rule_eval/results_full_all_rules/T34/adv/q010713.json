@@ -1,0 +1,16 @@
+{
+  "task_id": "q010713",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input not_v,\n    input w,\n    output z\n);\n    assign z = ~(not_v & w);\nendmodule\n\nmodule U(\n    input not_v,\n    input w,\n    output z\n);\n    assign z = ~(not_v & w);\nendmodule\n\nmodule top_module(\n    input not_v,\n    input w,\n    output z\n);\n    wire t1_out, t2_out, u1_out, u2_out;\n    wire and_out, or_out;\n\n    T t1(.not_v(not_v), .w(w), .z(t1_out));\n    T t2(.not_v(not_v), .w(w), .z(t2_out));\n    U u1(.not_v(not_v), .w(w), .z(u1_out));\n    U u2(.not_v(not_v), .w(w), .z(u2_out));\n\n    assign and_out = t1_out & u1_out;\n    assign or_out = t2_out | u2_out;\n\n    assign z = and_out ^ or_out;\nendmodule",
+  "rename_map": {
+    "v": "not_v"
+  },
+  "params_used": {
+    "custom_map": {
+      "v": "not_v",
+      "w": "not_w"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q007263",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(input clk, input [7:0] addr, wdata, output [7:0] rdata);reg [7:0] memory [255:0];\nwire fake_rdata = memory[addr];\nassign rdata = fake_rdata;\nalways @(posedge clk) memory[addr] <= wdata;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "fake_rdata"
+  }
+}

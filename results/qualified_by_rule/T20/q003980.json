@@ -1,0 +1,6 @@
+{
+  "task_id": "q003980",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule (\n    input [7:0] a,\n    input [7:0] b,\n    input [7:0] c,\n    output reg [7:0] median\n);\n\nalways @(*) begin\n    if ((a >= b && a <= c) || (a <= b && a >= c))\n        median = a;\n    else if ((b >= a && b <= c) || (b <= a && b >= c))\n        median = b;\n    else\n        median = c;\nend\n\nendmodule"
+}

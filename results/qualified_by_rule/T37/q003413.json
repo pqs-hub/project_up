@@ -1,0 +1,6 @@
+{
+  "task_id": "q003413",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule (\n    input [15:0] data_in,\n    input [3:0] addr,\n    input we,\n    input clk,\n    output reg [15:0] data_out\n);\n    reg [15:0] memory [0:15]; // 16 x 16-bit SRAM cells\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory[addr] <= data_in; // Write operation\n        end\n        else begin\n            data_out <= memory[addr]; // Read operation\n        end\n    end\nendmodule"
+}

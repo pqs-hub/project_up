@@ -1,0 +1,18 @@
+{
+  "task_id": "q000293",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module fir_filter (\n    input wire signed [4:0] input_data,         // Current input\n    input wire signed [4:0] x1,        // Previous input\n    input wire signed [4:0] x2,        // Input before previous\n    output wire signed [4:0] y          // Output\n);\n    assign y = (input_data * 1) + (x1 * 2) + (x2 * 1);\nendmodule",
+  "rename_map": {
+    "x": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "x": "input_data",
+      "x1": "prev_input_data",
+      "x2": "before_prev_input_data",
+      "y": "filtered_output"
+    },
+    "fallback_prefix": "irrelevant_"
+  }
+}

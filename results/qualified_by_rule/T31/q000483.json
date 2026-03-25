@@ -1,0 +1,6 @@
+{
+  "task_id": "q000483",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule (\n    input wire [4:0] data_in,\n    input wire clk,\n    input wire load,\n    input wire reset,\n    output reg [4:0] data_out\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            data_out <= 5'b00000;\n        end else if (load) begin\n            data_out <= data_in;\n        end\n    end\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q014840",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // Asynchronous reset on GATE high, synchronous set on RESET_B low\nmodule top_module(\n    Q      ,\n    Q_N    ,\n    RESET_B,\n    D      ,\n    GATE\n);output Q      ;\n    output Q_N    ;\n    input  RESET_B;\n    input  D      ;\n    input  GATE   ;\n\n    reg Q, Q_N;\n\n    always @(negedge RESET_B or posedge GATE) begin\n        if (!RESET_B) begin\n            Q <= 1'b0;\n            Q_N <= 1'b1;\n        end else if (GATE) begin\n            Q <= D;\n            Q_N <= ~D;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous reset on GATE high, synchronous set on RESET_B low"
+  }
+}

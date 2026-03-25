@@ -1,0 +1,6 @@
+{
+  "task_id": "q007813",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule (\n  input in,\n  input [1:0] state,\n  output reg [1:0] next_state,\n  output reg out\n);\n\n  // Define state encoding\n  localparam X = 2'b00;\n  localparam Y = 2'b01;\n  localparam Z = 2'b10;\n\n  // Combinational logic to determine next state and output based on current state and input\n  always @(*) begin\n    case (state)\n      X: begin\n        if (in == 0) begin\n          next_state = Y;\n          out = 1;\n        end\n        else begin\n          next_state = Z;\n          out = 0;\n        end\n      end\n\n      Y: begin\n        if (in == 0) begin\n          next_state = X;\n          out = 0;\n        end\n        else begin\n          next_state = Z;\n          out = 1;\n        end\n      end\n\n      Z: begin\n        if (in == 0) begin\n          next_state = X;\n          out = 1;\n        end\n        else begin\n          next_state = Y;\n          out = 0;\n        end\n      end\n\n      default: begin\n        next_state = X; // Default to state X if in an undefined state\n        out = 0;\n      end\n    endcase\n  end\n\nendmodule"
+}

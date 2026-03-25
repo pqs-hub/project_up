@@ -1,0 +1,10 @@
+{
+  "task_id": "q016962",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests the use of a clocked always block for the XOR operation\nmodule top_module(\n    input a,\n    input b,\n    output reg out\n);\n\nalways @(*)\nbegin\n    out = a ^ b;\nend\n\nendmodule\nmodule top_module(\n    input a,\n    input b,\n    output reg out_always_comb\n);\n\nxor_gate xor_gate_inst(\n    .a(a),\n    .b(b),\n    .out(out_always_comb)\n);\n\nendmodule\n",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests the use of a clocked always block for the XOR operation"
+  }
+}

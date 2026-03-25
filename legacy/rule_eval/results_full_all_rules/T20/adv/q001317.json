@@ -1,0 +1,10 @@
+{
+  "task_id": "q001317",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module converts a 4-bit binary input representing the temperature in degrees Celsius (0-15) into a 3-bit binary value indicating a warning level. However, it incorrectly outputs 3'b001 for temperatures below 5°C, 3'b010 for temperatures between 5°C and 10°C, 3'b011 for temperatures between 10°C and 15°C, and 3'b000 for temperatures above 15°C.\nmodule temperature_sensor_controller(\n    input [3:0] temperature,\n    output reg [2:0] warning_level\n);\n    always @(*) begin\n        if (temperature < 5) \n            warning_level = 3'b000; // Below 5°C\n        else if (temperature < 10) \n            warning_level = 3'b001; // 5°C to 9°C\n        else if (temperature < 15) \n            warning_level = 3'b010; // 10°C to 14°C\n        else \n            warning_level = 3'b011; // 15°C and above\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module converts a 4-bit binary input representing the temperature in degrees Celsius (0-15) into a 3-bit binary value indicating a warning level. However, it incorrectly outputs 3'b001 for temperatures below 5°C, 3'b010 for temperatures between 5°C and 10°C, 3'b011 for temperatures between 10°C and 15°C, and 3'b000 for temperatures above 15°C."
+  }
+}

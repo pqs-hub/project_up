@@ -1,0 +1,6 @@
+{
+  "task_id": "q005376",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(input wire EX_MemRead,input wire [4:0] rs,input wire [4:0] rt,input wire [4:0] EX_rt,output reg Stall);always @* \n  if (EX_MemRead && ((EX_rt == rs) || (EX_rt == rt))) begin\n    begin end  // redundant \n  Stall = 1; \n  end \n  else begin \n  Stall = 0; \n  end \n endmodule"
+}

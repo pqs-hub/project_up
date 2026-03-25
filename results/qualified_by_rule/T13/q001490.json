@@ -1,0 +1,6 @@
+{
+  "task_id": "q001490",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule (\n    input [4:0] vin,         // Input voltage (5-bit)\n    input control,           // Control signal (1-bit)\n    output reg [4:0] vout    // Output regulated voltage (5-bit)\n);\n    always @(*) begin\n        if (control) begin\n            vout = vin;       // Output follows input when control is high\n        end else begin\n            vout = 5'b00000;  // Output is 0 when control is low\n        end\n    end\nendmodule"
+}

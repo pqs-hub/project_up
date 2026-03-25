@@ -1,0 +1,8 @@
+{
+  "task_id": "q004946",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\noutput reg rst_sync,\ninput clk, rst_n);reg R1;\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_n or posedge dbg_halt)\nif(!rst_n) \nbegin\nR1 <= 1'b0;\nrst_sync <= 1'b0; \nend \nelse\nbegin\nR1 <= 1'b1;\nrst_sync <= R1;\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

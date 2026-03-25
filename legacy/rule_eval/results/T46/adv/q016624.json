@@ -1,0 +1,8 @@
+{
+  "task_id": "q016624",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module sq_pg(\n\tinput clk,\n\tinput reset_n,\n\tinput [10:0] fnumber,\n\tinput [2:0] block,\n  input [3:0] multiple,\n  input ce_n, \n\toutput [9:0]phase );\nreg [19:0] count;\nassign phase = count[19:10];\nwire [19:0]fmult = fnumber << (block-1);\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge reset_n  or posedge dbg_halt) begin\n\tif( !reset_n )\n\t\tcount <= 20'b0;\n\telse begin\n\t  if( !ce_n )\n  \t  count <= count + ( multiple==4'b0 ? fmult>> 1 : fmult*multiple);\n  \telse \n  \t  count <= count;\n\tend\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q009808",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] binary,\n    output reg [3:0] twos_comp\n);reg [3:0] invert;\nreg [3:0] add_one;\n\nalways @ (binary) begin\n    invert <= ~binary;\nend\n\nalways @ (invert) begin\n    add_one <= invert + 4'b0001;\nend\n\nwire not_invert = add_one;\nassign twos_comp = not_invert;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "not_invert"
+  }
+}

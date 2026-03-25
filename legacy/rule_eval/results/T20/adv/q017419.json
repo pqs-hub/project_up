@@ -1,0 +1,6 @@
+{
+  "task_id": "q017419",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule SignExt (\n  input [15:0] in,\n  output reg [31:0] out\n);\n\n  always @(*) begin\n    if (in[15] == 1) begin\n      out = {16'b1111_1111_1111_1111, in};\n    end else begin\n      out = {16'b0000_0000_0000_0000, in};\n    end\n  end\n\nendmodule"
+}

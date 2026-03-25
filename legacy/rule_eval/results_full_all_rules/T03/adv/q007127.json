@@ -1,0 +1,8 @@
+{
+  "task_id": "q007127",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module down_counter_2bit (count, clk, reset);\n   input clk, reset;\n   output [1:0] count;\n  wire [1:0] _tap_count = count ^ {2{1'b0}};\n\n   \n   reg [1:0] count;\n   \n   always @(posedge clk) begin\n      if (reset)\n         count <= 2'b11;\n      else\n         count <= count - 1;\n   end //End of always block\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

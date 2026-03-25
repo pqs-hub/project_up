@@ -1,0 +1,8 @@
+{
+  "task_id": "q009824",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module (\n    input clk,\n    input load,\n    input clear,\n    input [8-1:1-1] data,\n    output reg [7:0] q\n);\n\n    always @(posedge clk) begin\n        if (clear)\n            q <= 8'b00000000; // Synchronous clear to zero\n        else if (load)\n            q <= data; // Load data into the register\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

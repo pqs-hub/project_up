@@ -1,0 +1,9 @@
+{
+  "task_id": "q007311",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(obf_a, b, c, d, op, y);input [7:0] obf_a;\ninput [7:0] b;\ninput [7:0] c;\ninput [7:0] d;\ninput [1:0] op;\n\noutput [7:0] y;\n\nreg [7:0] y;\n\nalways @ (obf_a or b or c or d or op )\nbegin\n\t\n\n\tcase(op)\n\t2'b00 : y = obf_a;\n\t2'b01 : y = b;\n\t2'b10 : y = c;\n\tdefault : y = d;\n\tendcase\n\t\t\n\n\t\nend\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

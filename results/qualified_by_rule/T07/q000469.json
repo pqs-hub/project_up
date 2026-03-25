@@ -1,0 +1,6 @@
+{
+  "task_id": "q000469",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(  \n    input clk,  \n    input reset,  \n    input load,  \n    input [1:0] data_in,  \n    output reg [1:0] q  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            q <= 2'b00;  \n        end else if (load) begin  \n            q <= data_in;  \n        end else begin  \n            q <= {q[0], 1'b0};  \n        end  \n    end  \nendmodule"
+}

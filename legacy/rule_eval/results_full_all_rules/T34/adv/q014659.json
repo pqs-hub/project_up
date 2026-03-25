@@ -1,0 +1,17 @@
+{
+  "task_id": "q014659",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(reset, ALU_CTL, NUM1, NUM2, ZERO, ALU_RES);input reset;\n   input ALU_CTL;\n   input [31:0] NUM1, NUM2;\n   output \tZERO;\n   output [31:0] \tALU_RES;\n\n   assign ZERO = (ALU_RES == 0);\n   assign ALU_RES = NUM1 + NUM2;endmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "NUM1": "NUM2",
+      "NUM2": "NUM1",
+      "ZERO": "ONE"
+    },
+    "fallback_prefix": "X_"
+  }
+}

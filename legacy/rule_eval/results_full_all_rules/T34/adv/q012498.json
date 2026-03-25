@@ -1,0 +1,15 @@
+{
+  "task_id": "q012498",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk, in, out);parameter N = 1;\n\n\tinput clk;\n\tinput [N-1:0] in;\n\toutput [N-1:0] out;\n\n\treg [N-1:0] prev_in = 0;\n\n\tassign out = in & ~prev_in;\n\n\talways @(posedge clk)\n\t\tprev_in <= in;\nendmodule",
+  "rename_map": {
+    "buffer": "prev_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "buffer": "prev_in"
+    },
+    "fallback_prefix": "neg_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q005279",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input ctrl,\n    input D0,\n    input D1,\n    output S\n);wire sel;\n  assign sel = ctrl;\n\n  // Use a standard conditional operator for a 2-to-1 multiplexer\n  assign S = sel ? D1 : D0;\n\n  always @(*) begin\n    if (1'b0) begin\n      assign S = ~sel ? D0 : D1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "assign S = ~sel ? D0 : D1;"
+  }
+}

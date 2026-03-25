@@ -1,0 +1,6 @@
+{
+  "task_id": "q002726",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule (\n    input wire [15:0] data_in,\n    input wire WE,    // Write Enable\n    input wire RE,    // Read Enable\n    output reg [15:0] data_out\n);\n    reg [15:0] memory; // 16-bit memory cell\n\n    always @(*) begin\n        if (WE && !RE) begin\n            memory <= data_in; // Write operation\n        end else if (RE && !WE) begin\n            data_out <= memory; // Read operation\n        end\n    end\nendmodule"
+}

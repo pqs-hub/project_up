@@ -1,0 +1,10 @@
+{
+  "task_id": "q007968",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This is a 1-to-4 demultiplexer that routes one of four input signals to the output based on a 2-bit control signal.\nmodule top_module(input ctrl0, ctrl1, \n     input D0, D1, D2, D3, \n     output reg S);always @(*) begin\n    case ({ctrl1, ctrl0})\n      2'b00: S = D0;\n      2'b01: S = D1;\n      2'b10: S = D2;\n      2'b11: S = D3;\n      default: S = 1'b0; // Handle case for default safety\n    endcase\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 1-to-4 demultiplexer that routes one of four input signals to the output based on a 2-bit control signal."
+  }
+}

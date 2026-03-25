@@ -1,0 +1,8 @@
+{
+  "task_id": "q008509",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input wire clk,\n    input wire reset,\n    output reg q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 1'b0;\n        end else begin\n            q <= ~q;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

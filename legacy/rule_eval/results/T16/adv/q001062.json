@@ -1,0 +1,9 @@
+{
+  "task_id": "q001062",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module hazard_detection(\n    input wire A,\n    input wire B,\n    input wire C,\n    output wire F\n);\n    wire obf_A_not, B_not, C_not;\n    wire term1, term2, term3, term4;\n\n    // Inversions\n    not (obf_A_not, A);\n    not (B_not, B);\n    not (C_not, C);\n\n    // Product terms\n    and (term1, obf_A_not, B_not, C); // A'B'C\n    and (term2, A, B_not, C);     // AB'C\n    and (term3, A, B, C_not);     // ABC'\n    and (term4, A, B, C);         // ABC\n\n    // Final output\n    or (F, term1, term2, term3, term4);\nendmodule",
+  "rename_map": {
+    "A_not": "obf_A_not"
+  }
+}

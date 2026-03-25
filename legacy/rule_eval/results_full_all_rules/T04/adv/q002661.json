@@ -1,0 +1,10 @@
+{
+  "task_id": "q002661",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module detects when the input signal crosses from positive to negative or from negative to positive.\nmodule zero_crossing_detector(  \n    input clk,  \n    input signal,  \n    output reg zero_cross  \n);  \n    reg previous_signal;  \n\n    always @(posedge clk) begin  \n        if (previous_signal == 1'b0 && signal == 1'b1)  \n            zero_cross <= 1'b1; // Positive zero-crossing  \n        else if (previous_signal == 1'b1 && signal == 1'b0)  \n            zero_cross <= 1'b1; // Negative zero-crossing  \n        else  \n            zero_cross <= 1'b0; // No zero-crossing  \n        \n        previous_signal <= signal;  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module detects when the input signal crosses from positive to negative or from negative to positive."
+  }
+}

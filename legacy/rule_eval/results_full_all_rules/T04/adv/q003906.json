@@ -1,0 +1,10 @@
+{
+  "task_id": "q003906",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // Asynchronous reset should set Q to 1 on rising edge of clk\nmodule d_flip_flop (\n    input wire clk,\n    input wire rst,\n    input wire D,\n    output reg Q\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            Q <= 1'b0;\n        end else begin\n            Q <= D;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous reset should set Q to 1 on rising edge of clk"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005885",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module register (\n\tinput clk,\n\tinput reset,\n\tinput enable_n,\n\tinput [11:0] data_in,\n\toutput reg [11:0] data_out\n);always @(posedge clk or posedge reset) begin\n\tif (reset)\n\t\tdata_out <= 12'b000000000000;\n\telse if (~enable_n)\n\t\tdata_out <= data_in;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

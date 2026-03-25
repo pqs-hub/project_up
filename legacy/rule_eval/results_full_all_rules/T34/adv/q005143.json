@@ -1,0 +1,15 @@
+{
+  "task_id": "q005143",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module d_ff_async (\n    input clk,\n    input rst,\n    input d,\n    output q\n);\n\n    reg invalid_q;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            invalid_q <= 1'b0;\n        else\n            invalid_q <= d;\n    end\n\n    assign q = invalid_q;\n\nendmodule",
+  "rename_map": {
+    "q_reg": "invalid_q"
+  },
+  "params_used": {
+    "custom_map": {
+      "q_reg": "invalid_q"
+    },
+    "fallback_prefix": "err_"
+  }
+}

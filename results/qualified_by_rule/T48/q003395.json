@@ -1,0 +1,6 @@
+{
+  "task_id": "q003395",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input move_up,\n    input move_down,\n    input move_left,\n    input move_right,\n    output reg [7:0] x,\n    output reg [7:0] y\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        x <= 8'b0;\n        y <= 8'b0;\n    end else begin\n        if (move_up) y <= y + 1;\n        if (move_down) y <= y - 1;\n        if (move_left) x <= x - 1;\n        if (move_right) x <= x + 1;\n    end\nend\n\nendmodule"
+}

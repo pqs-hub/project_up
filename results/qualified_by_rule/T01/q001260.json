@@ -1,0 +1,6 @@
+{
+  "task_id": "q001260",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule (  \n    input [127:0] key,  \n    input [127:0] message,  \n    input clk,  \n    input rst,  \n    output reg [127:0] mac  \n);  \n    always @(posedge clk or posedge rst) begin\n    begin end  // redundant  \n        if (rst) begin  \n            mac <= 128'b0;  \n        end else begin  \n            mac <= key ^ message;  \n        end  \n    end  \nendmodule"
+}

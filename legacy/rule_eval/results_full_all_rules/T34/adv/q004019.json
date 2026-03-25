@@ -1,0 +1,15 @@
+{
+  "task_id": "q004019",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module divider_2bit (  \n    input [1:0] dividend_inverted,  \n    input [1:0] divisor,  \n    output reg [1:0] quotient,  \n    output reg [1:0] remainder  \n);  \n    always @(*) begin  \n        if (divisor == 2'b00) begin  \n            quotient = 2'b00;  \n            remainder = 2'b00;  \n        end else begin  \n            quotient = dividend_inverted / divisor;  \n            remainder = dividend_inverted % divisor;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "dividend": "dividend_inverted"
+  },
+  "params_used": {
+    "custom_map": {
+      "dividend": "dividend_inverted"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

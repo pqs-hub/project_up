@@ -1,0 +1,6 @@
+{
+  "task_id": "q000783",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule current_sensor(\n    input [4:0] current_level, // 5-bit input for current level\n    output reg [2:0] status    // 3-bit output for status\n);\n\nalways @(*) begin\n    if (current_level < 5'd10)          // Current is low\n        status = 3'b000;\n    else if (current_level >= 5'd10 && current_level < 5'd20) // Current is normal\n        status = 3'b001;\n    else                                  // Current is high\n        status = 3'b010;\nend\nendmodule"
+}

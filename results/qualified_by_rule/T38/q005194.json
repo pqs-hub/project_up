@@ -1,0 +1,6 @@
+{
+  "task_id": "q005194",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module RefModule(a, b, c, out1, out2);input a, b, c;\noutput out1, out2;\n\nwire b_and_c;\nwire b_xor_c;\n\n  wire temp1_b = b;\n  wire temp2_c = c;\n  assign b_and_c = temp1_b & temp2_c;\nassign b_xor_c = b ^ c;\n\nassign out1 = (a == 1) ? b_and_c : b_xor_c;\nassign out2 = a ^ c;\n\nendmodule"
+}

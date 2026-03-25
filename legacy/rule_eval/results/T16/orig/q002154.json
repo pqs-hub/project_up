@@ -1,0 +1,6 @@
+{
+  "task_id": "q002154",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module power_gating_controller(\n    input [1:0] ctrl,\n    input enable_prev,\n    output reg power_gated\n);\n    always @(*) begin\n        case (ctrl)\n            2'b00: power_gated = 0; // Power gated off\n            2'b01: power_gated = 1; // Power gated on\n            2'b10: power_gated = 1; // Power gated on\n            2'b11: power_gated = enable_prev; // Hold previous state\n            default: power_gated = enable_prev; // Default hold state\n        endcase\n    end\nendmodule"
+}

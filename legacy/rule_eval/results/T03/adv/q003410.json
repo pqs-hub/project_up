@@ -1,0 +1,6 @@
+{
+  "task_id": "q003410",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module sram_cell (\n    input wire clk,\n    input wire wen,\n    input wire d,\n    output reg q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    if (wen) begin\n        q <= d; // Write data to SRAM cell\n    end\n    // If wen is low, maintain the value of q (do nothing)\nend\n\nendmodule"
+}

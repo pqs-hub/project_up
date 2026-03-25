@@ -1,0 +1,10 @@
+{
+  "task_id": "q009183",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input A, input B, input Cin, output Q, output Cout);assign Q = A ^ B ^ Cin; \n  assign Cout = A&B | A&Cin | B&Cin; \n   always @(*) begin\n    if (1'b0) begin\n      Q <= ~A & ~B & ~Cin;\n      Cout <= A & B & Cin;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= ~A & ~B & ~Cin;\nCout <= A & B & Cin;"
+  }
+}

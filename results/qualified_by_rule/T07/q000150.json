@@ -1,0 +1,6 @@
+{
+  "task_id": "q000150",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule (\n    input wire req0,\n    input wire req1,\n    input wire req2,\n    input wire req3,\n    output reg grant0,\n    output reg grant1,\n    output reg grant2,\n    output reg grant3\n);\n\nalways @(*) begin\n    // Default all grants to 0\n    grant0 = 0;\n    grant1 = 0;\n    grant2 = 0;\n    grant3 = 0;\n\n    // Grant the highest priority request\n    if (req0) begin\n        grant0 = 1;\n    end else if (req1) begin\n        grant1 = 1;\n    end else if (req2) begin\n        grant2 = 1;\n    end else if (req3) begin\n        grant3 = 1;\n    end\nend\nendmodule"
+}

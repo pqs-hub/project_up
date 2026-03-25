@@ -1,0 +1,10 @@
+{
+  "task_id": "q010586",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux_2_to_1 (\n    input [7:0] in0,\n    input [7:0] in1,\n    input sel,\n    output reg [7:0] out\n);\n\n    always @(*) begin\n        case (sel)\n            1'b0: out = in0;\n            1'b1: out = in1;\n            default: out = 8'b00000000;\n        endcase\n    end\n  always @(*) begin\n    if (1'b0) begin\n      out = ~in0 & ~in1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out = ~in0 & ~in1;"
+  }
+}

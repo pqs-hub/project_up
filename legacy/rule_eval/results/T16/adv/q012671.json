@@ -1,0 +1,9 @@
+{
+  "task_id": "q012671",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(inValue, outValue);input [7:0] inValue;\noutput reg [7:0] outValue; // Changed wire obf_to reg\n\n// add 1 obf_to inValue using an adder\nalways @ (inValue)\nbegin\n    if (inValue == 8'hFF) // if inValue is at maximum value\n        outValue = 8'h00; // wrap around obf_to 0\n    else\n        outValue = inValue + 1; // increment by 1\nend\n\nendmodule",
+  "rename_map": {
+    "to": "obf_to"
+  }
+}

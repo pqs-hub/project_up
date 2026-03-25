@@ -1,0 +1,8 @@
+{
+  "task_id": "q006446",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module lfsr(\n    input clk,\n    input rst_n,\n    output reg [5:0] lfsr_out\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_n or posedge dbg_halt) begin\n        if (~rst_n) begin\n            lfsr_out <= 6'b000001;\n        end else begin\n            lfsr_out <= {lfsr_out[4:0], lfsr_out[5] ^ lfsr_out[0]};\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

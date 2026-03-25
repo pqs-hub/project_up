@@ -1,0 +1,16 @@
+{
+  "task_id": "q001291",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module SR_latch (\n    input wire SR_S,\n    input wire R,\n    output reg Q,\n    output reg Qn\n);\n    always @ (SR_S or R) begin\n        if (SR_S && !R) begin\n            Q <= 1'b1;\n            Qn <= 1'b0;\n        end else if (!SR_S && R) begin\n            Q <= 1'b0;\n            Qn <= 1'b1;\n        end\n        // If both SR_S and R are low, keep the previous state\n    end\nendmodule",
+  "rename_map": {
+    "S": "SR_S"
+  },
+  "params_used": {
+    "custom_map": {
+      "S": "Reset",
+      "R": "Set"
+    },
+    "fallback_prefix": "SR_"
+  }
+}

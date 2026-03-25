@@ -1,0 +1,17 @@
+{
+  "task_id": "q000304",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module magnitude_comparator(  \n    input [3:0] A,  \n    input [3:0] B,  \n    output reg lesser,  \n    output reg less,  \n    output reg equal  \n);  \n    always @* begin  \n        if (A > B) begin  \n            lesser = 1;  \n            less = 0;  \n            equal = 0;  \n        end else if (A < B) begin  \n            lesser = 0;  \n            less = 1;  \n            equal = 0;  \n        end else begin  \n            lesser = 0;  \n            less = 0;  \n            equal = 1;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "greater": "lesser"
+  },
+  "params_used": {
+    "custom_map": {
+      "greater": "lesser",
+      "less": "greater",
+      "equal": "unequal"
+    },
+    "fallback_prefix": "cmp_"
+  }
+}

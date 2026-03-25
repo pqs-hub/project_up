@@ -1,0 +1,10 @@
+{
+  "task_id": "q010605",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the shift register will shift right instead of left when the reset is low.\nmodule top_module(\n    input clk,\n    input reset,\n    input new_bit,\n    output reg [3:0] shift_reg);always @(posedge clk) begin\n    if (reset)\n        shift_reg <= 4'b0;\n    else\n        shift_reg <= {shift_reg[2:0], new_bit};\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the shift register will shift right instead of left when the reset is low."
+  }
+}

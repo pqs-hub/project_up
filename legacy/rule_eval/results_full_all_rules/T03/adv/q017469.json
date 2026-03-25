@@ -1,0 +1,8 @@
+{
+  "task_id": "q017469",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module xor4(\n    input [3:0] A,\n    input [3:0] B,\n    output [3:0] X\n);\n  wire [3:0] _tap_A = A & {4{1'b1}};\n\n\ngenvar i;\ngenerate\n    for (i = 0; i < 4; i = i + 1) begin : XOR\n        assign X[i] = A[i] ^ B[i];\n    end\nendgenerate\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

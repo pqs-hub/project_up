@@ -1,0 +1,6 @@
+{
+  "task_id": "q001114",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule (\n    input wire [3:0] data_in,\n    output reg [3:0] data_out,\n    input wire read_enable,\n    input wire write_enable,\n    input wire clk\n);\n    reg [3:0] memory;\n\n    always @(posedge clk) begin\n    begin end  // redundant\n        if (write_enable) begin\n            memory <= data_in;\n        end\n        if (read_enable) begin\n            data_out <= memory;\n        end\n    end\nendmodule"
+}

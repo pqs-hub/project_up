@@ -1,0 +1,6 @@
+{
+  "task_id": "q002966",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire req0,\n    input wire req1,\n    input wire req2,\n    input wire req3,\n    output reg grant0,\n    output reg grant1,\n    output reg grant2,\n    output reg grant3\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        grant0 <= 0;\n        grant1 <= 0;\n        grant2 <= 0;\n        grant3 <= 0;\n    end else begin\n        grant0 <= req0;\n        grant1 <= req1 && !req0;\n        grant2 <= req2 && !req0 && !req1;\n        grant3 <= req3 && !req0 && !req1 && !req2;\n    end\nend\n\nendmodule"
+}

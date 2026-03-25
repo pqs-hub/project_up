@@ -1,0 +1,6 @@
+{
+  "task_id": "q016081",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input shift_dir,\n    input shift_in,\n    output reg [7:0] shift_out\n);\n\nreg [7:0] shift_reg;\n\nalways @(posedge clk) begin\n    if (rst)\n        shift_reg <= 8'b00000000;\n    else if (shift_dir)\n        shift_reg <= {shift_reg[6:0], shift_in};\n    else\n        shift_reg <= {shift_in, shift_reg[7:1]};\nend\n\nassign shift_out = shift_reg;\n\nendmodule"
+}

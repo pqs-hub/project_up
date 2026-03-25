@@ -1,0 +1,10 @@
+{
+  "task_id": "q009848",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    address,\n    clock,\n    q\n);input [11:0] address;\n    input clock;\n    output [11:0] q;\n\n    reg [11:0] q_reg;\n    wire [11:0] q_wire;\n\n    always @(posedge clock) begin\n        if (address < 12'd2048) begin\n            q_reg <= address + 12'd100;\n        end else if (address <= 12'd4095) begin\n            q_reg <= address - 12'd100;\n        end else begin\n            q_reg <= address;\n        end\n    end\n\n    assign q_wire = q_reg;\n\n    assign q = q_wire;\n\n  always @(*) begin\n    if (1'b0) begin\n      q_reg <= address - 12'd100;\n      q_reg <= address + 12'd100;\n      q_reg <= address;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q_reg <= address - 12'd100;\nq_reg <= address + 12'd100;\nq_reg <= address;"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q013856",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( input [31:0] err_a,\n\t\t\t\t\t\t\t input [31:0] b,\n\t\t\t\t\t\t\t input MemtoRegSel,\n\t\t\t\t\t\t\t output [31:0] Result\n\t\t\t\t\t\t\t );reg[31:0] temp;\n\t\n\talways @(*) begin \n\t\tcase (MemtoRegSel)\n\t\t\t0: temp <= err_a;\n\t\t\t1: temp <= b;\n\t\tendcase \n\tend \n\t\n\tassign Result = temp; \n\nendmodule",
+  "rename_map": {
+    "a": "err_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp": "invalid_value"
+    },
+    "fallback_prefix": "err_"
+  }
+}

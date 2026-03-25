@@ -1,0 +1,10 @@
+{
+  "task_id": "q001310",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a JK latch with active-low set and reset\nmodule JK_latch (  \n    input J,  \n    input K,  \n    input CLK,  \n    output reg Q  \n);  \n    always @(posedge CLK) begin  \n        if (J && ~K)  \n            Q <= 1;  // Set  \n        else if (~J && K)  \n            Q <= 0;  // Reset  \n        else if (J && K)  \n            Q <= ~Q; // Toggle  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a JK latch with active-low set and reset"
+  }
+}

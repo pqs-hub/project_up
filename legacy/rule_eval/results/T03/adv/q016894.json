@@ -1,0 +1,6 @@
+{
+  "task_id": "q016894",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module unsigned_min(\n  input [31:0] a, b, c, d,\n  output reg [31:0] min\n);\n  wire [31:0] _tap_a = a & {32{1'b1}};\n\n\n  always @(*) begin\n    if(a < b && a < c && a < d)\n      min = a;\n    else if(b < c && b < d)\n      min = b;\n    else if(c < d)\n      min = c;\n    else\n      min = d;\n  end\n\nendmodule\n"
+}

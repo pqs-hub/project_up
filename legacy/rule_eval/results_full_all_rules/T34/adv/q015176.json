@@ -1,0 +1,16 @@
+{
+  "task_id": "q015176",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(z_not, c_in,z_out,c_out);input z_not,c_in;\noutput z_out,c_out;\nreg z,c;\n\n   assign z_out=z;\n   assign c_out=c;\n \nalways @(z_not or c_in ) begin : proc_\n\tz=z_not;\n\tc=c_in;\n\t\nend\n\nendmodule",
+  "rename_map": {
+    "z_in": "z_not"
+  },
+  "params_used": {
+    "custom_map": {
+      "z_in": "z_not",
+      "c_in": "c_not"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

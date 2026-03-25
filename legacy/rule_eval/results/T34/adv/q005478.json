@@ -1,0 +1,6 @@
+{
+  "task_id": "q005478",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_2to4(\n    input enable,           // Enable signal for the decoder.\n    input [1:0] binary_in,  // Binary input data with a data width of 2 bits.\n    output [3:0] one_hot_out // One-hot encoded output data with a data width of 4 bits.\n);\n\nreg [3:0] unused_decoded;         // Decoded output register.\n\nalways @(*)\n    if (enable)\n        case (binary_in)\n            2'b00: unused_decoded = 4'b0001;\n            2'b01: unused_decoded = 4'b0010;\n            2'b10: unused_decoded = 4'b0100;\n            2'b11: unused_decoded = 4'b1000;\n            default: unused_decoded = 4'b0000;\n        endcase\n    else\n        unused_decoded = 4'b0000;                        // All outputs are zero if enable is not active.\n\nassign one_hot_out = unused_decoded;                    // Output unused_decoded value.\n\nendmodule"
+}

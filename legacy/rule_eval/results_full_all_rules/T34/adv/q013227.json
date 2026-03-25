@@ -1,0 +1,16 @@
+{
+  "task_id": "q013227",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [15:0] switch_input,\n    input reset,\n    output reg [7:0] blue_led_output,\n    output reg [7:0] green_led_output\n);always @(*) begin\n        if (reset) begin\n            blue_led_output <= 8'b0;\n            green_led_output <= 8'b0;\n        end else begin\n            blue_led_output <= ~switch_input[7:0];\n            green_led_output <= ~switch_input[15:8];\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "red_led_output": "blue_led_output"
+  },
+  "params_used": {
+    "custom_map": {
+      "red_led_output": "blue_led_output",
+      "green_led_output": "yellow_led_output"
+    },
+    "fallback_prefix": "inverted_"
+  }
+}

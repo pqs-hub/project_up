@@ -1,0 +1,6 @@
+{
+  "task_id": "q000986",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire [1:0] workload,\n    output reg [1:0] freq_out\n);\n\nalways @(posedge clk) begin\n    case (workload)\n        2'b00: freq_out <= 2'b00; // Low frequency\n        2'b01: freq_out <= 2'b01; // Medium frequency\n        default: freq_out <= 2'b10; // High frequency\n    endcase\nend\n\nendmodule"
+}

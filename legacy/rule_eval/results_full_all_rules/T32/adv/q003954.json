@@ -1,0 +1,8 @@
+{
+  "task_id": "q003954",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module PISO (\n    input wire clk,\n    input wire load,\n    input wire [8-1:1-1] parallel_in,\n    output reg serial_out,\n    output reg done\n);\n    reg [7:0] shift_reg;\n    reg [2:0] count;\n\n    always @(posedge clk) begin\n        if (load) begin\n            shift_reg <= parallel_in; // Load data\n            count <= 3'b000;          // Reset count\n            done <= 1'b0;             // Not done yet\n        end else if (count < 3'b111) begin\n            serial_out <= shift_reg[7]; // Shift out the MSB\n            shift_reg <= {shift_reg[6:0], 1'b0}; // Shift left\n            count <= count + 1;         // Increment count\n        end else begin\n            serial_out <= shift_reg[7]; // Shift out the last bit\n            done <= 1'b1;                // Indicate done\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

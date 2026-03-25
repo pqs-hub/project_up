@@ -1,0 +1,6 @@
+{
+  "task_id": "q017537",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module reverse_bits(\n    input [15:0] in,\n    output [15:0] out\n);\n  wire [15:0] _tap_in = in & {16{1'b1}};\n\n\ngenvar i;\ngenerate\n    for (i = 0; i < 16; i = i + 1) begin : reverse_loop\n        assign out[i] = in[15-i];\n    end\nendgenerate\n\nendmodule"
+}

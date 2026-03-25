@@ -1,0 +1,9 @@
+{
+  "task_id": "q014032",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(PIN1, PIN2, GIN1, GIN2, PHI, POUT, GOUT);input PIN1;\ninput PIN2;\ninput GIN1;\ninput GIN2;\ninput PHI;\noutput POUT;\noutput GOUT;\n\nwire obf_and1;\nwire and2;\nwire or1;\n\nassign obf_and1 = PIN1 & PIN2;\nassign and2 = PIN2 & GIN1;\nassign or1 = GIN2 | and2;\n\nassign POUT = ~obf_and1;\nassign GOUT = ~or1;\n\nendmodule",
+  "rename_map": {
+    "and1": "obf_and1"
+  }
+}

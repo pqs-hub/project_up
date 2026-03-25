@@ -1,0 +1,8 @@
+{
+  "task_id": "q014116",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n      input  [1:0] io_inputs,\n      input  [1:0] io_clears,\n      input  [1:0] io_masks,\n      output [1:0] io_pendings,\n      input   io_mainClk,\n      input   resetCtrl_systemReset);reg [1:0] pendings;\n  assign io_pendings = (io_inputs & ~io_inputs) ? ~io_pendings : (pendings & io_masks);\n  always @ (posedge io_mainClk or posedge resetCtrl_systemReset) begin\n    if (resetCtrl_systemReset) begin\n      pendings <= (2'b00);\n    end else begin\n      pendings <= ((pendings & (~ io_clears)) | io_inputs);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

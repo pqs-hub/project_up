@@ -1,0 +1,10 @@
+{
+  "task_id": "q012135",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input [3:0]i,\ninput [1:0]sel,\noutput reg y);always @(i,sel)\nbegin\n\tcase(sel)\n\t\t2'b00: y=i[0];\n\t\t2'b01: y=i[1];\n\t\t2'b10: y=i[2];\n\t\t2'b11: y=i[3];\n\tendcase\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      y = ~i[0];\n      if (sel == 2'b01) begin\n        y = ~i[1];\n      end\n      if (sel == 2'b10) begin\n        y = ~i[2];\n      end\n      if (sel == 2'b11) begin\n        y = ~i[3];\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "y = ~i[0];\nif (sel == 2'b01) begin\n  y = ~i[1];\nend\nif (sel == 2'b10) begin\n  y = ~i[2];\nend\nif (sel == 2'b11) begin\n  y = ~i[3];\nend;"
+  }
+}

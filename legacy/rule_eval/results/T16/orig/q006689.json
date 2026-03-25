@@ -1,0 +1,6 @@
+{
+  "task_id": "q006689",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    output reg EQ,   // Changed from wire to reg\n    output reg GT,   // Changed from wire to reg\n    output reg LT    // Changed from wire to reg\n);always @(*) begin\n        if (A == B) begin\n            EQ = 1'b1;\n            GT = 1'b0;\n            LT = 1'b0;\n        end else if (A > B) begin\n            EQ = 1'b0;\n            GT = 1'b1;\n            LT = 1'b0;\n        end else begin\n            EQ = 1'b0;\n            GT = 1'b0;\n            LT = 1'b1;\n        end\n    end\n\nendmodule"
+}

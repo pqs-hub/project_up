@@ -1,0 +1,8 @@
+{
+  "task_id": "q003304",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module audio_compressor(\n    input wire clk,\n    input wire reset,\n    input wire [15:0] audio_in,\n    output reg [7:0] audio_out\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n    if (reset) begin\n        audio_out <= 8'b0;\n    end else begin\n        audio_out <= audio_in[15:8]; // Reduce to 8 bits by taking the upper 8 bits\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

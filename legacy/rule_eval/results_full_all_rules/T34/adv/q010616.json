@@ -1,0 +1,18 @@
+{
+  "task_id": "q010616",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(desel, in0, in1, in2, in3, out);input  [1:0]  desel;\n  input  [31:0] in0, in1, in2, in3;\n  output [31:0] out;\n\n  reg    [31:0] out;\n\n  always @(desel or in0 or in1 or in2 or in3)\n    case(desel)\n     2'd0:  out = in0;\n     2'd1:  out = in1;\n     2'd2:  out = in2;\n     2'd3:  out = in3;\n    endcase\nendmodule",
+  "rename_map": {
+    "sel": "desel"
+  },
+  "params_used": {
+    "custom_map": {
+      "in0": "data_in_0",
+      "in1": "data_in_1",
+      "in2": "data_in_2",
+      "in3": "data_in_3"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

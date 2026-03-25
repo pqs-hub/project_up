@@ -1,0 +1,10 @@
+{
+  "task_id": "q015665",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the circuit inverts the input and then checks if any bit is LOW, which is the opposite of the actual behavior.\nmodule top_module(\n    Y,\n    A\n);output Y;\n    input  [11:0] A;\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    wire [11:0] inverted_inputs;\n    \n    // Generate inverted inputs\n    assign inverted_inputs = ~A;\n    \n    // Generate output\n    assign Y = inverted_inputs[11] & inverted_inputs[10] & inverted_inputs[9] & inverted_inputs[8] & inverted_inputs[7] & inverted_inputs[6] & inverted_inputs[5] & inverted_inputs[4] & inverted_inputs[3] & inverted_inputs[2] & inverted_inputs[1] & inverted_inputs[0];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the circuit inverts the input and then checks if any bit is LOW, which is the opposite of the actual behavior."
+  }
+}

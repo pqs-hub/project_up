@@ -1,0 +1,15 @@
+{
+  "task_id": "q010065",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    input sel_b1,\n    input sel_b2,\n    output reg invalid_out\n);always @(*) begin\n    invalid_out = (sel_b2 & ~sel_b1) ? b : a;\nend\n\nendmodule",
+  "rename_map": {
+    "out_always": "invalid_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out_always": "invalid_out"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

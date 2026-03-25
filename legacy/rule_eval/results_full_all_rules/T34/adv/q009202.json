@@ -1,0 +1,17 @@
+{
+  "task_id": "q009202",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input wire [15:0] in,\n    output wire [7:0] out_hi,\n    output wire [7:0] out_lo\n);wire [7:0] err_shifted_in;\n    \n    assign err_shifted_in = in >> 8;\n    \n    assign out_hi = err_shifted_in;\n    \n    assign out_lo = in[7:0];\n    \nendmodule",
+  "rename_map": {
+    "shifted_in": "err_shifted_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "in": "data_in",
+      "out_hi": "invalid_out_hi",
+      "out_lo": "valid_out_lo"
+    },
+    "fallback_prefix": "err_"
+  }
+}

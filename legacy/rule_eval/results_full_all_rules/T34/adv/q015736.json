@@ -1,0 +1,16 @@
+{
+  "task_id": "q015736",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput  [32-1:0] data_not_selected,       \n\tinput  [32-1:0] data1_i,\n\tinput       \tselect_i,\n\toutput reg [32-1:0] data_o\n               );always@(*)\nbegin\n\n\tcase(select_i)\n\t\n\t1'b0 : data_o = data_not_selected;\n\n\t1'b1 : data_o = data1_i;\n\t\n\tendcase\n\n\n\nend\n\nendmodule",
+  "rename_map": {
+    "data0_i": "data_not_selected"
+  },
+  "params_used": {
+    "custom_map": {
+      "data0_i": "data_not_selected",
+      "data1_i": "data_selected"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q007562",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module RefModule(\n    X,\n    A\n);// Module ports\n    output reg [3:0] X;\n    input [3:0] A;\n\n    // Local signals\n    wire [3:0] inv_A;\n    wire [3:0] one = 4'b0001;\n\n    // Invert all the bits of A\n    assign inv_A = (A & ~A) ? ~inv_A : ~A;\n\n    // Add 1 to the inverted number\n    always @* begin\n        X = inv_A + one;\n    end\n\nendmodule"
+}

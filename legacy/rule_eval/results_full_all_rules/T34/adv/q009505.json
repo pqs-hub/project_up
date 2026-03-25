@@ -1,0 +1,16 @@
+{
+  "task_id": "q009505",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input [31:0] data_in,\n    output [15:0] data_out\n);reg [7:0] invalid_bits;\nreg [7:0] last_eight_bits;\n\nalways @(posedge clk) begin\n    if (data_in[31:24] == 8'hFF) begin\n        invalid_bits <= 8'hFF;\n        last_eight_bits <= 8'h00;\n    end else if (data_in[7:0] == 8'h00) begin\n        invalid_bits <= 8'h00;\n        last_eight_bits <= 8'h0F;\n    end else begin\n        invalid_bits <= data_in[31:24];\n        last_eight_bits <= data_in[7:0];\n    end\nend\n\nassign data_out = {invalid_bits, last_eight_bits};\n\nendmodule",
+  "rename_map": {
+    "first_eight_bits": "invalid_bits"
+  },
+  "params_used": {
+    "custom_map": {
+      "first_eight_bits": "invalid_bits",
+      "last_eight_bits": "valid_bits"
+    },
+    "fallback_prefix": "err_"
+  }
+}

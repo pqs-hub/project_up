@@ -1,0 +1,10 @@
+{
+  "task_id": "q006168",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 16-bit shift register that captures a serial input signal (rx_in) with shift functionality controlled by a clock (clk) and a control signal (brg_en). On each clock cycle, if brg_en is deasserted, the shift register shifts in the new input bit from rx_in while shifting out the most significant bit, effectively moving the contents of the register to the left. The output signals, shift_0 and shift_15, indicate the current values of the least and most significant bits of the register, respectively. Upon a reset (rst), the register initializes to all zeros (16'h0000).\nmodule top_module(input wire rx_in, clk, rst, brg_en, \n\t\toutput wire shift_0, shift_15);reg [15:0] shift_reg, next_shift_reg;\n\t\n\tassign shift_15 = shift_reg[15];\n\tassign shift_0 = shift_reg[0];\n\n\talways @(posedge clk, posedge rst) begin\n\t\tif (rst) begin\n\t\t\tshift_reg <= 16'hFFFF;\n\t\tend else begin\n\t\t\tshift_reg <= next_shift_reg;\n\t\tend\n\tend\n\n\talways @(*) begin\n\t\tif (brg_en) begin\n\t\t\tnext_shift_reg <= {rx_in, shift_reg[15:1]};\n\t\tend else begin\n\t\t\tnext_shift_reg <= shift_reg;\n\t\tend\n\tend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 16-bit shift register that captures a serial input signal (rx_in) with shift functionality controlled by a clock (clk) and a control signal (brg_en). On each clock cycle, if brg_en is deasserted, the shift register shifts in the new input bit from rx_in while shifting out the most significant bit, effectively moving the contents of the register to the left. The output signals, shift_0 and shift_15, indicate the current values of the least and most significant bits of the register, respectively. Upon a reset (rst), the register initializes to all zeros (16'h0000)."
+  }
+}

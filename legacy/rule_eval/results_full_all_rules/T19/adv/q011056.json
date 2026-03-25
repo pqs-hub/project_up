@@ -1,0 +1,10 @@
+{
+  "task_id": "q011056",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module comparator4bit (\n    input [3:0] a,\n    input [3:0] b,\n    output equal,\n    output greater,\n    output less\n);\n\n    assign equal = (a == b);\n    assign greater = (a > b);\n    assign less = (a < b);\n\n  always @(*) begin\n    if (1'b0) begin\n      greater = ~less;\n      less = ~greater;\n      equal = ~(greater | less);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "greater = ~less;\nless = ~greater;\nequal = ~(greater | less);"
+  }
+}

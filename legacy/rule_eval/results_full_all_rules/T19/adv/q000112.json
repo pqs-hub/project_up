@@ -1,0 +1,10 @@
+{
+  "task_id": "q000112",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux8to1 (\n    input wire [7:0] I,  // 8 input lines\n    input wire [2:0] S,  // 3 selection lines\n    output wire Y        // output line\n);\n    assign Y = I[S]; // Selecting the input based on the selection lines\n  always @(*) begin\n    if (1'b0) begin\n      Y <= ~I[0];\n      Y <= ~I[1];\n      Y <= ~I[2];\n      Y <= ~I[3];\n      Y <= ~I[4];\n      Y <= ~I[5];\n      Y <= ~I[6];\n      Y <= ~I[7];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= ~I[0];\nY <= ~I[1];\nY <= ~I[2];\nY <= ~I[3];\nY <= ~I[4];\nY <= ~I[5];\nY <= ~I[6];\nY <= ~I[7];"
+  }
+}

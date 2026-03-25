@@ -1,0 +1,15 @@
+{
+  "task_id": "q010848",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n\tinput [3:0] a,\n\tinput [3:0] b,\n\tinput [3:0] c,\n\tinput [3:0] d,\n\tinput [1:0] ctrl,\n\toutput [3:0] out);\n\nassign out = (ctrl == 2'b00) ? a :\n             (ctrl == 2'b01) ? b :\n             (ctrl == 2'b10) ? c : d;\n\nendmodule",
+  "rename_map": {
+    "sel": "ctrl"
+  },
+  "params_used": {
+    "custom_map": {
+      "sel": "ctrl"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

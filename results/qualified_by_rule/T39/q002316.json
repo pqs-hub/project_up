@@ -1,0 +1,6 @@
+{
+  "task_id": "q002316",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire shift,\n    input wire [15:0] parallel_in,\n    input wire load,\n    output reg [15:0] parallel_out\n);\n\nalways @(posedge clk) begin\n    if (load) begin\n        parallel_out <= parallel_in; // Load data on load signal\n    end else if (shift) begin\n        parallel_out <= {parallel_out[14:0], 1'b0}; // Shift left with 0 fill\n    end\nend\n\nendmodule"
+}

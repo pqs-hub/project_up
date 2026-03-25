@@ -1,0 +1,15 @@
+{
+  "task_id": "q003848",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bluetooth_signal_decoder(\n    input [4:0] rx_power,\n    output reg [2:0] signal_quality\n);\n\nalways @(*) begin\n    if (rx_power <= 5'd7) begin\n        signal_quality = 3'b000; // Poor\n    end else if (rx_power <= 5'd15) begin\n        signal_quality = 3'b001; // Fair\n    end else if (rx_power <= 5'd23) begin\n        signal_quality = 3'b010; // Good\n    end else begin\n        signal_quality = 3'b011; // Excellent\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "signal_strength": "rx_power"
+  },
+  "params_used": {
+    "custom_map": {
+      "signal_strength": "rx_power"
+    },
+    "fallback_prefix": "bluetooth_"
+  }
+}

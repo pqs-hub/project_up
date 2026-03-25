@@ -1,0 +1,6 @@
+{
+  "task_id": "q003291",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input enable,\n    input [2:0] channel_select,\n    output reg [7:0] data_out,\n    output reg [2:0] active_channel\n);\n    reg [7:0] channel_data [0:7]; // Data for each channel\n\n    // Initialize channel data for simulation\n    initial begin\n        channel_data[0] = 8'hAA; // Data for channel 0\n        channel_data[1] = 8'hBB; // Data for channel 1\n        channel_data[2] = 8'hCC; // Data for channel 2\n        channel_data[3] = 8'hDD; // Data for channel 3\n        channel_data[4] = 8'hEE; // Data for channel 4\n        channel_data[5] = 8'hFF; // Data for channel 5\n        channel_data[6] = 8'h11; // Data for channel 6\n        channel_data[7] = 8'h22; // Data for channel 7\n    end\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            data_out <= 8'h00;\n            active_channel <= 3'b000;\n        end else if (enable) begin\n            active_channel <= channel_select;\n            data_out <= channel_data[channel_select];\n        end\n    end\nendmodule"
+}

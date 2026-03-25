@@ -1,0 +1,6 @@
+{
+  "task_id": "q006163",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [7:0] a,\n  input [7:0] b,\n  input select,\n  output reg led\n);reg [7:0] unused_result;\n\n  always @(*) begin\n    if (select == 1'b0) begin\n      unused_result = a;\n    end else begin\n      unused_result = b;\n    end\n  end\n\n  assign led = unused_result[7];\n\nendmodule"
+}

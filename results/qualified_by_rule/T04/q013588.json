@@ -1,0 +1,6 @@
+{
+  "task_id": "q013588",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n    input clk,\n    input reset,\n    output reg [3:0] count\n    );\n\n    always @(posedge clk) begin\n        if (reset) begin\n            count <= 4'b1000;\n        end else begin\n            count <= {count[0], count[3:1]};\n        end\n    end\nendmodule"
+}

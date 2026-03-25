@@ -1,0 +1,8 @@
+{
+  "task_id": "q000380",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module data_forwarding_unit(\n    input [4:0] EX_MEM_reg,       // Register output from EX stage\n    input [4:0] MEM_WB_reg,       // Register output from MEM stage\n    input [4:0] rs1,              // Source register 1\n    input [4:0] rs2,              // Source register 2\n    output reg forwardA,          // Forwarding signal for rs1\n    output reg forwardB           // Forwarding signal for rs2\n);\n  wire [4:0] _tap_EX_MEM_reg = EX_MEM_reg & {5{1'b1}};\n\n    always @(*) begin\n        // Initialize forwarding signals\n        forwardA = 2'b00; // No forwarding\n        forwardB = 2'b00; // No forwarding\n\n        // Check for forwarding conditions for rs1\n        if (EX_MEM_reg != 0 && EX_MEM_reg == rs1) forwardA = 2'b10; // Forward from EX stage\n        else if (MEM_WB_reg != 0 && MEM_WB_reg == rs1) forwardA = 2'b01; // Forward from MEM stage\n\n        // Check for forwarding conditions for rs2\n        if (EX_MEM_reg != 0 && EX_MEM_reg == rs2) forwardB = 2'b10; // Forward from EX stage\n        else if (MEM_WB_reg != 0 && MEM_WB_reg == rs2) forwardB = 2'b01; // Forward from MEM stage\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

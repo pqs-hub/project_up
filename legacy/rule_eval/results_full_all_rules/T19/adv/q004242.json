@@ -1,0 +1,10 @@
+{
+  "task_id": "q004242",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module dram_cell (\n    input clk,\n    input we,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n    reg [15:0] memory;\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory <= data_in;\n        end\n    end\n\n    always @(negedge clk) begin\n        data_out <= memory;\n    end\n  always @(*) begin\n    if (1'b0) begin\n      data_out <= ~memory;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "data_out <= ~memory;"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q010093",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\t\timme, input_data\n    );parameter IMME_SIZE = 16;\n\tparameter DATA_SIZE = 32;\n\n\tinput wire [IMME_SIZE-1:0] imme;\n\toutput wire [DATA_SIZE-1:0] input_data;\n\n\tassign input_data = {{(DATA_SIZE-IMME_SIZE){imme[IMME_SIZE-1]}}, imme};\n\nendmodule",
+  "rename_map": {
+    "out": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "IMME_SIZE": "NEG_SIZE",
+      "DATA_SIZE": "POS_SIZE"
+    },
+    "fallback_prefix": "ext_"
+  }
+}

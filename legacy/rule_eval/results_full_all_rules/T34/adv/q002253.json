@@ -1,0 +1,19 @@
+{
+  "task_id": "q002253",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module PitchDetector (\n    input reset_clk,\n    input [15:0] frequency,\n    input [15:0] min_threshold,\n    input [15:0] max_threshold,\n    output reg detected\n);\n    always @(posedge reset_clk) begin\n        if (frequency >= min_threshold && frequency <= max_threshold) \n            detected <= 1'b1;\n        else \n            detected <= 1'b0;\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk",
+      "frequency": "pitch_value",
+      "min_threshold": "lower_bound",
+      "max_threshold": "upper_bound",
+      "detected": "note_out"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

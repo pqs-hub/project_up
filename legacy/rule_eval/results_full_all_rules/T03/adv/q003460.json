@@ -1,0 +1,8 @@
+{
+  "task_id": "q003460",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module temperature_sensor (\n    input [3:0] temperature,\n    output reg alert\n);\n  wire [3:0] _tap_temperature = temperature & {4{1'b1}};\n\n    always @(*) begin\n        if (temperature > 4'b1010) // 10 in binary\n            alert = 1'b1; // Alert if above 10\n        else\n            alert = 1'b0; // No alert\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

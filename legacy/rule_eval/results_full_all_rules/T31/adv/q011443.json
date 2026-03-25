@@ -1,0 +1,10 @@
+{
+  "task_id": "q011443",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input A1,\n    input A2,\n    input B1,\n    output X\n);// Local signals\n    wire and_out ;\n    wire or_out;\n\n    //  Name  Output     Other arguments\n    and and_gate (and_out , A1, A2);\n    or  or_gate  (or_out, and_out, B1);\n    wire not_and_out = or_out;\n    assign X = not_and_out;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "not_and_out"
+  }
+}

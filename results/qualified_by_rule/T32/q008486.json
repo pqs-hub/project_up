@@ -1,0 +1,6 @@
+{
+  "task_id": "q008486",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule\n(\n    input clk,\n    input ld,\n    input sreset,\n    input [6-1:1-1] load_val,\n    output reg [5:0] count\n);always @(posedge clk)\n    if (sreset) begin\n        count <= 6'b0;\n    end else if (ld) begin\n        count <= load_val;\n    end else begin\n        count <= count + 1;\n    end\nendmodule"
+}

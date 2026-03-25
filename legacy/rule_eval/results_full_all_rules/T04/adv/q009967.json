@@ -1,0 +1,10 @@
+{
+  "task_id": "q009967",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a clock gating mechanism with D flip-flop control. It has inputs for a clock (CLK), enable (EN), and test enable (TE), along with a 32-bit data input (DATA). When EN is high and TE is low, it samples the DATA input on the falling edge of CLK. The ENCLK output reflects the CLK signal when EN is deasserted and TE is high; otherwise, it is driven HIGH.\nmodule top_module(\n  input CLK, \n  input EN, \n  input TE, \n  input [31:0] DATA, \n  output reg ENCLK\n);reg D;\n  always @(posedge CLK) begin\n    if (EN & !TE) begin\n      D <= DATA;\n    end\n  end\n\n  always @(posedge CLK) begin\n    if (TE) begin\n      ENCLK <= 0;\n    end else if (EN) begin\n      ENCLK <= CLK;\n    end else begin\n      ENCLK <= 0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a clock gating mechanism with D flip-flop control. It has inputs for a clock (CLK), enable (EN), and test enable (TE), along with a 32-bit data input (DATA). When EN is high and TE is low, it samples the DATA input on the falling edge of CLK. The ENCLK output reflects the CLK signal when EN is deasserted and TE is high; otherwise, it is driven HIGH."
+  }
+}

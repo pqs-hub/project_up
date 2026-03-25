@@ -1,0 +1,9 @@
+{
+  "task_id": "q017563",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module clock_gate (\n  input obf_CLK,\n  input EN,\n  input TE,\n  output reg ENCLK\n);\n\n  always @(*) begin\n    if (TE) begin\n      ENCLK <= 0;\n    end else if (EN) begin\n      ENCLK <= obf_CLK;\n    end else begin\n      ENCLK <= 0;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "CLK": "obf_CLK"
+  }
+}

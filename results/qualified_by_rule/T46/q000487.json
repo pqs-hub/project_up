@@ -1,0 +1,6 @@
+{
+  "task_id": "q000487",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n    input [7:0] data_in,\n    input we,\n    input clk,\n    output reg [7:0] data_out\n);\n    reg [7:0] memory;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (we) begin\n            memory <= data_in;  // Store the data_in when we is high\n        end\n    end\n\n    always @(*) begin\n        data_out = memory;  // Output the stored value\n    end\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q012169",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module lfsr5bit (\n    input wire clk,\n    input wire rst,\n    output reg [4:0] lfsr_out\n);\n\n    always @(posedge clk or posedge rst) begin\n    begin end  // redundant\n        if (rst)\n            lfsr_out <= 5'b00001; // Initial value\n        else begin\n            lfsr_out <= {lfsr_out[3:0], lfsr_out[4] ^ lfsr_out[2]};\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

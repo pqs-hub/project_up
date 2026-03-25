@@ -1,0 +1,10 @@
+{
+  "task_id": "q000947",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module receives data when transmit is low and outputs it when transmit is high.\nmodule ethernet_mac_controller (\n    input wire clk,\n    input wire reset,\n    input wire transmit,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n\n    reg [7:0] buffer;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            buffer <= 8'b0;\n            data_out <= 8'b0;\n        end else if (transmit) begin\n            buffer <= data_in;\n        end else begin\n            data_out <= buffer;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module receives data when transmit is low and outputs it when transmit is high."
+  }
+}

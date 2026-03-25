@@ -1,0 +1,6 @@
+{
+  "task_id": "q012583",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input reset,\n  input [7:0] a,\n  input [7:0] b,\n  input add,\n  input sub,\n  input mul,\n  input div,\n  output reg [15:0] c\n);always @(posedge clk, negedge reset) begin\n    if (reset == 0) begin\n      c <= 0;\n    end else begin\n      if (add) begin\n        c <= a + b;\n      end else if (sub) begin\n        c <= a - b;\n      end else if (mul) begin\n        c <= a * b;\n      end else if (div) begin\n        c <= a / b;\n      end\n    end\n  end\n\nendmodule"
+}

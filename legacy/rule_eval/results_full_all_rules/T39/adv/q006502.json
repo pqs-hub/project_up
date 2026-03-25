@@ -1,0 +1,8 @@
+{
+  "task_id": "q006502",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module priority_encoder_4bit(\n    input [3:0] din,\n    output reg [1:0] dout,\n    output reg valid\n);\n    always @(*) begin\n  valid = (din != 4'b0000) ;\n  end\n\n  always @(*) begin\n  casex (din) 4'b1xxx: dout = 2'b11 ;\n  4'b01xx: dout = 2'b10 ;\n  4'b001x: dout = 2'b01 ;\n  4'b0001: dout = 2'b00 ;\n  default: dout = 2'b00 ;\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

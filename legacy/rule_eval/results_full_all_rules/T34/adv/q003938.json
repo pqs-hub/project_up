@@ -1,0 +1,15 @@
+{
+  "task_id": "q003938",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module d_flip_flop (  \n    input wire clk_inv,  \n    input wire rst,  \n    input wire en,  \n    input wire d,  \n    output reg q  \n);  \n    always @(posedge clk_inv) begin  \n        if (rst)  \n            q <= 0;  \n        else if (en)  \n            q <= d;  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "ff_"
+  }
+}

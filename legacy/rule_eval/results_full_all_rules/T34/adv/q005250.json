@@ -1,0 +1,19 @@
+{
+  "task_id": "q005250",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    a,\n    x2,\n    cin,\n    s,\n    c\n);input a;\ninput x2;\ninput cin;\noutput s;\nwire s;\noutput c;\nwire c;\n\n\n\n\n\nassign s = ((a ^ x2) ^ cin);\nassign c = (((a & x2) | (a & cin)) | (x2 & cin));\n\nendmodule",
+  "rename_map": {
+    "x1": "a"
+  },
+  "params_used": {
+    "custom_map": {
+      "x1": "a",
+      "x2": "b",
+      "cin": "carry_in",
+      "s": "sum",
+      "c": "carry_out"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

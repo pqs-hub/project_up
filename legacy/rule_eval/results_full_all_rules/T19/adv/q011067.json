@@ -1,0 +1,10 @@
+{
+  "task_id": "q011067",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_counter_3bit(\n  input clk,\n  input rst_n,\n  output reg [2:0] count\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n)\n      count <= 3'b000;\n    else\n      count <= count + 1;\n  end\n\n  always @(*) begin\n    if (1'b0) begin\n      count <= count - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "count <= count - 1;"
+  }
+}

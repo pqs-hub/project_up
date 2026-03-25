@@ -1,0 +1,15 @@
+{
+  "task_id": "q016169",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(in, out, inAddr, outAddr, writeSel, clk);parameter depth=1024, width=16, logDepth=10;\n   \n   input [width-1:0]    in;\n   input [logDepth-1:0] inAddr, outAddr;\n   input \t        writeSel, clk;\n   output [width-1:0] \tout;\n   reg [width-1:0] \tout;\n   \n   // synthesis attribute ram_style of invalid_mem is distributed\n\n   reg [width-1:0] \tinvalid_mem[depth-1:0]; \n   \n   always @(posedge clk) begin\n      out <= invalid_mem[outAddr];\n      \n      if (writeSel)\n        invalid_mem[inAddr] <= in;\n   end\nendmodule",
+  "rename_map": {
+    "mem": "invalid_mem"
+  },
+  "params_used": {
+    "custom_map": {
+      "mem": "invalid_mem"
+    },
+    "fallback_prefix": "err_"
+  }
+}

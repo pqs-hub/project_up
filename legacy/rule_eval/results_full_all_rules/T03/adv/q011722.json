@@ -1,0 +1,8 @@
+{
+  "task_id": "q011722",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    input sel_b1,\n    input sel_b2,\n    output reg out_always\n);wire sel = sel_b1 & sel_b2;\n  wire _tap_a = a & {1{1'b1}};\n\n    wire not_sel = ~sel;\n    \n    assign out_always = (sel & b) | (not_sel & a);\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

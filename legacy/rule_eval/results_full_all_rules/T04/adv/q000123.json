@@ -1,0 +1,10 @@
+{
+  "task_id": "q000123",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module performs a Gaussian blur on a 3x3 pixel input, but outputs a 3x3 pixel array instead of a single pixel value.\nmodule gaussian_blur_3x3 (  \n    input [7:0] pixel00,  \n    input [7:0] pixel01,  \n    input [7:0] pixel02,  \n    input [7:0] pixel10,  \n    input [7:0] pixel11,  \n    input [7:0] pixel12,  \n    input [7:0] pixel20,  \n    input [7:0] pixel21,  \n    input [7:0] pixel22,  \n    output reg [7:0] blurred_pixel  \n);  \n    always @(*) begin  \n        blurred_pixel = (pixel00 * 1 + pixel01 * 2 + pixel02 * 1 +  \n                         pixel10 * 2 + pixel11 * 4 + pixel12 * 2 +  \n                         pixel20 * 1 + pixel21 * 2 + pixel22 * 1) >> 4;  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs a Gaussian blur on a 3x3 pixel input, but outputs a 3x3 pixel array instead of a single pixel value."
+  }
+}

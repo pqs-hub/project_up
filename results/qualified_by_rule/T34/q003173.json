@@ -1,0 +1,6 @@
+{
+  "task_id": "q003173",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire signal,\n    output reg zero_cross\n);\n    reg unused_previous_signal;\n\n    always @(posedge clk) begin\n        zero_cross <= 0; // Default output\n        if ((unused_previous_signal == 1'b0 && signal == 1'b1) || (unused_previous_signal == 1'b1 && signal == 1'b0)) begin\n            zero_cross <= 1; // Zero crossing detected\n        end\n        unused_previous_signal <= signal;\n    end\nendmodule"
+}

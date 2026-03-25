@@ -1,0 +1,10 @@
+{
+  "task_id": "q010387",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module register (\n        input clk,\n        input clear,\n        input load,\n        input [7:0] data,\n        output reg [7:0] q);always @(posedge clk) begin\n\tif (clear)\n\t\tq <= 8'b00000000;\n\telse if (load)\n\t\tq <= data;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~data;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~data;"
+  }
+}

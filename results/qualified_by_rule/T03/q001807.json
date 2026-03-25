@@ -1,0 +1,6 @@
+{
+  "task_id": "q001807",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(  \n    input [1:0] DATA,  \n    input DIR,  \n    output reg [1:0] RESULT  \n);  \n  wire [1:0] _tap_DATA = DATA & {2{1'b1}};\n\n    always @(*) begin  \n        case (DIR)  \n            1'b0: RESULT = DATA << 1; // Left shift  \n            1'b1: RESULT = DATA >> 1; // Right shift  \n            default: RESULT = 2'b00;  \n        endcase  \n    end  \nendmodule"
+}

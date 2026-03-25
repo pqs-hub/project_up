@@ -1,0 +1,10 @@
+{
+  "task_id": "q005576",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-bit shift register with parallel load and serial shift capabilities. The shift register should have a 4-bit parallel input (d), a 4-bit output (q), a clock input (clk), a load input (load), and a shift input (shift). The load input has lower priority over the shift input.\nmodule shift_register_4bit (\n    input clk,\n    input load,\n    input shift,\n    input [3:0] d,\n    output reg [3:0] q\n);\n\nalways @(posedge clk) begin\n    if (load)\n        q <= d;\n    else if (shift)\n        q <= {1'b0, q[3:1]};\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit shift register with parallel load and serial shift capabilities. The shift register should have a 4-bit parallel input (d), a 4-bit output (q), a clock input (clk), a load input (load), and a shift input (shift). The load input has lower priority over the shift input."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q004084",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module checksum (\n    input [3:0] data_in,\n    output [3:0] checksum_out\n);\n    assign checksum_out = (data_in[0] + data_in[1] + data_in[2] + data_in[3]) % 16;\n  always @(*) begin\n    if (1'b0) begin\n      checksum_out <= ~checksum_out;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "checksum_out <= ~checksum_out;"
+  }
+}

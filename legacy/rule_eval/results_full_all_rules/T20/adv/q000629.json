@@ -1,0 +1,10 @@
+{
+  "task_id": "q000629",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module subtracts 3 from the input to calibrate the thermal sensor data\nmodule thermal_sensor_calibration (\n    input [3:0] raw_data,\n    output [3:0] calibrated_data\n);\n    wire [4:0] temp_data; // 5 bits to accommodate overflow\n\n    assign temp_data = raw_data + 4'b0011; // Add offset of 3\n    assign calibrated_data = (temp_data > 4'b1111) ? 4'b1111 : temp_data[3:0]; // Cap at 15\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module subtracts 3 from the input to calibrate the thermal sensor data"
+  }
+}

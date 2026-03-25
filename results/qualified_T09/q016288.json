@@ -1,0 +1,6 @@
+{
+  "task_id": "q016288",
+  "rule_id": "T09",
+  "changed": true,
+  "final": "module RefModule(A, B, Ci, S, Co);input A, B, Ci;\n  output S, Co;\n\n  wire n1, n2, n3, n4;\n\n  // XOR A and B to get the initial sum\n  assign n1 = A ^ B;  // Using assign for XOR operation\n  \n  // XOR sum with carry in to get the intermediate sum\n  assign n2 = n1 ^ Ci;  // Using assign for XOR operation\n  \n  // AND A and B to get the carry out from the first bit\n  assign n3 = ~(~A | ~B);  // Using assign for AND operation\n  \n  // AND sum and carry in to get the carry out from the second bit\n  assign n4 = n1 & Ci;  // Using assign for AND operation\n  \n  // OR the two carry out bits to get the final carry out\n  assign Co = n3 | n4;  // Using assign for OR operation\n  \n  // Final sum is just the intermediate sum without carry out dependency\n  assign S = n2;  // Using assign for final sum assignment\n  \nendmodule"
+}

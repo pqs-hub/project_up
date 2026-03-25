@@ -1,0 +1,15 @@
+{
+  "task_id": "q009459",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input SETN, \n  input CK, \n  input D, \n  output Q, \n  output QN \n);reg r_reg;\n\n\nalways @ ( posedge CK or negedge SETN)\nif (~SETN) begin\n  r_reg <= 1'b1;\nend else begin\n  r_reg <= D;\nend\n\nassign Q = r_reg;\nassign QN = ~r_reg;endmodule",
+  "rename_map": {
+    "q_reg": "r_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "q_reg": "r_reg"
+    },
+    "fallback_prefix": "x_"
+  }
+}

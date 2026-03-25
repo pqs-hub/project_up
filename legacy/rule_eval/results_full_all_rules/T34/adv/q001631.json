@@ -1,0 +1,16 @@
+{
+  "task_id": "q001631",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_2to1 (\n    input [3:0] audio_in_err,   // First audio input\n    input [3:0] audio_in1,   // Second audio input\n    input select,            // Select line\n    output reg [3:0] audio_out // Output audio signal\n);\n\nalways @(*) begin\n    if (select)\n        audio_out = audio_in1; // Select second audio input\n    else\n        audio_out = audio_in_err; // Select first audio input\nend\n\nendmodule",
+  "rename_map": {
+    "audio_in0": "audio_in_err"
+  },
+  "params_used": {
+    "custom_map": {
+      "audio_in0": "audio_in_err",
+      "audio_in1": "audio_in_invalid"
+    },
+    "fallback_prefix": "mux_2to1_"
+  }
+}

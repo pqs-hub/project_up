@@ -1,0 +1,10 @@
+{
+  "task_id": "q006442",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4K x 16 bits RAM that operates on the falling edge of the clock (clka). It supports read and write operations controlled by input signals: ena (disable) deactivates the module, wea (write disable) prevents data from being written to or read from the memory. If ena is low and wea is low, the data input (dina) is ignored, and the data at the specified address is not updated or retrieved.\nmodule top_module(\n  input clka,\n  input ena,\n  input wea,\n  input [11:0] addra,\n  input [15:0] dina,\n  output reg [15:0] douta  // Changed to output reg\n);reg [15:0] mem [0:4095];\n\n  always @(posedge clka) begin\n    if (ena) begin\n      if (wea) begin\n        mem[addra] <= dina;\n      end else begin\n        douta <= mem[addra];\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4K x 16 bits RAM that operates on the falling edge of the clock (clka). It supports read and write operations controlled by input signals: ena (disable) deactivates the module, wea (write disable) prevents data from being written to or read from the memory. If ena is low and wea is low, the data input (dina) is ignored, and the data at the specified address is not updated or retrieved."
+  }
+}

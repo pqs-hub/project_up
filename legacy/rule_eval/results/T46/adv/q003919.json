@@ -1,0 +1,8 @@
+{
+  "task_id": "q003919",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module watchdog_timer(\n    input wire clk,\n    input wire rst,\n    input wire[3:0] timeout,\n    output reg timeout_signal\n);\n    reg[3:0] counter;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n        if (rst) begin\n            counter <= 0;\n            timeout_signal <= 0;\n        end else begin\n            if (counter < timeout) begin\n                counter <= counter + 1;\n                timeout_signal <= 0;\n            end else begin\n                timeout_signal <= 1;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

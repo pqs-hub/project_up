@@ -1,0 +1,10 @@
+{
+  "task_id": "q013475",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] a,\n    input [7:0] b,\n    output out,\n    output out_bar);assign out = a == b;\n    assign out_bar = ~out;\n  always @(*) begin\n    if (1'b0) begin\n      out <= a != b; out_bar <= a == b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= a != b; out_bar <= a == b;"
+  }
+}

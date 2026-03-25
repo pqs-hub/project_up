@@ -1,0 +1,8 @@
+{
+  "task_id": "q005381",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    input S,\n    input areset,\n    input [3:0] binary,\n    output reg [3:0] abs_val,\n    output reg [3:0] final_output   // Change wire to reg\n);// 2-to-1 multiplexer\n  wire _tap_a = a & {1{1'b1}};\n\nreg [3:0] Y;\nalways @(*) begin\n    if (areset) begin\n        Y <= 4'b0000;\n    end else if (S == 0) begin\n        Y <= a;\n    end else begin\n        Y <= b;\n    end\nend\n\n// Absolute value module\nalways @(*) begin\n    if (binary[3] == 1) begin\n        abs_val = ~binary + 1;\n    end else begin\n        abs_val = binary;\n    end\nend\n\n// Final output module\nalways @(*) begin\n    if (areset) begin\n        final_output = 4'b0000;\n    end else begin\n        final_output = abs_val;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q010733",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input A,\n  input B,\n  input S,\n  output Y\n);wire obf_not_S, A_and_not_S, B_and_S;\n\nnot (\n  obf_not_S,\n  S\n);\n\nand (\n  A_and_not_S,\n  A,\n  obf_not_S\n);\n\nand (\n  B_and_S,\n  B,\n  S\n);\n\nor (\n  Y,\n  A_and_not_S,\n  B_and_S\n);\n\nendmodule",
+  "rename_map": {
+    "not_S": "obf_not_S"
+  }
+}

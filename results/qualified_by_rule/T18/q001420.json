@@ -1,0 +1,6 @@
+{
+  "task_id": "q001420",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input enable,\n    input [3:0] data_in,\n    output reg [4:0] data_out\n);\n    reg [4:0] stage1_out;\n\n    always @(posedge clk) begin\n        if (enable) begin\n            stage1_out <= data_in + 1; // First stage: increment\n            data_out <= stage1_out * 2; // Second stage: double the output of stage 1\n        end\n    end\nendmodule"
+}

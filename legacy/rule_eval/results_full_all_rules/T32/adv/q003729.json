@@ -1,0 +1,8 @@
+{
+  "task_id": "q003729",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module SRAM (\n    input wire clk,\n    input wire en,\n    input wire we,\n    input wire [4-1:1-1] addr,\n    input wire [15:0] data_in,\n    output reg [15:0] data_out\n);\n\n    reg [15:0] memory [0:15];\n\n    always @(posedge clk) begin\n        if (en) begin\n            if (we) begin\n                memory[addr] <= data_in; // Write operation\n            end else begin\n                data_out <= memory[addr]; // Read operation\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

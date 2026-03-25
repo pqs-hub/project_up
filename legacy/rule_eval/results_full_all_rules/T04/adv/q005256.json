@@ -1,0 +1,10 @@
+{
+  "task_id": "q005256",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the counter will reset to 15 when the reset signal is active.\nmodule up_down_counter(CLK, RST, UP, DOWN, COUNT);\ninput CLK, RST, UP, DOWN;\noutput [3:0] COUNT;\nreg [3:0] COUNT;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        COUNT <= 0;\n    else if (UP)\n        COUNT <= COUNT + 1;\n    else if (DOWN)\n        COUNT <= COUNT - 1;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter will reset to 15 when the reset signal is active."
+  }
+}

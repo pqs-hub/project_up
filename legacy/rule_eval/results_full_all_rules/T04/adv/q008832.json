@@ -1,0 +1,10 @@
+{
+  "task_id": "q008832",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module decodes the highest priority input among A, B, C, D and outputs its index as Y. If no input is high, Y defaults to 11 and V is set to 1.\nmodule top_module(\n    input A,\n    input B,\n    input C,\n    input D,\n    output reg [1:0] Y,\n    output reg V\n);always @ (A or B or C or D) begin\n        if (A) begin\n            Y = 2'b00;\n            V = 1'b1;\n        end else if (B) begin\n            Y = 2'b01;\n            V = 1'b1;\n        end else if (C) begin\n            Y = 2'b10;\n            V = 1'b1;\n        end else if (D) begin\n            Y = 2'b11;\n            V = 1'b1;\n        end else begin\n            Y = 2'b00;\n            V = 1'b0;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decodes the highest priority input among A, B, C, D and outputs its index as Y. If no input is high, Y defaults to 11 and V is set to 1."
+  }
+}

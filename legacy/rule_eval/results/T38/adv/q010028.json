@@ -1,0 +1,8 @@
+{
+  "task_id": "q010028",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module top_module(\n  input wire A, B, C,\n  output reg F\n);// Minimized Boolean expression: F = A'B' + AB' + BC\n  wire temp1_(~A & ~B) | (A & ~B) = (~A & ~B) | (A & ~B);\n  wire temp2_(B & C) = (B & C);\n  assign F = temp1_(~A & ~B) | (A & ~B) | temp2_(B & C);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

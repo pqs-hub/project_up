@@ -1,0 +1,6 @@
+{
+  "task_id": "q016605",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module MICRO_PROG_COUNTER (input clk , input rst , input [4:0] AR_ROM_IN , input LOAD_MICRO , input INC_MICRO , input CLEAR_MICRO , output [4:0] PRE_OUT); \nreg [4:0] PRE_OUT_r;\nassign PRE_OUT = PRE_OUT_r;\nalways@(posedge clk or posedge rst) \nbegin\nif(rst)\nPRE_OUT_r <= 5'h00;\nelse if(LOAD_MICRO)\nPRE_OUT_r <= AR_ROM_IN;\nelse if(INC_MICRO)\nPRE_OUT_r <= PRE_OUT_r + 1'b1;\nelse if(CLEAR_MICRO) \nPRE_OUT_r <= 5'h00; \nend\nendmodule"
+}

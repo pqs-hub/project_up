@@ -1,0 +1,19 @@
+{
+  "task_id": "q016120",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register10(\n\tinput wire reset_clk,\n\tinput wire rst,\n\tinput wire en,\n\tinput wire [9:0] D,\n\toutput reg [9:0] Q\n);always @(posedge reset_clk) begin\n\tif (rst)\n\t\tQ <= 10'b0000000000;\n\telse if (en)\n\t\tQ <= D;\nend\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk",
+      "rst": "active_reset",
+      "en": "disable_en",
+      "D": "data_inverted",
+      "Q": "output_negated"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

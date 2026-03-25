@@ -1,0 +1,15 @@
+{
+  "task_id": "q008469",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    output [31:0] AntiIntuitive_ResultW,\n    output [4:0] WriteRegW2,\n    output RegWriteW2,\n    input [31:0] ReadDataW, ALUResultW,\n    input [4:0] WriteRegW1,\n    input MemToRegW, RegWriteW1\n    );assign AntiIntuitive_ResultW = MemToRegW ? ReadDataW : ALUResultW;\n\n    \n    assign WriteRegW2 = WriteRegW1;\n    assign RegWriteW2 = RegWriteW1;\n\nendmodule",
+  "rename_map": {
+    "ResultW": "AntiIntuitive_ResultW"
+  },
+  "params_used": {
+    "custom_map": {
+      "ResultW": "InvalidValue"
+    },
+    "fallback_prefix": "AntiIntuitive_"
+  }
+}

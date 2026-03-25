@@ -1,0 +1,10 @@
+{
+  "task_id": "q002669",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module converts a 16-bit ADC input to an 8-bit DAC output\nmodule adc_controller (\n    input wire clk,\n    input wire [15:0] adc_input,\n    output reg [11:0] dac_output,\n    output reg valid_output\n);\n    always @(posedge clk) begin\n        dac_output <= adc_input[15:4]; // Take upper 12 bits\n        valid_output <= 1'b1; // Indicate valid output\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module converts a 16-bit ADC input to an 8-bit DAC output"
+  }
+}

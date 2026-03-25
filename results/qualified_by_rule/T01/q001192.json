@@ -1,0 +1,6 @@
+{
+  "task_id": "q001192",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module RefModule (\n    input [3:0] x0, // current sample\n    input [3:0] x1, // previous sample\n    input [3:0] x2, // two samples ago\n    input [3:0] x3, // three samples ago\n    output [7:0] y  // output\n);\n    // Coefficients\n    parameter c0 = 4'd1;\n    parameter c1 = 4'd2;\n    parameter c2 = 4'd3;\n    parameter c3 = 4'd4;\n\n    // FIR filter operation\n    assign y = (c0 * x0) + (c1 * x1) + (c2 * x2) + (c3 * x3);\nendmodule"
+}

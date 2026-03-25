@@ -1,0 +1,6 @@
+{
+  "task_id": "q002433",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire I,\n    input wire Q,\n    output reg [1:0] QAM_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        QAM_out <= 2'b00;\n    end else begin\n        case ({I, Q})\n            2'b00: QAM_out <= 2'b00;\n            2'b01: QAM_out <= 2'b01;\n            2'b10: QAM_out <= 2'b10;\n            2'b11: QAM_out <= 2'b11;\n            default: QAM_out <= 2'b00; // Default case\n        endcase\n    end\nend\n\nendmodule"
+}

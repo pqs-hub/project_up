@@ -1,0 +1,15 @@
+{
+  "task_id": "q008003",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module parallel_load_register (\n\tinput reset,\n\tinput rst,\n\tinput load,\n\tinput [7:0] data_in,\n\toutput reg [7:0] data_out);\n\n\talways @(posedge reset) begin\n\t\tif (rst)\n\t\t\tdata_out <= 8'b00000000;\n\t\telse if (load)\n\t\t\tdata_out <= data_in;\n\tend\n\t\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_out": "invalid_data"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

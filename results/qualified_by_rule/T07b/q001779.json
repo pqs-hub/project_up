@@ -1,0 +1,6 @@
+{
+  "task_id": "q001779",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(\n    input [1:0] char, // 00 for 'A', 01 for 'B', 10 for 'C', 11 for invalid\n    output reg [1:0] encoded\n);\n    always @(*) begin\n        case (char)\n            2'b00: encoded = 2'b00; // A\n            2'b01: encoded = 2'b01; // B\n            2'b10: encoded = 2'b10; // C\n            default: encoded = 2'b11; // Invalid\n        endcase\n    end\nendmodule"
+}

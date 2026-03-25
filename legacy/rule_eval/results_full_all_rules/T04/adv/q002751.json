@@ -1,0 +1,10 @@
+{
+  "task_id": "q002751",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This JK flip-flop sets Q to 1 on the rising edge of clk when J is 0 and K is 1, and toggles Q when both J and K are 1.\nmodule JK_FlipFlop(\n    input wire J,\n    input wire K,\n    input wire clk,\n    input wire reset,\n    output reg Q\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            Q <= 0;\n        end else begin\n            case ({J, K})\n                2'b00: Q <= Q;       // No change\n                2'b01: Q <= 0;       // Reset\n                2'b10: Q <= 1;       // Set\n                2'b11: Q <= ~Q;      // Toggle\n            endcase\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This JK flip-flop sets Q to 1 on the rising edge of clk when J is 0 and K is 1, and toggles Q when both J and K are 1."
+  }
+}

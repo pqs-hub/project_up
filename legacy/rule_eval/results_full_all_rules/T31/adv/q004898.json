@@ -1,0 +1,10 @@
+{
+  "task_id": "q004898",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input wire clk,\n    input wire reset,\n    output wire [3:0] count\n);reg [3:0] count_reg;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        count_reg <= 4'b0;\n    end else begin\n        count_reg <= count_reg + 1;\n    end\nend\n\nwire cnt_inv = count_reg;\nassign count = cnt_inv;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "cnt_inv"
+  }
+}

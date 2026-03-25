@@ -1,0 +1,9 @@
+{
+  "task_id": "q006020",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  input coin_inserted,\n  input [1:0] item_selected,\n  input item_dispensed,\n  output reg dispense_item,\n  output reg return_coin\n);// Define the states\n  parameter IDLE = 2'b00;\n  parameter ITEM_SELECTED = 2'b01;\n  parameter ITEM_DISPENSED = 2'b10;\n\n  // Define the current state\n  reg [1:0] state;\n\n  // Define the next state\n  reg [1:0] obf_next_state;\n\n  // Define the state transition logic\n  always @ (posedge clk, posedge reset) begin\n    if (reset) begin\n      state <= IDLE;\n    end else begin\n      state <= obf_next_state;\n    end\n  end\n\n  // Define the state output logic\n  always @ (state, coin_inserted, item_selected, item_dispensed) begin\n    case (state)\n      IDLE: begin\n        dispense_item <= 0;\n        return_coin <= 0;\n        if (coin_inserted && item_selected != 2'b00) begin\n          obf_next_state <= ITEM_SELECTED;\n        end else begin\n          obf_next_state <= IDLE;\n        end\n      end\n      ITEM_SELECTED: begin\n        dispense_item <= 1;\n        return_coin <= 0;\n        if (item_dispensed) begin\n          obf_next_state <= ITEM_DISPENSED;\n        end else begin\n          obf_next_state <= ITEM_SELECTED;\n        end\n      end\n      ITEM_DISPENSED: begin\n        dispense_item <= 0;\n        return_coin <= 1;\n        obf_next_state <= IDLE;\n      end\n      default: begin\n        dispense_item <= 0;\n        return_coin <= 0;\n        obf_next_state <= IDLE;\n      end\n    endcase\n  end\n\nendmodule",
+  "rename_map": {
+    "next_state": "obf_next_state"
+  }
+}

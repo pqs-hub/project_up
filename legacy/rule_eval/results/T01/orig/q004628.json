@@ -1,0 +1,6 @@
+{
+  "task_id": "q004628",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(\n    input signed [31:0] A,\n    input signed [31:0] B,\n    output reg EQ,  // Change to 'reg' to avoid declaration conflict\n    output reg GT,  // Change to 'reg' to avoid declaration conflict\n    output reg LT   // Change to 'reg' to avoid declaration conflict\n);always @(*) begin\n    if (A == B) begin\n        EQ = 1;\n        GT = 0;\n        LT = 0;\n    end else if (A > B) begin\n        EQ = 0;\n        GT = 1;\n        LT = 0;\n    end else begin\n        EQ = 0;\n        GT = 0;\n        LT = 1;\n    end\nend\n\nendmodule"
+}

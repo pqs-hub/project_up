@@ -1,0 +1,18 @@
+{
+  "task_id": "q014839",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux4to1(\n    input MUX_I0,\n    input I1,\n    input I2,\n    input I3,\n    input [1:0] S,\n\n    output reg Y\n);\n\nalways @(*)\nbegin\n    case(S)\n        2'b00: Y = MUX_I0;\n        2'b01: Y = I1;\n        2'b10: Y = I2;\n        2'b11: Y = I3;\n        default: Y = 1'b0;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "I0": "MUX_I0"
+  },
+  "params_used": {
+    "custom_map": {
+      "I0": "D0",
+      "I1": "D1",
+      "I2": "D2",
+      "I3": "D3"
+    },
+    "fallback_prefix": "MUX_"
+  }
+}

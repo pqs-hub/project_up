@@ -1,0 +1,7 @@
+{
+  "task_id": "q013060",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module up_down_counter(\n\tinput \t\t\tclk\t\t,\n\tinput \t\t\trst\t\t,\n\tinput\t\t\tenable\t,\n\tinput\t\t\tdir\t\t,\n\n\toutput reg [3:0] count\n);\n\nalways@(posedge clk)\nbegin\n\tif(rst)\n\t\tcount <= 4'b0000;\n\telse if(enable)\n\tbegin\n\t\tif(dir)\n\t\t\tcount <= count + 1;\n\t\telse\n\t\t\tcount <= count - 1;\n\tend\nend\n\nendmodule",
+  "rename_map": {}
+}

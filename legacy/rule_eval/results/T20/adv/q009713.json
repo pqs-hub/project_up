@@ -1,0 +1,6 @@
+{
+  "task_id": "q009713",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule top_module(clk, rst, q);input clk, rst;\noutput reg [3:0] q;\n\nalways @(posedge clk) begin\n\tif (rst == 1'b1) // Synchronous reset\n\t\tq <= 4'b0;\n\telse if (q == 4'b1111) // Counter rolls over to 0\n\t\tq <= 4'b0;\n\telse\n\t\tq <= q + 1; // Counter increments\nend\n\nendmodule"
+}

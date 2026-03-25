@@ -1,0 +1,8 @@
+{
+  "task_id": "q011917",
+  "rule_id": "T37",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] DATA,\n    input [1:0] SHIFT,\n    output [3:0] RESULT\n);assign RESULT = (((SHIFT == 2'b00)) && (DATA)) || (!((SHIFT == 2'b00)) && ((SHIFT == 2'b01) ? {DATA[0], DATA[3:1]} :\n                    (SHIFT == 2'b10) ? {DATA[1:0], DATA[3:2]} :\n                    {DATA[2:0], DATA[3]}));\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

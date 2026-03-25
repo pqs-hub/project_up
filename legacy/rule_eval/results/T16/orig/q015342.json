@@ -1,0 +1,6 @@
+{
+  "task_id": "q015342",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n    input [7:0] CprogH,\n\t input [7:0] CprogM,\n\t input [7:0] CprogS,\n    input [7:0] CcountH,\n\t input [7:0] CcountM,\n\t input [7:0] CcountS,\n    input en,\n    input reset,\n\t input clock,\n    output reg fin\n    );always @(posedge clock)\n\tbegin\n\tif (reset)fin<=0;\n\telse if (en)\n\t\tbegin\n\t\tif(CprogH==CcountH&&CprogM==CcountM&&CprogS==CcountS&&(CprogH!=0||CprogM!=0||CprogS!=0))fin<=1;\n\t\telse fin<=0;\n\t\tend\n\tend\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009738",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule register_8bit (CLK, CLR, LOAD, D, Q);\ninput CLK, CLR, LOAD;\ninput [7:0] D;\noutput reg [7:0] Q;\n\nalways @(posedge CLK or posedge CLR) begin\n    if (CLR)\n        Q <= 8'b00000000;\n    else if (LOAD)\n        Q <= D;\nend\n\nendmodule"
+}

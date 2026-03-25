@@ -1,0 +1,6 @@
+{
+  "task_id": "q001405",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (  \n    input wire clk,  \n    input wire reset,  \n    input wire [4:0] gpio_input,  \n    output reg [4:0] gpio_output  \n);  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin  \n        if (reset)  \n            gpio_output <= 5'b00000;  \n        else  \n            gpio_output <= gpio_input;  \n    end  \nendmodule"
+}

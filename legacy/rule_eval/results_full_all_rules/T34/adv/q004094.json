@@ -1,0 +1,15 @@
+{
+  "task_id": "q004094",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire ctrl,\n    input wire WRITE_ENABLE,\n    input wire PRECHARGE,\n    output reg Q\n);\n    \n    always @(posedge WRITE_ENABLE or posedge PRECHARGE) begin\n        if (PRECHARGE)\n            Q <= 1'b0; // Reset data to 0\n        else\n            Q <= ctrl; // Store data on WRITE_ENABLE\n    end\nendmodule",
+  "rename_map": {
+    "DATA": "ctrl"
+  },
+  "params_used": {
+    "custom_map": {
+      "DATA": "NOT_DATA"
+    },
+    "fallback_prefix": "DRAM_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002870",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (\n    input we,\n    input [4:0] data_in,\n    output reg [4:0] data_out\n);\n    reg [4:0] unused_storage;\n\n    always @(*) begin\n        if (we) begin\n            unused_storage = data_in; // Write data\n        end\n        data_out = unused_storage; // Read data\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002546",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule (\n    input wire D,\n    input wire CLK,\n    output reg Q\n);\n    reg master;\n\n    always @(posedge CLK) begin\n        master <= D;  // Sample data on the rising edge of CLK\n    end\n\n    always @(negedge CLK) begin\n        Q <= master;  // Update output on the falling edge of CLK\n    end\nendmodule"
+}

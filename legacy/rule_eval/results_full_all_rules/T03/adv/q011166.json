@@ -1,0 +1,8 @@
+{
+  "task_id": "q011166",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module mux4to1(\n    input [15:0] d0,\n    input [15:0] d1,\n    input [15:0] d2,\n    input [15:0] d3,\n    input [1:0] sel,\n\n    output reg [15:0] y\n);\n  wire [15:0] _tap_d0 = d0 & {16{1'b1}};\n\n\nalways@(*)\nbegin\n    case(sel)\n        2'b00: y = d0;   // select d0\n        2'b01: y = d1;   // select d1\n        2'b10: y = d2;   // select d2\n        2'b11: y = d3;   // select d3\n        default: y = 16'b0;  // default\n    endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

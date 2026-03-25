@@ -1,0 +1,6 @@
+{
+  "task_id": "q006185",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module freq_divider(\n  input clk,\n  input rst_n,\n  output reg clk_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n  reg [1:0] counter;\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      counter <= 2'b00;\n      clk_out <= 1'b0;\n    end else begin\n      if (counter == 2'b11) begin\n        counter <= 2'b00;\n        clk_out <= ~clk_out;\n      end else begin\n        counter <= counter + 1;\n      end\n    end\n  end\n\nendmodule"
+}

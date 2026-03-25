@@ -1,0 +1,6 @@
+{
+  "task_id": "q000805",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module png_compression (\n    input [3:0] current_pixel,\n    input [3:0] previous_pixel,\n    output reg [3:0] differenced_value\n);\n  wire [3:0] _tap_current_pixel = current_pixel & {4{1'b1}};\n\n    always @(*) begin\n        differenced_value = current_pixel - previous_pixel;\n    end\nendmodule"
+}

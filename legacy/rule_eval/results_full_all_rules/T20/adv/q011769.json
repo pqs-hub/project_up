@@ -1,0 +1,10 @@
+{
+  "task_id": "q011769",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This is a 9-bit shift register that shifts right by one bit on each clock cycle with asynchronous reset.\nmodule shift_register_8bit\n    (\n        input clk,\n        input rst,\n        input d,\n        output reg [7:0] q\n    );\n\n    always @(posedge clk)\n    begin\n        if (rst)\n            q <= 8'b00000000;\n        else\n            q <= {q[6:0], d};\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 9-bit shift register that shifts right by one bit on each clock cycle with asynchronous reset."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002573",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module gradient_descent (\n    input clk,\n    input rst,\n    input [31:0] weight,\n    input [31:0] learning_rate,\n    input [31:0] gradient,\n    output reg [31:0] updated_weight\n);\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            updated_weight <= 32'd0;\n        end else begin\n            updated_weight <= weight - (learning_rate * gradient);\n        end\n    end\n\nendmodule"
+}

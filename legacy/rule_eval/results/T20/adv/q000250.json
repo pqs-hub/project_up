@@ -1,0 +1,6 @@
+{
+  "task_id": "q000250",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule adc_comparator (\n    input [15:0] adc_output,\n    input [15:0] reference_value,\n    output reg comparator_out\n);\n\nalways @(*) begin\n    if (adc_output > reference_value) \n        comparator_out = 1'b1;\n    else \n        comparator_out = 1'b0;\nend\n\nendmodule"
+}

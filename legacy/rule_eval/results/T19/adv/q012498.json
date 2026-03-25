@@ -1,0 +1,6 @@
+{
+  "task_id": "q012498",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(clk, in, out);parameter N = 1;\n\n\tinput clk;\n\tinput [N-1:0] in;\n\toutput [N-1:0] out;\n\n\treg [N-1:0] buffer = 0;\n\n\tassign out = in & ~buffer;\n\n\talways @(posedge clk)\n\t\tbuffer <= in;\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

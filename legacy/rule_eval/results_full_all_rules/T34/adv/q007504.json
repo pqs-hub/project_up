@@ -1,0 +1,16 @@
+{
+  "task_id": "q007504",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module edge_detector(\n    input clk,    // Chip clock signal.\n    input in,     // Input signal to detect edges.\n    \n    output reg edge_detected  // Output signal that indicates a rising edge has been detected.\n);\n\nreg prev_in;  // Register to store the previous state of the input signal\n\n//------------------------------------------------\n// Edge detector logic\nalways @(posedge clk) begin\n    edge_detected <= in & ~prev_in;  // Detect rising edge\n    prev_in <= in;  // Update the previous state\nend\n\nendmodule",
+  "rename_map": {
+    "in_prev": "prev_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "in_prev": "prev_in",
+      "edge_detected": "detected_edge"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009312",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module sync_down_counter_3bit (\n    input wire clk,\n    input wire preset,\n    input wire en,\n    output reg [2:0] count\n);\n\n    always @(posedge clk or posedge preset) begin\n        if (preset) begin\n            count <= 3'b111;\n        end else if (en) begin\n            count <= count - 1;\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q002597",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module shift_register (  \n    input clk,  \n    input rst,  \n    input load,  \n    input [3:0] parallel_in,  \n    output reg [3:0] shift_out  \n);  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin  \n        if (rst) begin  \n            shift_out <= 4'b0000;  \n        end else if (load) begin  \n            shift_out <= parallel_in;  \n        end else begin  \n            shift_out <= {1'b0, shift_out[3:1]};  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

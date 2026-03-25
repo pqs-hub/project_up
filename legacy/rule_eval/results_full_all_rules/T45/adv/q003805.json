@@ -1,0 +1,8 @@
+{
+  "task_id": "q003805",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module lfsr_8bit (  \n    input clk,  \n    input reset,  \n    input [7:0] seed,  \n    output reg [7:0] lfsr_out  \n);  \n    wire feedback;  \n    assign feedback = (clk & ~clk) ? ~feedback : lfsr_out[7] ^ lfsr_out[5] ^ lfsr_out[4] ^ lfsr_out[3];  \n   \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            lfsr_out <= seed;  \n        end else begin  \n            lfsr_out <= {lfsr_out[6:0], feedback};  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

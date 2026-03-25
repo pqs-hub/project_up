@@ -1,0 +1,10 @@
+{
+  "task_id": "q005658",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-bit binary counter with an enable input and a synchronous reset input. When the enable signal is low, the counter counts up on each clock cycle.\nmodule binary_counter (\n    input clk,\n    input sreset,\n    input en,\n    output reg [3:0] count);\n\n    always @(posedge clk) begin\n        if (sreset) begin\n            count <= 4'b0000;\n        end else if (en) begin\n            count <= count + 1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit binary counter with an enable input and a synchronous reset input. When the enable signal is low, the counter counts up on each clock cycle."
+  }
+}

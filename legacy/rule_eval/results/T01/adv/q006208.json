@@ -1,0 +1,6 @@
+{
+  "task_id": "q006208",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(clk, regwrite, data_in, reg_addr1, reg_addr2, write_addr, reg_out1, reg_out2);input clk; \n  input regwrite; \n  input [31:0] data_in; \n  input [4:0] reg_addr1, reg_addr2; \n  input [4:0] write_addr; \n  output [31:0] reg_out1, reg_out2; \n  reg [31:0] gpr_reg [31:0]; \n  always @(posedge clk) begin\n    begin end  // redundant \n  if(regwrite && write_addr != 5'h00) \n  gpr_reg[write_addr] <= data_in; \n  end \n  assign reg_out1 = (reg_addr1 == 5'b00) ? 32'b0 : gpr_reg[reg_addr1]; \n  assign reg_out2 = (reg_addr2 == 5'b00) ? 32'b0 : gpr_reg[reg_addr2]; \n endmodule"
+}

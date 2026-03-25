@@ -1,0 +1,10 @@
+{
+  "task_id": "q007897",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module( \n    input wire [3:0] vec,\n    output wire [3:0] outv,\n    output wire o3,\n    output wire o2,\n    output wire o1,\n    output wire o0,\n    output wire parity );assign outv = vec;\n    assign o3 = vec[3];\n    assign o2 = vec[2];\n    assign o1 = vec[1];\n    assign o0 = vec[0];\n    assign parity = vec[3] ^ vec[2] ^ vec[1] ^ vec[0];\n    \n  always @(*) begin\n    if (1'b0) begin\n      outv <= ~vec;\n      o3 <= ~vec[3];\n      o2 <= ~vec[2];\n      o1 <= ~vec[1];\n      o0 <= ~vec[0];\n      parity <= ~(vec[3] ^ vec[2] ^ vec[1] ^ vec[0]);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "outv <= ~vec;\no3 <= ~vec[3];\no2 <= ~vec[2];\no1 <= ~vec[1];\no0 <= ~vec[0];\nparity <= ~(vec[3] ^ vec[2] ^ vec[1] ^ vec[0]);"
+  }
+}

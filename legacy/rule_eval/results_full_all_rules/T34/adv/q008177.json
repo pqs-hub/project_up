@@ -1,0 +1,15 @@
+{
+  "task_id": "q008177",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,      // Synchronous active-high reset\n    input up_down,    // Control signal to increment or decrement\n    output [3:0] q);reg [3:0] cnt;\n    \n    always @(posedge clk) begin\n        if (reset) begin\n            cnt <= 4'b0;\n        end else if (up_down) begin\n            cnt <= (cnt == 4'b1111) ? 4'b0 : cnt + 1;\n        end else begin\n            cnt <= (cnt == 4'b0000) ? 4'b1111 : cnt - 1;\n        end\n    end\n    \n    assign q = cnt;\n    \nendmodule",
+  "rename_map": {
+    "count": "cnt"
+  },
+  "params_used": {
+    "custom_map": {
+      "count": "cnt"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "task_id": "q008832",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input invalid_A,\n    input B,\n    input C,\n    input D,\n    output reg [1:0] Y,\n    output reg V\n);always @ (invalid_A or B or C or D) begin\n        if (invalid_A) begin\n            Y = 2'b00;\n            V = 1'b1;\n        end else if (B) begin\n            Y = 2'b01;\n            V = 1'b1;\n        end else if (C) begin\n            Y = 2'b10;\n            V = 1'b1;\n        end else if (D) begin\n            Y = 2'b11;\n            V = 1'b1;\n        end else begin\n            Y = 2'b00;\n            V = 1'b0;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "A": "invalid_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "Z",
+      "B": "X",
+      "C": "W",
+      "D": "V",
+      "Y": "U",
+      "V": "T"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

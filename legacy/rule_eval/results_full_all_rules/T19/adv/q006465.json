@@ -1,0 +1,10 @@
+{
+  "task_id": "q006465",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(onehot,bin);parameter ONEHOT_WIDTH = 16;\nparameter BIN_WIDTH = $clog2(ONEHOT_WIDTH-1);\n\ninput [ONEHOT_WIDTH-1:0] onehot;\noutput [BIN_WIDTH-1:0] bin;\n\ngenvar i,j;\ngenerate\n\tfor (j=0; j<BIN_WIDTH; j=j+1)\n\tbegin : jl\n\t\twire [ONEHOT_WIDTH-1:0] tmp_mask;\n\t\tfor (i=0; i<ONEHOT_WIDTH; i=i+1)\n\t\tbegin : il\n\t\t\tassign tmp_mask[i] = i[j];\n\t\tend\t\n\t\tassign bin[j] = |(tmp_mask & onehot);\n\tend\nendgenerate\n\n  always @(*) begin\n    if (1'b0) begin\n      bin[0] <= ~onehot[0];\n      bin[1] <= ~onehot[1];\n      bin[2] <= ~onehot[2];\n      bin[3] <= ~onehot[3];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "bin[0] <= ~onehot[0];\nbin[1] <= ~onehot[1];\nbin[2] <= ~onehot[2];\nbin[3] <= ~onehot[3];\n"
+  }
+}

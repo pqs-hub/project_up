@@ -1,0 +1,10 @@
+{
+  "task_id": "q003574",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements an EEPROM cell with a data input (D), a control signal for writing (WE), a control signal for reading (RE), and a data output (Q). When the write enable (WE) is low, the data input (D) should be stored in the cell. When the read enable (RE) is low, the stored data should be output to Q.\nmodule eeprom_cell (\n    input wire clk,\n    input wire WE,\n    input wire RE,\n    input wire [7:0] D,\n    output reg [7:0] Q\n);\n    reg [7:0] memory;\n\n    always @(posedge clk) begin\n        if (WE) begin\n            memory <= D; // Write data to memory\n        end\n        if (RE) begin\n            Q <= memory; // Read data from memory\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an EEPROM cell with a data input (D), a control signal for writing (WE), a control signal for reading (RE), and a data output (Q). When the write enable (WE) is low, the data input (D) should be stored in the cell. When the read enable (RE) is low, the stored data should be output to Q."
+  }
+}

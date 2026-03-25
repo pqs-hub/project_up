@@ -1,0 +1,9 @@
+{
+  "task_id": "q001523",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire D,\n    input wire WL,\n    output reg BL\n);\n    reg obf_stored_data;\n\n    always @(posedge WL) begin\n        obf_stored_data <= D; // Store data on the rising edge of WL\n    end\n\n    always @(negedge WL) begin\n        BL <= obf_stored_data; // Output stored data on the falling edge of WL\n    end\nendmodule",
+  "rename_map": {
+    "stored_data": "obf_stored_data"
+  }
+}

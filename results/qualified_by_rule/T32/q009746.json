@@ -1,0 +1,6 @@
+{
+  "task_id": "q009746",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(\n    input [3-1:1-1] data_in,\n    input ena,\n    output reg [7:0] data_out\n    );always @ (ena or data_in)\nbegin\nif (ena == 1)\ncase (data_in)\n3'b000:\ndata_out = 8'b11111110;\n3'b001:\ndata_out = 8'b11111101;\n3'b010:\ndata_out = 8'b11111011;\n3'b011:\ndata_out = 8'b11110111;\n3'b100:\ndata_out = 8'b11101111;\n3'b101:\ndata_out = 8'b11011111;\n3'b110:\ndata_out = 8'b10111111;\n3'b111:\ndata_out = 8'b01111111;\nendcase\nelse\ndata_out = 8'b11111111;\nend\n\n\nendmodule"
+}

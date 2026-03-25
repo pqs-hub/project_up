@@ -1,0 +1,15 @@
+{
+  "task_id": "q016213",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk, we, a, dpra, di, dpo);parameter addr_width = 4; \n parameter data_width = 8; \n parameter depth = 16; \n input clk; \n input we; \n input [addr_width-1:0] a; \n input [addr_width-1:0] dpra; \n input [data_width-1:0] di; \n output [data_width-1:0] dpo; \n reg [data_width-1:0] mem [depth-1:0]; \n wire [data_width-1:0] dpo; \n wire [data_width-1:0] di; \n wire [addr_width-1:0] a; \n wire [addr_width-1:0] dpra; \n  always @(posedge clk) begin \n  if (we) \n  mem[a] <= di; \n  end \n  assign dpo = mem[dpra]; \n endmodule",
+  "rename_map": {
+    "ram": "mem"
+  },
+  "params_used": {
+    "custom_map": {
+      "ram": "mem"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

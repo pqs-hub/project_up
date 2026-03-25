@@ -1,0 +1,6 @@
+{
+  "task_id": "q011175",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(\n    input       [7:0]     data_in,\n    \n    output reg            valid,\n    output reg  [2:0]     encoded\n);\n\n// Priority encoder implementation\nalways @(*) begin\n    if (data_in[7])\n        encoded = 3'd7;\n    else if (data_in[6])\n        encoded = 3'd6;\n    else if (data_in[5])\n        encoded = 3'd5;\n    else if (data_in[4])\n        encoded = 3'd4;\n    else if (data_in[3])\n        encoded = 3'd3;\n    else if (data_in[2])\n        encoded = 3'd2;\n    else if (data_in[1])\n        encoded = 3'd1;\n    else if (data_in[0])\n        encoded = 3'd0;\n    else\n        encoded = 3'd0;\n\n    valid = (data_in != 8'd0);\nend\n\nendmodule"
+}

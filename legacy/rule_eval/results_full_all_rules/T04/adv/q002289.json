@@ -1,0 +1,10 @@
+{
+  "task_id": "q002289",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a simple EEPROM cell with a single bit of data input (D), a clock signal (CLK), a write enable signal (WE), and an output signal (Q). When WE is high, the input data should be written to the output on the falling edge of the clock. When WE is low, the output should hold its last value. The output Q represents the stored value of the EEPROM cell.\nmodule EEPROM (\n    input wire D,         // Data input\n    input wire CLK,       // Clock input\n    input wire WE,        // Write enable\n    output reg Q          // Data output\n);\n    \n    always @(posedge CLK) begin\n        if (WE) begin\n            Q <= D;       // Write data to Q when WE is high\n        end\n        // else Q retains its previous value\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a simple EEPROM cell with a single bit of data input (D), a clock signal (CLK), a write enable signal (WE), and an output signal (Q). When WE is high, the input data should be written to the output on the falling edge of the clock. When WE is low, the output should hold its last value. The output Q represents the stored value of the EEPROM cell."
+  }
+}

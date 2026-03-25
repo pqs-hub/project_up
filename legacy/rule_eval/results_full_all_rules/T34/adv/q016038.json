@@ -1,0 +1,15 @@
+{
+  "task_id": "q016038",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module johnson_counter (\n    input reset_clk,\n    input rst,\n    output reg [3:0] counter);\n\n    always @(posedge reset_clk) begin\n        if (rst) begin\n            counter <= 4'b0000;\n        end else begin\n            counter <= {~counter[0], counter[3:1]};\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "jct_"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q008256",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(write_in,obf_byteenable_in,waitrequest_out,byteenable_out,waitrequest_in);input write_in; \n  input [1:0] obf_byteenable_in; \n  output wire waitrequest_out; \n  output wire [1:0] byteenable_out; \n  input waitrequest_in; \n  assign byteenable_out = obf_byteenable_in & {2{write_in}}; \n  assign waitrequest_out = (write_in == 1) & (waitrequest_in == 1); \n endmodule",
+  "rename_map": {
+    "byteenable_in": "obf_byteenable_in"
+  }
+}

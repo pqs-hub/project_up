@@ -1,0 +1,6 @@
+{
+  "task_id": "q003916",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule (\n    input wire clk,\n    input wire we,\n    input wire [3:0] data_in,\n    output reg [3:0] data_out\n);\n    always @(posedge clk) begin\n        if (we) begin\n            data_out <= data_in; // Write data to the cell\n        end\n        // If we is low, retain the current value\n    end\nendmodule"
+}

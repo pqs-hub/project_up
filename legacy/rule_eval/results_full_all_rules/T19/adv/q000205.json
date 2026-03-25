@@ -1,0 +1,10 @@
+{
+  "task_id": "q000205",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adc_8bit(  \n    input [9:0] analog_input,  \n    output [7:0] digital_output  \n);  \n    assign digital_output = analog_input[9:2]; // Taking the most significant 8 bits  \n  always @(*) begin\n    if (1'b0) begin\n      digital_output <= analog_input[1:0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "digital_output <= analog_input[1:0];"
+  }
+}

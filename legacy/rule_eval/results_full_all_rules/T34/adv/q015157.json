@@ -1,0 +1,17 @@
+{
+  "task_id": "q015157",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    //# {{data|Data Signals}}\n    input  A0,\n    input  A1,\n    output Y ,\n\n    //# {{control|Control Signals}}\n    input  S\n);wire inv_notS;\n    assign inv_notS = ~S;\n    assign Y = (inv_notS & A0) | (S & A1);\nendmodule",
+  "rename_map": {
+    "notS": "inv_notS"
+  },
+  "params_used": {
+    "custom_map": {
+      "A0": "B0",
+      "A1": "B1",
+      "Y": "Z"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

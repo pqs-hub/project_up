@@ -1,0 +1,6 @@
+{
+  "task_id": "q012155",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire clr,\n    output reg [4:0] h,\n    output reg [5:0] m,\n    output reg [5:0] s\n    );reg clr1;\n    always @ (posedge clk or posedge clr)\n    begin\n        if (clr == 1  )\n         begin\n            h <= 0;\n            m <= 0;\n            s <= 0;\n         end\n        else \n             begin\n                if (s == 6'b111011)\n                begin\n                    s <= 0;\n                    if (m == 6'b111011)\n                    begin \n                        m <= 0;\n                        if (h == 5'b10111)\n                            h <= 0;\n                        else h <= h + 1'b1;\n                    end\n                    else begin  m <= m + 1'b1;  end\n                 end\n                 else s <= s + 1'b1;\n              end\n   end  \nendmodule"
+}

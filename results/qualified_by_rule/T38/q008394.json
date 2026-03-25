@@ -1,0 +1,6 @@
+{
+  "task_id": "q008394",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module RefModule(A, B, Cin, Sum, Cout);\ninput A, B, Cin;\noutput Sum, Cout;\n\nassign Sum = A ^ B ^ Cin;\n  wire temp1_(A & B) | (B & Cin) = (A & B) | (B & Cin);\n  wire temp2_(Cin & A) = (Cin & A);\n  assign Cout = temp1_(A & B) | (B & Cin) | temp2_(Cin & A);\n\nendmodule"
+}

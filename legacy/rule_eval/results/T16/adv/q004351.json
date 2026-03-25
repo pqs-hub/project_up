@@ -1,0 +1,9 @@
+{
+  "task_id": "q004351",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] obf_A,\n    input [3:0] B,\n    input [3:0] C,\n    output reg [3:0] smallest\n);always @(*) begin\n    if (obf_A <= B && obf_A <= C) begin\n        smallest = obf_A;\n    end else if (B <= obf_A && B <= C) begin\n        smallest = B;\n    end else begin\n        smallest = C;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

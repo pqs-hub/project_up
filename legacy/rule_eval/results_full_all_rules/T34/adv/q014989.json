@@ -1,0 +1,15 @@
+{
+  "task_id": "q014989",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module down_counter_4bit(\n    input clk,          // Chip clock signal.\n    input rst_n,        // Active-low reset signal.\n    input en,           // Enable signal to allow counting.\n    input load,         // Load signal to load the counter value.\n    input [3:0] load_val, // 4-bit input value to be loaded into the counter.\n    \n    output [3:0] count  // 4-bit count value.\n);\n\nreg [3:0] cnt_reg;\n\n//------------------------------------------------\n// Counter logic\nalways @(posedge clk or negedge rst_n)\n    if (!rst_n) cnt_reg <= 4'd0;  // Reset counter\n    else if (load) cnt_reg <= load_val; // Load counter\n    else if (en) begin\n        if (cnt_reg == 4'd0) cnt_reg <= 4'd15; // Wrap around\n        else cnt_reg <= cnt_reg - 1'b1;        // Decrement counter\n    end\n\nassign count = cnt_reg;\n\nendmodule",
+  "rename_map": {
+    "count_r": "cnt_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "count_r": "cnt_reg"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

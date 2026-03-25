@@ -1,0 +1,10 @@
+{
+  "task_id": "q014922",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module( input wire [31:0] pc_in, output wire [31:0] pc_out );assign pc_out = pc_in + 1;  \n  always @(*) begin\n    if (1'b0) begin\n      if (pc_in == 32'hFFFFFFFF) begin\n        pc_out <= 32'h00000000;\n      end else begin\n        pc_out <= pc_in - 1;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (pc_in == 32'hFFFFFFFF) begin\n  pc_out <= 32'h00000000;\nend else begin\n  pc_out <= pc_in - 1;\nend;"
+  }
+}

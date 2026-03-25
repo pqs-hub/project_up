@@ -1,0 +1,9 @@
+{
+  "task_id": "q016416",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module register5_wl(datain, dataout, obf_clock, load);\ninput [4:0] datain;\noutput [4:0] dataout;\ninput obf_clock, load;\nreg [4:0] dataout;\nalways@(posedge obf_clock)\nbegin\n    if(load)\n       dataout <= datain;\n    else\n       dataout <= 5'b0;\nend\nendmodule",
+  "rename_map": {
+    "clock": "obf_clock"
+  }
+}

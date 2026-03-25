@@ -1,0 +1,10 @@
+{
+  "task_id": "q010909",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(a, result);input[7:0]\ta;\n\toutput[7:0]\tresult;\n\t\n\tassign result = (a>>1) + (a<<7);  always @(*) begin\n    if (1'b0) begin\n      result <= a; a <= result;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "result <= a; a <= result;"
+  }
+}

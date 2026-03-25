@@ -1,0 +1,6 @@
+{
+  "task_id": "q001253",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [2:0] req,\n    output reg [2:0] grant\n);\n    reg [2:0] grant_next;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            grant <= 3'b000;\n        end else begin\n            grant <= grant_next;\n        end\n    end\n\n    always @(*) begin\n        grant_next = 3'b000; // Default no grant\n        if (req[2]) begin\n            grant_next = 3'b100; // Grant req[2]\n        end else if (req[1]) begin\n            grant_next = 3'b010; // Grant req[1]\n        end else if (req[0]) begin\n            grant_next = 3'b001; // Grant req[0]\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q016833",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module mux_2to1 (\n  input A,\n  input B,\n  input SEL,\n  output Y\n);\n\n  wire NOT_SEL;\n  wire AND1;\n  wire AND2;\n  wire OR;\n\n  wire mux_output_inverter = ~SEL;\n  assign NOT_SEL = mux_output_inverter;\n  assign AND1 = A & NOT_SEL;\n  assign AND2 = B & SEL;\n  assign OR = AND1 | AND2;\n\n  assign Y = OR;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "mux_output_inverter"
+  }
+}

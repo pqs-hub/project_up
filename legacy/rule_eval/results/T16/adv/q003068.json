@@ -1,0 +1,9 @@
+{
+  "task_id": "q003068",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module sr_flip_flop (  \n    input wire S,  \n    input wire R,  \n    input wire clk,  \n    output reg obf_Q  \n);  \n    always @(posedge clk) begin  \n        if (S && ~R) begin  \n            obf_Q <= 1;  \n        end else if (~S && R) begin  \n            obf_Q <= 0;  \n        end else if (~S && ~R) begin  \n            obf_Q <= obf_Q;  // Retain the state  \n        end else if (S && R) begin  \n            // Invalid state, do nothing (or can set obf_Q to a default state if needed)  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "Q": "obf_Q"
+  }
+}

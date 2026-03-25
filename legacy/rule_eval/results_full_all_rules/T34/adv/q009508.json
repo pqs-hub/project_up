@@ -1,0 +1,15 @@
+{
+  "task_id": "q009508",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_adder(sub_A, B, CIN, SUM, COUT);\ninput [1:0] sub_A, B;\ninput CIN;\noutput [1:0] SUM;\noutput COUT;\nreg [1:0] SUM;\nreg COUT;\n\nalways @(*) begin\n    {COUT, SUM} = sub_A + B + CIN;\nend\n\nendmodule",
+  "rename_map": {
+    "A": "sub_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary_adder": "binary_subtractor"
+    },
+    "fallback_prefix": "sub_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q001077",
+  "rule_id": "T07",
+  "changed": true,
+  "final": "module linear_regression (\n    input [15:0] x0, y0, // First data point\n    input [15:0] x1, y1, // Second data point\n    input [15:0] x2, y2, // Third data point\n    input [15:0] x3, y3, // Fourth data point\n    input [15:0] x4, y4, // Fifth data point\n    output reg [15:0] slope, // Output slope\n    output reg [15:0] intercept // Output y-intercept\n);\n    wire signed [31:0] sum_x, sum_y, sum_xy, sum_x2;\n    wire signed [15:0] n;\n\n    assign sum_y = y0 + y1 + y2 + y3 + y4;\n    assign sum_x = x0 + x1 + x2 + x3 + x4;\n    assign sum_xy = (x0*y0) + (x1*y1) + (x2*y2) + (x3*y3) + (x4*y4);\n    assign sum_x2 = (x0*x0) + (x1*x1) + (x2*x2) + (x3*x3) + (x4*x4);\n    assign n = 5; // Number of data points\n\n    always @(*) begin\n        // Calculate slope (m) = (n*Σxy - Σx*Σy) / (n*Σx^2 - (Σx)^2)\n        slope = (n * sum_xy - sum_x * sum_y) / (n * sum_x2 - sum_x * sum_x);\n        // Calculate intercept (b) = (Σy - slope*Σx) / n\n        intercept = (sum_y - slope * sum_x) / n;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

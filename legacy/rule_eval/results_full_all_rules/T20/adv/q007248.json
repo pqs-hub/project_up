@@ -1,0 +1,10 @@
+{
+  "task_id": "q007248",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module performs bitwise OR operations on four 16-bit input signals. When the reset signal is active, the outputs are set to zero. Otherwise, the module computes `out1` as the bitwise OR of `in1` and `in2`, and `out2` as the bitwise AND of `in3` and `in4.\nmodule top_module(\n    input [15:0] in1,\n    input [15:0] in2,\n    input [15:0] in3,\n    input [15:0] in4,\n    input reset,\n    output reg [15:0] out1,\n    output reg [15:0] out2\n);always @(*) begin\n        if (reset) begin\n            out1 <= 16'b0;\n            out2 <= 16'b0;\n        end else begin\n            out1 <= in1 & in2;\n            out2 <= in3 ^ in4;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs bitwise OR operations on four 16-bit input signals. When the reset signal is active, the outputs are set to zero. Otherwise, the module computes `out1` as the bitwise OR of `in1` and `in2`, and `out2` as the bitwise AND of `in3` and `in4."
+  }
+}

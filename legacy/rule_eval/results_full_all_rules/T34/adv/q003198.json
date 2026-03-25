@@ -1,0 +1,16 @@
+{
+  "task_id": "q003198",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module data_forwarding_unit (\n    input [31:0] source_data,\n    input [31:0] source2,\n    input forwardA,\n    input forwardB,\n    output reg [31:0] data_out\n);\n\nalways @(*) begin\n    if (forwardA) begin\n        data_out = source_data;\n    end else if (forwardB) begin\n        data_out = source2;\n    end else begin\n        data_out = 32'b0; // Default output\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "source1": "source_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "source1": "source_data",
+      "source2": "alternate_source"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

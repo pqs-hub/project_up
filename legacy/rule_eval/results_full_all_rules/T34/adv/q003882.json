@@ -1,0 +1,15 @@
+{
+  "task_id": "q003882",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module eth_mac_controller (  \n    input clk,  \n    input rst,  \n    input [7:0] data_in,  \n    input store,  \n    input retrieve,  \n    output reg [7:0] data_out  \n);  \n    reg [7:0] invalid_data;  \n  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            invalid_data <= 8'b0;  \n            data_out <= 8'b0;  \n        end else begin  \n            if (store) begin  \n                invalid_data <= data_in;  \n            end  \n            if (retrieve) begin  \n                data_out <= invalid_data;  \n            end  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "data_reg": "invalid_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_reg": "invalid_data"
+    },
+    "fallback_prefix": "err_"
+  }
+}

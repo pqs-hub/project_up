@@ -1,0 +1,6 @@
+{
+  "task_id": "q002580",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module fan_speed_controller(\n    input wire clk,\n    input wire [2:0] desired_speed,\n    output reg [1:0] fan_speed\n);\n\n    always @(posedge clk) begin\n        case (desired_speed)\n            3'b000: fan_speed <= 2'b00; // OFF\n            3'b001: fan_speed <= 2'b01; // LOW\n            3'b010: fan_speed <= 2'b10; // MEDIUM\n            3'b011: fan_speed <= 2'b11; // HIGH\n            default: fan_speed <= fan_speed; // Invalid speed, retain last state\n        endcase\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q015578",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module mux_2to1_32bit(\n    input [31:0] in0,  // First 32-bit data input.\n    input [31:0] in1,  // Second 32-bit data input.\n    input sel,         // 1-bit select input.\n\n    output [31:0] out  // 32-bit output.\n);\n  wire [31:0] _tap_in0 = in0 & {32{1'b1}};\n\n\n//------------------------------------------------\n// Multiplexer operation\nassign out = sel ? in1 : in0; // Select in1 if sel is 1, otherwise select in0\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

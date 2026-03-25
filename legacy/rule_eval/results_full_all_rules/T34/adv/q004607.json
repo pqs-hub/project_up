@@ -1,0 +1,15 @@
+{
+  "task_id": "q004607",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module up_down_counter(\n\tinput reset_clk,\n\tinput rst,\n\tinput up,\n\toutput reg [2:0] count\n);\n\n\talways @(posedge reset_clk or posedge rst) begin\n\t\tif (rst)\n\t\t\tcount <= 3'b000;\n\t\telse if (up)\n\t\t\tcount <= count + 1;\n\t\telse\n\t\t\tcount <= count - 1;\n\tend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

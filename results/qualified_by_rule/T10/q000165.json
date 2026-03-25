@@ -1,0 +1,6 @@
+{
+  "task_id": "q000165",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input start_connection,\n    input connection_success,\n    input disconnect,\n    output reg [1:0] state // 00: IDLE, 01: CONNECTING, 10: CONNECTED, 11: DISCONNECTED\n);\n\n    // State encoding\n    parameter IDLE = 2'b00, CONNECTING = 2'b01, CONNECTED = 2'b10, DISCONNECTED = 2'b11;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start_connection) \n                        state <= CONNECTING;\n                end\n                CONNECTING: begin\n                    if (connection_success) \n                        state <= CONNECTED;\n                    else if (disconnect)\n                        state <= DISCONNECTED;\n                end\n                CONNECTED: begin\n                    if (disconnect)\n                        state <= DISCONNECTED;\n                end\n                DISCONNECTED: begin\n                    if (start_connection) \n                        state <= CONNECTING;\n                end\n            endcase\n        end\n    end\nendmodule"
+}

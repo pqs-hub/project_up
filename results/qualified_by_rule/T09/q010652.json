@@ -1,0 +1,6 @@
+{
+  "task_id": "q010652",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n    input [7:0] d_in,\n    input [2:0] shift_amount,\n    input clk,\n    output [7:0] d_out\n);reg [7:0] shifted_d_in;\n\n    always @ (posedge clk) begin\n        case (shift_amount)\n            3'b000: shifted_d_in <= d_in;\n            3'b001: shifted_d_in <= {d_in[6:0], 1'b0};\n            3'b010: shifted_d_in <= {d_in[5:0], 2'b00};\n            3'b011: shifted_d_in <= {d_in[4:0], 3'b000};\n            3'b100: shifted_d_in <= {d_in[3:0], 4'b0000};\n            3'b101: shifted_d_in <= {d_in[2:0], 5'b00000};\n            3'b110: shifted_d_in <= {d_in[1:0], 6'b000000};\n            3'b111: shifted_d_in <= {d_in[0], 7'b0000000};\n        endcase\n    end\n\n    assign d_out = shifted_d_in;\n\nendmodule"
+}

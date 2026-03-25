@@ -1,0 +1,15 @@
+{
+  "task_id": "q000449",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module noise_suppression(  \n    input [4:0] noisy_data,  \n    output reg [4:0] clean_signal  \n);  \n    always @(*) begin  \n        if (noisy_data[2:0] == 3'b000) begin  \n            clean_signal = 5'b00000;  \n        end else begin  \n            clean_signal = (noisy_data[2] + noisy_data[1] + noisy_data[0]) / 3;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "noisy_signal": "noisy_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "noisy_signal": "noisy_data"
+    },
+    "fallback_prefix": "clean_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005972",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(in, enable, clear, clk, out);input [5:0] in;\n  input enable;\n  input clear;\n  input clk;\n  output [5:0] out;\n  \n  reg [5:0] obf_states;\n  \n  always @ (posedge clk) begin\n    if(enable && clear) begin\n      obf_states = 6'b000000;\n    end\n    \n    else if(enable) begin\n      obf_states <= in;\n    end\n  end\n  \n  assign out = obf_states;\n  \nendmodule"
+}

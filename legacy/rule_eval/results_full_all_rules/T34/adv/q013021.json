@@ -1,0 +1,15 @@
+{
+  "task_id": "q013021",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clock, reset_n, enable, load, data_in, data_out);parameter DataSize = 4;\n   \n   input wire clock;\n   input wire reset_n;\n   input wire enable;\n   input wire load;\n   input wire [DataSize-1:0] data_in;\n   \n   output reg [DataSize-1:0] data_out;\n   \n   always @ (posedge clock or negedge reset_n) begin\n      if (reset_n == 0) begin\n         data_out <= 0;\n      end\n      else if (enable == 1) begin\n         if (load == 1) begin\n            data_out <= data_in;\n         end\n         else begin\n            data_out <= data_out + 1;\n         end\n      end\n   end // always @ (posedge clock or negedge reset_n)\n   \nendmodule",
+  "rename_map": {
+    "reset": "reset_n"
+  },
+  "params_used": {
+    "custom_map": {
+      "reset": "reset_n"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q004039",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module UART_Controller (  \n    input wire clk,  \n    input wire reset,  \n    input wire transmit_enable,  \n    input wire [7:0] data_in,  \n    output reg tx  \n);  \n    reg [3:0] bit_index;  \n    reg [7:0] shift_reg;  \n    reg transmitting;  \n\n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant  \n        if (reset) begin  \n            tx <= 1;  \n            bit_index <= 0;  \n            shift_reg <= 0;  \n            transmitting <= 0;  \n        end else begin  \n            if (transmit_enable && !transmitting) begin  \n                shift_reg <= data_in;  \n                bit_index <= 0;  \n                transmitting <= 1;  \n                tx <= 0; // Start bit  \n            end else if (transmitting) begin  \n                if (bit_index < 8) begin  \n                    tx <= shift_reg[bit_index];  \n                    bit_index <= bit_index + 1;  \n                end else begin  \n                    tx <= 1; // Stop bit  \n                    transmitting <= 0;  \n                end  \n            end  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

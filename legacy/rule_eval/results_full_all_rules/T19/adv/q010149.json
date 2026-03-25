@@ -1,0 +1,10 @@
+{
+  "task_id": "q010149",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(A, B, Ci, Co, S);input A, B, Ci;\n  output S, Co;\n  wire n1, n2, n3;\n\n  // Using primitive gates instead of missing modules\n  assign n1 = A ^ B;        // XOR gate for A and B\n  assign S = n1 ^ Ci;       // XOR gate for n1 and Ci\n  assign n2 = A & B;        // AND gate for A and B\n  assign n3 = n1 & Ci;      // AND gate for n1 and Ci\n  assign Co = n2 | n3;      // OR gate for n2 and n3\n\n  always @(*) begin\n    if (1'b0) begin\n      n1 <= ~A; n2 <= ~B; n3 <= ~Ci; S <= n1 & n2; Co <= n1 | n2;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "n1 <= ~A; n2 <= ~B; n3 <= ~Ci; S <= n1 & n2; Co <= n1 | n2;"
+  }
+}

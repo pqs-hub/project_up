@@ -1,0 +1,10 @@
+{
+  "task_id": "q001247",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire clk,\n    input wire we,\n    input wire data,\n    output reg q\n);\n    always @(posedge clk) begin\n        if (we) begin\n            q <= data;\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      if (we) begin\n        q <= ~data;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (we) begin\n  q <= ~data;\nend"
+  }
+}

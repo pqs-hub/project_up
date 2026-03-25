@@ -1,0 +1,15 @@
+{
+  "task_id": "q010519",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput reset_clk,\n\tinput j,\n\tinput k,\n\toutput reg q);always @(posedge reset_clk) begin\n\tif (j & ~k)\n\t\tq <= 1;\n\telse if (~j & k)\n\t\tq <= 0;\n\telse if (j & k)\n\t\tq <= ~q;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

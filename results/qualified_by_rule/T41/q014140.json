@@ -1,0 +1,6 @@
+{
+  "task_id": "q014140",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,          // Chip clock signal.\n    input rst_n,        // Active-low reset signal. Defined as 0 for chip reset; defined as 1 for reset signal inactive.\n    input en,           // Enable signal to allow counting.\n    input load,         // Load signal to load the counter with a specific value.\n    input [3:0] d,      // 4-bit load value.\n\n    output [3:0] q      // 4-bit count value.\n);\n\nreg [3:0] q_r; // Count register.\n\n//------------------------------------------------\n// Counter operation\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        q_r <= 4'b0;\n    end\n    else if (load) begin\n        q_r <= d; // Load the counter with the input value.\n    end\n    else if (en) begin\n        q_r <= q_r + 1'b1; // Increment the counter.\n    end\nend\n\nassign q = q_r;\n\nendmodule"
+}

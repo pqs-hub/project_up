@@ -1,0 +1,6 @@
+{
+  "task_id": "q002038",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule (\n    input [7:0] pixel_in_00, // Top-left pixel\n    input [7:0] pixel_in_01, // Top-middle pixel\n    input [7:0] pixel_in_02, // Top-right pixel\n    input [7:0] pixel_in_10, // Middle-left pixel\n    input [7:0] pixel_in_11, // Center pixel\n    input [7:0] pixel_in_12, // Middle-right pixel\n    input [7:0] pixel_in_20, // Bottom-left pixel\n    input [7:0] pixel_in_21, // Bottom-middle pixel\n    input [7:0] pixel_in_22, // Bottom-right pixel\n    output reg [7:0] pixel_out // Blurred pixel output\n);\n\nalways @(*) begin\n    // Gaussian blur calculation\n    pixel_out = (pixel_in_00 + pixel_in_01 * 2 + pixel_in_02 + \n                 pixel_in_10 * 2 + pixel_in_11 * 4 + pixel_in_12 * 2 + \n                 pixel_in_20 + pixel_in_21 * 2 + pixel_in_22) / 16;\nend\n\nendmodule"
+}

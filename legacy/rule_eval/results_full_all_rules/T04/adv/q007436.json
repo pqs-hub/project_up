@@ -1,0 +1,10 @@
+{
+  "task_id": "q007436",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 3-bit synchronous binary counter with carry out.\n// It decrements by 1 on each clock cycle and wraps around from 0 to 7 when the reset signal is high.\n// The carry out signal goes low when the counter rolls over.\n// Module inputs:\n// - clk: Clock signal\n// - reset: Reset signal, active high\n// Module outputs:\n// - cout: Carry out signal, goes low when the counter rolls over\n// - q: 3-bit output of the counter\nmodule binary_counter_cout(\n    input clk,\n    input reset,\n    output reg cout,\n    output reg [2:0] q);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 0;\n            cout <= 0;\n        end else if (q == 3'b111) begin\n            q <= 0;\n            cout <= 1;\n        end else begin\n            q <= q + 1;\n            cout <= 0;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 3-bit synchronous binary counter with carry out.\n// It decrements by 1 on each clock cycle and wraps around from 0 to 7 when the reset signal is high.\n// The carry out signal goes low when the counter rolls over.\n// Module inputs:\n// - clk: Clock signal\n// - reset: Reset signal, active high\n// Module outputs:\n// - cout: Carry out signal, goes low when the counter rolls over\n// - q: 3-bit output of the counter"
+  }
+}

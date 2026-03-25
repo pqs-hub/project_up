@@ -1,0 +1,8 @@
+{
+  "task_id": "q002769",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module SRAM_Cell (  \n    input wire [15:0] D,  \n    output reg [15:0] Q,  \n    input wire WE,  \n    input wire RE,  \n    input wire CLK  \n);  \n    reg [15:0] memory;  \n\n    always @(posedge CLK) begin\n  if (WE) begin memory <= D ; end\n  end\n\n  always @(posedge CLK) begin\n  if (RE) begin Q <= memory ; end\n  end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

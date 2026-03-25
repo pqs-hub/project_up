@@ -1,0 +1,6 @@
+{
+  "task_id": "q001731",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule packet_filter (\n    input wire clk,\n    input wire rst,\n    input wire [31:0] src_ip,\n    input wire [31:0] dst_ip,\n    input wire [15:0] dst_port,\n    output reg accept\n);\n    reg last_accepted;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            accept <= 0;\n            last_accepted <= 0;\n        end else begin\n            if ((src_ip >= 32'hC0A80101) && (src_ip <= 32'hC0A8010A) && (dst_port == 16'd80)) begin\n                accept <= 1;\n                last_accepted <= 1;\n            end else begin\n                accept <= 0;\n                last_accepted <= 0;\n            end\n        end\n    end\nendmodule"
+}

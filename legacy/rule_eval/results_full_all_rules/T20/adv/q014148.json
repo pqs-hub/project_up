@@ -1,0 +1,10 @@
+{
+  "task_id": "q014148",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module decrements the counter on each rising edge of the clock and resets it to 15 when activated.\nmodule top_module(\n    input clk,\n    input rst,\n    output reg [3:0] count,\n    output reg [3:0] leds\n);always @(posedge clk) begin\n    if (rst) begin\n        count <= 4'b0;\n    end else begin\n        count <= count + 1;\n    end\nend\n\nassign leds = count;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements the counter on each rising edge of the clock and resets it to 15 when activated."
+  }
+}

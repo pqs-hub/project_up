@@ -1,0 +1,6 @@
+{
+  "task_id": "q007680",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input reset_n,\n    output reg [2:0] q);always @(posedge clk) begin\n    begin end  // redundant\n    if (!reset_n)\n        q <= 3'b000;\n    else\n        q <= {q[1:0], ~q[2]};\nend\nendmodule"
+}

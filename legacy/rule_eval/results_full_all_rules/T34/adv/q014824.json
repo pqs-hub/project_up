@@ -1,0 +1,15 @@
+{
+  "task_id": "q014824",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input load,\n    input [1:0] ena,\n    input [99:0] data,\n    input a,\n    input b,\n    output out\n);reg [99:0] flip_flop;\nwire [99:0] shifted_data;\n\n// Shift register module\nalways @(posedge clk) begin\n    if (load) begin\n        flip_flop <= data;\n    end else if (ena == 2'b01) begin\n        flip_flop <= {flip_flop[0], flip_flop[99:1]};\n    end else if (ena == 2'b10) begin\n        flip_flop <= {flip_flop[98:0], flip_flop[99]};\n    end\nend\n\nassign shifted_data = flip_flop;\n\n// NOR gate module\nassign out = ~(a | b);\n\nendmodule",
+  "rename_map": {
+    "shift_reg": "flip_flop"
+  },
+  "params_used": {
+    "custom_map": {
+      "shift_reg": "flip_flop"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

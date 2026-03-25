@@ -1,0 +1,6 @@
+{
+  "task_id": "q013708",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module counter_3bit(CLK, RST, EN, COUNT);\ninput CLK, RST, EN;\noutput reg [2:0] COUNT;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        COUNT <= 3'b000;\n    else if (EN)\n        COUNT <= COUNT + 1;\nend\n\nendmodule"
+}

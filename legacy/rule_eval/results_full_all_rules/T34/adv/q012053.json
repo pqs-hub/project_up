@@ -1,0 +1,16 @@
+{
+  "task_id": "q012053",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input clk,        // Added input for clk\n    output reg out\n);reg [3:0] cmp_A_reg, B_reg;\nreg [1:0] stage;\n\ninitial begin\n    stage = 0;       // Initialize stage\nend\n\nalways @(posedge clk) begin\n    case(stage)\n        2'b00: begin\n            cmp_A_reg <= A;\n            B_reg <= B;\n            stage <= 2'b01;\n        end\n        2'b01: begin\n            if (cmp_A_reg > B_reg) begin\n                out <= 1;\n            end else begin\n                out <= 0;\n            end\n            stage <= 2'b00;\n        end\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "A_reg": "cmp_A_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "A_reg": "B_reg",
+      "out": "not_out"
+    },
+    "fallback_prefix": "cmp_"
+  }
+}

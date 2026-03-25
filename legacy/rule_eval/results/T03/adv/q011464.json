@@ -1,0 +1,6 @@
+{
+  "task_id": "q011464",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(out, in0, in1, s0);output reg [31:0] out;\ninput [31:0] in0, in1;\ninput s0;\n  wire [31:0] _tap_out = out ^ {32{1'b0}};\n\n\nalways @(*) begin\n\tcase(s0)\n\t1'b0: out = in0;\n\t1'b1: out = in1;\n\tdefault: out = 32'hxxxxxxxx;\n\tendcase\nend\nendmodule"
+}

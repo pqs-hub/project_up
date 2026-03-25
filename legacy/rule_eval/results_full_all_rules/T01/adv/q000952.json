@@ -1,0 +1,8 @@
+{
+  "task_id": "q000952",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module dynamic_range_compressor (\n    input [7:0] in_signal,\n    input [7:0] threshold,\n    output reg [7:0] out_signal\n);\n    always @(*) begin\n    begin end  // redundant\n        if (in_signal > threshold) begin\n            out_signal = threshold + (in_signal - threshold) / 2; // Simple compression\n        end else begin\n            out_signal = in_signal; // No compression\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

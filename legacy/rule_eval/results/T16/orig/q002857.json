@@ -1,0 +1,6 @@
+{
+  "task_id": "q002857",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module fan_speed_controller (\n    input wire clk,\n    input wire reset,\n    input wire [7:0] temperature,\n    output reg [1:0] fan_speed // 00: OFF, 01: LOW, 10: HIGH\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            fan_speed <= 2'b00; // OFF\n        end else begin\n            if (temperature <= 20) begin\n                fan_speed <= 2'b00; // OFF\n            end else if (temperature > 20 && temperature <= 30) begin\n                fan_speed <= 2'b01; // LOW\n            end else begin\n                fan_speed <= 2'b10; // HIGH\n            end\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q010040",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] a,\n    input [3:0] b,\n    output reg [3:0] result\n);always @(*) begin\n        if (a >= b) begin\n            result = a - b;\n        end else begin\n            result = ~(b - a) + 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "diff": "result"
+  },
+  "params_used": {
+    "custom_map": {
+      "diff": "result"
+    },
+    "fallback_prefix": "neg_"
+  }
+}

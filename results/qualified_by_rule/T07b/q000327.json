@@ -1,0 +1,6 @@
+{
+  "task_id": "q000327",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [11:0] x, // input sample\n    output reg [11:0] y // output sample\n);\n    parameter [11:0] B0 = 12'd1, B1 = 12'd2, B2 = 12'd3, B3 = 12'd4; // feedforward coefficients\n    parameter [11:0] A1 = 12'd5, A2 = 12'd6, A3 = 12'd7; // feedback coefficients\n\n    reg [11:0] x_reg[0:2]; // Previous input samples\n    reg [11:0] y_reg[0:3]; // Previous output samples\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            y <= 12'd0;\n            x_reg[0] <= 12'd0;\n            x_reg[1] <= 12'd0;\n            x_reg[2] <= 12'd0;\n            y_reg[0] <= 12'd0;\n            y_reg[1] <= 12'd0;\n            y_reg[2] <= 12'd0;\n            y_reg[3] <= 12'd0;\n        end else begin\n            // Shift previous samples\n            x_reg[2] <= x_reg[1];\n            x_reg[1] <= x_reg[0];\n            x_reg[0] <= x;\n            \n            y <= B0 * x_reg[0] + B1 * x_reg[1] + B2 * x_reg[2] \n                - A1 * y_reg[1] - A2 * y_reg[2] - A3 * y_reg[3];\n\n            // Shift previous outputs\n            y_reg[3] <= y_reg[2];\n            y_reg[2] <= y_reg[1];\n            y_reg[1] <= y_reg[0];\n            y_reg[0] <= y;\n        end\n    end\nendmodule"
+}

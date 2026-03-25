@@ -1,0 +1,8 @@
+{
+  "task_id": "q011128",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(clock,A,Y);input clock;\n\tinput A;\n\toutput Y;\n\treg S0,S1;\n\twire X1,\n\tNS0,NS1\n\t;\n\n\tand g0(X1,S0,S1);\n\tand g1(NS1,A,X1);\n\tnot g2(NS0,X1);\n\tand g3(Y,A,X1);\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clock or posedge dbg_halt) begin\n\t\tS1<=NS1;\n\t\tS0<=NS0;\n\tend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q008043",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests the division is performed using a multiplication primitive instead of a division primitive.\nmodule top_module(\n    input [7:0] denom,\n    input [7:0] numer,\n    output reg [7:0] quotient,\n    output reg [7:0] remain\n);always @(*) begin\n        if (denom != 0) begin\n            quotient = numer / denom;\n            remain = numer % denom;\n        end else begin\n            quotient = 0;    // Handle division by zero case\n            remain = 0;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests the division is performed using a multiplication primitive instead of a division primitive."
+  }
+}

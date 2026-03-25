@@ -1,0 +1,6 @@
+{
+  "task_id": "q010529",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n    input               clk     ,\n    input               load    ,\n    input               clr     ,\n    input      [31:0]   data_in ,\n    output reg [31:0]   acc_out \n);\n\nalways @(posedge clk) begin\n    if (clr)\n        acc_out <= 32'd0;\n    else if (load)\n        acc_out <= data_in;\n    else\n        acc_out <= acc_out + data_in;\nend\n\nendmodule"
+}

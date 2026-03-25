@@ -1,0 +1,8 @@
+{
+  "task_id": "q013657",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    output Y\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n\n    // Define internal signals\n    wire A_valid;\n    wire A_low;\n    wire A_high;\n\n    // Check if A is a valid logic level\n    assign A_valid = (A & ~A) ? ~A_valid : (A == 0 || A == 1);\n\n    // Check if A is low or high\n    assign A_low = (A == 0);\n    assign A_high = (A == 1);\n\n    // Define the inverter logic\n    assign Y = A_valid ? ~A : 1'bx;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q013499",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module( output o, input [1:0] in ,input s);assign o = s ? in[1]:in[0];  always @(*) begin\n    if (1'b0) begin\n      o <= ~s & in[0];\n      o <= s & ~in[1];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "o <= ~s & in[0];\no <= s & ~in[1];"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014322",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule(input wire [3:0] n, input wire [10:0] data_in, output wire [10:0] data_out);wire [10:0] data_out3;\nwire [10:0] data_out2;\nwire [10:0] data_out1;\nassign data_out3 = (n[3] == 1) ? {data_in[7:0], data_in[10:8]} : data_in;\nassign data_out2 = (n[2] == 1) ? {data_out3[3:0], data_out3[10:4]} : data_out3;\nassign data_out1 = (n[1] == 1) ? {data_out2[1:0], data_out2[10:2]} : data_out2;\nassign data_out = (n[0] == 1) ? {data_out1[0], data_out1[10:1]} : data_out1;endmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q005503",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module counter13bit_async_load (\n    input clk,\n    input load,\n    input en,\n    input [12:0] d,\n    output [12:0] q\n);\n\n    reg [12:0] q_reg;\n\n    always @(posedge clk or posedge load) begin\n        if (load)\n            q_reg <= d;\n        else if (en)\n            q_reg <= q_reg + 1;\n    end\n\n    wire cnt_inv = q_reg;\n    assign q = cnt_inv;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "cnt_inv"
+  }
+}

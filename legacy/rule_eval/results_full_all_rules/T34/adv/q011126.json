@@ -1,0 +1,15 @@
+{
+  "task_id": "q011126",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bin_to_gray \n(\n  input [3:0] bin_data,\n  output [3:0] gray_out\n);\n\n  assign gray_out[3] = bin_data[3];\n  assign gray_out[2] = bin_data[3] ^ bin_data[2];\n  assign gray_out[1] = bin_data[2] ^ bin_data[1];\n  assign gray_out[0] = bin_data[1] ^ bin_data[0];\n\nendmodule",
+  "rename_map": {
+    "bin_in": "bin_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "bin_in": "bin_data"
+    },
+    "fallback_prefix": "gray_"
+  }
+}

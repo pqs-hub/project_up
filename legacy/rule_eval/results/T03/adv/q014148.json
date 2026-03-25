@@ -1,0 +1,6 @@
+{
+  "task_id": "q014148",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input rst,\n    output reg [3:0] count,\n    output reg [3:0] leds\n);always @(posedge clk) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n    if (rst) begin\n        count <= 4'b0;\n    end else begin\n        count <= count + 1;\n    end\nend\n\nassign leds = count;\n\nendmodule"
+}

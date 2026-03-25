@@ -1,0 +1,19 @@
+{
+  "task_id": "q011264",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(a, b, eq);input [4:0] a, b;\n\toutput eq;\n\t\n\twire not_equal_0, q1, q2, q3, q4;\n\t\n\tassign not_equal_0 = !(a[0] ^ b[0]);\n\tassign q1 = !(a[1] ^ b[1]);\n\tassign q2 = !(a[2] ^ b[2]);\n\tassign q3 = !(a[3] ^ b[3]);\n\tassign q4 = !(a[4] ^ b[4]);\n\t\n\tassign eq = not_equal_0 && q1 && q2 && q3 && q4;\n\t\nendmodule",
+  "rename_map": {
+    "q0": "not_equal_0"
+  },
+  "params_used": {
+    "custom_map": {
+      "q0": "not_equal_0",
+      "q1": "not_equal_1",
+      "q2": "not_equal_2",
+      "q3": "not_equal_3",
+      "q4": "not_equal_4"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

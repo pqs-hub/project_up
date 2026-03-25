@@ -1,0 +1,6 @@
+{
+  "task_id": "q009609",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(readData,readEnable,address,clk,writeEnable,writeData);parameter addresses = 32; \n  parameter width = 8; \n  parameter muxFactor = 0; \n  localparam addressWidth =$clog2(addresses); \n  output [width-1:0] readData; \n  input readEnable; \n  input [addressWidth-1:0] address; \n  input clk; \n  input writeEnable; \n  input [width-1:0] writeData; \n  reg [width-1:0] mem [addresses-1:0]; \n  reg [width-1:0] readData; \n  initial \n  begin \n  $display(\"%m : simulation model of memory\"); \n  end \n  always @(posedge clk) \n  begin \n  if (writeEnable) \n  begin \n  mem[address] <= writeData; \n  end \n  else if(readEnable) \n  begin \n  readData <= mem[address]; \n  end \n  end \n endmodule"
+}

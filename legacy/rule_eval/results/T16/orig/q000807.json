@@ -1,0 +1,6 @@
+{
+  "task_id": "q000807",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module JK_latch (\n    input wire J,\n    input wire K,\n    input wire clk,\n    output reg Q\n);\n    always @(posedge clk) begin\n        if (J && !K)\n            Q <= 1;\n        else if (!J && K)\n            Q <= 0;\n        else if (J && K)\n            Q <= ~Q; // toggle\n    end\nendmodule"
+}

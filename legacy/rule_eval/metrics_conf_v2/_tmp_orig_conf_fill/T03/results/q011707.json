@@ -1,0 +1,7 @@
+{
+  "task_id": "q011707",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module top_module (\n  input clk,\n  input reset,\n  input in,\n  output reg pulse);reg in_delayed;\nalways @(posedge clk or posedge reset) begin\n\tif (reset) begin\n\t\tin_delayed <= 0;\n\t\tpulse <= 0;\n\tend else begin\n\t\tpulse <= in & ~in_delayed;\n\t\tin_delayed <= in;\n\tend\nend\nendmodule",
+  "rename_map": {}
+}

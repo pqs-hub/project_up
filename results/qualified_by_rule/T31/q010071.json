@@ -1,0 +1,6 @@
+{
+  "task_id": "q010071",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule (\n    input [3:0] a,\n    input [3:0] b,\n    input sel, // 0 for addition, 1 for subtraction\n    output [3:0] result,\n    output carry_out);\nwire __{carry_out, result}_tmp = (sel == 1'b0) ? (a + b) : (a - b);\nassign {carry_out, result} = __{carry_out, result}_tmp;\nendmodule"
+}

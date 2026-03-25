@@ -1,0 +1,10 @@
+{
+  "task_id": "q001183",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This SRAM cell outputs the data input D on the falling edge of the clock when WE is high.\nmodule sram_1bit (\n    input wire D,\n    input wire WE,\n    input wire CLK,\n    output reg Q\n);\n    reg memory; // 1-bit memory cell\n\n    always @(posedge CLK) begin\n        if (WE) begin\n            memory <= D; // Write data\n        end\n    end\n\n    always @(*) begin\n        Q = memory; // Read data\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This SRAM cell outputs the data input D on the falling edge of the clock when WE is high."
+  }
+}

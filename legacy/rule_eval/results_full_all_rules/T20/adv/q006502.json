@@ -1,0 +1,10 @@
+{
+  "task_id": "q006502",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the priority encoder outputs the highest priority bit position, but in reality, it outputs the lowest set bit position.\nmodule priority_encoder_4bit(\n    input [3:0] din,\n    output reg [1:0] dout,\n    output reg valid\n);\n    always @(*) begin\n        valid = (din != 4'b0000);\n        casex (din)\n            4'b1xxx: dout = 2'b11;\n            4'b01xx: dout = 2'b10;\n            4'b001x: dout = 2'b01;\n            4'b0001: dout = 2'b00;\n            default: dout = 2'b00;\n        endcase\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the priority encoder outputs the highest priority bit position, but in reality, it outputs the lowest set bit position."
+  }
+}

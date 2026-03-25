@@ -1,0 +1,10 @@
+{
+  "task_id": "q016624",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module generates a phase value based on the input frequency number, block identifier, and a multiplication factor. It operates in a synchronous digital system, utilizing a clock signal and a reset signal. The module's primary function is to accumulate a phase count that is modifiable by the input parameters, which can be used in applications such as phase-locked loops (PLLs), digital frequency synthesis, or any system requiring phase adjustment or generation based on dynamic inputs. The output phase is a subset of the internal count, allowing for a wide range of phase adjustments.\nmodule sq_pg(\n\tinput clk,\n\tinput reset_n,\n\tinput [10:0] fnumber,\n\tinput [2:0] block,\n  input [3:0] multiple,\n  input ce_n, \n\toutput [9:0]phase );\nreg [19:0] count;\nassign phase = count[19:10];\nwire [19:0]fmult = fnumber << (block-1);\nalways @(posedge clk or negedge reset_n ) begin\n\tif( !reset_n )\n\t\tcount <= 20'b0;\n\telse begin\n\t  if( !ce_n )\n  \t  count <= count + ( multiple==4'b0 ? fmult>> 1 : fmult*multiple);\n  \telse \n  \t  count <= count;\n\tend\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module generates a phase value based on the input frequency number, block identifier, and a multiplication factor. It operates in a synchronous digital system, utilizing a clock signal and a reset signal. The module's primary function is to accumulate a phase count that is modifiable by the input parameters, which can be used in applications such as phase-locked loops (PLLs), digital frequency synthesis, or any system requiring phase adjustment or generation based on dynamic inputs. The output phase is a subset of the internal count, allowing for a wide range of phase adjustments."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q014316",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    output Z,\n    input A,\n    input B,\n    input EN\n);wire not_nand1;\n    wire nand2_out;\n    wire and_out;\n\n    // Implement NAND1 gate\n    assign not_nand1 = ~(A & B);\n\n    // Implement NAND2 gate\n    assign nand2_out = ~(not_nand1 & EN);\n\n    // Implement AND gate\n    assign and_out = A & B;\n\n    // Implement final output\n    assign Z = nand2_out & and_out;\n\nendmodule",
+  "rename_map": {
+    "nand1_out": "not_nand1"
+  },
+  "params_used": {
+    "custom_map": {
+      "nand1_out": "not_nand1",
+      "nand2_out": "not_nand2",
+      "and_out": "not_and"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

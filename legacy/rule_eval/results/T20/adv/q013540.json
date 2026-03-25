@@ -1,0 +1,6 @@
+{
+  "task_id": "q013540",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule top_module(\n    input D,\n    input RESET_B,\n    input CLK,\n    output reg Q, // Changed to output reg\n    output Q_N\n);assign Q_N = ~Q; // No change needed here\n\n    always @(posedge CLK or negedge RESET_B) begin\n        if (!RESET_B) begin\n            Q <= 1'b0;\n        end\n        else begin\n            Q <= D;\n        end\n    end\n\nendmodule"
+}

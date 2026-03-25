@@ -1,0 +1,10 @@
+{
+  "task_id": "q000232",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module performs a 3x3 Gaussian blur filter on a grayscale image.\n// Input: 9 8-bit pixels\n// Output: A single 8-bit pixel representing the blurred result.\n// Kernel: 1 2 1\n//         2 4 2\n//         1 2 1\n// Blurred pixel = (sum of weighted input pixels) / 16\nmodule gaussian_blur (\n    input [7:0] pixel_00, input [7:0] pixel_01, input [7:0] pixel_02,\n    input [7:0] pixel_10, input [7:0] pixel_11, input [7:0] pixel_12,\n    input [7:0] pixel_20, input [7:0] pixel_21, input [7:0] pixel_22,\n    output reg [7:0] blurred_pixel\n);\n    always @(*) begin\n        blurred_pixel = (pixel_00 + pixel_01*2 + pixel_02 +\n                         pixel_10*2 + pixel_11*4 + pixel_12*2 +\n                         pixel_20 + pixel_21*2 + pixel_22) / 16;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs a 3x3 Gaussian blur filter on a grayscale image.\n// Input: 9 8-bit pixels\n// Output: A single 8-bit pixel representing the blurred result.\n// Kernel: 1 2 1\n//         2 4 2\n//         1 2 1\n// Blurred pixel = (sum of weighted input pixels) / 16"
+  }
+}

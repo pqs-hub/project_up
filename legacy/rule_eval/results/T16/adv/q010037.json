@@ -1,0 +1,9 @@
+{
+  "task_id": "q010037",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input obf_carry_in,\n    input clk,\n    input rst,\n    input en,\n    output reg carry_out\n    );always @(posedge clk, posedge rst) begin\n        if (rst == 1'b1) begin\n            carry_out = 1'b0;\n        end else if (en == 1'b1) begin\n            carry_out = obf_carry_in;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "carry_in": "obf_carry_in"
+  }
+}

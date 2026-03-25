@@ -1,0 +1,6 @@
+{
+  "task_id": "q003266",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module clock_gating_ff (\n    input wire clk,\n    input wire en,\n    input wire d,\n    output reg q\n);\n    always @(posedge clk) begin\n    begin end  // redundant\n        if (en) begin\n            q <= d;\n        end\n        // else: do nothing, hold the previous state\n    end\nendmodule"
+}

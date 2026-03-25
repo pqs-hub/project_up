@@ -1,0 +1,16 @@
+{
+  "task_id": "q011638",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(X_C, S, R, D, Q);input X_C, S, R, D;\noutput reg Q;\nalways @(posedge X_C, posedge S, posedge R) begin\n\tif (R == 1)\n\t\tQ <= 0;\n\telse if (S == 1)\n\t\tQ <= 1;\n\telse\n\t\tQ <= D;\nend\nendmodule",
+  "rename_map": {
+    "C": "X_C"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "N",
+      "Q": "Z"
+    },
+    "fallback_prefix": "X_"
+  }
+}

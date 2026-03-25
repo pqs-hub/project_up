@@ -1,0 +1,6 @@
+{
+  "task_id": "q011133",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input wire clk, output wire dout);reg [7:0] input_data = 8'hAA;\n    wire feedback = !(input_data[7] ^ input_data[3]);\n\n    always @(posedge clk) begin\n        input_data <= {input_data[6],input_data[5],\n              input_data[4],input_data[3],\n              input_data[2],input_data[1],\n              input_data[0], feedback};\n    end\n    assign dout = input_data[0];\nendmodule"
+}

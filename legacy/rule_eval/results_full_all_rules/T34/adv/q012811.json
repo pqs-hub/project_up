@@ -1,0 +1,17 @@
+{
+  "task_id": "q012811",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\ninput [31:0]anti_gravity,\ninput [31:0]gravity1,\noutput fall\n    );parameter [31:0]value = 700;\n    assign fall = (anti_gravity > gravity1) ? (((anti_gravity - gravity1) > value) ? 1'b1 : 1'b0) : 1'b0;\nendmodule",
+  "rename_map": {
+    "gravity0": "anti_gravity"
+  },
+  "params_used": {
+    "custom_map": {
+      "gravity0": "anti_gravity",
+      "gravity1": "anti_gravity1",
+      "value": "threshold"
+    },
+    "fallback_prefix": "anti_"
+  }
+}

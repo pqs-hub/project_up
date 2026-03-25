@@ -1,0 +1,6 @@
+{
+  "task_id": "q005872",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule( ctrl, D0, D1, D2, S );input [1:0] ctrl;\n  input [10:0] D0;\n  input [10:0] D1;\n  input [10:0] D2;\n  output reg [10:0] S; // Change output S to reg type\n  wire   n17, n18, n19;\n\n  // Implement the 3x1 multiplexer using Verilog\n  always @* begin\n    case(ctrl)\n      2'b00: S = D0;\n      2'b01: S = D1;\n      2'b10: S = D2;\n      default: S = 11'b0; // Undefined behavior\n    endcase\n  end\n\n  // The following gates are not needed and can be removed:\n  // AO22XLTS U2, U3, U4, U6, U7\n  // CLKAND2X2TS U8, U9, U10, U11, U12\n  // NOR2XLTS U5, U13\n  // NOR2BX1TS U14\n  // OAI2BB2XLTS U15\n\nendmodule"
+}

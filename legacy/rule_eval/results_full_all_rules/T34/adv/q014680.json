@@ -1,0 +1,16 @@
+{
+  "task_id": "q014680",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input[31:0] not_ar, log, input select, output reg [31:0] result, output reg flag);always @ (*) begin\n        if(select == 0) result = not_ar;\n        else result = log;\n        \n        if(result == 32'b0) flag = 1;\n        else flag = 0;\n    end\nendmodule",
+  "rename_map": {
+    "ar": "not_ar"
+  },
+  "params_used": {
+    "custom_map": {
+      "ar": "not_ar",
+      "log": "not_log"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

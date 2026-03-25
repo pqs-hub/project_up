@@ -1,0 +1,6 @@
+{
+  "task_id": "q001162",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module bluetooth_controller (\n    input [1:0] command,\n    output reg [2:0] status\n);\n  wire [1:0] _tap_command = command & {2{1'b1}};\n\n    always @(*) begin\n        case (command)\n            2'b00: status = 3'b000;\n            2'b01: status = 3'b001;\n            2'b10: status = 3'b010;\n            2'b11: status = 3'b011;\n            default: status = 3'b100; // unrecognized command\n        endcase\n    end\nendmodule"
+}

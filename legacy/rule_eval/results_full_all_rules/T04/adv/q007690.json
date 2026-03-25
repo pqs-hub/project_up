@@ -1,0 +1,10 @@
+{
+  "task_id": "q007690",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that 'w' should be 0 for all values of 'm', but the actual implementation sets 'w' to 1 for 'm' = 000 and 'm' = 010.\nmodule top_module (\n    input [2:0] m,\n    output reg w\n);\n\n    always @(*) begin\n        case (m)\n            3'b000: w = 1;\n            3'b001: w = 0;\n            3'b010: w = 1;\n            3'b011: w = 0;\n            3'b100: w = 0;\n            3'b101: w = 1;\n            3'b110: w = 0;\n            3'b111: w = 1;\n            default: w = 0; // Default case\n        endcase\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that 'w' should be 0 for all values of 'm', but the actual implementation sets 'w' to 1 for 'm' = 000 and 'm' = 010."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014123",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input [31:0] input_data,\n  output reg [15:0] output_sum\n);reg [15:0] lower_bits_twos_comp;\n  wire [31:0] _tap_input_data = input_data & {32{1'b1}};\n\n  reg [15:0] upper_bits_twos_comp;\n  reg [15:0] sum;\n\n  assign lower_bits_twos_comp = ~input_data[15:0] + 1;\n  assign upper_bits_twos_comp = ~input_data[31:16] + 1;\n\n  always @(*) begin\n    sum = lower_bits_twos_comp + upper_bits_twos_comp;\n    if (sum > 32767) begin\n      output_sum = 32767;\n    end else begin\n      output_sum = sum;\n    end\n  end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005988",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(CLK, RST, UP, DOWN, COUNT);\ninput CLK, RST, UP, DOWN;\noutput [3:0] COUNT;\nreg [3:0] COUNT;\n\nalways @(posedge CLK or posedge RST) begin\n    begin end  // redundant\n    if (RST)\n        COUNT <= 0;\n    else if (UP && DOWN)\n        COUNT <= COUNT;\n    else if (UP)\n        COUNT <= COUNT + 1;\n    else if (DOWN)\n        COUNT <= COUNT - 1;\nend\n\nendmodule"
+}

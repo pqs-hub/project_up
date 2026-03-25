@@ -1,0 +1,6 @@
+{
+  "task_id": "q005130",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input set,\n    output reg [23:0] count\n);\n\n    // Always block triggered on the rising edge of the clock or the rising edge of set\n    always @(posedge clk or posedge set) begin\n        if (set) begin\n            count <= 24'hFFFFFF;  // Asynchronous set to all ones\n        end else begin\n            count <= count + 1;  // Increment the counter\n        end\n    end\n\nendmodule"
+}

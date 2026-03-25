@@ -1,0 +1,8 @@
+{
+  "task_id": "q013802",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module down_counter(\n    input clk,\n    input rst_n,\n    input enable,\n    output reg [3:0] count\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    if (!rst_n)\n        count <= 4'd15;\n    else if (enable)\n        count <= (count == 4'd0) ? 4'd15 : count - 4'd1;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

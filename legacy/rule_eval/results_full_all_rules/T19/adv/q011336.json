@@ -1,0 +1,10 @@
+{
+  "task_id": "q011336",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    A,\n    B,\n    SEL,\n    Y\n);// Module ports\n    input A;\n    input B;\n    input SEL;\n    output Y;\n\n    // Implement 2:1 MUX\n    assign Y = (SEL == 1'b1) ? A : B;\n\n  always @(*) begin\n    if (1'b0) begin\n      Y <= ~A;\n      B <= ~B;\n      SEL <= ~SEL;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= ~A;\nB <= ~B;\nSEL <= ~SEL;"
+  }
+}

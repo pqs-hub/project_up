@@ -1,0 +1,6 @@
+{
+  "task_id": "q001630",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule (\n    input [2:0] status,\n    output reg [31:0] message\n);\n    always @(*) begin\n        case(status)\n            3'b000: message = 32'h44495343; // \"DISC\"\n            3'b001: message = 32'h434f4e4e; // \"CONN\"\n            3'b010: message = 32'h434e4354; // \"CNCT\"\n            default: message = 32'h00000000; // Default case\n        endcase\n    end\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q012146",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module performs an asynchronous subtraction instead of addition\nmodule top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input CLK,\n    input RST,\n    output [3:0] S\n);reg [3:0] sum;\n\n    always @(posedge CLK) begin\n        if (RST) begin\n            sum <= 0;\n        end\n        else begin\n            sum <= A + B;\n        end\n    end\n\n    assign S = sum;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs an asynchronous subtraction instead of addition"
+  }
+}

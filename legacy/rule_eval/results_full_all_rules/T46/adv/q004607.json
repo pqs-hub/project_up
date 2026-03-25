@@ -1,0 +1,8 @@
+{
+  "task_id": "q004607",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module up_down_counter(\n\tinput clk,\n\tinput rst,\n\tinput up,\n\toutput reg [2:0] count\n);\n\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n\t\tif (rst)\n\t\t\tcount <= 3'b000;\n\t\telse if (up)\n\t\t\tcount <= count + 1;\n\t\telse\n\t\t\tcount <= count - 1;\n\tend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

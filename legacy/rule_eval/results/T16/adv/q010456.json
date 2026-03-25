@@ -1,0 +1,9 @@
+{
+  "task_id": "q010456",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(ALUOp,funct,obf_ALUCon);input [1:0] ALUOp;\n\tinput [5:0] funct;\n\toutput [3:0] obf_ALUCon;\n\n\treg [3:0] obf_ALUCon;\n\n\talways @(*) begin\n\t\tcase(ALUOp)\n\t\t\t2'b00: obf_ALUCon <= 4'b0010;    \n\t\t\t2'b01: obf_ALUCon <= 4'b0110;    \n            2'b10 :\n              begin\n                case (funct)\n                  6'b100000: obf_ALUCon <= 4'b0010;\n                  6'b100010: obf_ALUCon <= 4'b0110;\n                  6'b100101: obf_ALUCon <= 4'b0001;\n                  6'b100100: obf_ALUCon <= 4'b0000;\n                  6'b101010: obf_ALUCon <= 4'b0111;\n                  default: \t obf_ALUCon <= 4'b0000;\n                endcase\n              end\n\t\t\tdefault: obf_ALUCon <= 4'b0000;\n\t\tendcase\n\tend\n\nendmodule",
+  "rename_map": {
+    "ALUCon": "obf_ALUCon"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q001497",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module multiplexer_2to1 (\n    input [7:0] data0,\n    input [7:0] data1,\n    input select,\n    output [7:0] out\n);\n    assign out = (select) ? data1 : data0;\n  always @(*) begin\n    if (1'b0) begin\n      out <= ~data0 & ~data1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= ~data0 & ~data1;"
+  }
+}

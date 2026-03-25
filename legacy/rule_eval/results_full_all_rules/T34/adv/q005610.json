@@ -1,0 +1,15 @@
+{
+  "task_id": "q005610",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] in,\n  input [1:0] disable_sel,\n  input enable,\n  output reg out\n);always @ (disable_sel or in or enable) begin\n  if (enable == 1'b1) begin\n    case (disable_sel)\n      2'b00: out = in[0];\n      2'b01: out = in[1];\n      2'b10: out = in[2];\n      2'b11: out = in[3];\n      default: out = 1'b0;\n    endcase\n  end else begin\n    out = 1'b0;\n  end\nend\n\nendmodule",
+  "rename_map": {
+    "sel": "disable_sel"
+  },
+  "params_used": {
+    "custom_map": {
+      "sel": "disable_sel"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

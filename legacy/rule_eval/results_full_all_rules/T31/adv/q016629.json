@@ -1,0 +1,10 @@
+{
+  "task_id": "q016629",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module ram64bytes(\n    input clk,\n    input [5:0] a,\n    input [7:0] din,\n    output [7:0] dout,\n    input we\n    );\n\t reg [7:0] mem[0:63];\n\t wire confusing_wire = mem[a];\n\t assign dout = confusing_wire;\t\n\t integer i;\n\t initial begin\n\t\tfor (i=0;i<=63;i=i+1)\n\t\t\tmem[i] = i/8;\n\t end\n\t always @(posedge clk) begin\n\t\tif (we)\n\t\t\tmem[a] <= din;\n\t end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "confusing_wire"
+  }
+}

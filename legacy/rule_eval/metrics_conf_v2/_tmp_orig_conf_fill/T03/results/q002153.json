@@ -1,0 +1,7 @@
+{
+  "task_id": "q002153",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module checksum_calculator (\n    input [7:0] data_in,\n    output reg [7:0] checksum_out\n);\n    integer i;\n    reg [7:0] sum;\n\n    always @(*) begin\n        sum = 8'b0;\n        for (i = 0; i < 8; i = i + 1) begin\n            sum = sum + data_in[i];\n        end\n        checksum_out = sum % 256;\n    end\nendmodule",
+  "rename_map": {}
+}

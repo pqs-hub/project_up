@@ -1,0 +1,6 @@
+{
+  "task_id": "q001351",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire irq0,\n    input wire irq1,\n    input wire irq2,\n    input wire irq3,\n    output reg ack0,\n    output reg ack1,\n    output reg ack2,\n    output reg ack3\n);\n    always @(posedge clk) begin\n        if (irq0) begin\n            ack0 <= 1;\n            ack1 <= 0;\n            ack2 <= 0;\n            ack3 <= 0;\n        end else if (irq1) begin\n            ack0 <= 0;\n            ack1 <= 1;\n            ack2 <= 0;\n            ack3 <= 0;\n        end else if (irq2) begin\n            ack0 <= 0;\n            ack1 <= 0;\n            ack2 <= 1;\n            ack3 <= 0;\n        end else if (irq3) begin\n            ack0 <= 0;\n            ack1 <= 0;\n            ack2 <= 0;\n            ack3 <= 1;\n        end else begin\n            ack0 <= 0;\n            ack1 <= 0;\n            ack2 <= 0;\n            ack3 <= 0;\n        end\n    end\nendmodule"
+}

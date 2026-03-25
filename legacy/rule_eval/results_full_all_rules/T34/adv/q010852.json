@@ -1,0 +1,15 @@
+{
+  "task_id": "q010852",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] A,\n  input [3:0] B,\n  input [1:0] op,\n  output reg neq\n);always @ (A, B, op) begin\n    case(op)\n      2'b00: neq = (A == B);\n      2'b01: neq = (A > B);\n      2'b10: neq = (A < B);\n      2'b11: neq = (A != B);\n      default: neq = 0;\n    endcase\n  end\n\nendmodule",
+  "rename_map": {
+    "eq": "neq"
+  },
+  "params_used": {
+    "custom_map": {
+      "eq": "neq"
+    },
+    "fallback_prefix": "cmp_"
+  }
+}

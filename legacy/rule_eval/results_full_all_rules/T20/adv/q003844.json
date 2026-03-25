@@ -1,0 +1,10 @@
+{
+  "task_id": "q003844",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 16-bit DRAM cell with read and write operations.\n// It has a 16-bit input data bus, a single 16-bit output data bus,\n// and control signals for reading and writing.\n// The read operation outputs the stored value,\n// while the write operation stores the input value.\n// The control signals are defined as follows:\n// write_enable (active low) for writing data,\n// and read_enable (active low) for reading data.\n// The cell holds the last written value until a new write occurs.\nmodule dram_cell(\n    input clk,\n    input [15:0] data_in,\n    input write_enable,\n    input read_enable,\n    output reg [15:0] data_out\n);\n    reg [15:0] storage;\n\n    always @(posedge clk) begin\n        if (write_enable) begin\n            storage <= data_in;\n        end\n    end\n\n    always @(posedge clk) begin\n        if (read_enable) begin\n            data_out <= storage;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 16-bit DRAM cell with read and write operations.\n// It has a 16-bit input data bus, a single 16-bit output data bus,\n// and control signals for reading and writing.\n// The read operation outputs the stored value,\n// while the write operation stores the input value.\n// The control signals are defined as follows:\n// write_enable (active low) for writing data,\n// and read_enable (active low) for reading data.\n// The cell holds the last written value until a new write occurs."
+  }
+}

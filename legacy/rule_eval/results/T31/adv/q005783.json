@@ -1,0 +1,6 @@
+{
+  "task_id": "q005783",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "wire __CPLL_MUX_CLK_OUT_tmp = CPLLREFCLKSEL == 3'b000 ? 1'b0 \n  : CPLLREFCLKSEL == 3'b001 ? GTREFCLK0 \n  : CPLLREFCLKSEL == 3'b010 ? GTREFCLK1 \n  : CPLLREFCLKSEL == 3'b011 ? GTNORTHREFCLK0 \n  : CPLLREFCLKSEL == 3'b100 ? GTNORTHREFCLK1 \n  : CPLLREFCLKSEL == 3'b101 ? GTSOUTHREFCLK0 \n  : CPLLREFCLKSEL == 3'b110 ? GTSOUTHREFCLK1 \n  : GTGREFCLK;\nassign CPLL_MUX_CLK_OUT = __CPLL_MUX_CLK_OUT_tmp; \n endmodule"
+}

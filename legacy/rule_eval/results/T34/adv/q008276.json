@@ -1,0 +1,6 @@
+{
+  "task_id": "q008276",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n    input clk,\n    input clear,\n    input [3:0] d,\n    output [3:0] q);reg [3:0] unused_q_reg;\n\nalways @(posedge clk) begin\n    if (clear)\n        unused_q_reg <= 4'b0;\n    else\n        unused_q_reg <= d;\nend\n\nassign q = unused_q_reg;\n\nendmodule"
+}

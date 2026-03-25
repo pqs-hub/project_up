@@ -1,0 +1,15 @@
+{
+  "task_id": "q016820",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adder\n(\n  input          clock,\n  input          reset,\n  input   [7:0] a,\n  input   [7:0] b,\n  output [7:0]  sum\n);\n\n  reg [8:0] carry_out;\n\n  always @(posedge clock) begin\n    if (reset) begin\n      carry_out <= 8'b0;\n    end else begin\n      carry_out <= a + b;\n    end\n  end\n\n  assign sum = carry_out[7:0];\n\nendmodule",
+  "rename_map": {
+    "sum_reg": "carry_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "sum_reg": "carry_out"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

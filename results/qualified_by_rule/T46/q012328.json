@@ -1,0 +1,6 @@
+{
+  "task_id": "q012328",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n  input        clock,\n  input        reset,\n  input  [7:0] io_input_0_data,\n  input        io_input_0_enable,\n  input        io_input_0_reset,\n  output [7:0] io_output_data\n);reg [7:0] ff;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clock or posedge dbg_halt) begin\n    if (reset) begin\n      ff <= 8'h0;\n    end else begin\n      if (io_input_0_reset) begin\n        ff <= 8'h0;\n      end else begin\n        if (io_input_0_enable) begin\n          ff <= io_input_0_data;\n        end\n      end\n    end\n  end\n  \n  assign io_output_data = ff;\n  \nendmodule"
+}

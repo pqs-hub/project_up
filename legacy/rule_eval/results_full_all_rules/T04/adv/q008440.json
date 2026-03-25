@@ -1,0 +1,10 @@
+{
+  "task_id": "q008440",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the counter decrements on the rising edge of the clock when the enable signal is high.\nmodule binary_counter(CLK,RST,EN,COUNT);\ninput CLK,RST,EN;\noutput [3:0] COUNT;\nreg [3:0] COUNT;\n\nalways@(posedge CLK or posedge RST) begin\n\tif (RST)\n\t\tCOUNT <= 0;\n\telse if (EN)\n\t\tCOUNT <= COUNT + 1;\n\telse\n\t\tCOUNT <= COUNT;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter decrements on the rising edge of the clock when the enable signal is high."
+  }
+}

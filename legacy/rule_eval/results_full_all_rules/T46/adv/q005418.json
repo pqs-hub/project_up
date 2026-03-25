@@ -1,0 +1,8 @@
+{
+  "task_id": "q005418",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module async_register(\n    input clk,\n    input rst,\n    input [7:0] d,\n    output reg [7:0] q\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n    if (rst)\n        q <= 8'b00000000;\n    else\n        q <= d;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

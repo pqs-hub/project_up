@@ -1,0 +1,6 @@
+{
+  "task_id": "q015753",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire rst_n,\n\n    input wire read_en,\n    output wire [15:0] data_out\n    );localparam VERSION = 16'd7;\n    \n    reg [15:0] read_data;\n    reg read_done;\n    \n    assign data_out = read_done ? read_data : 16'b0;\n    \n    always @(posedge clk or negedge rst_n) begin\n        if (~rst_n) begin\n            read_data <= 16'b0;\n            read_done <= 1'b0;\n        end else if (read_en) begin\n            read_done <= 1'b1;\n            read_data = VERSION;\n        end else begin\n            read_done <= 1'b0;\n        end\n    end\nendmodule"
+}

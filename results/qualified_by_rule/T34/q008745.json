@@ -1,0 +1,6 @@
+{
+  "task_id": "q008745",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    input [31:0] input_num,\n    output reg [31:0] output_num  // Changed wire to reg\n);reg [31:0] unused_count;\n    integer i;\n\n    always @(*) begin\n        unused_count = 0;\n        for (i = 0; i < 32; i = i + 1) begin\n            if (input_num[i] == 1'b1) begin\n                unused_count = unused_count + 1;\n            end\n        end\n        output_num = unused_count;  // This assignment is now valid\n    end\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q004783",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [1:0] B,\n    output reg [3:0] Y // Change output to reg type\n);always @(*) begin\n    begin end  // redundant\n        case(B)\n            2'b00: Y = A; // no shift\n            2'b01: Y = {A[2:0], 1'b0}; // shift left by 1 bit\n            2'b10: Y = {1'b0, A[3:1]}; // shift right by 1 bit\n            2'b11: Y = {2'b00, A[3:2]}; // shift right by 2 bits\n            default: Y = 4'b0000; // default case for safety\n        endcase\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

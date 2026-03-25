@@ -1,0 +1,9 @@
+{
+  "task_id": "q017063",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module reg_ena_rst (\n  input obf_clk,\n  input ena,\n  input d,\n  input rst,\n  output reg q\n);\n\n  always @(posedge obf_clk) begin\n    if (rst) begin\n      q <= 1'b0;\n    end else if (ena) begin\n      q <= d;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

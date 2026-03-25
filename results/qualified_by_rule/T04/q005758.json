@@ -1,0 +1,6 @@
+{
+  "task_id": "q005758",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n\tinput clk,\n\tinput rst_n,\n\tinput [7:0] duty_cycle,\n\toutput reg pwm_out\n);\n\n\treg [7:0] counter;\n\n\talways @(posedge clk or negedge rst_n) begin\n\t\tif (!rst_n)\n\t\t\tcounter <= 8'b0;\n\t\telse\n\t\t\tcounter <= counter + 1;\n\tend\n\n\talways @(posedge clk or negedge rst_n) begin\n\t\tif (!rst_n)\n\t\t\tpwm_out <= 1'b0;\n\t\telse\n\t\t\tpwm_out <= (counter < duty_cycle) ? 1'b1 : 1'b0;\n\tend\n\nendmodule"
+}

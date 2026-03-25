@@ -1,0 +1,6 @@
+{
+  "task_id": "q003368",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule (\n    input  [31:0] data_in, // 8 numbers, 4 bits each\n    output reg [31:0] data_out // Sorted output\n);\n\n// Define internal wires and registers\nreg [3:0] arr [0:7]; // Array to hold the 8 inputs\nreg [3:0] sorted [0:7]; // Array to hold the sorted output\ninteger i, j;\n\n// Unroll the input data into the array\nalways @* begin\n    for (i = 0; i < 8; i = i + 1) begin\n        arr[i] = data_in[i*4 +: 4];\n    end\nend\n\n// Merge sort logic\nalways @* begin\n    // Initialize sorted array\n    for (i = 0; i < 8; i = i + 1) begin\n        sorted[i] = arr[i];\n    end\n\n    // Perform sorting (Bubble Sort implemented for simplicity)\n    for (i = 0; i < 7; i = i + 1) begin\n        for (j = 0; j < 7 - i; j = j + 1) begin\n            if (sorted[j] > sorted[j + 1]) begin\n                // Swap\n                {sorted[j], sorted[j + 1]} = {sorted[j + 1], sorted[j]};\n            end\n        end\n    end\n\n    // Output the sorted array\n    data_out = {sorted[7], sorted[6], sorted[5], sorted[4], sorted[3], sorted[2], sorted[1], sorted[0]};\nend\n\nendmodule"
+}

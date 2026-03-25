@@ -1,0 +1,10 @@
+{
+  "task_id": "q004494",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] inst,\n    output [31:0] d_out \n);wire [11:0] imm;\n    wire misleading_wire = inst[6]?({inst[31],inst[7],inst[30:25],inst[11:8]}):\n                            (inst[5]?{inst[31:25],inst[11:7]}:inst[31:20]);\n    assign imm = misleading_wire;\n    assign d_out = {{20{imm[11]}},imm};\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "misleading_wire"
+  }
+}

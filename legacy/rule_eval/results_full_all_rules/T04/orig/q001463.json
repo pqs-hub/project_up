@@ -1,0 +1,6 @@
+{
+  "task_id": "q001463",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module ripple_carry_adder (\n    input [3:0] A,\n    input [3:0] B,\n    input Cin,\n    output [3:0] Sum,\n    output Cout\n);\n    wire C1, C2, C3;\n\n    // Full adder logic\n    assign Sum[0] = A[0] ^ B[0] ^ Cin;\n    assign C1 = (A[0] & B[0]) | (Cin & (A[0] ^ B[0]));\n\n    assign Sum[1] = A[1] ^ B[1] ^ C1;\n    assign C2 = (A[1] & B[1]) | (C1 & (A[1] ^ B[1]));\n\n    assign Sum[2] = A[2] ^ B[2] ^ C2;\n    assign C3 = (A[2] & B[2]) | (C2 & (A[2] ^ B[2]));\n\n    assign Sum[3] = A[3] ^ B[3] ^ C3;\n    assign Cout = (A[3] & B[3]) | (C3 & (A[3] ^ B[3]));\nendmodule"
+}

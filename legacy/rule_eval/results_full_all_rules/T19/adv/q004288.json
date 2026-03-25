@@ -1,0 +1,10 @@
+{
+  "task_id": "q004288",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input write_enable,\n    input [1:0] write_address,\n    input [15:0] write_data,\n    input [1:0] read_address_1,\n    input [1:0] read_address_2,\n    output reg [15:0] read_data_1,\n    output reg [15:0] read_data_2\n);reg [15:0] registers [3:0];\n\nalways @(posedge clk) begin\n    if (write_enable) begin\n        registers[write_address] <= write_data;\n    end\n    read_data_1 <= registers[read_address_1];\n    read_data_2 <= registers[read_address_2];\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      if (write_enable) begin\n        registers[write_address] <= ~write_data;\n      end\n      read_data_1 <= ~registers[read_address_1];\n      read_data_2 <= ~registers[read_address_2];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (write_enable) begin\n  registers[write_address] <= ~write_data;\nend\nread_data_1 <= ~registers[read_address_1];\nread_data_2 <= ~registers[read_address_2];"
+  }
+}

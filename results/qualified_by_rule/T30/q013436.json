@@ -1,0 +1,6 @@
+{
+  "task_id": "q013436",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input [3:0] D,\n    input SI,\n    output reg SO\n);reg [3:0] reg_data;\n\n    always @(posedge clk) begin\n        if (SI) begin\n            reg_data <= {reg_data[2:0], SI};\n        end else begin\n            reg_data <= D;\n        end\n    end\n\n    assign SO = reg_data[0];\n\nendmodule"
+}

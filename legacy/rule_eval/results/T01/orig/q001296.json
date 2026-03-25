@@ -1,0 +1,6 @@
+{
+  "task_id": "q001296",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module dram_cell (\n    input wire [15:0] data_in,\n    input wire we,\n    input wire clk,\n    output reg [15:0] data_out\n);\n    reg [15:0] memory;\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory <= data_in; // Write operation\n        end\n        data_out <= memory; // Read operation\n    end\nendmodule"
+}

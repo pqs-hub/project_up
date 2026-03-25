@@ -1,0 +1,6 @@
+{
+  "task_id": "q003350",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule (\n    input [3:0] x,\n    input [3:0] a0,\n    input [3:0] a1,\n    input [3:0] a2,\n    input [3:0] a3,\n    output [7:0] P\n);\n    wire [7:0] x1 = a1 * x;             // a1 * x\n    wire [7:0] x2 = a2 * (x * x);       // a2 * x^2\n    wire [7:0] x3 = a3 * (x * x * x);   // a3 * x^3\n\n      wire _n01 = a0 + x1 + x2[0] ^ x3[0];\n  wire _c01 = a0 + x1 + x2[0] & x3[0];\n  wire _n02 = a0 + x1 + x2[1] ^ x3[1] ^ _c01;\n  wire _c02 = (a0 + x1 + x2[1] & x3[1]) | (a0 + x1 + x2[1] & _c01) | (x3[1] & _c01);\n  wire _n03 = a0 + x1 + x2[2] ^ x3[2] ^ _c02;\n  wire _c03 = (a0 + x1 + x2[2] & x3[2]) | (a0 + x1 + x2[2] & _c02) | (x3[2] & _c02);\n  wire _n04 = a0 + x1 + x2[3] ^ x3[3] ^ _c03;\n  wire _c04 = (a0 + x1 + x2[3] & x3[3]) | (a0 + x1 + x2[3] & _c03) | (x3[3] & _c03);\n  assign P = {_n01, _n02, _n03, _n04};       // P(x) = a0 + a1*x + a2*x^2 + a3*x^3\nendmodule"
+}

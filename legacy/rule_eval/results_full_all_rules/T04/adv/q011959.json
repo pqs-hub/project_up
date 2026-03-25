@@ -1,0 +1,10 @@
+{
+  "task_id": "q011959",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module captures data on the falling edge of the clock when the enable signal is low.\nmodule reg_8bit(\n    input clk,        // Clock signal\n    input en,         // Enable signal\n    input [7:0] d,    // 8-bit data input\n    output reg [7:0] q // 8-bit data output\n);\n\n// Register logic with enable\nalways @(posedge clk) begin\n    if (en)\n        q <= d;       // Capture data if enabled\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module captures data on the falling edge of the clock when the enable signal is low."
+  }
+}

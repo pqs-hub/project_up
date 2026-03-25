@@ -1,0 +1,19 @@
+{
+  "task_id": "q005025",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    output Y,\n    input A1,\n    input A2,\n    input A3,\n    input A4,\n    input EN\n);wire [3:0] X_inputs;\n    wire and_output;\n\n    // Assign the X_inputs to a vector\n    assign X_inputs = {A4, A3, A2, A1};\n\n    // Perform AND operation on X_inputs and include enable\n    assign and_output = (EN) ? (X_inputs[3] & X_inputs[2] & X_inputs[1] & X_inputs[0]) : 1'b0;\n\n    // Assign the result to Y\n    assign Y = and_output;\n\nendmodule",
+  "rename_map": {
+    "inputs": "X_inputs"
+  },
+  "params_used": {
+    "custom_map": {
+      "A1": "B1",
+      "A2": "B2",
+      "A3": "B3",
+      "A4": "B4",
+      "EN": "DN"
+    },
+    "fallback_prefix": "X_"
+  }
+}

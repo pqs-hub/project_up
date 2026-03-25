@@ -1,0 +1,6 @@
+{
+  "task_id": "q001060",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module sata_controller (\n    input [3:0] command,\n    output reg [3:0] command_out\n);\n    always @(*) begin\n        if (command == 4'b1010) // 0xA in binary\n            command_out = ~command; // Invert the command\n        else\n            command_out = command; // Pass the command unchanged\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

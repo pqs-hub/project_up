@@ -1,0 +1,6 @@
+{
+  "task_id": "q001766",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire kick,\n    input wire [3:0] timeout, // 4-bit value for timeout in clock cycles\n    output reg timeout_out\n);\n    reg [3:0] counter;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            counter <= 0;\n            timeout_out <= 0;\n        end else if (kick) begin\n            counter <= 0; // Reset counter on kick\n            timeout_out <= 0; // Reset timeout output\n        end else begin\n            if (counter < timeout) begin\n                counter <= counter + 1;\n            end else begin\n                timeout_out <= 1; // Set timeout signal\n            end\n        end\n    end\nendmodule"
+}

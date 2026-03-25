@@ -1,0 +1,6 @@
+{
+  "task_id": "q000140",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule (\n    input wire [15:0] data_in,\n    input wire load,\n    input wire shift,\n    input wire clk,\n    output reg [15:0] data_out\n);\n    \n    always @(posedge clk) begin\n        if (load) begin\n            data_out <= data_in; // Load data\n        end else if (shift) begin\n            data_out <= {1'b0, data_out[15:1]}; // Shift right\n        end\n        // If both load and shift are low, hold the value\n    end\nendmodule"
+}

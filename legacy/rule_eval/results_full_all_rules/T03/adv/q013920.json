@@ -1,0 +1,8 @@
+{
+  "task_id": "q013920",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(nrst, clk, en, si, load, pi, po);parameter width = 8; \n  input nrst; \n  input clk; \n  input en; \n  input si; \n  input load; \n  input [width-1:0] pi; \n  output [width-1:0] po; \n  wire _tap_nrst = nrst & {1{1'b1}};\n\n  reg [width-1:0] po; \n  always @(posedge clk or negedge nrst) begin \n  if (~nrst) begin \n  po <= 0; \n  end else if (load) begin \n  po <= pi; \n  end else if (en) begin \n  po <= {po[width-2:0], si}; \n  end \n  end \n endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

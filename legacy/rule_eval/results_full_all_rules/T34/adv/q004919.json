@@ -1,0 +1,15 @@
+{
+  "task_id": "q004919",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] in,\n    output [7:0] out\n);reg [7:0] reverse_reg;\n\nalways @(*) begin\n    reverse_reg[0] = in[7];\n    reverse_reg[1] = in[6];\n    reverse_reg[2] = in[5];\n    reverse_reg[3] = in[4];\n    reverse_reg[4] = in[3];\n    reverse_reg[5] = in[2];\n    reverse_reg[6] = in[1];\n    reverse_reg[7] = in[0];\nend\n\nassign out = reverse_reg;\n\nendmodule",
+  "rename_map": {
+    "shift_reg": "reverse_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "shift_reg": "reverse_reg"
+    },
+    "fallback_prefix": "rev_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009334",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n                   clk,\n                   rst,\n                   m_flits_d,\n                   v_m_flits_d,\n                   dc_done_access,\n                   \n                   m_d_areg_flits,\n                   v_m_d_areg_flits,\n                   m_d_areg_state\n                   );input                   clk;\ninput                   rst;\ninput    [143:0]        m_flits_d;\ninput                   v_m_flits_d;\ninput                   dc_done_access;\n                   \noutput   [143:0]         m_d_areg_flits;\noutput                   v_m_d_areg_flits;\noutput                   m_d_areg_state;\n\n\nreg      m_d_cstate;\nreg      [143:0]   flits_reg;\n\nassign   v_m_d_areg_flits=m_d_cstate;\nassign   m_d_areg_state=m_d_cstate;\n                                   \nalways@(posedge clk)\nbegin\n    begin end  // redundant\n  if(rst||dc_done_access)\n    flits_reg<=144'h0000;\nelse if(v_m_flits_d)\n    flits_reg<=m_flits_d;\nend\n\nalways@(posedge clk)\nbegin\n  if(rst||dc_done_access)\n    m_d_cstate<=1'b0;\n  else if(v_m_flits_d)\n    m_d_cstate<=1'b1;\nend\n\nassign m_d_areg_flits=flits_reg;\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q013971",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    output X      ,\n    input  A      ,\n    input  SLEEP_B,\n    input  VPWR   ,\n    input  VGND   ,\n    input  VPB    ,\n    input  VNB\n);assign X = A & ~SLEEP_B;\n\n  always @(*) begin\n    if (1'b0) begin\n      X <= VPWR; if (SLEEP_B) begin X <= VGND; end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "X <= VPWR; if (SLEEP_B) begin X <= VGND; end"
+  }
+}

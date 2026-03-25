@@ -1,0 +1,15 @@
+{
+  "task_id": "q004118",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module tcp_segment_type (\n    input [31:0] tcp_seg,\n    output [15:0] segment_type\n);\n    assign segment_type = (tcp_seg[2:0] == 3'b000) ? 16'd0 : // Data\n                          (tcp_seg[2:0] == 3'b001) ? 16'd1 : // SYN\n                          (tcp_seg[2:0] == 3'b010) ? 16'd2 : // ACK\n                          (tcp_seg[2:0] == 3'b011) ? 16'd3 : // FIN\n                          (tcp_seg[2:0] == 3'b100) ? 16'd4 : // RST\n                          16'd0; // Default to Data\nendmodule",
+  "rename_map": {
+    "segment": "tcp_seg"
+  },
+  "params_used": {
+    "custom_map": {
+      "segment": "tcp_seg"
+    },
+    "fallback_prefix": "_tcp_"
+  }
+}

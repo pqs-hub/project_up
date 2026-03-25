@@ -1,0 +1,16 @@
+{
+  "task_id": "q005778",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(reset, mar_we, mar_next, mar);input reset; \n  input mar_we; \n  input [31:0] mar_next; \n  output reg [31:0] mar; \n  always @(posedge reset) begin \n  if (mar_we == 1) begin \n  mar <= mar_next; \n  end \n  end \n endmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "mar_we": "mar_ne",
+      "mar_next": "mar_prev"
+    },
+    "fallback_prefix": "mis_"
+  }
+}

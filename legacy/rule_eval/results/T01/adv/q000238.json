@@ -1,0 +1,6 @@
+{
+  "task_id": "q000238",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module sata_decoder(input [4:0] command, output reg [2:0] category);  \n    always @(*) begin\n    begin end  // redundant  \n        case (command)  \n            5'b00000: category = 3'b000; // NOP  \n            5'b00001, 5'b00010: category = 3'b001; // Read commands  \n            5'b00011, 5'b00100: category = 3'b010; // Write commands  \n            5'b00101: category = 3'b011; // Identify Device  \n            default: category = 3'b100; // Reserved commands  \n        endcase  \n    end  \nendmodule"
+}

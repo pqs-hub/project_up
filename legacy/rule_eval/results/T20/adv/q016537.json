@@ -1,0 +1,6 @@
+{
+  "task_id": "q016537",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule sim_reg_file (\n        data,\n        wren,\n        wraddress,\n        rdaddress,\n        clock,\n        q);\n    input\t[7:0]  data;\n    input\t  wren;\n    input\t[6:0]  wraddress;\n    input\t[6:0]  rdaddress;\n    input\t  clock;\n    output\t[7:0]  q;\n    reg [7:0] membank[0:127];\n    reg r_we;\n    reg [6:0] r_rd_addr;\n    reg [6:0] r_wr_addr;\n    reg [6:0] r_data;\n    always @ (posedge clock)\n    begin\n        r_rd_addr<=rdaddress;\n        r_wr_addr<=wraddress;\n        r_data<=data;\n        r_we<=wren;\n    end\n    always  @(posedge clock)\n        if (r_we)\n            membank[r_wr_addr]<=r_data;\n    assign q=((r_rd_addr==r_wr_addr)&&(r_we))?r_data:membank[r_rd_addr] ;\nendmodule"
+}

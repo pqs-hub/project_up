@@ -1,0 +1,6 @@
+{
+  "task_id": "q006981",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule(\n    input [4:0] addrA,\n    input [4:0] addrB,\n    input [4:0] addrC,\n    input [31:0] data,\n    input clk,\n    input reset,\n    input we,\n    output reg [31:0] outA,\n    output reg [31:0] outB,\n    output reg [31:0] outC\n);reg [31:0] registers [31:0];\ninteger i;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        for (i = 0; i < 32; i = i + 1) begin\n            registers[i] <= 0;\n        end\n    end else begin\n        if (we) begin\n            registers[addrC] <= data;\n        end\n        outA <= registers[addrA];\n        outB <= registers[addrB];\n        outC <= registers[addrC];\n    end\nend\n\nendmodule"
+}

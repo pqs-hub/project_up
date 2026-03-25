@@ -1,0 +1,15 @@
+{
+  "task_id": "q005628",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    a,\n    forward1,\n    forward2,\n    invalid_out,\n    use1,\n    use2,\n    iszero);input [31:0] a;\n    input [31:0] forward1;\n    input [31:0] forward2;\n    output [31:0] invalid_out;\n    input use1;\n    input use2;\n    input iszero;\n\n    assign invalid_out = iszero ? 32'b0 \n               : use1   ? forward1 \n               : use2   ? forward2\n               : a;\n\nendmodule",
+  "rename_map": {
+    "out": "invalid_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_out"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

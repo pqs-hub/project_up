@@ -1,0 +1,10 @@
+{
+  "task_id": "q007317",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a shift register with a load capability and two selectable shift modes. When the load signal is deactivated, the module captures the input data into the output register q. If load is active, the module behaves according to the ena input: if ena is 2'h1, it performs a left shift operation, moving the least significant bit (LSB) into the most significant bit (MSB) position; if ena is 2'h2, it performs a right shift operation, moving the MSB into the LSB position.\nmodule top_module(\n\tinput clk,\n\tinput load,\n\tinput [1:0] ena,\n\tinput [99:0] data,\n\toutput reg [99:0] q);always @(posedge clk) begin\n\t\tif (load)\t\t\n\t\t\tq <= data;\n\t\telse if (ena == 2'h1)\t\n\t\t\tq <= {q[0], q[99:1]};\n\t\telse if (ena == 2'h2)\t\n\t\t\tq <= {q[98:0], q[99]};\n\tend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a shift register with a load capability and two selectable shift modes. When the load signal is deactivated, the module captures the input data into the output register q. If load is active, the module behaves according to the ena input: if ena is 2'h1, it performs a left shift operation, moving the least significant bit (LSB) into the most significant bit (MSB) position; if ena is 2'h2, it performs a right shift operation, moving the MSB into the LSB position."
+  }
+}

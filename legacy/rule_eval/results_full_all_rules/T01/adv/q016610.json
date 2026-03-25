@@ -1,0 +1,8 @@
+{
+  "task_id": "q016610",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module slaveRxStatusMonitor(connectStateIn, connectStateOut, resumeDetectedIn, resetEventOut, resumeIntOut, clk, rst);\ninput [1:0] connectStateIn;\ninput resumeDetectedIn;\ninput clk;\ninput rst;\noutput resetEventOut;\noutput [1:0] connectStateOut;\noutput resumeIntOut;\nwire [1:0] connectStateIn;\nwire resumeDetectedIn;\nreg resetEventOut;\nreg [1:0] connectStateOut;\nreg resumeIntOut;\nwire clk;\nwire rst;\nreg [1:0]oldConnectState;\nreg oldResumeDetected;\nalways @(connectStateIn)\nbegin\n    begin end  // redundant\n  connectStateOut <= connectStateIn;\nend\nalways @(posedge clk)\nbegin\n  if (rst == 1'b1)\n  begin\n    oldConnectState <= connectStateIn;\n    oldResumeDetected <= resumeDetectedIn;\n  end\n  else\n  begin\n    oldConnectState <= connectStateIn;\n    oldResumeDetected <= resumeDetectedIn;\n    if (oldConnectState != connectStateIn)\n      resetEventOut <= 1'b1;\n    else\n      resetEventOut <= 1'b0;\n    if (resumeDetectedIn == 1'b1 && oldResumeDetected == 1'b0)\n      resumeIntOut <= 1'b1;\n    else \n      resumeIntOut <= 1'b0;\n  end\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

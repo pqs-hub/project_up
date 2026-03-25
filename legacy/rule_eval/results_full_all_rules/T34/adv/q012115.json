@@ -1,0 +1,15 @@
+{
+  "task_id": "q012115",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_down_counter_3bit(\n    input reset_clk,\n    input rst_n,\n    output reg [2:0] count\n);\n\nalways @(posedge reset_clk or negedge rst_n) begin\n    if (!rst_n) begin\n        count <= 3'b111;\n    end else begin\n        count <= count - 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "counter_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q009889",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module top_module(\n\tinput\t[3:0]\td,\n\tinput\t[3:0]\tt,\n\tinput\t\t\tcin,\n\toutput\t[2:0]\tcout,\n\toutput\t\t\tD,\n\toutput\t\t\tT\n  assign\tcout[2] = d[2] | t[2]&d[1] | t[2]&t[1]&d[0] | t[2]&t[1]&t[0]&cin;\n  assign\tcout[1] = d[1] | t[1]&d[0] | t[1]&t[0]&cin;\n  assign\tcout[0] = d[0] | t[0]&cin;\n  assign\tT = t[3]&t[2]&t[1]&t[0];\n  assign\tD = d[3] | t[3]&d[2] | t[3]&t[2]&d[1] | t[3]&t[2]&t[1]&d[0];",
+  "rename_map": {},
+  "params_used": {}
+}

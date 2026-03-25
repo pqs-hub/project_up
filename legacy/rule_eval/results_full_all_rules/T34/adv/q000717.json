@@ -1,0 +1,15 @@
+{
+  "task_id": "q000717",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module SRAM_16bit (\n    input wire clk,\n    input wire [3:0] address,\n    input wire [15:0] data_in,\n    input wire read_enable,\n    input wire write_enable,\n    output reg [15:0] data_out\n);\n    reg [15:0] sram_storage [15:0]; // 16 words of 16 bits each\n\n    always @(posedge clk) begin\n        if (write_enable) begin\n            sram_storage[address] <= data_in; // Write data to sram_storage\n        end\n        if (read_enable) begin\n            data_out <= sram_storage[address]; // Read data from sram_storage\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "sram_storage"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "sram_storage"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

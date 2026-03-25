@@ -1,0 +1,6 @@
+{
+  "task_id": "q013641",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    input        clk,\n    input        clr,\n    input  [3:0] A,\n    input  [3:0] B,\n    input        sub,\n    output [3:0] Y\n);reg [3:0] unused_temp;\n    \n    always @(posedge clk)\n        if (clr) unused_temp <= 4'b0;\n        else if (sub) unused_temp <= A - B;\n        else unused_temp <= A + B;\n    \n    assign Y = unused_temp;\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004264",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module pulse_generator (\n    input wire clk,\n    input wire reset,\n    input wire trigger,\n    input wire [3:0] pulse_width, // pulse width in clock cycles\n    output reg pulse_out\n);\n    reg [3:0] count;\n\n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant\n        if (reset) begin\n            pulse_out <= 0;\n            count <= 0;\n        end else if (trigger) begin\n            if (count < pulse_width) begin\n                pulse_out <= 1;\n                count <= count + 1;\n            end else begin\n                pulse_out <= 0;\n            end\n        end else begin\n            pulse_out <= 0;\n            count <= 0;\n        end\n    end\nendmodule"
+}

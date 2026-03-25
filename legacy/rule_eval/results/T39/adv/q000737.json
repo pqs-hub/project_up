@@ -1,0 +1,6 @@
+{
+  "task_id": "q000737",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module EEPROM_Cell (  \n    input wire [4:0] data_in,  \n    input wire write_enable,  \n    input wire read_enable,  \n    output reg [4:0] data_out  \n);  \n    reg [4:0] stored_value;  \n\n    always @(*) begin\n  if (write_enable) begin stored_value = data_in ; end\n  end\n\n  always @(*) begin\n  if (read_enable) begin data_out = stored_value ; end\n  end  \nendmodule"
+}

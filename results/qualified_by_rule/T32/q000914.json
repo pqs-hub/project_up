@@ -1,0 +1,6 @@
+{
+  "task_id": "q000914",
+  "rule_id": "T32",
+  "changed": false,
+  "final": "module RefModule (  \n    input J,  \n    input K,  \n    input clk,  \n    output reg Q  \n);  \n    always @(posedge clk) begin  \n        if (J && K)  \n            Q <= ~Q;  \n        else if (J)  \n            Q <= 1;  \n        else if (K)  \n            Q <= 0;  \n        // retain previous state if both J and K are low  \n    end  \nendmodule"
+}

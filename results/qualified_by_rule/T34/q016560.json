@@ -1,0 +1,6 @@
+{
+  "task_id": "q016560",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (clk, rclk, en_l, tm_l);\noutput clk;\ninput  rclk, en_l, tm_l;\nreg    unused_clken;\n  always @ (rclk or en_l or tm_l)\n    if (!rclk)  \n      unused_clken <= ~en_l | ~tm_l;\n  assign clk = unused_clken & rclk;\nendmodule"
+}

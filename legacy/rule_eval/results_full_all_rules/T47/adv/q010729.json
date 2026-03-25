@@ -1,0 +1,8 @@
+{
+  "task_id": "q010729",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] A,\n    input [31:0] B,\n    input cin,\n    output [31:0] sum\n);  wire _n01 = A + B[0] ^ cin[0];\n  wire _c01 = A + B[0] & cin[0];\n  wire _n02 = A + B[1] ^ cin[1] ^ _c01;\n  wire _c02 = (A + B[1] & cin[1]) | (A + B[1] & _c01) | (cin[1] & _c01);\n  wire _n03 = A + B[2] ^ cin[2] ^ _c02;\n  wire _c03 = (A + B[2] & cin[2]) | (A + B[2] & _c02) | (cin[2] & _c02);\n  wire _n04 = A + B[3] ^ cin[3] ^ _c03;\n  wire _c04 = (A + B[3] & cin[3]) | (A + B[3] & _c03) | (cin[3] & _c03);\n  assign sum = {_n01, _n02, _n03, _n04};\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "q014560",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [1:0] inv_S,\n    input A,\n    input B,\n    input C,\n    input D,\n    output reg Y\n);always @ (inv_S, A, B, C, D)\nbegin\n    case (inv_S)\n        2'b00: Y = C;\n        2'b01: Y = D;\n        2'b10: Y = A;\n        2'b11: Y = B;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "S": "inv_S"
+  },
+  "params_used": {
+    "custom_map": {
+      "C": "Z",
+      "D": "W",
+      "A": "X",
+      "B": "V"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

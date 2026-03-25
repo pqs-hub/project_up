@@ -1,0 +1,6 @@
+{
+  "task_id": "q008889",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input sreset,\n    output [2:0] q );reg [2:0] q_reg;\n\n    always @(posedge clk) begin\n        if (sreset)\n            q_reg <= 3'b000;\n        else\n            q_reg <= q_reg + 1;\n    end\n    \n    assign q = q_reg;\n    \nendmodule"
+}

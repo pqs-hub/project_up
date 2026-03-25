@@ -1,0 +1,15 @@
+{
+  "task_id": "q004787",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(in1, in2, carry_in, carry_out, sum);input [1:0] in1, in2;\ninput carry_in;\noutput reg [1:0] sum;\noutput reg carry_out;\nreg [2:0] temp_sum;\n\n\n\nalways@(*) begin\n  temp_sum = in1 + in2 + carry_in;\n  sum = temp_sum[1:0];\n  carry_out = temp_sum[2];\nend\n\nendmodule",
+  "rename_map": {
+    "inter_calc_result": "temp_sum"
+  },
+  "params_used": {
+    "custom_map": {
+      "inter_calc_result": "temp_sum"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

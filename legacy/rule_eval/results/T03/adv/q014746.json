@@ -1,0 +1,6 @@
+{
+  "task_id": "q014746",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n\tinput enable,\n\tinput s,\n\tinput r,\n\toutput reg q);always @(*)\n  wire _tap_enable = enable & {1{1'b1}};\n\n\tif (enable) begin\n\t\tif (s && r)\n\t\t\tq <= 0;\n\t\telse if (s)\n\t\t\tq <= 1;\n\t\telse if (r)\n\t\t\tq <= 0;\n\tend\n\nendmodule"
+}

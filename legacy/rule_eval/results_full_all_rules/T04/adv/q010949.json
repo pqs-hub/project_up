@@ -1,0 +1,10 @@
+{
+  "task_id": "q010949",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module detects edges on a single input signal A. It generates two outputs: 'rise' indicates a falling edge (transition from high to low) when A changes from 1 to 0, and 'down' indicates a rising edge (transition from low to high) when A changes from 0 to 1. The outputs are synchronized to a clock signal, and both are reset to low when the reset signal is active.\nmodule top_module(\n  input               clk,\n  input               rst_n,\n  input               A,\n  output reg          rise,\n  output reg          down\n);reg prev_A;\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      prev_A <= 1'b0;\n      rise <= 1'b0;\n      down <= 1'b0;\n    end\n    else begin\n      if (A != prev_A) begin\n        if (A == 1'b1) begin\n          rise <= 1'b1;\n          down <= 1'b0;\n        end\n        else begin\n          rise <= 1'b0;\n          down <= 1'b1;\n        end\n      end\n      else begin\n        rise <= 1'b0;\n        down <= 1'b0;\n      end\n      prev_A <= A;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module detects edges on a single input signal A. It generates two outputs: 'rise' indicates a falling edge (transition from high to low) when A changes from 1 to 0, and 'down' indicates a rising edge (transition from low to high) when A changes from 0 to 1. The outputs are synchronized to a clock signal, and both are reset to low when the reset signal is active."
+  }
+}

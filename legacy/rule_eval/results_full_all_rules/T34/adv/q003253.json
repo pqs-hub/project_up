@@ -1,0 +1,15 @@
+{
+  "task_id": "q003253",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dijkstra_min_distance(  \n    input [7:0] max_dist,  \n    input [7:0] dist2,  \n    input [7:0] dist3,  \n    output reg [7:0] min_dist  \n);  \n    always @(*) begin  \n        if (max_dist <= dist2 && max_dist <= dist3)  \n            min_dist = max_dist;  \n        else if (dist2 <= max_dist && dist2 <= dist3)  \n            min_dist = dist2;  \n        else  \n            min_dist = dist3;  \n    end  \nendmodule",
+  "rename_map": {
+    "dist1": "max_dist"
+  },
+  "params_used": {
+    "custom_map": {
+      "dist1": "max_dist"
+    },
+    "fallback_prefix": "min_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q003781",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module comparator_64bit (\n    input [63:0] A,\n    input [63:0] B,\n    output less_than,\n    output equal_to,\n    output greater_than\n);\n    assign less_than = (A < B);\n    assign equal_to = (A == B);\n    assign greater_than = (A > B);\n  always @(*) begin\n    if (1'b0) begin\n      less_than <= ~A[63];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "less_than <= ~A[63];\n"
+  }
+}

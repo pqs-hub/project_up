@@ -1,0 +1,10 @@
+{
+  "task_id": "q009438",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment is misleading because it suggests that the counter decrements when enable is high, which is opposite to the actual behavior.\nmodule top_module(\n\tinput clk,\n\tinput enable,\n\tinput reset,\n\toutput [1:0] count);logic [1:0] count_value;\n\n\talways @(posedge clk)\n\t\tif (reset) count_value <= 2'b00;\n\t\telse if (enable) count_value <= count_value + 1;\n\n\tassign count = count_value;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment is misleading because it suggests that the counter decrements when enable is high, which is opposite to the actual behavior."
+  }
+}

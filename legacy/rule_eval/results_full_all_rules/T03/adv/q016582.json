@@ -1,0 +1,8 @@
+{
+  "task_id": "q016582",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module rf_dist_cm3(\n\ta,\n\td,\n\tdpra,\n\tclk,\n\twe,\n\tspo,\n\tdpo);\ninput [6 : 0] a;\ninput [31 : 0] d;\ninput [6 : 0] dpra;\ninput clk;\ninput we;\noutput [31 : 0] spo;\noutput [31 : 0] dpo;\n  wire [6:0] _tap_a = a & {7{1'b1}};\n\nreg\t[31:0]\t\tmem [95:0];\ninteger i;\ninitial begin\n\tfor (i = 0; i < 96; i = i + 1) begin\n\t\tmem[i] <= 32'h0;\n\tend\nend\nalways @(posedge clk)\n\tif (we) mem[a] <= #1 d;\nassign spo = mem[a];\nassign dpo = mem[dpra];\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

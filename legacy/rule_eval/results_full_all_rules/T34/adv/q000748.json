@@ -1,0 +1,15 @@
+{
+  "task_id": "q000748",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sram16 (\n    input wire [15:0] D,\n    input wire [3:0] ADDR,\n    input wire WE,\n    input wire CLK,\n    output reg [15:0] Q\n);\n    reg [15:0] mem [0:15]; // 16x16-bit mem\n\n    always @(posedge CLK) begin\n        if (WE) begin\n            mem[ADDR] <= D;  // Write data to mem\n        end else begin\n            Q <= mem[ADDR];  // Read data from mem\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "mem"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "mem"
+    },
+    "fallback_prefix": "_sram_"
+  }
+}

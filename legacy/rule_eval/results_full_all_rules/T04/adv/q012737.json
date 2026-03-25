@@ -1,0 +1,10 @@
+{
+  "task_id": "q012737",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // Asynchronous reset to all zeros\nmodule top_module(\n    input clk,\n    input reset_n,\n    output reg [4:0] q\n);\n\n    always @(posedge clk) begin\n        if (!reset_n) begin\n            q <= 5'b00001;  // Synchronous reset to initial state\n        end else begin\n            q <= {q[3:0], q[4]};  // Ring shift\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous reset to all zeros"
+  }
+}

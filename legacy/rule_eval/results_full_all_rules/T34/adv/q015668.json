@@ -1,0 +1,15 @@
+{
+  "task_id": "q015668",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input signed [3:0] a,\n    input signed [3:0] b,\n    output signed [3:0] result,\n    output overflow\n);reg signed [3:0] temp_result;\nreg no_overflow_flag; // Changed to a different name\n\nalways @(*) begin\n    temp_result = a + b;\n    if ((a[3] == 1 && b[3] == 1 && temp_result[3] == 0) || (a[3] == 0 && b[3] == 0 && temp_result[3] == 1)) begin\n        no_overflow_flag = 1;\n    end else begin\n        no_overflow_flag = 0;\n    end\nend\n\nassign result = temp_result;\nassign overflow = no_overflow_flag; // Assigning the register to the output\n\nendmodule",
+  "rename_map": {
+    "overflow_reg": "no_overflow_flag"
+  },
+  "params_used": {
+    "custom_map": {
+      "overflow_reg": "no_overflow_flag"
+    },
+    "fallback_prefix": "anti_"
+  }
+}

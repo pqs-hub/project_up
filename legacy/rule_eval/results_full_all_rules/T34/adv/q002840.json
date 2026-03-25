@@ -1,0 +1,16 @@
+{
+  "task_id": "q002840",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module deadbeat_controller(  \n    input [3:0] current_state,  \n    input [3:0] unwanted_state,  \n    output reg [3:0] control_action  \n);  \n    always @(current_state or unwanted_state) begin  \n        control_action = unwanted_state - current_state;  \n    end  \nendmodule",
+  "rename_map": {
+    "desired_state": "unwanted_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "desired_state": "unwanted_state",
+      "control_action": "invalid_action"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

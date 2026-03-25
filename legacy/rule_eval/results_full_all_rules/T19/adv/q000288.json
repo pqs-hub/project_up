@@ -1,0 +1,10 @@
+{
+  "task_id": "q000288",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module packet_filter(\n    input [3:0] src_port,\n    input [3:0] dest_port,\n    output reg accept\n);\n    always @(*) begin\n        if (src_port == 4'b0001 || src_port == 4'b0010) begin\n            accept = 1'b1; // Accept packet\n        end else begin\n            accept = 1'b0; // Deny packet\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      accept <= ~src_port[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "accept <= ~src_port[0];\n"
+  }
+}

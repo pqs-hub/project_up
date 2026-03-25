@@ -1,0 +1,10 @@
+{
+  "task_id": "q002585",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module multiplies the input clock by the division factor\nmodule clock_divider (\n    input wire clk_in,      // Input clock\n    input wire reset,       // Asynchronous reset\n    input wire enable,      // Enable signal\n    input wire [3:0] factor, // Division factor (1 to 15)\n    output reg clk_out      // Output divided clock\n);\n    reg [3:0] count; // Counter to keep track of clock cycles\n\n    always @(posedge clk_in or posedge reset) begin\n        if (reset) begin\n            count <= 0;\n            clk_out <= 0;\n        end else if (enable) begin\n            if (count == (factor - 1)) begin\n                clk_out <= ~clk_out; // Toggle output clock\n                count <= 0; // Reset count\n            end else begin\n                count <= count + 1; // Increment count\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module multiplies the input clock by the division factor"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q000002",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule JK_latch (\n    input J,\n    input K,\n    input clk,\n    output reg Q\n);\n    always @(posedge clk) begin\n        if (J == 0 && K == 0) begin\n            Q <= Q; // No change\n        end\n        else if (J == 1 && K == 0) begin\n            Q <= 1; // Set\n        end\n        else if (J == 0 && K == 1) begin\n            Q <= 0; // Reset\n        end\n        else if (J == 1 && K == 1) begin\n            Q <= ~Q; // Toggle\n        end\n    end\nendmodule"
+}

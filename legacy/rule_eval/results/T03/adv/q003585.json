@@ -1,0 +1,6 @@
+{
+  "task_id": "q003585",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module mux_forwarding(  \n    input [4:0] a,  \n    input [4:0] b,  \n    input sel,  \n    input forward_en,  \n    output reg [4:0] y  \n);  \n  wire [4:0] _tap_a = a & {5{1'b1}};\n\n    always @(*) begin  \n        if (forward_en)  \n            y = a;  \n        else  \n            y = sel ? b : a;  \n    end  \nendmodule"
+}

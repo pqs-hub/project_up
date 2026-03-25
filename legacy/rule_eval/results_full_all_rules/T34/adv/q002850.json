@@ -1,0 +1,15 @@
+{
+  "task_id": "q002850",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux8to1 (\n    input [7:0] input_data,    // 8 input_data inputs\n    input [2:0] sel,     // 3 selection inputs\n    output reg out       // output\n);\n    always @(*) begin\n        case (sel)\n            3'b000: out = input_data[0];\n            3'b001: out = input_data[1];\n            3'b010: out = input_data[2];\n            3'b011: out = input_data[3];\n            3'b100: out = input_data[4];\n            3'b101: out = input_data[5];\n            3'b110: out = input_data[6];\n            3'b111: out = input_data[7];\n            default: out = 1'b0; // default case\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "data": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data": "input_data"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

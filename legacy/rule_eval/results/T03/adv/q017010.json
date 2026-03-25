@@ -1,0 +1,6 @@
+{
+  "task_id": "q017010",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module d_ff_en_ce (\n    input clk,\n    input en,\n    input enclk,\n    input d,\n    output reg q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    if (en && enclk) begin\n        q <= d;\n    end\nend\n\nendmodule"
+}

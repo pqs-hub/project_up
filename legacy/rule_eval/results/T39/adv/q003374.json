@@ -1,0 +1,6 @@
+{
+  "task_id": "q003374",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module DataForwardingUnit (\n    input [4:0] rs1, // Source register 1\n    input [4:0] rs2, // Source register 2\n    input [4:0] rd_EX, // Destination register from EX stage\n    input [4:0] rd_MEM, // Destination register from MEM stage\n    input EX_valid, // Valid signal if EX stage writes to rd_EX\n    input MEM_valid, // Valid signal if MEM stage writes to rd_MEM\n    output reg [1:0] forwardA, // Forwarding signal for rs1\n    output reg [1:0] forwardB  // Forwarding signal for rs2\n);\n\nalways @(*) begin\n  // Default forwarding signals forwardA = 2'b00 ;\n   // Forwarding for rs1 if (EX_valid && rs1 == rd_EX) begin forwardA = 2'b10 ; // Forward from EX stage end else if (MEM_valid && rs1 == rd_MEM) begin forwardA = 2'b01 ; // Forward from MEM stage\n  end\n  end\n\n  always @(*) begin\n  forwardB = 2'b00 ;\n   // Forwarding for rs2 if (EX_valid && rs2 == rd_EX) begin forwardB = 2'b10 ; // Forward from EX stage end else if (MEM_valid && rs2 == rd_MEM) begin forwardB = 2'b01 ; // Forward from MEM stage\n  end\n  end\n\nendmodule"
+}

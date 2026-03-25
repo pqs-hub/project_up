@@ -1,0 +1,10 @@
+{
+  "task_id": "q002465",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module eeprom_cell (\n    input wire clk,\n    input wire reset,\n    input wire we,        // write enable\n    input wire data_in,   // data input\n    output reg data_out   // data output\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            data_out <= 1'b0; // Initialize cell to 0 on reset\n        end else if (we) begin\n            data_out <= data_in; // Write data to cell\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      data_out <= ~data_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "data_out <= ~data_in;"
+  }
+}

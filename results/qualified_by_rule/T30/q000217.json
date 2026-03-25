@@ -1,0 +1,6 @@
+{
+  "task_id": "q000217",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule (  \n    input clk,  \n    input reset,  \n    input start,  \n    input suspend,  \n    input resume,  \n    output reg [1:0] state  \n);  \n    // State encoding  \n    localparam IDLE = 2'b00,  \n               ACTIVE = 2'b01,  \n               SUSPEND = 2'b10;  \n  \n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            state <= IDLE;  \n        else begin  \n            case (state)  \n                IDLE: if (start) state <= ACTIVE;  \n                ACTIVE: if (suspend) state <= SUSPEND;  \n                SUSPEND: if (resume) state <= ACTIVE;  \n                default: state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule"
+}

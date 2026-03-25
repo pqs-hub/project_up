@@ -1,0 +1,8 @@
+{
+  "task_id": "q009789",
+  "rule_id": "T09",
+  "changed": true,
+  "final": "module top_module( A, B, Ci, S, Co );input A, B, Ci;\n  output S, Co;\n  wire n1, n2, n3, n4;\n\n  // XOR gates using native Verilog operators\n  assign n1 = A ^ B;    // n1 = A XOR B\n  assign S = n1 ^ Ci;   // S = n1 XOR Ci\n\n  // AND gates using native Verilog operators\n  assign n2 = ~(~A | ~B);    // n2 = A AND B\n  assign n3 = n1 & Ci;  // n3 = n1 AND Ci\n  assign Co = n2 | n3;  // Co = n2 OR n3\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

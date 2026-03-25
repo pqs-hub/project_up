@@ -1,0 +1,15 @@
+{
+  "task_id": "q013680",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module johnson_counter_3bit(\n    input rst,\n    input reset,\n    output reg [2:0] q\n);\n\nalways @(posedge rst or posedge reset)\n    if (reset)\n        q <= 3'b000; // Reset state\n    else\n        q <= {~q[2], q[2:1]}; // Johnson counter sequence\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

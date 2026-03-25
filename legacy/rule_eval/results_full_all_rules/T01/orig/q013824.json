@@ -1,0 +1,6 @@
+{
+  "task_id": "q013824",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(\n    input clk,\n    input rst,\n    input enable,\n    input load,\n    input increment,\n    input [7:0] data_in,\n    output reg [7:0] count\n);always @(posedge clk) begin\n        if (rst) begin\n            count <= 0;\n        end else if (load) begin\n            count <= data_in;\n        end else if (enable && increment) begin\n            count <= count + 1;\n        end\n    end\n\nendmodule"
+}

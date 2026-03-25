@@ -1,0 +1,6 @@
+{
+  "task_id": "q004272",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n    input               clk         ,   \n    input               rst_n       ,\n    input       [3:0]   addr        ,\n    input       [7:0]   data_in     ,\n    input               write_en    ,\n    input               read_en     ,\n \n    output  reg [7:0]   data_out\n);\n    \n    reg [7:0] mem [15:0];\n\n    // Write logic\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_n or posedge dbg_halt) begin\n        if (!rst_n) begin\n            // Optionally initialize memory here\n        end else if (write_en) begin\n            mem[addr] <= data_in;\n        end\n    end\n\n    // Read logic\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            data_out <= 0;\n        end else if (read_en) begin\n            data_out <= mem[addr];\n        end\n    end\n\nendmodule"
+}

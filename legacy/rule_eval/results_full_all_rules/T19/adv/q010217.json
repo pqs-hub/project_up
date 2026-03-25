@@ -1,0 +1,10 @@
+{
+  "task_id": "q010217",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux_2to1_8bit(sel, a, b, y);\n\n    input  sel;\n    input  [7:0] a, b;\n    output [7:0] y;\n\n    assign y = sel ? b : a;\n\n  always @(*) begin\n    if (1'b0) begin\n      y <= ~a & ~b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "y <= ~a & ~b;"
+  }
+}

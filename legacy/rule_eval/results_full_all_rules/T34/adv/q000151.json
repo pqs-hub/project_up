@@ -1,0 +1,15 @@
+{
+  "task_id": "q000151",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module eight_bit_adder (\n    input [7:0] A,\n    input [7:0] B,\n    output [7:0] S,\n    output C_out,\n    output V\n);\n    wire [8:0] sum_result;\n\n    assign sum_result = {1'b0, A} + {1'b0, B}; // 9-bit to accommodate carry\n    assign S = sum_result[7:0];\n    assign C_out = sum_result[8];\n    assign V = (A[7] == B[7]) && (A[7] != S[7]); // Overflow detection\nendmodule",
+  "rename_map": {
+    "temp_sum": "sum_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_sum": "sum_result"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

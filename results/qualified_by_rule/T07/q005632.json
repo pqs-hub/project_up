@@ -1,0 +1,6 @@
+{
+  "task_id": "q005632",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input en,\n    input load,\n    input [15:0] load_value,\n    output reg [15:0] count\n);\n\nalways @(posedge clk)\nbegin\n  if (rst)\n    count <= 0;\n  else if (load)\n    count <= load_value;\n  else if (en)\n    count <= count + 1;\nend\n\nendmodule"
+}

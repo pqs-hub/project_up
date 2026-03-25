@@ -1,0 +1,19 @@
+{
+  "task_id": "q009754",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n    input x_in,\n    input b_in,\n    input c_in,\n    input d_in,\n    output reg c_out);always @* begin\n    case ({x_in, b_in, c_in, d_in})\n        4'b0110: c_out = 1;\n        4'b1001: c_out = 1;\n        4'b0000: c_out = 0;\n        4'b1111: c_out = 1;\n        4'b1010: c_out = 0;\n        4'b0101: c_out = 0;\n        4'b1101: c_out = 1;\n        4'b0011: c_out = 1;\n        default: c_out = 0;\n    endcase\nend\nendmodule",
+  "rename_map": {
+    "a_in": "x_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "a_in": "x_in",
+      "b_in": "y_in",
+      "c_in": "z_in",
+      "d_in": "w_in",
+      "c_out": "result"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

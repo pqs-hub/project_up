@@ -1,0 +1,10 @@
+{
+  "task_id": "q000600",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This LFSR module is designed to generate pseudo-random sequences by shifting its value on each clock cycle and applying a feedback mechanism using taps at certain bits determined by a polynomial. However, it does not reset to a user-defined seed value.\nmodule LFSR_32bit(  \n    input clk,  \n    input reset,  \n    input [31:0] seed,  \n    output reg [31:0] lfsr_out  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            lfsr_out <= seed;  \n        end else begin  \n            lfsr_out <= {lfsr_out[30:0], lfsr_out[31] ^ lfsr_out[21] ^ lfsr_out[1] ^ lfsr_out[0]};  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This LFSR module is designed to generate pseudo-random sequences by shifting its value on each clock cycle and applying a feedback mechanism using taps at certain bits determined by a polynomial. However, it does not reset to a user-defined seed value."
+  }
+}

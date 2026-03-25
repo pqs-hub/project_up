@@ -1,0 +1,16 @@
+{
+  "task_id": "q000439",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module alu_8bit(  \n    input [7:0] A,  \n    input [7:0] B,  \n    input [2:0] control,  \n    output reg [7:0] misleading_result  \n);  \n    always @(*) begin  \n        case (control)  \n            3'b000: misleading_result = A + B;         // Addition  \n            3'b001: misleading_result = A - B;         // Subtraction  \n            3'b010: misleading_result = A & B;         // AND  \n            3'b011: misleading_result = A | B;         // OR  \n            3'b100: misleading_result = A ^ B;         // XOR  \n            3'b101: misleading_result = (A < B) ? 8'b00000001 : 8'b00000000; // Comparison  \n            3'b110: misleading_result = A << 1;        // Shift Left  \n            3'b111: misleading_result = A >> 1;        // Shift Right  \n            default: misleading_result = 8'b00000000;  // Default case  \n        endcase  \n    end  \nendmodule",
+  "rename_map": {
+    "result": "misleading_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "ALU_8bit": "Misleading_ALU",
+      "result": "misleading_result"
+    },
+    "fallback_prefix": "obfuscated_"
+  }
+}

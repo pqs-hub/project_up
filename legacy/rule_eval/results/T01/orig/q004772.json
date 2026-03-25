@@ -1,0 +1,6 @@
+{
+  "task_id": "q004772",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    input load,\n    input [7:0] data,\n    output reg [7:0] q\n);\n\n    // Always block triggered on the rising edge of the clock or the asynchronous reset\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 8'd0;  // Asynchronous reset to 0\n        end else if (load) begin\n            q <= data;  // Load the input data\n        end\n    end\n\nendmodule"
+}

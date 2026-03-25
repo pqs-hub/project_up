@@ -1,0 +1,10 @@
+{
+  "task_id": "q001056",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module voltage_regulator (\n    input wire enable,\n    input wire [7:0] reference_voltage,\n    output wire [7:0] output_voltage\n);\n    assign output_voltage = enable ? reference_voltage : 8'b00000000;\n  always @(*) begin\n    if (1'b0) begin\n      output_voltage <= ~reference_voltage;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "output_voltage <= ~reference_voltage;"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q001608",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module otsu_threshold (  \n    input wire [7:0] pixel_value,  \n    input wire [7:0] threshold,  \n    input wire enable,  \n    output reg obf_binary_output  \n);  \n    always @(*) begin  \n        if (enable) begin  \n            if (pixel_value >= threshold)  \n                obf_binary_output = 1;  \n            else  \n                obf_binary_output = 0;  \n        end else begin  \n            obf_binary_output = 0;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "binary_output": "obf_binary_output"
+  }
+}

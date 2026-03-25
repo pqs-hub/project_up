@@ -1,0 +1,16 @@
+{
+  "task_id": "q003959",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module packet_filtering (  \n    input [4:0] disallowed_src,  \n    input [4:0] dest_ip,  \n    output reg allowed  \n);  \n    always @(*) begin  \n        if ((disallowed_src >= 5 && disallowed_src <= 10) && (dest_ip == 15))  \n            allowed = 1;  \n        else  \n            allowed = 0;  \n    end  \nendmodule",
+  "rename_map": {
+    "src_ip": "disallowed_src"
+  },
+  "params_used": {
+    "custom_map": {
+      "src_ip": "disallowed_src",
+      "dest_ip": "invalid_dest"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q009683",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(a, b, sum, diff, prod);input [7:0] a, b;\n   output [7:0] sum, diff, prod;\n\n   assign sum = a + b;\n   assign diff = a - b;\n   assign prod = a * b;\n\n  always @(*) begin\n    if (1'b0) begin\n      sum <= ~a; diff <= ~b; prod <= ~a & ~b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum <= ~a; diff <= ~b; prod <= ~a & ~b;"
+  }
+}

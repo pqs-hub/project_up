@@ -1,0 +1,6 @@
+{
+  "task_id": "q008404",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(\n        input clk,\n        input clken,\n\n        input [31:0] i_instr,\n    input [19:0] i_cur_pc,\n    input [19:0] i_pre_des,\n    input i_pre_jum_en,\n    \n    output reg [31:0] o_instr,\n    output reg [19:0] o_cur_pc,\n    output reg [19:0] o_pre_des,\n    output reg o_pre_jum_en\n    );(* DONT_TOUCH= \"true\" *)wire [31:0] test_i_ins = i_instr;\n    always @ (posedge clk)\n    begin\n        if(clken == 1'b1)\n        begin\n           o_instr = i_instr;\n        o_cur_pc = i_cur_pc;\n        o_pre_des = i_pre_des;\n        o_pre_jum_en = i_pre_jum_en;\n        end\n    end\nendmodule"
+}

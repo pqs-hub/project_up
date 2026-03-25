@@ -1,0 +1,6 @@
+{
+  "task_id": "q015897",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\ninput [31:0] _00,\ninput [31:0] _01,\ninput [31:0] _10,\ninput [31:0] _11,\ninput [1:0] Sel,\noutput [31:0] OutMux\n);reg [31:0] OutMux_reg;\n  wire [31:0] _tap__00 = _00 & {32{1'b1}};\n\nalways@(*) begin\n\tcase(Sel)\n\t\t2'b00: begin\n\t\t\tOutMux_reg = _00;\n\t\tend\n\t\t2'b01: begin\n\t\t\tOutMux_reg = _01;\n\t\tend\n\t\t2'b10: begin\n\t\t\tOutMux_reg = _10;\n\t\tend\n\t\t2'b11: begin\n\t\t\tOutMux_reg = _11;\n\t\tend\n\t\tdefault: begin\n\t\t\tOutMux_reg = _00;\n\t\tend\n\tendcase\t\nend\nassign OutMux = OutMux_reg;\nendmodule"
+}

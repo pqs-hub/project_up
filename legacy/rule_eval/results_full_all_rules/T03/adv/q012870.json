@@ -1,0 +1,8 @@
+{
+  "task_id": "q012870",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input            clk_dst,      \n  input            rst_dst,      \n  input            signal_src,   \n  output reg       signal_dst    \n);reg           signal_meta;     \n  wire _tap_clk_dst = clk_dst & {1{1'b1}};\n\n                                 \n                                 \n                                 \n                                 \n\n\n\n\n\n  always @(posedge clk_dst)\n  begin\n    if (rst_dst)\n    begin\n      signal_meta <= 1'b0;\n      signal_dst  <= 1'b0;\n    end\n    else \n    begin\n      signal_meta <= signal_src;\n      signal_dst  <= signal_meta;\n    end \n  end \n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

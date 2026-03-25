@@ -1,0 +1,8 @@
+{
+  "task_id": "q001579",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module SRAM_16bit (\n    input wire clk,\n    input wire enable,\n    input wire write,\n    input wire [3:0] address,\n    input wire [15:0] data_in,\n    output reg [15:0] data_out\n);\n    reg [15:0] memory [15:0]; // 16 16-bit SRAM cells\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (enable) begin\n            if (write) begin\n                memory[address] <= data_in; // Write data\n            end\n            data_out <= memory[address]; // Read data\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

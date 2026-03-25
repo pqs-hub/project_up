@@ -1,0 +1,15 @@
+{
+  "task_id": "q003556",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module SRAM_4bit (\n    input wire [3:0] D,\n    input wire WE,\n    input wire RE,\n    output reg [3:0] Q\n);\n    reg [3:0] sram_data;\n\n    always @(*) begin\n        if (!WE) begin\n            sram_data <= D; // Write data\n        end\n    end\n\n    always @(*) begin\n        if (!RE) begin\n            Q <= sram_data; // Read data\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "sram_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "sram_data"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

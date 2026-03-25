@@ -1,0 +1,6 @@
+{
+  "task_id": "q004040",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input signed [15:0] x1,\n    input signed [15:0] x2,\n    input signed [15:0] u,\n    output reg signed [15:0] x1_next,\n    output reg signed [15:0] x2_next\n);\n    // Constants for state-space representation\n    parameter signed [15:0] a11 = 16'h0002;\n    parameter signed [15:0] a12 = 16'h0001;\n    parameter signed [15:0] a21 = 16'h0001;\n    parameter signed [15:0] a22 = 16'h0002;\n    parameter signed [15:0] b1 = 16'h0001;\n    parameter signed [15:0] b2 = 16'h0001;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            x1_next <= 16'h0000;\n            x2_next <= 16'h0000;\n        end else begin\n            x1_next <= a11 * x1 + a12 * x2 + b1 * u;\n            x2_next <= a21 * x1 + a22 * x2 + b2 * u;\n        end\n    end\nendmodule"
+}

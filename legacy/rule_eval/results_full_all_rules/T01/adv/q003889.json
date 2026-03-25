@@ -1,0 +1,8 @@
+{
+  "task_id": "q003889",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module mux2to1(\n    input [15:0] data0,\n    input [15:0] data1,\n    input sel,\n    output reg [15:0] out\n);\n\nalways @(*) begin\n    begin end  // redundant\n    case(sel)\n        1'b0: out = data0;\n        1'b1: out = data1;\n        default: out = 16'b0; // default case\n    endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

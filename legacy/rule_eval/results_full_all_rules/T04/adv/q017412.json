@@ -1,0 +1,10 @@
+{
+  "task_id": "q017412",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the tap should be open when VPWR is high and VGND is low, which is the opposite of the actual behavior.\nmodule tap_controller (\n    input VPWR,\n    input VGND,\n    output reg tap_output\n);\n\nalways @(*) begin\n    if (VPWR && !VGND) begin\n        tap_output = 0;\n    end else if (!VPWR && VGND) begin\n        tap_output = 1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the tap should be open when VPWR is high and VGND is low, which is the opposite of the actual behavior."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q016637",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sparc_exu_alu_16eql (\n   equal, \n   in\n   ) ;\n   input [16:0] in;\n   output       equal;\n   wire [15:0]  xornot;\n   wire [7:0]   nor1;\n   wire [1:0]   nand2;\n   assign xornot[0] = in[15] ^ in[14];\n   assign xornot[1] = in[14] ^ in[13];\n   assign xornot[2] = in[13] ^ in[12];\n   assign xornot[3] = in[12] ^ in[11];\n   assign xornot[4] = in[11] ^ in[10];\n   assign xornot[5] = in[10] ^ in[9];\n   assign xornot[6] = in[9] ^ in[8];\n   assign xornot[7] = in[8] ^ in[7];\n   assign xornot[8] = in[7] ^ in[6];\n   assign xornot[9] = in[6] ^ in[5];\n   assign xornot[10] = in[5] ^ in[4];\n   assign xornot[11] = in[4] ^ in[3];\n   assign xornot[12] = in[3] ^ in[2];\n   assign xornot[13] = in[2] ^ in[1];\n   assign xornot[14] = in[1] ^ in[0];\n   assign xornot[15] = in[16] ^ in[15];\n   assign nor1[0] = ~(xornot[15] | xornot[14]);\n   assign       nor1[1] = ~(xornot[1] | xornot[0]);\n   assign       nor1[2] = ~(xornot[3] | xornot[2]);\n   assign       nor1[3] = ~(xornot[5] | xornot[4]);\n   assign       nor1[4] = ~(xornot[7] | xornot[6]);\n   assign       nor1[5] = ~(xornot[9] | xornot[8]);\n   assign       nor1[6] = ~(xornot[11] | xornot[10]);\n   assign       nor1[7] = ~(xornot[13] | xornot[12]);\n   assign       nand2[0] = ~(nor1[1] & nor1[2] & nor1[3] & nor1[4]);\n   assign       nand2[1] = ~(nor1[5] & nor1[6] & nor1[7] & nor1[0]);\n   assign       equal = ~(nand2[1] | nand2[0]);\nendmodule",
+  "rename_map": {
+    "inxor": "xornot"
+  },
+  "params_used": {
+    "custom_map": {
+      "inxor": "xornot"
+    },
+    "fallback_prefix": "not_"
+  }
+}

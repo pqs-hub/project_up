@@ -1,0 +1,6 @@
+{
+  "task_id": "q005718",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(CLK, D, R, Q);input CLK, D, R;\n  output reg Q;  // Changed to 'reg' to hold the latch state\n  wire _tap_CLK = CLK & {1{1'b1}};\n\n\n  always @(posedge CLK or posedge R) begin\n    if (R) begin\n      Q <= 1'b0;\n    end else begin\n      Q <= D;  // Directly assign D to Q\n    end\n  end\n\nendmodule"
+}

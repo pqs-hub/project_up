@@ -1,0 +1,15 @@
+{
+  "task_id": "q017459",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adder_subtractor (\n    input [3:0] A,\n    input [3:0] B,\n    input SUB,\n    output [3:0] SUM\n);\n\n    wire [3:0] _neg_B_comp;\n    assign _neg_B_comp = ~B + 1;\n\n    assign SUM = (SUB) ? A + _neg_B_comp : A + B;\n\nendmodule",
+  "rename_map": {
+    "B_comp": "_neg_B_comp"
+  },
+  "params_used": {
+    "custom_map": {
+      "B_comp": "B_inv"
+    },
+    "fallback_prefix": "_neg_"
+  }
+}

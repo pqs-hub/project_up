@@ -1,0 +1,10 @@
+{
+  "task_id": "q002386",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module voltage_regulator (\n    input [4:0] voltage_ref,\n    output [4:0] regulated_voltage\n);\n\nwire neg_regulated_voltage = (voltage_ref * 2 > 31);\nassign regulated_voltage = neg_regulated_voltage ? 31 : (voltage_ref * 2);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_regulated_voltage"
+  }
+}

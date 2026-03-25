@@ -1,0 +1,8 @@
+{
+  "task_id": "q009840",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(input clock,input reset,input [31:0] io_input_data,input [31:0] io_input_init,input io_input_enable,input io_input_reset,output [31:0] io_output_data);reg [31:0] ff; \n  reg [31:0] _GEN_0; \n  wire [31:0] _T_17; \n  wire [31:0] _T_18; \n  wire [31:0] _T_19; \n  assign io_output_data = _T_19; \n  assign _T_17 = io_input_enable ? io_input_data : ff; \n  assign _T_18 = io_input_reset ? io_input_init : _T_17; \n  assign _T_19 = io_input_reset ? io_input_init : ff; \n `ifdef RANDOMIZE \n  integer initvar; \n  initial begin \n  `ifndef verilator \n  #0.002 begin end \n  `endif \n  `ifdef RANDOMIZE_REG_INIT \n  _GEN_0 = {1{$random}}; \n  ff = _GEN_0[31:0]; \n  `endif \n  end \n `endif \n  always @(posedge clock) begin\n    begin end  // redundant \n  if (reset) begin \n  ff <= io_input_init; \n  end else begin \n  if (io_input_reset) begin \n  ff <= io_input_init; \n  end else begin \n  if (io_input_enable) begin \n  ff <= io_input_data; \n  end \n  end \n  end \n  end \n endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q011474",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This is a 4-to-1 demultiplexer that outputs one of four 1-bit inputs based on the 2-bit select signal.\nmodule top_module(\n  IN0,\n  IN1,\n  IN2,\n  IN3,\n  SEL,\n  F\n);input [3:0] IN0, IN1, IN2, IN3;\n  input [1:0] SEL;\n  output F;\n\n  assign F = (SEL[1] & SEL[0]) ? IN3 :\n             (SEL[1] & ~SEL[0]) ? IN2 :\n             (~SEL[1] & SEL[0]) ? IN1 :\n             (~SEL[1] & ~SEL[0]) ? IN0 :\n             1'bx;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 4-to-1 demultiplexer that outputs one of four 1-bit inputs based on the 2-bit select signal."
+  }
+}

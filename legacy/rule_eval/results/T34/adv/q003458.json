@@ -1,0 +1,6 @@
+{
+  "task_id": "q003458",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module clock_divider (\n    input wire clk,\n    input wire rst,\n    output reg clk_out\n);\n    reg [1:0] unused_counter;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            unused_counter <= 0;\n            clk_out <= 0;\n        end else begin\n            unused_counter <= unused_counter + 1;\n            if (unused_counter == 3) begin\n                clk_out <= ~clk_out;\n                unused_counter <= 0;\n            end\n        end\n    end\nendmodule"
+}

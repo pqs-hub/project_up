@@ -1,0 +1,8 @@
+{
+  "task_id": "q013638",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(rst, clk, ld, d, q);input rst, clk, ld, d; \n\toutput q;\n\treg temp;\n\t\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk or posedge dbg_halt)\n\t\tif (rst) \n\t\t\ttemp = 1'b0;\n\t\telse if (ld)\n    \t\ttemp = d;\n\t\n\tassign q = temp;\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

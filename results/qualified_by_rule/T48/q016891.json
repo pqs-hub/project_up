@@ -1,0 +1,6 @@
+{
+  "task_id": "q016891",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(clk, rst, en, count_out);\n\ninput clk, rst, en;\noutput reg [3:0] count_out;\n\nalways @(posedge clk) begin\n  if (rst) begin\n    count_out <= 4'b0000;\n  end\n  else if (en) begin\n    count_out <= count_out + 1;\n  end\nend\n\nendmodule"
+}

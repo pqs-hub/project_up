@@ -1,0 +1,10 @@
+{
+  "task_id": "q009533",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(IN_FLAG,\n    LD,\n    SET,\n    CLR,\n    CLK,\n    OUT_FLAG);input IN_FLAG;\n  input LD;\n  input SET;\n  input CLR;\n  input CLK;\n  output OUT_FLAG;\n\n  reg flag;\n\n  always @(posedge CLK) begin\n    if (LD) begin\n      flag <= IN_FLAG;\n    end else if (SET) begin\n      flag <= 1;\n    end else if (CLR) begin\n      flag <= 0;\n    end\n  end\n\n  assign OUT_FLAG = flag;\n\n  always @(*) begin\n    if (1'b0) begin\n      if (flag) begin\n        flag <= ~flag;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (flag) begin\n  flag <= ~flag;\nend"
+  }
+}

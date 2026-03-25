@@ -1,0 +1,10 @@
+{
+  "task_id": "q014230",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that 'a' should be 0 when 'dqu' is 011, but it's actually 1.\nmodule top_module (\n    input d,\n    input q,\n    input u,\n    output reg a\n);\n    always @(*) begin\n        case ({d, q, u})\n            3'b011: a = 1'b1;\n            3'b000: a = 1'b0;\n            3'b010: a = 1'b1;\n            3'b100: a = 1'b0;\n            3'b101: a = 1'b0;\n            3'b110: a = 1'b1;\n            3'b001: a = 1'b0;\n            3'b111: a = 1'b1;\n        endcase\n    end\nendmodule\n",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that 'a' should be 0 when 'dqu' is 011, but it's actually 1."
+  }
+}

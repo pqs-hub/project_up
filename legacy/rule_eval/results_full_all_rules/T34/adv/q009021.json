@@ -1,0 +1,15 @@
+{
+  "task_id": "q009021",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module\n(\n    input reset,\n    input sload,\n    input [7:0] load_val,\n    output reg [7:0] count\n);\n\nalways @(posedge reset)\n    if (sload) begin\n        count <= load_val;\n    end else begin\n        count <= count - 1;\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

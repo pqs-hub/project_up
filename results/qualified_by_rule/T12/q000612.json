@@ -1,0 +1,6 @@
+{
+  "task_id": "q000612",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire we, // write enable\n    input wire [15:0] data_in, // data input\n    output reg [15:0] data_out // data output\n);\n    reg [15:0] memory; // 16-bit memory cell\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory <= data_in; // Write data to memory\n        end\n    end\n\n    always @(negedge clk) begin\n        data_out <= memory; // Read data from memory\n    end\nendmodule"
+}

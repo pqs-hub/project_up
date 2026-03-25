@@ -1,0 +1,6 @@
+{
+  "task_id": "q009288",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module top_module(\n    clk,\n\t clr,\n\t def,\n\t phase,\n\t clk2,\n    adr\n);input clk;\ninput clr;\ninput [31:0]def;\ninput [7:0]phase;\noutput clk2;\noutput [7:0]adr;\n\nreg [31:0]cnt = 0;\n\nassign adr[7:0] = cnt[31:24]+phase[7:0];\n\nassign clk2 = cnt[31];\n\nalways @(posedge clk or posedge clr) begin\n    if (clr)\n        cnt <= 0;\n    else\n        cnt <= cnt + def;\nend\n\nendmodule"
+}

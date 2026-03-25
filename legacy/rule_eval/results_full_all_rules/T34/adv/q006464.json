@@ -1,0 +1,16 @@
+{
+  "task_id": "q006464",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(x, y, Cin, Cout, sum_err);input x, y, Cin;\n\toutput Cout, sum_err;\n\t\n\tassign Cout = (x & y) | (x & Cin) | (y & Cin);\n\tassign sum_err = (~x & ~y & Cin) | (~x & y & ~Cin) |\n\t\t\t\t  (x & y & Cin) | (x & ~y & ~Cin);\n\nendmodule",
+  "rename_map": {
+    "s": "sum_err"
+  },
+  "params_used": {
+    "custom_map": {
+      "Cout": "invalid_out",
+      "s": "sum_err"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q012023",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] A,\n    input [7:0] B,\n    input mode,\n    output [7:0] result\n);wire [7:0] twos_comp_B;\n    wire [7:0] sum;\n\n    assign twos_comp_B = ~B + 1;\n\n    assign sum = A + (mode ? twos_comp_B : B);\n\n    assign result = sum;\n\n  always @(*) begin\n    if (1'b0) begin\n      result <= A & B;\n      sum <= A | B;\n      twos_comp_B <= ~A - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "result <= A & B;\nsum <= A | B;\ntwos_comp_B <= ~A - 1;"
+  }
+}

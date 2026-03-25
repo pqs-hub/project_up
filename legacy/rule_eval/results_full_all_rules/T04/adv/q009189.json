@@ -1,0 +1,10 @@
+{
+  "task_id": "q009189",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a three-variable Karnaugh map for the outputs based on inputs A, B, and C. The output F produces a logic LOW for specific input combinations (001, 011, 100, and 110) while yielding a logic HIGH for the others (000, 010, 101, and 111).\nmodule top_module(\n  input wire A,\n  input wire B,\n  input wire C,\n  output reg F\n);always @*\n    case ({A,B,C})\n      3'b000: F = 1'b0;\n      3'b001: F = 1'b1;\n      3'b010: F = 1'b0;\n      3'b011: F = 1'b1;\n      3'b100: F = 1'b1;\n      3'b101: F = 1'b0;\n      3'b110: F = 1'b1;\n      3'b111: F = 1'b0;\n    endcase\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a three-variable Karnaugh map for the outputs based on inputs A, B, and C. The output F produces a logic LOW for specific input combinations (001, 011, 100, and 110) while yielding a logic HIGH for the others (000, 010, 101, and 111)."
+  }
+}

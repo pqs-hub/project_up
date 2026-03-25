@@ -1,0 +1,6 @@
+{
+  "task_id": "q014603",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module binary_counter_with_terminal_count(\n    input clk,\n    input reset,\n    output reg [12-1:1-1] count,\n    output reg terminal_count\n);\n\nalways @(posedge clk or posedge reset)\n    if (reset) begin\n        count <= 12'b000000000000; // Reset counter to 0\n        terminal_count <= 0; // Clear terminal count flag\n    end else begin\n        if (count == 12'b111111111111) begin\n            terminal_count <= 1; // Set terminal count flag\n            count <= 12'b000000000000; // Reset counter to 0 after reaching max value\n        end else begin\n            count <= count + 1; // Increment counter\n            terminal_count <= 0; // Clear terminal count flag\n        end\n    end\n\nendmodule"
+}

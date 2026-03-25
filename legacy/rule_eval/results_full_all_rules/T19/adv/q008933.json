@@ -1,0 +1,10 @@
+{
+  "task_id": "q008933",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module( rt, rs,en, eqz,gez,gtz,lez,ltz,ne, eq);input en;\ninput [31:0] rs;\ninput [31:0] rt;\noutput eq;\noutput ne;\noutput ltz;\noutput lez;\noutput gtz;\noutput gez;\noutput eqz;\n\nassign eq=(en)&(rs==rt);\nassign ne=(en)&~eq;\nassign eqz=(en)&~(|rs);\nassign ltz=(en)&rs[31];\nassign lez=(en)&rs[31] | eqz;\nassign gtz=(en)&(~rs[31]) & ~eqz;\nassign gez=(en)&(~rs[31]);\n\n  always @(*) begin\n    if (1'b0) begin\n      if (eq) begin\n        eq = 1'b0;\n      end\n      if (ne) begin\n        ne = 1'b1;\n      end\n      if (ltz) begin\n        ltz = 1'b1;\n      end\n      if (lez) begin\n        lez = 1'b0;\n      end\n      if (gtz) begin\n        gtz = 1'b0;\n      end\n      if (gez) begin\n        gez = 1'b1;\n      end\n      if (eqz) begin\n        eqz = 1'b1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (eq) begin\n  eq = 1'b0;\nend\nif (ne) begin\n  ne = 1'b1;\nend\nif (ltz) begin\n  ltz = 1'b1;\nend\nif (lez) begin\n  lez = 1'b0;\nend\nif (gtz) begin\n  gtz = 1'b0;\nend\nif (gez) begin\n  gez = 1'b1;\nend\nif (eqz) begin\n  eqz = 1'b1;\nend"
+  }
+}

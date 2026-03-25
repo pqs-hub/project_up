@@ -1,0 +1,19 @@
+{
+  "task_id": "q008968",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(A, B, Cin, S, Cout);input A, B, Cin;\n  output S, Cout;\n  wire X_n1, n2, n3;\n\n  // Logic for Full Adder\n  assign X_n1 = A ^ B;    // XOR for A and B\n  assign S = X_n1 ^ Cin;  // XOR for sum with Cin\n  assign n2 = A & B;    // AND for A and B\n  assign n3 = X_n1 & Cin; // AND for X_n1 and Cin\n  assign Cout = n2 | n3; // OR for Cout\n\nendmodule",
+  "rename_map": {
+    "n1": "X_n1"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "D",
+      "B": "E",
+      "Cin": "F",
+      "S": "G",
+      "Cout": "H"
+    },
+    "fallback_prefix": "X_"
+  }
+}

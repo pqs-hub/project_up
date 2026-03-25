@@ -1,0 +1,9 @@
+{
+  "task_id": "q004578",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module Reg_32_async_load(\n   input                clk,\n   input                rst,\n   input                load,\n   input  [31:0]        load_val,\n   output reg [31:0]    obf_Q\n);\n    always@(posedge clk or posedge rst)begin\n        if(rst) obf_Q <= 32'd0;\n        else if(load) obf_Q <= load_val;\n    end\nendmodule",
+  "rename_map": {
+    "Q": "obf_Q"
+  }
+}

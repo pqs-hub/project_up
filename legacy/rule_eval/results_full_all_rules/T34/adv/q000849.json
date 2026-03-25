@@ -1,0 +1,18 @@
+{
+  "task_id": "q000849",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module packet_filter (\n    input [4:0] packet_source,\n    input [4:0] dst,\n    input [4:0] src_allowed,\n    input [4:0] dst_allowed,\n    output valid_packet\n);\n    assign valid_packet = (packet_source == src_allowed) && (dst == dst_allowed);\nendmodule",
+  "rename_map": {
+    "src": "packet_source"
+  },
+  "params_used": {
+    "custom_map": {
+      "src": "packet_source",
+      "dst": "packet_destination",
+      "src_allowed": "allowed_src",
+      "dst_allowed": "allowed_dst"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

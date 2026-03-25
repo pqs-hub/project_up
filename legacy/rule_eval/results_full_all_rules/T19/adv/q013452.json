@@ -1,0 +1,10 @@
+{
+  "task_id": "q013452",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    output reg [7:0] Y,\n    output reg Sbar,\n    output reg AeqB,\n    output reg AneqB,\n    input [7:0] A,\n    input [7:0] B,\n    input S,\n    input VPWR,  // Changed to input\n    input VGND,  // Changed to input\n    input VPB,   // Changed to input\n    input VNB    // Changed to input\n);always @(*) begin\n        if (S == 0) begin\n            Y = A;\n        end else begin\n            Y = B;\n        end\n    end\n\n    assign Sbar = ~S;\n    assign AeqB = (A == B) ? 1 : 0;\n    assign AneqB = (A != B) ? 1 : 0;\n\n  always @(*) begin\n    if (1'b0) begin\n      if (AeqB) begin\n        AeqB <= 0;\n      end\n      if (AneqB) begin\n        AneqB <= 1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (AeqB) begin\n  AeqB <= 0;\nend\nif (AneqB) begin\n  AneqB <= 1;\nend"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q006245",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module PIPO_16(\n   input           clk,\n   input           rst,\n   input [15:0]    PI,\n   input           load,\n   output [15:0]   PO  \n);\n    reg [15:0] Q;\n    \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or posedge dbg_halt) begin\n        if(rst) Q <= 16'b0; // Reset the register\n        else if(load) Q <= PI; // Load parallel input\n    end\n    \n    assign PO = Q; // Parallel output is the current value of the register\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

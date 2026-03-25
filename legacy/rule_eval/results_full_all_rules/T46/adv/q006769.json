@@ -1,0 +1,8 @@
+{
+  "task_id": "q006769",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module verified_up_down_counter(\n    input clk,\n    input rst,\n    input up,\n    input down,\n    output reg [2:0] count\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n        if (rst)\n            count <= 3'b000;\n        else if (up && !down)\n            count <= count + 1;\n        else if (!up && down)\n            count <= count - 1;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

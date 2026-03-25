@@ -1,0 +1,6 @@
+{
+  "task_id": "q013557",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input reset,\n  input [31:0] data_in,\n  input [31:0] key,\n  output reg [31:0] data_out  // Changed from wire to reg\n);reg [31:0] internal_state;\n\n  always @(posedge clk) begin\n    if (reset) begin\n      internal_state <= 0;\n      data_out <= 0;\n    end else begin\n      if (key == 0) begin\n        data_out <= data_in;\n      end else begin\n        internal_state <= data_in ^ key;\n        data_out <= internal_state ^ key;\n      end\n    end\n  end\n\nendmodule"
+}

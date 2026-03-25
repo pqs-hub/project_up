@@ -1,0 +1,6 @@
+{
+  "task_id": "q002286",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (\n    input wire [3:0] data_in,\n    input wire word_line,\n    output reg [3:0] data_out\n);\n    reg [3:0] unused_stored_data;\n\n    always @(posedge word_line) begin\n        unused_stored_data <= data_in; // Write data when word line is high\n    end\n\n    always @(negedge word_line) begin\n        data_out <= unused_stored_data; // Output stored data when word line is low\n    end\nendmodule"
+}

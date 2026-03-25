@@ -1,0 +1,6 @@
+{
+  "task_id": "q011897",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module RefModule(\n  input [2:0] sel,\n  input [3:0] data0,\n  input [3:0] data1,\n  input [3:0] data2,\n  input [3:0] data3,\n  input [3:0] data4,\n  input [3:0] data5,\n  output reg [3:0] out,\n  output reg parity\n);reg [3:0] mux_out [0:5];\n  \n  // Generate intermediate signals for each input data\n  always @* begin\n    mux_out[0] = data0;\n    mux_out[1] = data1;\n    mux_out[2] = data2;\n    mux_out[3] = data3;\n    mux_out[4] = data4;\n    mux_out[5] = data5;\n  end\n  \n  // Select the active input data using a 3-to-6 multiplexer\n  always @* begin\n    if (sel < 6) begin\n      out = mux_out[sel];\n    end else begin\n      out = 4'b0;\n    end\n  end\n  \n  // Generate the parity bit using an XOR gate\n  always @* begin\n    parity = out[0] ^ out[1] ^ out[2] ^ out[3];\n  end\n  \nendmodule"
+}

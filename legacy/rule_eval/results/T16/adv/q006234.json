@@ -1,0 +1,9 @@
+{
+  "task_id": "q006234",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(obf_clk, input0, input1, select, out);input wire [4:0] input0;\ninput wire [4:0] input1;\ninput wire obf_clk, select;\n\noutput reg [4:0] out;\n\nalways@(posedge obf_clk)\nbegin\n\nif (select)\n    out <= input1;\nelse if (!select)\n    out <= input0;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

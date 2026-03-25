@@ -1,0 +1,16 @@
+{
+  "task_id": "q016935",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_counter(\n    input cnt_iCLK,\n    input iRST,\n    output reg [3:0] oCOUNT\n);\n\n    always @(posedge cnt_iCLK) begin\n        if (iRST) begin\n            oCOUNT <= 4'b0000;\n        end else begin\n            oCOUNT <= oCOUNT + 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "iCLK": "cnt_iCLK"
+  },
+  "params_used": {
+    "custom_map": {
+      "iCLK": "iCLK_INV",
+      "iRST": "iRST_INV"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

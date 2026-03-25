@@ -1,0 +1,15 @@
+{
+  "task_id": "q012292",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(rst, clk, test, sync, freq, o);parameter WID = 32; \ninput rst;\ninput clk;\ninput test;\ninput sync;\ninput [WID-1:0] freq;   \noutput [WID-1:0] o;\n\nreg [WID-1:0] inv_acc;\n\nalways @(posedge clk)\nif (rst)\n    inv_acc <= 0;\nelse begin\n    if (~test) begin\n        if (sync)\n            inv_acc <= 0;\n        else\n            inv_acc <= inv_acc + freq;\n    end\n    else\n        inv_acc <= 0;\nend\n\nassign o = inv_acc;\n\nendmodule",
+  "rename_map": {
+    "acc": "inv_acc"
+  },
+  "params_used": {
+    "custom_map": {
+      "freq": "neg_freq"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

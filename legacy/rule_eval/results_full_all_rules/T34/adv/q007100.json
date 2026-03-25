@@ -1,0 +1,16 @@
+{
+  "task_id": "q007100",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input inv_x,\n    input y,\n    output v\n);\n    assign v = ~(inv_x & y);\nendmodule\n\nmodule H(\n    input inv_x,\n    input y,\n    output v\n);\n    assign v = ~(inv_x & y);\nendmodule\n\nmodule top_module(\n    input inv_x,\n    input y,\n    output v\n);\n    wire g1_out, g2_out, h1_out, h2_out;\n    wire and_out, xor_out;\n\n    G g1(.inv_x(inv_x), .y(y), .v(g1_out));\n    G g2(.inv_x(inv_x), .y(y), .v(g2_out));\n    H h1(.inv_x(inv_x), .y(y), .v(h1_out));\n    H h2(.inv_x(inv_x), .y(y), .v(h2_out));\n\n    assign and_out = g1_out & h1_out;\n    assign xor_out = g2_out ^ h2_out;\n\n    assign v = ~(and_out | xor_out);\nendmodule",
+  "rename_map": {
+    "x": "inv_x"
+  },
+  "params_used": {
+    "custom_map": {
+      "G": "G_inverted",
+      "H": "H_inverted"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

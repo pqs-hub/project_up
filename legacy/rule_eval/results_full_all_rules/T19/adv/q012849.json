@@ -1,0 +1,10 @@
+{
+  "task_id": "q012849",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module gray_code_counter(\n    input clk,\n    input reset,\n    input enable,\n    output reg [7:0] count\n);\n\nreg [7:0] binary_count;\n\nalways @(posedge clk or posedge reset)\n    if (reset) begin\n        binary_count <= 8'b00000000; // Reset binary count to 0\n        count <= 8'b00000000; // Reset Gray code count to 0\n    end else if (enable) begin\n        binary_count <= binary_count + 1; // Increment binary count\n        count <= (binary_count >> 1) ^ binary_count; // Convert to Gray code\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      count <= count & 8'b01010101;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "count <= count & 8'b01010101;"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q003544",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module merge_sort (\n    input clk,\n    input [31:0] unsorted, // 4 unsigned 8-bit integers\n    output reg [31:0] sorted // 4 unsigned 8-bit integers\n);\n    reg [7:0] obf_array [0:3];\n    integer i, j;\n    \n    always @(posedge clk) begin\n        // Load inputs into obf_array\n        for (i = 0; i < 4; i = i + 1) begin\n            obf_array[i] = unsorted[8*i +: 8];\n        end\n        \n        // Merge sort implementation\n        // Simple implementation for 4 elements\n        for (i = 0; i < 4; i = i + 1) begin\n            for (j = i + 1; j < 4; j = j + 1) begin\n                if (obf_array[i] > obf_array[j]) begin\n                    // Swap\n                    {obf_array[i], obf_array[j]} = {obf_array[j], obf_array[i]};\n                end\n            end\n        end\n        \n        // Load sorted results to output\n        sorted = {obf_array[3], obf_array[2], obf_array[1], obf_array[0]};\n    end\nendmodule",
+  "rename_map": {
+    "array": "obf_array"
+  }
+}

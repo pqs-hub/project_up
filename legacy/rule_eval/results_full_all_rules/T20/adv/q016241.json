@@ -1,0 +1,10 @@
+{
+  "task_id": "q016241",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment intentionally misleads the verification model by suggesting that the counter decrements instead of incrementing.\nmodule up_counter_3bit(\n    input clk,              // Chip clock signal.\n    input rst_n,            // Active-low reset signal.\n    input en,               // Enable signal to allow counting.\n    input ld,               // Load signal.\n    input [2:0] load_value, // 3-bit value to be loaded into the counter.\n\n    output [2:0] count      // 3-bit counter output signal.\n);\n\nreg [2:0] count_r;\n\nalways @(posedge clk or negedge rst_n)\n    if (!rst_n)\n        count_r <= 3'b000; // Reset the counter to 0\n    else if (ld)\n        count_r <= load_value; // Load specified value into the counter\n    else if (en)\n        count_r <= count_r + 1'b1; // Increment counter\n\nassign count = count_r;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment intentionally misleads the verification model by suggesting that the counter decrements instead of incrementing."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q017211",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment is misleading because it suggests the counter increments on reset, which is actually the opposite of what happens.\nmodule counter_4bit (\n    input clk,\n    input reset,\n    output reg [3:0] count\n);\n\nalways @(posedge clk) begin\n    if (reset) begin\n        count <= 4'b0000;\n    end else begin\n        count <= count + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment is misleading because it suggests the counter increments on reset, which is actually the opposite of what happens."
+  }
+}

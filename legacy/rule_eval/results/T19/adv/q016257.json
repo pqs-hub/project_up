@@ -1,0 +1,6 @@
+{
+  "task_id": "q016257",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module counter_with_enable\n(\n    input clk,\n    input reset,\n    input enable,\n    output reg [3:0] count\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 4'b0000; // Clear counter to 0\n        end else if (enable) begin\n            count <= count + 1; // Increment counter if enabled\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

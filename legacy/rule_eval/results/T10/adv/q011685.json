@@ -1,0 +1,8 @@
+{
+  "task_id": "q011685",
+  "rule_id": "T10",
+  "changed": true,
+  "final": "module top_module (\n\tinput [9:0] in,\n\toutput out_contiguous_ones,\n\toutput out_less_than_five,\n\toutput out_reverse_equal);assign out_contiguous_ones = ~(~(in[9:6] == 4'b1111) | (in[8:5] == 4'b1111) | (in[7:4] == 4'b1111) | (in[6:3] == 4'b1111) | (in[5:2] == 4'b1111) | (in[4:1] == 4'b1111) & ~(in[3:0] == 4'b1111));\n\tassign out_less_than_five = (in[0] + in[1] + in[2] + in[3] + in[4] + in[5] + in[6] + in[7] + in[8] + in[9]) < 5;\n\tassign out_reverse_equal = (in[9:0] == {in[0], in[1], in[2], in[3], in[4], in[5], in[6], in[7], in[8], in[9]});\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

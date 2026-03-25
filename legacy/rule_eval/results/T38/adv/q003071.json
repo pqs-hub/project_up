@@ -1,0 +1,8 @@
+{
+  "task_id": "q003071",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module thermal_sensor_calibration (\n    input [4:0] raw_temp,\n    output [4:0] calibrated_temp\n);\n  wire temp1_(raw_temp + 5'b00011) = (raw_temp + 5'b00011);\n  wire temp2_5'b11111 = 5'b11111;\n  assign calibrated_temp = temp1_(raw_temp + 5'b00011) & temp2_5'b11111; // Adding offset of 3 and masking to 5 bits\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

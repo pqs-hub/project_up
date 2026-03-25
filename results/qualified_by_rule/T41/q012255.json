@@ -1,0 +1,6 @@
+{
+  "task_id": "q012255",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input we,\n  input re,\n  input [addr_bits-1:0] addr,\n  input [m-1:0] wd,\n  output reg [m-1:0] rd\n);parameter n = 8; // number of words\nparameter m = 16; // number of bits in each word\n\n// Calculate the number of bits needed to address n words\nlocalparam addr_bits = $clog2(n);\n\nreg [m-1:0] cache[n-1:0]; // Array to store the words\n\n// Write data to the selected word\nalways @(posedge clk) begin\n  if (we) begin\n    cache[addr] <= wd;\n  end\nend\n\n// Read data from the selected word\nalways @(*) begin\n  if (re) begin\n    rd = cache[addr];\n  end else begin\n    rd = 0;\n  end\nend\n\nendmodule"
+}

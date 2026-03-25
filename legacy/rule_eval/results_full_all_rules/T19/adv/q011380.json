@@ -1,0 +1,10 @@
+{
+  "task_id": "q011380",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n   input [7:0] A,\n   input [7:0] B,\n   input CTRL,\n   output reg [7:0] RESULT\n);always @(*) begin\n      if (CTRL == 0) begin\n         RESULT = A + B;\n      end else begin\n         RESULT = A - B;\n      end\n   end\n   \n  always @(*) begin\n    if (1'b0) begin\n      RESULT <= A & B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "RESULT <= A & B;\n"
+  }
+}

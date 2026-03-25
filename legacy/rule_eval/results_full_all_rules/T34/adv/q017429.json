@@ -1,0 +1,15 @@
+{
+  "task_id": "q017429",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module clock_gate (\n    input clk_inverted,\n    input enable,\n    output reg clk_out\n);\n\nalways @(posedge clk_inverted) begin\n    if (enable) begin\n        clk_out <= 1'b1;\n    end else begin\n        clk_out <= 1'b0;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inverted"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inverted"
+    },
+    "fallback_prefix": "clk_"
+  }
+}

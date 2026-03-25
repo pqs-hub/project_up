@@ -1,0 +1,15 @@
+{
+  "task_id": "q007143",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register_16bit(\n  input clk_inv,\n  input rst_n,\n  input [15:0] d,\n  output reg [15:0] q\n);\n\n  always @(posedge clk_inv or negedge rst_n) begin\n    if (~rst_n)\n      q <= 16'b0; // Initialize to 0\n    else begin\n      q <= d;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "reg_"
+  }
+}

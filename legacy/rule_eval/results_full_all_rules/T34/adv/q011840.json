@@ -1,0 +1,17 @@
+{
+  "task_id": "q011840",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(inv_S, I, Y);input [1:0] inv_S;\n    input [3:0] I;\n    output Y;\n\n    assign Y = inv_S[1] ? (inv_S[0] ? I[3] : I[2]) : (inv_S[0] ? I[1] : I[0]);\nendmodule",
+  "rename_map": {
+    "S": "inv_S"
+  },
+  "params_used": {
+    "custom_map": {
+      "S": "sel",
+      "I": "inps",
+      "Y": "outp"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

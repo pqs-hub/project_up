@@ -1,0 +1,6 @@
+{
+  "task_id": "q003262",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module temperature_sensor(  \n    input clk,  \n    input rst,  \n    input [3:0] temp,  \n    output reg warning  \n);  \n    always @(posedge clk or posedge rst) begin  \n        if (rst)  \n            warning <= 0;  \n        else if (temp > 4'd10)  \n            warning <= 1;  \n        else  \n            warning <= 0;  \n    end  \nendmodule"
+}

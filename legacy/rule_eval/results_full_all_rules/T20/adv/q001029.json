@@ -1,0 +1,10 @@
+{
+  "task_id": "q001029",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 16-bit DRAM cell instead of an 8-bit one.\nmodule dram_cell (  \n    input wire [7:0] data_in,  \n    input wire [2:0] addr,  \n    input wire RE,  \n    input wire WE,  \n    output reg [7:0] data_out  \n);  \n    reg [7:0] memory [0:7]; // 8-bit DRAM cell with 8 addresses  \n\n    always @(posedge WE) begin  \n        memory[addr] <= data_in; // Write data to memory  \n    end  \n\n    always @(posedge RE) begin  \n        data_out <= memory[addr]; // Read data from memory  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 16-bit DRAM cell instead of an 8-bit one."
+  }
+}

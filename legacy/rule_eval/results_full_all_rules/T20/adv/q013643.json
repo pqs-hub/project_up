@@ -1,0 +1,10 @@
+{
+  "task_id": "q013643",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the counter increments by 1 on each clock edge when enabled, but it actually increments by 2.\nmodule binary_counter_7bit (\n    input clk,\n    input reset,\n    input en,\n    output reg [6:0] q);\nalways @(posedge clk) begin\n    if (reset)\n        q <= 7'b0000000;\n    else if (en)\n        q <= q + 2;\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter increments by 1 on each clock edge when enabled, but it actually increments by 2."
+  }
+}

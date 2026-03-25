@@ -1,0 +1,8 @@
+{
+  "task_id": "q011466",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(clk, rst, out);input clk;\n   input rst;\n   output [3:0] out;\n   reg [3:0] counter;\n   assign out =  counter;\n\n     wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n      if (rst) begin\n         counter <= 0;\n      end else begin\n         counter <= counter +1;\n      end\n   end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

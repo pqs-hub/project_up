@@ -1,0 +1,6 @@
+{
+  "task_id": "q009497",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module RefModule (\n    input [7:0] a,\n    input [7:0] b,\n    input enable,\n    input reset,\n    output reg [7:0] and_result\n);\n\n    always @(*) begin\n        if (reset) begin\n            and_result = 0;\n        end else if (enable) begin\n            and_result = a & b;\n        end else begin\n            and_result = and_result; // Maintain the current value\n        end\n    end\nendmodule"
+}

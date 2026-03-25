@@ -1,0 +1,6 @@
+{
+  "task_id": "q012352",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule(\n  input clk,\n  input rst_n,\n  output reg [3:0] count\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n)\n      count <= 4'b0000;\n    else\n      count <= {~count[3], count[3:1]};\n  end\n\nendmodule"
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q002760",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module tcp_segment_classifier (\n    input [2:0] tcp_flags,\n    output reg [1:0] obf_segment_type\n);\n    always @(*) begin\n        case (tcp_flags)\n            3'b001: obf_segment_type = 2'b00; // SYN\n            3'b010: obf_segment_type = 2'b01; // ACK\n            3'b100: obf_segment_type = 2'b10; // DATA\n            default: obf_segment_type = 2'b11; // None\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "segment_type": "obf_segment_type"
+  }
+}

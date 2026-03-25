@@ -1,0 +1,15 @@
+{
+  "task_id": "q004309",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(data0, data1, data2, data3, selectInput, invalid_data);output reg [7:0] invalid_data;\n    input [7:0] data0, data1, data2, data3;\n    input [1:0] selectInput;\n\n    always @(*) begin\n        case (selectInput)\n            2'b00: invalid_data = data0;\n            2'b01: invalid_data = data1;\n            2'b10: invalid_data = data2;\n            2'b11: invalid_data = data3;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {
+    "out": "invalid_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_data"
+    },
+    "fallback_prefix": "err_"
+  }
+}

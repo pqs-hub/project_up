@@ -1,0 +1,15 @@
+{
+  "task_id": "q002243",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module watchdog_timer(  \n    input clk,  \n    input reset,  \n    input [3:0] timeout,  \n    output reg sys_reset  \n);  \n    reg [3:0] watchdog_counter;  \n    reg timeout_expired;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            watchdog_counter <= 0;  \n            sys_reset <= 0;  \n            timeout_expired <= 0;  \n        end else begin  \n            if (watchdog_counter < timeout) begin  \n                watchdog_counter <= watchdog_counter + 1;  \n                sys_reset <= 0;  \n                timeout_expired <= 0;  \n            end else begin  \n                sys_reset <= 1;  \n                timeout_expired <= 1;  \n            end  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "counter": "watchdog_counter"
+  },
+  "params_used": {
+    "custom_map": {
+      "counter": "watchdog_counter"
+    },
+    "fallback_prefix": "anti_watchdog_"
+  }
+}

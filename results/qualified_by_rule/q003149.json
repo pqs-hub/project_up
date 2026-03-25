@@ -1,0 +1,6 @@
+{
+  "task_id": "q003149",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule (  \n    input wire clk,  \n    input wire reset,  \n    input wire new_bit,  \n    output reg [1:0] out  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            out <= 2'b00;  \n        end else begin  \n            out <= {out[0], new_bit};  \n        end  \n    end  \nendmodule"
+}

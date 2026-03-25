@@ -1,0 +1,6 @@
+{
+  "task_id": "q012096",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n    input               clk         ,   \n    input               rst         ,\n    input               start       ,\n    input       [7:0]   pulse_width ,\n \n    output  reg         pulse_out\n);\n\n    reg [7:0] counter;\n    reg active;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            counter <= 0;\n            pulse_out <= 0;\n            active <= 0;\n        end\n        else begin\n            if (start && !active) begin\n                active <= 1;\n                counter <= pulse_width;\n                pulse_out <= 1;\n            end\n            else if (active) begin\n                if (counter == 0) begin\n                    active <= 0;\n                    pulse_out <= 0;\n                end\n                else begin\n                    counter <= counter - 1;\n                end\n            end\n        end\n    end\n\nendmodule"
+}

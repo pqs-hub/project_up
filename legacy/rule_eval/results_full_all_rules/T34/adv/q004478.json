@@ -1,0 +1,15 @@
+{
+  "task_id": "q004478",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register(reset, CLR, LOAD, DATA_IN, DATA_OUT);\ninput reset, CLR, LOAD;\ninput [7:0] DATA_IN;\noutput [7:0] DATA_OUT;\nreg [7:0] DATA_OUT;\n\nalways @(posedge reset or posedge CLR) begin\n    if (CLR)\n        DATA_OUT <= 0;\n    else if (LOAD)\n        DATA_OUT <= DATA_IN;\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "RST_"
+  }
+}

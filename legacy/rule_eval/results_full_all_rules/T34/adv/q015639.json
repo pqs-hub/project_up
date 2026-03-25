@@ -1,0 +1,15 @@
+{
+  "task_id": "q015639",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    X  ,\n    A  ,\n    B  ,\n    C_N,\n    D_N\n);// Module ports\n    output X  ;\n    input  A  ;\n    input  B  ;\n    input  C_N;\n    input  D_N;\n\n    // Local signals\n    wire not_nand_out;\n    wire or0_out_X;\n\n    // Logic gates using standard Verilog primitives\n    assign not_nand_out = ~(C_N & D_N); // NAND gate implementation\n    assign or0_out_X = A | B | not_nand_out; // OR gate implementation\n    assign X = or0_out_X; // Buffer output\n\nendmodule",
+  "rename_map": {
+    "nand0_out": "not_nand_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "nand0_out": "not_nand_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

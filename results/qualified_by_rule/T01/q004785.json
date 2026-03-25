@@ -1,0 +1,6 @@
+{
+  "task_id": "q004785",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n    input [1:0] bin_in,\n    input enable,\n    output reg [3:0] dec_out\n);\n\nalways @(*) begin\n    begin end  // redundant\n    if (enable) begin\n        case(bin_in)\n            2'b00: dec_out = 4'b0001; // 0\n            2'b01: dec_out = 4'b0010; // 1\n            2'b10: dec_out = 4'b0100; // 2\n            2'b11: dec_out = 4'b1000; // 3\n            default: dec_out = 4'b0000; // None\n        endcase\n    end else begin\n        dec_out = 4'b0000; // Disabled\n    end\nend\n\nendmodule"
+}

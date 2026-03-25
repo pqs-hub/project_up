@@ -1,0 +1,6 @@
+{
+  "task_id": "q015847",
+  "rule_id": "T37",
+  "changed": true,
+  "final": "module RefModule(comp1,\n    v1_reg_0);output comp1;\n  input [4:0]v1_reg_0;\n\n  wire carrynet_0;\n  wire carrynet_1;\n  wire carrynet_2;\n  wire carrynet_3;\n  wire [3:0] gm1_CARRY4_O;\n  wire [3:1] gms_ms_CARRY4_CO;\n  wire [3:0] gms_ms_CARRY4_O;\n\n  wire [3:0] DI;\n  wire [3:0] S;\n\n  // Setting default DI values and S values for comparison\n  assign DI = 4'b0000; // For the first CARRY4\n  assign S = {v1_reg_0[4], 1'b0, 1'b0, 1'b0}; // For the second CARRY4\n\n  // Implementing a 4-bit carry logic using basic gates instead of CARRY4\n  assign {carrynet_3, carrynet_2, carrynet_1, carrynet_0} = \n         (DI + {1'b0, v1_reg_0[3:0]}) >> 4;\n\n  assign gms_ms_CARRY4_CO = ((carrynet_3) && (4'b1111)) || (!(carrynet_3) && (4'b0000)); // Example implementation\n  assign gm1_CARRY4_O = carrynet_0 ? 4'b1111 : 4'b0000; // Example implementation\n\n  // Compare 5'b10101 (21 in decimal) with input v1_reg_0\n  assign comp1 = (v1_reg_0 == 5'b10101) ? 1'b1 : 1'b0;\n\nendmodule"
+}

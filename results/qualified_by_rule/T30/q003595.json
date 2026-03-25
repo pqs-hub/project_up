@@ -1,0 +1,6 @@
+{
+  "task_id": "q003595",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [2:0] channel_select,\n    output reg [2:0] selected_channel\n);\n\nalways @(posedge clk or negedge reset) begin\n    if (!reset) begin\n        selected_channel <= 3'b000; // Reset state\n    end else begin\n        selected_channel <= channel_select; // Update channel\n    end\nend\n\nendmodule"
+}

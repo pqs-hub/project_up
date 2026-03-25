@@ -1,0 +1,6 @@
+{
+  "task_id": "q016624",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n\tinput clk,\n\tinput reset_n,\n\tinput [10:0] fnumber,\n\tinput [2:0] block,\n  input [3:0] multiple,\n  input ce_n, \n\toutput [9:0]phase );\nreg [19:0] count;\nwire __phase_tmp = count[19:10];\nassign phase = __phase_tmp;\nwire [19:0]fmult = fnumber << (block-1);\nalways @(posedge clk or negedge reset_n ) begin\n\tif( !reset_n )\n\t\tcount <= 20'b0;\n\telse begin\n\t  if( !ce_n )\n  \t  count <= count + ( multiple==4'b0 ? fmult>> 1 : fmult*multiple);\n  \telse \n  \t  count <= count;\n\tend\nend\nendmodule"
+}

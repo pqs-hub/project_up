@@ -1,0 +1,8 @@
+{
+  "task_id": "q008384",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input in1,\n  input in2,\n  input in3,\n  input in4,\n  output out\n);// Majority gate\n  wire _tap_in1 = in1 & {1{1'b1}};\n\n  wire majority = (in1 & in2 & in3) | (in1 & in2 & in4) | (in1 & in3 & in4) | (in2 & in3 & in4);\n\n  // Parity gate\n  wire parity = in1 ^ in2 ^ in3 ^ in4;\n\n  // XOR gate\n  assign out = majority ^ parity;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

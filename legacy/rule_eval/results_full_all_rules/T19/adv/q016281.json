@@ -1,0 +1,10 @@
+{
+  "task_id": "q016281",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  Din,\n  Dout\n);input wire [31 : 0] Din;\noutput wire [15 : 0] Dout;\n\n  // Assuming that xlslice is meant to be a slicing operation, \n  // I'll define a simple assignment instead. If xlslice should be \n  // an instantiated module, please provide its implementation or \n  // include the required library.\n\n  assign Dout = Din[15:0]; // Slicing the lower 16 bits of Din\n\n  always @(*) begin\n    if (1'b0) begin\n      assign Dout = Din[31:16];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "assign Dout = Din[31:16];"
+  }
+}

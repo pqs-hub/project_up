@@ -1,0 +1,19 @@
+{
+  "task_id": "q010437",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_4to1(\n\tinput \tin_a,\n\tinput \tin1,\n\tinput \tin2,\n\tinput \tin3,\n\tinput \t[1:0] sel,\n\toutput \tout\n);\n\nassign out = (sel == 2'b00) ? in_a :\n             (sel == 2'b01) ? in1 :\n             (sel == 2'b10) ? in2 :\n                              in3;\n\nendmodule",
+  "rename_map": {
+    "in0": "in_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "in0": "in_a",
+      "in1": "in_b",
+      "in2": "in_c",
+      "in3": "in_d",
+      "sel": "ctrl"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014825",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module RefModule(\n    input [2:0] op,\n    input [15:0] a,\n    input [15:0] b,\n    output [15:0] out\n);wire [15:0] not_a;\nassign not_a = ~a;\n\nwire [15:0] and_result;\n  wire temp1_a = a;\n  wire temp2_b = b;\n  assign and_result = temp1_a & temp2_b;\n\nwire [15:0] or_result;\nassign or_result = a | b;\n\nwire [15:0] xor_result;\nassign xor_result = a ^ b;\n\nwire [15:0] left_shift_result;\nassign left_shift_result = a << b[3:0];\n\nwire [15:0] right_shift_result;\nassign right_shift_result = a >> b[3:0];\n\nassign out = (op == 0) ? and_result :\n             (op == 1) ? or_result :\n             (op == 2) ? xor_result :\n             (op == 3) ? not_a :\n             (op == 4) ? left_shift_result :\n                         right_shift_result;\n\nendmodule"
+}

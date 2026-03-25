@@ -1,0 +1,17 @@
+{
+  "task_id": "q003387",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ARQ_System (\n    input wire clk,\n    input wire rst,\n    input wire [4:0] data_in,\n    input wire ack,\n    output reg [4:0] data_out\n);\n    reg [4:0] arq_last_data;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            data_out <= 5'b00000; // Reset output\n            arq_last_data <= 5'b00000; // Reset last data\n        end else begin\n            if (ack) begin\n                data_out <= data_in; // Send new data\n                arq_last_data <= data_in; // Update last data\n            end else begin\n                data_out <= arq_last_data; // Re-transmit last data\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "last_data": "arq_last_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "received_data",
+      "ack": "correct_flag",
+      "data_out": "transmitted_data"
+    },
+    "fallback_prefix": "arq_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004888",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(CLK, RST, EN, COUNT);\ninput CLK, RST, EN;\noutput reg [3:0] COUNT;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        COUNT <= 4'b0000;\n    else if (EN)\n        COUNT <= COUNT + 2;\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004610",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input ram_full_fb_i_reg,\n    input tmp_ram_rd_en,\n    input [12-1:1-1] Q,\n    input [63:0] din,\n    output reg [63:0] dout, // Changed to reg type\n    input [0:0] out\n);reg [63:0] memory [4096:0]; // 4096 locations, 64 bits each\n    reg [11:0] address; // register to hold the memory address\n    wire write_enable = ~ram_full_fb_i_reg & ~tmp_ram_rd_en; // enable write if memory is not full and not being read from\n\n    always @(posedge clk) begin\n        if (tmp_ram_rd_en) begin\n            dout <= memory[Q]; // This assignment is now valid\n        end else if (write_enable) begin\n            memory[Q] <= din;\n        end\n    end\n\n    assign out = ram_full_fb_i_reg & ~tmp_ram_rd_en; // set output signal high if memory is full and a write operation is attempted\n\nendmodule"
+}

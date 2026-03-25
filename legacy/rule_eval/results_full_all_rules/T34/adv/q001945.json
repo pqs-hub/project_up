@@ -1,0 +1,15 @@
+{
+  "task_id": "q001945",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module polynomial_evaluation (\n    input [3:0] a, // Coefficient a\n    input [3:0] b, // Coefficient b\n    input [3:0] c, // Coefficient c\n    input [3:0] x, // Input x\n    output [7:0] result // Result of P(x)\n);\n    wire [7:0] y_cubed;\n    wire [7:0] ax_squared;\n    wire [7:0] bx;\n    \n    assign y_cubed = x * x;         // x^2\n    assign ax_squared = a * y_cubed; // ax^2\n    assign bx = b * x;                 // bx\n    assign result = ax_squared + bx + c; // P(x) = ax^2 + bx + c\nendmodule",
+  "rename_map": {
+    "x_squared": "y_cubed"
+  },
+  "params_used": {
+    "custom_map": {
+      "x_squared": "y_cubed"
+    },
+    "fallback_prefix": "z_"
+  }
+}

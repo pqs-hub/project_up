@@ -1,0 +1,6 @@
+{
+  "task_id": "q000840",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [31:0] ipv4_in,\n    input [15:0] port_in,\n    output reg [31:0] ipv4_out,\n    output reg [15:0] port_out,\n    output reg valid\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            ipv4_out <= 32'b0;\n            port_out <= 16'b0;\n            valid <= 1'b0;\n        end else begin\n            ipv4_out <= {8'd192, ipv4_in[23:0]};\n            port_out <= port_in + 16'd1000;\n            valid <= 1'b1;\n        end\n    end\nendmodule"
+}

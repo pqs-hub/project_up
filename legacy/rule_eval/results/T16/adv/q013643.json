@@ -1,0 +1,9 @@
+{
+  "task_id": "q013643",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module binary_counter_7bit (\n    input obf_clk,\n    input reset,\n    input en,\n    output reg [6:0] q);\nalways @(posedge obf_clk) begin\n    if (reset)\n        q <= 7'b0000000;\n    else if (en)\n        q <= q + 2;\nend\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

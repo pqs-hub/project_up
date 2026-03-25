@@ -1,0 +1,6 @@
+{
+  "task_id": "q001426",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input start,\n    input map_done,\n    output reg [1:0] state\n);\n    parameter IDLE = 2'b00, MAP = 2'b01, LOCALIZE = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: if (start) state <= MAP;\n                MAP: if (map_done) state <= LOCALIZE;\n                LOCALIZE: if (reset) state <= IDLE;\n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule"
+}

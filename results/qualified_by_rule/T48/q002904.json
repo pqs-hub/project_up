@@ -1,0 +1,6 @@
+{
+  "task_id": "q002904",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule (  \n    input wire clk,  \n    input wire reset,  \n    input wire [7:0] key,  \n    input wire [7:0] message,  \n    output reg [7:0] mac  \n);  \n    reg [7:0] combined;  \n  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            mac <= 8'b0;  \n            combined <= 8'b0;  \n        end else begin  \n            combined <= key ^ message; // Simple XOR operation as the hash function  \n            mac <= combined;  \n        end  \n    end  \nendmodule"
+}

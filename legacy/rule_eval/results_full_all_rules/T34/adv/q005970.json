@@ -1,0 +1,15 @@
+{
+  "task_id": "q005970",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    Y,\n    A\n);// Module ports\n    output Y;\n    input  A;\n\n    // Local signals\n    wire misleading_not0_out_Y;\n\n    //  Name  Output      Other arguments\n    not not0 (misleading_not0_out_Y, A              );\n    assign Y = misleading_not0_out_Y;\n\nendmodule",
+  "rename_map": {
+    "not0_out_Y": "misleading_not0_out_Y"
+  },
+  "params_used": {
+    "custom_map": {
+      "not0_out_Y": "invalid_not0_out_Y"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

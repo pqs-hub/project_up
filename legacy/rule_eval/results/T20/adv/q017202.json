@@ -1,0 +1,6 @@
+{
+  "task_id": "q017202",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule dffr(\n    output reg Q,\n    input D,\n    input C,\n    input R\n);\n    parameter [0:0] INIT = 1'b0;\n    initial Q = INIT;\n\n    always @(posedge C or negedge R)\n        if (!R)\n            Q <= 1'b0;\n        else \n            Q <= D;\nendmodule"
+}

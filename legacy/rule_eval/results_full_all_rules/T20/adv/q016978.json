@@ -1,0 +1,10 @@
+{
+  "task_id": "q016978",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module calculates the parity of an 8-bit input data. It outputs 1 if the number of 1's in the input data is even, and 0 if the number of 1's is odd. However, if the control signal is 1, it outputs the opposite of what would normally be expected.\nmodule parity_check (\n  input [7:0] data_in,\n  input control,\n  output reg parity\n);\n\n  integer i;\n  reg [7:0] data_temp;\n  \n  always @ (data_in, control) begin\n    if (control == 0) begin\n      parity <= 0;\n    end else begin\n      data_temp = data_in;\n      parity = 0;\n      for (i = 0; i < 8; i = i + 1) begin\n        parity = parity ^ data_temp[i];\n      end\n    end\n  end\n\nendmodule\n",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module calculates the parity of an 8-bit input data. It outputs 1 if the number of 1's in the input data is even, and 0 if the number of 1's is odd. However, if the control signal is 1, it outputs the opposite of what would normally be expected."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q008088",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(i0,i1,sum);input [31:0] i0,i1;\n  output [31:0] sum;\n    wire _n01 = i0[0] ^ i1[0];\n  wire _c01 = i0[0] & i1[0];\n  wire _n02 = i0[1] ^ i1[1] ^ _c01;\n  wire _c02 = (i0[1] & i1[1]) | (i0[1] & _c01) | (i1[1] & _c01);\n  wire _n03 = i0[2] ^ i1[2] ^ _c02;\n  wire _c03 = (i0[2] & i1[2]) | (i0[2] & _c02) | (i1[2] & _c02);\n  wire _n04 = i0[3] ^ i1[3] ^ _c03;\n  wire _c04 = (i0[3] & i1[3]) | (i0[3] & _c03) | (i1[3] & _c03);\n  assign sum = {_n01, _n02, _n03, _n04};endmodule"
+}

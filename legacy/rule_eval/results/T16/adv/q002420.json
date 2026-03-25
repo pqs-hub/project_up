@@ -1,0 +1,9 @@
+{
+  "task_id": "q002420",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module rnn_cell (\n    input [3:0] x,        // 4-bit input\n    input [3:0] h_prev,   // 4-bit previous hidden state\n    output reg [3:0] obf_h_out // 4-bit output (new hidden state)\n);\n    always @(*) begin\n        obf_h_out = x ^ h_prev; // XOR operation for the output\n    end\nendmodule",
+  "rename_map": {
+    "h_out": "obf_h_out"
+  }
+}

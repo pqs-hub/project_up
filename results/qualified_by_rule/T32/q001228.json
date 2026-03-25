@@ -1,0 +1,6 @@
+{
+  "task_id": "q001228",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule (\n    input [5-1:1-1] input_voltage,\n    output reg [2:0] output_voltage\n);\n\nalways @(*) begin\n    if (input_voltage <= 5'b00010) \n        output_voltage = 3'b000; // Output 0V\n    else if (input_voltage > 5'b00010 && (input_voltage - 5'b00010) >= 0) \n        output_voltage = input_voltage - 5'b00010; // Output input_voltage - 2\n    else\n        output_voltage = 3'b000; // Ensure output is not negative\nend\n\nendmodule"
+}

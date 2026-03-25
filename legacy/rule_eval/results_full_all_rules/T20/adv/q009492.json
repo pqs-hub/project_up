@@ -1,0 +1,10 @@
+{
+  "task_id": "q009492",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module performs bitwise NOT operations instead of AND, OR, XOR, and NAND based on the control signal.\nmodule top_module(\n  input [3:0] a,\n  input [3:0] b,\n  input [1:0] ctrl,\n  output reg [3:0] out\n);always @(*) begin\n  case (ctrl)\n    2'b00: out = a & b;\n    2'b01: out = a | b;\n    2'b10: out = a ^ b;\n    2'b11: out = ~(a & b);\n    default: out = 4'b0;\n  endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs bitwise NOT operations instead of AND, OR, XOR, and NAND based on the control signal."
+  }
+}

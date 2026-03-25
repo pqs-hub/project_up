@@ -1,0 +1,10 @@
+{
+  "task_id": "q012406",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // When zx is 10, n should be 1; when zx is 11, n should be 0; when zx is 00, n should be 0; when zx is 01, n should be 1.\nmodule top_module (\n    input z,\n    input x,\n    output reg n\n);\n    always @(*) begin\n        case ({z, x})\n            2'b10: n = 1'b0;\n            2'b11: n = 1'b1;\n            2'b00: n = 1'b1;\n            2'b01: n = 1'b0;\n        endcase\n    end\nendmodule\n",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When zx is 10, n should be 1; when zx is 11, n should be 0; when zx is 00, n should be 0; when zx is 01, n should be 1."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q016871",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module calculator(input [7:0] num1, num2, input [2:0] opcode, input rst, output reg [7:0] result);\n\nalways @(posedge rst) begin\n    case(opcode)\n        3'b000: result <= num1 + num2;\n        3'b001: result <= num1 - num2;\n        3'b010: result <= num1 * num2;\n        3'b011: result <= num1 / num2;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

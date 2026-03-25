@@ -1,0 +1,12 @@
+{
+  "task_id": "q000012",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input wire clk,\n    input wire rst,\n    output reg [3:0] count\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        count <= 4'b0000;\n    end else begin\n        count <= count + 1;\n    end\nend\n\nendmodule",
+  "adversarial_code": "module TopModule (\n    input wire clk,\n    input wire rst,\n    output reg [3:0] count\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        count <= 4'b0000;\n    end else begin\n        count <= count + 1;\n    end\nend\n\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

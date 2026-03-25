@@ -1,0 +1,9 @@
+{
+  "task_id": "q000530",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module CarrierFrequencyRecovery (\n    input wire clk,\n    input wire reset,\n    input wire modulated_signal,\n    output reg obf_carrier_signal\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            obf_carrier_signal <= 0;\n        end else begin\n            // Toggle the obf_carrier_signal on the rising edge of the modulated_signal\n            if (modulated_signal) begin\n                obf_carrier_signal <= ~obf_carrier_signal;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "carrier_signal": "obf_carrier_signal"
+  }
+}

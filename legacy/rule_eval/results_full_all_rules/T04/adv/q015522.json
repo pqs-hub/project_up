@@ -1,0 +1,10 @@
+{
+  "task_id": "q015522",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // When memread is high, select ALU output; when memread is low, choose memory output\nmodule top_module( alu_v, mem_v, memread, \n            reg_write_data);input [31:0] alu_v, mem_v;\n    input memread;\n    output [31:0] reg_write_data;\n    \n    assign reg_write_data = (memread == 0) ? alu_v : mem_v;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When memread is high, select ALU output; when memread is low, choose memory output"
+  }
+}

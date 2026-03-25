@@ -1,0 +1,15 @@
+{
+  "task_id": "q015490",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module reg_file(\n    input clk,\n    input rst,\n    input we,\n    input [2:0] ra1,\n    input [2:0] ra2,\n    input [2:0] wa,\n    input [31:0] wd,\n\n    output reg [31:0] rd1,\n    output reg [31:0] rd2\n);\n\nreg [31:0] mem[7:0];\n\nalways@(posedge clk or posedge rst)\nbegin\n    if(rst)\n    begin\n        mem[0] <= 0;\n        mem[1] <= 0;\n        mem[2] <= 0;\n        mem[3] <= 0;\n        mem[4] <= 0;\n        mem[5] <= 0;\n        mem[6] <= 0;\n        mem[7] <= 0;\n    end\n    else if(we)\n        mem[wa] <= wd;\nend\n\nalways@(*)\nbegin\n    rd1 = mem[ra1];\n    rd2 = mem[ra2];\nend\n\nendmodule",
+  "rename_map": {
+    "regs": "mem"
+  },
+  "params_used": {
+    "custom_map": {
+      "regs": "mem"
+    },
+    "fallback_prefix": "_rf_"
+  }
+}

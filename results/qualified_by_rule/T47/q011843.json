@@ -1,0 +1,6 @@
+{
+  "task_id": "q011843",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(\n    input wire [31:0] imm,\n    input wire [31:0] pc,\n    output wire [31:0] hik\n    );  wire _n01 = imm[0] ^ pc[0];\n  wire _c01 = imm[0] & pc[0];\n  wire _n02 = imm[1] ^ pc[1] ^ _c01;\n  wire _c02 = (imm[1] & pc[1]) | (imm[1] & _c01) | (pc[1] & _c01);\n  wire _n03 = imm[2] ^ pc[2] ^ _c02;\n  wire _c03 = (imm[2] & pc[2]) | (imm[2] & _c02) | (pc[2] & _c02);\n  wire _n04 = imm[3] ^ pc[3] ^ _c03;\n  wire _c04 = (imm[3] & pc[3]) | (imm[3] & _c03) | (pc[3] & _c03);\n  assign hik = {_n01, _n02, _n03, _n04};\n\nendmodule"
+}

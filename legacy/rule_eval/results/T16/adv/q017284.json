@@ -1,0 +1,9 @@
+{
+  "task_id": "q017284",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module counter_4bit (\n  input obf_clk,\n  input reset,\n  input enable,\n  output reg [3:0] count\n);\n\nalways @(posedge obf_clk) begin\n  if (reset) begin\n    count <= 4'b0000;\n  end else if (enable) begin\n    count <= count + 4'b0001;\n  end\nend\n\nendmodule\n",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

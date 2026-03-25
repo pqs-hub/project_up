@@ -1,0 +1,8 @@
+{
+  "task_id": "q013949",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module (\n    input clk,\n    input reset,\n    output reg [4-1:1-1] q\n);\n\n    // Gray code counter logic\n    always @(posedge clk) begin\n        if (reset)\n            q <= 4'b0000;\n        else begin\n            case (q)\n                4'b0000: q <= 4'b0001;\n                4'b0001: q <= 4'b0011;\n                4'b0011: q <= 4'b0010;\n                4'b0010: q <= 4'b0110;\n                4'b0110: q <= 4'b0111;\n                4'b0111: q <= 4'b0101;\n                4'b0101: q <= 4'b0100;\n                4'b0100: q <= 4'b1100;\n                4'b1100: q <= 4'b1101;\n                4'b1101: q <= 4'b1111;\n                4'b1111: q <= 4'b1110;\n                4'b1110: q <= 4'b1010;\n                4'b1010: q <= 4'b1011;\n                4'b1011: q <= 4'b1001;\n                4'b1001: q <= 4'b1000;\n                4'b1000: q <= 4'b0000;\n                default: q <= 4'b0000;\n            endcase\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

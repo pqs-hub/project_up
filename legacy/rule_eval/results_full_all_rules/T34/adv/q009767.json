@@ -1,0 +1,15 @@
+{
+  "task_id": "q009767",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(q, d, async_reset, clk);output q;\n\tinput d, async_reset, clk;\n\treg q; \n\talways @(posedge clk or posedge async_reset)\n\tif (async_reset)\n\tq = 0; \n\telse\n\tq = d;\nendmodule",
+  "rename_map": {
+    "reset": "async_reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "reset": "async_reset"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

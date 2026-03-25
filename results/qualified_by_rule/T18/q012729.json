@@ -1,0 +1,6 @@
+{
+  "task_id": "q012729",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule (\n    input [1:0] bin,\n    input en,\n    output reg [3:0] dec);\n    \n    always @(*) begin\n        if (en)\n            case (bin)\n                2'b00: dec = 4'b0001;\n                2'b01: dec = 4'b0010;\n                2'b10: dec = 4'b0100;\n                2'b11: dec = 4'b1000;\n                default: dec = 4'b0000;\n            endcase\n        else\n            dec = 4'b0000;\n    end\n    \nendmodule"
+}

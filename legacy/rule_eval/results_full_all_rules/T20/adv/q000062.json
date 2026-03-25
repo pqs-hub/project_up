@@ -1,0 +1,10 @@
+{
+  "task_id": "q000062",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module converts a 5-bit binary input representing a current level into a 3-bit binary code indicating the severity of undercurrent conditions.\nmodule current_sensor (\n    input [4:0] current_level,\n    output reg [2:0] severity\n);\n\nalways @(*) begin\n    if (current_level <= 5'd10)\n        severity = 3'b000; // normal\n    else if (current_level <= 5'd20)\n        severity = 3'b001; // warning\n    else if (current_level <= 5'd30)\n        severity = 3'b010; // critical\n    else\n        severity = 3'b011; // danger\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module converts a 5-bit binary input representing a current level into a 3-bit binary code indicating the severity of undercurrent conditions."
+  }
+}

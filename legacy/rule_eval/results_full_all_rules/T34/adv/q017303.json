@@ -1,0 +1,15 @@
+{
+  "task_id": "q017303",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_to_gray_4bit (\n    input [3:0] _inv_B,\n    output reg [3:0] G\n);\n\nalways @(*) begin\n    G[3] = _inv_B[3];\n    G[2] = _inv_B[3] ^ _inv_B[2];\n    G[1] = _inv_B[2] ^ _inv_B[1];\n    G[0] = _inv_B[1] ^ _inv_B[0];\nend\n\nendmodule",
+  "rename_map": {
+    "B": "_inv_B"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary_to_gray_4bit": "gray_code_converter"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

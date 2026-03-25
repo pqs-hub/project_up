@@ -1,0 +1,9 @@
+{
+  "task_id": "q014353",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module priority_encoder(obf_IN,OUT);\ninput [3:0] obf_IN;\noutput reg [1:0] OUT;\n\nalways @(*) begin\n\tcasez (obf_IN)\n\t\t4'b1???: OUT = 2'b11;\n\t\t4'b01??: OUT = 2'b10;\n\t\t4'b001?: OUT = 2'b01;\n\t\t4'b0001: OUT = 2'b00;\n\t\tdefault: OUT = 2'b00;\n\tendcase\nend\n\nendmodule",
+  "rename_map": {
+    "IN": "obf_IN"
+  }
+}

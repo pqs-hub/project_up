@@ -1,0 +1,10 @@
+{
+  "task_id": "q009078",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 16-bit down-counter with an enable signal. When enabled, the counter decrements by 1 on every positive clock edge. The counter has an asynchronous clear signal that resets the counter to 0 when asserted.\nmodule top_module(\n\tinput clk,\n\tinput clr,\n\tinput ena,\n\toutput reg [15:0] q);always @(posedge clk or posedge clr) begin\n\t\tif (clr)\n\t\t\tq <= 16'b0;\n\t\telse if (ena)\n\t\t\tq <= q + 1;\n\tend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 16-bit down-counter with an enable signal. When enabled, the counter decrements by 1 on every positive clock edge. The counter has an asynchronous clear signal that resets the counter to 0 when asserted."
+  }
+}

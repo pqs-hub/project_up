@@ -1,0 +1,7 @@
+{
+  "task_id": "q000635",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module clock_gating_ff (\n    input wire clk,\n    input wire enable,\n    input wire data_in,\n    output reg data_out\n);\n    reg gated_clk;\n\n    always @(clk or enable) begin\n        gated_clk = clk & enable; // Gating clock based on enable signal\n    end\n\n    always @(gated_clk) begin\n        if (gated_clk) begin\n            data_out <= data_in; // Register data on gated clock\n        end\n    end\nendmodule",
+  "rename_map": {}
+}

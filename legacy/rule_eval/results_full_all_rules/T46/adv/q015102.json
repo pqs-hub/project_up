@@ -1,0 +1,8 @@
+{
+  "task_id": "q015102",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(clk, rstn, load, shift, parallelin, lsbout);input clk; \n  input rstn; \n  input load; \n  input shift; \n  input [7:0] parallelin; \n  output lsbout; \n  reg [7:0] shiftreg; \n  assign lsbout = shiftreg[0]; \n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rstn or posedge dbg_halt) begin \n  if(rstn == 0) \n  shiftreg <= 0; \n  else begin \n  if(load == 1) \n  shiftreg <= parallelin; \n  else if (shift == 1) begin \n  shiftreg[6:0] <= shiftreg[7:1]; \n  shiftreg[7] <= 0; \n  end \n  end \n  end \n endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

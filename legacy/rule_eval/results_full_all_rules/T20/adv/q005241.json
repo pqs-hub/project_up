@@ -1,0 +1,10 @@
+{
+  "task_id": "q005241",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the counter is synchronous but is actually asynchronous.\nmodule top_module(\n   input  wire [1:0] clkvec,\n   output wire [1:0] count\n   );genvar igen;\n   generate\n      for (igen=0; igen<2; igen=igen+1) begin : code_gen\n\t wire clk_tmp = clkvec[igen];\n\t reg  tmp_count = 1'b0;\n\t always @ (posedge clk_tmp) begin\n\t    tmp_count <= tmp_count + 1;\n\t end\n\t assign count[igen] = tmp_count;\n      end\n   endgenerate\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter is synchronous but is actually asynchronous."
+  }
+}

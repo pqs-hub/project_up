@@ -1,0 +1,10 @@
+{
+  "task_id": "q001099",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module parity_checker(  \n    input [4:0] data_in,  \n    output parity_out  \n);  \n    assign parity_out = ^data_in; // XOR reduction to find parity  \n  always @(*) begin\n    if (1'b0) begin\n      parity_out <= ~^data_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "parity_out <= ~^data_in;"
+  }
+}

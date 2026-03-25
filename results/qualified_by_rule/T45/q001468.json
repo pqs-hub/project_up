@@ -1,0 +1,6 @@
+{
+  "task_id": "q001468",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [7:0] A,\n    input [7:0] B,\n    input [7:0] C,\n    output reg [7:0] S2\n);\n\n    reg [7:0] S1;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            S1 <= 0;\n            S2 <= 0;\n        end else begin\n            S1 <= A + B;\n            S2 <= S1 + C;\n        end\n    end\nendmodule"
+}

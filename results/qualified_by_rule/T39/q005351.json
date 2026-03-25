@@ -1,0 +1,6 @@
+{
+  "task_id": "q005351",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule(\n    input signed [15:0] in,\n    output reg [15:0] out\n);reg signed [15:0] stage1_out;\nreg signed [15:0] stage2_out;\n\nalways @(in) begin\n    stage1_out <= in;\nend\n\nalways @(stage1_out) begin\n    if (stage1_out < 0) begin\n        stage2_out <= -stage1_out;\n    end else begin\n        stage2_out <= stage1_out;\n    end\nend\n\nalways @(stage2_out) begin\n    out <= stage2_out;\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q011195",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(branchPC, isBranchTaken,\n\t\t  branchTarget, op1, isRet, isUBranch, isBeq, flagsE, isBgt, flagsGT);input [31:0] branchTarget, op1;\n   input \tisUBranch, isBeq, isBgt, flagsGT, flagsE, isRet;\n   output [31:0] branchPC;\n   output \t isBranchTaken;\n   assign branchPC = (isRet) ? op1 : branchTarget;\n   assign isBranchTaken = isUBranch | (isBeq & flagsE) | (isBgt & flagsGT);\nendmodule"
+}

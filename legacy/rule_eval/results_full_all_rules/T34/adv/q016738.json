@@ -1,0 +1,16 @@
+{
+  "task_id": "q016738",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module signal_converter(\n    input [3:0] in_sig,\n    output reg [1:0] output_signal\n);\n\nalways @(*) begin\n    if (in_sig < 4) begin\n        output_signal = 2'b00;\n    end else if (in_sig < 8) begin\n        output_signal = 2'b01;\n    end else if (in_sig < 12) begin\n        output_signal = 2'b10;\n    end else begin\n        output_signal = 2'b11;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "input_signal": "in_sig"
+  },
+  "params_used": {
+    "custom_map": {
+      "input_signal": "in_sig",
+      "output_signal": "out_sig"
+    },
+    "fallback_prefix": "_alt_"
+  }
+}

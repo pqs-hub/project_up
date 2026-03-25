@@ -1,0 +1,10 @@
+{
+  "task_id": "q013720",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Asynchronous reset synchronously resets the counter\nmodule top_module (\n    input clk,\n    input reset,\n    input enable,\n    output reg [2:0] q\n);\n\n    // Binary counter with enable logic\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            q <= 3'b000;\n        else if (enable)\n            q <= q + 1;\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous reset synchronously resets the counter"
+  }
+}

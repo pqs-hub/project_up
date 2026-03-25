@@ -1,0 +1,10 @@
+{
+  "task_id": "q004528",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input [2:0] OP,\n    output reg [3:0] Y\n);always @(*) begin\n    case(OP)\n        3'b000: Y = A + B; // Addition\n        3'b001: Y = A - B; // Subtraction\n        3'b010: Y = A & B; // Bitwise AND\n        3'b011: Y = A | B; // Bitwise OR\n        3'b100: Y = A ^ B; // Bitwise XOR\n        default: Y = 4'bXXXX; // Invalid operation\n    endcase\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Y = A & B;\n      Y = A | B;\n      Y = A ^ B;\n      Y = A + B;\n      Y = A - B;\n      Y = 4'bXXXX;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y = A & B;\nY = A | B;\nY = A ^ B;\nY = A + B;\nY = A - B;\nY = 4'bXXXX;"
+  }
+}

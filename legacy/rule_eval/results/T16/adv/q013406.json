@@ -1,0 +1,9 @@
+{
+  "task_id": "q013406",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module priority_encoder_8bit(\n    input wire [7:0] one_hot,\n    output reg [2:0] obf_binary_out\n    );\n\nalways @(*) begin\n    case (one_hot)\n        8'b10000000: obf_binary_out = 3'b111;\n        8'b01000000: obf_binary_out = 3'b110;\n        8'b00100000: obf_binary_out = 3'b101;\n        8'b00010000: obf_binary_out = 3'b100;\n        8'b00001000: obf_binary_out = 3'b011;\n        8'b00000100: obf_binary_out = 3'b010;\n        8'b00000010: obf_binary_out = 3'b001;\n        8'b00000001: obf_binary_out = 3'b000;\n        default: obf_binary_out = 3'b000;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "binary_out": "obf_binary_out"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q000479",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module compresses a 5-bit signed input to a 5-bit signed output with a dynamic range reduction. Inputs below -2 or above 2 are mapped to 2 and -2 respectively, while inputs within the range [-2, 2] are passed through unchanged.\nmodule dynamic_range_compressor(  \n    input signed [4:0] in_signal,  \n    output signed [4:0] out_signal  \n);  \n    assign out_signal = (in_signal < -2) ? -2 :  \n                        (in_signal > 2) ? 2 :  \n                        in_signal;  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module compresses a 5-bit signed input to a 5-bit signed output with a dynamic range reduction. Inputs below -2 or above 2 are mapped to 2 and -2 respectively, while inputs within the range [-2, 2] are passed through unchanged."
+  }
+}

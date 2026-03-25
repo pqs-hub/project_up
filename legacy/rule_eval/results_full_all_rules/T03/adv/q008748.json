@@ -1,0 +1,8 @@
+{
+  "task_id": "q008748",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input [5:0] op,\n    input [31:0] alu_result,\n    input [31:0] dm_data,\n    output [31:0] result\n    );function [31:0] result_gen;\n  wire [5:0] _tap_op = op & {6{1'b1}};\n\n        input [5:0] op;\n        input [31:0] alu_result, dm_data;\n        case(op)\n            6'd16:result_gen=dm_data;\n            6'd18:result_gen={{16{dm_data[15]}},dm_data[15:0]};\n            6'd20:result_gen={{24{dm_data[7]}},dm_data[7:0]};\n            default:result_gen=alu_result;\n        endcase\n    endfunction\n\n    assign result = result_gen(op,alu_result,dm_data);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

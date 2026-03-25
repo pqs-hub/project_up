@@ -1,0 +1,6 @@
+{
+  "task_id": "q002596",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(  \n    input wire clk,  \n    input wire update,  \n    input wire [3:0] timeout,  \n    output reg reset  \n);  \n    reg [3:0] counter;  \n\n    always @(posedge clk) begin  \n        if (update)  \n            counter <= timeout;  \n        else if (counter > 0)  \n            counter <= counter - 1;  \n\n        reset <= (counter == 0);  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

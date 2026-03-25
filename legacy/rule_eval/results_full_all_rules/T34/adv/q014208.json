@@ -1,0 +1,15 @@
+{
+  "task_id": "q014208",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(rst, rw, X, Y, Z, Pset, Pid, Pz, Px, Py, Pval);input rst;\n  input rw; \n  input [1:0] X;\n  input [1:0] Y;\n  input [1:0] Z;\n  input [1:0] Pid;\n  input Pz;\n  input Pset;\n  output Px;\n  output Py;\n  output Pval;\n  \n  reg regfile [3:0];\n  integer i;\n  \n  always @ (*) begin\n    if (rst) begin\n      \n      regfile[0] <= 1;\n      regfile[1] <= 1;\n      regfile[2] <= 0;\n      regfile[3] <= 0;\n    end else begin\n      if(rw == 1)\n        regfile[Z] <= Pz;\n    end\n  end\n  \n  assign Px = regfile[X];\n  assign Py = regfile[Y];\n  assign Pval = (Pset == 1) ? regfile[Pid] : 1'b1;endmodule",
+  "rename_map": {
+    "pregs": "regfile"
+  },
+  "params_used": {
+    "custom_map": {
+      "pregs": "regfile"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

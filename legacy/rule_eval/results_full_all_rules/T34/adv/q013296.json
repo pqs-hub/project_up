@@ -1,0 +1,15 @@
+{
+  "task_id": "q013296",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(reset_clk, rst, count);input reset_clk, rst;\noutput reg [3:0] count;\n\nalways @(posedge reset_clk)\nbegin\n    if(rst)\n        count <= 4'b0000;\n    else if(count == 4'b1111)\n        count <= 4'b0000;\n    else\n        count <= count + 1;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

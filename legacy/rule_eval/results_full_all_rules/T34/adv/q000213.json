@@ -1,0 +1,16 @@
+{
+  "task_id": "q000213",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module packet_filter(\n    input [15:0] blocked_src_addr,\n    input [15:0] dest_addr,\n    input [15:0] allowed_src_addr,\n    input [15:0] allowed_dest_addr,\n    output reg allow\n);\n    always @(*) begin\n        if (blocked_src_addr == allowed_src_addr && dest_addr == allowed_dest_addr) \n            allow = 1'b1;\n        else \n            allow = 1'b0;\n    end\nendmodule",
+  "rename_map": {
+    "src_addr": "blocked_src_addr"
+  },
+  "params_used": {
+    "custom_map": {
+      "src_addr": "blocked_src_addr",
+      "allowed_src_addr": "disallowed_src_addr"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

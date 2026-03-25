@@ -1,0 +1,10 @@
+{
+  "task_id": "q009122",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a simple ROM instead of a RAM\nmodule top_module(\n    input clk,\n    input [7:0] addr,\n    output reg [31:0] data,\n\t input write,\n\t input [7:0] addr_wr,\n\t input [31:0] data_in\n    );reg [31:0] program_array [0:255];\n\n\t always @(posedge clk)\n    begin\n        if (write) begin\n            program_array[addr_wr] <= data_in;\n        end\n    end\t\n\n\t always @(posedge clk)\n    begin\n        data <= program_array[addr];\n    end\t\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a simple ROM instead of a RAM"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q013875",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(out, in0, s0, in1, s1, in2, s2, in3, s3);parameter bits = 32; \n output [bits-1:0] out; \n input [bits-1:0] in0, in1, in2, in3; \n input s0, s1, s2, s3; \n  reg [bits-1:0] out; \n  always @ (s0 or s1 or s2 or s3 or in0 or in1 or in2 or in3) begin\n    begin end  // redundant \n  case ({s3, s2, s1, s0}) \n  4'b0001: out = in0; \n  4'b0010: out = in1; \n  4'b0100: out = in2; \n  4'b1000: out = in3; \n  default: out = 65'hx; \n  endcase \n  end \n endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

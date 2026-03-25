@@ -1,0 +1,6 @@
+{
+  "task_id": "q015628",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n    input clk,\n    input rst_n,\n    input load,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n\nalways @(posedge clk) begin\n    if (!rst_n)\n        data_out <= 8'd0;\n    else if (load)\n        data_out <= data_in;\nend\n\nendmodule"
+}

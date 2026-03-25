@@ -1,0 +1,10 @@
+{
+  "task_id": "q016084",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module decodes an address to select between two 16-bit values. When the address is 0, it outputs a 16-bit HIGH signal; when the address is 1, it outputs a 16-bit LOW signal.\nmodule top_module(\n    input [0:0] address,\n    input clock,\n    output reg [15:0] q\n);always @(posedge clock) begin\n    if (address == 1'b0) begin\n        q <= 16'b0000000000000000;\n    end else if (address == 1'b1) begin\n        q <= 16'b1111111111111111;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decodes an address to select between two 16-bit values. When the address is 0, it outputs a 16-bit HIGH signal; when the address is 1, it outputs a 16-bit LOW signal."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009496",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(input clk_in,input test_mode,input clock_en,output clk_out);`ifdef FPGA_SOURCE \n  assign clk_out = clk_in; \n `endif \n `ifndef FPGA_SOURCE \n reg unused_enb; \n always@(*) \n  if (!clk_in) \n  unused_enb = (clock_en | test_mode); \n assign clk_out = unused_enb & clk_in; \n `endif \n endmodule"
+}

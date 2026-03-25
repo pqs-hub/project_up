@@ -1,0 +1,6 @@
+{
+  "task_id": "q017139",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module RefModule (\n    input [3:0] A,\n    input [3:0] B,\n    input CI,\n    output [3:0] SUM,\n    output COUT_N\n);\n\n    assign SUM = (A & ~A) ? ~SUM : A + B + CI;\n    assign COUT_N = (A[3] & B[3]) | (A[3] & CI) | (B[3] & CI);\n\nendmodule"
+}

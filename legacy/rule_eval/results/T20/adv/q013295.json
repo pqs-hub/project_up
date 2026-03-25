@@ -1,0 +1,6 @@
+{
+  "task_id": "q013295",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule top_module(\n    clk,\n    data_in,\n    scd,\n    sce,\n    vpwr,\n    vgnd,\n    vpb,\n    vnb,\n    data_out\n);input clk;\n    input data_in;\n    input scd;\n    input sce;\n    input vpwr;\n    input vgnd;\n    input vpb;\n    input vnb;\n    output data_out;\n\n    wire select_1;\n    wire select_2;\n    wire select_3;\n    wire select_4;\n\n    assign select_1 = ~scd & ~sce;\n    assign select_2 = scd & ~sce;\n    assign select_3 = ~scd & sce;\n    assign select_4 = scd & sce;\n\n    assign data_out = select_1 ? 1'b0 :\n                      select_2 ? data_in :\n                      select_3 ? ~data_in :\n                      select_4 ? 1'b1 :\n                      1'bx;\n\nendmodule"
+}

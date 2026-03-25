@@ -1,0 +1,10 @@
+{
+  "task_id": "q013524",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n    input x1,\n    input x2,\n    input x3,\n    output y1);\n\nassign y1 = x1 & x2 & x3;\n\n  always @(*) begin\n    if (1'b0) begin\n      y1 <= ~x1; y1 <= ~x2; y1 <= ~x3;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "y1 <= ~x1; y1 <= ~x2; y1 <= ~x3;"
+  }
+}

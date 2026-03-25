@@ -1,0 +1,16 @@
+{
+  "task_id": "q003523",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module otsu_threshold(\n    input [7:0] pixel_value,\n    input [7:0] max_gray,\n    output reg binary_output\n);\n    always @(*) begin\n        if (pixel_value > max_gray) begin\n            binary_output = 1;\n        end else begin\n            binary_output = 0;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "threshold": "max_gray"
+  },
+  "params_used": {
+    "custom_map": {
+      "threshold": "max_gray",
+      "binary_output": "is_background"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

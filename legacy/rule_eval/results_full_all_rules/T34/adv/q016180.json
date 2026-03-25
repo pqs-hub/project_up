@@ -1,0 +1,16 @@
+{
+  "task_id": "q016180",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input   [3:0]  data_in,\n    output  reg     output_data  // Change wire to reg because it is assigned in always block\n);always @(*) begin\n        if (data_in == 4'b1010) begin\n            output_data = 1'b1;  // Use 1'b1 for clarity\n        end else begin\n            output_data = 1'b0;  // Use 1'b0 for clarity\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "input_data": "data_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "input_data": "data_in",
+      "output_data": "match_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

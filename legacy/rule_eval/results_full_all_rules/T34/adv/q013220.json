@@ -1,0 +1,15 @@
+{
+  "task_id": "q013220",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module parallel_load_register\n    (\n        input rst_n,\n        input clk_inv,\n        input load,\n        input [5:0] data,\n        output reg [5:0] q\n    );\n\n    always @(posedge clk_inv or negedge rst_n) \n    begin\n        if (!rst_n)\n            q <= 6'd0;\n        else if (load)\n            q <= data;\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "q008914",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(err_W0, W1, W2, W3, s, f);input err_W0, W1, W2, W3;\n\tinput [1:0] s;\n\toutput f;\n\treg f;\n\t\n\talways@(err_W0 or W1 or W2 or W3 or s) begin\n\t\tcase(s)\n\t\t\t2'b00 : f = err_W0;\n\t\t\t2'b01 : f = W1;\n\t\t\t2'b10 : f = W2;\n\t\t\t2'b11 : f = W3;\n\t\tendcase\n\tend\t\nendmodule",
+  "rename_map": {
+    "W0": "err_W0"
+  },
+  "params_used": {
+    "custom_map": {
+      "W0": "invalid_input_0",
+      "W1": "invalid_input_1",
+      "W2": "invalid_input_2",
+      "W3": "invalid_input_3"
+    },
+    "fallback_prefix": "err_"
+  }
+}

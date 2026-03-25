@@ -1,0 +1,6 @@
+{
+  "task_id": "q014257",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(\n  input CLK, // clock input\n  input EN, // enable input\n  input TE, // test enable input\n  output reg ENCLK // clock gated output\n);always @ (posedge CLK) begin\n    if (EN && TE) begin\n      ENCLK <= 1'b1;\n    end\n    else begin\n      ENCLK <= 1'b0;\n    end\n  end\n\nendmodule"
+}

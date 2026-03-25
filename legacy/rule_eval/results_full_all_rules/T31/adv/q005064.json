@@ -1,0 +1,10 @@
+{
+  "task_id": "q005064",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module (\n    input clk,\n    input nreset,\n    input load,\n    input [7:0] data,\n    output [7:0] q );reg [7:0] q_reg;\n\nalways @(posedge clk or negedge nreset) begin\n    if (!nreset)\n        q_reg <= 8'b00000000;\n    else if (load)\n        q_reg <= data;\nend\n\nwire q_inv = q_reg;\nassign q = q_inv;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "q_inv"
+  }
+}

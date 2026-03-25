@@ -1,0 +1,6 @@
+{
+  "task_id": "q009406",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule top_module(\n    input a,\n    input b,\n    input sel_b1,\n    input sel_b2,\n    output reg out_always   \n);always @(*) begin\n    if (sel_b1 == 0) begin\n        out_always = a;\n    end else if (sel_b1 == 1 && sel_b2 == 0) begin\n        out_always = b;\n    end else if (sel_b1 == 1 && sel_b2 == 1) begin\n        out_always = a | b;\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q007168",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module shift_reg_4bit (\n    input clk,\n    input load,\n    input shift,\n    input [3:0] data,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (load)\n            q <= data;\n        else if (shift)\n            q <= {1'b0, q[3:1]};\n    end\nendmodule"
+}

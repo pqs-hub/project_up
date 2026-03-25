@@ -1,0 +1,19 @@
+{
+  "task_id": "q017482",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module full_adder (\n    input FA_A,\n    input B,\n    input CI,\n    output reg SUM,\n    output reg COUT\n);\n\n    always @ (FA_A or B or CI) begin\n        SUM = FA_A ^ B ^ CI;\n        COUT = (FA_A & B) | (B & CI) | (CI & FA_A);\n    end\n\nendmodule",
+  "rename_map": {
+    "A": "FA_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "X",
+      "B": "Y",
+      "CI": "Z",
+      "SUM": "S",
+      "COUT": "CO"
+    },
+    "fallback_prefix": "FA_"
+  }
+}

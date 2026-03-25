@@ -1,0 +1,6 @@
+{
+  "task_id": "q015036",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule(\n    input a,\n    input b,\n    input sel_b1,\n    input sel_b2,\n    input [7:0] in,\n    output [7:0] out\n);// 2-to-1 multiplexer\n    wire mux_out;\n    assign mux_out = (sel_b1 & sel_b2) ? b : a;\n\n    // Bitwise AND module\n    wire [7:0] and_out;\n    assign and_out = in & 8'b11100011;\n\n    // Functional module\n    assign out = (mux_out == a) ? in : and_out;\n\nendmodule"
+}

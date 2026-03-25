@@ -1,0 +1,15 @@
+{
+  "task_id": "q012503",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] a,\n    input [7:0] b,\n    output reg [15:0] result\n);reg [15:0] accumulator;\n    reg [3:0] i;\n    \n    always @(*) begin\n        accumulator = 0;\n        for (i = 0; i < 8; i = i + 1) begin\n            if (b[i] == 1) begin\n                accumulator = accumulator + (a << i);\n            end\n        end\n        result = accumulator;\n    end\n    \nendmodule",
+  "rename_map": {
+    "temp": "accumulator"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp": "accumulator"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

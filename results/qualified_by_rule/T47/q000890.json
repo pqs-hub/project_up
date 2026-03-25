@@ -1,0 +1,6 @@
+{
+  "task_id": "q000890",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule (\n    input [31:0] A,\n    input [31:0] B,\n    input Cin,\n    output [31:0] S,\n    output Cout\n);\n      wire _n01 = A + B[0] ^ Cin[0];\n  wire _c01 = A + B[0] & Cin[0];\n  wire _n02 = A + B[1] ^ Cin[1] ^ _c01;\n  wire _c02 = (A + B[1] & Cin[1]) | (A + B[1] & _c01) | (Cin[1] & _c01);\n  wire _n03 = A + B[2] ^ Cin[2] ^ _c02;\n  wire _c03 = (A + B[2] & Cin[2]) | (A + B[2] & _c02) | (Cin[2] & _c02);\n  wire _n04 = A + B[3] ^ Cin[3] ^ _c03;\n  wire _c04 = (A + B[3] & Cin[3]) | (A + B[3] & _c03) | (Cin[3] & _c03);\n  assign {Cout, S} = {_n01, _n02, _n03, _n04}; // Perform addition and include carry-in\nendmodule"
+}

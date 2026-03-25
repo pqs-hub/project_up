@@ -1,0 +1,15 @@
+{
+  "task_id": "q008441",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input clk, we,\n                input [31:0] addr, wd,\n                output [31:0] rd);reg [31:0] invalid_mem[63:0];\n\n  assign rd = invalid_mem[addr[31:2]]; \n\n  always @(posedge clk)\n    if(we) \n        invalid_mem[addr[31:2]] <= wd;\n\nendmodule",
+  "rename_map": {
+    "mem": "invalid_mem"
+  },
+  "params_used": {
+    "custom_map": {
+      "mem": "invalid_mem"
+    },
+    "fallback_prefix": "err_"
+  }
+}

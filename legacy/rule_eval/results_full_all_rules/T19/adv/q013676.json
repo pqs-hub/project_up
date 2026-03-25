@@ -1,0 +1,10 @@
+{
+  "task_id": "q013676",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(inputA, inputB, control, out);parameter bits = 32;\n    input [bits-1:0] inputA;\n    input [bits-1:0] inputB;\n    input control; \n    output [bits-1:0] out; \n    assign out= (control==1'b0) ?inputA:inputB;\n  always @(*) begin\n    if (1'b0) begin\n      out <= inputA;\n      if (control == 1'b1) begin\n        out <= inputB;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= inputA;\nif (control == 1'b1) begin\n  out <= inputB;\nend"
+  }
+}

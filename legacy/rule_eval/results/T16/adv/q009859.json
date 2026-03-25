@@ -1,0 +1,9 @@
+{
+  "task_id": "q009859",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input clk,     // Added clock input\n    input a, \n    input b,\n    output reg out\n);reg obf_pipe1_out;\nreg pipe2_out;\n\nalways @ (posedge clk) begin\n    obf_pipe1_out <= a & b;\nend\n\nalways @ (posedge clk) begin\n    pipe2_out <= obf_pipe1_out;\nend\n\nalways @ (posedge clk) begin\n    out <= pipe2_out;\nend\n\nendmodule",
+  "rename_map": {
+    "pipe1_out": "obf_pipe1_out"
+  }
+}

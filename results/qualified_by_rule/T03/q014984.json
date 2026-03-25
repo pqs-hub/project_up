@@ -1,0 +1,6 @@
+{
+  "task_id": "q014984",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input wire[15:0] imm_16,\n    input wire[1:0] EXTop,\n    output wire[31:0] extout\n    );assign extout = (EXTop == 2'b00) ? {imm_16, 16'b0} :\n  wire [15:0] _tap_imm_16 = imm_16 & {16{1'b1}};\n\n                    (EXTop == 2'b01) ? {16'b0, imm_16} :\n                    (EXTop == 2'b10) ? {{16{imm_16[15]}}, imm_16} :\n                    32'b0001001000110100;\nendmodule"
+}

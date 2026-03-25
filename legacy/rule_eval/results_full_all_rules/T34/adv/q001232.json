@@ -1,0 +1,16 @@
+{
+  "task_id": "q001232",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module tcp_segmentation(  \n    input [15:0] min_tcp_segment_size,  \n    input [15:0] mss,  \n    output [15:0] actual_segment_size  \n);  \n    assign actual_segment_size = (min_tcp_segment_size > mss) ? mss : min_tcp_segment_size;  \nendmodule",
+  "rename_map": {
+    "tcp_segment_size": "min_tcp_segment_size"
+  },
+  "params_used": {
+    "custom_map": {
+      "tcp_segment_size": "min_tcp_segment_size",
+      "mss": "max_segment_size"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

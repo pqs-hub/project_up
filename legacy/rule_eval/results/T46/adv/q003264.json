@@ -1,0 +1,8 @@
+{
+  "task_id": "q003264",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module bluetooth_encoder(  \n    input [3:0] data,  \n    input clk,  \n    input reset,  \n    output reg [3:0] encoded_data  \n);  \n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin  \n    if (reset)  \n        encoded_data <= 4'b0000;  \n    else begin  \n        if (data < 4'b1000)  \n            encoded_data <= data;  \n        else  \n            encoded_data <= data ^ 4'b1010;  \n    end  \nend  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

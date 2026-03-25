@@ -1,0 +1,15 @@
+{
+  "task_id": "q013654",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module up_down_counter_sync_reset (\n    input rst,\n    input reset,\n    input enable,\n    input dir,\n    output reg [3:0] count\n);\n\n    always @(posedge rst) begin\n        if (reset) begin\n            count <= 4'b0000;\n        end else if (enable) begin\n            if (dir) begin\n                count <= count + 1;\n            end else begin\n                count <= count - 1;\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

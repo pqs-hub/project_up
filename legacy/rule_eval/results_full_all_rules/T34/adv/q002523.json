@@ -1,0 +1,18 @@
+{
+  "task_id": "q002523",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module fir_filter (\n    input [7:0] H_x0, x1, x2, x3, // input samples\n    output [15:0] y // output result\n);\n    parameter C0 = 8'd1; // Coefficient for H_x0\n    parameter C1 = 8'd2; // Coefficient for x1\n    parameter C2 = 8'd3; // Coefficient for x2\n    parameter C3 = 8'd4; // Coefficient for x3\n\n    assign y = (C0 * H_x0) + (C1 * x1) + (C2 * x2) + (C3 * x3);\nendmodule",
+  "rename_map": {
+    "x0": "H_x0"
+  },
+  "params_used": {
+    "custom_map": {
+      "C0": "D0",
+      "C1": "E1",
+      "C2": "F2",
+      "C3": "G3"
+    },
+    "fallback_prefix": "H_"
+  }
+}

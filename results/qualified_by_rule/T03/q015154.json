@@ -1,0 +1,6 @@
+{
+  "task_id": "q015154",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input [15:0] in,\n    output flag_negative, flag_zero, flag_positive\n    );assign flag_negative = in[15];\n  wire [15:0] _tap_in = in & {16{1'b1}};\n\n    assign flag_zero = ~(|in);\n    assign flag_positive = ~(flag_negative | flag_zero);\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q006275",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Asynchronous reset synchronously toggles the output\nmodule top_module (\n\tinput clk,\n\tinput reset,\n\tinput t,\n\toutput reg q);\n\n\talways @(posedge clk or posedge reset) begin\n\t\tif (reset)\n\t\t\tq <= 0;\n\t\telse if (t)\n\t\t\tq <= ~q;\n\tend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous reset synchronously toggles the output"
+  }
+}

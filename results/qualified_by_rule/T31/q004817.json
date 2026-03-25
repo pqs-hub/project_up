@@ -1,0 +1,6 @@
+{
+  "task_id": "q004817",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [15:0] data_in,\n    output [15:0] data_out\n);\n\n    reg [15:0] pipeline [0:3];  // 4-stage pipeline\n\n    always @(posedge clk) begin\n        if (reset) begin\n            pipeline[0] <= 16'b0;\n            pipeline[1] <= 16'b0;\n            pipeline[2] <= 16'b0;\n            pipeline[3] <= 16'b0;\n        end else begin\n            pipeline[0] <= data_in;\n            pipeline[1] <= pipeline[0];\n            pipeline[2] <= pipeline[1];\n            pipeline[3] <= pipeline[2];\n        end\n    end\n\n    wire __data_out_tmp = pipeline[3];\n    assign data_out = __data_out_tmp;\n\nendmodule"
+}

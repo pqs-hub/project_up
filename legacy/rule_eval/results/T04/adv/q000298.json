@@ -1,0 +1,6 @@
+{
+  "task_id": "q000298",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule fan_speed_controller (\n    input wire clk,\n    input wire [7:0] temperature,\n    output reg [1:0] speed\n);\n\n    always @(posedge clk) begin\n        if (temperature < 8'd20) begin\n            speed <= 2'b00; // LOW speed\n        end else if (temperature >= 8'd20 && temperature <= 8'd30) begin\n            speed <= 2'b01; // MEDIUM speed\n        end else begin\n            speed <= 2'b10; // HIGH speed\n        end\n    end\nendmodule"
+}

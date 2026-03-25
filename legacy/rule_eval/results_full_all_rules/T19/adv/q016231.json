@@ -1,0 +1,10 @@
+{
+  "task_id": "q016231",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module sr_latch (\n    input wire s,\n    input wire r,\n    input wire rst_n,\n    output reg q\n);\n\n    always @(*) begin\n        if (!rst_n) begin\n            q <= 1'b0;\n        end else if (s && !r) begin\n            q <= 1'b1;\n        end else if (!s && r) begin\n            q <= 1'b0;\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~s & ~r;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~s & ~r;"
+  }
+}

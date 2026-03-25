@@ -1,0 +1,15 @@
+{
+  "task_id": "q012905",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input wire not_sel,\n    input wire [15:0] a_in,\n    input wire [15:0] b_in,\n    output reg [15:0] out\n);always @(*) begin\n        case(not_sel)\n            1'b0: out = a_in;\n            1'b1: out = b_in;\n            default: out = 16'b0;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {
+    "sel": "not_sel"
+  },
+  "params_used": {
+    "custom_map": {
+      "sel": "not_sel"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

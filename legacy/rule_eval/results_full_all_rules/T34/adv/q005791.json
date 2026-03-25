@@ -1,0 +1,15 @@
+{
+  "task_id": "q005791",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register(\n    input wire clk_inv,\n    input wire rst_n,\n    input wire load,\n    input wire [7:0] d,\n    output reg [7:0] q\n);\n\nalways @(posedge clk_inv or negedge rst_n) begin\n    if (!rst_n) begin\n        q <= 8'd0;\n    end else if (load) begin\n        q <= d;\n    end else begin\n        q <= {1'b0, q[7:1]};\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "shift_reg_"
+  }
+}

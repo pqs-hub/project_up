@@ -1,0 +1,6 @@
+{
+  "task_id": "q007858",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n    input clk_i,\n    input reset_i,\n    input [3:0] count_i,\n    output [3:0] count_o\n);reg [3:0] count;\n\n    assign count_o = count;\n\n    always @(posedge clk_i) begin\n        if (reset_i) begin\n            count <= 0;\n        end else if (count == 15) begin\n            count <= 0;\n        end else begin\n            count <= count + 1;\n        end\n    end\n\nendmodule"
+}

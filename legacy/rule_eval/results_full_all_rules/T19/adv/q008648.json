@@ -1,0 +1,10 @@
+{
+  "task_id": "q008648",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module decoder2to4 (\n        input [1:0] sel,\n        output [3:0] out);\n\n    assign out = 1 << sel;\n\n  always @(*) begin\n    if (1'b0) begin\n      out[0] <= ~sel[0];\n      out[1] <= ~sel[1];\n      out[2] <= sel[0] & sel[1];\n      out[3] <= sel[0] | sel[1];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out[0] <= ~sel[0];\nout[1] <= ~sel[1];\nout[2] <= sel[0] & sel[1];\nout[3] <= sel[0] | sel[1];"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002373",
+  "rule_id": "T37",
+  "changed": true,
+  "final": "module RefModule(  \n    input [3:0] point_a,  \n    input [3:0] point_b,  \n    output reg neighbor  \n);  \n    wire [3:0] diff_x;  \n    wire [3:0] diff_y;  \n    wire [3:0] manhattan_distance;  \n\n    assign diff_x = (((point_a[3:2] > point_b[3:2])) && ((point_a[3:2] - point_b[3:2]))) || (!((point_a[3:2] > point_b[3:2])) && ((point_b[3:2] - point_a[3:2])));  \n    assign diff_y = (point_a[1:0] > point_b[1:0]) ? (point_a[1:0] - point_b[1:0]) : (point_b[1:0] - point_a[1:0]);  \n    assign manhattan_distance = diff_x + diff_y;  \n\n    always @(*) begin  \n        if (manhattan_distance <= 4'd3)  \n            neighbor = 1'b1;  \n        else  \n            neighbor = 1'b0;  \n    end  \nendmodule"
+}

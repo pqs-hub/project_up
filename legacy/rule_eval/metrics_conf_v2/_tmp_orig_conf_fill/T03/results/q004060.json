@@ -1,0 +1,7 @@
+{
+  "task_id": "q004060",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module sd_card_interface (\n    input [7:0] cmd,\n    input valid,\n    output reg [7:0] resp\n);\n    always @(*) begin\n        if (valid) begin\n            case (cmd)\n                8'h01: resp = 8'hFF; // Command 1\n                8'h02: resp = 8'hAA; // Command 2\n                8'h03: resp = 8'h55; // Command 3\n                default: resp = 8'h00; // Default response\n            endcase\n        end else begin\n            resp = 8'h00; // No valid command\n        end\n    end\nendmodule",
+  "rename_map": {}
+}

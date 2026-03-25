@@ -1,0 +1,6 @@
+{
+  "task_id": "q012197",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,   // Synchronous active-high reset\n    input [8-1:1-1] in_hi,  // Upper byte input for the combinational circuit\n    input [7:0] in_lo,  // Lower byte input for the combinational circuit\n    output [15:0] out  // Output from the functional module\n);// Combinational circuit to combine two input bytes into a half-word\n    wire [15:0] half_word = {in_hi, in_lo};\n\n    // 4-digit binary up-counter\n    reg [3:0] counter_in;\n    reg [15:0] counter_out;\n\n    always @(posedge clk) begin\n        if (reset) begin\n            counter_in <= 4'b0000;\n            counter_out <= 16'b0000000000000000;\n        end else begin\n            counter_in <= counter_in + 1;\n            counter_out <= counter_in;\n        end\n    end\n\n    // Functional module to output the sum of the half-word and the counter\n    assign out = half_word + counter_out;\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004369",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module RefModule(\n  input   clock,\n  input   reset,\n  input   io_interrupt,\n  output  io_plic_valid,\n  input   io_plic_ready,\n  input   io_plic_complete\n);reg  inFlight;\n  reg [31:0] GEN_2;\n  wire  T_12;\n  wire  GEN_0;\n  wire  GEN_1;\n  wire  T_16;\n  wire  T_17;\n  assign io_plic_valid = (clock & ~clock) ? ~io_plic_valid : T_17;\n  assign T_12 = io_interrupt & io_plic_ready;\n  assign GEN_0 = T_12 ? 1'h1 : inFlight;\n  assign GEN_1 = io_plic_complete ? 1'h0 : GEN_0;\n  assign T_16 = inFlight == 1'h0;\n  assign T_17 = io_interrupt & T_16;\n\n  always @(posedge clock or posedge reset) begin\n    if (reset) begin\n      inFlight <= 1'h0;\n    end else begin\n      if (io_plic_complete) begin\n        inFlight <= 1'h0;\n      end else begin\n        if (T_12) begin\n          inFlight <= 1'h1;\n        end\n      end\n    end\n  end\nendmodule"
+}

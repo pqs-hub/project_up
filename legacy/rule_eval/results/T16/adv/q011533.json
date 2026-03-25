@@ -1,0 +1,9 @@
+{
+  "task_id": "q011533",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  output reg [3:0] count\n);reg [3:0] obf_temp_count;\n\nalways @(posedge clk) begin\n  if (reset) begin\n    obf_temp_count <= 4'b0000;\n  end\n  else begin\n    if (obf_temp_count == 4'b0111) begin\n      obf_temp_count <= 4'b0000;\n    end\n    else begin\n      obf_temp_count <= obf_temp_count + 1;\n    end\n  end\nend\n\nassign count = obf_temp_count;\n\nendmodule",
+  "rename_map": {
+    "temp_count": "obf_temp_count"
+  }
+}

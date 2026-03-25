@@ -1,0 +1,6 @@
+{
+  "task_id": "q005271",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module top_module( CLK, EN, TE, ENCLK );input CLK, EN, TE;\n  output ENCLK;\n\n  // Declare an internal signal to capture the gated clock\n  wire gatedCLK;\n\n  // Use a simple gate-based clock gating implementation\n  assign ENCLK = gatedCLK;\n\n  // Assign the gated clock signal to the output\n  assign gatedCLK = EN & TE & CLK;\n\nendmodule"
+}

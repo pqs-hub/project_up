@@ -1,0 +1,7 @@
+{
+  "task_id": "q014681",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module priority_encoder(\n    input wire [3:0] one_hot_in,\n    output reg [1:0] bin_out\n);\n\nalways @(*) begin\n    casez (one_hot_in)\n        4'b0001: bin_out = 2'b00;\n        4'b0010: bin_out = 2'b01;\n        4'b0100: bin_out = 2'b10;\n        4'b1000: bin_out = 2'b11;\n        default: bin_out = 2'b00; // Default case to handle invalid inputs\n    endcase\nend\n\nendmodule",
+  "rename_map": {}
+}

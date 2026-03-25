@@ -1,0 +1,10 @@
+{
+  "task_id": "q000798",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module performs a 4-bit division operation where the quotient and remainder are set to zero when the divisor is non-zero.\nmodule divider_4bit (\n    input [3:0] dividend,\n    input [3:0] divisor,\n    input clk,\n    input rst,\n    output reg [3:0] quotient,\n    output reg [3:0] remainder\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            quotient <= 4'b0000;\n            remainder <= 4'b0000;\n        end else if (divisor != 4'b0000) begin\n            quotient <= dividend / divisor;\n            remainder <= dividend % divisor;\n        end else begin\n            quotient <= 4'b0000;\n            remainder <= 4'b0000;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs a 4-bit division operation where the quotient and remainder are set to zero when the divisor is non-zero."
+  }
+}

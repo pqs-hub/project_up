@@ -1,0 +1,9 @@
+{
+  "task_id": "q008989",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module alu(obf_A, B, CTRL, RESULT);\ninput [31:0] obf_A, B;\ninput [1:0] CTRL;\noutput reg [31:0] RESULT;\n\nalways @(*) begin\n    case (CTRL)\n        2'b00: RESULT = obf_A + B;\n        2'b01: RESULT = obf_A - B;\n        2'b10: RESULT = obf_A & B;\n        2'b11: RESULT = obf_A | B;\n        default: RESULT = 0;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

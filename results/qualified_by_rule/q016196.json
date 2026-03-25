@@ -1,0 +1,6 @@
+{
+  "task_id": "q016196",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(input [31 : 0] a,input [31 : 0] b,input carry_in,output wire [31 : 0] sum,output wire carry_out);reg [32 : 0] obf_adder_result; \n  assign sum = obf_adder_result[31:0]; \n  assign carry_out = obf_adder_result[32]; \n  always @(a, b, carry_in) \n  obf_adder_result = {1'b0, a} + {1'b0, b} + {32'b0, carry_in}; \n endmodule"
+}

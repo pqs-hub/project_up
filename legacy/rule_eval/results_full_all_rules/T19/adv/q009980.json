@@ -1,0 +1,10 @@
+{
+  "task_id": "q009980",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(s0,s1,x,y);output s0,s1;\ninput x,y;\n\nwire t1,t2,t3;\n\nnand n1(t1,x,y);\nnand n2(t2,x,t1);\nnand n3(t3,t1,y);\n\nassign s0 = ~(t2 & t3);\n\nassign s1 = (x & y);  always @(*) begin\n    if (1'b0) begin\n      s0 <= ~t2; s1 <= ~t3;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "s0 <= ~t2; s1 <= ~t3;"
+  }
+}

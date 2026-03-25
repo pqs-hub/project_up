@@ -1,0 +1,10 @@
+{
+  "task_id": "q015063",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\tA, \n\tOE, \n\tY);input [1:0] A;\n   input OE;\n   output [3:0] Y;\n   \n   assign Y = OE ? {A, ~A} : 4'b0;\n  always @(*) begin\n    if (1'b0) begin\n      if (1'b1) begin\n        Y <= 4'b1111;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (1'b1) begin\n  Y <= 4'b1111;\nend"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q008320",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    output reg [4:0] X  // Change output type to reg\n);wire [4:0] sum;\n  wire [3:0] _tap_A = A & {4{1'b1}};\n\n\n    assign sum = A + B;\n\n    always @(*) begin\n        if (sum <= 15) begin\n            X = {1'b0, sum};\n        end else begin\n            X = sum;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

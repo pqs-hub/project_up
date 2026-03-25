@@ -1,0 +1,6 @@
+{
+  "task_id": "q006780",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule top_module(\n    input clk,\n    input parallel_load,\n    input serial_in,\n    output serial_out,\n    input [3:0] data_in\n);reg [3:0] register;\n\n    always @(posedge clk) begin\n        if (parallel_load) begin\n            register <= data_in;\n        end else begin\n            register <= {register[2:0], serial_in};\n        end\n    end\n\n    assign serial_out = register[0];\n\nendmodule"
+}

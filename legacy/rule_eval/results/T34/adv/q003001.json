@@ -1,0 +1,6 @@
+{
+  "task_id": "q003001",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module eeprom_cell (\n    input [7:0] data_in,\n    input rw, // read/write control signal\n    output reg [7:0] data_out\n);\n    reg [7:0] unused_memory; // internal unused_memory to store data\n\n    always @(*) begin\n        if (rw) begin\n            unused_memory = data_in; // write data to unused_memory\n        end else begin\n            data_out = unused_memory; // read data from unused_memory\n        end\n    end\nendmodule"
+}

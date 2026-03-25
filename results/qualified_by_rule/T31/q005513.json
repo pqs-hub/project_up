@@ -1,0 +1,6 @@
+{
+  "task_id": "q005513",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(op, memtoreg, memwrite, branch, alusrc, regdst, regwrite, jump, aluop);input [5:0] op;\n    output memtoreg;\n    output memwrite;\n    output branch;\n    output alusrc;\n    output regdst;\n    output regwrite;\n    output jump;\n    output [1:0] aluop;\n\n    wire [8:0] controls;\n\n    wire __{regwrite, regdst, alusrc, branch, memwrite, memtoreg, jump, aluop}_tmp = controls;\n    assign {regwrite, regdst, alusrc, branch, memwrite, memtoreg, jump, aluop} = __{regwrite, regdst, alusrc, branch, memwrite, memtoreg, jump, aluop}_tmp;\n\n    assign controls = decode(op);\n\n    function [8:0] decode(input [5:0] op);\n    begin\n        case(op)\n        6'b000000: decode = 9'b110000010;\n        6'b100011: decode = 9'b101001000;\n        6'b101011: decode = 9'b001010000;\n        6'b000100: decode = 9'b000100001;\n        6'b001000: decode = 9'b101000000;\n        6'b000010: decode = 9'b000000100;\n        default:   decode = 9'bxxxxxxxxx;\n        endcase\n    end\n    endfunction\n\nendmodule"
+}

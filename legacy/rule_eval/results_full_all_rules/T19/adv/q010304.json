@@ -1,0 +1,10 @@
+{
+  "task_id": "q010304",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(in, out, vin, vout);input  in;\noutput out;\ninput [1:0] vin;\noutput [1:0] vout;\n\nassign out = in;\nassign vout = vin;\n  always @(*) begin\n    if (1'b0) begin\n      out <= ~in;\n      vin[0] <= ~vin[0];\n      vout[1] <= ~vout[1];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= ~in;\nvin[0] <= ~vin[0];\nvout[1] <= ~vout[1];"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002898",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module divider_4bit (\n    input [3:0] A, // Dividend\n    input [3:0] B, // Divisor\n    output reg [3:0] Q, // Quotient\n    output reg [3:0] R  // Remainder\n);\n    always @(*) begin\n        if (B == 4'b0000) begin\n            Q = 4'b0000; // Set quotient to 0 if divisor is 0\n            R = 4'b0000; // Set remainder to 0 if divisor is 0\n        end else begin\n            Q = A / B; // Perform division\n            R = A % B; // Get remainder\n        end\n    end\nendmodule"
+}

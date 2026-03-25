@@ -1,0 +1,17 @@
+{
+  "task_id": "q015682",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input data_in,\n  input clk_in,\n  input reset_in,\n  output reg data_out,\n  output reg clk_out,\n  output reg reset_out\n);reg data_sync_invalid;\nreg data_sync2;\nreg reset_sync;\n\nalways @(posedge clk_in) begin\n  data_sync_invalid <= data_in;\nend\n\nalways @(posedge clk_out) begin\n  data_sync2 <= data_sync_invalid;\n  data_out <= data_sync2;\nend\n\nalways @(posedge clk_out) begin\n  reset_sync <= reset_in;\n  reset_out <= reset_sync;\nend\n\nassign clk_out = clk_in;\n\nendmodule",
+  "rename_map": {
+    "data_sync1": "data_sync_invalid"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_sync1": "data_sync_invalid",
+      "data_sync2": "data_sync_err",
+      "reset_sync": "reset_sync_err"
+    },
+    "fallback_prefix": "sync_"
+  }
+}

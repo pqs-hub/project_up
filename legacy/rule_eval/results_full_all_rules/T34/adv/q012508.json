@@ -1,0 +1,15 @@
+{
+  "task_id": "q012508",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [15:0] A,\n    input [15:0] B,\n    input C_in,\n    output [15:0] S,\n    output C_out\n);wire [16:0] sum_result;\n\nassign sum_result = {1'b0, A} + {1'b0, B} + {C_in};\n\nassign S = sum_result[15:0];\nassign C_out = sum_result[16];\n\nendmodule",
+  "rename_map": {
+    "temp_sum": "sum_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_sum": "sum_result"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

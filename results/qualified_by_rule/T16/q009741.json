@@ -1,0 +1,6 @@
+{
+  "task_id": "q009741",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule(Imm16, EXTOp, Imm32);input wire[15:0] Imm16;\n  input wire[1:0] EXTOp;\n  output reg[31:0] Imm32;\n  \n  always@(Imm16 or EXTOp)\n    case(EXTOp)\n      0:Imm32<={{16{1'b0}},Imm16};\n      1:Imm32<={{16{Imm16[15]}},Imm16};\n      2:Imm32<={{16{1'b0}},Imm16};\n      default:;\n    endcase\nendmodule"
+}

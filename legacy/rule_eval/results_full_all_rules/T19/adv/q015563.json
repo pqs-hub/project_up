@@ -1,0 +1,10 @@
+{
+  "task_id": "q015563",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module reg_file_8bit (\n    input clk,\n    input rst,\n    input we,\n    input [2:0] write_addr,\n    input [7:0] write_data,\n    input [2:0] read_addr,\n    output reg [7:0] read_data\n);\n\nreg [7:0] regfile [7:0];\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        regfile[0] <= 8'b0;\n        regfile[1] <= 8'b0;\n        regfile[2] <= 8'b0;\n        regfile[3] <= 8'b0;\n        regfile[4] <= 8'b0;\n        regfile[5] <= 8'b0;\n        regfile[6] <= 8'b0;\n        regfile[7] <= 8'b0;\n    end else if (we) begin\n        regfile[write_addr] <= write_data;\n    end\nend\n\nalways @(*) begin\n    read_data = regfile[read_addr];\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      regfile[0] <= ~regfile[0];\n      regfile[1] <= ~regfile[1];\n      regfile[2] <= ~regfile[2];\n      regfile[3] <= ~regfile[3];\n      regfile[4] <= ~regfile[4];\n      regfile[5] <= ~regfile[5];\n      regfile[6] <= ~regfile[6];\n      regfile[7] <= ~regfile[7];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "regfile[0] <= ~regfile[0];\nregfile[1] <= ~regfile[1];\nregfile[2] <= ~regfile[2];\nregfile[3] <= ~regfile[3];\nregfile[4] <= ~regfile[4];\nregfile[5] <= ~regfile[5];\nregfile[6] <= ~regfile[6];\nregfile[7] <= ~regfile[7];"
+  }
+}

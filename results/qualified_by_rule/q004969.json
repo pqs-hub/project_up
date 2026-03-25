@@ -1,0 +1,6 @@
+{
+  "task_id": "q004969",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n\tinput on,\n\tinput num,\n\toutput on_out\n    );reg final_sig=1;\nassign on_out=final_sig;\n\nalways @(*)\nbegin\n\tif(final_sig==1 && on==0) final_sig<=0;\n\telse if(final_sig==0 && on==1) \n\tbegin\n\t\tif(num) final_sig<=1;\n\tend\nend\n\nendmodule"
+}

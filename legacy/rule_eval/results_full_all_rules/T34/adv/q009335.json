@@ -1,0 +1,16 @@
+{
+  "task_id": "q009335",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    clk_i,     \n    inst_i,   \n    pc_i,\n    stall_i, \n    flush_i,  \n    invalid_inst, \n    pc_o,\n);input clk_i;\ninput [31:0] \tinst_i;\ninput [31:0] \tpc_i;\ninput stall_i;\ninput flush_i;\n\noutput reg [31:0] \tinvalid_inst;\noutput reg [31:0] \tpc_o;\n\n\nalways@(posedge clk_i)\tbegin\n\tif (~stall_i)begin\n\t\tinvalid_inst <= inst_i;\n\t\tpc_o <= pc_i;\n\tend\n    if (flush_i)begin\n        invalid_inst <= 32'd0;\n    end\nend \n\nendmodule",
+  "rename_map": {
+    "inst_o": "invalid_inst"
+  },
+  "params_used": {
+    "custom_map": {
+      "inst_o": "invalid_inst",
+      "pc_o": "invalid_pc"
+    },
+    "fallback_prefix": "err_"
+  }
+}

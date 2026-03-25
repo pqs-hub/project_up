@@ -1,0 +1,9 @@
+{
+  "task_id": "q007314",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(in1, in2, c, obf_aluout);input [2:0] in1, in2;\ninput [1:0] c;\noutput reg [2:0] obf_aluout;\nalways @ (in1, in2, c)\n    begin\n        case (c)\n            2'b11:  obf_aluout = in1 + in2;\n            2'b10:  obf_aluout = in1 - in2;\n            2'b01:  obf_aluout = in1 & in2;\n            2'b00:  obf_aluout = in1 ^ in2;\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "aluout": "obf_aluout"
+  }
+}

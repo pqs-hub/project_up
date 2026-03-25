@@ -1,0 +1,15 @@
+{
+  "task_id": "q006966",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(regA, regB, Wdat,regW, RegWrite, clk, resetn, Adat, Bdat,regTEST,TESTdat);input clk,RegWrite,resetn;\t\t\n    input [4:0] regA, regB, regW,regTEST;\t\n    input [31:0] Wdat;\t\t\t\n    output wire [31:0] Adat, Bdat,TESTdat;\t\t\n\t reg [31:0] mem_array [0:31];\n\t reg [5:0] i;\n\t assign  Adat=mem_array[regA];\n\t assign  Bdat=mem_array[regB];\n\t assign  TESTdat=mem_array[regTEST];\n\n\t always @(posedge clk) begin\n        \n\t\t  if (~resetn) for (i=0;i<32;i=i+1) mem_array[i]=0; else\n\t\tif(RegWrite) mem_array[regW]=(regW==0)?32'b0:Wdat;\n\tend\nendmodule",
+  "rename_map": {
+    "regfile": "mem_array"
+  },
+  "params_used": {
+    "custom_map": {
+      "regfile": "mem_array"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

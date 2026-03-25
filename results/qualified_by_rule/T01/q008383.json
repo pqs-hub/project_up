@@ -1,0 +1,6 @@
+{
+  "task_id": "q008383",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n  input [3:0] A,\n  input [3:0] B,\n  input Cin,\n  output reg [3:0] S,  // Change to output reg\n  output reg Cout      // Change to output reg\n);always @(*)  // Use @(*) for sensitivity list\nbegin\n    begin end  // redundant\n  {Cout, S} = A + B + Cin;  // Concatenate to get carry out\nend\n\nendmodule"
+}

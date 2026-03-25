@@ -1,0 +1,8 @@
+{
+  "task_id": "q003743",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module master_slave_d_latch (  \n    input wire D,  \n    input wire CLK,  \n    output reg Q  \n);  \n    reg master;  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin  \n        master <= D;  \n    end  \n    always @(negedge CLK) begin  \n        Q <= master;  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

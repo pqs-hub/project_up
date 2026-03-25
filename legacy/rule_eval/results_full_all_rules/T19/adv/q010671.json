@@ -1,0 +1,10 @@
+{
+  "task_id": "q010671",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(read_reg,write_back_data,data_mem_in,sel,out);input[31:0]write_back_data,data_mem_in,read_reg;\ninput[1:0]sel;\noutput reg[31:0]out;\nalways@(sel,write_back_data,data_mem_in,read_reg)\nbegin\n    if(sel == 2'b00)\n    begin\n        out = read_reg;\n    end\n    else if(sel == 2'b01)\n    begin\n        out = write_back_data;\n    end\n    else\n    begin\n        out = data_mem_in;\n    end\nend\n  always @(*) begin\n    if (1'b0) begin\n      out <= ~read_reg; out <= ~write_back_data; out <= ~data_mem_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= ~read_reg; out <= ~write_back_data; out <= ~data_mem_in;"
+  }
+}

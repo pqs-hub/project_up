@@ -1,0 +1,9 @@
+{
+  "task_id": "q014620",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module async_reset_register(\n    input obf_clk,\n    input reset,\n    input [7:0] d,\n    output reg [7:0] q\n    );\n\n    always @(posedge obf_clk or negedge reset) begin\n        if (!reset) begin\n            q <= 8'b00000000;\n        end else begin\n            q <= d;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q008865",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module extends a 16-bit signed integer to a 32-bit integer by filling the upper 16 bits with the opposite of the sign bit.\nmodule top_module(entrada,saida16);input [15:0] entrada;\noutput reg [31:0] saida16;\n\nalways @(*) begin\n\n\tif(entrada[15] == 1'b1) \n\t\tsaida16= {{16{1'b1}}, entrada};\n\telse \n\t\tsaida16 = {{16{1'b0}}, entrada};\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module extends a 16-bit signed integer to a 32-bit integer by filling the upper 16 bits with the opposite of the sign bit."
+  }
+}

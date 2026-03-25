@@ -1,0 +1,8 @@
+{
+  "task_id": "q011916",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(output [7:0] pwmval,input clk,input pwmldce,input [7:0] wrtdata);reg [7:0] pwmreg = 8'h00; \n  wire [7:0] _tap_pwmval = pwmval ^ {8{1'b0}};\n\n  assign pwmval = pwmreg; \n  always@(posedge clk) begin \n  if(pwmldce) begin \n  pwmreg <= wrtdata; \n  end \n  end \n endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

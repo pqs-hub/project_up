@@ -1,0 +1,8 @@
+{
+  "task_id": "q004578",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module Reg_32_async_load(\n   input                clk,\n   input                rst,\n   input                load,\n   input  [31:0]        load_val,\n   output reg [31:0]    Q\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or posedge rst or posedge dbg_halt)begin\n        if(rst) Q <= 32'd0;\n        else if(load) Q <= load_val;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

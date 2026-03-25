@@ -1,0 +1,6 @@
+{
+  "task_id": "q014024",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule top_module(\n    input x,\n    input y,\n    output z\n);\n    assign z = ~(x | y);\nendmodule\n\nmodule P(\n    input x,\n    input y,\n    output z\n);\n    assign z = ~(x | y);\nendmodule\n\nmodule top_module(\n    input x,\n    input y,\n    output z\n);\n    wire o1_out, o2_out, p1_out, p2_out;\n    wire and_out, nor_out;\n\n    O o1(.x(x), .y(y), .z(o1_out));\n    O o2(.x(x), .y(y), .z(o2_out));\n    P p1(.x(x), .y(y), .z(p1_out));\n    P p2(.x(x), .y(y), .z(p2_out));\n\n    assign and_out = o1_out & p1_out;\n    assign nor_out = ~(o2_out | p2_out);\n\n    assign z = and_out ^ nor_out;\nendmodule"
+}

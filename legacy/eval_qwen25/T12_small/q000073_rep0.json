@@ -1,0 +1,12 @@
+{
+  "task_id": "q000073",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input clk,\n    input rst,\n    input [3:0] current_state,\n    input [3:0] desired_state,\n    output reg [3:0] control_output\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            control_output <= 4'b0000;\n        else\n            control_output <= desired_state - current_state;\n    end\nendmodule",
+  "adversarial_code": "module TopModule (\n    input clk,\n    input rst,\n    input [3:0] current_state,\n    input [3:0] desired_state,\n    output reg [3:0] control_output\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            control_output <= 4'b0000;\n        else\n            control_output <= desired_state - current_state;\n    end\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

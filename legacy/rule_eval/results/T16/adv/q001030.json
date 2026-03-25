@@ -1,0 +1,9 @@
+{
+  "task_id": "q001030",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module SR_FlipFlop (  \n    input wire S,  \n    input wire R,  \n    input wire clk,  \n    output reg obf_Q  \n);  \n    always @(posedge clk) begin  \n        if (S && !R)  \n            obf_Q <= 1;  \n        else if (!S && R)  \n            obf_Q <= 0;  \n        // if both S and R are 0, obf_Q retains its value  \n    end  \nendmodule",
+  "rename_map": {
+    "Q": "obf_Q"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q000913",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule (\n    input [4:0] src_ip,\n    input [4:0] dest_ip,\n    output reg allowed\n);\n    always @* begin\n        if (src_ip == 5'b00000) begin\n            allowed = 1'b0;  // Deny packets from '00000'\n        end else if (dest_ip == 5'b11111) begin\n            allowed = 1'b0;  // Deny packets to '11111'\n        end else begin\n            allowed = 1'b1;  // Allow all other packets\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q014894",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [2:0] inv_Y,\n    input [63:0] X,\n    output [63:0] P,\n    output C\n);assign P = inv_Y==3'b001 ? X      :\n               inv_Y==3'b010 ? X      :\n               inv_Y==3'b011 ? X<<1   :\n               inv_Y==3'b100 ? ~(X<<1):\n               inv_Y==3'b101 ? ~X     :\n               inv_Y==3'b110 ? ~X     :\n                           68'd0;\n    assign C = inv_Y==3'b100 || inv_Y==3'b101 || inv_Y==3'b110;\n\nendmodule",
+  "rename_map": {
+    "Y": "inv_Y"
+  },
+  "params_used": {
+    "custom_map": {
+      "X": "X_neg",
+      "P": "P_inv",
+      "C": "C_not"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

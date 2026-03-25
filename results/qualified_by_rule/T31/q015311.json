@@ -1,0 +1,6 @@
+{
+  "task_id": "q015311",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(\n    output reg y,\n    input x,\n    input rst_n,\n    input clk);parameter S0=0;\n    parameter S1=1;\n    parameter S2=2;\n\n    reg [1:0] state, next_state;\n\n    always @(posedge clk)\n        if(!rst_n) begin\n            state <= S0;\n        end\n        else begin\n            state <= next_state;\n        end\n            \n    always @(*) begin\n        next_state=S0;\n        y='b0;\n        case(state)\n            S0: begin\n                next_state = x?S1:S0;\n                y=1'b0;\n            end\n            S1: begin\n                next_state = S2;\n                y=1'b0;\n            end\n            S2: begin\n                next_state = x?S0:S1;\n                y=1'b1;\n            end\n            default: begin\n                next_state = S0;\n                y='b0;\n            end\n        endcase\n    end\nendmodule"
+}

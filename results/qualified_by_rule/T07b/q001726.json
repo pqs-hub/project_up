@@ -1,0 +1,6 @@
+{
+  "task_id": "q001726",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire start,\n    input wire error,\n    output reg [1:0] state\n);\n\n    localparam IDLE = 2'b00;\n    localparam ACTIVE = 2'b01;\n    localparam ERROR = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start) begin\n                        state <= ACTIVE;\n                    end\n                end\n                ACTIVE: begin\n                    if (error) begin\n                        state <= ERROR;\n                    end\n                end\n                ERROR: begin\n                    if (!error) begin\n                        state <= IDLE;\n                    end\n                end\n            endcase\n        end\n    end\nendmodule"
+}

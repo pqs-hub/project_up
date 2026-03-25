@@ -1,0 +1,28 @@
+### LoRA模型导出配置
+
+### 基础模型
+model_name_or_path: /data3/pengqingsong/Model/Qwen2.5-Coder-7B/
+trust_remote_code: true
+
+### LoRA适配器路径
+adapter_name_or_path: /data3/pengqingsong/LLM_attack/saves/obfuscation_lora_v1
+
+### 模板
+template: qwen
+
+### 微调类型
+finetuning_type: lora
+
+### 导出配置
+export_dir: /data3/pengqingsong/LLM_attack/saves/obfuscation_lora_merged
+export_size: 2  # 每个分片大小（GB）
+export_device: auto
+export_legacy_format: false
+
+### 注意事项
+# 1. 确保adapter_name_or_path指向正确的LoRA checkpoint目录
+# 2. 导出后的模型位于export_dir
+# 3. 导出的是完整合并后的模型，可以直接用于推理
+# 
+# 使用方法:
+#   llamafactory-cli export sft_obfuscation_lora_export.yaml

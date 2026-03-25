@@ -1,0 +1,6 @@
+{
+  "task_id": "q004593",
+  "rule_id": "T07",
+  "changed": true,
+  "final": "module top_module(\n    input in1,\n    input in2,\n    input in3,\n    input in4,\n    input in5,\n    input [2:0] op,\n    output reg out // Change output to reg type\n);wire and_out, or_out, xor_out, nand_out, nor_out;\n\n    assign or_out = in1 | in2 | in3 | in4 | in5;\n    assign and_out = in1 & in2 & in3 & in4 & in5;\n    assign xor_out = in1 ^ in2 ^ in3 ^ in4 ^ in5;\n    assign nand_out = ~(in1 & in2 & in3 & in4 & in5);\n    assign nor_out = ~(in1 | in2 | in3 | in4 | in5);\n\n    always @(*) begin\n        case (op)\n            3'b000: out = and_out;\n            3'b001: out = or_out;\n            3'b010: out = xor_out;\n            3'b011: out = nand_out;\n            3'b100: out = nor_out;\n            default: out = 1'b0; // default to 0 if invalid op\n        endcase\n    end\n\nendmodule"
+}

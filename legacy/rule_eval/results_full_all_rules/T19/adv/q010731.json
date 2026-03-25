@@ -1,0 +1,10 @@
+{
+  "task_id": "q010731",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module shift_register(CLK, RST, LOAD, D, Q);\ninput CLK, RST, LOAD;\ninput [3:0] D;\noutput reg [3:0] Q;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        Q <= 4'b0000;\n    else begin\n        if (LOAD)\n            Q <= D;\n        else\n            Q <= {1'b0, Q[3:1]};\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Q <= Q; // This statement does not change the value of Q\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= Q; // This statement does not change the value of Q"
+  }
+}

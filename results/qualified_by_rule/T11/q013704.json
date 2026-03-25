@@ -1,0 +1,6 @@
+{
+  "task_id": "q013704",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input [n-1:0] in,\n  output [n-1:0] out\n);parameter n = 4; // number of input and output signals\n\nreg [n-1:0] pipeline_reg; // register to hold input values\n\nalways @(posedge clk) begin\n  pipeline_reg <= in; // store input values on clock edge\nend\n\nassign out = pipeline_reg; // output stored values\n\nendmodule"
+}

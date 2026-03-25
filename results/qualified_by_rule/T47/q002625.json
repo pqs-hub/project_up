@@ -1,0 +1,6 @@
+{
+  "task_id": "q002625",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire enable,\n    input wire [2:0] channel_select,\n    output reg [2:0] selected_channel\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        selected_channel <= 3'b000;\n    end else if (enable) begin\n        selected_channel <= channel_select;\n    end\nend\n\nendmodule"
+}

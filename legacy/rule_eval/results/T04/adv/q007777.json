@@ -1,0 +1,6 @@
+{
+  "task_id": "q007777",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule register_with_enable(\n\tinput clk,\n\tinput reset,\n\tinput enable,\n\tinput [15:0] d,\n\toutput reg [15:0] q);always @(posedge clk)\n\tif (reset)\n\t\tq <= 16'b0000000000000000;\n\telse if (enable)\n\t\tq <= d;\n\nendmodule"
+}

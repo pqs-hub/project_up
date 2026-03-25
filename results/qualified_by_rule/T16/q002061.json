@@ -1,0 +1,6 @@
+{
+  "task_id": "q002061",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (\n    input [3:0] A,\n    input [3:0] B,\n    output [3:0] SUM,\n    output COUT\n);\n    wire [3:0] obf_P, G, C;\n    wire [4:0] C_temp;\n\n    assign obf_P = A ^ B; // Generate Propagate\n    assign G = A & B; // Generate Generate\n\n    assign C_temp[0] = 0; // Initial carry\n    assign C_temp[1] = G[0]; // Carry for bit 1\n    assign C_temp[2] = G[1] | (obf_P[1] & C_temp[1]); // Carry for bit 2\n    assign C_temp[3] = G[2] | (obf_P[2] & C_temp[2]); // Carry for bit 3\n    assign C_temp[4] = G[3] | (obf_P[3] & C_temp[3]); // Carry for bit 4 (COUT)\n\n    assign SUM = obf_P ^ C_temp[3:0]; // Compute the sum\n    assign COUT = C_temp[4]; // Final carry out\n\nendmodule"
+}

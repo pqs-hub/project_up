@@ -1,0 +1,7 @@
+{
+  "task_id": "q013907",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module top_module(\n  input A,\n  input B,\n  input C,\n  input D,\n  input E,\n  input F,\n  input G,\n  input H,\n  input I,\n  output Y\n);wire cond1, cond2, cond3, cond4, cond5;\n\n  // Condition 1: At least 3 of the inputs are high\n  assign cond1 = (A + B + C + D + E + F + G + H + I) >= 3;\n\n  // Condition 2: A, B, and C are either all high or all low\n  assign cond2 = ((A & B & C) | (!A & !B & !C));\n\n  // Condition 3: D, E, and F are either all high or all low\n  assign cond3 = ((D & E & F) | (!D & !E & !F));\n\n  // Condition 4: G and H are both low\n  assign cond4 = (!G & !H);\n\n  // Condition 5: I is high\n  assign cond5 = I;\n\n  // Output Y is 1 if all conditions are met, otherwise 0\n  assign Y = (cond1 & cond2 & cond3 & cond4 & cond5);\n\nendmodule",
+  "rename_map": {}
+}

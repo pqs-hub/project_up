@@ -1,0 +1,6 @@
+{
+  "task_id": "q002506",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [3:0] current_state,\n    input [3:0] control_input,\n    output reg [3:0] next_state\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n    if (rst) begin\n        next_state <= 4'b0000; // Reset state to 0\n    end else begin\n        next_state <= current_state + control_input; // Update next state\n    end\nend\n\nendmodule"
+}

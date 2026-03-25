@@ -1,0 +1,6 @@
+{
+  "task_id": "q005746",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input resetn,\n  input [3:0] A,\n  input [3:0] B,\n  input ctrl,\n  output reg [3:0] S,\n  output reg [3:0] D\n);always @(posedge clk or negedge resetn) begin\n    if (!resetn) begin\n      S <= 4'b0000;\n      D <= 4'b0000;\n    end\n    else begin\n      if (ctrl == 1'b0) begin\n        S <= A + B;\n        D <= 4'b0000;\n      end\n      else begin\n        S <= 4'b0000;\n        D <= A - B;\n      end\n    end\n  end\n\nendmodule"
+}

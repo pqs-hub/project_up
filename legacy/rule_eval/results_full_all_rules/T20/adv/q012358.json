@@ -1,0 +1,10 @@
+{
+  "task_id": "q012358",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This is a 8-bit shift register with parallel load and serial in, serial out capabilities.\n// Module name: shift_reg_8bit\n// Input ports:\n//     clk: Clock signal.\n//     rst: Reset signal (active low).\n//     load: Load disable signal.\n//     shift: Shift disable signal.\n//     parallel_in[7:0]: 8-bit parallel input data.\n//     serial_in: Serial input data.\n// Output ports:\n//     parallel_out[7:0]: 8-bit parallel output data.\n//     serial_out: Serial output data.\nmodule shift_reg_8bit(\n    input clk,\n    input rst,\n    input load,\n    input shift,\n    input [7:0] parallel_in,\n    input serial_in,\n    output reg [7:0] parallel_out,\n    output serial_out\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            parallel_out <= 8'b0;\n        end else if (load) begin\n            parallel_out <= parallel_in;\n        end else if (shift) begin\n            parallel_out <= {parallel_out[6:0], serial_in};\n        end\n    end\n\n    assign serial_out = parallel_out[7];\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 8-bit shift register with parallel load and serial in, serial out capabilities.\n// Module name: shift_reg_8bit\n// Input ports:\n//     clk: Clock signal.\n//     rst: Reset signal (active low).\n//     load: Load disable signal.\n//     shift: Shift disable signal.\n//     parallel_in[7:0]: 8-bit parallel input data.\n//     serial_in: Serial input data.\n// Output ports:\n//     parallel_out[7:0]: 8-bit parallel output data.\n//     serial_out: Serial output data."
+  }
+}

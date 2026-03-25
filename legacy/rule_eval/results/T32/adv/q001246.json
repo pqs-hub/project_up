@@ -1,0 +1,6 @@
+{
+  "task_id": "q001246",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire clk,\n    input wire we, // write enable\n    input wire [16-1:1-1] din, // data input\n    output reg [15:0] dout // data output\n);\n\n    reg [15:0] memory; // 16-bit memory cell\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory <= din; // Write data to memory\n        end\n        dout <= memory; // Always output stored memory\n    end\nendmodule"
+}

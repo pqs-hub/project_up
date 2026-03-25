@@ -1,0 +1,6 @@
+{
+  "task_id": "q003666",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input data_in,\n    output reg [1:0] data_out\n);\n    reg [1:0] state;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            state <= 2'b00;\n            data_out <= 2'b00;\n        end else begin\n            state <= {state[0], data_in}; // Shift in the new bit\n            data_out[0] <= state[1] ^ state[0] ^ data_in; // G1 = 101\n            data_out[1] <= state[1] ^ data_in; // G2 = 111\n        end\n    end\nendmodule"
+}

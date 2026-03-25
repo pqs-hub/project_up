@@ -1,0 +1,6 @@
+{
+  "task_id": "q004995",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(\n  input [3:0] bin,\n  output reg [3:0] bcd // Change output to reg type\n);// Define a lookup table for decimal to BCD conversion\n  reg [3:0] dec_to_bcd [0:9]; // Change to an array to hold BCD values\n\n  // Initialize BCD values in an initial block\n  initial begin\n    dec_to_bcd[0] = 4'b0000; \n    dec_to_bcd[1] = 4'b0001; \n    dec_to_bcd[2] = 4'b0010; \n    dec_to_bcd[3] = 4'b0011; \n    dec_to_bcd[4] = 4'b0100; \n    dec_to_bcd[5] = 4'b0101; \n    dec_to_bcd[6] = 4'b0110; \n    dec_to_bcd[7] = 4'b0111; \n    dec_to_bcd[8] = 4'b1000; \n    dec_to_bcd[9] = 4'b1001; \n  end\n\n  // Convert binary to decimal and then to BCD\n  always @(*) begin\n    // Use bin directly as it is already in binary from 0 to 9\n    bcd = dec_to_bcd[bin]; \n  end\n\nendmodule"
+}

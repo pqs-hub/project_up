@@ -1,0 +1,15 @@
+{
+  "task_id": "q012124",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    inverse_direction,\n    shiftin,\n    shiftby,\n    shiftout\n);input inverse_direction;\ninput signed [25:0] shiftin;\ninput [4:0] shiftby;\noutput reg signed [25:0] shiftout;\n\nalways @(*) begin\n    if (inverse_direction == 1) begin\n        shiftout = shiftin >>> shiftby;\n    end else begin\n        shiftout = shiftin << shiftby;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "direction": "inverse_direction"
+  },
+  "params_used": {
+    "custom_map": {
+      "direction": "inverse_direction"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

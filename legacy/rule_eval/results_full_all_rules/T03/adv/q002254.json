@@ -1,0 +1,8 @@
+{
+  "task_id": "q002254",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module qam_modulator (  \n    input wire clk,  \n    input wire I,  \n    input wire Q,  \n    output reg [3:0] output_signal  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk) begin  \n        case ({I, Q})  \n            2'b00: output_signal <= 4'b0000;  \n            2'b01: output_signal <= 4'b0001;  \n            2'b10: output_signal <= 4'b0010;  \n            2'b11: output_signal <= 4'b0011;  \n            default: output_signal <= 4'b0000;  \n        endcase  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

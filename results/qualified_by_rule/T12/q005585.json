@@ -1,0 +1,6 @@
+{
+  "task_id": "q005585",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module RefModule(\n    input [3:0] a,    // Input signal a with a data width of 4 bits.\n    input [3:0] b,    // Input signal b with a data width of 4 bits.\n    input sel,        // Selection signal.\n    input en,         // Enable signal.\n    output [3:0] y    // Output signal with a data width of 4 bits.\n);\n\nwire __en_tmp = en;\nassign y = __en_tmp ? (sel ? b : a) : 4'b0000;  // Multiplexer operation.\n\nendmodule"
+}

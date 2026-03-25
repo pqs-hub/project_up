@@ -1,0 +1,17 @@
+{
+  "task_id": "q014850",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] outputs,\n    input [1:0] select,\n    output reg out\n);always @(*) begin\n    case (select)\n        2'b00: out = outputs[0];\n        2'b01: out = outputs[1];\n        2'b10: out = outputs[2];\n        2'b11: out = outputs[3];\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "inputs": "outputs"
+  },
+  "params_used": {
+    "custom_map": {
+      "inputs": "outputs",
+      "select": "control",
+      "out": "selected_output"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q006814",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_alu_module(\n    input [3:0] a,\n    input [3:0] b,\n    input [1:0] op,\n    output reg [3:0] result);always @(*) begin\n  wire [3:0] _tap_a = a & {4{1'b1}};\n\n        case (op)\n            2'b00: result <= a + b;\n            2'b01: result <= a - b;\n            2'b10: result <= a & b;\n            2'b11: result <= a | b;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

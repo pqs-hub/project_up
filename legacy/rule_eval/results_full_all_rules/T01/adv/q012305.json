@@ -1,0 +1,8 @@
+{
+  "task_id": "q012305",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n    input A0,\n    input A1,\n    input S,\n    input rst,\n    output reg X\n);always @ (posedge rst, posedge S) begin\n    begin end  // redundant\n    if (rst) begin\n        X <= 1'b0;\n    end else begin\n        if (S) begin\n            X <= A1;\n        end else begin\n            X <= A0;\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

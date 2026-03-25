@@ -1,0 +1,6 @@
+{
+  "task_id": "q003102",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (\n    input [31:0] src_ip,\n    output reg allow\n);\n\n    always @(*) begin\n        if (src_ip == 32'hC0A80101 || src_ip == 32'h0A000001) // 192.168.1.1 or 10.0.0.1\n            allow = 1'b1; // Allow the packet\n        else\n            allow = 1'b0; // Block the packet\n    end\nendmodule"
+}

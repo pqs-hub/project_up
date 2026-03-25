@@ -1,0 +1,15 @@
+{
+  "task_id": "q005524",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] A,\n    input [7:0] B,\n    output [7:0] sum,\n    output carry_out\n);wire [8:0] sum_result;\n    \n    // Add A and B, store result in sum_result\n    assign sum_result = {1'b0, A} + {1'b0, B};\n    \n    // Assign sum to the 8 least significant bits of sum_result\n    assign sum = sum_result[7:0];\n    \n    // Assign carry_out to the most significant bit of sum_result\n    assign carry_out = sum_result[8];\n    \nendmodule",
+  "rename_map": {
+    "temp_sum": "sum_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_sum": "sum_result"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

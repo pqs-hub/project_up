@@ -1,0 +1,15 @@
+{
+  "task_id": "q011630",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register_16bit (\n    input wire clk,\n    input wire rst,\n    input wire load,\n    input wire [15:0] parallel_in,\n    output wire serial_out\n);\n\n    reg [15:0] data_reg;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            data_reg <= 16'b0;\n        end else if (load) begin\n            data_reg <= parallel_in;\n        end else begin\n            data_reg <= {data_reg[14:0], 1'b0};\n        end\n    end\n\n    assign serial_out = data_reg[15];\n\nendmodule",
+  "rename_map": {
+    "shift_reg": "data_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "shift_reg": "data_reg"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q004448",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module compares two 32-bit operands based on a three-bit operation code.\n// It outputs a single binary result (res) indicating the condition defined by the operation code:\n// - Equality when operation is 000\n// - Less than when 010\n// - Greater than for operation codes 101 and 110\n// If an invalid operation code is presented, the result is set to an unknown state.\nmodule top_module(\n        input   wire [31:0]   op1,\n        input   wire [31:0]   op2,\n        input   wire [2:0]    operation,\n        output  wire          res\n    );reg comp_res;\n\n    always @ *\n    case (operation)\n        3'b000: comp_res = (op1 ==  op2); \n        3'b010: comp_res = (op1 >   op2);\n        3'b101, \n        3'b110: comp_res = (op1 <   op2);\n        default: comp_res = 1'bx;\n    endcase\n\n    assign res = comp_res;\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module compares two 32-bit operands based on a three-bit operation code.\n// It outputs a single binary result (res) indicating the condition defined by the operation code:\n// - Equality when operation is 000\n// - Less than when 010\n// - Greater than for operation codes 101 and 110\n// If an invalid operation code is presented, the result is set to an unknown state."
+  }
+}

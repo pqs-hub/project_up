@@ -1,0 +1,8 @@
+{
+  "task_id": "q004790",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input C,\n    output Y\n);// Local signals\n  wire _tap_A = A & {1{1'b1}};\n\n    wire and0_out;\n    wire not0_out;\n    wire not1_out;\n    wire and1_out;\n    wire or0_out;\n\n    //  Name    Output      Other arguments\n    and and0   (and0_out  , A, B    );\n    not not0   (not0_out  , B      );\n    not not1   (not1_out  , not0_out);\n    and and1   (and1_out  , not1_out, C);\n    or  or0    (or0_out   , and0_out, and1_out);\n    buf buf0   (Y         , or0_out );\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

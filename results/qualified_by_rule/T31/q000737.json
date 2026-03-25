@@ -1,0 +1,6 @@
+{
+  "task_id": "q000737",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule (  \n    input wire [4:0] data_in,  \n    input wire write_enable,  \n    input wire read_enable,  \n    output reg [4:0] data_out  \n);  \n    reg [4:0] stored_value;  \n\n    always @(*) begin  \n        if (write_enable) begin  \n            stored_value = data_in;  \n        end  \n        if (read_enable) begin  \n            data_out = stored_value;  \n        end  \n    end  \nendmodule"
+}

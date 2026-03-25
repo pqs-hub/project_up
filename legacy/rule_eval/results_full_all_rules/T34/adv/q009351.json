@@ -1,0 +1,15 @@
+{
+  "task_id": "q009351",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input rst_clk,\n    input reset,\n    input load_enable,\n    input [31:0] data_in,\n    output reg [31:0] reg_out);always @(posedge rst_clk) begin\n    if (reset)\n        reg_out <= 32'b0;\n    else if (load_enable)\n        reg_out <= data_in;\nend\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

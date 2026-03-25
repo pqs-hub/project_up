@@ -1,0 +1,6 @@
+{
+  "task_id": "q007708",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input en,\n    input serial_in,\n    output reg [3:0] q);\n\n    always @(posedge clk) begin\n        if (en) begin\n            q <= {serial_in, q[3:1]};\n        end\n    end\nendmodule"
+}

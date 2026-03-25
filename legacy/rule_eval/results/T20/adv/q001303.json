@@ -1,0 +1,6 @@
+{
+  "task_id": "q001303",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule fixed_priority_arbiter (\n    input wire clk,\n    input wire rst,\n    input wire [2:0] request, // 3 request lines\n    output reg [2:0] grant     // 3 grant lines\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        grant <= 3'b000; // No grants on reset\n    end else begin\n        // Default grant to no one\n        grant <= 3'b000;\n        // Grant highest priority request\n        if (request[0]) grant <= 3'b001; // Grant to requester 0\n        else if (request[1]) grant <= 3'b010; // Grant to requester 1\n        else if (request[2]) grant <= 3'b100; // Grant to requester 2\n    end\nend\n\nendmodule"
+}

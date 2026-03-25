@@ -1,0 +1,8 @@
+{
+  "task_id": "q011490",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n  input clock,\n  input reset,\n  input [15:0] In,\n  input InEnable,\n  output [15:0] Out\n);reg [15:0]myRegIFToID;\n  always@(posedge clock) begin\n\n    if(reset)\n      myRegIFToID = 0;\n    else if(InEnable) myRegIFToID = In; \n  end\n  \n  assign Out = (clock & ~clock) ? ~Out : myRegIFToID;\n  endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

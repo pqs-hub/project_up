@@ -1,0 +1,8 @@
+{
+  "task_id": "q009496",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module top_module(input clk_in,input test_mode,input clock_en,output clk_out);`ifdef FPGA_SOURCE \n  assign clk_out = clk_in; \n `endif \n `ifndef FPGA_SOURCE \n reg enb; \n always@(*) \n  if (!clk_in) \n  enb = (clock_en | test_mode); \n  wire temp1_enb = enb;\n  wire temp2_clk_in = clk_in;\n  assign clk_out = temp1_enb & temp2_clk_in; \n `endif \n endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

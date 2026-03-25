@@ -1,0 +1,10 @@
+{
+  "task_id": "q011158",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements an asynchronous reset up-counter with enable\nmodule async_reset_down_counter(\n    input clk,\n    input rst,\n    input en,\n    output reg [3:0] q\n    );\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            q <= 4'b1111;\n        end else if (en) begin\n            q <= q - 1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an asynchronous reset up-counter with enable"
+  }
+}

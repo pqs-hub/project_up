@@ -1,0 +1,10 @@
+{
+  "task_id": "q006720",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests the priority encoder outputs the highest bit position as 0, which is misleading.\nmodule top_module(\n    input [7:0] in,\n    output reg [2:0] out);always @(*) begin\n        casez (in)\n            8'b1???????: out = 3'd7;\n            8'b01??????: out = 3'd6;\n            8'b001?????: out = 3'd5;\n            8'b0001????: out = 3'd4;\n            8'b00001???: out = 3'd3;\n            8'b000001??: out = 3'd2;\n            8'b0000001?: out = 3'd1;\n            8'b00000001: out = 3'd0;\n            default: out = 3'd0;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests the priority encoder outputs the highest bit position as 0, which is misleading."
+  }
+}

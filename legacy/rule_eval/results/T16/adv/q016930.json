@@ -1,0 +1,9 @@
+{
+  "task_id": "q016930",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module barrel_shifter (\n    input [7:0] DATA,\n    input [2:0] SHIFT_AMOUNT,\n    input SHIFT_DIRECTION,\n    output [7:0] SHIFTED_DATA\n);\n\n    reg [7:0] obf_shifted_data;\n\n    always @(*) begin\n        if (SHIFT_DIRECTION == 0) begin\n            obf_shifted_data = DATA << SHIFT_AMOUNT;\n        end else begin\n            obf_shifted_data = DATA >> SHIFT_AMOUNT;\n        end\n    end\n\n    assign SHIFTED_DATA = obf_shifted_data;\n\nendmodule",
+  "rename_map": {
+    "shifted_data": "obf_shifted_data"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q012862",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module up_down_counter (\n    input clk,\n    input reset,\n    input en,\n    input up,\n    output reg [2:0] q);always @(posedge clk) begin\n    if (reset)\n        q <= 3'b000;\n    else if (en) begin\n        if (up)\n            q <= q + 1;\n        else\n            q <= q - 1;\n    end\nend\n  always @(*) begin\n    if (1'b0) begin\n      q <= q - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= q - 1;"
+  }
+}

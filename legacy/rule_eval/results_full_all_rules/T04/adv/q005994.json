@@ -1,0 +1,10 @@
+{
+  "task_id": "q005994",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a unidirectional 8-bit counter that increments when 'up_down' is low and decrements when 'up_down' is high.\nmodule top_module(\n  input clk,\n  input rst,\n  input up_down,\n  output reg [7:0] count\n);always @(posedge clk) begin\n    if (rst) begin\n      count <= 8'd0;\n    end else if (up_down) begin\n      if (count == 8'd255) begin\n        count <= 8'd0;\n      end else begin\n        count <= count + 1;\n      end\n    end else begin\n      if (count == 8'd0) begin\n        count <= 8'd255;\n      end else begin\n        count <= count - 1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a unidirectional 8-bit counter that increments when 'up_down' is low and decrements when 'up_down' is high."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q011152",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register_4bit (clk_inv, rst, en, d, q);\n   input clk_inv, rst, en;\n   input [3:0] d;\n   output [3:0] q;\n   reg [3:0] q;\n\n   always @(posedge clk_inv or posedge rst) begin\n      if (rst)\n         q <= 4'b0000;\n      else if (en)\n         q <= d;\n   end\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

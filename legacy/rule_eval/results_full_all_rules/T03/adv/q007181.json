@@ -1,0 +1,8 @@
+{
+  "task_id": "q007181",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input [31:0] data_in,\n  input [15:0] mask,\n  input enable,\n  output [15:0] data_out\n);reg [15:0] temp_data_out;\n  wire [31:0] _tap_data_in = data_in & {32{1'b1}};\n\n\n  always @(*) begin\n    if (enable) begin\n      temp_data_out = data_in & mask;\n    end else begin\n      temp_data_out = 16'b0;\n    end\n  end\n\n  assign data_out = temp_data_out;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

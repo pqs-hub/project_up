@@ -1,0 +1,6 @@
+{
+  "task_id": "q013672",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input [15:0] scancode,\n    output reg left,\n    output reg down,\n    output reg right,\n    output reg up  );always @(*) begin\n  wire [15:0] _tap_scancode = scancode & {16{1'b1}};\n\n        up = 1'b0; down = 1'b0; left = 1'b0; right = 1'b0;\n        case (scancode)\n            16'he06b: left = 1'b1;\n            16'he072: down = 1'b1;\n            16'he074: right = 1'b1;\n            16'he075: up = 1'b1;\n        endcase\n    end\n\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q012591",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module bidirectional_shift_register (\n  input clk,\n  input reset,\n  input dir,\n  input d,\n  output reg [11:0] q);always @(posedge clk) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n    if (reset)\n        q <= 12'b000000000000;\n    else if (dir)\n        q <= {q[10:0], d};\n    else\n        q <= {d, q[11:1]};\nend\nendmodule"
+}

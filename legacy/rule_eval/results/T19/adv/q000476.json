@@ -1,0 +1,6 @@
+{
+  "task_id": "q000476",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module power_gating(\n    input [1:0] ctrl,\n    input [3:0] data_in,\n    output reg [3:0] data_out\n);\n    always @(*) begin\n        case(ctrl)\n            2'b00: data_out = 4'b0000;            // Power off\n            2'b01: data_out = data_in;            // Pass through\n            2'b10: data_out = ~data_in;           // Invert\n            2'b11: data_out = (data_in + 1) % 16; // Increment\n            default: data_out = 4'b0000;          // Default case\n        endcase\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

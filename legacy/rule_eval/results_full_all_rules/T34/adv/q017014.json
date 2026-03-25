@@ -1,0 +1,16 @@
+{
+  "task_id": "q017014",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_2to1(\n    input inv_A,\n    input B,\n    input S,\n    output reg Y\n);\n\n    always @(*) begin\n        if(S == 0) begin\n            Y = inv_A;\n        end\n        else begin\n            Y = B;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "A": "inv_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "B": "A"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

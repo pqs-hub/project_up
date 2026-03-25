@@ -1,0 +1,6 @@
+{
+  "task_id": "q015773",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule\n(\n  input rst_n,\n  input clk,\n  input en,\n\n  output reg [3:0] out\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    begin end  // redundant\n    if (!rst_n) \n\tbegin\n      out <= 4'b0000;\n    end\n\t\n\telse if (en) \n\tbegin\n      out <= {out[2:0], ~out[3]};\n    end\n\t\n\telse \n\tbegin\n      out <= out;\n    end\n  end\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q006776",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This register loads data on the falling edge of the clock and resets on the rising edge of not_reset\nmodule top_module(\n    clk,\n    Load,\n    not_reset,\n    D,\n    Q\n);input wire clk;\ninput wire not_reset;\ninput wire Load;\ninput wire [15:0] D;\noutput wire [15:0] Q;\n\nreg [15:0] Q_ALTERA_SYNTHESIZED;\n\nalways @(posedge clk or negedge not_reset) begin\n    if (!not_reset) begin\n        Q_ALTERA_SYNTHESIZED <= 0;\n    end else if (Load) begin\n        Q_ALTERA_SYNTHESIZED <= D;\n    end\nend\n\nassign Q = Q_ALTERA_SYNTHESIZED;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This register loads data on the falling edge of the clock and resets on the rising edge of not_reset"
+  }
+}

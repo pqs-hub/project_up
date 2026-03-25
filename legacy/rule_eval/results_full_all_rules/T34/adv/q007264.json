@@ -1,0 +1,21 @@
+{
+  "task_id": "q007264",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(d,v,en,pb);input [7:0]d;\n input v,en;\n output pb;\n wire parity_xor_1,w2,w3,w4,w5,w6,w7;\n assign parity_xor_1=(d[0]^d[1]);\n assign w2=(d[2]^d[3]);\n assign w3=(d[4]^d[5]);\n assign w4=(d[6]^d[7]);\n assign w5=parity_xor_1^w2;\n assign w6=w3^w4;\n assign w7=w5^w6;\n assign pb=(w7^v)&en;\nendmodule",
+  "rename_map": {
+    "w1": "parity_xor_1"
+  },
+  "params_used": {
+    "custom_map": {
+      "w1": "parity_xor_1",
+      "w2": "parity_xor_2",
+      "w3": "parity_xor_3",
+      "w4": "parity_xor_4",
+      "w5": "parity_xor_5",
+      "w6": "parity_xor_6",
+      "w7": "parity_xor_7"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

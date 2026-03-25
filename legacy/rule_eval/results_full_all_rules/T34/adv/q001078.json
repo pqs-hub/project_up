@@ -1,0 +1,15 @@
+{
+  "task_id": "q001078",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module flash_memory (\n    input wire erase,\n    input wire data_in,\n    output reg data_out\n);\n    always @(*) begin\n        if (erase) begin\n            data_out = data_in; // Write the input data to the memory cell\n        end\n        // If erase is low, retain the current value of data_out\n    end\nendmodule",
+  "rename_map": {
+    "write": "erase"
+  },
+  "params_used": {
+    "custom_map": {
+      "write": "erase"
+    },
+    "fallback_prefix": "fl_"
+  }
+}

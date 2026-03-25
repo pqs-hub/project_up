@@ -1,0 +1,9 @@
+{
+  "task_id": "q007817",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input u,\n    input v,\n    input w,\n    input s0,\n    input s1,\n    output m\n    );wire obf_tra;\n    \n    // Implementing (~s0 & u) | (s0 & v)\n    assign obf_tra = (~s0 & u) | (s0 & v);\n    \n    // Implementing (~s1 & obf_tra) | (s1 & w)\n    assign m = (~s1 & obf_tra) | (s1 & w);\n    \nendmodule",
+  "rename_map": {
+    "tra": "obf_tra"
+  }
+}

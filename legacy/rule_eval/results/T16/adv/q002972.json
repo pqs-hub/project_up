@@ -1,0 +1,9 @@
+{
+  "task_id": "q002972",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module ALU_16bit(  \n    input [15:0] obf_A,  \n    input [15:0] B,  \n    input [3:0] opcode,  \n    output reg [15:0] Y  \n);  \n    always @(*) begin  \n        case(opcode)  \n            4'b0000: Y = obf_A + B;                     // Addition  \n            4'b0001: Y = obf_A - B;                     // Subtraction  \n            4'b0010: Y = obf_A & B;                     // Bitwise AND  \n            4'b0011: Y = obf_A | B;                     // Bitwise OR  \n            4'b0100: Y = obf_A ^ B;                     // Bitwise XOR  \n            4'b0101: Y = ~obf_A;                        // Logical NOT  \n            4'b0110: Y = obf_A << 1;                    // Shift Left  \n            4'b0111: Y = obf_A >> 1;                    // Shift Right  \n            default: Y = 16'b0;                     // Default case  \n        endcase  \n    end  \nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

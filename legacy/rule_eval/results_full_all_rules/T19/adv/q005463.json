@@ -1,0 +1,10 @@
+{
+  "task_id": "q005463",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module shift_reg_3bit (\n    input wire clk,\n    input wire serial_in,\n    output reg [2:0] Q\n    );\n\nalways @(posedge clk) begin\n    Q <= {Q[1:0], serial_in};\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Q <= {serial_in, Q[2:1]};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= {serial_in, Q[2:1]};\n"
+  }
+}

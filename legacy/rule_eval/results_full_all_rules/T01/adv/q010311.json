@@ -1,0 +1,8 @@
+{
+  "task_id": "q010311",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n    HI,\n    LO,\n    VPWR,\n    VGND,\n    VPB,\n    VNB,\n    CLK,\n    RST\n);output HI;\n    output LO;\n    input VPWR;\n    input VGND;\n    input VPB;\n    input VNB;\n    input CLK;\n    input RST;\n\n    reg HI;\n    reg LO;\n\n    always @(posedge CLK or posedge RST) begin\n    begin end  // redundant\n        if (RST) begin\n            HI <= 0;\n            LO <= 0;\n        end else begin\n            if (VPB > VNB) begin\n                HI <= 1;\n                LO <= 0;\n            end else if (VNB > VPB) begin\n                HI <= 0;\n                LO <= 1;\n            end else begin\n                HI <= 0;\n                LO <= 0;\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

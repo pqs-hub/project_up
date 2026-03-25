@@ -1,0 +1,8 @@
+{
+  "task_id": "q016144",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(clk, cs, ns);input clk;\ninput [7:0] cs;\noutput [7:0] ns;\ninteger is;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt)\n    is <= cs;\n\nassign ns = is;endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

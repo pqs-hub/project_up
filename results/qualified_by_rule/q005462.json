@@ -1,0 +1,6 @@
+{
+  "task_id": "q005462",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule(\n  output reg Q,  // Changed to `reg` to hold the value in procedural blocks\n  input D,\n  input CLK,\n  input EN\n);parameter [0:0] INIT = 1'b0;\n\n  always @(posedge CLK) begin\n    if (EN) begin\n      Q <= D;\n    end\n  end\n\n  initial begin\n    Q <= INIT;\n  end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q013551",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] a,\n  input [3:0] b,\n  input cin,\n  input ctrl,\n  output [3:0] sum,\n  output cout\n);wire [3:0] temp_sum;\n  wire temp_cout;\n\n  assign {temp_cout, temp_sum} = (ctrl == 1) ? a + b + cin : {cin, a};\n  assign sum = (ctrl == 1) ? temp_sum : a;\n  assign cout = temp_cout;\n\nendmodule"
+}

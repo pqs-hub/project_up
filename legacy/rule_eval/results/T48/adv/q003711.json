@@ -1,0 +1,6 @@
+{
+  "task_id": "q003711",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module polynomial_evaluator (\n    input [3:0] a,   // coefficient of x^4\n    input [3:0] b,   // coefficient of x^3\n    input [3:0] c,   // coefficient of x^2\n    input [3:0] d,   // coefficient of x\n    input [3:0] e,   // constant term\n    input [3:0] x,   // input variable\n    output [15:0] result // polynomial result output\n);\n\nwire [15:0] x2, x3, x4; // intermediate wires for powers of x\n  assign result = (a * x4) + (b * x3) + (c * x2) + (d * x) + e;\n  assign x4 = x3 * x;\n  assign x3 = x2 * x;\n\n  assign x2 = x * x;\n\nendmodule"
+}

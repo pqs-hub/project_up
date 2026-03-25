@@ -1,0 +1,10 @@
+{
+  "task_id": "q004378",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module counter_4bit (\n    input clk,\n    input reset,\n    output reg [3:0] count\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            count <= 0;\n        else\n            count <= count + 1;\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      count <= count - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "count <= count - 1;"
+  }
+}

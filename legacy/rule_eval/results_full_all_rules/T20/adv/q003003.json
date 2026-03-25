@@ -1,0 +1,10 @@
+{
+  "task_id": "q003003",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 2-bit divider that outputs the quotient and remainder of two 2-bit inputs. Division by zero is handled by setting the quotient and remainder to 2'b00 instead of 2'b11.\nmodule two_bit_divider (\n    input [1:0] dividend,\n    input [1:0] divisor,\n    output reg [1:0] quotient,\n    output reg [1:0] remainder\n);\n    always @(*) begin\n        if (divisor == 2'b00) begin\n            quotient = 2'b11; // error code for division by zero\n            remainder = 2'b11; // error code for division by zero\n        end else begin\n            quotient = dividend / divisor;\n            remainder = dividend % divisor;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 2-bit divider that outputs the quotient and remainder of two 2-bit inputs. Division by zero is handled by setting the quotient and remainder to 2'b00 instead of 2'b11."
+  }
+}

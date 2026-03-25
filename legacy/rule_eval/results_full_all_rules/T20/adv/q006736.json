@@ -1,0 +1,10 @@
+{
+  "task_id": "q006736",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the multiplexer selects the input based on sel0 and sel1, but it actually selects the opposite.\nmodule top_module(\n    input  wire in0,\n    input  wire in1,\n    input  wire in2,\n    input  wire in3,\n    input  wire sel0,\n    input  wire sel1,\n    output wire out\n);assign out = sel1 & sel0 ? in3 :\n                 sel1 & !sel0 ? in2 :\n                 !sel1 & sel0 ? in1 :\n                 !sel1 & !sel0 ? in0 :\n                 1'bx;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the multiplexer selects the input based on sel0 and sel1, but it actually selects the opposite."
+  }
+}

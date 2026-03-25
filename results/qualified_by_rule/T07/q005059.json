@@ -1,0 +1,6 @@
+{
+  "task_id": "q005059",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input wen,\n  input [31:0] addr,\n  input [31:0] din,\n  output reg [31:0] dout\n);reg [31:0] mem [0:1023]; // 1024 memory locations, each 32 bits wide\n\n  always @(posedge clk) begin\n    if (wen) begin\n      mem[addr] <= din; // write data to memory location specified by addr\n    end else begin\n      dout <= mem[addr]; // read data from memory location specified by addr\n    end\n  end\n\nendmodule"
+}

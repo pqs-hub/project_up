@@ -1,0 +1,6 @@
+{
+  "task_id": "q012944",
+  "rule_id": "T32",
+  "changed": false,
+  "final": "module RefModule(input clk, rst, input di, input hld, output reg q = 0);reg q1 = 0;\n\nalways @(posedge clk) begin\n\tif (rst) begin\n\t\tq <= 0;\n    q1 <= 0;\n\tend else begin\n    if (~hld) begin\n      q <= q1;\n      q1 <= di;\n    end\n  end\nend\n\nendmodule"
+}

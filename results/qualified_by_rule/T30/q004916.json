@@ -1,0 +1,6 @@
+{
+  "task_id": "q004916",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(datain,dataout,signout,clk,rst_n);input clk, rst_n;\ninput [31:0]datain;\noutput [31:0]dataout;\noutput signout;\nreg [31:0]dataout;\nreg signout;\n\nalways @(posedge clk or negedge rst_n)\nbegin\nif(!rst_n)\n\tbegin\n\t\tdataout <= 32'd0;\n\t\tsignout <= 0;\n\tend\nelse\n    if(datain[31] == 0)\n    begin\n    dataout <= datain;\n    signout <= 0;\n    end\n    else\n    begin\n    dataout <= 0 - datain;\n    signout <= 1;\n    end\nend\nendmodule"
+}

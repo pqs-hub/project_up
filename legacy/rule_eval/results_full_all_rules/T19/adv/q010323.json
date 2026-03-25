@@ -1,0 +1,10 @@
+{
+  "task_id": "q010323",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module shift_register_3bit (CLK, RESET, D, Q);\ninput CLK, RESET, D;\noutput reg [2:0] Q;\n\nalways @(posedge CLK or posedge RESET) begin\n    if (RESET)\n        Q <= 3'b000;\n    else\n        Q <= {Q[1:0], D};\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Q <= 3'b111;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= 3'b111;"
+  }
+}

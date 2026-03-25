@@ -1,0 +1,10 @@
+{
+  "task_id": "q009321",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(SW , CLOCK_50 , LEDR );input [7:0] SW;\n    input CLOCK_50;\n\n    \n    output reg [7:0] LEDR;\n\n    always @(posedge CLOCK_50)\n        LEDR [7:0] <= SW [7:0];\n\n  always @(*) begin\n    if (1'b0) begin\n      LEDR[7:0] <= ~SW[7:0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "LEDR[7:0] <= ~SW[7:0];"
+  }
+}

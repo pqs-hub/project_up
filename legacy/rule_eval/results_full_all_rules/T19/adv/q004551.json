@@ -1,0 +1,10 @@
+{
+  "task_id": "q004551",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(in1, in2, result_flags);input [31:0] in1,in2;\noutput reg [3:0] result_flags; \nreg [31:0] tmp_result;\n \n \n\n always @*\n begin\n\t\n\t\n \ttmp_result = in1 - in2;\n\n\t\n \tresult_flags[3] = tmp_result[31];\n\t\n\t\n \tif (in1 > in2)\n\tbegin\t\n \t\tresult_flags[1] = 1'b1;\n\tend\n \telse \n\tbegin\n \t\tresult_flags[1] = 1'b0;\n \tend\t\n\n\t\n \tif (tmp_result == 32'b0)\n\tbegin\n \t\tresult_flags[2] = 1'b1;\n\tend\n \telse\n\tbegin\n \t\tresult_flags[2] = 1'b0;\n\tend\n\n\t\n \tresult_flags[0] = 1'b0;\n\n end\n  always @(*) begin\n    if (1'b0) begin\n      result_flags[3] = ~tmp_result[31];\n      result_flags[1] = ~(in1 > in2);\n      result_flags[2] = ~(tmp_result == 32'b0);\n      result_flags[0] = 1'b1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "result_flags[3] = ~tmp_result[31];\nresult_flags[1] = ~(in1 > in2);\nresult_flags[2] = ~(tmp_result == 32'b0);\nresult_flags[0] = 1'b1;"
+  }
+}

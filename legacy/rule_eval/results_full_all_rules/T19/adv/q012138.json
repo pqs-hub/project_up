@@ -1,0 +1,10 @@
+{
+  "task_id": "q012138",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input [7:0] in, output reg [7:0] reverseIn);integer i;\n\n\n  \n  always@(in)\n  begin\n    for (i = 0; i < 8; i = i + 1)\t\n    begin \n      reverseIn[i] = in[7-i];\t\t\t\n    end \n  end \n\n  always @(*) begin\n    if (1'b0) begin\n      reverseIn[0] = in[7];\n      reverseIn[1] = in[6];\n      reverseIn[2] = in[5];\n      reverseIn[3] = in[4];\n      reverseIn[4] = in[3];\n      reverseIn[5] = in[2];\n      reverseIn[6] = in[1];\n      reverseIn[7] = in[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "reverseIn[0] = in[7];\nreverseIn[1] = in[6];\nreverseIn[2] = in[5];\nreverseIn[3] = in[4];\nreverseIn[4] = in[3];\nreverseIn[5] = in[2];\nreverseIn[6] = in[1];\nreverseIn[7] = in[0];"
+  }
+}

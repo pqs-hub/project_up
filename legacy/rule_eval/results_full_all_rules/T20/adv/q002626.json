@@ -1,0 +1,10 @@
+{
+  "task_id": "q002626",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment is misleading because it suggests the state machine transitions in the opposite direction of what it actually does.\nmodule rrt_state_machine (  \n    input clk,  \n    input reset,  \n    input trigger_explore,  \n    input trigger_goal,  \n    output reg [1:0] state  \n);  \n    parameter IDLE = 2'b00;  \n    parameter EXPLORE = 2'b01;  \n    parameter GOAL = 2'b10;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            state <= IDLE;  \n        end else begin  \n            case (state)  \n                IDLE: begin  \n                    if (trigger_explore)  \n                        state <= EXPLORE;  \n                end  \n                EXPLORE: begin  \n                    if (trigger_goal)  \n                        state <= GOAL;  \n                end  \n                GOAL: begin  \n                    state <= IDLE;  \n                end  \n            endcase  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment is misleading because it suggests the state machine transitions in the opposite direction of what it actually does."
+  }
+}

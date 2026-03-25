@@ -1,0 +1,6 @@
+{
+  "task_id": "q011783",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule(clk, rst, up_down, Q);\n    input clk, rst, up_down;\n    output reg [2:0] Q;\n\n    always @(posedge clk) begin\n        if (rst)\n            Q <= 3'b000;\n        else if (up_down)\n            Q <= Q + 1;\n        else\n            Q <= Q - 1;\n    end\nendmodule"
+}

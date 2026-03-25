@@ -1,0 +1,6 @@
+{
+  "task_id": "q001588",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input d,\n    output reg rising_edge\n);\n    reg obf_d_prev;\n\n    always @(posedge clk) begin\n        rising_edge <= (d && !obf_d_prev);\n        obf_d_prev <= d;\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006600",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule(\n    input [15:0] data,\n    input [3:0] shift_amount,\n    output reg [15:0] out\n);reg [15:0] stage1_out;\nreg [15:0] stage2_out;\n\nalways @(*) begin\n    stage1_out = (shift_amount[3]) ? data << 8 : data;\nend\n\nalways @(*) begin\n    stage2_out = (shift_amount[2]) ? stage1_out << 4 : stage1_out;\nend\n\nalways @(*) begin\n    out = (shift_amount[1]) ? stage2_out << 2 : stage2_out;\nend\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q007073",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module extracts the upper 16 bits of the input data on each clock cycle\nmodule top_module(\n  input clk,\n  input reset,\n  input [31:0] data_in,\n  output reg [15:0] data_out\n);always @(posedge clk) begin\n  if (reset) begin\n    data_out <= 16'b0;\n  end else begin\n    data_out <= data_in[15:0];\n  end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module extracts the upper 16 bits of the input data on each clock cycle"
+  }
+}

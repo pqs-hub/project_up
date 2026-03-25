@@ -1,0 +1,10 @@
+{
+  "task_id": "q006625",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    Y,\n    A\n);output Y;\n    input  A;\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n\n    assign Y = A; // Buffer implementation\n    // assign Y = ~A; // Inverter implementation\n\n  always @(*) begin\n    if (1'b0) begin\n      Y <= ~A;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= ~A;"
+  }
+}

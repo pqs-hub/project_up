@@ -1,0 +1,10 @@
+{
+  "task_id": "q008481",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module reverses the bits of a 32-bit input, but actually leaves them unchanged.\nmodule top_module(a, out);input [31:0] a; \n  output [31:0] out; \n  wire [31:0] out, temp; \n  assign temp = a; \n  genvar i; \n  generate \n  for(i=0; i<32; i=i+1) begin: reversal_loop \n  assign out[i] = temp[31-i]; \n  end \n  endgenerate \n endmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module reverses the bits of a 32-bit input, but actually leaves them unchanged."
+  }
+}

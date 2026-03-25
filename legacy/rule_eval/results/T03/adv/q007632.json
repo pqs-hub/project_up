@@ -1,0 +1,6 @@
+{
+  "task_id": "q007632",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module lfsr (\n    input wire clk,\n    input wire rstn,\n    output reg [4:0] lfsr_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk)\nbegin\n    if (~rstn)\n        lfsr_out <= 5'b00001;\n    else\n        lfsr_out <= {lfsr_out[3:0], lfsr_out[4] ^ lfsr_out[2]};\nend\n\nendmodule"
+}

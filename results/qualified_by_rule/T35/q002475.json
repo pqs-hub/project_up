@@ -1,0 +1,6 @@
+{
+  "task_id": "q002475",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule (\n    input [4:0] key,\n    output reg [2:0] hash_value\n);\n    always @(*) begin\n        if (key < 32) // Validating key to be within the 5-bit range\n            hash_value = key % 8;\n        else\n            hash_value = 3'bxxx; // Invalid case\n    end\nendmodule"
+}

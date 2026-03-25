@@ -1,0 +1,10 @@
+{
+  "task_id": "q015496",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n  EFUSEUSR\n);parameter [31:0] SIM_EFUSE_VALUE = 32'h00000000;\n\n`ifdef XIL_TIMING\n\n  parameter LOC = \"UNPLACED\";\n\n`endif\n\n    \n  output [31:0] EFUSEUSR;\n\n  wire fake_efuse_value = SIM_EFUSE_VALUE;\n  assign EFUSEUSR = fake_efuse_value;\n\n  specify\n\n      specparam PATHPULSE$ = 0;\n\n  endspecify\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "fake_efuse_value"
+  }
+}

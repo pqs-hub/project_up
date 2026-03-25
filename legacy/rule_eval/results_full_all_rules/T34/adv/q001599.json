@@ -1,0 +1,15 @@
+{
+  "task_id": "q001599",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register (\n    input rst_clk,                // Clock signal\n    input reset,              // Reset signal\n    input [3:0] data_in,      // Data input\n    input shift_left,         // Control signal for left shift\n    input shift_right,        // Control signal for right shift\n    output reg [3:0] q        // 4-bit output\n);\n    \n    always @(posedge rst_clk or posedge reset) begin\n        if (reset) begin\n            q <= 4'b0000;      // Reset the register to 0\n        end else if (shift_left && !shift_right) begin\n            q <= {q[2:0], data_in[0]};  // Shift left and insert data_in[0]\n        end else if (shift_right && !shift_left) begin\n            q <= {data_in[3], q[3:1]};   // Shift right and insert data_in[3]\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

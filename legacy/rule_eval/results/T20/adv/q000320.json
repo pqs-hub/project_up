@@ -1,0 +1,6 @@
+{
+  "task_id": "q000320",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule pcie_packet_handler (\n    input wire clk,\n    input wire rst,\n    input wire txn_valid,\n    input wire [1:0] txn_type,\n    input wire [31:0] txn_addr,\n    output reg txn_ready\n);\n    reg [1:0] stored_txn_type;\n    reg [31:0] stored_txn_addr;\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            stored_txn_type <= 2'b00;\n            stored_txn_addr <= 32'b0;\n            txn_ready <= 0;\n        end else if (txn_valid) begin\n            stored_txn_type <= txn_type;\n            stored_txn_addr <= txn_addr;\n            txn_ready <= 1;\n        end\n    end\nendmodule"
+}

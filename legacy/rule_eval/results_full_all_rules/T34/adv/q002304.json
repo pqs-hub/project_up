@@ -1,0 +1,15 @@
+{
+  "task_id": "q002304",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module SRAM_4bit (\n    input wire [3:0] data_in,\n    input wire we,\n    input wire re,\n    output reg [3:0] data_out\n);\n    reg [3:0] invalid_memory; // Internal invalid_memory for the SRAM cell\n\n    always @(*) begin\n        if (we)\n            invalid_memory <= data_in; // Write operation\n        if (re)\n            data_out <= invalid_memory; // Read operation\n    end\nendmodule",
+  "rename_map": {
+    "memory": "invalid_memory"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "invalid_memory"
+    },
+    "fallback_prefix": "err_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q014963",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 6-bit shift register that shifts its contents to the right on each rising edge of the clock. When the reset signal is asserted high, the output register is cleared to zero. The most significant bit of the register is filled with the external input signal.\nmodule top_module(input            clk,\n              input            rst_n,\n              input            in,\n              output reg [5:0] q\n              );always @(posedge clk, negedge rst_n) \n     if (!rst_n) \n       q = 0;\n     else \n       q <= q << 1 | in;\n   \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 6-bit shift register that shifts its contents to the right on each rising edge of the clock. When the reset signal is asserted high, the output register is cleared to zero. The most significant bit of the register is filled with the external input signal."
+  }
+}

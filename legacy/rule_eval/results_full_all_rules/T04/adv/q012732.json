@@ -1,0 +1,10 @@
+{
+  "task_id": "q012732",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module compares two 16-bit numbers 'a' and 'b' based on the control signal 'alufn'. When 'alufn[1]' is high and 'alufn[2]' is low, it checks if 'a' is greater than 'b'; when 'alufn[1]' is low and 'alufn[2]' is high, it checks if 'a' is not equal to 'b'; and when both 'alufn[1]' and 'alufn[2]' are high, it checks if 'a' is not less than or equal to 'b'. The output 'com_out' indicates the result of the comparison.\nmodule top_module(\n    input [5:0] alufn,\n    input [15:0] a,\n    input [15:0] b,\n    output reg [15:0] com_out\n  );reg [15:0] out;\n  \n  always @* begin\n    out[0+0-:1] = 1'h0;\n    if (alufn[1+0-:1] == 1'h1 & alufn[2+0-:1] == 1'h0) begin\n      if (a == b) begin\n        out[0+0-:1] = 1'h1;\n      end\n    end\n    if (alufn[1+0-:1] == 1'h0 & alufn[2+0-:1] == 1'h1) begin\n      if (a < b) begin\n        out[0+0-:1] = 1'h1;\n      end\n    end\n    if (alufn[1+0-:1] == 1'h1 & alufn[2+0-:1] == 1'h1) begin\n      if (a <= b) begin\n        out[0+0-:1] = 1'h1;\n      end\n    end\n    out[1+14-:15] = 16'h0000;\n    com_out = out;\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module compares two 16-bit numbers 'a' and 'b' based on the control signal 'alufn'. When 'alufn[1]' is high and 'alufn[2]' is low, it checks if 'a' is greater than 'b'; when 'alufn[1]' is low and 'alufn[2]' is high, it checks if 'a' is not equal to 'b'; and when both 'alufn[1]' and 'alufn[2]' are high, it checks if 'a' is not less than or equal to 'b'. The output 'com_out' indicates the result of the comparison."
+  }
+}

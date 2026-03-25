@@ -1,0 +1,10 @@
+{
+  "task_id": "q008784",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_multiplier(\n    input [3:0] a,\n    input [3:0] b,\n    output reg [7:0] product\n    );\n    \n    reg [7:0] temp_a;\n    reg [3:0] temp_b;\n    integer i;\n    \n    always @(*) begin\n        temp_a = {4'b0000, a};\n        temp_b = b;\n        product = 8'b00000000;\n        \n        for (i = 0; i < 4; i = i + 1) begin\n            if (temp_b[i])\n                product = product + (temp_a << i);\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      temp_a = temp_a & ~temp_b;\n      product = product | temp_a;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "temp_a = temp_a & ~temp_b;\nproduct = product | temp_a;"
+  }
+}

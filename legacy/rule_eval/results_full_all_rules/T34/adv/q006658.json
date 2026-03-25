@@ -1,0 +1,15 @@
+{
+  "task_id": "q006658",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    output reg ERR_SB_DFF_REG,  // Change output type to reg\n    input C, E, S, D\n);always @(negedge C) begin\n        if (E) begin\n            if (S)\n                ERR_SB_DFF_REG <= 1;\n            else\n                ERR_SB_DFF_REG <= D;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "SB_DFF_REG": "ERR_SB_DFF_REG"
+  },
+  "params_used": {
+    "custom_map": {
+      "SB_DFF_REG": "INVALID_REG"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

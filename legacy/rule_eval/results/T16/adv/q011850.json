@@ -1,0 +1,9 @@
+{
+  "task_id": "q011850",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module d_flip_flop (\n    input obf_clk,\n    input reset_n,\n    input enable,\n    input d,\n    output reg q);\n\nalways @(posedge obf_clk or negedge reset_n) begin\n    if (!reset_n)\n        q <= 0;\n    else if (enable)\n        q <= d;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

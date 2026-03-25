@@ -1,0 +1,6 @@
+{
+  "task_id": "q005757",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    input [7:0] a,\n    input [7:0] b,\n    input [1:0] opcode,\n    output reg [7:0] result\n    );always @(posedge clk) begin\n        if (reset) begin\n            result <= 0;\n        end else begin\n            case (opcode)\n                2'b00: result <= a + b;\n                2'b01: result <= a - b;\n                2'b10: result <= a * b;\n                2'b11: result <= a / b;\n            endcase\n        end\n    end\n\nendmodule"
+}

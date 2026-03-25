@@ -1,0 +1,8 @@
+{
+  "task_id": "q007975",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    input sel_b1,\n    input clk,            // Added clk input\n    output reg out_always\n);reg pipeline_reg;\n\nalways @(posedge clk) begin\n    begin end  // redundant\n    pipeline_reg <= sel_b1;\nend\n\nalways @(*) begin\n    if (pipeline_reg) begin\n        out_always = b;\n    end else begin\n        out_always = a;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

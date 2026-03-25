@@ -1,0 +1,10 @@
+{
+  "task_id": "q016633",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module\tICAP_SPARTAN6(CLK, CE, WRITE, I, O, BUSY);\n\tinput\t\t\tCLK, CE, WRITE;\n\tinput\t\t[15:0]\tI;\n\toutput\twire\t[15:0]\tO;\n\toutput\twire\tBUSY;\n\treg\t[15:0]\trv;\n\tinitial\trv = 16'h0000;\n\talways @(posedge CLK)\n\t\tif ((CE)&&(WRITE))\n\t\t\trv <= I;\n\twire conflicting_data = rv;\n\tassign O = conflicting_data;\n\tassign\tBUSY = 1'b0;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "conflicting_data"
+  }
+}

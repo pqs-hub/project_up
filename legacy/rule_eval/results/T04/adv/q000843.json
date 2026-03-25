@@ -1,0 +1,6 @@
+{
+  "task_id": "q000843",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule data_forwarding_unit(\n    input wire [4:0] rs1, // Source register 1\n    input wire [4:0] rs2, // Source register 2\n    input wire [4:0] rd_EX, // Destination register from EX stage\n    input wire [4:0] rd_MEM, // Destination register from MEM stage\n    input wire reg_write_EX, // Write enable for EX stage\n    input wire reg_write_MEM, // Write enable for MEM stage\n    output reg [1:0] forwardA, // Forwarding for rs1\n    output reg [1:0] forwardB  // Forwarding for rs2\n);\n\nalways @(*) begin\n    // Default forwarding values\n    forwardA = 2'b00; \n    forwardB = 2'b00;\n\n    // Check for forwarding for rs1\n    if (reg_write_EX && (rd_EX != 0) && (rd_EX == rs1)) begin\n        forwardA = 2'b10; // Forward from EX stage\n    end else if (reg_write_MEM && (rd_MEM != 0) && (rd_MEM == rs1)) begin\n        forwardA = 2'b01; // Forward from MEM stage\n    end\n\n    // Check for forwarding for rs2\n    if (reg_write_EX && (rd_EX != 0) && (rd_EX == rs2)) begin\n        forwardB = 2'b10; // Forward from EX stage\n    end else if (reg_write_MEM && (rd_MEM != 0) && (rd_MEM == rs2)) begin\n        forwardB = 2'b01; // Forward from MEM stage\n    end\nend\nendmodule"
+}

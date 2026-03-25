@@ -1,0 +1,7 @@
+{
+  "task_id": "q012292",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module top_module(rst, clk, test, sync, freq, o);parameter WID = 32; \ninput rst;\ninput clk;\ninput test;\ninput sync;\ninput [WID-1:0] freq;   \noutput [WID-1:0] o;\n\nreg [WID-1:0] acc;\n\nalways @(posedge clk)\nif (rst)\n    acc <= 0;\nelse begin\n    if (~test) begin\n        if (sync)\n            acc <= 0;\n        else\n            acc <= acc + freq;\n    end\n    else\n        acc <= 0;\nend\n\nassign o = acc;\n\nendmodule",
+  "rename_map": {}
+}

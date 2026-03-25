@@ -1,0 +1,18 @@
+{
+  "task_id": "q016568",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module PP_HIGH ( INV_ONEPOS, ONENEG, TWOPOS, TWONEG, INA, INB, PPBIT );\ninput  INV_ONEPOS;\ninput  ONENEG;\ninput  TWOPOS;\ninput  TWONEG;\ninput  INA;\ninput  INB;\noutput PPBIT;\n   assign PPBIT =  ~ ((INA & INV_ONEPOS) | (INB & ONENEG) | (INA & TWOPOS) | (INB & TWONEG));\nendmodule",
+  "rename_map": {
+    "ONEPOS": "INV_ONEPOS"
+  },
+  "params_used": {
+    "custom_map": {
+      "ONEPOS": "NEG_ONE",
+      "ONENEG": "POS_ONE",
+      "TWOPOS": "NEG_TWO",
+      "TWONEG": "POS_TWO"
+    },
+    "fallback_prefix": "INV_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005184",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule (\n  input clk,\n  input shift_left,\n  input shift_right,\n  input [7:0] data_in,\n  output reg [7:0] q);\n  \nalways @(posedge clk) begin\n    if (shift_left)\n        q <= q << 1;\n    else if (shift_right)\n        q <= q >> 1;\n    else\n        q <= data_in;\nend\nendmodule"
+}

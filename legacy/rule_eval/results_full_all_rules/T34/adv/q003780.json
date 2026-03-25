@@ -1,0 +1,15 @@
+{
+  "task_id": "q003780",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module eeprom_interface (\n    input [4:0] data_in,\n    input [4:0] address,\n    input we,\n    output reg [4:0] data_out\n);\n    reg [4:0] eeprom_storage [0:31]; // 32x5 EEPROM eeprom_storage\n\n    always @(*) begin\n        if (we) begin\n            eeprom_storage[address] = data_in; // Write operation\n            data_out = 5'b00000; // No data output during write\n        end else begin\n            data_out = eeprom_storage[address]; // Read operation\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "eeprom_storage"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "eeprom_storage"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

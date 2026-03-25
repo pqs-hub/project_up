@@ -1,0 +1,16 @@
+{
+  "task_id": "q001064",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ofdm_modulator (\n    input wire reset,\n    input wire rst,\n    input wire [3:0] symbol_in,\n    output reg [15:0] modulated_out\n);\n    \n    always @(posedge reset or posedge rst) begin\n        if (rst) begin\n            modulated_out <= 16'b0;\n        end else begin\n            modulated_out <= {12'b0, symbol_in}; // Place symbol_in in the lower 4 bits\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "symbol_in": "data_in",
+      "modulated_out": "signal_out"
+    },
+    "fallback_prefix": "ofdm_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009555",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(CLK, EN, ENCLK, TE);input CLK, EN, TE;\n  output ENCLK;\n\n  reg gated_clk;\n\n  // Assuming TLATNTSCAX2TS is a sequential logic module which we need to define\n  // Here is a simple example of a flip-flop that can be used if the original module is not available\n  // Replace this with the actual implementation of TLATNTSCAX2TS if available.\n  reg ECK; // Temporary representation of the output from TLATNTSCAX2TS\n  \n  always @(posedge CLK) begin\n    if (EN == 1'b1 && TE == 1'b1) begin\n      gated_clk <= CLK;\n    end else begin\n      gated_clk <= 1'b0;\n    end\n  end\n  \n  // Define a simple latch behavior for demonstration purposes\n  always @(gated_clk or EN or TE) begin\n    if (EN) begin\n      ECK <= gated_clk;\n    end else begin\n      ECK <= 1'b0; // Reset output if EN is low\n    end\n  end\n  \n  wire __ENCLK_tmp = ECK;\n  assign ENCLK = __ENCLK_tmp;\n\nendmodule"
+}

@@ -1,0 +1,7 @@
+{
+  "task_id": "q014919",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module binary_up_counter (\n    input clk,\n    input rst,\n    input en,\n    output reg [3:0] count\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        count <= 4'b0000;\n    end else if (en) begin\n        if (count == 4'b1111) begin\n            count <= 4'b0000;\n        end else begin\n            count <= count + 1;\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {}
+}

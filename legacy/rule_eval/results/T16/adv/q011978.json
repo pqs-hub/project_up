@@ -1,0 +1,9 @@
+{
+  "task_id": "q011978",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module shift_register(obf_clk, reset, data_out);  \n\n    input  obf_clk;  \n    input  reset;  \n    output  [2:0] data_out;  \n    reg   [2:0] data_out; \n    initial data_out = 0;\n\n    always @(posedge obf_clk)\n        begin\n            if (reset)\n                data_out <= 0;\n            else\n                data_out <= data_out << 1;\n        end  \n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

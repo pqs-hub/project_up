@@ -1,0 +1,6 @@
+{
+  "task_id": "q005232",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    X   ,\n    A1  ,\n    A2  ,\n    VPWR,\n    VGND\n);output X   ;\n    input  A1  ;\n    input  A2  ;\n    input  VPWR;\n    input  VGND;\n\n    wire A1_AND_A2;\n    wire __A1_AND_A2_tmp = A1 & A2;\n    assign A1_AND_A2 = __A1_AND_A2_tmp;\n\n    wire VPWR_GT_VGND;\n    assign VPWR_GT_VGND = VPWR > VGND;\n\n    assign X = A1_AND_A2 & VPWR_GT_VGND;\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q013521",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module RefModule(\n    input wire clk, // Added clock input\n    input wire [2:0] vec,\n    output wire [2:0] outv,\n    output wire o2,\n    output wire o1,\n    output wire o0\n);reg [2:0] reg1;\nreg [2:0] reg2;\nreg [2:0] reg3;\n\n  assign o0 = reg1[0];\n  assign o1 = reg2[1];\n  assign o2 = reg3[2];\n  assign outv = reg3;\n\nalways @(posedge clk) begin\n    reg1 <= vec;\nend\n\nalways @(posedge clk) begin\n    reg2 <= reg1;\nend\n\nalways @(posedge clk) begin\n    reg3 <= reg2;\nend\n\nendmodule"
+}

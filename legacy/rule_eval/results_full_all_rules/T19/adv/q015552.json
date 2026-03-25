@@ -1,0 +1,10 @@
+{
+  "task_id": "q015552",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input a,\n  input b,\n  input [1:0] c,\n  input [1:0] d,\n  output reg [2:0] out\n);always @(*) begin\n  if (a == 1) begin\n    out = {c, b};\n  end\n  else if (b == 1) begin\n    out = {2'b1, d[1:0]};\n  end\n  else begin\n    out = {d[0], 2'b0};\n  end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      out = {~c, ~b};\n      out = {~2'b1, ~d[1:0]};\n      out = {~d[0], 2'b1};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out = {~c, ~b};\nout = {~2'b1, ~d[1:0]};\nout = {~d[0], 2'b1};"
+  }
+}

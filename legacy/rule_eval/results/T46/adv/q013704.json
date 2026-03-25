@@ -1,0 +1,8 @@
+{
+  "task_id": "q013704",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input [n-1:0] in,\n  output [n-1:0] out\n);parameter n = 4; // number of input and output signals\n\nreg [n-1:0] pipeline_reg; // register to hold input values\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n  pipeline_reg <= in; // store input values on clock edge\nend\n\nassign out = pipeline_reg; // output stored values\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

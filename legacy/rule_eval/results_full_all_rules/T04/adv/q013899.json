@@ -1,0 +1,10 @@
+{
+  "task_id": "q013899",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This LFSR module loads data on falling edge of clk and updates state on rising edge\nmodule lfsr (\n  input clk,\n  input ld,\n  input [5:0] d,\n  output reg [5:0] q);always @(posedge clk) begin\n    if (ld)\n        q <= d;\n    else\n        q <= {q[4:0], q[5] ^ q[4]};\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This LFSR module loads data on falling edge of clk and updates state on rising edge"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014212",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule top_module(\n    input t,\n    input u,\n    output z\n);\n    assign z = (t & ~u);\nendmodule\n\nmodule S(\n    input t,\n    input u,\n    output z\n);\n    assign z = (t & ~u);\nendmodule\n\nmodule top_module(\n    input t,\n    input u,\n    output z\n);\n    wire r1_out, r2_out, s1_out, s2_out;\n    wire or_out, and_out;\n\n    R r1(.t(t), .u(u), .z(r1_out));\n    R r2(.t(t), .u(u), .z(r2_out));\n    S s1(.t(t), .u(u), .z(s1_out));\n    S s2(.t(t), .u(u), .z(s2_out));\n\n    assign or_out = r1_out | s1_out;\n    assign and_out = r2_out & s2_out;\n\n    assign z = or_out ^ and_out;\nendmodule"
+}

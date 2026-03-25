@@ -1,0 +1,15 @@
+{
+  "task_id": "q010309",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(misleading_dataIn, dataOut);parameter PC_BIT_WIDTH = 32;\n\tinput  [PC_BIT_WIDTH - 1: 0] misleading_dataIn;\n\toutput reg [PC_BIT_WIDTH - 1: 0] dataOut;\n  \n\talways @(misleading_dataIn) begin\n\t\tdataOut <= misleading_dataIn + 4;\n\tend\nendmodule",
+  "rename_map": {
+    "dataIn": "misleading_dataIn"
+  },
+  "params_used": {
+    "custom_map": {
+      "dataIn": "programAddress"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "q000252",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module interrupt_controller (\n    input wire rst_clk,\n    input wire reset,\n    input wire [3:0] interrupt_requests,\n    input wire enable,\n    output reg interrupt_active\n);\n    always @(posedge rst_clk or posedge reset) begin\n        if (reset) begin\n            interrupt_active <= 0;\n        end else if (enable) begin\n            interrupt_active <= |interrupt_requests; // Active if any request is asserted\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk",
+      "reset": "active_reset",
+      "interrupt_requests": "req_signals",
+      "enable": "disable_ctrl",
+      "interrupt_active": "inactive_flag"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

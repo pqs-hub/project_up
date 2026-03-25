@@ -1,0 +1,6 @@
+{
+  "task_id": "q013861",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input [3:0] data_in,\n    output reg data_out\n);reg [3:0] data_reg;\n    wire [3:0] data_wire;\n\n    always @(posedge clk) begin\n        data_reg <= data_in;\n    end\n\n    wire __data_wire_tmp = data_reg;\n    assign data_wire = __data_wire_tmp;\n\n    always @(*) begin\n        if (data_wire <= 5) begin\n            data_out = 1;\n        end else begin\n            data_out = 0;\n        end\n    end\n\nendmodule"
+}

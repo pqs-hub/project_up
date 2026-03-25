@@ -1,0 +1,15 @@
+{
+  "task_id": "q001562",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module priority_encoder_8to3 (\n    input [7:0] in,\n    output reg [2:0] invalid_out,\n    output reg valid\n);\n\nalways @(*) begin\n    casez (in)\n        8'b1???????: invalid_out = 3'd7; // Input 7\n        8'b01??????: invalid_out = 3'd6; // Input 6\n        8'b001?????: invalid_out = 3'd5; // Input 5\n        8'b0001????: invalid_out = 3'd4; // Input 4\n        8'b00001???: invalid_out = 3'd3; // Input 3\n        8'b000001??: invalid_out = 3'd2; // Input 2\n        8'b0000001?: invalid_out = 3'd1; // Input 1\n        8'b00000001: invalid_out = 3'd0; // Input 0\n        default:     invalid_out = 3'b000; // No valid input\n    endcase\n    valid = |in; // Set valid if any input is high\nend\n\nendmodule",
+  "rename_map": {
+    "out": "invalid_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_out"
+    },
+    "fallback_prefix": "err_"
+  }
+}

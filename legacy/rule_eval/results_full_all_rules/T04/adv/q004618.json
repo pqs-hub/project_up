@@ -1,0 +1,10 @@
+{
+  "task_id": "q004618",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 8-bit register that holds the value of the 'exponent' input. On the negative edge of the 'clk', if the 'clear' signal is deasserted, the register resets to zero. If the 'load' signal is deasserted, the register captures and stores the value from the 'exponent' input.\nmodule top_module(\n    input [7:0]exponent,\n    input clk, clear, load,\n    output reg [7:0]saved_exp\n    );always @(posedge clk)\n        if(clear)\n            saved_exp <= 8'b0;\n        else if(load)\n            saved_exp <= exponent;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 8-bit register that holds the value of the 'exponent' input. On the negative edge of the 'clk', if the 'clear' signal is deasserted, the register resets to zero. If the 'load' signal is deasserted, the register captures and stores the value from the 'exponent' input."
+  }
+}

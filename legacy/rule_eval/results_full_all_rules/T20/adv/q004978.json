@@ -1,0 +1,10 @@
+{
+  "task_id": "q004978",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module decrements a 3-bit binary counter on the positive edge of the clock signal. The counter resets to seven when the reset input is activated. It counts from 7 to 0 and wraps around to 7 after reaching the minimum value of 0 (000 in binary).\nmodule top_module(\n    input clk,\n    input reset,\n    output reg [2:0] count\n);always @(posedge clk, posedge reset) begin\n        if (reset) begin\n            count <= 3'b0;\n        end else begin\n            if (count == 3'b111) begin\n                count <= 3'b0;\n            end else begin\n                count <= count + 1;\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements a 3-bit binary counter on the positive edge of the clock signal. The counter resets to seven when the reset input is activated. It counts from 7 to 0 and wraps around to 7 after reaching the minimum value of 0 (000 in binary)."
+  }
+}

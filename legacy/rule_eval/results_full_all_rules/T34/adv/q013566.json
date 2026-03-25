@@ -1,0 +1,16 @@
+{
+  "task_id": "q013566",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_to_gray (\n  input [2:0] inverse_binary,\n  output reg [2:0] gray);always @(*) begin\n    gray[2] = inverse_binary[2];\n    gray[1] = inverse_binary[2] ^ inverse_binary[1];\n    gray[0] = inverse_binary[1] ^ inverse_binary[0];\nend\n\nendmodule",
+  "rename_map": {
+    "binary": "inverse_binary"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary": "inverse_binary",
+      "gray": "inverse_gray"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

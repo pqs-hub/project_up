@@ -1,0 +1,18 @@
+{
+  "task_id": "q012553",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] input_vector,\n    input sel_comp,\n    output [3:0] outv,\n    output [3:0] complement\n);assign outv = input_vector;\n    \n    assign complement = (sel_comp == 1) ? ~input_vector + 1 : ~input_vector;\n    \nendmodule",
+  "rename_map": {
+    "in_vec": "input_vector"
+  },
+  "params_used": {
+    "custom_map": {
+      "in_vec": "input_vector",
+      "sel_comp": "select_complement",
+      "outv": "original_value",
+      "complement": "twos_complement"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

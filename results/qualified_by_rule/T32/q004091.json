@@ -1,0 +1,6 @@
+{
+  "task_id": "q004091",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input load,\n    input [8-1:1-1] new_data,\n    output reg [7:0] q\n);\n    always @(posedge clk) begin\n        if (load) begin\n            q <= new_data;\n        end else begin\n            q <= {q[6:0], 1'b0}; // Shift left and fill with 0\n        end\n    end\nendmodule"
+}

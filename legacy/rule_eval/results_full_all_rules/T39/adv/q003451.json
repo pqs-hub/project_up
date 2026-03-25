@@ -1,0 +1,8 @@
+{
+  "task_id": "q003451",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module LU_Decomposition (\n    input [7:0] a11, a12, \n    input [7:0] a21, a22,\n    output reg [7:0] l11, l12, l21, l22,\n    output reg [7:0] u11, u12, u21, u22\n);\n\nalways @(*) begin\n  // Initialize L and U l11 = 8'd1 ;\n  end\n\n  always @(*) begin\n  // L(1,1) = 1 l12 = 8'd0 ;\n  // L(1,2) = 0 l21 = a21 / a11 ;\n  // L(2,1) = A(2,1) / A(1,1) l22 = 8'd1 ;\n  // L(2,2) = 1 (for 2x2 matrix) u11 = a11 ;\n  // U(1,1) = A(1,1) u12 = a12 ;\n  // U(1,2) = A(1,2) u21 = 8'd0 ;\n  // U(2,1) = 0 (since we want upper triangular) u22 = a22 - (l21 * u12) ;\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

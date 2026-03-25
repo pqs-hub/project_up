@@ -1,0 +1,6 @@
+{
+  "task_id": "q000765",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module ethernet_mac_controller(  \n    input clk,  \n    input reset,  \n    input start_tx,  \n    input start_rx,  \n    output reg [1:0] state  \n);  \n    // State encoding  \n    localparam IDLE = 2'b00,  \n               TRANSMIT = 2'b01,  \n               RECEIVE = 2'b10;  \n\n    // State transition on clock edge  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            state <= IDLE;  \n        end else begin  \n            case (state)  \n                IDLE: begin  \n                    if (start_tx)  \n                        state <= TRANSMIT;  \n                    else if (start_rx)  \n                        state <= RECEIVE;  \n                end  \n                TRANSMIT: begin  \n                    if (!start_tx)  \n                        state <= IDLE;  \n                end  \n                RECEIVE: begin  \n                    if (!start_rx)  \n                        state <= IDLE;  \n                end  \n            endcase  \n        end  \n    end  \nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q000665",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [31:0] seed,\n    output reg [31:0] lfsr_out\n);\n    wire feedback;\n\n    // Feedback polynomial: x^32 + x^22 + x^18 + x^17 + x^13 + 1\n    assign feedback = lfsr_out[31] ^ lfsr_out[21] ^ lfsr_out[17] ^ lfsr_out[16] ^ lfsr_out[12];\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            lfsr_out <= seed; // Load the seed on reset\n        end else begin\n            lfsr_out <= {lfsr_out[30:0], feedback}; // Shift and feedback\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q013921",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(i_state, obf_reset, clk, o_state);input [2:0]i_state;\n    input obf_reset, clk;\n    output reg[2:0]o_state;\n    always @(posedge clk) begin\n        if (obf_reset) o_state = 3'b000;\n        else o_state = i_state;\n    end\nendmodule",
+  "rename_map": {
+    "reset": "obf_reset"
+  }
+}

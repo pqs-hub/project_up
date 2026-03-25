@@ -1,0 +1,10 @@
+{
+  "task_id": "q002749",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module converts an 8-bit binary input to a 16-bit output by setting the lower 8 bits to the input and the upper 8 bits to one.\nmodule ADC_16bit (\n    input wire [7:0] voltage_in,\n    input wire enable,\n    output reg [15:0] voltage_out\n);\n    always @(*) begin\n        if (enable) begin\n            voltage_out = {8'b0, voltage_in}; // Expand to 16-bits\n        end else begin\n            voltage_out = 16'b0; // Output zero when not enabled\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module converts an 8-bit binary input to a 16-bit output by setting the lower 8 bits to the input and the upper 8 bits to one."
+  }
+}

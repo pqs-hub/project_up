@@ -1,0 +1,9 @@
+{
+  "task_id": "q004102",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module flash_memory_cell (\n    input wire D,\n    input wire obf_C,\n    output reg Q\n);\n    always @(*) begin\n        if (obf_C) begin\n            Q = D; // Update output with input when control is high\n        end\n        // If control is low, retain previous state: no change to Q\n    end\nendmodule",
+  "rename_map": {
+    "C": "obf_C"
+  }
+}

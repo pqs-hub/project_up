@@ -1,0 +1,10 @@
+{
+  "task_id": "q008783",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_to_gray (\n    input [7:0] bin,\n    output [7:0] gray\n);\n\n    assign gray = (bin >> 1) ^ bin;\n\n  always @(*) begin\n    if (1'b0) begin\n      gray[0] <= ~bin[0];\n      for (int i = 1; i < 8; i = i + 1) begin\n        gray[i] <= bin[i - 1] ^ bin[i];\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "gray[0] <= ~bin[0];\nfor (int i = 1; i < 8; i = i + 1) begin\n  gray[i] <= bin[i - 1] ^ bin[i];\nend"
+  }
+}

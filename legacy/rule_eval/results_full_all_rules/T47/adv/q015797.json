@@ -1,0 +1,8 @@
+{
+  "task_id": "q015797",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(\ncur_addr,\ndisp,\ndisp_addr,\none_addr\n);input\t  wire  [11:0]\tcur_addr;\ninput\t  wire  [7:0]\t  disp;\noutput\twire  [11:0]\tdisp_addr;\noutput\twire  [11:0]\tone_addr;\n\n  wire _n01 = cur_addr[0] ^ disp[0];\n  wire _c01 = cur_addr[0] & disp[0];\n  wire _n02 = cur_addr[1] ^ disp[1] ^ _c01;\n  wire _c02 = (cur_addr[1] & disp[1]) | (cur_addr[1] & _c01) | (disp[1] & _c01);\n  wire _n03 = cur_addr[2] ^ disp[2] ^ _c02;\n  wire _c03 = (cur_addr[2] & disp[2]) | (cur_addr[2] & _c02) | (disp[2] & _c02);\n  wire _n04 = cur_addr[3] ^ disp[3] ^ _c03;\n  wire _c04 = (cur_addr[3] & disp[3]) | (cur_addr[3] & _c03) | (disp[3] & _c03);\n  assign disp_addr = {_n01, _n02, _n03, _n04};\n                   \nassign one_addr = cur_addr + 12'b000000000001;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

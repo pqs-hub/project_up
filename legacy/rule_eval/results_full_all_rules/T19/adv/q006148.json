@@ -1,0 +1,10 @@
+{
+  "task_id": "q006148",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_comparator(\n    input [3:0] a,\n    input [3:0] b,\n    output eq\n);\n    assign eq = (a == b);\n  always @(*) begin\n    if (1'b0) begin\n      if (a != b) begin\n        eq <= 1'b1;\n      end else begin\n        eq <= 1'b0;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (a != b) begin\n  eq <= 1'b1;\nend else begin\n  eq <= 1'b0;\nend;"
+  }
+}

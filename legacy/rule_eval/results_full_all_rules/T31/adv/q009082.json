@@ -1,0 +1,10 @@
+{
+  "task_id": "q009082",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n            opB, opA,\n            op,\n            result);input [31:0] opA;\ninput [31:0] opB;\ninput [1:0] op;\noutput [31:0] result;\n\nreg [31:0] logic_result;\n\nalways@(opA or opB or op )\n    case(op)\n        2'b00:\n            logic_result=opA&opB;\n        2'b01:\n            logic_result=opA|opB;\n        2'b10:\n            logic_result=opA^opB;\n        2'b11:\n            logic_result=~(opA|opB);\n    endcase\n\nwire inverted_logic_result = logic_result;\nassign result = inverted_logic_result;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "inverted_logic_result"
+  }
+}

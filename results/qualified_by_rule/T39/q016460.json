@@ -1,0 +1,6 @@
+{
+  "task_id": "q016460",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule (so, sd, ck, se);\noutput so;\ninput sd, ck, se;\nreg so_l;\n    assign so = ~so_l;\n    always @ ( ck or sd or se )\n       if (~ck) so_l <= ~(sd & se) ;\nendmodule"
+}

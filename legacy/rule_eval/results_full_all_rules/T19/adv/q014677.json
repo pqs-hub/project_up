@@ -1,0 +1,10 @@
+{
+  "task_id": "q014677",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0]RData2,\n    input [31:0]Extended,\n    input ALUSrc,\n    output [31:0]ALUB\n    );assign ALUB = (ALUSrc == 1) ? Extended : RData2;\n\n  always @(*) begin\n    if (1'b0) begin\n      ALUB <= ~ALUSrc & RData2; ALUB <= ALUSrc & ~Extended;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "ALUB <= ~ALUSrc & RData2; ALUB <= ALUSrc & ~Extended;"
+  }
+}

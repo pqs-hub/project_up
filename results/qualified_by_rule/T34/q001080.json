@@ -1,0 +1,6 @@
+{
+  "task_id": "q001080",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule(\n    input [3:0] temperature,\n    input clk,\n    input rst,\n    output reg [1:0] speed\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            speed <= 2'b00; // Off\n        end else begin\n            case (temperature)\n                4'b0000, 4'b0001, 4'b0010, 4'b0011, 4'b0100: speed <= 2'b00; // Off\n                4'b0101, 4'b0110, 4'b0111, 4'b1000, 4'b1001: speed <= 2'b01; // Low\n                4'b1010, 4'b1011, 4'b1100, 4'b1101: speed <= 2'b10; // Medium\n                4'b1110, 4'b1111: speed <= 2'b11; // High\n                default: speed <= 2'b00; // Off\n            endcase\n        end\n    end\nendmodule"
+}

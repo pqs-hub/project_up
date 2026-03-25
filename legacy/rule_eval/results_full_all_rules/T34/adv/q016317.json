@@ -1,0 +1,18 @@
+{
+  "task_id": "q016317",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input A, B, output reg invalid_nand, q_nor, q_xnor, q_not);always @(A, B) begin\n      invalid_nand = A ~& B;\n      q_nor  = A ~| B;\n      q_xnor = A ~^ B;\n      q_not  = ~A;\n   end\n\nendmodule",
+  "rename_map": {
+    "q_nand": "invalid_nand"
+  },
+  "params_used": {
+    "custom_map": {
+      "q_nand": "invalid_nand",
+      "q_nor": "invalid_nor",
+      "q_xnor": "invalid_xnor",
+      "q_not": "invalid_not"
+    },
+    "fallback_prefix": "error_"
+  }
+}

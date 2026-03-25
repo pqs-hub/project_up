@@ -1,0 +1,6 @@
+{
+  "task_id": "q001833",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule (  \n    input clk,  \n    input rst,  \n    input [4:0] x,  \n    output reg [4:0] state  \n);  \n    parameter weight = 5'b00011; // Weight multiplier (3)  \n    always @(posedge clk or posedge rst) begin  \n        if (rst)  \n            state <= 5'b00000;  \n        else  \n            state <= (state * weight) + x;  \n    end  \nendmodule"
+}

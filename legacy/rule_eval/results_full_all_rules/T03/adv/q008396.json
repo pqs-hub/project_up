@@ -1,0 +1,8 @@
+{
+  "task_id": "q008396",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input DIODE,\n    input VPB,\n    input VPWR,\n    input VGND,\n    input VNB,\n    output reg OUT\n);function automatic [31:0] max(input [31:0] a, input [31:0] b);\n  wire _tap_DIODE = DIODE & {1{1'b1}};\n\n    begin\n        if (a > b) \n            max = a;\n        else \n            max = b;\n    end\nendfunction\n\nalways @(*) begin\n    if (DIODE == 1) begin\n        OUT = max(VPB, VPWR) - max(VGND, VNB);\n    end else begin\n        OUT = VPWR - max(VGND, VNB);\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

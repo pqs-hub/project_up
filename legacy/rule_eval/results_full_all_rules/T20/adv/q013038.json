@@ -1,0 +1,10 @@
+{
+  "task_id": "q013038",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 2-to-1 multiplexer with B1 as the select input. When B1 is LOW (0), Y outputs A2; when B1 is HIGH (1), Y outputs A1.\nmodule top_module(\n    Y   ,\n    A1  ,\n    A2  ,\n    B1  ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output Y   ;\n    input  A1  ;\n    input  A2  ;\n    input  B1  ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n\n    wire select;\n    assign select = B1;\n\n    assign Y = (select == 1'b0) ? A1 : A2;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 2-to-1 multiplexer with B1 as the select input. When B1 is LOW (0), Y outputs A2; when B1 is HIGH (1), Y outputs A1."
+  }
+}

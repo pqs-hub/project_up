@@ -1,0 +1,6 @@
+{
+  "task_id": "q012851",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(rst, rw, X, Y, Z, Rz, Rx, Ry);input rst;\n  input rw; \n  input [3:0] X;\n  input [3:0] Y;\n  input [3:0] Z;\n  input [31:0] Rz;\n  output [31:0] Rx;\n  output [31:0] Ry;\n  \n  reg [31:0] gregs [15:0];\n  integer i;\n  \n  always @ (*) begin\n    if (rst) begin\n      for(i=0; i<16; i=i+1) begin\n        gregs[i] <= i;\n      end\n    end else begin \n      if(rw == 1)\n        gregs[Z] <= Rz;\n    end\n  end\n  \n  assign Rx = gregs[X];\n  assign Ry = gregs[Y];endmodule"
+}

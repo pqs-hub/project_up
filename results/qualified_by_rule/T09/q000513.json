@@ -1,0 +1,6 @@
+{
+  "task_id": "q000513",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [15:0] current_parameter,\n    input wire [15:0] learning_rate,\n    input wire [15:0] gradient,\n    output reg [15:0] new_parameter\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            new_parameter <= 16'b0;\n        end else begin\n            new_parameter <= current_parameter - (learning_rate * gradient);\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q012445",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module priority_encoder (\n    input [3:0] in,\n    output reg [1:0] pos\n);\n\n    always @(*) begin\n        if (in[3])\n            pos = 2'b11;\n        else if (in[2])\n            pos = 2'b10;\n        else if (in[1])\n            pos = 2'b01;\n        else\n            pos = 2'b00;\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      pos = 2'b11;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "pos = 2'b11;"
+  }
+}

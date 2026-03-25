@@ -1,0 +1,6 @@
+{
+  "task_id": "q006017",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    // Inputs\n    input rst,\n    input en,\n    input [3:0] A,\n    input [3:0] B,\n    // Outputs\n    output [4:0] S\n);reg [4:0] S_reg;\n\nalways @(*) begin\n    if (rst) begin\n        S_reg <= 5'b0;\n    end else if (en) begin\n        S_reg <= {1'b0, A} + {1'b0, B};\n    end\nend\n\nwire __S_tmp = S_reg;\nassign S = __S_tmp;\n\nendmodule"
+}

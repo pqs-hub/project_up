@@ -1,0 +1,6 @@
+{
+  "task_id": "q004520",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(input wire sysclock,input wire [31:0] inputMulA,output reg [63:0] product);initial begin \n  product <= 64'd0; \n end \n   wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge sysclock or posedge dbg_halt) begin \n  product <= (inputMulA * inputMulA); \n end \n endmodule"
+}

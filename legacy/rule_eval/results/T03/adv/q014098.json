@@ -1,0 +1,6 @@
+{
+  "task_id": "q014098",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module priority_encoder(\n    input [2:0] in,\n    input enable,\n    output reg [1:0] out\n);\n  wire [2:0] _tap_in = in & {3{1'b1}};\n\n\n    // Always block triggered on changes to the inputs\n    always @(*) begin\n        if (enable) begin\n            if (in[2]) begin\n                out = 2'b10;  // Highest priority\n            end else if (in[1]) begin\n                out = 2'b01;\n            end else if (in[0]) begin\n                out = 2'b00;\n            end else begin\n                out = 2'b00;  // Default case when no inputs are high\n            end\n        end else begin\n            out = 2'b00;  // Output is zero when enable is low\n        end\n    end\n\nendmodule"
+}

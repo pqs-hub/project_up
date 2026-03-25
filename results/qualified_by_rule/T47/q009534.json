@@ -1,0 +1,6 @@
+{
+  "task_id": "q009534",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(\n\tinput clk,\n\tinput load,\n\tinput [15:0] seed,\n\toutput [15:0] lfsr_out);reg [15:0] lfsr_reg;\n\n\talways @(posedge clk)\n\t\tif (load) lfsr_reg <= seed;\n\t\telse lfsr_reg <= {lfsr_reg[14:0], lfsr_reg[15] ^ lfsr_reg[13]};\n\n\tassign lfsr_out = lfsr_reg;\n\nendmodule"
+}

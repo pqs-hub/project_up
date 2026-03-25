@@ -1,0 +1,16 @@
+{
+  "task_id": "q001815",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module branch_predictor (\n    input clk,\n    input reset,\n    input branch_outcome,  // 1 for taken, 0 for not taken\n    output reg prediction   // 1 for taken, 0 for not taken\n);\n    reg [1:0] anti_history; // 2-bit anti_history register\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            anti_history <= 2'b00; // reset anti_history\n            prediction <= 0;  // reset prediction\n        end else begin\n            prediction <= (anti_history[1] == 1) ? 1 : 0; // prediction logic\n            // Update anti_history based on the current outcome\n            anti_history <= {anti_history[0], branch_outcome};  \n        end\n    end\nendmodule",
+  "rename_map": {
+    "history": "anti_history"
+  },
+  "params_used": {
+    "custom_map": {
+      "branch_outcome": "anti_branch_outcome",
+      "prediction": "anti_prediction"
+    },
+    "fallback_prefix": "anti_"
+  }
+}

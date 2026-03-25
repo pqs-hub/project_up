@@ -1,0 +1,6 @@
+{
+  "task_id": "q006761",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module prio_encoder(\n    input [7:0] req_in,\n    output reg [2:0] code_out\n);\n\nalways @(*) begin\n    casez(req_in)\n        8'b1???????: code_out = 3'b111;\n        8'b01??????: code_out = 3'b110;\n        8'b001?????: code_out = 3'b101;\n        8'b0001????: code_out = 3'b100;\n        8'b00001???: code_out = 3'b011;\n        8'b000001??: code_out = 3'b010;\n        8'b0000001?: code_out = 3'b001;\n        8'b00000001: code_out = 3'b000;\n        default: code_out = 3'b000;\n    endcase\nend\n\nendmodule"
+}

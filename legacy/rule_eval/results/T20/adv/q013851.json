@@ -1,0 +1,6 @@
+{
+  "task_id": "q013851",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule binary_counter_down (\n    input clk,\n    input reset,\n    input enable,\n    output [11:0] count\n);\n\n    reg [11:0] counter_reg;\n\n    always @(posedge clk) begin\n        if (reset) begin\n            counter_reg <= 12'b0;  // Reset the counter to 0\n        end else if (enable) begin\n            counter_reg <= counter_reg - 1;  // Decrement the counter\n        end\n    end\n\n    assign count = counter_reg;\n\nendmodule"
+}

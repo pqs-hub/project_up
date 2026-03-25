@@ -1,0 +1,6 @@
+{
+  "task_id": "q013002",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule (\n\tinput clk,\n\tinput load,\n\tinput [15:0] load_value,\n\toutput reg [15:0] data);\n\nalways @(posedge clk) begin\n\tif (load)\n\t\tdata <= load_value;\n\telse\n\t\tdata <= {1'b0, data[15:1]};\n\tend\n\nendmodule"
+}

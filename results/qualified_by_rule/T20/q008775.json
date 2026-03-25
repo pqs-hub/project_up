@@ -1,0 +1,6 @@
+{
+  "task_id": "q008775",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule(\n    input clk,           // Chip clock signal.\n    input rst_n,         // Active-low reset signal. Defined as 0 for chip reset; defined as 1 for reset signal inactive.\n    input ld,            // Load signal for parallel data load.\n    input [7:0] data_in, // 8-bit parallel data input.\n\n    output [7:0] data_out // 8-bit data output.\n);\n\nreg [7:0] shift_reg; // Register to hold the shift register value.\n\n// Shift register logic\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        shift_reg <= 8'b00000000; // Reset shift register\n    else if (ld)\n        shift_reg <= data_in;     // Load parallel data\n    else\n        shift_reg <= {1'b0, shift_reg[7:1]}; // Shift right\nend\n\nassign data_out = shift_reg;\n\nendmodule"
+}

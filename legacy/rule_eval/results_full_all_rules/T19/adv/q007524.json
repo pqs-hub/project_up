@@ -1,0 +1,10 @@
+{
+  "task_id": "q007524",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module or_gate (\n  input [2:0] a,\n  input [2:0] b,\n  output [2:0] out);assign out = a | b;\n  always @(*) begin\n    if (1'b0) begin\n      out[0] <= ~a[0];\n      out[1] <= ~b[1];\n      out[2] <= ~(a[2] & b[2]);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out[0] <= ~a[0];\nout[1] <= ~b[1];\nout[2] <= ~(a[2] & b[2]);"
+  }
+}

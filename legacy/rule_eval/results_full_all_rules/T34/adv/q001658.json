@@ -1,0 +1,15 @@
+{
+  "task_id": "q001658",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module morphological_dilation(\n    input [8:0] negated_img,           // 3x3 image flattened\n    input [8:0] struct_elem,   // 3x3 structuring element flattened\n    output reg result          // output result of dilation\n);\n\n    always @(*) begin\n        result = 0;  // Initialize result\n        // Perform dilation operation\n        if ((negated_img[0] & struct_elem[0]) || (negated_img[1] & struct_elem[1]) || (negated_img[2] & struct_elem[2]) ||\n            (negated_img[3] & struct_elem[3]) || (negated_img[4] & struct_elem[4]) || (negated_img[5] & struct_elem[5]) ||\n            (negated_img[6] & struct_elem[6]) || (negated_img[7] & struct_elem[7]) || (negated_img[8] & struct_elem[8])) begin\n            result = 1;  // Set result to 1 if any covered pixel is 1\n        end\n    end\nendmodule",
+  "rename_map": {
+    "img": "negated_img"
+  },
+  "params_used": {
+    "custom_map": {
+      "img": "negated_img"
+    },
+    "fallback_prefix": "obfuscated_"
+  }
+}

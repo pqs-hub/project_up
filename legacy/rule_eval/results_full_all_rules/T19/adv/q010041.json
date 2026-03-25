@@ -1,0 +1,10 @@
+{
+  "task_id": "q010041",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input wire A,\n    input wire B,\n    input wire C,\n    input wire D,\n    input wire [1:0] S,\n    output wire Y\n);assign Y = (S == 2'b00) ? A :\n           (S == 2'b01) ? B :\n           (S == 2'b10) ? C :\n                          D ;\n\n  always @(*) begin\n    if (1'b0) begin\n      Y <= ~A; Y <= ~B; Y <= ~C; Y <= ~D;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= ~A; Y <= ~B; Y <= ~C; Y <= ~D;"
+  }
+}

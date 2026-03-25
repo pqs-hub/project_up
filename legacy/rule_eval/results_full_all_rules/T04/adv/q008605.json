@@ -1,0 +1,10 @@
+{
+  "task_id": "q008605",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module is designed to capture a serial input bit (X_in) and store it into an 11-bit wide parallel output (x_par) on the falling edge of the clock (clk) while a shift disable signal (sx) is asserted. The circuit resets to one when the reset signal (rst) is active. It has a counter (shifts) to track the number of bits stored, allowing a maximum of 11 bits before updating the output signal (fx) to indicate that the register is empty.\nmodule top_module(X_in, sx, rst, clk, x_par, fx);input X_in, sx,rst,clk;\n\toutput fx;\n\toutput [11 - 1:0] x_par;\n\twire fx; \n\n\treg [11 - 1:0] x_par;\n\treg [3 : 0] shifts;\n\t\n\tassign fx = (shifts >= 11);\n\n\talways @(posedge clk or posedge rst) begin\n\t\tif(rst) begin\n\t\t\tx_par<= 11'b0;\n\t\t\tshifts<= 4'b0;\n\t\tend\n\t\t else if(sx && shifts< 11) begin\n\t\t\tx_par[11-1:0]<={ x_par[11-2:0], X_in};\n\t\t\tshifts <= shifts + 1;\n\t\tend\n\t\t\n\tend\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to capture a serial input bit (X_in) and store it into an 11-bit wide parallel output (x_par) on the falling edge of the clock (clk) while a shift disable signal (sx) is asserted. The circuit resets to one when the reset signal (rst) is active. It has a counter (shifts) to track the number of bits stored, allowing a maximum of 11 bits before updating the output signal (fx) to indicate that the register is empty."
+  }
+}

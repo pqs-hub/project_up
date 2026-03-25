@@ -1,0 +1,9 @@
+{
+  "task_id": "q008808",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module ring_counter_10bit(\n    input obf_clk,\n    input reset,\n    output reg [9:0] q\n);\n\nalways @(posedge obf_clk or posedge reset)\n    if (reset)\n        q <= 10'b0000000001; // Reset state\n    else\n        q <= {q[8:0], q[9]}; // Ring counter sequence\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

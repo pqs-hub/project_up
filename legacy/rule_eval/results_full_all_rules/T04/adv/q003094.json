@@ -1,0 +1,10 @@
+{
+  "task_id": "q003094",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 8-bit divider circuit that takes a 8-bit dividend and a 8-bit divisor as inputs and produces an 8-bit quotient and an 8-bit remainder as outputs. The circuit should handle division by zero gracefully, setting the outputs to zero in such cases.\nmodule divider (\n    input [7:0] dividend,\n    input [7:0] divisor,\n    output reg [7:0] quotient,\n    output reg [7:0] remainder,\n    input clk,\n    input reset\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            quotient <= 8'b0;\n            remainder <= 8'b0;\n        end else begin\n            if (divisor == 8'b0) begin\n                quotient <= 8'b0;\n                remainder <= 8'b0;\n            end else begin\n                quotient <= dividend / divisor;\n                remainder <= dividend % divisor;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 8-bit divider circuit that takes a 8-bit dividend and a 8-bit divisor as inputs and produces an 8-bit quotient and an 8-bit remainder as outputs. The circuit should handle division by zero gracefully, setting the outputs to zero in such cases."
+  }
+}

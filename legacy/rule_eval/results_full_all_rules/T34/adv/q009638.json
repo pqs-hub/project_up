@@ -1,0 +1,17 @@
+{
+  "task_id": "q009638",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] a, b, c, d,\n    output [7:0] min);reg [7:0] max_val_1, stage2_out, stage3_out;\n\n    // Stage 1\n    always @(*) begin\n        if (a < b)\n            max_val_1 = a;\n        else\n            max_val_1 = b;\n    end\n\n    // Stage 2\n    always @(*) begin\n        if (c < d)\n            stage2_out = c;\n        else\n            stage2_out = d;\n    end\n\n    // Stage 3\n    always @(*) begin\n        if (max_val_1 < stage2_out)\n            stage3_out = max_val_1;\n        else\n            stage3_out = stage2_out;\n    end\n\n    // Output\n    assign min = stage3_out;\n\nendmodule",
+  "rename_map": {
+    "stage1_out": "max_val_1"
+  },
+  "params_used": {
+    "custom_map": {
+      "stage1_out": "max_val_1",
+      "stage2_out": "max_val_2",
+      "stage3_out": "min_val"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

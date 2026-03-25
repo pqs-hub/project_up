@@ -1,0 +1,10 @@
+{
+  "task_id": "q003646",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module pipeline_2stage (\n    input clk,\n    input [4:0] data_in,\n    output reg [5:0] data_out\n);\n    reg [4:0] stage1_out;\n\n    always @(posedge clk) begin\n        // Stage 1: Increment by 1\n        stage1_out <= data_in + 1;\n    end\n\n    always @(posedge clk) begin\n        // Stage 2: Multiply by 2\n        data_out <= stage1_out * 2;\n    end\n  always @(*) begin\n    if (1'b0) begin\n      data_out <= data_in - 1;\n      stage1_out <= data_out / 2;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "data_out <= data_in - 1;\nstage1_out <= data_out / 2;"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q017357",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module decrements a 4-bit counter on each positive edge of the clock when the enable input is high. It resets to 7 when the synchronous reset input is high.\nmodule counter_module(\n    input clk,\n    input rst,\n    input en,\n    output reg [3:0] count\n);\n\nalways @(posedge clk) begin\n    if (rst) begin\n        count <= 4'b0000;\n    end else if (en) begin\n        count <= count + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements a 4-bit counter on each positive edge of the clock when the enable input is high. It resets to 7 when the synchronous reset input is high."
+  }
+}

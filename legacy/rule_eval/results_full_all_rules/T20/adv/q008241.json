@@ -1,0 +1,10 @@
+{
+  "task_id": "q008241",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a combinational logic circuit that sets output Y to HIGH (1) when either A1 or A2 is HIGH, and LOW (0) otherwise. It also handles the negated input B1_N in the default case.\nmodule top_module(\n    input A1,\n    input A2,\n    input B1_N,\n    output reg Y\n);always @* begin\n    if (A1 && A2) begin\n        Y = 1;\n    end else if (A1 && !A2) begin\n        Y = 0;\n    end else if (!A1 && A2) begin\n        Y = 0;\n    end else begin\n        Y = B1_N;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a combinational logic circuit that sets output Y to HIGH (1) when either A1 or A2 is HIGH, and LOW (0) otherwise. It also handles the negated input B1_N in the default case."
+  }
+}

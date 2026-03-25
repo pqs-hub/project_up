@@ -1,0 +1,8 @@
+{
+  "task_id": "q013426",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(clock,out);input clock;\n\t\n\toutput reg [1:0] out;\n\t\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clock or posedge dbg_halt)\n\tbegin\n\t\tif(out < 2)\t\t\n\t\t\tout = out + 1;\n\t\telse\n\t\t\tout = 0;\n\tend\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

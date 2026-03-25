@@ -1,0 +1,15 @@
+{
+  "task_id": "q010756",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input [1:0] interruptor_sinc,\n\t\toutput [3:0] datos_por_escribir, input [3:0] direccion_actual\n    );reg [3:0] data_out;\n\nalways@(interruptor_sinc or direccion_actual)\nbegin\ncase(interruptor_sinc)\n\t2'b00: data_out = 4'b0101;\n\t2'b01: data_out = 4'b1010;\n\t2'b10: data_out = 4'b1111;\n\tdefault: data_out = direccion_actual;\nendcase\nend\n\nassign datos_por_escribir = data_out;\nendmodule",
+  "rename_map": {
+    "datos": "data_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "datos": "data_out"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

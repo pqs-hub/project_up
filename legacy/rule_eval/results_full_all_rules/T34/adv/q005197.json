@@ -1,0 +1,17 @@
+{
+  "task_id": "q005197",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input C,\n    input D,\n    output X\n);wire ERR_AB, CD, ABCD;\n\n    assign ERR_AB = A | B;\n    assign CD = C | D;\n    assign ABCD = ERR_AB | CD;\n    assign X = ABCD;\n\nendmodule",
+  "rename_map": {
+    "AB": "ERR_AB"
+  },
+  "params_used": {
+    "custom_map": {
+      "AB": "CD",
+      "CD": "AB",
+      "ABCD": "XYZ"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

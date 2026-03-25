@@ -1,0 +1,8 @@
+{
+  "task_id": "q004172",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module iir_filter (  \n    input clk,  \n    input rst,  \n    input signed [16-1:1-1] input_sample,  \n    output reg signed [15:0] output_sample  \n);  \n    reg signed [15:0] previous_output;  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            previous_output <= 16'sd0;  \n            output_sample <= 16'sd0;  \n        end else begin  \n            output_sample <= (input_sample >>> 2) + (previous_output >>> 1);  // Use shifting for division by 4 and 2  \n            previous_output <= output_sample;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

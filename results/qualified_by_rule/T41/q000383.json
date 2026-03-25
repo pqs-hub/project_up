@@ -1,0 +1,6 @@
+{
+  "task_id": "q000383",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire we,         // Write Enable\n    input wire re,         // Read Enable\n    input wire [7:0] d_in, // Data input\n    output reg [7:0] d_out // Data output\n);\n    reg [7:0] memory; // 8-bit memory storage\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory <= d_in; // Write data to memory on write enable\n        end\n    end\n\n    always @(posedge clk) begin\n        if (re) begin\n            d_out <= memory; // Read data from memory on read enable\n        end\n    end\nendmodule"
+}

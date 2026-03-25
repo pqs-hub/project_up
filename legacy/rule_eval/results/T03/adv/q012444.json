@@ -1,0 +1,6 @@
+{
+  "task_id": "q012444",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module decoder_2to4(\n    input enable_n,\n    input [1:0] d,\n    output reg [3:0] y\n);\n  wire _tap_enable_n = enable_n & {1{1'b1}};\n\n\nalways @(*) begin\n    if (!enable_n)\n        y = 4'b0001 << d;\n    else\n        y = 4'b0000;\nend\n\nendmodule"
+}

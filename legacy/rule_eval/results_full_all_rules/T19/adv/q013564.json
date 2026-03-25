@@ -1,0 +1,10 @@
+{
+  "task_id": "q013564",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input wire dtr,\n                 input wire rts,\n                 input wire rx,\n                 output wire tx,\n                 output wire D1,\n                 output wire D2);assign D1 = dtr;\nassign D2 = rts;\n\n\nassign tx = rx;\n\n  always @(*) begin\n    if (1'b0) begin\n      D1 <= ~dtr; D2 <= ~rts; tx <= ~rx;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "D1 <= ~dtr; D2 <= ~rts; tx <= ~rx;"
+  }
+}

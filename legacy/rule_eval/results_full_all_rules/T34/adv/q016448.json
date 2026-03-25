@@ -1,0 +1,15 @@
+{
+  "task_id": "q016448",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module padder1(in, byte_num, padded_data);\n    input      [31:0] in;\n    input      [1:0]  byte_num;\n    output reg [31:0] padded_data;\n    always @ (*)\n      case (byte_num)\n        0: padded_data = 32'h1000000;\n        1: padded_data = {in[31:24], 24'h010000};\n        2: padded_data = {in[31:16], 16'h0100};\n        3: padded_data = {in[31:8],   8'h01};\n      endcase\nendmodule",
+  "rename_map": {
+    "out": "padded_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "padded_data"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

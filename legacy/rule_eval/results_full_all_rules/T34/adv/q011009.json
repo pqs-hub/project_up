@@ -1,0 +1,15 @@
+{
+  "task_id": "q011009",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register(reset, LOAD, DATA_IN, Q);\ninput reset, LOAD;\ninput [3:0] DATA_IN;\noutput reg [3:0] Q;\n\nalways @(posedge reset) begin\n    if (LOAD)\n        Q <= DATA_IN;\n    else\n        Q <= {Q[2:0], 1'b0}; // Shift left\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "shift_reg_"
+  }
+}

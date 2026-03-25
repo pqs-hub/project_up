@@ -1,0 +1,8 @@
+{
+  "task_id": "q015587",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n    output reg [7:0] reg_0x29,\n    input wire reset,\n    input wire wenb,\n    input wire [7:0] in_data,\n    input wire clk\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or posedge dbg_halt) begin\n    if(reset) begin\n        reg_0x29 <= 8'h00;\n    end\n    else if(!wenb) begin\n        reg_0x29 <= in_data;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

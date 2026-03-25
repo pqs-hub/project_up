@@ -1,0 +1,10 @@
+{
+  "task_id": "q009426",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 8-bit register with load and clear functionality.\n// It loads the input data on each negative edge of the clock when the load signal is high\n// and clears the output data to 1 when the reset signal is activated.\nmodule register (\n    input wire rst_n,\n    input wire clk,\n    input wire load,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n\nalways @(posedge clk) begin\n    if (!rst_n)\n        data_out <= 8'b00000000;\n    else if (load)\n        data_out <= data_in;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 8-bit register with load and clear functionality.\n// It loads the input data on each negative edge of the clock when the load signal is high\n// and clears the output data to 1 when the reset signal is activated."
+  }
+}

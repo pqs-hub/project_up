@@ -1,0 +1,10 @@
+{
+  "task_id": "q014486",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment intentionally misleads the verification model by suggesting that the register does not synchronize its state on the rising edge of the clock when 'set' is high.\nmodule register8(\n\tinput wire clk,\n\tinput wire set,\n\tinput wire en,\n\tinput wire [7:0] D,\n\toutput reg [7:0] Q\n);always @(posedge clk) begin\n\tif (set)\n\t\tQ <= 8'b11111111;\n\telse if (en)\n\t\tQ <= D;\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment intentionally misleads the verification model by suggesting that the register does not synchronize its state on the rising edge of the clock when 'set' is high."
+  }
+}

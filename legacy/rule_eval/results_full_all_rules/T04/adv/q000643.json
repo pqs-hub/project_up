@@ -1,0 +1,10 @@
+{
+  "task_id": "q000643",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module controls the fan speed based on temperature levels. It reads the temperature input and outputs the corresponding fan speed. The fan speed is determined as follows:\n// - If the temperature is less than 20 degrees Celsius, the fan speed is 3 (high).\n// - If the temperature is between 20 and 25 degrees Celsius, the fan speed is 2 (medium).\n// - If the temperature is between 26 and 30 degrees Celsius, the fan speed is 1 (low).\n// - If the temperature is greater than 30 degrees Celsius, the fan speed is 0 (off).\nmodule fan_speed_controller (\n    input clk,\n    input reset,\n    input [7:0] temperature, // 0 to 255, assuming temperature in degrees Celsius\n    output reg [1:0] fan_speed // 0: off, 1: low, 2: medium, 3: high\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            fan_speed <= 0;\n        end else begin\n            if (temperature < 20) begin\n                fan_speed <= 0;\n            end else if (temperature <= 25) begin\n                fan_speed <= 1;\n            end else if (temperature <= 30) begin\n                fan_speed <= 2;\n            end else begin\n                fan_speed <= 3;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module controls the fan speed based on temperature levels. It reads the temperature input and outputs the corresponding fan speed. The fan speed is determined as follows:\n// - If the temperature is less than 20 degrees Celsius, the fan speed is 3 (high).\n// - If the temperature is between 20 and 25 degrees Celsius, the fan speed is 2 (medium).\n// - If the temperature is between 26 and 30 degrees Celsius, the fan speed is 1 (low).\n// - If the temperature is greater than 30 degrees Celsius, the fan speed is 0 (off)."
+  }
+}

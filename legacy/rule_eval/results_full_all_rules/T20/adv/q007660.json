@@ -1,0 +1,10 @@
+{
+  "task_id": "q007660",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This is a 10-bit Johnson counter with asynchronous reset. It shifts the bits and creates a sequence of 2^10 unique states.\nmodule johnson_counter_10bit(\n    input clk,\n    input reset,\n    output reg [9:0] out\n);\n\nalways @(posedge clk)\nbegin\n    if (reset)\n        out <= 10'b0000000000; // Reset to 0\n    else\n        out <= {~out[0], out[9:1]}; // Shift and invert MSB\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 10-bit Johnson counter with asynchronous reset. It shifts the bits and creates a sequence of 2^10 unique states."
+  }
+}

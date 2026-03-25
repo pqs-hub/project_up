@@ -1,0 +1,6 @@
+{
+  "task_id": "q000802",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(  \n    input wire clk,  \n    input wire reset,  \n    input wire [4:0] packet_in,  \n    input wire accept_packet,  \n    output reg packet_out  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg [4:0] current_packet;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            current_packet <= 5'b00000;  \n            packet_out <= 0;  \n        end else begin  \n            current_packet <= packet_in;  \n            if (accept_packet && (current_packet == 5'b10101))  \n                packet_out <= 1;  \n            else  \n                packet_out <= 0;  \n        end  \n    end  \nendmodule"
+}

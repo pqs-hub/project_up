@@ -1,0 +1,6 @@
+{
+  "task_id": "q010225",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\ninput clk,reset,\noutput reg [3:0] counter\n    );  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt)   \nbegin  \n    if(reset)\n        counter <= 4'b0000;\n    else if(counter != 4'b1111)\n        counter <= counter + 1;\n    else\n        counter <= 4'b0000;        \nend    \nendmodule"
+}

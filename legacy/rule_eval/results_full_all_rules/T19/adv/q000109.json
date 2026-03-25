@@ -1,0 +1,10 @@
+{
+  "task_id": "q000109",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module simple_stream_cipher (\n    input wire [31:0] data_in,\n    input wire [31:0] key,\n    input wire start,\n    output reg [31:0] data_out\n);\n\nalways @(posedge start) begin\n    data_out <= data_in ^ key;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      data_out <= ~data_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "data_out <= ~data_in;"
+  }
+}

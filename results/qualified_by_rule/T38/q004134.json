@@ -1,0 +1,6 @@
+{
+  "task_id": "q004134",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input load,\n    input [15:0] data_in,\n    input msb_in,\n    output reg [15:0] data_out\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        data_out <= 16'b0;\n    end else if (load) begin\n        data_out <= data_in;\n    end else begin\n        data_out <= {msb_in, data_out[15:1]};\n    end\nend\n\nendmodule"
+}

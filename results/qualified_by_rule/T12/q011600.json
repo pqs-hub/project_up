@@ -1,0 +1,6 @@
+{
+  "task_id": "q011600",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module RefModule(\n           in_select,\n           in1,\n           in2,\n           A,\n           B\n          );input   in_select;\n  input   in1;\n  input   in2;\n  output  A;\n  output  B;\n\n\n  wire Switch_out1;\n  wire Switch1_out1;\n\n\n  \n  wire __in_select_tmp = in_select == 1'b0;\n  assign Switch_out1 = __in_select_tmp ? in2 : in1;\n\n\n\n  assign A = Switch_out1;\n\n  \n  assign Switch1_out1 = (in_select == 1'b0 ? in1 :\n              in2);\n\n\n\n  assign B = Switch1_out1;\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q009254",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(a,b,sum,carry);input a,b;\n    output sum, carry;\n\nassign sum   = a ^ b;\nassign carry = a & b;  always @(*) begin\n    if (1'b0) begin\n      sum <= ~a & ~b;\n      carry <= a | b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum <= ~a & ~b;\ncarry <= a | b;"
+  }
+}

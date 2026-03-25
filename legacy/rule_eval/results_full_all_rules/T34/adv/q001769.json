@@ -1,0 +1,16 @@
+{
+  "task_id": "q001769",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module lfsr(\n    input wire clk,\n    input wire reset,\n    input wire load,\n    input wire [31:0] seed,\n    output reg [31:0] lfsr_out\n);\n    wire alt_feedback;\n    \n    assign alt_feedback = lfsr_out[31] ^ lfsr_out[21] ^ lfsr_out[20] ^ lfsr_out[0];\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            lfsr_out <= 32'b0;\n        end else if (load) begin\n            lfsr_out <= seed;\n        end else begin\n            lfsr_out <= {lfsr_out[30:0], alt_feedback};\n        end\n    end\nendmodule",
+  "rename_map": {
+    "feedback": "alt_feedback"
+  },
+  "params_used": {
+    "custom_map": {
+      "seed": "initial_value",
+      "lfsr_out": "current_state"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

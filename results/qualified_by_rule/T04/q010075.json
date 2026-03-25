@@ -1,0 +1,6 @@
+{
+  "task_id": "q010075",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule(\n   input                clk,\n   input                rst_n,\n\n   output reg [7:0]     Q\n);\n    always@(posedge clk or negedge rst_n) begin\n        if(!rst_n) Q <= 8'b00000001;\n        else begin\n            Q <= {Q[6:0], Q[7] ^ Q[5] ^ Q[4] ^ Q[3]};\n        end\n    end\nendmodule"
+}

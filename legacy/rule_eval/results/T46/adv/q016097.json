@@ -1,0 +1,8 @@
+{
+  "task_id": "q016097",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module binary_counter_7bit_max(\n  input clk,\n  input rst_n,\n  input [6:0] max_value,\n  output reg [6:0] count\n);\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_n or posedge dbg_halt) begin\n    if (~rst_n)\n      count <= 7'b0000000;\n    else if (count == max_value)\n      count <= 7'b0000000;\n    else\n      count <= count + 1;\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

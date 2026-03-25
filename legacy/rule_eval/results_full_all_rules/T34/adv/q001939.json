@@ -1,0 +1,17 @@
+{
+  "task_id": "q001939",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module hazard_detection(\n    input [2:0] op1,\n    input [2:0] opcode2,\n    output reg hazard\n);\n    always @(*) begin\n        if (op1 == opcode2 || \n            (op1 == 3'b010 && opcode2 == 3'b011) || \n            (op1 == 3'b011 && opcode2 == 3'b010)) \n        begin\n            hazard = 1;\n        end else begin\n            hazard = 0;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "opcode1": "op1"
+  },
+  "params_used": {
+    "custom_map": {
+      "opcode1": "op1",
+      "opcode2": "op2",
+      "hazard": "no_hazard"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

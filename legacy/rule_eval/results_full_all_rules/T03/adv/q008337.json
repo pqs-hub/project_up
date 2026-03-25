@@ -1,0 +1,8 @@
+{
+  "task_id": "q008337",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(In, ShiftType, ShiftAmount, Out);input  [31:0] In;\n\tinput  ShiftType;\n\tinput  [4:0]ShiftAmount;\n\toutput [31:0] Out;\n  wire [31:0] _tap_In = In & {32{1'b1}};\n\n\t\n\tassign Out = (ShiftType == 1'b1) ? (In >> ShiftAmount) : (In << ShiftAmount);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

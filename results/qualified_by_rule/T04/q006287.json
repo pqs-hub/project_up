@@ -1,0 +1,6 @@
+{
+  "task_id": "q006287",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule(CLK, RESET, COUNT);\ninput CLK;\ninput RESET;\noutput reg [1:0] COUNT;\n\nalways @(posedge CLK or posedge RESET) begin\n    if (RESET) begin\n        COUNT <= 2'b00;\n    end else begin\n        COUNT <= {~COUNT[0], COUNT[1]};\n    end\nend\n\nendmodule"
+}

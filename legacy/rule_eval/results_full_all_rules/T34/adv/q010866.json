@@ -1,0 +1,16 @@
+{
+  "task_id": "q010866",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input not_a,\n    input b,\n    output w\n);\n    assign w = not_a ^ b;\nendmodule\n\nmodule Y(\n    input not_a,\n    input b,\n    output w\n);\n    assign w = not_a ^ b;\nendmodule\n\nmodule top_module(\n    input not_a,\n    input b,\n    output w\n);\n    wire x1_out, x2_out, y1_out, y2_out;\n    wire or_out, and_out;\n\n    X x1(.not_a(not_a), .b(b), .w(x1_out));\n    X x2(.not_a(not_a), .b(b), .w(x2_out));\n    Y y1(.not_a(not_a), .b(b), .w(y1_out));\n    Y y2(.not_a(not_a), .b(b), .w(y2_out));\n\n    assign or_out = x1_out | y1_out;\n    assign and_out = x2_out & y2_out;\n\n    assign w = ~(or_out | and_out);\nendmodule",
+  "rename_map": {
+    "a": "not_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "a": "not_a",
+      "b": "not_b"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

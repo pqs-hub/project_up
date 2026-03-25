@@ -1,0 +1,16 @@
+{
+  "task_id": "q009857",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input wire [3:0]  a,\n\t     input wire [3:0]  b,\n\t     input wire        c1,\n\t     input wire        c2,\n\t     input wire        c3,\n\t     \n\t     output wire [3:0] q,\n\t     output wire       f,\n\t     output wire       g,\n\t     \n\t     input wire        clk,\n\t     input wire        rst);reg [3:0] \t\t       rb_inv;\n   reg [3:0] \t\t       rb;\n\n   wire [3:0] \t\t       ra_next;\n   wire [3:0] \t\t       rb_next;\n\n   assign ra_next = c1 ? a :\n\t\t    c2 ? (rb_inv - rb) :\n\t\t    rb_inv;\n\n   assign rb_next = c1 ? b :\n\t\t    c3 ? (rb - rb_inv) :\n\t\t    rb;\n   \n   assign f = (rb_inv > rb);\n   assign g = (rb_inv == rb);\n   assign q = g ? rb_inv : 4'b0;\n   \n   always @(posedge clk, posedge rst)\n     begin\n\tif (rst)\n\t  begin\n\t     rb_inv <= 4'b0;\n\t     rb <= 4'b0;\n\t  end\n\telse\n\t  begin\n\t     rb_inv <= ra_next;\n\t     rb <= rb_next;\n\t  end\n     end\n\nendmodule",
+  "rename_map": {
+    "ra": "rb_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "ra": "rb_inv",
+      "rb": "ra_inc"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

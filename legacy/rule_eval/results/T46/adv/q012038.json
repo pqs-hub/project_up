@@ -1,0 +1,8 @@
+{
+  "task_id": "q012038",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module mux_4to1(\n\tinput clk,\n\tinput rst_n,\n\tinput [1:0] sel,\n\tinput d0,\n\tinput d1,\n\tinput d2,\n\tinput d3,\n\toutput reg y\n);\n\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_n or posedge dbg_halt) begin\n\t\tif (!rst_n)\n\t\t\ty <= 1'b0;\n\t\telse begin\n\t\t\tcase(sel)\n\t\t\t\t2'b00: y <= d0;\n\t\t\t\t2'b01: y <= d1;\n\t\t\t\t2'b10: y <= d2;\n\t\t\t\t2'b11: y <= d3;\n\t\t\t\tdefault: y <= 1'b0;\n\t\t\tendcase\n\t\tend\n\tend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

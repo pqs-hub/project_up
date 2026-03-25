@@ -1,0 +1,17 @@
+{
+  "task_id": "q012782",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module comparator_4bit (\n    input wire [3:0] a,\n    input wire [3:0] b,\n    output wire b_le_a,\n    output wire a_eq_b,\n    output wire a_lt_b\n);\n\n    assign b_le_a = (a > b) ? 1'b1 : 1'b0;\n    assign a_eq_b = (a == b) ? 1'b1 : 1'b0;\n    assign a_lt_b = (a < b) ? 1'b1 : 1'b0;\n\nendmodule",
+  "rename_map": {
+    "a_gt_b": "b_le_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "a_gt_b": "b_le_a",
+      "a_eq_b": "not_equal",
+      "a_lt_b": "a_ge_b"
+    },
+    "fallback_prefix": "cmp_"
+  }
+}

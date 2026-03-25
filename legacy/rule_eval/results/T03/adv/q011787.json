@@ -1,0 +1,6 @@
+{
+  "task_id": "q011787",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input ctrl,\n  output reg I\n);parameter I_src = 0.5; // current provided by the source (in Amperes)\n  wire _tap_ctrl = ctrl & {1{1'b1}};\n\nparameter I_sink = 0.3; // current absorbed by the sink (in Amperes)\n\n// implement current source and sink behavior\nalways @(*) begin\n  if (ctrl) begin\n    I = I_src;\n  end else begin\n    I = -I_sink;\n  end\nend\n\nendmodule"
+}

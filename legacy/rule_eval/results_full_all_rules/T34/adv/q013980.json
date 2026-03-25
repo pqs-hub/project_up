@@ -1,0 +1,21 @@
+{
+  "task_id": "q013980",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(hab_escrita, reset, clock, e1, e2,entrada_e1, entrada_e2);output reg [15:0] e1, e2;\n  input [15:0] entrada_e1, entrada_e2;\n  input reset, clock, hab_escrita;\n  reg [15:0] alt_registro [1:0];\t\n\t\n\n\talways @(posedge clock) begin \t\t  \n\t\tif(reset) begin \n\t\t\talt_registro[0] = 16'b0000000000000000;\n\t\t\talt_registro[1] = 16'b0000000000000000;\n\t\t\t\t\n\t\tend\telse if(hab_escrita) begin \n\t\t\talt_registro[0] = entrada_e1; \n\t\t\talt_registro[1] = entrada_e2; \n\t\t\t\t\n\t\tend \n\t\t\t\n\t\tif(alt_registro[0]<alt_registro[1]) begin\n\t\t\te1 = alt_registro[1]; \n\t\t\te2 = alt_registro[0]; \n\t\tend\telse begin\n\t\t\te1 = alt_registro[0]; \n\t\t\te2 = alt_registro[1]; \n\t\tend\n\tend\nendmodule",
+  "rename_map": {
+    "registro": "alt_registro"
+  },
+  "params_used": {
+    "custom_map": {
+      "hab_escrita": "disable_write",
+      "reset": "active_reset",
+      "clock": "clk",
+      "e1": "lesser_value",
+      "e2": "greater_value",
+      "entrada_e1": "input_1",
+      "entrada_e2": "input_2"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

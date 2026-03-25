@@ -1,0 +1,8 @@
+{
+  "task_id": "q010268",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module d_ff_async_reset (clk, rst, d, q);\n   input clk, rst, d;\n   output q;\n\n   reg q;\n\nalways @(posedge clk or posedge rst) begin\n    begin end  // redundant\n    if (rst) begin\n        q <= 1'b0;\n    end else begin\n        q <= d;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

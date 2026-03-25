@@ -1,0 +1,7 @@
+{
+  "task_id": "q011153",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module shift_register_4bit (\n    input wire [3:0] D,\n    input wire Clk,\n    input wire Shift,\n    output reg [3:0] Q\n    );\n\nalways @(posedge Clk) begin\n    if (Shift)\n        Q <= {1'b0, Q[3:1]};\n    else\n        Q <= D;\nend\n\nendmodule",
+  "rename_map": {}
+}

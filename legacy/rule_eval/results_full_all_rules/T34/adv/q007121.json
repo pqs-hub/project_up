@@ -1,0 +1,16 @@
+{
+  "task_id": "q007121",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [4:0] top_rs_selclk_out2_par,\n    output [1:0] new_signal\n);wire [0:0] alt_first_bit;\nwire [0:0] last_bit;\n\nassign alt_first_bit = top_rs_selclk_out2_par[0];\nassign last_bit = top_rs_selclk_out2_par[4];\n\nassign new_signal = {last_bit, alt_first_bit};\n\nendmodule",
+  "rename_map": {
+    "first_bit": "alt_first_bit"
+  },
+  "params_used": {
+    "custom_map": {
+      "top_rs_selclk_out2_par": "input_data",
+      "new_signal": "output_bits"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q007001",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(a,b,c_in,s,c_out);input a;\ninput b;\ninput c_in;\noutput s;\noutput c_out;\n\nassign s = a ^ b ^ c_in;\nassign c_out = (a & b) | ( (a ^ b) & c_in );  always @(*) begin\n    if (1'b0) begin\n      c_out <= ~c_in; s <= ~a;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "c_out <= ~c_in; s <= ~a;"
+  }
+}

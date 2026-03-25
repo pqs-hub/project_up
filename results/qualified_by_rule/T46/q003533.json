@@ -1,0 +1,6 @@
+{
+  "task_id": "q003533",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [1:0] in,\n    output reg [1:0] out\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n    if (reset) begin\n        out <= 2'b00;\n    end else begin\n        out <= in / 4; // Dividing by 4, results in 00 for all inputs in [0, 3]\n    end\nend\n\nendmodule"
+}

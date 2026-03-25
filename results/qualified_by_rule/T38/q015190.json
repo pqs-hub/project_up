@@ -1,0 +1,6 @@
+{
+  "task_id": "q015190",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input set_n,\n    input d,\n    output q);reg q_reg;\n\nalways @(posedge clk or negedge set_n) begin\n    if (~set_n)\n        q_reg <= 1'b1;\n    else\n        q_reg <= d;\nend\n\nassign q = q_reg;\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q003840",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module T_latch (\n    input wire T,\n    input wire CLK,\n    input wire EN,\n    output reg Q\n);\n  wire _tap_T = T & {1{1'b1}};\n\n    always @(posedge CLK) begin\n        if (EN) begin\n            if (T) begin\n                Q <= ~Q; // Toggle Q if T is high\n            end\n            // If T is low, Q remains the same\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

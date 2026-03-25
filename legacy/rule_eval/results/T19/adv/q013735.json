@@ -1,0 +1,6 @@
+{
+  "task_id": "q013735",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux_2to1_with_enable (\n    input in0,\n    input in1,\n    input sel,\n    input en,\n    output reg out\n);\n\n    // Multiplexer logic with enable\n    always @(*) begin\n        if (!en) begin\n            out = 1'b0;\n        end else begin\n            case (sel)\n                1'b0: out = in0;\n                1'b1: out = in1;\n                default: out = 1'b0;\n            endcase\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

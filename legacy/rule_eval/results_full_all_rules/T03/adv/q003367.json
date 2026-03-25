@@ -1,0 +1,8 @@
+{
+  "task_id": "q003367",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module eeprom_driver(  \n    input [4:0] data_in,  \n    input write,  \n    output reg [4:0] data_out  \n);  \n  wire [4:0] _tap_data_in = data_in & {5{1'b1}};\n\n    always @(*) begin  \n        if (write)  \n            data_out = data_in;  \n        // else retain previous value (implicit)  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

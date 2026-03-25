@@ -1,0 +1,6 @@
+{
+  "task_id": "q007531",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module RefModule(\n    input DATA, LATCH,\n    output Q, QNOT\n    );wire d, l;\n    reg q, qnot;\n    \n  assign QNOT = qnot;\n  assign Q = q;\n    \n    always@(d or l)\n        if(l)begin\n            q <= d;\n            qnot <= ~d;\n        end\n    \n  assign l = LATCH;\n  assign d = DATA;"
+}

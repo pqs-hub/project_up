@@ -1,0 +1,9 @@
+{
+  "task_id": "q014118",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input clk,                // Added clock input\n    input [0:0] in,\n    output reg [2:0] out\n);reg [2:0] obf_reg_out;\n\nalways @(posedge clk) begin\n    obf_reg_out <= {obf_reg_out[1:0], in};\nend\n\nassign out = obf_reg_out & 3'b111;\n\nendmodule",
+  "rename_map": {
+    "reg_out": "obf_reg_out"
+  }
+}

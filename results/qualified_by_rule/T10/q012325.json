@@ -1,0 +1,6 @@
+{
+  "task_id": "q012325",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    output reg [4:0] lfsr\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            lfsr <= 5'b00001;\n        end else begin\n            lfsr <= {lfsr[3:0], lfsr[4] ^ lfsr[2]};\n        end\n    end\nendmodule"
+}

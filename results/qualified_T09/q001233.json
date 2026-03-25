@@ -1,0 +1,6 @@
+{
+  "task_id": "q001233",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (\n    input [7:0] data,\n    input [2:0] shift_amount,\n    input direction, // 0 for left, 1 for right\n    output reg [7:0] result\n);\n\nalways @(*) begin\n    if (direction == 0) begin // Left shift\n        result = data << shift_amount;\n    end else begin // Right shift\n        result = data >> shift_amount;\n    end\nend\n\nendmodule"
+}

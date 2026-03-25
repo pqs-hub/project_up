@@ -1,0 +1,15 @@
+{
+  "task_id": "q015896",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input CLK, // clock signal\n  input EN, // enable signal\n  input TE, // test enable signal\n  output ENCLK // gated clock signal\n);reg clk_gated;\n  \n  always @(*) begin\n    if (TE) begin\n      clk_gated = 1;\n    end else if (EN) begin\n      clk_gated = CLK;\n    end else begin\n      clk_gated = 0;\n    end\n  end\n\n  assign ENCLK = clk_gated;\n\nendmodule",
+  "rename_map": {
+    "gated_clk": "clk_gated"
+  },
+  "params_used": {
+    "custom_map": {
+      "gated_clk": "clk_gated"
+    },
+    "fallback_prefix": "clk_"
+  }
+}

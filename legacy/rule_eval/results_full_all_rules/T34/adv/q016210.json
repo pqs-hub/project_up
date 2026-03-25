@@ -1,0 +1,15 @@
+{
+  "task_id": "q016210",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input [31:0] A,input [31:0] WD,input WE,output [31:0] RD,input clk);reg [31:0] data_store [0:31]; \n assign RD = data_store[A[6:2]]; \n always @(posedge clk) begin \n if(WE)begin \n data_store[A[6:2]] <= WD; \n end \n end \n endmodule",
+  "rename_map": {
+    "mem": "data_store"
+  },
+  "params_used": {
+    "custom_map": {
+      "mem": "data_store"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

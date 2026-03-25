@@ -1,0 +1,9 @@
+{
+  "task_id": "q000493",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module priority_arbiter (\n    input  [3:0] req,\n    output reg [3:0] obf_grant\n);\n    always @(*) begin\n        obf_grant = 4'b0000; // Default no obf_grant\n        if (req[3]) obf_grant[3] = 1'b1; // Grant to req[3]\n        else if (req[2]) obf_grant[2] = 1'b1; // Grant to req[2]\n        else if (req[1]) obf_grant[1] = 1'b1; // Grant to req[1]\n        else if (req[0]) obf_grant[0] = 1'b1; // Grant to req[0]\n    end\nendmodule",
+  "rename_map": {
+    "grant": "obf_grant"
+  }
+}

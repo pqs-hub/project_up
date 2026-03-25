@@ -1,0 +1,6 @@
+{
+  "task_id": "q001145",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module gpio_controller (\n    input wire clk,\n    input wire reset,\n    input wire write_en,\n    input wire gpio_in,\n    output reg gpio_out\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            gpio_out <= 1'b0; // Set GPIO to low on reset\n        end else if (write_en) begin\n            gpio_out <= gpio_in; // Write input to GPIO output\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009937",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk, // clock input\n    input rst, // reset input\n    input load, // load control input\n    input [7:0] in, // parallel input\n    output reg [7:0] input_data // output\n);always@(posedge clk or posedge rst) begin\n        if (rst) begin\n            input_data <= 8'b0; // reset to all zeros\n        end else begin\n            if (load) begin\n                input_data <= in; // load the register\n            end else begin\n                input_data <= {input_data[6:0], 1'b0}; // shift left by one bit\n            end\n        end\n    end\n\nendmodule"
+}

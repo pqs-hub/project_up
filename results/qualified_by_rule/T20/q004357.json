@@ -1,0 +1,6 @@
+{
+  "task_id": "q004357",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n    X   ,\n    A   ,\n    B   ,\n    C   ,\n    D   ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output X   ;\n    input  A   ;\n    input  B   ;\n    input  C   ;\n    input  D   ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n    \n    wire   AB, CD;\n\n    // Logic combining inputs A, B, C, and D\n    assign AB = A | B;  // Combine A and B\n    assign CD = C | D;  // Combine C and D\n    assign X = AB | CD; // Final OR combination\n\nendmodule"
+}

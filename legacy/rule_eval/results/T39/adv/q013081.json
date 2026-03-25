@@ -1,0 +1,6 @@
+{
+  "task_id": "q013081",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module edge_detector(\n    input clk,\n    input signal,\n    output reg pulse\n    );\n    \n    reg signal_d;\n    \n    always @(posedge clk) begin\n  signal_d <= signal ;\n  end\n\n  always @(posedge clk) begin\n  pulse <= signal & ~signal_d ;\n  end\nendmodule"
+}

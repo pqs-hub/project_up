@@ -1,0 +1,6 @@
+{
+  "task_id": "q001541",
+  "rule_id": "T07",
+  "changed": true,
+  "final": "module fixed_point_adder (\n    input [15:0] a,\n    input [15:0] b,\n    output [15:0] sum\n);\n    wire signed [16:0] extended_a;\n    wire signed [16:0] extended_b;\n    wire signed [16:0] extended_sum;\n\n    assign extended_b = {b[15], b}; // Sign extend a\n    assign extended_a = {a[15], a}; // Sign extend b\n    assign extended_sum = extended_a + extended_b;\n\n    // Wrap around for overflow\n    assign sum = extended_sum[15:0]; // Take the lower 16 bits\nendmodule"
+}

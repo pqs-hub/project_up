@@ -1,0 +1,18 @@
+{
+  "task_id": "q014201",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(err_A,B,C,D,W,X,Y,Z);input err_A,B,C,D;\n\toutput W,X,Y,Z;\n\tassign W = err_A | (B&C) | (B&D);                                                   \n\tassign X = (~B&C) | (~B & D) | (B & ~C & ~D);\n\tassign Y = ~( C ^ D);\n\tassign Z = ~D;endmodule",
+  "rename_map": {
+    "A": "err_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "invalid_A",
+      "B": "invalid_B",
+      "C": "invalid_C",
+      "D": "invalid_D"
+    },
+    "fallback_prefix": "err_"
+  }
+}

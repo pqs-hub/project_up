@@ -1,0 +1,8 @@
+{
+  "task_id": "q002172",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module thermal_sensor_calibration (\n    input wire clk,\n    input wire reset,\n    input wire load_offset,\n    input wire [10-1:1-1] offset_value,\n    input wire start_calibration,\n    input wire [9:0] raw_reading,\n    output reg [9:0] calibrated_value\n);\n    reg [9:0] offset;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            offset <= 10'b0;\n            calibrated_value <= 10'b0;\n        end else if (load_offset) begin\n            offset <= offset_value;\n        end else if (start_calibration) begin\n            calibrated_value <= raw_reading + offset;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q004266",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module portfolio_optimizer (\n    input [4:0] least_profitable,\n    input [4:0] asset2,\n    input [4:0] asset3,\n    output reg [4:0] optimal_asset\n);\n\nalways @(*) begin\n    if (least_profitable >= asset2 && least_profitable >= asset3) \n        optimal_asset = least_profitable;\n    else if (asset2 >= least_profitable && asset2 >= asset3) \n        optimal_asset = asset2;\n    else \n        optimal_asset = asset3;\nend\n\nendmodule",
+  "rename_map": {
+    "asset1": "least_profitable"
+  },
+  "params_used": {
+    "custom_map": {
+      "asset1": "least_profitable"
+    },
+    "fallback_prefix": "err_"
+  }
+}

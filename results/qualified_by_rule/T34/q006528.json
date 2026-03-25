@@ -1,0 +1,6 @@
+{
+  "task_id": "q006528",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    input wire clk,       // Added clk input\n    input wire data,\n    output wire to_pad\n);reg unused_delayed_data;\n\nalways @(posedge clk) begin\n    unused_delayed_data <= data;\nend\n\nassign to_pad = unused_delayed_data;\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q016021",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the counter decrements when enable is high, but it actually increments.\nmodule sync_counter(\n\tinput clk,\n\tinput enable,\n\tinput reset,\n\toutput reg [2:0] count);\nalways @(posedge clk) begin\n\tif (reset)\n\t\tcount <= 0;\n\telse if (enable)\n\t\tcount <= count + 1;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter decrements when enable is high, but it actually increments."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q017236",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_to_gray(\n    input [3:0] gray_code_in,\n    output reg [3:0] gray\n);\n\n    always @(*) begin\n        gray[3] = gray_code_in[3];\n        gray[2] = gray_code_in[3] ^ gray_code_in[2];\n        gray[1] = gray_code_in[2] ^ gray_code_in[1];\n        gray[0] = gray_code_in[1] ^ gray_code_in[0];\n    end\n\nendmodule",
+  "rename_map": {
+    "bin": "gray_code_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "bin": "gray_code_in"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

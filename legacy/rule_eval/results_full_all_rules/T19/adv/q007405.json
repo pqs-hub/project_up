@@ -1,0 +1,10 @@
+{
+  "task_id": "q007405",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n    input p,\n    input q,\n    output r);\n\nassign r = ~(p | q);\n\n  always @(*) begin\n    if (1'b0) begin\n      if (p & q) begin\n        r <= 1'b0;\n      end else begin\n        r <= 1'b1;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (p & q) begin\n  r <= 1'b0;\nend else begin\n  r <= 1'b1;\nend;"
+  }
+}

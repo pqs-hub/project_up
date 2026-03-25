@@ -1,0 +1,8 @@
+{
+  "task_id": "q012373",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module mux2to1_32bit (\n    input sel,\n    input [32-1:1-1] in0,\n    input [31:0] in1,\n    output [31:0] out\n);\n\n    reg [31:0] mux_out;  // Multiplexer output register\n\n    always @(*) begin\n        case (sel)\n            1'b0: mux_out = in0;\n            1'b1: mux_out = in1;\n            default: mux_out = 32'b00000000000000000000000000000000;  // Default case (should not occur)\n        endcase\n    end\n\n    assign out = mux_out;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

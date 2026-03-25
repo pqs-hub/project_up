@@ -1,0 +1,6 @@
+{
+  "task_id": "q012065",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n   input                clk,\n   input                rst_n,\n   output reg [3:0]     Q  \n);\n    reg [3:0] obf_binary_counter;\n    \n    always@(posedge clk or negedge rst_n) begin\n        if(!rst_n) obf_binary_counter <= 4'd0;\n        else obf_binary_counter <= obf_binary_counter + 1;\n    end\n    \n    always@* begin\n        Q = obf_binary_counter ^ (obf_binary_counter >> 1);\n    end\nendmodule"
+}

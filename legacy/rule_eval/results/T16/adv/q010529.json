@@ -1,0 +1,9 @@
+{
+  "task_id": "q010529",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module accumulator_32bit(\n    input               clk     ,\n    input               load    ,\n    input               clr     ,\n    input      [31:0]   data_in ,\n    output reg [31:0]   obf_acc_out \n);\n\nalways @(posedge clk) begin\n    if (clr)\n        obf_acc_out <= 32'd0;\n    else if (load)\n        obf_acc_out <= data_in;\n    else\n        obf_acc_out <= obf_acc_out + data_in;\nend\n\nendmodule",
+  "rename_map": {
+    "acc_out": "obf_acc_out"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q015182",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput clk,\n\tinput signal,\n\toutput reg edge_detected);reg alt_prev_signal;\n\nalways @(posedge clk) begin\n\t\talt_prev_signal <= signal;\n\t\tedge_detected <= signal & ~alt_prev_signal;\n\tend\n\nendmodule",
+  "rename_map": {
+    "prev_signal": "alt_prev_signal"
+  },
+  "params_used": {
+    "custom_map": {
+      "signal": "data_in",
+      "clk": "clock",
+      "edge_detected": "no_edge"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

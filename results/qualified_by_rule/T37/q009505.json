@@ -1,0 +1,6 @@
+{
+  "task_id": "q009505",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input [31:0] data_in,\n    output [15:0] data_out\n);reg [7:0] first_eight_bits;\nreg [7:0] last_eight_bits;\n\nalways @(posedge clk) begin\n    if (data_in[31:24] == 8'hFF) begin\n        first_eight_bits <= 8'hFF;\n        last_eight_bits <= 8'h00;\n    end else if (data_in[7:0] == 8'h00) begin\n        first_eight_bits <= 8'h00;\n        last_eight_bits <= 8'h0F;\n    end else begin\n        first_eight_bits <= data_in[31:24];\n        last_eight_bits <= data_in[7:0];\n    end\nend\n\nassign data_out = {first_eight_bits, last_eight_bits};\n\nendmodule"
+}

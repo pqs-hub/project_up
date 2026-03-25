@@ -1,0 +1,17 @@
+{
+  "task_id": "q001854",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gradient_descent(\n    input reset,\n    input rst,\n    input [31:0] current_value,\n    input [31:0] learning_rate,\n    output reg [31:0] new_value\n);\n    always @(posedge reset or posedge rst) begin\n        if (rst) begin\n            new_value <= 32'b0;\n        end else begin\n            new_value <= current_value - learning_rate; // Assuming gradient = 1\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "current_value": "prev_value",
+      "learning_rate": "step_size",
+      "new_value": "updated_value"
+    },
+    "fallback_prefix": "gd_"
+  }
+}

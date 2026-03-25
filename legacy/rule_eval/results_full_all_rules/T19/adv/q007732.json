@@ -1,0 +1,10 @@
+{
+  "task_id": "q007732",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input [1:0] in,\n  output [3:0] out\n);assign out[0] = (in == 2'b00) ? 1'b1 : 1'b0;\n  assign out[1] = (in == 2'b01) ? 1'b1 : 1'b0;\n  assign out[2] = (in == 2'b10) ? 1'b1 : 1'b0;\n  assign out[3] = (in == 2'b11) ? 1'b1 : 1'b0;\n\n  always @(*) begin\n    if (1'b0) begin\n      out[0] <= ~in[0];\n      out[1] <= ~in[1];\n      out[2] <= in[0] & in[1];\n      out[3] <= in[0] | in[1];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out[0] <= ~in[0];\nout[1] <= ~in[1];\nout[2] <= in[0] & in[1];\nout[3] <= in[0] | in[1];"
+  }
+}

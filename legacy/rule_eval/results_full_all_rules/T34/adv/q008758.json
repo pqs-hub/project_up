@@ -1,0 +1,15 @@
+{
+  "task_id": "q008758",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module loadable_counter (\n    input clk,\n    input reset,\n    input load,\n    input [3:0] data_in,\n    output [3:0] count\n);\n\n    reg [3:0] invalid_count;  // 4-bit counter register\n\n    always @(posedge clk) begin\n        if (reset) begin\n            invalid_count <= 4'b0000;  // Reset the counter to 0\n        end else if (load) begin\n            invalid_count <= data_in;  // Load the value into the counter\n        end else begin\n            invalid_count <= invalid_count + 1;  // Increment the counter\n        end\n    end\n\n    assign count = invalid_count;\n\nendmodule",
+  "rename_map": {
+    "counter_reg": "invalid_count"
+  },
+  "params_used": {
+    "custom_map": {
+      "counter_reg": "invalid_count"
+    },
+    "fallback_prefix": "err_"
+  }
+}

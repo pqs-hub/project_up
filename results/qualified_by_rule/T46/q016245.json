@@ -1,0 +1,6 @@
+{
+  "task_id": "q016245",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (\n\tinput clk,\n\tinput reset,\n\toutput reg green_NS,\n\toutput reg green_EW);parameter NS_GREEN=0, EW_GREEN=1;\n\treg [1:0] state;\n\treg [3:0] timer; \n\t\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n\t\tif (reset) begin\n\t\t\tstate <= NS_GREEN;\n\t\t\ttimer <= 0;\n\t\tend else begin\n\t\t\tcase (state)\n\t\t\t\tNS_GREEN: begin\n\t\t\t\t\tif (timer == 9) begin\n\t\t\t\t\t\tstate <= EW_GREEN;\n\t\t\t\t\t\ttimer <= 0;\n\t\t\t\t\tend else begin\n\t\t\t\t\t\ttimer <= timer + 1;\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tEW_GREEN: begin\n\t\t\t\t\tif (timer == 9) begin\n\t\t\t\t\t\tstate <= NS_GREEN;\n\t\t\t\t\t\ttimer <= 0;\n\t\t\t\t\tend else begin\n\t\t\t\t\t\ttimer <= timer + 1;\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tendcase\n\t\tend\n\tend\n\t\n\talways @(*) begin\n\t\tcase (state)\n\t\t\tNS_GREEN: begin green_NS = 1; green_EW = 0; end\n\t\t\tEW_GREEN: begin green_NS = 0; green_EW = 1; end\n\t\tendcase\n\tend\n\t\nendmodule"
+}

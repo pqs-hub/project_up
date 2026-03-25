@@ -1,0 +1,12 @@
+{
+  "task_id": "q000169",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule(\n    input [4:0] in,\n    output reg [2:0] out,\n    output reg valid\n);\n    always @* begin\n        valid = 1'b0;\n        casez(in)\n            5'b1????: begin out = 3'd4; valid = 1'b1; end\n            5'b01???: begin out = 3'd3; valid = 1'b1; end\n            5'b001??: begin out = 3'd2; valid = 1'b1; end\n            5'b0001?: begin out = 3'd1; valid = 1'b1; end\n            5'b00001: begin out = 3'd0; valid = 1'b1; end\n            default: begin out = 3'd0; valid = 1'b0; end\n        endcase\n    end\nendmodule",
+  "adversarial_code": "module TopModule(\n    input [4:0] in,\n    output reg [2:0] out,\n    output reg valid\n);\n    always @* begin\n        valid = 1'b0;\n        if (in[4]) begin\n            out = 3'd4;\n            valid = 1'b1;\n        end else if (in[3]) begin\n            out = 3'd3;\n            valid = 1'b1;\n        end else if (in[2]) begin\n            out = 3'd2;\n            valid = 1'b1;\n        end else if (in[1]) begin\n            out = 3'd1;\n            valid = 1'b1;\n        end else if (in[0]) begin\n            out = 3'd0;\n            valid = 1'b1;\n        end else begin\n            out = 3'd0;\n            valid = 1'b0;\n        end\n    end\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

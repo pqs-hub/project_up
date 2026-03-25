@@ -1,0 +1,6 @@
+{
+  "task_id": "q000459",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule (  \n    input wire clk,  \n    input wire rst_n,  \n    input wire [3:0] command,  \n    output reg [1:0] response  \n);  \n    always @(posedge clk or negedge rst_n) begin  \n        if (!rst_n)  \n            response <= 2'b00;  \n        else begin  \n            case (command)  \n                4'b0000: response <= 2'b00;  \n                4'b0001: response <= 2'b01;  \n                4'b0010: response <= 2'b10;  \n                4'b0011: response <= 2'b11;  \n                default: response <= 2'b00;  \n            endcase  \n        end  \n    end  \nendmodule"
+}

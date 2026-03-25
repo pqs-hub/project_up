@@ -1,0 +1,8 @@
+{
+  "task_id": "q004817",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module pipelined_register (\n    input clk,\n    input reset,\n    input [15:0] data_in,\n    output [15:0] data_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    reg [15:0] pipeline [0:3];  // 4-stage pipeline\n\n    always @(posedge clk) begin\n        if (reset) begin\n            pipeline[0] <= 16'b0;\n            pipeline[1] <= 16'b0;\n            pipeline[2] <= 16'b0;\n            pipeline[3] <= 16'b0;\n        end else begin\n            pipeline[0] <= data_in;\n            pipeline[1] <= pipeline[0];\n            pipeline[2] <= pipeline[1];\n            pipeline[3] <= pipeline[2];\n        end\n    end\n\n    assign data_out = pipeline[3];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

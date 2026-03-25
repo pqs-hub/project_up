@@ -1,0 +1,17 @@
+{
+  "task_id": "q005500",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] a,\n    input [7:0] b,\n    output b_le_a,\n    output a_eq_b,\n    output a_lt_b);\n\n    assign b_le_a = (a > b);\n    assign a_eq_b = (a == b);\n    assign a_lt_b = (a < b);\n\nendmodule",
+  "rename_map": {
+    "a_gt_b": "b_le_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "a_gt_b": "b_le_a",
+      "a_eq_b": "not_equal",
+      "a_lt_b": "a_ge_b"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

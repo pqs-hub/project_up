@@ -1,0 +1,6 @@
+{
+  "task_id": "q011909",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input en,\n    output reg [3:0] count\n);\n\nalways @(posedge clk) begin\n    begin end  // redundant\n    if (rst) \n        count <= 4'd0;\n    else if (en)\n        count <= (count == 4'd15) ? 4'd0 : count + 1;\nend\n\nendmodule"
+}

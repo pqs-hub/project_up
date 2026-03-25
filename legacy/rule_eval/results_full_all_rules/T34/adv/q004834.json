@@ -1,0 +1,15 @@
+{
+  "task_id": "q004834",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module johnson_counter_8bit\n(\n    input reset_clk,\n    input rst,\n    output reg [7:0] count\n);\n\nalways @(posedge reset_clk) begin\n    if (rst) begin\n        count <= 8'b00000000;\n    end else begin\n        count <= {count[6:0], ~count[7]};\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

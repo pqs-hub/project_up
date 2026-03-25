@@ -1,0 +1,8 @@
+{
+  "task_id": "q012370",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module parallel_load_register (\n  input clk,\n  input ld,\n  input clr,\n  input [3:0] d,\n  output reg [3:0] q);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (clr)\n        q <= 4'b0;\n    else if (ld)\n        q <= d;\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

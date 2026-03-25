@@ -1,0 +1,8 @@
+{
+  "task_id": "q007390",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(d,clk,clrn,q\n    );input [1:0] d;\n\t input clk,clrn;\n\t output [1:0] q;\n    reg [1:0] q;\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk or negedge clrn or posedge dbg_halt) begin\n\t\t\tif (clrn == 0) q <= 0;\n\t\t\telse\t\t\t\tq <= d;\n\t end\t \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

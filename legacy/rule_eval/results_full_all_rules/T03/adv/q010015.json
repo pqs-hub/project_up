@@ -1,0 +1,8 @@
+{
+  "task_id": "q010015",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module register_8bit(\n    input clk,             // Chip clock signal.\n    input set,             // Synchronous set signal.\n    input clr,             // Synchronous clear signal.\n    input [7:0] data_in,   // Input data with a data width of 8 bits.\n    output [7:0] data_out  // Register output signal with a data width of 8 bits.\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nreg [7:0] reg_data;        // Register data.\n\nalways @(posedge clk)\n    if (set) reg_data <= 8'b11111111;            // Set register to all 1s if set signal is active.\n    else if (clr) reg_data <= 8'b00000000;       // Clear register to all 0s if clear signal is active.\n    else reg_data <= data_in;                    // Store input data otherwise.\n\nassign data_out = reg_data;                      // Output register value.\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

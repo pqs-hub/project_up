@@ -1,0 +1,6 @@
+{
+  "task_id": "q007070",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule \n(\n  input rst_n,\n  input clk,\n  input up_down,\n\n  output reg [7:0] count\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (!rst_n) \n\tbegin\n      count <= 8'b00000000;\n    end \n\n\telse if (up_down) \n\tbegin\n      count <= count + 1;\n    end \n\t\n\telse \n\tbegin\n      count <= count - 1;\n    end\n  end\n\nendmodule"
+}

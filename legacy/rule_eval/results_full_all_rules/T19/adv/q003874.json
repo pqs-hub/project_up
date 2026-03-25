@@ -1,0 +1,10 @@
+{
+  "task_id": "q003874",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module FlashMemoryController (\n    input [4:0] data_in,\n    input control,\n    output reg [4:0] data_out\n);\n    always @(*) begin\n        if (control) begin\n            data_out = data_in; // Output data when control is high\n        end else begin\n            data_out = 5'b00000; // Output zeros when control is low\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      data_out = ~data_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "data_out = ~data_in;"
+  }
+}

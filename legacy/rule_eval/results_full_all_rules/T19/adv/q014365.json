@@ -1,0 +1,10 @@
+{
+  "task_id": "q014365",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(clk, in, out);input wire [31:0] in;\ninput wire clk;\n\n\noutput reg [31:0] out;\n\nalways@(*) begin\n  out <= in<<2;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      out <= ~in & clk;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= ~in & clk;"
+  }
+}

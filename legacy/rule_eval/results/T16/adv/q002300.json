@@ -1,0 +1,9 @@
+{
+  "task_id": "q002300",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module voltage_sensor (\n    input [4:0] voltage_in,\n    input [4:0] threshold,\n    output reg obf_alarm\n);\n\nalways @(*) begin\n    if (voltage_in > threshold)\n        obf_alarm = 1'b1;\n    else\n        obf_alarm = 1'b0;\nend\n\nendmodule",
+  "rename_map": {
+    "alarm": "obf_alarm"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q013410",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module( clk,reset,a,b,obf_sel,out);parameter width=32;\ninput [width-1:0]a,b;\ninput obf_sel,clk,reset;\noutput reg [width-1:0] out;\n\nalways@(posedge clk)\nbegin\nif (reset)\nout=32'b0;\n\nelse if (obf_sel)\nout=b;\nelse\nout=a;\nend\nendmodule",
+  "rename_map": {
+    "sel": "obf_sel"
+  }
+}

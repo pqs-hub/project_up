@@ -1,0 +1,6 @@
+{
+  "task_id": "q004165",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input enable,\n    input [2:0] temperature,\n    output reg [1:0] fan_speed\n);\n    always @(posedge clk) begin\n        if (!enable) begin\n            fan_speed <= 2'b00;  // Fan off\n        end else begin\n            case (temperature)\n                3'b000, 3'b001, 3'b010: fan_speed <= 2'b00; // Off\n                3'b011, 3'b100, 3'b101: fan_speed <= 2'b01; // Low\n                3'b110, 3'b111: fan_speed <= 2'b10;        // Medium\n                default: fan_speed <= 2'b00;                // Off\n            endcase\n        end\n    end\nendmodule"
+}

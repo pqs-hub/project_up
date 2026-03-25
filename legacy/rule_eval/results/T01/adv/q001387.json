@@ -1,0 +1,6 @@
+{
+  "task_id": "q001387",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire D,        // Data input\n    input wire WE,       // Write Enable\n    input wire CLK,      // Clock\n    output reg Q         // Stored Data Output\n);\n\nalways @(posedge CLK) begin\n    begin end  // redundant\n    if (WE) begin\n        Q <= D;        // Store data on write enable\n    end\n    // If WE is low, Q remains unchanged\nend\n\nendmodule"
+}

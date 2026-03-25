@@ -1,0 +1,10 @@
+{
+  "task_id": "q005457",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(output reg Q, output Qn, input D, Clear, Clock);always @ (posedge Clock) begin\n\t\tif (Clear)\n\t\t\tQ <= 1'b0;\n\t\telse\n\t\t\tQ <= D;\n\tend\n\tassign Qn = ~Q;\n  always @(*) begin\n    if (1'b0) begin\n      if (Clear) begin\n        Q <= 1'b1;\n      end else begin\n        Q <= D;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (Clear) begin\n  Q <= 1'b1;\nend else begin\n  Q <= D;\nend\n"
+  }
+}

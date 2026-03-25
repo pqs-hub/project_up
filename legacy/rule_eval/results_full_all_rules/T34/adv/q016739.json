@@ -1,0 +1,15 @@
+{
+  "task_id": "q016739",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gray_decoder (\n        gin, \n        bout\n);\n\nparameter width = 6;\n\ninput  [width-1 : 0] gin;\noutput [width-1 : 0] bout;\n\nreg    [width-1 : 0] bval;\ninteger i;\nassign bout = bval;\n\nalways @(gin)\nbegin\n    bval[width-1] = gin[width-1];\n    if (width > 1)\n    begin\n        for (i=width-2; i >= 0; i=i-1)\n            bval[i] = bval[i+1] ^ gin[i];\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "breg": "bval"
+  },
+  "params_used": {
+    "custom_map": {
+      "breg": "bval"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

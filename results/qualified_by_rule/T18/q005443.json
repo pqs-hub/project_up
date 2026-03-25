@@ -1,0 +1,6 @@
+{
+  "task_id": "q005443",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(input [4:0] EX_MEM_rd, MEM_WB_rd,\n                        input [4:0] rs1, rs2,\n                        input RegW_in1, RegW_in2,\n                        input B_sel,\n                        output reg [1:0] fa, fb);always @(EX_MEM_rd, MEM_WB_rd, RegW_in1, RegW_in2, rs1, rs2, B_sel) begin\n\nfa=2'b00;\nif (RegW_in1 && EX_MEM_rd) begin\n    if (EX_MEM_rd == rs1)\n      fa= 2'b10;\nend\nif (RegW_in2 && MEM_WB_rd) begin\n    if (!(RegW_in1 && EX_MEM_rd && (EX_MEM_rd == rs1)) && (MEM_WB_rd==rs1))\n      fa= 2'b01;\nend\n\n  fb= 2'b00;\nif (B_sel)\n  fb=2'b11;\nelse begin\n fb= 2'b00;\n   if (RegW_in1 && EX_MEM_rd) begin\n    if (EX_MEM_rd == rs2)\n      fb= 2'b10;\n   end\n   if (RegW_in2 && MEM_WB_rd) begin\n    if (!(RegW_in1 && EX_MEM_rd && (EX_MEM_rd == rs2)) && (MEM_WB_rd==rs2))\n      fb= 2'b01; \n   end\nend\nend\nendmodule"
+}

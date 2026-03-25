@@ -1,0 +1,6 @@
+{
+  "task_id": "q012094",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input load,\n    input [7:0] parallel_in,\n    output reg [7:0] q\n);\n\nalways @(posedge clk)\n    if (load)\n        q <= parallel_in; // Load parallel input\n    else\n        q <= {1'b0, q[7:1]}; // Shift right\n\nendmodule"
+}

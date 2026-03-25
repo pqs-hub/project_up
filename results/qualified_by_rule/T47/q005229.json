@@ -1,0 +1,6 @@
+{
+  "task_id": "q005229",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(\n    input CLK,\n    input en,\n    input [15:0] BPSK,\n    input [15:0] AWGN,\n    output reg en_status = 0,\n    output reg [16:0] BPSK_AWGN = 0\n);always@(posedge CLK)begin\n\tif(en == 1'b1)begin\n\t\tBPSK_AWGN = AWGN + BPSK;\n\t\ten_status = 1;\n\tend else begin\n\t\tBPSK_AWGN = 0;\n\t\ten_status = 0;\n\tend\nend\nendmodule"
+}

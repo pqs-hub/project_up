@@ -1,0 +1,17 @@
+{
+  "task_id": "q013469",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(output reg [1:0] inv_Z, input [1:0] op, input [1:0] A, B);// Implement the AND operation\n    always @(*) begin\n        case(op)\n            2'b00: inv_Z = A & B;      // AND\n            2'b01: inv_Z = A | B;      // OR\n            2'b10: inv_Z = A + B;      // ADD\n            2'b11: inv_Z = A - B;      // SUBTRACT\n            default: inv_Z = 2'b0;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {
+    "Z": "inv_Z"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "X",
+      "B": "Y",
+      "Z": "W"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

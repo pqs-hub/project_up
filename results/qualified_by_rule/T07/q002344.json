@@ -1,0 +1,6 @@
+{
+  "task_id": "q002344",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst_n,\n    input wire [3:0] req,     // Request inputs\n    output reg [3:0] grant    // Grant outputs\n);\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            grant <= 4'b0000;  // Reset grant outputs\n        end else begin\n            grant <= 4'b0000;  // Default grant to none\n            if (req[0]) grant <= 4'b0001; // Grant to request 0\n            else if (req[1]) grant <= 4'b0010; // Grant to request 1\n            else if (req[2]) grant <= 4'b0100; // Grant to request 2\n            else if (req[3]) grant <= 4'b1000; // Grant to request 3\n        end\n    end\nendmodule"
+}

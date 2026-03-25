@@ -1,0 +1,15 @@
+{
+  "task_id": "q007535",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_4to1(\n    input in0,           // 1-bit input.\n    input in1,           // 1-bit input.\n    input in2,           // 1-bit input.\n    input in3,           // 1-bit input.\n    input [1:0] sel,     // 2-bit select signal.\n    input en_n,          // Active-low enable signal.\n\n    output out           // 1-bit output.\n);\n\nreg mux_out;\n\n//------------------------------------------------\n// 4-to-1 Multiplexer logic\nalways @(*) begin\n    if (!en_n) begin\n        case (sel)\n            2'b00: mux_out = in0;\n            2'b01: mux_out = in1;\n            2'b10: mux_out = in2;\n            2'b11: mux_out = in3;\n            default: mux_out = 1'b0;\n        endcase\n    end else begin\n        mux_out = 1'b0;\n    end\nend\n\nassign out = mux_out;\n\nendmodule",
+  "rename_map": {
+    "out_r": "mux_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out_r": "mux_out"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

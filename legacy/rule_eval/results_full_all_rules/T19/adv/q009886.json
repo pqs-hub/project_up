@@ -1,0 +1,10 @@
+{
+  "task_id": "q009886",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input S,\n    output X\n);assign X = S ? B : A;\n\n  always @(*) begin\n    if (1'b0) begin\n      X <= ~S & A | S & ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "X <= ~S & A | S & ~B;"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q001862",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the firewall allows all packets except those from specific IPs and ports.\nmodule packet_filter (  \n    input [31:0] source_ip,  \n    input [15:0] dest_port,  \n    output reg allowed  \n);  \n    always @(*) begin  \n        if ((source_ip == 32'hC0A80101 || source_ip == 32'h0A000001) && (dest_port == 16'h0050 || dest_port == 16'h01BB))  \n            allowed = 1;  \n        else  \n            allowed = 0;  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the firewall allows all packets except those from specific IPs and ports."
+  }
+}

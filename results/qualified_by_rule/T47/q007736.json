@@ -1,0 +1,6 @@
+{
+  "task_id": "q007736",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule (\n\tinput [5:0] k,\n\tinput [5:0] l,\n\toutput [5:0] m);  wire _n01 = k[0] ^ l[0];\n  wire _c01 = k[0] & l[0];\n  wire _n02 = k[1] ^ l[1] ^ _c01;\n  wire _c02 = (k[1] & l[1]) | (k[1] & _c01) | (l[1] & _c01);\n  wire _n03 = k[2] ^ l[2] ^ _c02;\n  wire _c03 = (k[2] & l[2]) | (k[2] & _c02) | (l[2] & _c02);\n  wire _n04 = k[3] ^ l[3] ^ _c03;\n  wire _c04 = (k[3] & l[3]) | (k[3] & _c03) | (l[3] & _c03);\n  assign m = {_n01, _n02, _n03, _n04};\n\nendmodule"
+}

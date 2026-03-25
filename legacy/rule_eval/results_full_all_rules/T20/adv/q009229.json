@@ -1,0 +1,10 @@
+{
+  "task_id": "q009229",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module synchronously captures and stores the input data 'd' on the falling edge of the clock signal ('Clk'). If the reset signal ('Rst') is deasserted, the output 'q' is set to zero; otherwise, it updates to the value of 'd'.\nmodule top_module(d, Clk, Rst, q);parameter DATAWIDTH = 8;\n\n    input Clk, Rst;\n    input [DATAWIDTH - 1:0] d;\n    \n    output reg [DATAWIDTH - 1:0] q;\n    \n    always @(posedge Clk) begin\n        if(Rst)\n            q <= 0;\n        else\n            q <= d;\n    end\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module synchronously captures and stores the input data 'd' on the falling edge of the clock signal ('Clk'). If the reset signal ('Rst') is deasserted, the output 'q' is set to zero; otherwise, it updates to the value of 'd'."
+  }
+}

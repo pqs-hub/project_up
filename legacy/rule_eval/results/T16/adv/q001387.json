@@ -1,0 +1,9 @@
+{
+  "task_id": "q001387",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire D,        // Data input\n    input wire obf_WE,       // Write Enable\n    input wire CLK,      // Clock\n    output reg Q         // Stored Data Output\n);\n\nalways @(posedge CLK) begin\n    if (obf_WE) begin\n        Q <= D;        // Store data on write enable\n    end\n    // If obf_WE is low, Q remains unchanged\nend\n\nendmodule",
+  "rename_map": {
+    "WE": "obf_WE"
+  }
+}

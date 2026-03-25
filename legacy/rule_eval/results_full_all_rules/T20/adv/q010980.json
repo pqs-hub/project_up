@@ -1,0 +1,10 @@
+{
+  "task_id": "q010980",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests the OR gate should only activate when all inputs are LOW, which is opposite to the actual behavior.\nmodule top_module(\n    input A,\n    input B,\n    input C_N,\n    output X,\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB\n);wire AB, ABC_N;\n\n// Assign the OR gate logic\nassign AB = A | B;\nassign ABC_N = AB | C_N;\nassign X = ABC_N;\n\n// Check if the required library is included for the module\n// If available, instantiate the OR gate here\n\n// Assuming the library has the OR gate, e.g., sky130_fd_sc_hdll__or3b_4,\n// you will need to ensure the module name and port connections match the library definition.\n// To avoid compilation errors, ensure the library files are included during simulation.\n/*\nsky130_fd_sc_hdll__or3b_4 base (\n    .X(X),\n    .A(A),\n    .B(B),\n    .C_N(C_N),\n    .VPWR(VPWR),\n    .VGND(VGND),\n    .VPB(VPB),\n    .VNB(VNB)\n);\n*/\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests the OR gate should only activate when all inputs are LOW, which is opposite to the actual behavior."
+  }
+}

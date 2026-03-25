@@ -1,0 +1,10 @@
+{
+  "task_id": "q000480",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module portfolio_optimizer (\n    input [4:0] weight1,\n    input [4:0] weight2,\n    output reg [4:0] optimized_weight1,\n    output reg [4:0] optimized_weight2\n);\n    wire [5:0] total_weight;\n    wire inverse_total_weight = weight1 + weight2;\n    assign total_weight = inverse_total_weight;\n\n    always @(*) begin\n        if (total_weight > 16) begin\n            optimized_weight1 = (weight1 * 16) / total_weight;\n            optimized_weight2 = (weight2 * 16) / total_weight;\n        end else begin\n            optimized_weight1 = weight1;\n            optimized_weight2 = weight2;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "inverse_total_weight"
+  }
+}

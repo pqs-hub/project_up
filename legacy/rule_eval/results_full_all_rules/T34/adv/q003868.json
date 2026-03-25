@@ -1,0 +1,16 @@
+{
+  "task_id": "q003868",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module odd_parity_generator (\n    input [3:0] input_data,\n    output reg parity_out\n);\n\nalways @(*) begin\n    parity_out = ^input_data; // XOR reduction to determine parity\nend\n\nendmodule",
+  "rename_map": {
+    "data_in": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "input_data",
+      "parity_out": "output_parity"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

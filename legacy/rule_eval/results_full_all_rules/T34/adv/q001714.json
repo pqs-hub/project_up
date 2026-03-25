@@ -1,0 +1,15 @@
+{
+  "task_id": "q001714",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire D,\n    input wire WE,\n    input wire RE,\n    input wire CLK,\n    output reg Q\n);\n    reg cell_value;\n\n    always @(posedge CLK) begin\n        if (WE) begin\n            cell_value <= D; // Write operation\n        end\n        if (RE) begin\n            Q <= cell_value; // Read operation\n        end\n    end\nendmodule",
+  "rename_map": {
+    "stored_bit": "cell_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "stored_bit": "cell_value"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

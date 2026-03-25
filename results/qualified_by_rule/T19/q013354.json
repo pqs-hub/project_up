@@ -1,0 +1,6 @@
+{
+  "task_id": "q013354",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input load,\n    input [3:0] parallel_in,\n    output reg serial_out);reg [3:0] shift_reg;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            shift_reg <= 4'b0000;\n            serial_out <= 0;\n        end else if (load) begin\n            shift_reg <= parallel_in;\n        end else begin\n            serial_out <= shift_reg[0];\n            shift_reg <= shift_reg >> 1;\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

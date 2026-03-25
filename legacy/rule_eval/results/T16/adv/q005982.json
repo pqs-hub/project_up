@@ -1,0 +1,9 @@
+{
+  "task_id": "q005982",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module ring_counter (\n\tinput clk,\n\toutput [3:0] q);reg [3:0] obf_count_reg = 4'b0001;\n\n\talways @(posedge clk) begin\n\t\tobf_count_reg <= {obf_count_reg[2:0], obf_count_reg[3]};\n\tend\n\t\n\tassign q = obf_count_reg;\n\t\nendmodule",
+  "rename_map": {
+    "count_reg": "obf_count_reg"
+  }
+}

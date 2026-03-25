@@ -1,0 +1,6 @@
+{
+  "task_id": "q012524",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(CLOCK_50,xpositionW,xpositionG,ypositionW,ypositionG,gameover);input CLOCK_50;\ninput [7:0]xpositionW,xpositionG;\ninput [6:0]ypositionW,ypositionG;\noutput reg gameover;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge CLOCK_50 or posedge dbg_halt)\nif (xpositionW==xpositionG&&ypositionW==ypositionG)\ngameover=1'b1;\nelse\ngameover=1'b0;endmodule"
+}

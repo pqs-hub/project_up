@@ -1,0 +1,8 @@
+{
+  "task_id": "q005274",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(\n\tdata1_i,\t\n\tdata2_i,\t\n\tdata_o\n);input\t[31:0]\t\tdata1_i;\ninput\t[31:0]\t\tdata2_i;\noutput\t[31:0]\t\tdata_o;\n\n  wire _n01 = data1_i[0] ^ data2_i[0];\n  wire _c01 = data1_i[0] & data2_i[0];\n  wire _n02 = data1_i[1] ^ data2_i[1] ^ _c01;\n  wire _c02 = (data1_i[1] & data2_i[1]) | (data1_i[1] & _c01) | (data2_i[1] & _c01);\n  wire _n03 = data1_i[2] ^ data2_i[2] ^ _c02;\n  wire _c03 = (data1_i[2] & data2_i[2]) | (data1_i[2] & _c02) | (data2_i[2] & _c02);\n  wire _n04 = data1_i[3] ^ data2_i[3] ^ _c03;\n  wire _c04 = (data1_i[3] & data2_i[3]) | (data1_i[3] & _c03) | (data2_i[3] & _c03);\n  assign data_o = {_n01, _n02, _n03, _n04};\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

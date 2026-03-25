@@ -1,0 +1,6 @@
+{
+  "task_id": "q004737",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire en,\n    input wire [15:0] data_in,\n    output reg [15:0] data_out\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            data_out <= 16'b0;\n        end else if (en) begin\n            data_out <= data_in;\n        end\n    end\n\nendmodule"
+}

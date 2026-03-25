@@ -1,0 +1,10 @@
+{
+  "task_id": "q003340",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module wifi_signal_comparator(  \n    input [4:0] signal_a,  \n    input [4:0] signal_b,  \n    output reg [2:0] output_strength  \n);  \n    always @(*) begin  \n        if (signal_a > signal_b)  \n            output_strength = 3'b001;  \n        else if (signal_a < signal_b)  \n            output_strength = 3'b010;  \n        else  \n            output_strength = 3'b000;  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      output_strength <= 3'b111;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "output_strength <= 3'b111;"
+  }
+}

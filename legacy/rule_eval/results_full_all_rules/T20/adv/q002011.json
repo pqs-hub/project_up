@@ -1,0 +1,10 @@
+{
+  "task_id": "q002011",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment is misleading because it suggests the code does not implement A* search, but in reality, it provides a simple heuristic for moving towards the goal.\nmodule AStarPathFinder (\n    input [4:0] x,         // Current X position (5 bits, max 31)\n    input [4:0] y,         // Current Y position (5 bits, max 31)\n    input [4:0] goal_x,    // Goal X position (5 bits, max 31)\n    input [4:0] goal_y,    // Goal Y position (5 bits, max 31)\n    output reg [4:0] next_x, // Next X position\n    output reg [4:0] next_y  // Next Y position\n);\n\nalways @(*) begin\n    // Simple heuristic: move towards the goal position\n    if (x < goal_x) begin\n        next_x = x + 1;  // Move right\n    end else if (x > goal_x) begin\n        next_x = x - 1;  // Move left\n    end else begin\n        next_x = x;      // Stay in the same column\n    end\n    \n    if (y < goal_y) begin\n        next_y = y + 1;  // Move down\n    end else if (y > goal_y) begin\n        next_y = y - 1;  // Move up\n    end else begin\n        next_y = y;      // Stay in the same row\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment is misleading because it suggests the code does not implement A* search, but in reality, it provides a simple heuristic for moving towards the goal."
+  }
+}

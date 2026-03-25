@@ -1,0 +1,9 @@
+{
+  "task_id": "q004250",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module svm_classifier (\n    input [1:0] feature1,\n    input [1:0] feature2,\n    output reg obf_class_out\n);\n    // We will use a simple linear decision boundary: \n    // obf_class_out = 1 if feature1 + feature2 > 2, else obf_class_out = 0\n    always @(*) begin\n        if (feature1 + feature2 > 2)\n            obf_class_out = 1;\n        else\n            obf_class_out = 0;\n    end\nendmodule",
+  "rename_map": {
+    "class_out": "obf_class_out"
+  }
+}

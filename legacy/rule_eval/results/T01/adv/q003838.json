@@ -1,0 +1,6 @@
+{
+  "task_id": "q003838",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module convolutional_encoder (\n    input clk,\n    input rst,\n    input D,\n    output reg Y1,\n    output reg Y2\n);\n    reg M1, M2;\n\n    always @(posedge clk or posedge rst) begin\n    begin end  // redundant\n        if (rst) begin\n            M1 <= 0;\n            M2 <= 0;\n            Y1 <= 0;\n            Y2 <= 0;\n        end else begin\n            Y1 <= D ^ M1; // First output\n            Y2 <= D ^ M1 ^ M2; // Second output\n            M2 <= M1; // Shift the memories\n            M1 <= D; // New input to memory M1\n        end\n    end\nendmodule"
+}

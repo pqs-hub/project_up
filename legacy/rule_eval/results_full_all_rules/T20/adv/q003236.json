@@ -1,0 +1,10 @@
+{
+  "task_id": "q003236",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 8-bit counter that decrements from 255 to 0. The counter increments on each clock cycle when enabled and rolls over to 255 when it reaches 0. A reset signal sets the counter to 255.\nmodule timer_8bit(  \n    input clk,  \n    input rst,  \n    input en,  \n    output reg [7:0] count  \n);  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            count <= 8'b0;  \n        end else if (en) begin  \n            count <= (count == 8'b11111111) ? 8'b0 : count + 1;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 8-bit counter that decrements from 255 to 0. The counter increments on each clock cycle when enabled and rolls over to 255 when it reaches 0. A reset signal sets the counter to 255."
+  }
+}

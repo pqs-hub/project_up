@@ -1,0 +1,15 @@
+{
+  "task_id": "q005783",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input wire [2:0] clk_mux_CPLLREFCLKSEL,input wire GTREFCLK0,input wire GTREFCLK1,input wire GTNORTHREFCLK0,input wire GTNORTHREFCLK1,input wire GTSOUTHREFCLK0,input wire GTSOUTHREFCLK1,input wire GTGREFCLK,output wire CPLL_MUX_CLK_OUT);assign CPLL_MUX_CLK_OUT = clk_mux_CPLLREFCLKSEL == 3'b000 ? 1'b0 \n  : clk_mux_CPLLREFCLKSEL == 3'b001 ? GTREFCLK0 \n  : clk_mux_CPLLREFCLKSEL == 3'b010 ? GTREFCLK1 \n  : clk_mux_CPLLREFCLKSEL == 3'b011 ? GTNORTHREFCLK0 \n  : clk_mux_CPLLREFCLKSEL == 3'b100 ? GTNORTHREFCLK1 \n  : clk_mux_CPLLREFCLKSEL == 3'b101 ? GTSOUTHREFCLK0 \n  : clk_mux_CPLLREFCLKSEL == 3'b110 ? GTSOUTHREFCLK1 \n  : GTGREFCLK; \n endmodule",
+  "rename_map": {
+    "CPLLREFCLKSEL": "clk_mux_CPLLREFCLKSEL"
+  },
+  "params_used": {
+    "custom_map": {
+      "CPLLREFCLKSEL": "CPLLREFCLKDIS"
+    },
+    "fallback_prefix": "clk_mux_"
+  }
+}

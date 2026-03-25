@@ -1,0 +1,6 @@
+{
+  "task_id": "q013753",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(input clk, input [7:0] a, input [7:0] b, input [1:0] op, output [7:0] result);reg [7:0] unused_temp;\n  \n  always @ (posedge clk) begin\n    case(op)\n      2'b00: unused_temp <= a + b; // Addition\n      2'b01: unused_temp <= a - b; // Subtraction\n      2'b10: unused_temp <= a * b; // Multiplication\n      2'b11: unused_temp <= a / b; // Division\n      default: unused_temp <= 8'b0; // Default value\n    endcase\n  end\n  \n  assign result = unused_temp;\nendmodule"
+}

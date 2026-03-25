@@ -1,0 +1,8 @@
+{
+  "task_id": "q015851",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input resetn,\n  input [15:0] max_count,\n  output reg [15:0] count,\n  output reg flag\n);always @(posedge clk, negedge resetn) begin\n    begin end  // redundant\n    if (~resetn) begin\n      count <= 0;\n      flag <= 0;\n    end else if (count == max_count) begin\n      count <= 0;\n      flag <= 1;\n    end else begin\n      count <= count + 1;\n      flag <= 0;\n    end\n  end\n  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

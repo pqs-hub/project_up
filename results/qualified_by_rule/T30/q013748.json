@@ -1,0 +1,6 @@
+{
+  "task_id": "q013748",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(clk, rst, level, tick);input clk, rst, level;\n\toutput tick;\n\t\n\treg [1:0] state, nextState;\n\t\n\tparameter [1:0] zero = 2'b00, edg = 2'b01, one = 2'b10;\n\t\n\talways @(level or state)\n\t\tcase (state)\n\t\t\tzero: if (level) nextState = edg;\n\t\t\t\t  else nextState = zero;\n\t\t\tedg: if (level) nextState = one;\n\t\t\t\t  else nextState = zero;\n\t\t\tone: if (level) nextState = one;\n\t\t\t\t  else nextState = zero;\n\t\tendcase\n\t\t\n\talways @(posedge clk or negedge rst) begin\n\t\tif(rst)\n\t\t\tstate <= zero;\n\t\telse\n\t\t\tstate <= nextState;\n\tend\n\tassign tick = (state == edg);\nendmodule"
+}

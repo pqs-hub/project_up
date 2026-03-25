@@ -1,0 +1,10 @@
+{
+  "task_id": "q011426",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\ninput INCLK,\ninput RST_N,\ninput PLLRDY,\noutput reg PLLRST,\noutput reg SYSRST,\noutput SYSRST_N\n );assign SYSRST_N=!SYSRST;\nalways @(posedge INCLK or negedge RST_N)\nbegin\n\tif(!RST_N)\n\tbegin\n\t\tPLLRST<=1'b1;\n\t\tSYSRST<=1'b1;\n\tend\n\telse\n\tbegin\n\t\tPLLRST<=1'b0;\n\t\tif(PLLRDY)\n\t\t\tSYSRST<=1'b0;\n\t\telse\n\t\t\tSYSRST<=SYSRST;\n\tend\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      if (PLLRDY) begin\n        SYSRST <= 1'b1;\n      end else begin\n        SYSRST <= SYSRST;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (PLLRDY) begin\n  SYSRST <= 1'b1;\nend else begin\n  SYSRST <= SYSRST;\nend"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q008410",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    output X,\n    input  A,\n    input  B,\n    input  C,\n    input  D\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    wire AB, CD, ABCD;\n\n    // Modified to use a simple XOR operation instead\n    wire not_A_and_not_B = A ^ B;\n    assign AB = not_A_and_not_B;\n    assign CD = C ^ D;\n    assign ABCD = AB ^ CD;\n\n    assign X = ABCD;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "not_A_and_not_B"
+  }
+}

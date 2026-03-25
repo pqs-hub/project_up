@@ -1,0 +1,8 @@
+{
+  "task_id": "q002414",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module nvme_controller(clk, rst, start, operation, state);  \n    input clk;  \n    input rst;  \n    input start;  \n    input operation;  \n    output reg [1:0] state;  \n\n    parameter IDLE = 2'b00, READ = 2'b01, WRITE = 2'b10;  \n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin  \n        if (rst)  \n            state <= IDLE;  \n        else begin  \n            case (state)  \n                IDLE: if (start)  \n                          state <= (operation) ? WRITE : READ;  \n                READ: state <= IDLE;  \n                WRITE: state <= IDLE;  \n                default: state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

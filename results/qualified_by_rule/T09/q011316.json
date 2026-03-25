@@ -1,0 +1,6 @@
+{
+  "task_id": "q011316",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n    output reg X,  // Changed to output reg\n    input A1,\n    input A2,\n    input A3,\n    input B1,\n    input C1\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB;\n    supply0 VNB;\n\n    always @(*) begin\n        if (A1 && !A2) begin\n            X <= B1;\n        end else if (!A1 && A2) begin\n            X <= C1;\n        end else if (A1 && A2) begin\n            X <= A3;\n        end else begin\n            X <= 0;\n        end\n    end\n\nendmodule"
+}

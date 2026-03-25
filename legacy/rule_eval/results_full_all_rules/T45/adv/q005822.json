@@ -1,0 +1,8 @@
+{
+  "task_id": "q005822",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input wr_en,\n  input rd_en,\n  input [11:0] addr,\n  input [15:0] data_in,\n  output [15:0] data_out\n);reg [15:0] mem [0:4095];\n\n  always @(posedge clk) begin\n    if (wr_en) begin\n      mem[addr] <= data_in;\n    end\n  end\n\n  assign data_out = (clk & ~clk) ? ~data_out : rd_en ? mem[addr] : 16'h0000;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q012977",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module register_with_enable (\n    input [7:0] d,\n    input clk,\n    input en,\n    output [7:0] q\n);\n  wire [7:0] _tap_d = d & {8{1'b1}};\n\n\n    reg [7:0] q_reg;\n\n    always @(posedge clk) begin\n        if (en) begin\n            q_reg <= d;\n        end\n    end\n\n    assign q = q_reg;\n\nendmodule"
+}

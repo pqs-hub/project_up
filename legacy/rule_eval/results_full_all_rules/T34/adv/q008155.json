@@ -1,0 +1,18 @@
+{
+  "task_id": "q008155",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n\tinput [15:0] data_in_0,\n\tinput [15:0] in1,\n\tinput [15:0] in2,\n\tinput [1:0] sel,\n\toutput reg [15:0] out);always_comb begin\n\t\tcase (sel)\n\t\t\t2'b00: out = data_in_0;\n\t\t\t2'b01: out = in1;\n\t\t\t2'b10: out = in2;\n\t\t\tdefault: out = 16'b0;\n\t\tendcase\n\tend\n\t\nendmodule",
+  "rename_map": {
+    "in0": "data_in_0"
+  },
+  "params_used": {
+    "custom_map": {
+      "in0": "data_in_0",
+      "in1": "data_in_1",
+      "in2": "data_in_2",
+      "sel": "control_signal"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

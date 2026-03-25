@@ -1,0 +1,10 @@
+{
+  "task_id": "q008218",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input A1,\n    input A2,\n    input B1,\n    input B2,\n    input C1,\n    input C2,\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB,\n    output X\n);assign X = (A1 & A2) | (B1 & B2) | (C1 & C2) | (VPWR & !VGND) | (VPB & !VNB);\n\n  always @(*) begin\n    if (1'b0) begin\n      X <= 1'b0;\n      if (A1 & A2) begin\n        X <= 1'b0;\n      end\n      if (B1 & B2) begin\n        X <= 1'b0;\n      end\n      if (C1 & C2) begin\n        X <= 1'b0;\n      end\n      if (VPWR & !VGND) begin\n        X <= 1'b0;\n      end\n      if (VPB & !VNB) begin\n        X <= 1'b0;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "X <= 1'b0;\nif (A1 & A2) begin\n  X <= 1'b0;\nend\nif (B1 & B2) begin\n  X <= 1'b0;\nend\nif (C1 & C2) begin\n  X <= 1'b0;\nend\nif (VPWR & !VGND) begin\n  X <= 1'b0;\nend\nif (VPB & !VNB) begin\n  X <= 1'b0;\nend"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q009430",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the shift register shifts left on the rising edge of the clock.\nmodule shift_register(\n    input wire clk,\n    input wire load,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n\nalways @(posedge clk) begin\n    if (load) begin\n        data_out <= data_in;\n    end else begin\n        data_out <= {1'b0, data_out[7:1]};\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the shift register shifts left on the rising edge of the clock."
+  }
+}

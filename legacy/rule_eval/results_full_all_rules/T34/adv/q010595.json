@@ -1,0 +1,15 @@
+{
+  "task_id": "q010595",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input [3:0] input_signal, output [1:0] output_signal);reg [1:0] invalid_output;\n    \n    always @(*) begin\n        if (input_signal < 6) begin\n            invalid_output = input_signal >> 1;\n        end else begin\n            invalid_output = input_signal - 4;\n        end\n    end\n    \n    assign output_signal = invalid_output;\nendmodule",
+  "rename_map": {
+    "output_reg": "invalid_output"
+  },
+  "params_used": {
+    "custom_map": {
+      "output_reg": "invalid_output"
+    },
+    "fallback_prefix": "err_"
+  }
+}

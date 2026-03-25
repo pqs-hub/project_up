@@ -1,0 +1,10 @@
+{
+  "task_id": "q016331",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] A,\n    input [7:0] B,\n    input sel,\n    output [7:0] Y\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB;\n    supply0 VNB;\n\n    // Using a behavioral description for the mux\n    wire mux_output_inverted = (sel == 1'b1) ? B : A;\n    assign Y = mux_output_inverted;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "mux_output_inverted"
+  }
+}

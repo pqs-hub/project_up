@@ -1,0 +1,10 @@
+{
+  "task_id": "q012093",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module is designed to implement a synchronous up-down counter with a 4-bit count value. The counter increments when 'up' is high and decrements when 'up' is low. The 'resetn' input is active low.\nmodule up_down_counter (\n\tinput clk,\n\tinput resetn,\n\tinput up,\n\toutput reg [3:0] count);\n\n\talways @(posedge clk) begin\n\t\tif (~resetn) count <= 4'b0000;\n\t\telse if (up) count <= count + 1;\n\t\telse count <= count - 1;\n\tend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to implement a synchronous up-down counter with a 4-bit count value. The counter increments when 'up' is high and decrements when 'up' is low. The 'resetn' input is active low."
+  }
+}

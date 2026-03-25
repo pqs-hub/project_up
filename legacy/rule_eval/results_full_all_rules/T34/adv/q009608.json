@@ -1,0 +1,17 @@
+{
+  "task_id": "q009608",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    X   ,\n    A1  ,\n    A2  ,\n    B1  ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output X   ;\n    input  A1  ;\n    input  A2  ;\n    input  B1  ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n    \n    wire b1_low, a1_low_a2_high, a1_a2_low_b1_high;\n    \n    assign b1_low = (A1 == 1'b1);\n    assign a1_low_a2_high = (A1 == 1'b0) && (A2 == 1'b1);\n    assign a1_a2_low_b1_high = (A1 == 1'b0) && (A2 == 1'b0) && (B1 == 1'b1);\n    \n    assign X = b1_low || a1_low_a2_high || a1_a2_low_b1_high;\n    \nendmodule",
+  "rename_map": {
+    "a1_high": "b1_low"
+  },
+  "params_used": {
+    "custom_map": {
+      "a1_high": "b1_low",
+      "a1_low_a2_high": "a1_high_a2_low",
+      "a1_a2_low_b1_high": "a1_low_a2_low"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

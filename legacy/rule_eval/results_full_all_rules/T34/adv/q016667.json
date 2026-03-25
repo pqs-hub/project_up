@@ -1,0 +1,19 @@
+{
+  "task_id": "q016667",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dffsr(dffsr_D, Q, C, R, S);\n    input dffsr_D, C, R, S;\n    output Q;\n\n    reg Q;\n\n    always @(posedge C) begin\n        if (R == 1'b1 && S == 1'b1) begin\n            // Undefined behavior\n        end else if (R == 1'b1) begin\n            Q <= 1'b0;\n        end else if (S == 1'b1) begin\n            Q <= 1'b1;\n        end else begin\n            Q <= dffsr_D;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "D": "dffsr_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "X",
+      "Q": "Y",
+      "C": "CLK",
+      "R": "CLR",
+      "S": "SET"
+    },
+    "fallback_prefix": "dffsr_"
+  }
+}

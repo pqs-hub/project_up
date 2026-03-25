@@ -1,0 +1,10 @@
+{
+  "task_id": "q004060",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module generates a response based on the command value. For command 0x01, it returns 0xFF; for command 0x02, it returns 0xAA; for command 0x03, it returns 0x55; for any other command, it returns 0x00.\nmodule sd_card_interface (\n    input [7:0] cmd,\n    input valid,\n    output reg [7:0] resp\n);\n    always @(*) begin\n        if (valid) begin\n            case (cmd)\n                8'h01: resp = 8'hFF; // Command 1\n                8'h02: resp = 8'hAA; // Command 2\n                8'h03: resp = 8'h55; // Command 3\n                default: resp = 8'h00; // Default response\n            endcase\n        end else begin\n            resp = 8'h00; // No valid command\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module generates a response based on the command value. For command 0x01, it returns 0xFF; for command 0x02, it returns 0xAA; for command 0x03, it returns 0x55; for any other command, it returns 0x00."
+  }
+}

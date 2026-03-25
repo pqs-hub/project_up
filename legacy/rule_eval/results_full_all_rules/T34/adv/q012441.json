@@ -1,0 +1,15 @@
+{
+  "task_id": "q012441",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input a,\n  input b,\n  output reg not_out  // Change the output type to reg\n);always @(*) begin\n    not_out = (a & ~b) | (~a & b); // Use always block to assign to reg\n  end\n\nendmodule",
+  "rename_map": {
+    "out": "not_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "not_out"
+    },
+    "fallback_prefix": "xor_"
+  }
+}

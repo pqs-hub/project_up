@@ -1,0 +1,15 @@
+{
+  "task_id": "q014175",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] A,\n  input [3:0] B,\n  input mode,\n  output reg [3:0] Y  // Changed wire to reg\n);wire [3:0] inv_B_neg;\n  assign inv_B_neg = (~B) + 1;\n\n  always @(*) begin\n    if (mode == 0) begin\n      Y = A + B;\n    end else begin\n      Y = A + inv_B_neg;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "B_neg": "inv_B_neg"
+  },
+  "params_used": {
+    "custom_map": {
+      "B_neg": "B_pos"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

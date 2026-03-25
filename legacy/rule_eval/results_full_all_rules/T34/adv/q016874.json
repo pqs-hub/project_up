@@ -1,0 +1,17 @@
+{
+  "task_id": "q016874",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_ones_counter (\n    input [15:0] data_in,\n    output reg [3:0] ones_count\n);\n\n    integer i;\n    reg [15:0] inv_temp;\n\n    always @ (data_in) begin\n        inv_temp = data_in;\n        ones_count = 0;\n        for (i = 0; i < 16; i = i + 1) begin\n            if (inv_temp[0] == 1'b1) begin\n                ones_count = ones_count + 1;\n            end\n            inv_temp = inv_temp >> 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "temp": "inv_temp"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary_ones_counter": "zeroes_counter",
+      "data_in": "input_data",
+      "ones_count": "zero_count"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

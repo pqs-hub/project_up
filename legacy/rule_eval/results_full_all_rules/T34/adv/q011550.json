@@ -1,0 +1,15 @@
+{
+  "task_id": "q011550",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput reset,\n\tinput load_enable,\n\tinput [5:0] load_value,\n\toutput reg [5:0] count);\nalways @(posedge reset) begin\n\tif (load_enable)\n\t\tcount <= load_value;\n\telse\n\t\tcount <= count + 1;\nend\n\t\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

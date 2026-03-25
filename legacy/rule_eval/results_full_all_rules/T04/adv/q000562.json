@@ -1,0 +1,10 @@
+{
+  "task_id": "q000562",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a Model Predictive Control (MPC) algorithm to compute the control signal based on the current state and a reference input. The control signal is updated every clock cycle.\nmodule mpc_controller(\n    input wire clk,\n    input wire rst,\n    input wire [7:0] state,\n    input wire [7:0] reference,\n    output reg [7:0] control_signal\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            control_signal <= 8'b0;\n        end else begin\n            control_signal <= reference - state; // Simple control law\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a Model Predictive Control (MPC) algorithm to compute the control signal based on the current state and a reference input. The control signal is updated every clock cycle."
+  }
+}

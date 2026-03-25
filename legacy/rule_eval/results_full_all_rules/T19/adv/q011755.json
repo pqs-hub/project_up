@@ -1,0 +1,10 @@
+{
+  "task_id": "q011755",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\tinput [1:0] A,\n\tinput [1:0] B,\n\toutput z);assign z = (A[1:0]==B[1:0]);\t\n\t\n\t\n\t\n\n  always @(*) begin\n    if (1'b0) begin\n      z <= ~A[1];\n      if (B[0]) begin\n        z <= A[0];\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "z <= ~A[1];\nif (B[0]) begin\n  z <= A[0];\nend"
+  }
+}

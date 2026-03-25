@@ -1,0 +1,10 @@
+{
+  "task_id": "q002460",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module pcie_request_handler (\n    input wire clk,\n    input wire req,\n    input wire ack,\n    output reg busy\n);\n\n    always @(posedge clk) begin\n        if (req) begin\n            busy <= 1'b1; // Set busy when a request arrives\n        end\n        if (ack) begin\n            busy <= 1'b0; // Clear busy when the request is acknowledged\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      if (req) begin\n        busy <= ~busy;\n      end\n      if (ack) begin\n        busy <= ~busy;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (req) begin\n  busy <= ~busy;\nend\nif (ack) begin\n  busy <= ~busy;\nend;"
+  }
+}

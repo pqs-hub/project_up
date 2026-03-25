@@ -1,0 +1,6 @@
+{
+  "task_id": "q004457",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module reg8bit(\n    input clk,\n    input load,\n    input [7:0] d,\n    output reg [7:0] q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways@(posedge clk)\nbegin\n    if(load)\n        q <= d;\nend\n\nendmodule"
+}

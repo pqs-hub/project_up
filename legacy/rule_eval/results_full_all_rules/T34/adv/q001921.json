@@ -1,0 +1,15 @@
+{
+  "task_id": "q001921",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module srt_divider(\n    input [4:0] dividend_inverted,\n    input [4:0] divisor,\n    output reg [4:0] quotient,\n    output reg [4:0] remainder\n);\n    always @(*) begin\n        if (divisor == 0) begin\n            quotient = 5'b0; // Division by zero handling\n            remainder = dividend_inverted; // Remainder is the dividend_inverted\n        end else begin\n            quotient = dividend_inverted / divisor; // Quotient calculation\n            remainder = dividend_inverted % divisor; // Remainder calculation\n        end\n    end\nendmodule",
+  "rename_map": {
+    "dividend": "dividend_inverted"
+  },
+  "params_used": {
+    "custom_map": {
+      "dividend": "dividend_inverted"
+    },
+    "fallback_prefix": "srt_div_"
+  }
+}

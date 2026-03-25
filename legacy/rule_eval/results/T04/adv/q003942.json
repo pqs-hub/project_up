@@ -1,0 +1,6 @@
+{
+  "task_id": "q003942",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule LU_Decomposition (\n    input [31:0] a11,\n    input [31:0] a12,\n    input [31:0] a21,\n    input [31:0] a22,\n    output reg [31:0] l11,\n    output reg [31:0] l21,\n    output reg [31:0] u11,\n    output reg [31:0] u12,\n    output reg [31:0] u22\n);\n    always @* begin\n        l11 = a11;\n        u11 = a11;\n        l21 = a21 / u11; // Assuming u11 is not zero\n        u12 = a12;\n        u22 = a22 - l21 * u12;\n    end\nendmodule"
+}

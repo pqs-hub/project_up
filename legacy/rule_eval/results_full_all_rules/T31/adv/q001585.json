@@ -1,0 +1,10 @@
+{
+  "task_id": "q001585",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module carry_save_adder(\n    input [3:0] a,\n    input [3:0] b,\n    input [3:0] c,\n    output [4:0] sum\n);\n    wire [4:0] sum_ab, sum_abc;\n\n    // Perform initial addition of a and b\n    wire sum_not = a + b;\n    assign sum_ab = sum_not;\n\n    // Perform addition of the intermediate result with c\n    assign sum_abc = sum_ab + c;\n\n    // Output the final sum\n    assign sum = sum_abc;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "sum_not"
+  }
+}

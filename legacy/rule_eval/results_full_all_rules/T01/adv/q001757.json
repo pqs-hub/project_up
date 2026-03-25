@@ -1,0 +1,8 @@
+{
+  "task_id": "q001757",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module divide_by_8 (  \n    input wire clk,  \n    input wire rst,  \n    output reg out  \n);  \n    reg [2:0] count;  // 3-bit counter to count up to 7 (0-7)  \n  \n    always @(posedge clk or posedge rst) begin\n    begin end  // redundant  \n        if (rst) begin  \n            count <= 3'b000;  \n            out <= 0;  \n        end else if (count == 3'b111) begin  \n            count <= 3'b000;  \n            out <= 1;  \n        end else begin  \n            count <= count + 1;  \n            out <= 0;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q011558",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter3bit(clk_inv, rst, q);\n    input clk_inv;\n    input rst;\n    output reg [2:0] q;\n\n    always @(posedge clk_inv or posedge rst) begin\n        if (rst)\n            q <= 3'b000;\n        else\n            q <= q + 1;\n    end\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "_inv"
+  }
+}

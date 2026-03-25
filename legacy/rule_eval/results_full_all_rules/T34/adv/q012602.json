@@ -1,0 +1,16 @@
+{
+  "task_id": "q012602",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  output reg out\n);parameter STATE_LOW = 2'b00;\n  parameter STATE_HIGH = 2'b01;\n  \n  reg [1:0] ERR_state;\n  \n  always @(posedge clk, posedge reset) begin\n    if (reset) begin\n      ERR_state <= STATE_LOW;\n      out <= 1'b0;\n    end else begin\n      case (ERR_state)\n        STATE_LOW: begin\n          ERR_state <= STATE_HIGH;\n          out <= 1'b0;\n        end\n        STATE_HIGH: begin\n          ERR_state <= STATE_LOW;\n          out <= 1'b0;\n        end\n      endcase\n    end\n  end\n  \nendmodule",
+  "rename_map": {
+    "state": "ERR_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "STATE_LOW": "INVALID_STATE",
+      "STATE_HIGH": "VALID_STATE"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

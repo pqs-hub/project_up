@@ -1,0 +1,15 @@
+{
+  "task_id": "q009907",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input clk_in,\n  input disable,\n  output clk_out\n  );// Use a generic clock buffer instead of BUFGCTRL as it may be not defined in your environment\n  assign clk_out = (disable) ? clk_in : 1'b0; // Assuming you want to output clk_in when enabled, else 0\n\nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "clkbuf_"
+  }
+}

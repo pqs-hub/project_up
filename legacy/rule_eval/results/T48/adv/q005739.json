@@ -1,0 +1,6 @@
+{
+  "task_id": "q005739",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module top_module( input clk,\n              input [1:0]WB_2,\n              input [31:0]dm_read,aluresult,\n              input [4:0] Regd,\n              output[31:0]DmRead,Aluresult,\n              output[4:0] RegD,\n              output [1:0]WB\n);reg [70:0] ME;\n         always@(posedge clk) begin\n                ME[70:69] <= WB_2;\n                ME[68:37] <= dm_read;\n                ME[36:5]  <= aluresult;\n                ME[4:0]   <= Regd;\n         end  \n  assign RegD      = ME[4:0];\n  assign Aluresult = ME[36:5];\n  assign DmRead    = ME[68:37];\n  assign WB        = ME[70:69];"
+}

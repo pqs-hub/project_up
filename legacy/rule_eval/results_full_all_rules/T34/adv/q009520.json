@@ -1,0 +1,15 @@
+{
+  "task_id": "q009520",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input signed [31:0] in,\n  output reg [31:0] abs_value\n);// Check the sign bit of the input number\n  wire signed [31:0] sign_bit = in[31];\n\n  // If the sign bit is 1, then the input number is negative\n  wire signed [31:0] negated = ~in + 1;\n\n  // If the input number is negative, negate the number by taking the two's complement of the number\n  always @(*) begin\n    if (sign_bit == 1) begin\n      abs_value = negated;\n    end else begin\n      abs_value = in;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "out": "abs_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "abs_value"
+    },
+    "fallback_prefix": "neg_"
+  }
+}

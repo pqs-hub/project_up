@@ -1,0 +1,8 @@
+{
+  "task_id": "q016932",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module curr_source_sink (\n  input enable,\n  input [31:0] i_set,\n  input [31:0] i_in,\n  output [31:0] i_out,\n  output [31:0] i_sunk\n);\n  wire _tap_enable = enable & {1{1'b1}};\n\n\n  reg [31:0] i_out_reg;\n  reg [31:0] i_sunk_reg;\n\n  always @(*) begin\n    if(enable == 1'b0) begin\n      i_out_reg = 32'h0;\n      i_sunk_reg = 32'h0;\n    end else if(i_in < i_set) begin\n      i_out_reg = 32'h0;\n      i_sunk_reg = i_set - i_in;\n    end else begin\n      i_out_reg = i_in - i_set;\n      i_sunk_reg = 32'h0;\n    end\n  end\n\n  assign i_out = i_out_reg;\n  assign i_sunk = i_sunk_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q003958",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire clk,\n    input wire [7:0] data_in,\n    input wire [7:0] addr,\n    input wire write_enable,\n    input wire read_enable,\n    output reg [7:0] data_out\n);\n    reg [7:0] cell_storage [0:255]; // 256 x 8-bit cell_storage\n\n    always @(posedge clk) begin\n        if (write_enable) begin\n            cell_storage[addr] <= data_in; // Write data to cell_storage\n        end\n    end\n\n    always @(posedge clk) begin\n        if (read_enable) begin\n            data_out <= cell_storage[addr]; // Read data from cell_storage\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "cell_storage"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "cell_storage"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

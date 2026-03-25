@@ -1,0 +1,8 @@
+{
+  "task_id": "q002049",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module fixed_priority_arbiter(  \n    input clk,  \n    input rst,  \n    input req0,  \n    input req1,  \n    input req2,  \n    input req3,  \n    output reg [3:0] grant  \n);  \n    always @(posedge clk or posedge rst) begin\n    begin end  // redundant  \n        if (rst) begin  \n            grant <= 4'b0000;  \n        end else begin  \n            grant <= 4'b0000;  \n            if (req0) begin  \n                grant <= 4'b0001;  \n            end else if (req1) begin  \n                grant <= 4'b0010;  \n            end else if (req2) begin  \n                grant <= 4'b0100;  \n            end else if (req3) begin  \n                grant <= 4'b1000;  \n            end  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

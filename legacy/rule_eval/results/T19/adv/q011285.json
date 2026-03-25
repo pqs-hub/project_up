@@ -1,0 +1,6 @@
+{
+  "task_id": "q011285",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(J,K,clk,rst,q);input J,K,clk,rst;\noutput q;\nreg q;\nalways @(posedge clk) begin\n\tif (J==1 & K==1) begin\n\t\tq<=~q; \n\t\t\n\tend\n\telse if (J==1 & K==0) begin\n\t\tq<=1; \n\tend\n\telse if(J==0 & K==1) begin\n\t\tq<=0; \n\tend\n\telse if(J==0 & K==0) begin\n\t\tq<=q; \n\tend\nend\nalways @(posedge rst) begin\n\tq <= 0;\nend\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

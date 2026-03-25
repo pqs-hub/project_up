@@ -1,0 +1,17 @@
+{
+  "task_id": "q012895",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_decoder(\n    input      en      ,\n    input      [1:0] in,\n\n    output reg [3:0] input_data\n);\n\nalways @(*) begin\n    if (en) begin\n        case(in)\n            2'b00: input_data = 4'b0001;\n            2'b01: input_data = 4'b0010;\n            2'b10: input_data = 4'b0100;\n            2'b11: input_data = 4'b1000;\n            default: input_data = 4'b0000;\n        endcase\n    end else begin\n        input_data = 4'b0000;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "out": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary_decoder_en": "disable_signal",
+      "binary_decoder_in": "input_value",
+      "binary_decoder_out": "decoded_output"
+    },
+    "fallback_prefix": "decoder_"
+  }
+}

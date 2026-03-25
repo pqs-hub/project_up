@@ -1,0 +1,10 @@
+{
+  "task_id": "q013638",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(rst, clk, ld, d, q);input rst, clk, ld, d; \n\toutput q;\n\treg temp;\n\t\n\talways @ (posedge clk)\n\t\tif (rst) \n\t\t\ttemp = 1'b0;\n\t\telse if (ld)\n    \t\ttemp = d;\n\t\n\twire inverted_temp = temp;\n\tassign q = inverted_temp;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "inverted_temp"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q007795",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_to_gray_4bit(\n\tinput [3:0] inverse_binary,\n\toutput [3:0] gray);\n\n\tassign gray[3] = inverse_binary[3];\n\tassign gray[2] = inverse_binary[3] ^ inverse_binary[2];\n\tassign gray[1] = inverse_binary[2] ^ inverse_binary[1];\n\tassign gray[0] = inverse_binary[1] ^ inverse_binary[0];\n\t\nendmodule",
+  "rename_map": {
+    "binary": "inverse_binary"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary": "inverse_binary"
+    },
+    "fallback_prefix": "anti_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014512",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule(\n    input wire a,\n    input wire b,\n    output wire sum,\n    output wire cout\n    );\n\nassign sum = a ^ b;\nassign cout = a & b;\n\nendmodule\n\nmodule or_gate(\n    input wire a,\n    input wire b,\n    output wire y\n    );\n\nassign y = a | b;\n\nendmodule\n\nmodule full_adder_1bit(\n    input wire a,\n    input wire b,\n    input wire cin,\n    output wire sum,\n    output wire cout\n    );\n\nwire sum1, c1, c2;\n\nhalf_adder_1bit ha1 (\n    .a(a),\n    .b(b),\n    .sum(sum1),\n    .cout(c1)\n);\n\nhalf_adder_1bit ha2 (\n    .a(sum1),\n    .b(cin),\n    .sum(sum),\n    .cout(c2)\n);\n\nor_gate or1 (\n    .a(c1),\n    .b(c2),\n    .y(cout)\n);\n\nendmodule"
+}

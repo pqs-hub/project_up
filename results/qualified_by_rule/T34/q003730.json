@@ -1,0 +1,6 @@
+{
+  "task_id": "q003730",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (  \n    input [3:0] A,  \n    input [3:0] B,  \n    input [3:0] C,  \n    output [3:0] sum,  \n    output [3:0] carry  \n);  \n    wire [3:0] unused_c1, c2;  \n    wire [3:0] s1, s2;  \n   \n    assign s1 = A ^ B;  \n    assign unused_c1 = A & B;  \n   \n    assign s2 = s1 ^ C;  \n    assign c2 = unused_c1 | (s1 & C);  \n   \n    assign sum = s2;  \n    assign carry = c2;  \nendmodule"
+}

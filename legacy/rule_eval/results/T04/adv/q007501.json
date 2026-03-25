@@ -1,0 +1,6 @@
+{
+  "task_id": "q007501",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule binary_down_counter\n(\n    input clk,\n    input reset,\n    output reg [4:0] count\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            count <= 5'b11111; // Set counter to 11111\n        end else begin\n            count <= count - 1; // Decrement counter\n        end\n    end\n\nendmodule"
+}

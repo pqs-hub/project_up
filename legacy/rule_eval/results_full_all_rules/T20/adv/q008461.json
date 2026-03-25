@@ -1,0 +1,10 @@
+{
+  "task_id": "q008461",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module extends a 4-bit unsigned input to an 8-bit signed representation and then calculates the two's complement by inverting the extended value and subtracting one.\nmodule top_module(\n    input [3:0] in,\n    input clk,                  // Added clk input\n    output reg [3:0] out\n);reg [7:0] sign_extended;\nreg [7:0] twos_complement;\n\nalways @(*) begin\n    sign_extended = { {4{in[3]}}, in }; // Corrected sign extension to 8 bits from 4 bits\nend\n\nalways @(posedge clk) begin\n    twos_complement <= ~sign_extended + 1;\nend\n\nassign out = twos_complement[3:0];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module extends a 4-bit unsigned input to an 8-bit signed representation and then calculates the two's complement by inverting the extended value and subtracting one."
+  }
+}

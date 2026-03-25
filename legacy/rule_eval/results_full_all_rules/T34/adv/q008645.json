@@ -1,0 +1,16 @@
+{
+  "task_id": "q008645",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    //# {{data|Data Signals}}\n    input  A1  ,\n    input  A2  ,\n    input  B1  ,\n    input  C1  ,\n    output X   ,\n\n    //# {{power|Power}}\n    input  VPB ,\n    input  VPWR,\n    input  VGND,\n    input  VNB\n);wire XOR_A1_A2;\n    wire B1_C1;\n\n    assign XOR_A1_A2 = A1 & A2;\n    assign B1_C1 = B1 & C1;\n\n    assign X = XOR_A1_A2 | B1_C1;\n\nendmodule",
+  "rename_map": {
+    "A1_A2": "XOR_A1_A2"
+  },
+  "params_used": {
+    "custom_map": {
+      "A1_A2": "NOT_A1_A2",
+      "B1_C1": "NOT_B1_C1"
+    },
+    "fallback_prefix": "XOR_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q010357",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module is a 7-bit counter with a loadable value. It has a clock input (clk), a reset input (rst), a load input (load), a 7-bit data input (d), and a 7-bit output (q). However, the counter decrements instead of increments when not loading.\nmodule counter7bit_load (\n    input clk,\n    input rst,\n    input load,\n    input [6:0] d,\n    output [6:0] q\n);\n\n    reg [6:0] q_reg;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            q_reg <= 7'b0000000;\n        else if (load)\n            q_reg <= d;\n        else\n            q_reg <= q_reg + 1;\n    end\n\n    assign q = q_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is a 7-bit counter with a loadable value. It has a clock input (clk), a reset input (rst), a load input (load), a 7-bit data input (d), and a 7-bit output (q). However, the counter decrements instead of increments when not loading."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q004875",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(in, rst, invalid_out, clock);input rst, clock;\noutput reg [31:0] invalid_out;\ninput [31:0] in;\n\nalways @ (posedge clock)\n\tif (rst)\n\t\tinvalid_out <= 32'b0;\n\telse\n\t\tinvalid_out <= in;\n\nendmodule",
+  "rename_map": {
+    "out": "invalid_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_out"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "q014739",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input  alt_A   ,\n    input  B   ,\n    input  CIN ,\n    output COUT,\n    output SUM\n);assign SUM = alt_A ^ B ^ CIN;\n    assign COUT = (alt_A & B) | (alt_A & CIN) | (B & CIN);\n\nendmodule",
+  "rename_map": {
+    "A": "alt_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "X",
+      "B": "Y",
+      "CIN": "Z",
+      "COUT": "NOCOUT",
+      "SUM": "NOTSUM"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

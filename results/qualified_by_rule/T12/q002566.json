@@ -1,0 +1,6 @@
+{
+  "task_id": "q002566",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire rst,\n    input wire [7:0] temp_in,\n    output reg [7:0] last_temp,\n    output reg alert\n);\n    // State declaration\n    reg state;\n\n    // State encoding\n    localparam IDLE = 1'b0;\n    localparam ALERT = 1'b1;\n\n    // Sequential logic for state machine\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            last_temp <= 8'b0;\n            alert <= 1'b0;\n            state <= IDLE;\n        end else begin\n            last_temp <= temp_in;\n            if (temp_in > 8'd75) begin\n                alert <= 1'b1;\n                state <= ALERT;\n            end else begin\n                alert <= 1'b0;\n                state <= IDLE;\n            end\n        end\n    end\nendmodule"
+}

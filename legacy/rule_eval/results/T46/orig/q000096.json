@@ -1,0 +1,6 @@
+{
+  "task_id": "q000096",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module dram_cell (\n    input wire [3:0] data_in,\n    input wire write_enable,\n    input wire clk,\n    output reg [3:0] data_out\n);\n    reg [3:0] memory;\n\n    always @(posedge clk) begin\n        if (write_enable) begin\n            memory <= data_in; // Store data in memory\n        end\n        data_out <= memory; // Output stored data\n    end\nendmodule"
+}

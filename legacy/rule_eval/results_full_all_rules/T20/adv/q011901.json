@@ -1,0 +1,10 @@
+{
+  "task_id": "q011901",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a combinatorial circuit with three inputs (A1, A2) and two data sources (B1 and C1). The output X is determined by the values of A1 and A2: if both are LOW, X outputs the value from B1; if A1 is LOW and A2 is HIGH, X outputs the value from C1; otherwise, X outputs a constant HIGH.\nmodule top_module(\n    X ,\n    A1,\n    A2,\n    B1,\n    C1\n);output X ;\n    input  A1;\n    input  A2;\n    input  B1;\n    input  C1;\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n\n    assign X = ((A1 & A2) ? B1 : ((A1 & ~A2) ? C1 : 1'b0));\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a combinatorial circuit with three inputs (A1, A2) and two data sources (B1 and C1). The output X is determined by the values of A1 and A2: if both are LOW, X outputs the value from B1; if A1 is LOW and A2 is HIGH, X outputs the value from C1; otherwise, X outputs a constant HIGH."
+  }
+}

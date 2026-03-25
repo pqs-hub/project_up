@@ -1,0 +1,6 @@
+{
+  "task_id": "q006975",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module johnson_counter_with_async_reset_6bit(\n    input clk,\n    input reset,\n    output reg [6-1:1-1] count\n    );\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 6'b000001;\n        end else begin\n            count <= {count[4:0], ~count[5]};\n        end\n    end\nendmodule"
+}

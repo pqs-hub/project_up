@@ -1,0 +1,15 @@
+{
+  "task_id": "q007239",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module reg_file_8x64 (\n    input clk,\n    input write_enable,\n    input [2:0] write_addr,\n    input [2:0] read_addr,\n    input [63:0] write_data,\n    output [63:0] read_data );\n\nreg [63:0] invalid_memory [7:0];\n\nalways @(posedge clk) begin\n    if (write_enable)\n        invalid_memory[write_addr] <= write_data;\nend\n\nassign read_data = invalid_memory[read_addr];\n\nendmodule",
+  "rename_map": {
+    "memory": "invalid_memory"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "invalid_memory"
+    },
+    "fallback_prefix": "err_"
+  }
+}

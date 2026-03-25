@@ -1,0 +1,6 @@
+{
+  "task_id": "q016390",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(\n   input clk,\n   input rst,\n   input inc,\n   input dec,\n   output reg [3:0] cnt\n);always @(posedge clk) begin\n      if (rst) begin\n         cnt <= 0;\n      end\n      else if (inc && !dec) begin\n         if (cnt == 15) begin\n            cnt <= 0;\n         end\n         else begin\n            cnt <= cnt + 1;\n         end\n      end\n      else if (dec && !inc) begin\n         if (cnt == 0) begin\n            cnt <= 15;\n         end\n         else begin\n            cnt <= cnt - 1;\n         end\n      end\n   end\n\nendmodule"
+}

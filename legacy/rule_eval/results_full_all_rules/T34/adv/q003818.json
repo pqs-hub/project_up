@@ -1,0 +1,17 @@
+{
+  "task_id": "q003818",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module data_forwarding(\n    input [4:0] srcA,\n    input [4:0] src2,\n    input [4:0] dest,\n    output reg [1:0] forward\n);\n    always @(*) begin\n        if (srcA == dest)\n            forward = 2'b01; // Forward from srcA\n        else if (src2 == dest)\n            forward = 2'b10; // Forward from src2\n        else\n            forward = 2'b00; // No forwarding\n    end\nendmodule",
+  "rename_map": {
+    "src1": "srcA"
+  },
+  "params_used": {
+    "custom_map": {
+      "src1": "srcA",
+      "src2": "srcB",
+      "dest": "dst"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "task_id": "q016740",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_4to2 (\n    X,\n    A0,\n    A1,\n    A2,\n    A3,\n    S0,\n    S1,\n    EN\n);\n\n    output X;\n    input A0;\n    input A1;\n    input A2;\n    input A3;\n    input S0;\n    input S1;\n    input EN;\n\n    wire inv_X0, X1;\n\n    assign inv_X0 = (S0 & S1) ? A3 : (S0 ? A2 : (S1 ? A1 : A0));\n    assign X1 = (EN == 1'b0) ? inv_X0 : 1'b0;\n    assign X = X1;\n\nendmodule",
+  "rename_map": {
+    "X0": "inv_X0"
+  },
+  "params_used": {
+    "custom_map": {
+      "mux_4to2": "demux_2to4",
+      "A0": "D0",
+      "A1": "D1",
+      "A2": "D2",
+      "A3": "D3",
+      "S0": "C0",
+      "S1": "C1",
+      "EN": "OE"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

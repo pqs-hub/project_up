@@ -1,0 +1,10 @@
+{
+  "task_id": "q003136",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module ripple_carry_adder(  \n    input [3:0] A,  \n    input [3:0] B,  \n    input Cin,  \n    output [4:0] Sum,  \n    output Cout  \n);  \n    wire c1, c2, c3;  \n\n    // Full adder for the least significant bit  \n    assign Sum[0] = A[0] ^ B[0] ^ Cin;  \n    assign c1 = (A[0] & B[0]) | (Cin & (A[0] ^ B[0]));  \n\n    // Full adder for the second bit  \n    assign Sum[1] = A[1] ^ B[1] ^ c1;  \n    assign c2 = (A[1] & B[1]) | (c1 & (A[1] ^ B[1]));  \n\n    // Full adder for the third bit  \n    assign Sum[2] = A[2] ^ B[2] ^ c2;  \n    assign c3 = (A[2] & B[2]) | (c2 & (A[2] ^ B[2]));  \n\n    // Full adder for the most significant bit  \n    assign Sum[3] = A[3] ^ B[3] ^ c3;  \n    assign Cout = (A[3] & B[3]) | (c3 & (A[3] ^ B[3]));  \n\n    assign Sum[4] = Cout;  \n  always @(*) begin\n    if (1'b0) begin\n      Sum <= ~Sum; Cout <= ~Cout;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Sum <= ~Sum; Cout <= ~Cout;"
+  }
+}

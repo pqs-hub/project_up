@@ -1,0 +1,10 @@
+{
+  "task_id": "q012726",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 16-bit shift register that can only shift right and not load data in parallel.\nmodule shift_register_16bit(clk, rst, load, shift_left, shift_right, D, Q);\n    input clk, rst, load, shift_left, shift_right;\n    input [15:0] D;\n    output reg [15:0] Q;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            Q <= 16'b0;\n        else if (load)\n            Q <= D;\n        else if (shift_left)\n            Q <= {Q[14:0], 1'b0};\n        else if (shift_right)\n            Q <= {1'b0, Q[15:1]};\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 16-bit shift register that can only shift right and not load data in parallel."
+  }
+}

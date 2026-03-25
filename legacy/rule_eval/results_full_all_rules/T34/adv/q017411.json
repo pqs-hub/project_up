@@ -1,0 +1,17 @@
+{
+  "task_id": "q017411",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module MUX4to1 (\n\tinput  [3:0] MUX_D,\n\tinput  [1:0] S,\n\toutput reg Y\n);\n\n\talways @(*) begin\n\t\tcase (S)\n\t\t\t2'b00: Y = MUX_D[0];\n\t\t\t2'b01: Y = MUX_D[1];\n\t\t\t2'b10: Y = MUX_D[2];\n\t\t\t2'b11: Y = MUX_D[3];\n\t\tendcase\n\tend\n\nendmodule",
+  "rename_map": {
+    "D": "MUX_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "D_in",
+      "S": "Sel",
+      "Y": "Out"
+    },
+    "fallback_prefix": "MUX_"
+  }
+}

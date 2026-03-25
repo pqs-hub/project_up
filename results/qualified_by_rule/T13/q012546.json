@@ -1,0 +1,6 @@
+{
+  "task_id": "q012546",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    input [1:0] SEL,\n    input clk,        // Added the clk input port\n    output reg [15:0] OUT\n);reg [15:0] OUT_reg;\n\nalways @(*) begin\n    case (SEL)\n        2'b00: OUT_reg = 16'b0000000000000001;\n        2'b01: OUT_reg = 16'b0000000000000010;\n        2'b10: OUT_reg = 16'b0000000000000100;\n        2'b11: OUT_reg = 16'b0000000000001000;\n        default: OUT_reg = 16'b0000000000000000;\n    endcase\nend\n\nalways @(posedge clk) begin\n    OUT <= OUT_reg;\nend\n\nendmodule"
+}

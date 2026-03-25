@@ -1,0 +1,10 @@
+{
+  "task_id": "q012446",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module shifts its value to the right by one bit on every positive edge of the clock signal, and the most significant bit is set to the value of the input data.\nmodule shift_register(clk, rst, data, q);\n\n    input  clk;\n    input  rst;\n    input  data;\n    output reg [7:0] q;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            q <= 8'b00000000;\n        else\n            q <= {q[6:0], data};\n    end\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module shifts its value to the right by one bit on every positive edge of the clock signal, and the most significant bit is set to the value of the input data."
+  }
+}

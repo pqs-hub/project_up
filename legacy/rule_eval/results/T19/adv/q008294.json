@@ -1,0 +1,6 @@
+{
+  "task_id": "q008294",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    A,\n    B,\n    OP,\n    Y\n);// Module ports\n    input A;\n    input B;\n    input [1:0] OP;\n    output reg Y;  // Change output Y to reg\n\n    // Module logic\n    wire and_out;\n    wire or_out;\n    wire xor_out;\n    wire not_out;\n\n    assign and_out = A & B;\n    assign or_out = A | B;\n    assign xor_out = A ^ B;\n    assign not_out = ~A;\n\n    always @(*) begin\n        case (OP)\n            2'b00: Y = and_out;\n            2'b01: Y = or_out;\n            2'b10: Y = xor_out;\n            2'b11: Y = not_out;\n            default: Y = 1'b0;  // Handle default case\n        endcase\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

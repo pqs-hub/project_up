@@ -1,0 +1,6 @@
+{
+  "task_id": "q003988",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule (\n    input [7:0] pixel_a, // First pixel value\n    input [7:0] pixel_b, // Second pixel value\n    input select,        // Select signal to choose between pixel_a and pixel_b\n    output reg [7:0] interpolated_pixel // Output interpolated pixel value\n);\n\nalways @(*) begin\n    if (select) begin\n        interpolated_pixel = pixel_b; // Select pixel_b\n    end else begin\n        interpolated_pixel = pixel_a; // Select pixel_a\n    end\nend\n\nendmodule"
+}

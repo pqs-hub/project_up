@@ -1,0 +1,6 @@
+{
+  "task_id": "q003187",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [1:0] sensor_data, // 2-bit input for obstacle detection\n    output reg [2:0] position // 3-bit output for position\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        position <= 3'b000; // Reset position to 0\n    end else begin\n        if (sensor_data == 2'b00) begin\n            position <= position + 1; // Increment position if no obstacles\n        end\n        // If obstacles are detected (sensor_data != 2'b00), do nothing\n    end\nend\n\nendmodule"
+}

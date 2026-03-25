@@ -1,0 +1,6 @@
+{
+  "task_id": "q012276",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule(\n\tinput clk,\n\tinput reset_n,\n\tinput in,\n\toutput reg pulse);reg in_d;\n\nalways @(posedge clk or negedge reset_n) begin\n\tif (!reset_n) begin\n\t\tin_d <= 0;\n\t\tpulse <= 0;\n\tend else begin\n\t\tpulse <= in & ~in_d;\n\t\tin_d <= in;\n\tend\nend\n\nendmodule"
+}

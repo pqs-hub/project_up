@@ -1,0 +1,6 @@
+{
+  "task_id": "q002211",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    output reg [4:0] count\n);\n    \n    initial begin\n        count = 5'b00001; // Initialize the counter\n    end\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            count <= 5'b00001; // Reset to '00001'\n        end else begin\n            count <= {count[3:0], count[4]}; // Shift left\n        end\n    end\nendmodule"
+}

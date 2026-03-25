@@ -1,0 +1,12 @@
+{
+  "task_id": "q000166",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input [4:0] rssi1,\n    input [4:0] rssi2,\n    output reg [4:0] stronger_rssi\n);\n    always @(*) begin\n        if (rssi1 >= rssi2) \n            stronger_rssi = rssi1;\n        else \n            stronger_rssi = rssi2;\n    end\nendmodule",
+  "adversarial_code": "module TopModule (\n    input [4:0] rssi1,\n    input [4:0] rssi2,\n    output reg [4:0] stronger_rssi\n);\n    always @(*) begin\n        if (rssi1 >= rssi2) \n            stronger_rssi = rssi1;\n        else \n            stronger_rssi = rssi2;\n    end\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

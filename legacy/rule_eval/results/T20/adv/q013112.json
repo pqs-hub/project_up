@@ -1,0 +1,6 @@
+{
+  "task_id": "q013112",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule top_module(\n    input [15:0] data_in,\n    input [3:0] shift_amount,\n    input control,\n    output [15:0] data_out\n);reg [15:0] shifted_data;\n\n    always @(*) begin\n        if (control == 1) begin\n            shifted_data = data_in << shift_amount;\n        end else begin\n            shifted_data = data_in >> shift_amount;\n        end\n    end\n\n    assign data_out = shifted_data;\n\nendmodule"
+}

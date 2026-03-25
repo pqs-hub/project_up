@@ -1,0 +1,15 @@
+{
+  "task_id": "q015368",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(w_bus_addr_pc_out, w_bus_jump_addr, w_channel, w_clock, w_reset);output [7:0] w_bus_addr_pc_out;\n\tinput [7:0] w_bus_jump_addr;\n\tinput w_channel, w_clock, w_reset;\n\n\treg [7:0] addr_counter;\n\n\talways @(posedge w_clock) begin\n\t\tif (w_reset) begin\n\t\t\taddr_counter <= 8'h00;\n\t\tend else if (w_channel) begin\n\t\t\taddr_counter <= w_bus_jump_addr;\n\t\tend else begin\n\t\t\taddr_counter <= addr_counter + 1;\n\t\tend\n\tend\n\n\tassign w_bus_addr_pc_out = addr_counter;\nendmodule",
+  "rename_map": {
+    "w_bus_addr_pc": "addr_counter"
+  },
+  "params_used": {
+    "custom_map": {
+      "w_bus_addr_pc": "addr_counter"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

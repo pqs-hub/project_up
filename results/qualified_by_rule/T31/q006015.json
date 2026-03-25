@@ -1,0 +1,6 @@
+{
+  "task_id": "q006015",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst_n,\n    input en,\n    input [7:0] d,\n    output reg [7:0] q\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        q <= 8'b00000000; // reset register to 0\n    else if (en)\n        q <= d; // load data value when enable is active\nend\n\nendmodule"
+}

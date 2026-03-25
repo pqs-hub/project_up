@@ -1,0 +1,10 @@
+{
+  "task_id": "q012840",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(pc, pc_inc);input wire [31:0] pc;\n\toutput [31:0] pc_inc;\n\t\n\tassign pc_inc = pc + 32'b100;  always @(*) begin\n    if (1'b0) begin\n      if (pc == 32'hFFFFFFFF) begin\n        pc_inc <= 32'h0;\n      end else begin\n        pc_inc <= pc - 32'b100;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (pc == 32'hFFFFFFFF) begin\n  pc_inc <= 32'h0;\nend else begin\n  pc_inc <= pc - 32'b100;\nend;"
+  }
+}

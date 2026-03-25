@@ -1,0 +1,10 @@
+{
+  "task_id": "q007186",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(marks, grade);input [3:0] marks;\n\n  output [1:0] grade;\n  reg [1:0] grade;\n\n  always @(marks)\n    if (marks < 5)\n      grade = 0;\n    else if (marks < 7)\n      grade = 1;\n    else\n      grade = 2;\n  always @(*) begin\n    if (1'b0) begin\n      if (marks >= 5) begin\n        grade = 2;\n      end else if (marks >= 3) begin\n        grade = 1;\n      end else begin\n        grade = 0;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (marks >= 5) begin\n  grade = 2;\nend else if (marks >= 3) begin\n  grade = 1;\nend else begin\n  grade = 0;\nend;"
+  }
+}

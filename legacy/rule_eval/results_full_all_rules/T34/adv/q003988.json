@@ -1,0 +1,15 @@
+{
+  "task_id": "q003988",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module nearest_neighbor_interpolation (\n    input [7:0] invalid_pixel, // First pixel value\n    input [7:0] pixel_b, // Second pixel value\n    input select,        // Select signal to choose between invalid_pixel and pixel_b\n    output reg [7:0] interpolated_pixel // Output interpolated pixel value\n);\n\nalways @(*) begin\n    if (select) begin\n        interpolated_pixel = pixel_b; // Select pixel_b\n    end else begin\n        interpolated_pixel = invalid_pixel; // Select invalid_pixel\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "pixel_a": "invalid_pixel"
+  },
+  "params_used": {
+    "custom_map": {
+      "pixel_a": "invalid_pixel"
+    },
+    "fallback_prefix": "err_"
+  }
+}

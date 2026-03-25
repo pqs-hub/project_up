@@ -1,0 +1,6 @@
+{
+  "task_id": "q007729",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input                clk,\n  input                rst_n,\n  output reg  [3:0]    Q\n);reg [63:0] unused_shift_reg;\n  wire xor_out;\n\n  assign xor_out = unused_shift_reg[0] ^ unused_shift_reg[5] ^ unused_shift_reg[10] ^ unused_shift_reg[27] ^ unused_shift_reg[63];\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      unused_shift_reg <= 64'b0;\n      Q <= 4'b0;\n    end\n    else begin\n      unused_shift_reg <= {unused_shift_reg[62:0], xor_out};\n      Q <= unused_shift_reg[3:0];\n    end\n  end\n\nendmodule"
+}

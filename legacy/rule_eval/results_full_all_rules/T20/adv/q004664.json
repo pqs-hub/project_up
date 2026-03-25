@@ -1,0 +1,10 @@
+{
+  "task_id": "q004664",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Asynchronous reset is synchronous, and the counter increments on reset.\nmodule binary_counter (\n  input clk,\n  input reset,\n  input en,\n  output reg [1:0] count\n);\n\n  always @(posedge clk or posedge reset) begin\n    if (reset)\n      count <= 2'b00;\n    else if (en)\n      count <= count + 1;\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous reset is synchronous, and the counter increments on reset."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005530",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input wire clk,\n  input wire en,\n  input wire we,\n  input wire [10:0] addr,\n  input wire [7:0] din,\n  output reg [7:0] dout // Change wire to reg here\n);reg [7:0] ram [0:2047]; // 2^11 bytes\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n  always @(posedge clk) begin\n    if (en) begin\n      if (we) begin\n        ram[addr] <= din;\n      end\n      else begin\n        dout <= ram[addr]; // This is now valid since dout is reg\n      end\n    end\n  end\n\nendmodule"
+}

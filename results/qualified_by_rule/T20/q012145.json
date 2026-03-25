@@ -1,0 +1,6 @@
+{
+  "task_id": "q012145",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule(a,b,cin,sum,cout);input a,b,cin;\noutput sum,cout;\nreg cout,m1,m2,m3;\nwire s1;\n\n\nxor x1(s1,a,b);\n\n\nalways @(a or b or cin) begin\n    m1 = a & b;\n    m2 = b & cin;\n    m3 = a & cin;\n    cout = (m1 | m2) | m3;\nend\n\n\nassign\n    sum = s1 ^ cin;\n    \nendmodule"
+}

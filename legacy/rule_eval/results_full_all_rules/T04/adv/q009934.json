@@ -1,0 +1,10 @@
+{
+  "task_id": "q009934",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the counter will be cleared to 1111 on reset, but it actually clears to 0000.\nmodule up_down_counter_enable\n(\n    input clk,\n    input reset,\n    input enable,\n    input up_down,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 4'b0000; // Clear counter to 0000\n        end else if (enable) begin\n            if (up_down) begin\n                q <= q + 1; // Increment counter\n            end else begin\n                q <= q - 1; // Decrement counter\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter will be cleared to 1111 on reset, but it actually clears to 0000."
+  }
+}

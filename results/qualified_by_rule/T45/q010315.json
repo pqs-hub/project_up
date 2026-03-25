@@ -1,0 +1,6 @@
+{
+  "task_id": "q010315",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            // Synchronous reset\n            q <= 4'b0000;\n        end else begin\n            // Johnson counter logic\n            q <= {q[2:0], ~q[3]};\n        end\n    end\n\nendmodule"
+}

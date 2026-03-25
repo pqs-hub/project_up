@@ -1,0 +1,10 @@
+{
+  "task_id": "q011893",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [15:0] in,\n    input [3:0] shift_amount,\n    output [15:0] out\n);reg [15:0] stage1_out;\nreg [15:0] stage2_out;\n\nalways @(*) begin\n    stage1_out = in << shift_amount;\nend\n\nalways @(*) begin\n    stage2_out = stage1_out >> shift_amount;\nend\n\nassign out = stage2_out;\n\n  always @(*) begin\n    if (1'b0) begin\n      stage1_out = in >> shift_amount;\n      stage2_out = stage1_out << shift_amount;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "stage1_out = in >> shift_amount;\nstage2_out = stage1_out << shift_amount;"
+  }
+}

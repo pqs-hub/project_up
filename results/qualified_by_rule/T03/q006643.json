@@ -1,0 +1,6 @@
+{
+  "task_id": "q006643",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n\tinput clk,\n\tinput nreset,\n\toutput reg [7:0] q);always @(posedge clk or negedge nreset)\n  wire _tap_clk = clk & {1{1'b1}};\n\n\tif (!nreset)\n\t\tq <= 8'b00001111;\n\telse\n\t\tq <= {q[6:0], 1'b0};\n\nendmodule"
+}

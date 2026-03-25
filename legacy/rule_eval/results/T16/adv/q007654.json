@@ -1,0 +1,9 @@
+{
+  "task_id": "q007654",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input SEL,\n    input VPWR,\n    input VGND,\n    output VOUT,\n    output VOUT_N\n);wire obf_mux_out;\n    // Instantiate the Multiplexer\n    assign obf_mux_out = (SEL) ? B : A;  // Simple 2:1 multiplexer logic\n    \n    assign VOUT = obf_mux_out;\n    assign VOUT_N = ~obf_mux_out;\n\nendmodule",
+  "rename_map": {
+    "mux_out": "obf_mux_out"
+  }
+}

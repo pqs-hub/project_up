@@ -1,0 +1,15 @@
+{
+  "task_id": "q011287",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(CLK, EN, TE, ENCLK);input CLK, EN, TE;\n  output ENCLK;\n  reg [6:0] reverse_shift_reg;\n\n  assign ENCLK = EN;\n\n  always @(posedge CLK) begin\n    if (EN) begin\n      reverse_shift_reg <= {reverse_shift_reg[5:0], TE};\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "shift_reg": "reverse_shift_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "shift_reg": "reverse_shift_reg"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

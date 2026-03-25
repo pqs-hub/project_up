@@ -1,0 +1,9 @@
+{
+  "task_id": "q015464",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module Shift_register_32(\n   input                clk ,\n   input                rst ,\n   input                load,\n   input [31:0]         data_in,\n \n   output reg [31:0]    obf_Q  \n);\n    always@(posedge clk or posedge rst)begin\n        if(rst) obf_Q <= 32'b00000000000000000000000000000000;\n        else if(load) obf_Q <= data_in;\n        else obf_Q <= obf_Q << 1;\n    end\nendmodule",
+  "rename_map": {
+    "Q": "obf_Q"
+  }
+}

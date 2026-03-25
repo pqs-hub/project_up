@@ -1,0 +1,6 @@
+{
+  "task_id": "q008528",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module seven_segment_decoder\n    (\n\t\tinput [3:0] bin_in, \n\t\toutput reg [6:0] seg_out\n    );\n  wire [3:0] _tap_bin_in = bin_in & {4{1'b1}};\n\n\n\talways @(*)\n\tbegin\n\t\tcase(bin_in)\n\t\t\t4'b0000: seg_out = 7'b0111111; // 0\n\t\t\t4'b0001: seg_out = 7'b0000110; // 1\n\t\t\t4'b0010: seg_out = 7'b1011011; // 2\n\t\t\t4'b0011: seg_out = 7'b1001111; // 3\n\t\t\t4'b0100: seg_out = 7'b1100110; // 4\n\t\t\t4'b0101: seg_out = 7'b1101101; // 5\n\t\t\t4'b0110: seg_out = 7'b1111101; // 6\n\t\t\t4'b0111: seg_out = 7'b0000111; // 7\n\t\t\t4'b1000: seg_out = 7'b1111111; // 8\n\t\t\t4'b1001: seg_out = 7'b1101111; // 9\n\t\t\t4'b1010: seg_out = 7'b1110111; // A\n\t\t\t4'b1011: seg_out = 7'b1111100; // B\n\t\t\t4'b1100: seg_out = 7'b0111001; // C\n\t\t\t4'b1101: seg_out = 7'b1011110; // D\n\t\t\t4'b1110: seg_out = 7'b1111001; // E\n\t\t\t4'b1111: seg_out = 7'b1110001; // F\n\t\t\tdefault: seg_out = 7'b0000000; // default\n\t\tendcase\n\tend\n\nendmodule"
+}

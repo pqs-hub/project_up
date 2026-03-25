@@ -1,0 +1,10 @@
+{
+  "task_id": "q011620",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 2-bit wide single-bit register with reset functionality. The register outputs the value of the input 'p' on the falling edge of the clock signal 'clk', unless the reset signal 'rst' is asserted, in which case the output 'q' is set to one.\nmodule top_module(\n    input logic clk, rst,\n    input logic [1:0] p,\n    output logic [1:0] q\n);logic [1:0] single_reg;\n\n\talways_ff @(posedge clk, posedge rst) begin\n\n\t\tif (rst == 1) begin\n\t\t\tq <= 2'b00;\n\t\tend\n\t\telse begin\n\t\t\tq <= p;\n\t\tend\n\t\n\tend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 2-bit wide single-bit register with reset functionality. The register outputs the value of the input 'p' on the falling edge of the clock signal 'clk', unless the reset signal 'rst' is asserted, in which case the output 'q' is set to one."
+  }
+}

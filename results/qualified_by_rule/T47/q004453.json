@@ -1,0 +1,6 @@
+{
+  "task_id": "q004453",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(\n  input [31:0] div, // the dividend\n  input [31:0] divisor, // the divisor\n  output reg [31:0] rem // the remainder\n);reg [31:0] quotient;\n  reg [31:0] product;\n\n  // Check for errors\n  always @(*) begin\n    if (divisor == 0) begin\n      $display(\"Error: divisor cannot be zero\");\n      rem = 0;\n    end\n    else if (div < 0) begin\n      $display(\"Error: dividend cannot be negative\");\n      rem = 0;\n    end\n    else begin\n      quotient = div / divisor;\n      product = quotient * divisor;\n      rem = div - product;\n    end\n  end\n\nendmodule"
+}

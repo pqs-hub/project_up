@@ -1,0 +1,10 @@
+{
+  "task_id": "q012711",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [4:0] ID_rs,\n    input [4:0] ID_rt,\n    input [4:0] EX_rt,\n    input EX_ramtoreg,\n    output load_use_hazard\n);assign load_use_hazard = EX_rt != 0 && EX_ramtoreg && (EX_rt == ID_rs || EX_rt == ID_rt);\n    \n  always @(*) begin\n    if (1'b0) begin\n      if (EX_rt == 0) begin\n        load_use_hazard <= 1'b0;\n      end else if (EX_ramtoreg == 0) begin\n        load_use_hazard <= 1'b0;\n      end else if (EX_rt != ID_rs && EX_rt != ID_rt) begin\n        load_use_hazard <= 1'b0;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (EX_rt == 0) begin\n  load_use_hazard <= 1'b0;\nend else if (EX_ramtoreg == 0) begin\n  load_use_hazard <= 1'b0;\nend else if (EX_rt != ID_rs && EX_rt != ID_rt) begin\n  load_use_hazard <= 1'b0;\nend"
+  }
+}

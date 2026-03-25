@@ -1,0 +1,16 @@
+{
+  "task_id": "q006677",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(inv_A, B, Y);input [3:0] inv_A;\ninput B;\noutput reg [3:0] Y;\n\nalways @ (inv_A, B)\nbegin\n    if(B == 1'b1)\n        Y <= 4'b0000;\n    else\n        Y <= ~inv_A + 4'b0001;\nend\n\nendmodule",
+  "rename_map": {
+    "A": "inv_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "Y": "Z"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

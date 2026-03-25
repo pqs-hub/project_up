@@ -1,0 +1,26 @@
+{
+  "task_id": "q003153",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module matrix_multiplier(\n    input [3:0] P34_A11, A12,  // Elements of the first matrix\n    input [3:0] A21, A22,\n    input [3:0] B11, B12,  // Elements of the second matrix\n    input [3:0] B21, B22,\n    output [3:0] C11, C12, // Elements of the resulting matrix\n    output [3:0] C21, C22\n);\n    assign C11 = P34_A11 * B11 + A12 * B21;  // C11 = P34_A11*B11 + A12*B21\n    assign C12 = P34_A11 * B12 + A12 * B22;  // C12 = P34_A11*B12 + A12*B22\n    assign C21 = A21 * B11 + A22 * B21;  // C21 = A21*B11 + A22*B21\n    assign C22 = A21 * B12 + A22 * B22;  // C22 = A21*B12 + A22*B22\nendmodule",
+  "rename_map": {
+    "A11": "P34_A11"
+  },
+  "params_used": {
+    "custom_map": {
+      "A11": "D34",
+      "A12": "E34",
+      "A21": "F34",
+      "A22": "G34",
+      "B11": "H34",
+      "B12": "I34",
+      "B21": "J34",
+      "B22": "K34",
+      "C11": "L34",
+      "C12": "M34",
+      "C21": "N34",
+      "C22": "O34"
+    },
+    "fallback_prefix": "P34_"
+  }
+}

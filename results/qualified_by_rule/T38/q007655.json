@@ -1,0 +1,6 @@
+{
+  "task_id": "q007655",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(\n  input clk, // Added clock input\n  input wr_ena,\n  input [log2(depth)-1:0] wr_addr,\n  input [width-1:0] wr_data,\n  input rd_ena,\n  input [log2(depth)-1:0] rd_addr,\n  output reg [width-1:0] rd_data // Changed output to reg type\n);parameter depth = 1024; // number of memory locations in the block\nparameter width = 8; // number of bits in each memory location\n\nfunction integer log2; // Define the log2 function\n  input integer value;\n  begin\n    value = value - 1;\n    for (log2 = 0; value > 0; log2 = log2 + 1)\n      value = value >> 1;\n  end\nendfunction\n\nreg [width-1:0] memory [depth-1:0]; // memory array as an array of registers\n\n// write port\nalways @(posedge clk) begin\n  if (wr_ena) begin\n    memory[wr_addr] <= wr_data;\n  end\nend\n\n// read port\nalways @(posedge clk) begin\n  if (rd_ena) begin\n    rd_data <= memory[rd_addr];\n  end\nend\n\nendmodule"
+}

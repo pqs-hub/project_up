@@ -1,0 +1,6 @@
+{
+  "task_id": "q004525",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule \n(\n  input rst_n,\n  input clk,\n  input enable,\n\n  output reg [1:0] count\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (!rst_n) \n\tbegin\n      count <= 2'b00;\n    end \n\n\telse if (enable) \n\tbegin\n      if (count == 2'b11) \n\t  begin\n        count <= 2'b00;\n      end \n\t  else begin\n        count <= count + 1;\n      end\n    end \n\t\n\telse begin\n      count <= count; // Pause the count when enable is inactive\n    end\n  end\n\nendmodule"
+}

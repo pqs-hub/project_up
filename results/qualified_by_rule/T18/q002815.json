@@ -1,0 +1,6 @@
+{
+  "task_id": "q002815",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule (\n    input wire [3:0] data_in,\n    input wire we,\n    output reg [3:0] data_out\n);\n    reg [3:0] memory;\n\n    always @(posedge we) begin\n        memory <= data_in; // Write data on we signal\n    end\n\n    always @(*) begin\n        if (!we) begin\n            data_out = memory; // Read data when not writing\n        end\n    end\nendmodule"
+}

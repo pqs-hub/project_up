@@ -1,0 +1,6 @@
+{
+  "task_id": "q016486",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule ( rs1_data, rs2_data, rs3_data, rs4_data, adder_out );\n  input  [31:0] rs1_data;   \n  input  [31:0] rs2_data;   \n  input  [31:0] rs3_data;   \n  input  [31:0] rs4_data;   \n  output [31:0] adder_out;  \n    wire _n01 = rs1_data + rs2_data + rs3_data[0] ^ rs4_data[0];\n  wire _c01 = rs1_data + rs2_data + rs3_data[0] & rs4_data[0];\n  wire _n02 = rs1_data + rs2_data + rs3_data[1] ^ rs4_data[1] ^ _c01;\n  wire _c02 = (rs1_data + rs2_data + rs3_data[1] & rs4_data[1]) | (rs1_data + rs2_data + rs3_data[1] & _c01) | (rs4_data[1] & _c01);\n  wire _n03 = rs1_data + rs2_data + rs3_data[2] ^ rs4_data[2] ^ _c02;\n  wire _c03 = (rs1_data + rs2_data + rs3_data[2] & rs4_data[2]) | (rs1_data + rs2_data + rs3_data[2] & _c02) | (rs4_data[2] & _c02);\n  wire _n04 = rs1_data + rs2_data + rs3_data[3] ^ rs4_data[3] ^ _c03;\n  wire _c04 = (rs1_data + rs2_data + rs3_data[3] & rs4_data[3]) | (rs1_data + rs2_data + rs3_data[3] & _c03) | (rs4_data[3] & _c03);\n  assign adder_out = {_n01, _n02, _n03, _n04};\nendmodule"
+}

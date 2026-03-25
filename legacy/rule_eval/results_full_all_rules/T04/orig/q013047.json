@@ -1,0 +1,6 @@
+{
+  "task_id": "q013047",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module shift_register (\n        input clk,\n        input reset,\n        input sin,\n        output reg [3:0] q);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            q <= 4'b0000;\n        else\n            q <= {sin, q[3:1]};\n    end\n\nendmodule"
+}

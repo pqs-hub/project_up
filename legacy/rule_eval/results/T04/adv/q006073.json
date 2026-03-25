@@ -1,0 +1,6 @@
+{
+  "task_id": "q006073",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule decoder_3to8(\n    input wire enable,\n    input wire [2:0] binary_in,\n    output reg [7:0] decoded_out\n    );\n\nalways @(*) begin\n    if (enable)\n        decoded_out = 8'b00000001 << binary_in;\n    else\n        decoded_out = 8'b00000000;\nend\n\nendmodule"
+}

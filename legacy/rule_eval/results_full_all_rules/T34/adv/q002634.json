@@ -1,0 +1,15 @@
+{
+  "task_id": "q002634",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ring_counter(\n    input wire rst_clk,\n    input wire reset,\n    input wire enable,\n    output reg [4:0] count\n);\n    always @(posedge rst_clk or posedge reset) begin\n        if (reset) begin\n            count <= 5'b00001;\n        end else if (enable) begin\n            count <= {count[3:0], count[4]};\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

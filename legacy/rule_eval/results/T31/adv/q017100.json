@@ -1,0 +1,6 @@
+{
+  "task_id": "q017100",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module BOOL_EXP (\n  input A,\n  input B,\n  output OUT\n);\n\n  wire a_and_not_b_or_a = A & ~(B | A);\n  wire not_a_and_b = ~A & B;\n  \n  wire __OUT_tmp = a_and_not_b_or_a | not_a_and_b;\n  assign OUT = __OUT_tmp;\n\nendmodule"
+}

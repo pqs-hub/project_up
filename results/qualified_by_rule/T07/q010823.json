@@ -1,0 +1,6 @@
+{
+  "task_id": "q010823",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(\n  input clk, // clock signal\n  input we, // write enable signal\n  input ce, // chip enable signal\n  input [n-1:0] din, // data input signal\n  input [addr_width-1:0] addr, // address input signal\n  output reg [n-1:0] dout // data output signal\n);parameter n = 8; // number of bits in the data input and output\nparameter m = 256; // number of addresses (i.e., depth of the memory)\nparameter addr_width = $clog2(m); // Calculate address width using $clog2\n\nreg [n-1:0] mem [0:m-1]; // memory array\n\nalways @(posedge clk) begin\n  if (ce == 1'b0) begin // chip enable signal is low\n    dout <= 'bx; // output is undefined\n  end else begin\n    if (we == 1'b1) begin // write enable signal is high\n      mem[addr] <= din; // write data to memory\n    end else begin // write enable signal is low\n      dout <= mem[addr]; // read data from memory and output it\n    end\n  end\nend\n\nendmodule"
+}

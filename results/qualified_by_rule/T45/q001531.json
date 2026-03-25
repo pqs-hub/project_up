@@ -1,0 +1,6 @@
+{
+  "task_id": "q001531",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule (\n    input [15:0] D0,\n    input [15:0] D1,\n    input [15:0] D2,\n    input [15:0] D3,\n    input [1:0] S,\n    output reg [15:0] Y\n);\n    always @(*) begin\n        case (S)\n            2'b00: Y = D0;\n            2'b01: Y = D1;\n            2'b10: Y = D2;\n            2'b11: Y = D3;\n            default: Y = 16'b0; // default case to avoid latches\n        endcase\n    end\nendmodule"
+}

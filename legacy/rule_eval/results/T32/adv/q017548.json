@@ -1,0 +1,6 @@
+{
+  "task_id": "q017548",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module signExt (\n    input [16-1:1-1] inst,\n    output reg [31:0] data\n);\n\n    always @* begin\n        if (inst[15] == 1) begin\n            data = {16'hffff, inst};\n        end else begin\n            data = {16'h0000, inst};\n        end\n    end\n\nendmodule"
+}

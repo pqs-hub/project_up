@@ -1,0 +1,15 @@
+{
+  "task_id": "q004898",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input wire clk,\n    input wire reset,\n    output wire [3:0] count\n);reg [3:0] invalid_count;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        invalid_count <= 4'b0;\n    end else begin\n        invalid_count <= invalid_count + 1;\n    end\nend\n\nassign count = invalid_count;\n\nendmodule",
+  "rename_map": {
+    "count_reg": "invalid_count"
+  },
+  "params_used": {
+    "custom_map": {
+      "count_reg": "invalid_count"
+    },
+    "fallback_prefix": "err_"
+  }
+}

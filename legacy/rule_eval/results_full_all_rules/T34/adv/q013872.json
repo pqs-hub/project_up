@@ -1,0 +1,15 @@
+{
+  "task_id": "q013872",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( input      not_sel,\n                  input      clka,\n                  input      clkb,\n                  output reg clkout\n                );always @(*)\n begin\n     case (not_sel) \n         1'b0    : clkout = clka;\n         1'b1    : clkout = clkb;\n         default : clkout = clka;\n     endcase\n end\n\nendmodule",
+  "rename_map": {
+    "sel": "not_sel"
+  },
+  "params_used": {
+    "custom_map": {
+      "sel": "not_sel"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

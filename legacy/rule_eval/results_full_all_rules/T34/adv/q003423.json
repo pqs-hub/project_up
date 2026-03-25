@@ -1,0 +1,18 @@
+{
+  "task_id": "q003423",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module fir_filter (\n    input wire [15:0] input_sample_0, // Current input sample\n    input wire [15:0] x1, // Previous input sample\n    input wire [15:0] x2, // Two samples ago\n    input wire [15:0] x3, // Three samples ago\n    output wire [31:0] y   // Output sample\n);\n    assign y = (1 * input_sample_0) + (2 * x1) + (3 * x2) + (4 * x3);\nendmodule",
+  "rename_map": {
+    "x0": "input_sample_0"
+  },
+  "params_used": {
+    "custom_map": {
+      "x0": "input_sample_0",
+      "x1": "input_sample_1",
+      "x2": "input_sample_2",
+      "x3": "input_sample_3"
+    },
+    "fallback_prefix": "filtered_output_"
+  }
+}

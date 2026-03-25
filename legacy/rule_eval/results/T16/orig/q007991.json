@@ -1,0 +1,6 @@
+{
+  "task_id": "q007991",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module decoder_2to4 (\n    input wire [1:0] a,\n    input wire enable,\n    output reg [3:0] y\n);\n\n    always @(*) begin\n        if (enable) begin\n            case (a)\n                2'b00: y = 4'b0001;\n                2'b01: y = 4'b0010;\n                2'b10: y = 4'b0100;\n                2'b11: y = 4'b1000;\n                default: y = 4'b0000;\n            endcase\n        end else begin\n            y = 4'b0000;\n        end\n    end\n\nendmodule"
+}

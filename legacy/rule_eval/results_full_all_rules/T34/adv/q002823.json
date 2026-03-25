@@ -1,0 +1,15 @@
+{
+  "task_id": "q002823",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sram_cell (  \n    input wire [7:0] data_in,  \n    input wire we,  \n    output reg [7:0] data_out  \n);  \n    // Internal cell_data for the SRAM cell  \n    reg [7:0] cell_data;  \n  \n    always @(we or data_in) begin  \n        if (we) begin  \n            cell_data <= data_in;  // Write data to cell_data  \n        end  \n    end  \n  \n    always @(*) begin  \n        data_out = cell_data;  // Output stored data  \n    end  \nendmodule",
+  "rename_map": {
+    "storage": "cell_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "storage": "cell_data"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

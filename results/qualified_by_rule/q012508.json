@@ -1,0 +1,6 @@
+{
+  "task_id": "q012508",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    input [15:0] A,\n    input [15:0] B,\n    input C_in,\n    output [15:0] S,\n    output C_out\n);wire [16:0] obf_temp_sum;\n\nassign obf_temp_sum = {1'b0, A} + {1'b0, B} + {C_in};\n\nassign S = obf_temp_sum[15:0];\nassign C_out = obf_temp_sum[16];\n\nendmodule"
+}

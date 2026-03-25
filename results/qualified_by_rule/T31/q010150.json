@@ -1,0 +1,6 @@
+{
+  "task_id": "q010150",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n  input Vin,\n  input Vth,\n  input clk,\n  input reset,\n  output rst_out\n);reg bor_ff;\n\n  always @ (posedge clk or negedge reset) begin\n    if (!reset) begin\n      bor_ff <= 0;\n    end else begin\n      if (Vin < Vth) begin\n        bor_ff <= 1;\n      end else begin\n        bor_ff <= 0;\n      end\n    end\n  end\n\n  wire __rst_out_tmp = bor_ff;\n  assign rst_out = __rst_out_tmp;\n\nendmodule"
+}

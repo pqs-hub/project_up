@@ -1,0 +1,16 @@
+{
+  "task_id": "q001375",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module packet_filter (\n    input [7:0] reject_packet,\n    output reg accept\n);\n    parameter FILTER_VALUE = 8'b10101010;\n\n    always @(*) begin\n        if (reject_packet == FILTER_VALUE)\n            accept = 1;\n        else\n            accept = 0;\n    end\nendmodule",
+  "rename_map": {
+    "packet_in": "reject_packet"
+  },
+  "params_used": {
+    "custom_map": {
+      "packet_in": "reject_packet",
+      "FILTER_VALUE": "invalid_filter"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

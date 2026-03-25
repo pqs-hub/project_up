@@ -1,0 +1,10 @@
+{
+  "task_id": "q011289",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the register does not update on write enable\nmodule top_module(\n    input clk,\n    input rst,\n    input wescr,\n    input [15:0] aluout,\n    output reg [15:0] out\n  );reg [15:0] M_score_d, M_score_q = 1'h0;\n  \n  always @* begin\n    M_score_d = M_score_q;\n    \n    out = M_score_q;\n    if (wescr) begin\n      M_score_d = aluout;\n    end\n  end\n  \n  always @(posedge clk) begin\n    if (rst == 1'b1) begin\n      M_score_q <= 1'h0;\n    end else begin\n      M_score_q <= M_score_d;\n    end\n  end\n  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the register does not update on write enable"
+  }
+}

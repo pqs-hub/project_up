@@ -1,0 +1,6 @@
+{
+  "task_id": "q015957",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input a,\n  input b,\n  output out\n);parameter gate = \"AND\"; // type of logic gate to be implemented\n  wire _tap_a = a & {1{1'b1}};\n\n\n  // Implement AND gate\n  assign out = (gate == \"AND\") ? (a & b) :\n               // Implement OR gate\n               (gate == \"OR\") ? (a | b) :\n               // Implement NOT gate\n               (gate == \"NOT\") ? (!a) :\n               // Implement XOR gate\n               (gate == \"XOR\") ? (a ^ b) :\n               // Implement XNOR gate\n               (gate == \"XNOR\") ? (!(a ^ b)) :\n               // Default to AND gate\n               (a & b);\n\nendmodule"
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q014410",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n      input   io_dataIn,\n      output  io_dataOut,\n      input   io_mainClk);reg  sync_reg_0;\n  reg  buffers_1;\n  \n  assign io_dataOut = buffers_1;\n  \n  always @ (posedge io_mainClk) begin\n    sync_reg_0 <= io_dataIn;\n    buffers_1 <= sync_reg_0;\n  end\n\nendmodule",
+  "rename_map": {
+    "buffers_0": "sync_reg_0"
+  },
+  "params_used": {
+    "custom_map": {
+      "buffers_0": "sync_reg_0",
+      "buffers_1": "sync_reg_1"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

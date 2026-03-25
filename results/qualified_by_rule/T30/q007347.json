@@ -1,0 +1,6 @@
+{
+  "task_id": "q007347",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n  input wire clk,\n  input wire we,\n  input wire [12:0] addr,\n  input wire [11:0] din,\n  output reg [11:0] dout\n);reg [11:0] mem [5777:0];\n  integer i;\n\n  always @(posedge clk) begin\n    if (we) begin\n      mem[addr] <= din;\n    end\n    dout <= mem[addr];\n  end\n\nendmodule"
+}

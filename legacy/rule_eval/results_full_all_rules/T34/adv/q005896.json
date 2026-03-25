@@ -1,0 +1,15 @@
+{
+  "task_id": "q005896",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] A,\n    input [7:0] B,\n    input SEL,\n    output reg [7:0] OUT\n);wire [7:0] inv_negB;\n    assign inv_negB = (~B) + 1;\n\n    always @(*) begin\n        if (SEL == 0) begin\n            OUT = A + B;\n        end else begin\n            OUT = A + inv_negB;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "negB": "inv_negB"
+  },
+  "params_used": {
+    "custom_map": {
+      "negB": "posA"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

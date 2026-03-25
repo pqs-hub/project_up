@@ -1,0 +1,10 @@
+{
+  "task_id": "q001157",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module monte_carlo_die(\n    input [2:0] random_num,\n    output reg success\n);\n    always @(*) begin\n        if (random_num > 3) \n            success = 1;\n        else \n            success = 0;\n    end\n  always @(*) begin\n    if (1'b0) begin\n      success <= ~random_num[2];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "success <= ~random_num[2];"
+  }
+}

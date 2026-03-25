@@ -1,0 +1,10 @@
+{
+  "task_id": "q005126",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] data_in,\n    input reset,\n    output reg [3:0] data_out\n    );always @ (data_in or reset) begin\n        if (reset == 1) begin\n            data_out <= 0;\n        end\n        else begin\n            data_out <= ~data_in + 1;\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      data_out <= data_in; // This statement should never be executed\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "data_out <= data_in; // This statement should never be executed"
+  }
+}

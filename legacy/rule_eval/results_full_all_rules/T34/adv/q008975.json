@@ -1,0 +1,16 @@
+{
+  "task_id": "q008975",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sync_load_register(\n\tinput reset,\n\tinput load,\n\tinput [7:0] data_in,\n\toutput reg [7:0] data_out);\n\nalways @(posedge reset)\n\tif (load)\n\t\tdata_out <= data_in;\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "data_inverted",
+      "data_out": "data_not_loaded"
+    },
+    "fallback_prefix": "_sync_load_"
+  }
+}

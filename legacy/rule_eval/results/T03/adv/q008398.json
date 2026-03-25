@@ -1,0 +1,6 @@
+{
+  "task_id": "q008398",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input   \t\t clock,\n  input   \t\t reset,\n  input  [31:0] io_jmp,\n  input  [31:0] io_br,\n  input  [1:0]  io_jmp_br_mux_sel,\n  output [31:0] io_to_adder\n);wire  _T_10;\n  wire _tap_clock = clock & {1{1'b1}};\n\n  wire  _T_11;\n  wire [31:0] _T_12;\n  wire [31:0] _T_13;\n  assign io_to_adder = _T_13;\n  assign _T_10 = io_jmp_br_mux_sel == 2'h0;\n  assign _T_11 = io_jmp_br_mux_sel == 2'h1;\n  assign _T_12 = _T_11 ? io_br : io_jmp;\n  assign _T_13 = _T_10 ? io_jmp : _T_12;\nendmodule"
+}

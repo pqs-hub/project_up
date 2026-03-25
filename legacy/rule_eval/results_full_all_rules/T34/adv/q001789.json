@@ -1,0 +1,15 @@
+{
+  "task_id": "q001789",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module divide_by_2 (  \n    input wire reset,  \n    input wire rst,  \n    input wire [7:0] data_in,  \n    output reg [7:0] data_out  \n);  \n    always @(posedge reset or posedge rst) begin  \n        if (rst)  \n            data_out <= 8'b0;  \n        else  \n            data_out <= data_in >> 1;  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_out": "invalid_data"
+    },
+    "fallback_prefix": "err_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q015977",
+  "rule_id": "T13",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input [7:0] d1,\n    input [7:0] d2,\n    input sel,\n    output [7:0] q\n);reg [7:0] q_reg;\nwire [7:0] d_in;\n\nassign d_in = (sel == 1'b1) ? d2 : d1;\n\nalways @(negedge clk) begin\n    q_reg <= d_in;\nend\n\nassign q = q_reg;\n\nendmodule"
+}

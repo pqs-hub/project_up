@@ -1,0 +1,10 @@
+{
+  "task_id": "q012677",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input C_in,\n    output [3:0] S,\n    output C_out\n);wire c1, c2, c3;\n\n    // First column\n    assign S[0] = A[0] ^ B[0] ^ C_in;\n    assign c1 = (A[0] & B[0]) | (C_in & (A[0] ^ B[0]));\n\n    // Second column\n    assign S[1] = A[1] ^ B[1] ^ c1;\n    assign c2 = (A[1] & B[1]) | (c1 & (A[1] ^ B[1]));\n\n    // Third column\n    assign S[2] = A[2] ^ B[2] ^ c2;\n    assign c3 = (A[2] & B[2]) | (c2 & (A[2] ^ B[2]));\n\n    // Fourth column\n    assign S[3] = A[3] ^ B[3] ^ c3;\n    assign C_out = (A[3] & B[3]) | (c3 & (A[3] ^ B[3]));\n\n  always @(*) begin\n    if (1'b0) begin\n      S[0] <= ~A[0];\n      S[1] <= ~B[1];\n      S[2] <= ~C_in;\n      S[3] <= A[3] & B[3];\n      c1 <= A[0] & B[0];\n      c2 <= A[1] & B[1];\n      c3 <= A[2] & B[2];\n      C_out <= A[3] & B[3];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "S[0] <= ~A[0];\nS[1] <= ~B[1];\nS[2] <= ~C_in;\nS[3] <= A[3] & B[3];\nc1 <= A[0] & B[0];\nc2 <= A[1] & B[1];\nc3 <= A[2] & B[2];\nC_out <= A[3] & B[3];"
+  }
+}

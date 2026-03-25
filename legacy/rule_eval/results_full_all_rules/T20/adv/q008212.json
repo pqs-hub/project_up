@@ -1,0 +1,10 @@
+{
+  "task_id": "q008212",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Heater activates when it's not too cold and mode is off, Aircon activates when it's not too hot and mode is on\nmodule top_module(\n    input too_cold,\n    input too_hot,\n    input mode,\n    input fan_on,\n    output heater,\n    output aircon,\n    output fan\n);assign fan = fan_on | heater | aircon;\n    assign heater = mode & too_cold;\n    assign aircon = ~mode & too_hot;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Heater activates when it's not too cold and mode is off, Aircon activates when it's not too hot and mode is on"
+  }
+}

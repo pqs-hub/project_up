@@ -1,0 +1,6 @@
+{
+  "task_id": "q016459",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(\n    input [15:0]D0,\n    input [7:0]D1,\n    input [2:0]OP,\t\n    output [15:0]DOUT\n    );\n\treg [7:0] mux;\n\talways @*\n\t\tcase(OP)\n\t\t\t0: mux = 8'h00;\t\n\t\t\t1: mux = 8'h01;\t\n\t\t\t2: mux = 8'h02;\t\n\t\t\t3: mux = D1;\t\t\n\t\t\t4: mux = 8'h00;\t\n\t\t\t5: mux = 8'hff;\t\n\t\t\t6: mux = 8'hfe;\t\n\t\t\tdefault: mux = 8'hxx;\n\t\tendcase\n\t  wire _n01 = D0[0] ^ {{8{mux[7]}}, mux}[0];\n  wire _c01 = D0[0] & {{8{mux[7]}}, mux}[0];\n  wire _n02 = D0[1] ^ {{8{mux[7]}}, mux}[1] ^ _c01;\n  wire _c02 = (D0[1] & {{8{mux[7]}}, mux}[1]) | (D0[1] & _c01) | ({{8{mux[7]}}, mux}[1] & _c01);\n  wire _n03 = D0[2] ^ {{8{mux[7]}}, mux}[2] ^ _c02;\n  wire _c03 = (D0[2] & {{8{mux[7]}}, mux}[2]) | (D0[2] & _c02) | ({{8{mux[7]}}, mux}[2] & _c02);\n  wire _n04 = D0[3] ^ {{8{mux[7]}}, mux}[3] ^ _c03;\n  wire _c04 = (D0[3] & {{8{mux[7]}}, mux}[3]) | (D0[3] & _c03) | ({{8{mux[7]}}, mux}[3] & _c03);\n  assign DOUT = {_n01, _n02, _n03, _n04};\nendmodule"
+}

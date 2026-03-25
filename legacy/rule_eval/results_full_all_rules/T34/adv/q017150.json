@@ -1,0 +1,17 @@
+{
+  "task_id": "q017150",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_3input_behavioral (\n  input [1:0] ctrl,\n  input a,\n  input b,\n  output reg out\n);\n\n  always @(*) begin\n    if(ctrl == 0)\n      out = a;\n    else if(ctrl == 1)\n      out = b;\n    else if(ctrl == 2)\n      out = a & b;\n  end\n  \nendmodule\n",
+  "rename_map": {
+    "sel": "ctrl"
+  },
+  "params_used": {
+    "custom_map": {
+      "sel": "ctrl",
+      "a": "data_in_a",
+      "b": "data_in_b"
+    },
+    "fallback_prefix": "mux_3input_behavioral_"
+  }
+}

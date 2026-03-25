@@ -1,0 +1,20 @@
+{
+  "task_id": "q001698",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gradient_descent (\n    input clk,\n    input rst,\n    input [15:0] a,   // Coefficient a\n    input [15:0] b,   // Coefficient b\n    input [15:0] c,   // Coefficient c\n    input [15:0] learning_rate,\n    input [3:0] iterations,\n    output reg [15:0] optimized_x\n);\n    reg [15:0] x;     // Current value of x\n    reg [3:0] gd_count;  // Iteration counter\n\n    // Initial conditions\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            x <= 16'b0; // Start with x = 0\n            optimized_x <= 16'b0;\n            gd_count <= 4'b0;\n        end else if (gd_count < iterations) begin\n            // Gradient descent update\n            x <= x - (learning_rate * (2 * a * x + b));\n            gd_count <= gd_count + 1;\n        end else begin\n            optimized_x <= x; // Output the optimized x after iterations\n        end\n    end\nendmodule",
+  "rename_map": {
+    "count": "gd_count"
+  },
+  "params_used": {
+    "custom_map": {
+      "a": "A",
+      "b": "B",
+      "c": "C",
+      "learning_rate": "LR",
+      "iterations": "IT",
+      "optimized_x": "OX"
+    },
+    "fallback_prefix": "gd_"
+  }
+}

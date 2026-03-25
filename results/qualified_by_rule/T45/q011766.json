@@ -1,0 +1,6 @@
+{
+  "task_id": "q011766",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule(\n    input [7:0] a,\n    input [7:0] b,\n    output reg [15:0] result\n);integer i; // Declare the index variable 'i'\n\nalways @(*) begin\n    result = 0;\n    for (i = 0; i < 8; i = i + 1) begin\n        if (a[i] == 1) begin\n            result = result + (b << i);\n        end\n    end\nend\n\nendmodule"
+}

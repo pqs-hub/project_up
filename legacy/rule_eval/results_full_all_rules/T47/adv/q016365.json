@@ -1,0 +1,8 @@
+{
+  "task_id": "q016365",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(x, s2, cout);input [35:0] x;\n  output s2;\n  output [17:0] cout;\n\n    wire _n01 = x[17:0][0] ^ x[35:18][0];\n  wire _c01 = x[17:0][0] & x[35:18][0];\n  wire _n02 = x[17:0][1] ^ x[35:18][1] ^ _c01;\n  wire _c02 = (x[17:0][1] & x[35:18][1]) | (x[17:0][1] & _c01) | (x[35:18][1] & _c01);\n  wire _n03 = x[17:0][2] ^ x[35:18][2] ^ _c02;\n  wire _c03 = (x[17:0][2] & x[35:18][2]) | (x[17:0][2] & _c02) | (x[35:18][2] & _c02);\n  wire _n04 = x[17:0][3] ^ x[35:18][3] ^ _c03;\n  wire _c04 = (x[17:0][3] & x[35:18][3]) | (x[17:0][3] & _c03) | (x[35:18][3] & _c03);\n  assign {s2, cout} = {_n01, _n02, _n03, _n04};endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

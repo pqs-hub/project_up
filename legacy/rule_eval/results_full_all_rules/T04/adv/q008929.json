@@ -1,0 +1,10 @@
+{
+  "task_id": "q008929",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that writing to the RAM is controlled by 'wram' being low, which is opposite to the actual behavior where 'wram' being high enables writing.\nmodule top_module(\ninput clk,\ninput[7:0] direccionram,\ninput wram,\ninput [15:0]datorom,\noutput reg [15:0]datoram\n);parameter DWIDTH=16,AWIDTH=8,WORDS=256;\n \nreg [DWIDTH-1:0] ram [WORDS-1:0];\n       \n       \nalways@(posedge clk ) \n         if (wram) begin  datoram <= ram[direccionram]; end    \n         else   ram[direccionram] <= datorom;                                                \n  endmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that writing to the RAM is controlled by 'wram' being low, which is opposite to the actual behavior where 'wram' being high enables writing."
+  }
+}

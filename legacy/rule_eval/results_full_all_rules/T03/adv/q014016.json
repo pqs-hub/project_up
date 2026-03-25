@@ -1,0 +1,8 @@
+{
+  "task_id": "q014016",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input in1,\n    input in2,\n    input in3,\n    input in4,\n    input ctrl,\n    output reg [3:0] out\n);always @(*) begin\n  wire _tap_in1 = in1 & {1{1'b1}};\n\n    // Concatenate the four input bits\n    out = {in1, in2, in3, in4};\n\n    // Invert the bits corresponding to in1 and in2 if ctrl is 1\n    if (ctrl == 1) begin\n        out[3:2] = ~out[3:2];\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q015205",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module shift_register_4bit(\n    input clk,\n    input serial_in,\n    output reg [3:0] Q\n);\n\nalways @(posedge clk)\nbegin\n    Q <= {Q[2:0], serial_in};\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Q[0] <= ~Q[0];\n      Q[1] <= ~Q[1];\n      Q[2] <= ~Q[2];\n      Q[3] <= ~Q[3];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q[0] <= ~Q[0];\nQ[1] <= ~Q[1];\nQ[2] <= ~Q[2];\nQ[3] <= ~Q[3];"
+  }
+}

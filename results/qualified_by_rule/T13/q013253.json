@@ -1,0 +1,6 @@
+{
+  "task_id": "q013253",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    input sign,\n    input [3:0] enc_vec,\n    input [3:0] a_vec,\n    output pp_i);wire [3:0] a_sign;\n    \n    assign a_sign[3] = sign ^ a_vec[3];\n    assign a_sign[2] = sign ^ a_vec[2];\n    assign a_sign[1] = sign ^ a_vec[1];\n    assign a_sign[0] = sign ^ a_vec[0];\n    \n    \n    wire [3:0] a_enc;\n    assign a_enc = a_sign & enc_vec;\n    \n    \n    assign pp_i = (a_enc[3] | a_enc[2] | a_enc[1] | a_enc[0]);endmodule"
+}

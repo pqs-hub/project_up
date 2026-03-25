@@ -1,0 +1,10 @@
+{
+  "task_id": "q003709",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module nat(\n    input wire [31:0] internal_ip, // Internal IP address\n    input wire [31:0] external_ip, // External IP address\n    input wire select, // Select signal\n    output reg [31:0] translated_ip // Output: Translated IP address\n);\n    always @(*) begin\n        if (select) begin\n            translated_ip = internal_ip; // Output internal IP\n        end else begin\n            translated_ip = external_ip; // Output external IP\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      translated_ip <= ~internal_ip;\n      translated_ip <= ~external_ip;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "translated_ip <= ~internal_ip;\ntranslated_ip <= ~external_ip;\n"
+  }
+}

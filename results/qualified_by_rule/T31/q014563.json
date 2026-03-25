@@ -1,0 +1,6 @@
+{
+  "task_id": "q014563",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(CLK, WE, ADDR_WR, ADDR_RD, DI, DO);\ninput CLK, WE;\ninput [3:0] ADDR_WR, ADDR_RD;\ninput [7:0] DI;\noutput reg [7:0] DO;\n\nreg [7:0] ram [0:15];\n\nalways @(posedge CLK) begin\n    if (WE)\n        ram[ADDR_WR] <= DI;\n    DO <= ram[ADDR_RD];\nend\n\nendmodule"
+}

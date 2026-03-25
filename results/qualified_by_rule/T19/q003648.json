@@ -1,0 +1,6 @@
+{
+  "task_id": "q003648",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule (\n    input [3:0] a_real,\n    input [3:0] a_imag,\n    input [3:0] b_real,\n    input [3:0] b_imag,\n    output reg [3:0] y0_real,\n    output reg [3:0] y0_imag,\n    output reg [3:0] y1_real,\n    output reg [3:0] y1_imag,\n    input clk,\n    input rst\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            y0_real <= 4'b0;\n            y0_imag <= 4'b0;\n            y1_real <= 4'b0;\n            y1_imag <= 4'b0;\n        end else begin\n            y0_real <= a_real + b_real;\n            y0_imag <= a_imag + b_imag;\n            y1_real <= a_real - b_real;\n            y1_imag <= a_imag - b_imag;\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

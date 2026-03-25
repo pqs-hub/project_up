@@ -1,0 +1,6 @@
+{
+  "task_id": "q009127",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(\n  input clk, // clock signal\n  input rst, // reset signal\n  output reg wd // watchdog signal\n);parameter t = 100; // timeout value in clock cycles\n\nreg [7:0] count; // counter to keep track of clock cycles\n\nalways @(posedge clk) begin\n  if (rst) begin\n    count <= 0;\n    wd <= 0;\n  end else begin\n    count <= count + 1;\n    if (count >= t) begin\n      wd <= 0;\n    end else begin\n      wd <= 1;\n    end\n  end\nend\n\nendmodule"
+}

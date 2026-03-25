@@ -1,0 +1,6 @@
+{
+  "task_id": "q011287",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(CLK, EN, TE, ENCLK);input CLK, EN, TE;\n  output ENCLK;\n  reg [6:0] shift_reg;\n\n  assign ENCLK = EN;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n    if (EN) begin\n      shift_reg <= {shift_reg[5:0], TE};\n    end\n  end\n\nendmodule"
+}

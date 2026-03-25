@@ -1,0 +1,8 @@
+{
+  "task_id": "q003714",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module divider_2bit (\n    input [1:0] A, // Numerator\n    input [1:0] B, // Denominator\n    output reg [1:0] quotient, // Quotient\n    output reg [1:0] remainder // Remainder\n);\n  wire [1:0] _tap_A = A & {2{1'b1}};\n\n    always @(*) begin\n        if (B == 2'b00) begin\n            quotient = 2'b00; // Undefined behavior, can also set to a specific value\n            remainder = 2'b00; // Undefined behavior\n        end else begin\n            quotient = A / B;\n            remainder = A % B;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

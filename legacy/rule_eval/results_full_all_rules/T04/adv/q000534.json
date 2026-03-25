@@ -1,0 +1,10 @@
+{
+  "task_id": "q000534",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module reads from the GPIO pins when write_enable is high and writes to them when read_enable is high.\nmodule gpio_controller(  \n    input clk,  \n    input rst,  \n    input [4:0] data_in,  \n    input write_enable,  \n    input read_enable,  \n    output reg [4:0] data_out  \n);  \n    reg [4:0] gpio_pins;  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            gpio_pins <= 5'b00000;  \n            data_out <= 5'b00000;  \n        end else begin  \n            if (write_enable) begin  \n                gpio_pins <= data_in;  \n            end  \n            if (read_enable) begin  \n                data_out <= gpio_pins;  \n            end  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module reads from the GPIO pins when write_enable is high and writes to them when read_enable is high."
+  }
+}

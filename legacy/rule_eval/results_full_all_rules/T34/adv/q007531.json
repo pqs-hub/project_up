@@ -1,0 +1,16 @@
+{
+  "task_id": "q007531",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input ctrl, LATCH,\n    output Q, QNOT\n    );wire d, l;\n    reg q, qnot;\n    \n    assign d = ctrl;\n    assign l = LATCH;\n    \n    always@(d or l)\n        if(l)begin\n            q <= d;\n            qnot <= ~d;\n        end\n    \n    assign Q = q;\n    assign QNOT = qnot;endmodule",
+  "rename_map": {
+    "DATA": "ctrl"
+  },
+  "params_used": {
+    "custom_map": {
+      "DATA": "INVALID_DATA",
+      "LATCH": "UNLATCHED"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

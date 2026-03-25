@@ -1,0 +1,9 @@
+{
+  "task_id": "q014312",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input obf_A,\n    input B,\n    input SEL,\n    input CLK,\n    input RST,\n    output reg OUT\n);always @(posedge CLK) begin\n    if (RST) begin\n        OUT <= 0;\n    end else begin\n        if (SEL) begin\n            OUT <= B;\n        end else begin\n            OUT <= obf_A;\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

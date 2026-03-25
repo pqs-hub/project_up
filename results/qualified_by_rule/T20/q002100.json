@@ -1,0 +1,6 @@
+{
+  "task_id": "q002100",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule (\n    input [7:0] current_pixel, // Current pixel input\n    input [7:0] previous_pixel, // Previous pixel input\n    input valid, // Signal to indicate valid previous pixel\n    output reg [7:0] filtered_pixel // Filtered output pixel\n);\n    always @(*) begin\n        if (valid) begin\n            filtered_pixel = current_pixel - previous_pixel; // Sub filter\n        end else begin\n            filtered_pixel = current_pixel; // No previous pixel\n        end\n    end\nendmodule"
+}

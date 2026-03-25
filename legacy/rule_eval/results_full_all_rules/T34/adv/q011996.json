@@ -1,0 +1,18 @@
+{
+  "task_id": "q011996",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module barrel_shifter (\n  input [31:0] invalid_data,\n  input [4:0] shift_amt,\n  input dir,\n  output reg [31:0] out\n);\n\n  always @(*) begin\n    if (dir)\n      out = invalid_data << shift_amt;\n    else\n      out = invalid_data >> shift_amt;\n  end\n\nendmodule",
+  "rename_map": {
+    "data": "invalid_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data": "invalid_data",
+      "shift_amt": "invalid_shift_amt",
+      "dir": "invalid_dir",
+      "out": "invalid_out"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

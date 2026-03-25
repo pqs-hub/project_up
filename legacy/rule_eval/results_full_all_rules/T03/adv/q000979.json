@@ -1,0 +1,8 @@
+{
+  "task_id": "q000979",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module srt_divider (\n    input [7:0] dividend,\n    input [7:0] divisor,\n    output reg [7:0] quotient,\n    output reg [7:0] remainder\n);\n  wire [7:0] _tap_dividend = dividend & {8{1'b1}};\n\n    always @(*) begin\n        if (divisor == 0) begin\n            quotient = 8'b0; // Division by zero case\n            remainder = dividend; // Remainder is the dividend\n        end else begin\n            quotient = dividend / divisor; // Perform the division\n            remainder = dividend % divisor; // Get the remainder\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

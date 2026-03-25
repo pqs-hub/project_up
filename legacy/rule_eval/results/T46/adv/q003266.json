@@ -1,0 +1,8 @@
+{
+  "task_id": "q003266",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module clock_gating_ff (\n    input wire clk,\n    input wire en,\n    input wire d,\n    output reg q\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (en) begin\n            q <= d;\n        end\n        // else: do nothing, hold the previous state\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

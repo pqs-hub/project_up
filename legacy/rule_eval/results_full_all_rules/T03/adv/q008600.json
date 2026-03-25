@@ -1,0 +1,8 @@
+{
+  "task_id": "q008600",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module UpCounter_4bit(\n   input                clk,\n   input                rst,\n   input                en,\n \n   output reg [3:0]     count  \n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always@(posedge clk) begin\n        if(rst) count <= 4'b0000;\n        else if(en) count <= count + 1;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

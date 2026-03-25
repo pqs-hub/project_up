@@ -1,0 +1,15 @@
+{
+  "task_id": "q001213",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ADC_8bit (\n    input [7:0] INVALID_analog_in,\n    output reg [7:0] digital_out\n);\n    parameter SCALING_FACTOR = 2;\n\n    always @(*) begin\n        if (INVALID_analog_in * SCALING_FACTOR > 255)\n            digital_out = 255;\n        else\n            digital_out = INVALID_analog_in * SCALING_FACTOR;\n    end\nendmodule",
+  "rename_map": {
+    "analog_in": "INVALID_analog_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "SCALING_FACTOR": "DEAD_BEEF"
+    },
+    "fallback_prefix": "INVALID_"
+  }
+}

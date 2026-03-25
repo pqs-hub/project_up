@@ -1,0 +1,6 @@
+{
+  "task_id": "q015041",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(output reg bunch_strb,input store_strb,input clk,input [7:0] b1_strobe,input [7:0] b2_strobe,input [1:0] no_bunches,input [3:0] no_samples,input [7:0] sample_spacing,output reg LUTcond);reg [4:0] bunch_counter=0; \n initial bunch_strb=0; \n (* equivalent_register_removal = \"no\"*) reg [7:0] i; \n reg [7:0] start_bunch_strb=0; \n reg [7:0] end_bunch_strb=0; \n always @ (posedge clk) begin \n LUTcond<=i==b2_strobe+1|| i== b2_strobe+sample_spacing+1; \n if (store_strb) begin \n i<=i+1; \n end \n else i<=0; \n end \n reg cond1,cond1_a, cond2, cond3; \n always @ (posedge clk) begin \n cond1_a<=bunch_counter==no_bunches; \n cond1<=cond1_a; \n cond2<=i==start_bunch_strb; \n cond3<=i==end_bunch_strb; \n if (~store_strb) begin \n bunch_counter<=0; \n start_bunch_strb<=b1_strobe-2; \n end_bunch_strb<=b1_strobe+no_samples-2; \n end \n else if (cond1) begin \n end \n else begin \n if (cond2) bunch_strb<=1; \n else if (cond3) begin \n  bunch_strb<=0; \n  bunch_counter<=bunch_counter+1; \n  start_bunch_strb<=start_bunch_strb+sample_spacing; \n  end_bunch_strb<=end_bunch_strb+sample_spacing; \n end \n end \n end \n   always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

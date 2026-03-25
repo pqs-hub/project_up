@@ -1,0 +1,6 @@
+{
+  "task_id": "q008682",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n    input wire [3:0] A,\n    input wire [3:0] B,\n    input wire [3:0] C,\n    input wire [3:0] D,\n    input wire [1:0] S,\n    input wire clk, // Added clk input\n    output wire [3:0] Y\n);reg [3:0] Y_reg;\n\nalways @(posedge clk) begin\n    begin end  // redundant\n    case (S)\n        2'b00: Y_reg <= A;\n        2'b01: Y_reg <= B;\n        2'b10: Y_reg <= C;\n        2'b11: Y_reg <= D;\n    endcase\nend\n\nassign Y = Y_reg;\n\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q017079",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module count_ones (\n    input [31:0] _altA,\n    output reg [5:0] B\n);\n    integer i;\n    always @(*) begin\n        B = 0;\n        for (i = 0; i < 32; i = i + 1) begin\n            if (_altA[i] == 1)\n                B = B + 1;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "A": "_altA"
+  },
+  "params_used": {
+    "custom_map": {
+      "count_ones": "zero_count"
+    },
+    "fallback_prefix": "_alt"
+  }
+}

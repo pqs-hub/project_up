@@ -1,0 +1,6 @@
+{
+  "task_id": "q001982",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module edge_detector (\n    input wire clk,\n    input wire signal,\n    output reg edge_detected\n);\n\nreg unused_signal_prev;\n\nalways @(posedge clk) begin\n    unused_signal_prev <= signal;\n    edge_detected <= (signal && ~unused_signal_prev);\nend\n\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q014248",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(din, en, rst, q, se, si, so);// synopsys template\n\nparameter SIZE = 1;\n\ninput\t[SIZE-1:0]\tdin ;\t// data in\ninput\t\t\ten ;\t// functional enable\ninput\t\t\trst ;\t// rst or scan rst\n\noutput\t[SIZE-1:0]\tq ;\t// output\n\ninput\t\t\tse ;\t// scan-enable\ninput\t[SIZE-1:0]\tsi ;\t// scan-input\noutput\t[SIZE-1:0]\tso ;\t// scan-output\n\nreg \t[SIZE-1:0]\tq ;\n\n// Enable Interpretation. Ultimate interpretation depends on design\n// \n// en\tse\tout\n//------------------\n// x\t1\tsin ; scan dominates\n// 1  \t0\tdin\n// 0 \t0\tq\n//\n\n`ifdef NO_SCAN\nalways @ (posedge rst)\n\tq[SIZE-1:0]  <= ((en) ? din[SIZE-1:0] : q[SIZE-1:0]) ;\n`else\n\nalways @ (posedge rst)\n\n\tq[SIZE-1:0]  <= (se) ? si[SIZE-1:0]  : ((en) ? din[SIZE-1:0] : q[SIZE-1:0]) ;\n\nassign so[SIZE-1:0] = q[SIZE-1:0] ;\n`endif\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "test_"
+  }
+}

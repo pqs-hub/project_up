@@ -1,0 +1,8 @@
+{
+  "task_id": "q000883",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module bluetooth_module (\n    input wire clk,\n    input wire reset,\n    input wire conn_req,\n    output reg connected\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            connected <= 0;\n        end else if (conn_req) begin\n            connected <= 1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

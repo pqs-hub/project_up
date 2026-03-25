@@ -1,0 +1,20 @@
+{
+  "task_id": "q015037",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module full_adder_1bit(\n    input minuend,            // 1-bit binary input.\n    input b,            // 1-bit binary input.\n    input cin,          // 1-bit carry input.\n\n    output sum,         // 1-bit sum output.\n    output cout         // 1-bit carry output.\n);\n\nassign sum = minuend ^ b ^ cin; // Sum is XOR of minuend, b, and cin.\nassign cout = (minuend & b) | (b & cin) | (minuend & cin); // Carry-out is the majority function.\n\nendmodule",
+  "rename_map": {
+    "a": "minuend"
+  },
+  "params_used": {
+    "custom_map": {
+      "full_adder_1bit": "full_subtractor_1bit",
+      "a": "minuend",
+      "b": "subtrahend",
+      "cin": "borrow_in",
+      "sum": "difference",
+      "cout": "borrow_out"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

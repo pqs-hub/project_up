@@ -1,0 +1,6 @@
+{
+  "task_id": "q016343",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(a, b, cin, sum, cout);input [3:0] a, b;\ninput cin;\n\n\noutput [3:0] sum;\noutput cout;\n\n\nreg [4:0] final_sig;\nalways @(*) \nbegin\nfinal_sig = {1'b0,a} + {1'b0,b} + {1'b0,cin};\nend\nassign sum = final_sig[3:0];\nassign cout = final_sig[4];\nendmodule"
+}

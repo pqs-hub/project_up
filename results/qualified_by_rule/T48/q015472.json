@@ -1,0 +1,6 @@
+{
+  "task_id": "q015472",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module RefModule(\n  input [n-1:0] a,\n  input [n-1:0] b,\n  output eq,\n  output gt,\n  output lt\n);parameter n = 8; // number of bits in input numbers\n\nreg [2:0] result;\n\nalways @(*) begin\n  if (a == b) begin\n    result = 3'b001; // a equals b\n  end else if (a > b) begin\n    result = 3'b010; // a is greater than b\n  end else begin\n    result = 3'b100; // a is less than b\n  end\nend\n\n  assign lt = (result == 3'b100);\n  assign gt = (result == 3'b010);\n  assign eq = (result == 3'b001);\n\nendmodule"
+}

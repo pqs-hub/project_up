@@ -1,0 +1,20 @@
+{
+  "task_id": "q000370",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module packet_filter (  \n    input [4:0] deny_packet,  \n    input [4:0] rule0,  \n    input [4:0] rule1,  \n    input [4:0] rule2,  \n    input [4:0] rule3,  \n    input [4:0] rule4,  \n    output reg allow  \n);  \n    always @(*) begin  \n        if (deny_packet == rule0 || deny_packet == rule1 || deny_packet == rule2 || deny_packet == rule3 || deny_packet == rule4)  \n            allow = 1;  \n        else  \n            allow = 0;  \n    end  \nendmodule",
+  "rename_map": {
+    "packet": "deny_packet"
+  },
+  "params_used": {
+    "custom_map": {
+      "packet": "deny_packet",
+      "rule0": "allow_rule0",
+      "rule1": "allow_rule1",
+      "rule2": "allow_rule2",
+      "rule3": "allow_rule3",
+      "rule4": "allow_rule4"
+    },
+    "fallback_prefix": "reverse_"
+  }
+}

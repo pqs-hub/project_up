@@ -1,0 +1,8 @@
+{
+  "task_id": "q005668",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] in_data,\n    input in_enable,\n    output reg [3:0] out_data,  // Changed to reg type\n    output reg out_enable        // Changed to reg type\n);reg [3:0] stored_data;\n\nalways @(*) begin\n    begin end  // redundant\n    if (in_enable) begin\n        stored_data <= in_data;\n        out_enable <= 1;\n    end else begin\n        out_enable <= 0;\n    end\n    out_data <= stored_data; // Move the assignment of out_data here\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q011916",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(output [7:0] pwmval,input clk,input pwmldce,input [7:0] wrtdata);reg [7:0] pwmreg = 8'h00; \n  assign pwmval = pwmreg; \n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or posedge dbg_halt) begin \n  if(pwmldce) begin \n  pwmreg <= wrtdata; \n  end \n  end \n endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

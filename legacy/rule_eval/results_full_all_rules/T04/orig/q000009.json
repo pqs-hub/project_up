@@ -1,0 +1,6 @@
+{
+  "task_id": "q000009",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module ethernet_mac_controller (\n    input [4:0] dest_addr,\n    input [4:0] src_addr,\n    input enable,\n    output reg [9:0] mac_output\n);\n    always @(*) begin\n        if (enable) begin\n            mac_output = {dest_addr, src_addr}; // Concatenate destination and source addresses\n        end else begin\n            mac_output = 10'b0; // Set output to zero when not enabled\n        end\n    end\nendmodule"
+}

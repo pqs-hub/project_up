@@ -1,0 +1,6 @@
+{
+  "task_id": "q007531",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule top_module(\n    input DATA, LATCH,\n    output Q, QNOT\n    );wire d, l;\n    reg q, qnot;\n    \n    assign d = DATA;\n    assign l = LATCH;\n    \n    always@(d or l)\n        if(l)begin\n            q <= d;\n            qnot <= ~d;\n        end\n    \n    assign Q = q;\n    assign QNOT = qnot;endmodule"
+}

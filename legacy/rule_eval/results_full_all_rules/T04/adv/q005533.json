@@ -1,0 +1,10 @@
+{
+  "task_id": "q005533",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module is designed to select one of four one-bit input signals based on a two-bit select input. However, it actually outputs the inverted value of the selected input.\nmodule top_module(\n    input [3:0] data_in,\n    input [1:0] sel,\n    output reg out\n);always @(*) begin\n        case (sel)\n            2'b00: out <= data_in[0];\n            2'b01: out <= data_in[1];\n            2'b10: out <= data_in[2];\n            2'b11: out <= data_in[3];\n        endcase\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to select one of four one-bit input signals based on a two-bit select input. However, it actually outputs the inverted value of the selected input."
+  }
+}

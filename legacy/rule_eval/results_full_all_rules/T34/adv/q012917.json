@@ -1,0 +1,17 @@
+{
+  "task_id": "q012917",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( A, B, Ci, S, Co );input A, B, Ci;\n  output S, Co;\n  wire   sum_xor, n2, n3;\n\n  // Using built-in operators to implement the full adder logic\n  assign sum_xor = A ^ B;        // XOR for A and B\n  assign n2 = sum_xor ^ Ci;      // XOR for sum_xor and Ci (Sum)\n  assign n3 = A & B;        // AND for A and B\n  assign Co = n3 | (sum_xor & Ci); // Carry out logic\n  assign S = n2;            // Assign sum directly\n\nendmodule",
+  "rename_map": {
+    "n1": "sum_xor"
+  },
+  "params_used": {
+    "custom_map": {
+      "n1": "sum_xor",
+      "n2": "final_sum",
+      "n3": "carry_and"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

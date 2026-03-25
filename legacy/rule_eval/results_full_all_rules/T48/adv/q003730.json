@@ -1,0 +1,8 @@
+{
+  "task_id": "q003730",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module carry_save_adder (  \n    input [3:0] A,  \n    input [3:0] B,  \n    input [3:0] C,  \n    output [3:0] sum,  \n    output [3:0] carry  \n);  \n    wire [3:0] c1, c2;  \n    wire [3:0] s1, s2;  \n   \n  assign carry = c2;\n  assign sum = s2;\n   \n  assign c2 = c1 | (s1 & C);\n  assign s2 = s1 ^ C;\n   \n  assign c1 = A & B;\n  assign s1 = A ^ B;\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

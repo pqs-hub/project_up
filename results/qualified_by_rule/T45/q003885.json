@@ -1,0 +1,6 @@
+{
+  "task_id": "q003885",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule (\n    input [3:0] A,\n    input EN,\n    output reg [15:0] Y\n);\n    always @(*) begin\n        if (EN) begin\n            Y = 16'b0000000000000000; // default to all 0\n            Y[A] = 1'b1; // set output corresponding to input\n        end else begin\n            Y = 16'b0000000000000000; // all outputs low when EN is low\n        end\n    end\nendmodule"
+}

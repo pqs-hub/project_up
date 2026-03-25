@@ -1,0 +1,6 @@
+{
+  "task_id": "q000984",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module backpropagation(\n    input clk,\n    input rst,\n    input [7:0] weight_in,\n    input [7:0] bias_in,\n    input [7:0] gradient_in,\n    input [7:0] learning_rate,\n    output reg [7:0] weight_out,\n    output reg [7:0] bias_out\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            weight_out <= 8'b0;\n            bias_out <= 8'b0;\n        end else begin\n            // Update weights and biases using gradient descent\n            weight_out <= weight_in - (gradient_in * learning_rate);\n            bias_out <= bias_in - (gradient_in * learning_rate);\n        end\n    end\nendmodule"
+}

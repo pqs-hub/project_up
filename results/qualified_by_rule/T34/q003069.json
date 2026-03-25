@@ -1,0 +1,6 @@
+{
+  "task_id": "q003069",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    input [71:0] pixels, // 3x3 matrix flattened (9 pixels, 8 bits each)\n    output reg [7:0] median // output median value\n);\n    integer i, j;\n    reg [7:0] unused_sorted_pixels [0:8];\n\n    always @(*) begin\n        // Unpack the pixels into an array\n        for (i = 0; i < 9; i = i + 1) begin\n            unused_sorted_pixels[i] = pixels[i*8 +: 8];\n        end\n\n        // Simple bubble sort to sort the pixels\n        for (i = 0; i < 9; i = i + 1) begin\n            for (j = 0; j < 8 - i; j = j + 1) begin\n                if (unused_sorted_pixels[j] > unused_sorted_pixels[j + 1]) begin\n                    // Swap\n                    {unused_sorted_pixels[j], unused_sorted_pixels[j + 1]} = {unused_sorted_pixels[j + 1], unused_sorted_pixels[j]};\n                end\n            end\n        end\n\n        // The median is the 5th element in the sorted array\n        median = unused_sorted_pixels[4];\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014015",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    input wire clk,\n    input wire [13:0] width,\n    output reg pulse\n);reg [13:0] obf_counter = 0;\n\n  always @(posedge clk) begin\n    obf_counter <= obf_counter + 1;\n    if (obf_counter < width) pulse <= 1'b1;\n    else pulse <= 1'b0;\n  end\nendmodule"
+}

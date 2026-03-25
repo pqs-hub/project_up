@@ -1,0 +1,6 @@
+{
+  "task_id": "q016611",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule (clk_i, rst_i,\n                      cyc_o, stb_o, cti_o, bte_o, we_o, adr_o, sel_o, ack_i, err_i, dat_o, sint_o,\n                      write_i, ack_o,\n                      render_addr_i, render_sel_i, render_dat_i);\n  input         clk_i;    \n  input         rst_i;    \n  output reg    cyc_o;    \n  output        stb_o;    \n  output [ 2:0] cti_o;    \n  output [ 1:0] bte_o;    \n  output        we_o;     \n  output [31:0] adr_o;    \n  output [ 3:0] sel_o;    \n  input         ack_i;    \n  input         err_i;    \n  output [31:0] dat_o;    \n  output        sint_o;     \n  input         write_i;\n  output reg    ack_o;\n  input [31:2]  render_addr_i;\n  input [ 3:0]  render_sel_i;\n  input [31:0]  render_dat_i;\n  assign adr_o  = {render_addr_i, 2'b00};\n  assign dat_o  = render_dat_i;\n  assign sel_o  = render_sel_i;\n  assign sint_o = err_i;\n  assign we_o   = 1'b1;\n  assign stb_o  = 1'b1;\n  assign cti_o  = 3'b000;\n  assign bte_o  = 2'b00;\n  always @(posedge clk_i or posedge rst_i)\n  begin\n    if(rst_i)\n    begin\n      ack_o <= 1'b0;\n      cyc_o <= 1'b0;\n    end\n    else\n    begin\n      cyc_o <= ack_i   ? 1'b0 : \n               write_i ? 1'b1 :\n               cyc_o;\n      ack_o <= ack_i; \n    end\n  end\nendmodule"
+}

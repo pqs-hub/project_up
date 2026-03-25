@@ -1,0 +1,6 @@
+{
+  "task_id": "q008379",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(\n    input A,\n    input enable,\n    input sleep,\n    output reg X\n);always @(A, enable, sleep) begin\n    if (sleep) begin\n        // If sleep is high, hold the output at the last value of A\n        X <= X;\n    end else if (enable) begin\n        // If enable is high, pass the input signal to the output\n        X <= A;\n    end else begin\n        // If enable is low, hold the output at the last value of A\n        X <= X;\n    end\nend\n\nendmodule"
+}

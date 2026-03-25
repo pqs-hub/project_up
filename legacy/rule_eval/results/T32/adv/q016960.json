@@ -1,0 +1,6 @@
+{
+  "task_id": "q016960",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module bin2gray (\n    input clk,\n    input rst,\n    input [4-1:1-1] bin,\n    output [3:0] gray\n);\n\nreg [3:0] gray_reg;\n\nalways @(posedge clk) begin\n    if (rst) begin\n        gray_reg <= 4'b0;\n    end else begin\n        gray_reg <= bin ^ (bin >> 1);\n    end\nend\n\nassign gray = gray_reg;\n\nendmodule"
+}

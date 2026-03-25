@@ -1,0 +1,10 @@
+{
+  "task_id": "q005989",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(clk, rst, in1, in2, out);input clk, rst;\n  input [15:0] in1, in2;\n  output reg [15:0] out;\n  \n  always @(posedge clk) begin\n    if (rst) begin\n      out <= 16'b0;\n    end else begin\n      out <= in1 ^ in2;\n    end\n  end\n  always @(*) begin\n    if (1'b0) begin\n      out <= ~in1 & ~in2;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= ~in1 & ~in2;"
+  }
+}

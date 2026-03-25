@@ -1,0 +1,10 @@
+{
+  "task_id": "q012495",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // Asynchronous reset and data enable control for synchronous D flip-flop\nmodule top_module(\n  input D, CLK, DE, RESET,\n  output reg Q  // Declare Q as reg in the output\n);always @(posedge CLK or negedge RESET) begin\n    if(!RESET) begin\n      Q <= 0;\n    end else if(DE) begin\n      Q <= D;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous reset and data enable control for synchronous D flip-flop"
+  }
+}

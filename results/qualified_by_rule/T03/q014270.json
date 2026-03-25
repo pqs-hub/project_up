@@ -1,0 +1,6 @@
+{
+  "task_id": "q014270",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(input CLK ,input [11:0]max,  output reg[7:0]number = 0, input[15:0]countB );reg counter = 0;\n  wire _tap_CLK = CLK & {1{1'b1}};\n\nalways@ (posedge CLK)\n    begin\n    if ((countB/10) <= 0)\n        counter = 0;\n    else\n        counter = 1;\n    case(counter)\n        0:  \n            number <= 8'b11000000; \n        1:\n            number <= 8'b11111001; \n        default:\n            counter = 1;\n        endcase       \n    end\n\nendmodule"
+}

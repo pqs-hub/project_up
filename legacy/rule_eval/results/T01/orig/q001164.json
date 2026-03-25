@@ -1,0 +1,6 @@
+{
+  "task_id": "q001164",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module elevator_controller (\n    input clk,\n    input reset,\n    input req_up,\n    input req_down,\n    output reg [1:0] state // 00: Idle, 01: Moving Up, 10: Moving Down\n);\n    // State encoding\n    parameter IDLE = 2'b00, MOVING_UP = 2'b01, MOVING_DOWN = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (req_up)\n                        state <= MOVING_UP;\n                    else if (req_down)\n                        state <= MOVING_DOWN;\n                end\n                MOVING_UP: begin\n                    if (!req_up)\n                        state <= IDLE;\n                end\n                MOVING_DOWN: begin\n                    if (!req_down)\n                        state <= IDLE;\n                end\n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule"
+}

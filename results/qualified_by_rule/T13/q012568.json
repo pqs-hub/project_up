@@ -1,0 +1,6 @@
+{
+  "task_id": "q012568",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    X  ,\n    A  ,\n    B  ,\n    C_N,\n    D_N\n);output X  ;\n    input  A  ;\n    input  B  ;\n    input  C_N;\n    input  D_N;\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Replacing the unknown module with an equivalent OR gate implementation\n    wire C;\n    wire D;\n\n    not (C, C_N); // Inverted input C_N\n    not (D, D_N); // Inverted input D_N\n\n    assign X = (A | B | C | D); // 4-input OR gate logic\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q004664",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module is designed to decrement a 2-bit binary counter asynchronously on reset and increment on enable.\nmodule binary_counter (\n  input clk,\n  input reset,\n  input en,\n  output reg [1:0] count\n);\n\n  always @(posedge clk or posedge reset) begin\n    if (reset)\n      count <= 2'b00;\n    else if (en)\n      count <= count + 1;\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to decrement a 2-bit binary counter asynchronously on reset and increment on enable."
+  }
+}

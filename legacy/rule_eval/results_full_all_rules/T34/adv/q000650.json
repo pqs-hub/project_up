@@ -1,0 +1,15 @@
+{
+  "task_id": "q000650",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module non_restoring_divider(  \n    input [7:0] dividend,  \n    input [7:0] divisor,  \n    output reg [7:0] quotient,  \n    output reg [7:0] remainder  \n);  \n    reg [7:0] dividend_copy;  \n    reg [7:0] temp_quotient;  \n    integer i;  \n  \n    always @(*) begin  \n        dividend_copy = dividend;  \n        temp_quotient = 0;  \n        remainder = 0;  \n  \n        for (i = 7; i >= 0; i = i - 1) begin  \n            remainder = {remainder[6:0], dividend_copy[7]};  \n            dividend_copy = {dividend_copy[6:0], 1'b0};  \n  \n            if (remainder >= divisor) begin  \n                remainder = remainder - divisor;  \n                temp_quotient = {temp_quotient[6:0], 1'b1};  \n            end else begin  \n                temp_quotient = {temp_quotient[6:0], 1'b0};  \n            end  \n        end  \n        quotient = temp_quotient;  \n    end  \nendmodule",
+  "rename_map": {
+    "temp_dividend": "dividend_copy"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_dividend": "dividend_copy"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

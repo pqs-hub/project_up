@@ -1,0 +1,6 @@
+{
+  "task_id": "q006728",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(O, I0, I1, S);`ifdef XIL_TIMING\n\n    parameter LOC = \"UNPLACED\";\n\n`endif\n\n    \n    output O;\n    input I0, I1, S;\n    \n    reg O_out;\n\n    always @(I0 or I1 or S) \n        if (S)\n\t    O_out = I1;\n\telse\n\t    O_out = I0;\n    \n    assign O = O_out;\n    \n`ifdef XIL_TIMING\n\n    specify\n                                                                                 \n        (I0 => O) = (0:0:0, 0:0:0);\n        (I1 => O) = (0:0:0, 0:0:0);\n\t(S => O) = (0:0:0, 0:0:0);\n        specparam PATHPULSE$ = 0;\n                                                                                 \n    endspecify\n\n`endif\n    \nendmodule"
+}

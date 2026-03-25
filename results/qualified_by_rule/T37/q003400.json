@@ -1,0 +1,6 @@
+{
+  "task_id": "q003400",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire start_scan,\n    input wire connect,\n    output reg [1:0] state // 00: IDLE, 01: SCANNING, 10: CONNECTED\n);\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter SCANNING = 2'b01;\n    parameter CONNECTED = 2'b10;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start_scan) begin\n                        state <= SCANNING;\n                    end\n                end\n                SCANNING: begin\n                    if (connect) begin\n                        state <= CONNECTED;\n                    end\n                end\n                CONNECTED: begin\n                    // Stay in CONNECTED state until reset\n                end\n            endcase\n        end\n    end\nendmodule"
+}

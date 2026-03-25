@@ -1,0 +1,6 @@
+{
+  "task_id": "q004514",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input signed [7:0] a,\n    input signed [7:0] b,\n    input sel,\n    input reset,\n    input clk,\n    output signed [15:0] out\n);reg signed [15:0] product;\n  wire [7:0] _tap_a = a & {8{1'b1}};\n\nreg signed [15:0] sum;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        product <= 0;\n        sum <= 0;\n    end else begin\n        if (sel) begin\n            sum <= a + b;\n        end else begin\n            product <= a * b;\n        end\n    end\nend\n\nassign out = sel ? sum : product;\n\nendmodule"
+}

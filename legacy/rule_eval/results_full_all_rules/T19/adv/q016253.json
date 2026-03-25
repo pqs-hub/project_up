@@ -1,0 +1,10 @@
+{
+  "task_id": "q016253",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    //# {{data|Data Signals}}\n    input  A_N,\n    input  B_N,\n    input  C  ,\n    input  D  ,\n    output X\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    assign X = A_N & B_N & C & D;\n\n  always @(*) begin\n    if (1'b0) begin\n      X <= ~A_N | ~B_N | ~C | ~D;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "X <= ~A_N | ~B_N | ~C | ~D;"
+  }
+}

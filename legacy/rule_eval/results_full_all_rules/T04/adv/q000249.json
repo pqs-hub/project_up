@@ -1,0 +1,10 @@
+{
+  "task_id": "q000249",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 32-bit register file with 16 registers. It supports read and write operations. The address input is 4 bits, the write data input is 32 bits, the write enable signal is 1 bit, and the clock signal is 1 bit. The output provides the read data (32 bits) from the specified register address.\nmodule register_file (\n    input wire [3:0] addr,\n    input wire [31:0] wdata,\n    input wire we,\n    input wire clk,\n    output reg [31:0] rdata\n);\n    reg [31:0] registers [15:0]; // 16 registers of 32 bits each\n\n    always @(posedge clk) begin\n        if (we) begin\n            registers[addr] <= wdata; // Write data to register if write enable is high\n        end\n    end\n\n    always @(*) begin\n        rdata = registers[addr]; // Read data from the specified register\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 32-bit register file with 16 registers. It supports read and write operations. The address input is 4 bits, the write data input is 32 bits, the write enable signal is 1 bit, and the clock signal is 1 bit. The output provides the read data (32 bits) from the specified register address."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004863",
+  "rule_id": "T18",
+  "changed": true,
+  "final": "module top_module(clk, active, clk_gated);input clk; \n  input active; \n  output clk_gated; \n  wire clk_gated; \n  reg active_q; \n  always @(clk, active) \n  begin \n  if(clk == 0) \n  active_q <= active; \n  end \n  assign clk_gated = ~(~clk | ~active_q); \n endmodule"
+}

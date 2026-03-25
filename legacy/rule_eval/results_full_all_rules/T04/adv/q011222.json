@@ -1,0 +1,10 @@
+{
+  "task_id": "q011222",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module is designed to conditionally load data into a 16-bit register based on control signals. However, it does not support selective updates for the lower and upper bytes. Instead, it always loads the entire 16-bit input 'd' into the register on the rising edge of the clock 'clk' when the enable signal 'en' is active.\nmodule top_module(\n  input clk,\n  input reset,\n  input en,\n  input byte_lo,\n  input byte_hi,\n  input [15:0] d,\n  output reg [15:0] q\n);always @(posedge clk) begin\n    if (reset) begin\n      q <= 16'b0;\n    end else if (en) begin\n      if (byte_lo) begin\n        q[7:0] <= d[7:0];\n      end\n      if (byte_hi) begin\n        q[15:8] <= d[15:8];\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to conditionally load data into a 16-bit register based on control signals. However, it does not support selective updates for the lower and upper bytes. Instead, it always loads the entire 16-bit input 'd' into the register on the rising edge of the clock 'clk' when the enable signal 'en' is active."
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "task_id": "q007089",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module edge_detector(\n\tinput wire clk,\n\tinput wire reset,\n\tinput wire signal,\n\toutput reg edge_detected\n);reg signal_d;\n\n\talways @(posedge clk or posedge reset) begin\n\t\tif (reset) begin\n\t\t\tsignal_d <= 1'b0;\n\t\t\tedge_detected <= 1'b0;\n\t\tend else begin\n\t\t\tedge_detected <= signal & ~signal_d;\n\t\t\tsignal_d <= signal;\n\t\tend\n\tend\nendmodule",
+  "rename_map": {}
+}

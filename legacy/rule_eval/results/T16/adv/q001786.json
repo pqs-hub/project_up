@@ -1,0 +1,9 @@
+{
+  "task_id": "q001786",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module adc_controller (\n    input wire clk,\n    input wire [15:0] obf_adc_input,\n    input wire [15:0] reference,\n    output reg [15:0] digital_output\n);\n\nalways @(posedge clk) begin\n    if (obf_adc_input > reference)\n        digital_output <= 16'hFFFF;\n    else\n        digital_output <= 16'h0000;\nend\n\nendmodule",
+  "rename_map": {
+    "adc_input": "obf_adc_input"
+  }
+}

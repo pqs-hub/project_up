@@ -1,0 +1,10 @@
+{
+  "task_id": "q013367",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module formats a 12-bit sensor signal into a 16-bit output with the upper 4 bits always set to zero and the lower 12 bits equal to the sensor signal.\nmodule top_module(\n    input clk,\n    input reset,\n    input [11:0] sensor_signal,\n    output reg [15:0] output_signal\n);always @(posedge clk) begin\n        if (reset) begin\n            output_signal <= 16'h0000;\n        end else begin\n            output_signal[15:12] <= 4'b0000;\n            output_signal[11:0] <= sensor_signal;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module formats a 12-bit sensor signal into a 16-bit output with the upper 4 bits always set to zero and the lower 12 bits equal to the sensor signal."
+  }
+}

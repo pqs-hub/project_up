@@ -1,0 +1,15 @@
+{
+  "task_id": "q001528",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dvfs_controller(\n    input [2:0] load,\n    output reg [1:0] clock_speed\n);\n    \n    always @(*) begin\n        case (load)\n            3'b000: clock_speed = 2'b00; // Low Frequency\n            3'b001: clock_speed = 2'b00; // Low Frequency\n            3'b010: clock_speed = 2'b01; // Medium Frequency\n            3'b011: clock_speed = 2'b01; // Medium Frequency\n            3'b100: clock_speed = 2'b10; // High Frequency\n            3'b101: clock_speed = 2'b10; // High Frequency\n            3'b110: clock_speed = 2'b10; // High Frequency\n            3'b111: clock_speed = 2'b10; // High Frequency\n            default: clock_speed = 2'b00; // Default case\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "frequency": "clock_speed"
+  },
+  "params_used": {
+    "custom_map": {
+      "frequency": "clock_speed"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q001119",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux8to1(  \n    input wire [7:0] input_data,  \n    input wire [2:0] sel,  \n    output wire y  \n);  \n    assign y = (sel == 3'b000) ? input_data[0] :  \n               (sel == 3'b001) ? input_data[1] :  \n               (sel == 3'b010) ? input_data[2] :  \n               (sel == 3'b011) ? input_data[3] :  \n               (sel == 3'b100) ? input_data[4] :  \n               (sel == 3'b101) ? input_data[5] :  \n               (sel == 3'b110) ? input_data[6] :  \n               input_data[7];  \nendmodule",
+  "rename_map": {
+    "data": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data": "input_data"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

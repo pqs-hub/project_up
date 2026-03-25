@@ -1,0 +1,6 @@
+{
+  "task_id": "q005183",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n  input clk,\n  input rst,\n  input [n-1:0] in,\n  output reg [n-1:0] out\n);parameter n = 8; // number of bits in the input and output signals\n\nreg [n-1:0] unused_sum; // register to store the accumulated unused_sum\n\nalways @(posedge clk) begin\n  if (rst) begin\n    unused_sum <= 0; // reset the accumulated unused_sum to zero\n  end else begin\n    unused_sum <= unused_sum + in; // add the input signal to the accumulated unused_sum\n  end\nend\n\nassign out = rst ? 0 : unused_sum; // select between the accumulated unused_sum and zero based on the reset signal\n\nendmodule"
+}

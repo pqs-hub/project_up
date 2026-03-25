@@ -1,0 +1,23 @@
+{
+  "task_id": "q005717",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n   \n   jbi_sctag_req_discard, scbuf_jbi_data_buf, jbi_scbuf_ecc_buf, \n   jbi_sctag_req_vld_buf, scbuf_jbi_ctag_vld_buf, \n   scbuf_jbi_ue_err_buf, sctag_jbi_iq_dequeue_buf, \n   sctag_jbi_wib_dequeue_buf, sctag_jbi_por_req_buf, \n   \n   jbi_sctag_req, scbuf_jbi_data, jbi_scbuf_ecc, jbi_sctag_req_vld, \n   scbuf_jbi_ctag_vld, scbuf_jbi_ue_err, sctag_jbi_iq_dequeue, \n   sctag_jbi_wib_dequeue, sctag_jbi_por_req\n   );output [31:0]        jbi_sctag_req_discard;         \n   output [31:0]        scbuf_jbi_data_buf;        \n   output [6:0]         jbi_scbuf_ecc_buf;         \n   output               jbi_sctag_req_vld_buf;     \n   output               scbuf_jbi_ctag_vld_buf;\n   output               scbuf_jbi_ue_err_buf;      \n   output\t\tsctag_jbi_iq_dequeue_buf;\n   output\t\tsctag_jbi_wib_dequeue_buf;\n   output\t\tsctag_jbi_por_req_buf;\n\n   input [31:0]        jbi_sctag_req;         \n   input [31:0]        scbuf_jbi_data;        \n   input [6:0]         jbi_scbuf_ecc;         \n   input               jbi_sctag_req_vld;     \n   input               scbuf_jbi_ctag_vld;\n   input               scbuf_jbi_ue_err;      \n   input\t       sctag_jbi_iq_dequeue;\n   input\t       sctag_jbi_wib_dequeue;\n   input\t       sctag_jbi_por_req;\n\n\n\n\n\nassign\t\tjbi_sctag_req_discard = jbi_sctag_req ;\nassign\t\tscbuf_jbi_data_buf = scbuf_jbi_data ;\nassign\t\tjbi_scbuf_ecc_buf[6:0] = jbi_scbuf_ecc[6:0] ;\nassign\t\tjbi_sctag_req_vld_buf = jbi_sctag_req_vld ;\nassign\t\tscbuf_jbi_ctag_vld_buf = scbuf_jbi_ctag_vld ;\nassign\t\tscbuf_jbi_ue_err_buf = scbuf_jbi_ue_err ;\nassign\t\tsctag_jbi_iq_dequeue_buf = sctag_jbi_iq_dequeue ;\nassign\t\tsctag_jbi_wib_dequeue_buf =  sctag_jbi_wib_dequeue;\nassign\t\tsctag_jbi_por_req_buf = sctag_jbi_por_req ;\n\nendmodule",
+  "rename_map": {
+    "jbi_sctag_req_buf": "jbi_sctag_req_discard"
+  },
+  "params_used": {
+    "custom_map": {
+      "jbi_sctag_req_buf": "jbi_sctag_req_discard",
+      "scbuf_jbi_data_buf": "scbuf_jbi_data_null",
+      "jbi_scbuf_ecc_buf": "jbi_scbuf_ecc_zero",
+      "jbi_sctag_req_vld_buf": "jbi_sctag_req_invalid",
+      "scbuf_jbi_ctag_vld_buf": "scbuf_jbi_ctag_unavailable",
+      "scbuf_jbi_ue_err_buf": "scbuf_jbi_ue_no_error",
+      "sctag_jbi_iq_dequeue_buf": "sctag_jbi_iq_enqueue",
+      "sctag_jbi_wib_dequeue_buf": "sctag_jbi_wib_enqueue",
+      "sctag_jbi_por_req_buf": "sctag_jbi_por_release"
+    },
+    "fallback_prefix": "jbi_sctag_req_"
+  }
+}

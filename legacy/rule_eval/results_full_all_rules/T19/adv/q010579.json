@@ -1,0 +1,10 @@
+{
+  "task_id": "q010579",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_decoder_8to256 (\n    input en,\n    input [7:0] bin_in,\n    output reg [255:0] one_hot_out\n);\n\nalways @(*) begin\n    if (!en) begin\n        one_hot_out = 256'b0;\n    end else begin\n        one_hot_out = 256'b0;\n        one_hot_out[bin_in] = 1'b1;\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      one_hot_out[255:128] = 128'b0; one_hot_out[127:64] = 64'b0; one_hot_out[63:32] = 32'b0; one_hot_out[31:16] = 16'b0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "one_hot_out[255:128] = 128'b0; one_hot_out[127:64] = 64'b0; one_hot_out[63:32] = 32'b0; one_hot_out[31:16] = 16'b0;"
+  }
+}

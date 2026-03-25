@@ -1,0 +1,6 @@
+{
+  "task_id": "q008578",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] in,\n    output reg [3:0] out,  // Change to reg unused_because we are driving it in an always block\n    output reg overflow     // Change to reg unused_because we are driving it in an always block\n);always @(*) begin\n    if (in == 4'b1111) begin\n        out = 4'b0000;        // Assign temp_out to out directly\n        overflow = 1;\n    end\n    else begin\n        out = in + 1;         // Assign the incremented value directly to out\n        overflow = 0;\n    end\nend\n\nendmodule"
+}

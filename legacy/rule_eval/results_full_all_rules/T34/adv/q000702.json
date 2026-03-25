@@ -1,0 +1,15 @@
+{
+  "task_id": "q000702",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module packet_filter(  \n    input [4:0] deny_addr,  \n    input [4:0] allowed_addr,  \n    output reg permit  \n);  \n    always @(*) begin  \n        if (deny_addr == allowed_addr)  \n            permit = 1;  \n        else  \n            permit = 0;  \n    end  \nendmodule",
+  "rename_map": {
+    "src_addr": "deny_addr"
+  },
+  "params_used": {
+    "custom_map": {
+      "src_addr": "deny_addr"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

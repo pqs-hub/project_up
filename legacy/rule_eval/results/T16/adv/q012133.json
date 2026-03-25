@@ -1,0 +1,9 @@
+{
+  "task_id": "q012133",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input obf_a,\n    input b,\n    input reset,\n    output reg out\n);always @(obf_a, b, reset) begin\n    if (reset == 1'b0) begin\n        out <= 1'b0; // reset signal is asserted, output is 0\n    end\n    else begin\n        out <= obf_a & b; // reset signal is de-asserted, output is AND of obf_a and b\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

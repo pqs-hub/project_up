@@ -1,0 +1,10 @@
+{
+  "task_id": "q007025",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input rst,\n  input wen,\n  input ren,\n  input [w-1:0] din,\n  input [log2_n-1:0] sel, // Updated the input selection based on pre-calculated log2\n  output [w-1:0] dout\n);parameter n = 4; // number of registers\n  parameter w = 8; // width of each register (in bits)\n\n  localparam log2_n = $clog2(n); // Use $clog2 to get the ceiling of log2(n)\n\n  reg [w-1:0] registers [0:n-1]; // array of registers\n\n  integer i; // Declare an integer for for-loop\n  \n  always @(posedge clk or posedge rst) begin\n    if (rst) begin\n      // Reset all registers to 0\n      for (i = 0; i < n; i = i + 1) begin\n        registers[i] <= 0;\n      end\n    end else if (wen) begin\n      registers[sel] <= din;\n    end\n  end\n\n  wire neg_data_out = (ren);\n  assign dout = neg_data_out ? registers[sel] : 0;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_data_out"
+  }
+}

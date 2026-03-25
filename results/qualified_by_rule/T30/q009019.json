@@ -1,0 +1,6 @@
+{
+  "task_id": "q009019",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule (clk, reset, load, shift_left, shift_right, parallel_in, q);\n   input clk;\n   input reset;\n   input load;\n   input shift_left;\n   input shift_right;\n   input [3:0] parallel_in;\n   output [3:0] q;\n   \n   reg [3:0] q;\n\nalways @(posedge clk) begin\n    if (reset)\n        q <= 4'b0000;\n    else if (load)\n        q <= parallel_in;\n    else if (shift_left)\n        q <= {q[2:0], 1'b0};\n    else if (shift_right)\n        q <= {1'b0, q[3:1]};\nend\n\nendmodule"
+}

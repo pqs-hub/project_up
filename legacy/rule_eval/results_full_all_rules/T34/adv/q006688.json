@@ -1,0 +1,17 @@
+{
+  "task_id": "q006688",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input deny_all,\n    input req_b,\n    input req_c,\n    output reg grant\n);always @(*) begin\n    if(deny_all && !req_b && !req_c) begin\n        grant = 1;\n    end\n    else if(!deny_all && req_b && !req_c) begin\n        grant = 1;\n    end\n    else if(!deny_all && !req_b && req_c) begin\n        grant = 1;\n    end\n    else if(deny_all && req_b && !req_c) begin\n        grant = 1;\n    end\n    else if(deny_all && !req_b && req_c) begin\n        grant = 1;\n    end\n    else if(!deny_all && req_b && req_c) begin\n        grant = 1;\n    end\n    else begin\n        grant = 0;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "req_a": "deny_all"
+  },
+  "params_used": {
+    "custom_map": {
+      "req_a": "deny_all",
+      "req_b": "deny_all",
+      "req_c": "deny_all"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006896",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule top_module(Clock_in,Write_Enable_in,Address_in,Data_in,Data_out);parameter AddressWidth = 8; \n parameter DataWidth = 8; \n parameter Depth = 256; \n input Clock_in; \n input Write_Enable_in; \n input [AddressWidth-1:0]Address_in; \n input [DataWidth-1:0]Data_in; \n output [DataWidth-1:0]Data_out; \n (* ram_style = \"distributed\" *) \n reg [DataWidth-1:0] RAM [Depth-1:0]; \n integer i; \n initial begin \n  for (i = 0; i < Depth; i = i + 1) begin \n  RAM[i] = {DataWidth{1'b0}}; \n  end \n end \n always @ (posedge Clock_in) begin \n  if (Write_Enable_in) begin \n  RAM[Address_in]<=Data_in; \n  end \n end \n assign Data_out = RAM[Address_in]; \n endmodule"
+}

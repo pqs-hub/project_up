@@ -1,0 +1,6 @@
+{
+  "task_id": "q009031",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n  input clk,\n  input in,\n  output out\n);parameter d = 4; // number of clock cycles of delay\n\n// Define a shift register with d stages\nreg [d-1:0] obf_sr;\n\nalways @(posedge clk) begin\n  // Shift the input signal into the shift register\n  obf_sr <= {obf_sr[d-2:0], in};\nend\n\n// Output the delayed signal from the d-th flip-flop\nassign out = obf_sr[d-1];\n\nendmodule"
+}

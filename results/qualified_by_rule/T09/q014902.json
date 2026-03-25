@@ -1,0 +1,6 @@
+{
+  "task_id": "q014902",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(input[31:0] op1,input[31:0] op2,input[3:0] f,input en,output reg[31:0] result_hi,output reg[31:0] result_lo);always @(op1, op2, f) \n  if(en) begin \n  case (f) \n  0: begin \n  result_lo = $signed(op1) / $signed(op2); \n  result_hi = $signed(op1) % $signed(op2); \n  end \n  1: begin \n  result_lo = op1 / op2; \n  result_hi = op1 % op2; \n  end \n  2: begin \n  {result_hi, result_lo} = $signed(op1) * $signed(op2); \n  end \n  3: begin \n  {result_hi, result_lo} = op1 * op2; \n  end \n  endcase \n  $display(\"\\tR[lo] = %x (hex)\", result_lo); \n  $display(\"\\tR[hi] = %x (hex)\", result_hi); \n  end \n endmodule"
+}

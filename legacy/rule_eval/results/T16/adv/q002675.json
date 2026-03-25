@@ -1,0 +1,9 @@
+{
+  "task_id": "q002675",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module voltage_regulator (\n    input [7:0] obf_Vin,  // 8-bit input voltage\n    output reg [7:0] Vout // 8-bit output voltage\n);\n\nalways @(*) begin\n    if (obf_Vin >= 8'd5) \n        Vout = 8'd5; // Output 5V if obf_Vin is greater than or equal to 5V\n    else \n        Vout = obf_Vin; // Otherwise, output obf_Vin\nend\n\nendmodule",
+  "rename_map": {
+    "Vin": "obf_Vin"
+  }
+}

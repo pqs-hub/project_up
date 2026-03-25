@@ -1,0 +1,6 @@
+{
+  "task_id": "q001292",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module priority_arbiter (\n    input wire req0,\n    input wire req1,\n    input wire req2,\n    input wire req3,\n    output reg [3:0] grant\n);\n    always @(*) begin\n        // Default grant to no request\n        grant = 4'b0000;\n\n        // Grant based on priority\n        if (req0) grant = 4'b0001; // Grant req0\n        else if (req1) grant = 4'b0010; // Grant req1\n        else if (req2) grant = 4'b0100; // Grant req2\n        else if (req3) grant = 4'b1000; // Grant req3\n    end\nendmodule"
+}

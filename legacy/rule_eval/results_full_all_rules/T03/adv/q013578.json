@@ -1,0 +1,8 @@
+{
+  "task_id": "q013578",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    output reg Q,\n    input D,\n    input C,\n    input R\n);parameter [0:0] INIT = 1'b0;\n  wire _tap_Q = Q ^ {1{1'b0}};\n\n    initial Q = INIT;\n\n    always @(posedge C or negedge R)\n        if (!R)\n            Q <= 1'b0;\n        else \n            Q <= D;\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

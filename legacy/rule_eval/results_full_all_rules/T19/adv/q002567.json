@@ -1,0 +1,10 @@
+{
+  "task_id": "q002567",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module edge_detector(\n    input clk,\n    input signal_in,\n    output reg edge_detected\n);\n    reg last_signal_in;\n\n    always @(posedge clk) begin\n        if (signal_in && !last_signal_in) begin\n            edge_detected <= 1'b1; // Rising edge detected\n        end else begin\n            edge_detected <= 1'b0; // No edge\n        end\n        last_signal_in <= signal_in; // Update the last signal state\n    end\n  always @(*) begin\n    if (1'b0) begin\n      edge_detected <= ~signal_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "edge_detected <= ~signal_in;"
+  }
+}

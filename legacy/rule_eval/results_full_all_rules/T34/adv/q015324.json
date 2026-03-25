@@ -1,0 +1,15 @@
+{
+  "task_id": "q015324",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk, reset, mode, addr, data);input clk, reset, mode; \n input [2:0] addr; \n output [3:0] data; \n (* mem2reg *) \n reg [3:0] ram [0:7]; \n assign data = ram[addr]; \n integer i; \n always @(posedge clk) begin \n  if (reset) begin \n  for (i=0; i<8; i=i+1) \n  ram[i] <= i; \n  end else \n  if (mode) begin \n  for (i=0; i<8; i=i+1) \n  ram[i] <= ram[i]+1; \n  end else begin \n  ram[addr] <= 0; \n  end \n end \n endmodule",
+  "rename_map": {
+    "mem": "ram"
+  },
+  "params_used": {
+    "custom_map": {
+      "mem": "ram"
+    },
+    "fallback_prefix": "_alt_"
+  }
+}

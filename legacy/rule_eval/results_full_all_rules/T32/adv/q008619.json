@@ -1,0 +1,8 @@
+{
+  "task_id": "q008619",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module single_port_ram(\n\tinput \t\tclk,\n\tinput \t\twe,\n\tinput  [4-1:1-1] addr,\n\tinput  [7:0] data_in,\n \n\toutput reg [7:0] data_out\n);\n\nreg [7:0] memory [15:0];\n\nalways @(posedge clk) begin\n\tif(we)\n\t\tmemory[addr] <= data_in;\n\tdata_out <= memory[addr];\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

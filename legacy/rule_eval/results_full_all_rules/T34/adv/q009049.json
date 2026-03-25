@@ -1,0 +1,18 @@
+{
+  "task_id": "q009049",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(IN1, IN2, SEL, OUT);input IN1;\n  input IN2;\n  input SEL;\n  output OUT;\n\n  wire MUX_NOT_SEL;\n  assign MUX_NOT_SEL = ~SEL;\n\n  wire AND1;\n  assign AND1 = IN1 & MUX_NOT_SEL;\n\n  wire AND2;\n  assign AND2 = IN2 & SEL;\n\n  assign OUT = AND1 | AND2;\n\nendmodule",
+  "rename_map": {
+    "NOT_SEL": "MUX_NOT_SEL"
+  },
+  "params_used": {
+    "custom_map": {
+      "IN1": "DATA_A",
+      "IN2": "DATA_B",
+      "SEL": "CHOOSE_B",
+      "OUT": "SELECTED_DATA"
+    },
+    "fallback_prefix": "MUX_"
+  }
+}

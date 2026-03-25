@@ -1,0 +1,16 @@
+{
+  "task_id": "q008187",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input Inv_x,\n    input y,\n    output z\n);\n    assign z = Inv_x | y;\nendmodule\n\nmodule H(\n    input Inv_x,\n    input y,\n    output z\n);\n    assign z = Inv_x | y;\nendmodule\n\nmodule top_module(\n    input Inv_x,\n    input y,\n    output z\n);\n    wire g1_out, g2_out, h1_out, h2_out;\n    wire or_out, and_out;\n\n    G g1(.Inv_x(Inv_x), .y(y), .z(g1_out));\n    G g2(.Inv_x(Inv_x), .y(y), .z(g2_out));\n    H h1(.Inv_x(Inv_x), .y(y), .z(h1_out));\n    H h2(.Inv_x(Inv_x), .y(y), .z(h2_out));\n\n    assign or_out = g1_out | h1_out;\n    assign and_out = g2_out & h2_out;\n\n    assign z = or_out ^ and_out;\nendmodule",
+  "rename_map": {
+    "x": "Inv_x"
+  },
+  "params_used": {
+    "custom_map": {
+      "G": "Nand",
+      "H": "Nor"
+    },
+    "fallback_prefix": "Inv_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q005076",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the clock gating module inverts the output clock signal when the test enable signal (TE) is high, but in reality, it does not.\nmodule top_module(CLK, EN, TE, RESET, ENCLK);input CLK, EN, TE, RESET;\n  output ENCLK;\n\n  wire gated_clk;\n\n  assign gated_clk = (EN & ~RESET) ? CLK : 1'b0;\n\n  assign ENCLK = (TE) ? ~gated_clk : gated_clk;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the clock gating module inverts the output clock signal when the test enable signal (TE) is high, but in reality, it does not."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q016705",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module xor_and(\n        c_in,\n        d_in,\n        out1\n    );\n\n    // SIGNAL DECLARATIONS\n    input c_in;\n    input d_in;\n    output out1;\n    wire out1;\n    wire temp;\n\n    assign temp = c_in & d_in;\n    assign out1 = temp ^ d_in;\n\n  always @(*) begin\n    if (1'b0) begin\n      out1 <= ~out1; temp <= ~temp;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out1 <= ~out1; temp <= ~temp;"
+  }
+}

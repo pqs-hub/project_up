@@ -1,0 +1,10 @@
+{
+  "task_id": "q003824",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module eeprom_cell (\n    input [4:0] data_in,\n    input write_enable,\n    output reg [4:0] data_out\n);\n    always @(*) begin\n        if (write_enable) begin\n            data_out = data_in;  // Write data to EEPROM\n        end\n        // else: data_out retains its value (hold)\n    end\n  always @(*) begin\n    if (1'b0) begin\n      data_out <= ~data_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "data_out <= ~data_in;"
+  }
+}

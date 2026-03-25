@@ -1,0 +1,10 @@
+{
+  "task_id": "q016793",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module max_value (\n    input [7:0] A,\n    input [7:0] B,\n    output reg [7:0] max\n);\n\n    always @* begin\n        if (A > B) begin\n            max = A;\n        end\n        else begin\n            max = B;\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      max = A & ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "max = A & ~B;"
+  }
+}

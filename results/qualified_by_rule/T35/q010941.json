@@ -1,0 +1,6 @@
+{
+  "task_id": "q010941",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [2:0] data,\n    output reg parity);always @(posedge clk or posedge reset) begin\n    if (reset) begin\n        parity <= 1'b0;\n    end else begin\n        parity <= data[0] ^ data[1] ^ data[2];\n    end\nend\nendmodule"
+}

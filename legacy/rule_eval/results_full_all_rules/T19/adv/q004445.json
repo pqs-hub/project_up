@@ -1,0 +1,10 @@
+{
+  "task_id": "q004445",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input [6:0] D, input [1:0] S, output reg [1:0] Y);always @* begin : block\n    reg [3:0] data [0:3];\n    data[0] = D[3:0];\n    data[1] = D[4:1];\n    data[2] = D[5:2];\n    data[3] = D[6:3];\n    Y = data[S];\n  end\n  always @(*) begin\n    if (1'b0) begin\n      Y = data[~S];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y = data[~S];"
+  }
+}

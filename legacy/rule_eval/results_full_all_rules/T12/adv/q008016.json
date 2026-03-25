@@ -1,0 +1,10 @@
+{
+  "task_id": "q008016",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module top_module(jal, memRe, regWe, regAddr, pcNext, memData, aluResult, writeData, writeAddr, writeEnable);input jal, memRe, regWe;\n  input [3:0] regAddr;\n  input [15:0] pcNext, memData, aluResult;\n\n  output [15:0] writeData;\n  output [3:0] writeAddr;\n  output writeEnable;  \n\n  wire neg_writeData = jal;\n  assign writeData = neg_writeData ? pcNext : memRe ? memData : \n                      aluResult;\n\n  assign writeAddr = regAddr;\n  assign writeEnable = regWe;\n  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_writeData"
+  }
+}

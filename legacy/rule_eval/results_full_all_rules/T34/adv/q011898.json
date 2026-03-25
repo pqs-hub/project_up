@@ -1,0 +1,15 @@
+{
+  "task_id": "q011898",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n    input [7:0] a, \n    input [7:0] b, \n    input not_sel, \n    output reg [7:0] y);always @(*) \n    case (not_sel)\n        0: y = ~(a & b);\n        1: y = ~(a | b);\n    endcase\n    \nendmodule",
+  "rename_map": {
+    "sel": "not_sel"
+  },
+  "params_used": {
+    "custom_map": {
+      "sel": "not_sel"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

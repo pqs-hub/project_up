@@ -1,0 +1,10 @@
+{
+  "task_id": "q012706",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module shift_register_16bit (\n    input clk,\n    input reset,\n    input [15:0] parallel_in,\n    input load,\n    output reg [15:0] q);\n\nalways @(posedge clk) begin\n    if (reset)\n        q <= 16'b0;\n    else if (load)\n        q <= parallel_in;\n    else\n        q <= {q[14:0], 1'b0};\n    end\n    \n  always @(*) begin\n    if (1'b0) begin\n      if (reset) begin\n        q <= 16'b1;\n      end\n      else if (load) begin\n        q <= ~parallel_in;\n      end\n      else begin\n        q <= {q[14:0], 1'b1};\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (reset) begin\n  q <= 16'b1;\nend\nelse if (load) begin\n  q <= ~parallel_in;\nend\nelse begin\n  q <= {q[14:0], 1'b1};\nend;"
+  }
+}

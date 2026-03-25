@@ -1,0 +1,15 @@
+{
+  "task_id": "q002559",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module barrel_shifter(input [1:0] in, input shift_en, output reg [1:0] out);  \n    always @(*) begin  \n        case (shift_en)  \n            1'b0: out = in;  \n            1'b1: out = {in[0], in[1]}; // Left shift with wrap-around  \n            default: out = 2'b00;  \n        endcase  \n    end  \nendmodule",
+  "rename_map": {
+    "ctrl": "shift_en"
+  },
+  "params_used": {
+    "custom_map": {
+      "ctrl": "shift_en"
+    },
+    "fallback_prefix": "bs_"
+  }
+}

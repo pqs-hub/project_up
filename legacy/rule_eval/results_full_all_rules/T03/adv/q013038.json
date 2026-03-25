@@ -1,0 +1,8 @@
+{
+  "task_id": "q013038",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    Y   ,\n    A1  ,\n    A2  ,\n    B1  ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output Y   ;\n    input  A1  ;\n    input  A2  ;\n    input  B1  ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n  wire _tap_Y = Y ^ {1{1'b0}};\n\n\n    wire select;\n    assign select = B1;\n\n    assign Y = (select == 1'b0) ? A1 : A2;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q015678",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(\n    a0,\n    a1,\n    a2,\n    a3,\n    s,\n    y\n);input [31:0]a0,a1,a2,a3;\n    input [1:0]s;\n    output [31:0]y;\n    function [31:0] select;\n            input [31:0]a0,a1,a2,a3;\n            input [1:0]s;\n            case (s)\n                2'b00: select = a0;\n                2'b01: select = a1;\n                2'b10: select = a2;\n                2'b11: select = a3;\n            endcase\n    endfunction\n    assign y = select(a0,a1,a2,a3,s);\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

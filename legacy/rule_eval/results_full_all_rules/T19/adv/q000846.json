@@ -1,0 +1,10 @@
+{
+  "task_id": "q000846",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module divider_2bit(  \n    input [1:0] dividend,  \n    input [1:0] divisor,  \n    output reg [1:0] quotient,  \n    output reg [1:0] remainder  \n);  \n    always @(*) begin  \n        if (divisor != 0) begin  \n            quotient = dividend / divisor;  \n            remainder = dividend % divisor;  \n        end else begin  \n            quotient = 2'b00; // Undefined behavior; can handle as desired  \n            remainder = 2'b00;  \n        end  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      remainder = ~dividend;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "remainder = ~dividend;"
+  }
+}

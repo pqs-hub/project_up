@@ -1,0 +1,9 @@
+{
+  "task_id": "q002891",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module hough_transform_accumulator(  \n    input [15:0] binary_image,  \n    output reg [3:0] obf_accumulator  \n);  \n    integer i;  \n    always @(*) begin  \n        obf_accumulator = 4'b0000;  \n        for (i = 0; i < 16; i = i + 1) begin  \n            if (binary_image[i]) begin  \n                obf_accumulator = obf_accumulator + 1;  \n            end  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "accumulator": "obf_accumulator"
+  }
+}

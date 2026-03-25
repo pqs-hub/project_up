@@ -1,0 +1,9 @@
+{
+  "task_id": "q000548",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module mux8to1 (\n    input [7:0] obf_I,       // 8-bit input data\n    input [2:0] S,       // 3-bit select line\n    output Y             // Output\n);\n    assign Y = (S == 3'b000) ? obf_I[0] :\n               (S == 3'b001) ? obf_I[1] :\n               (S == 3'b010) ? obf_I[2] :\n               (S == 3'b011) ? obf_I[3] :\n               (S == 3'b100) ? obf_I[4] :\n               (S == 3'b101) ? obf_I[5] :\n               (S == 3'b110) ? obf_I[6] :\n               obf_I[7]; // Default case for S = 111\nendmodule",
+  "rename_map": {
+    "I": "obf_I"
+  }
+}

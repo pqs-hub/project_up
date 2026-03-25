@@ -1,0 +1,8 @@
+{
+  "task_id": "q011290",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module mux_4to1(\n    input [1:0] sel,\n    input [7:0] a,\n    input [7:0] b,\n    input [7:0] c,\n    input [7:0] d,\n    output reg [7:0] y\n);\n  wire [1:0] _tap_sel = sel & {2{1'b1}};\n\n\nalways @(*)\nbegin\n  case (sel)\n    2'b00: y = a;\n    2'b01: y = b;\n    2'b10: y = c;\n    2'b11: y = d;\n    default: y = 8'b0;\n  endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

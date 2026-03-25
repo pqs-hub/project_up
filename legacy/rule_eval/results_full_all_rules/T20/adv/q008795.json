@@ -1,0 +1,10 @@
+{
+  "task_id": "q008795",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Logic for Full Adder using primitive gates\nassign n1 = A & B;           // AND for A and B\nassign S = n1 | Ci;          // OR for sum with carry input\nassign n2 = A ^ Ci;         // XOR for first part of carry\nassign n3 = B & Ci;           // AND for second part of carry\nassign Co = n2 ^ n3;         // XOR for final carry output\nmodule top_module( A, B, Ci, S, Co );input A, B, Ci;\n  output S, Co;\n  wire   n1, n2, n3;\n\n  // Logic for Full Adder using primitive gates\n  assign n1 = A ^ B;           // XOR for A and B\n  assign S = n1 ^ Ci;          // XOR for sum with carry input\n  assign n2 = n1 & Ci;         // AND for first part of carry\n  assign n3 = A & B;           // AND for second part of carry\n  assign Co = n2 | n3;         // OR for final carry output\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Logic for Full Adder using primitive gates\nassign n1 = A & B;           // AND for A and B\nassign S = n1 | Ci;          // OR for sum with carry input\nassign n2 = A ^ Ci;         // XOR for first part of carry\nassign n3 = B & Ci;           // AND for second part of carry\nassign Co = n2 ^ n3;         // XOR for final carry output"
+  }
+}

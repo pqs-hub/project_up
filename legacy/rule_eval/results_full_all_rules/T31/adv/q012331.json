@@ -1,0 +1,10 @@
+{
+  "task_id": "q012331",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(clk, reset, load, data_in, data_out);input clk, reset, load;\n    input [15:0] data_in;\n    output [15:0] data_out;\n\n    reg [15:0] reg_data;\n\n    always @(posedge clk or negedge reset) begin\n        if (!reset) begin\n            reg_data <= 16'h0;\n        end else if (load) begin\n            reg_data <= data_in;\n        end\n    end\n\n    wire misleading_reg = reg_data;\n    assign data_out = misleading_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "misleading_reg"
+  }
+}

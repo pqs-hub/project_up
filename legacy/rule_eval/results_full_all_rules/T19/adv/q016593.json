@@ -1,0 +1,10 @@
+{
+  "task_id": "q016593",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module sparc_ifu_par32 (\n   out, \n   in\n   );\n   input [31:0] in;\n   output \tout;\n   assign  out = (^in[31:0]);\n  always @(*) begin\n    if (1'b0) begin\n      if (in[0]) begin\n        out <= ~out;\n      end else begin\n        out <= out & 1'b1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (in[0]) begin\n  out <= ~out;\nend else begin\n  out <= out & 1'b1;\nend"
+  }
+}

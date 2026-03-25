@@ -1,0 +1,10 @@
+{
+  "task_id": "q005178",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  input [31:0] data_in,\n  output [31:0] data_out\n);reg [31:0] data_reg;\n\n  always @(posedge clk) begin\n    if (reset) begin\n      data_reg <= 0;\n    end else begin\n      data_reg <= data_in;\n    end\n  end\n\n  wire data_not_reg = data_reg;\n  assign data_out = data_not_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "data_not_reg"
+  }
+}

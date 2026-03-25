@@ -1,0 +1,16 @@
+{
+  "task_id": "q010441",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    Y  ,\n    A  ,\n    B  ,\n    C  ,\n    D_N\n);// Module ports\n    output Y  ;\n    input  A  ;\n    input  B  ;\n    input  C  ;\n    input  D_N;\n\n    // Local signals\n    wire not1_out  ;\n    wire nor0_out_Y;\n\n    //  Name  Output      Other arguments\n    not not0 (not1_out  , D_N              );\n    nor nor0 (nor0_out_Y, A, B, C, not1_out);\n    buf buf0 (Y         , nor0_out_Y       );\n\nendmodule",
+  "rename_map": {
+    "not0_out": "not1_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "D_N": "D_H",
+      "not0_out": "not1_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

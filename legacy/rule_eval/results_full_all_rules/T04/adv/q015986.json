@@ -1,0 +1,10 @@
+{
+  "task_id": "q015986",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This is a 16-bit Johnson counter with an active low synchronous reset. It outputs a 16-bit vector q, where each bit represents the state of a counter. The Johnson counter resets to all ones on reset.\nmodule top_module(\n\tinput clk,\n\tinput reset,\n\toutput reg [15:0] q);always @(posedge clk) begin\n\t\tif (reset)\n\t\t\tq <= 16'b0;\n\t\telse begin\n\t\t\tq[0] <= ~q[15];\n\t\t\tq[15:1] <= q[14:0];\n\t\tend\n\tend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 16-bit Johnson counter with an active low synchronous reset. It outputs a 16-bit vector q, where each bit represents the state of a counter. The Johnson counter resets to all ones on reset."
+  }
+}

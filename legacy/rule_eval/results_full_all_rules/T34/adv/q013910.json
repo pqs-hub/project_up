@@ -1,0 +1,15 @@
+{
+  "task_id": "q013910",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [63:0] a,\n  input [63:0] b,\n  input CONTROL_ALUSRC,\n  output reg [63:0] inverted_out\n);always @(a, b, CONTROL_ALUSRC, inverted_out) begin\n    if (CONTROL_ALUSRC === 0) begin\n      inverted_out <= a;\n    end\n\n    else begin\n      inverted_out <= b;\n    end\n  end\nendmodule",
+  "rename_map": {
+    "out": "inverted_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "inverted_out"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

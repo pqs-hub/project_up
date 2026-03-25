@@ -1,0 +1,15 @@
+{
+  "task_id": "q005028",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [2:0] a,\n  output reg [7:0] error_out\n);always @(*)\n  begin\n    case(a)\n      3'b000: error_out = 8'b00000001;\n      3'b001: error_out = 8'b00000010;\n      3'b010: error_out = 8'b00000100;\n      3'b011: error_out = 8'b00001000;\n      3'b100: error_out = 8'b00010000;\n      3'b101: error_out = 8'b00100000;\n      3'b110: error_out = 8'b01000000;\n      3'b111: error_out = 8'b10000000;\n      default: error_out = 8'b11111111;\n    endcase\n  end\n\nendmodule",
+  "rename_map": {
+    "out": "error_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "error_out"
+    },
+    "fallback_prefix": "err_"
+  }
+}

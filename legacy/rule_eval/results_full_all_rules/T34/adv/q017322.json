@@ -1,0 +1,15 @@
+{
+  "task_id": "q017322",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adder_8bit (\n    input [7:0] a,\n    input [7:0] b,\n    input disable,\n    output reg [8:0] sum\n);\n\nalways @(*) begin\n    if (disable) begin\n        sum = {1'b0, a} + {1'b0, b};\n    end else begin\n        sum = 9'b0;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

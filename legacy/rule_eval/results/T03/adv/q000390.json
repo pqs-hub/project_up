@@ -1,0 +1,6 @@
+{
+  "task_id": "q000390",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire [3:0] data_in,\n    input wire we,\n    input wire clk,\n    output reg [3:0] data_out\n);\n  wire [3:0] _tap_data_in = data_in & {4{1'b1}};\n\n    always @(posedge clk) begin\n        if (we) begin\n            data_out <= data_in; // Write data to the cell\n        end\n        // If we is low, do nothing (hold the previous value)\n    end\nendmodule"
+}

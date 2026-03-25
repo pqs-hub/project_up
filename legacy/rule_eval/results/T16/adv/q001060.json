@@ -1,0 +1,9 @@
+{
+  "task_id": "q001060",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module sata_controller (\n    input [3:0] obf_command,\n    output reg [3:0] command_out\n);\n    always @(*) begin\n        if (obf_command == 4'b1010) // 0xA in binary\n            command_out = ~obf_command; // Invert the obf_command\n        else\n            command_out = obf_command; // Pass the obf_command unchanged\n    end\nendmodule",
+  "rename_map": {
+    "command": "obf_command"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q008543",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\t\tinput [1:0] inv_inA, \n\t\tinput [1:0] inB,\n\t\tinput selector,\n\n\t\toutput reg [1:0] result\n\t);always @(*) begin\n\t\tif(selector == 0)\n\t\t\t\tresult <=inv_inA;\n\t\t\telse\n\t\t\t\tresult <= inB;\n\t\tend\n\tendmodule",
+  "rename_map": {
+    "inA": "inv_inA"
+  },
+  "params_used": {
+    "custom_map": {
+      "inA": "outA",
+      "inB": "outB"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

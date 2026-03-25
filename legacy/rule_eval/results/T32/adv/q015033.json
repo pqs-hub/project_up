@@ -1,0 +1,6 @@
+{
+  "task_id": "q015033",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input              iCLK,    \n    input      [8-1:1-1]   iAddr,   \n    input      [15:0]  iData,   \n    input              iWen,    \n    output reg [15:0]  oData    \n);reg [15:0] RAM [255:0];\n    \n    always @(posedge iCLK) begin\n        oData <= RAM[iAddr];\n        if(iWen) begin\n            RAM[iAddr] <= iData;\n        end\n    end\n    \nendmodule"
+}

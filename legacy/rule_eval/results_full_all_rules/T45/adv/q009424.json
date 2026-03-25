@@ -1,0 +1,8 @@
+{
+  "task_id": "q009424",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n  input D, G, CLK,\n  output Q\n);reg Q_int;\n  \n  always @(posedge CLK) begin\n    if (G) begin\n      Q_int <= D;\n    end\n  end\n  \n  assign Q = (D & ~D) ? ~Q : Q_int;\n  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

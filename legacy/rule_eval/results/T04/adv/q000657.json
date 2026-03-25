@@ -1,0 +1,6 @@
+{
+  "task_id": "q000657",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule data_forwarding_unit (\n    input [4:0] dest_reg_prev,  // Destination register of the previous instruction\n    input [4:0] src_reg_curr,    // Source register of the current instruction\n    output reg forward            // Forwarding signal\n);\n    always @(*) begin\n        if (dest_reg_prev == src_reg_curr) \n            forward = 1;          // Forwarding needed\n        else \n            forward = 0;          // No forwarding\n    end\nendmodule"
+}

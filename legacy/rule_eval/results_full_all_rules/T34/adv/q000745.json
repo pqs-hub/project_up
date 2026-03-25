@@ -1,0 +1,19 @@
+{
+  "task_id": "q000745",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module thermal_sensor_calibration (\n    input wire reset_clk,\n    input wire rst,\n    input wire [9:0] raw_sensor_value,\n    input wire [3:0] calibration_offset,\n    output reg [9:0] calibrated_value\n);\n\nalways @(posedge reset_clk or posedge rst) begin\n    if (rst) begin\n        calibrated_value <= 10'b0;\n    end else begin\n        calibrated_value <= raw_sensor_value + {6'b0, calibration_offset}; // Aligning 4-bit offset to 10-bit\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk",
+      "rst": "active_reset",
+      "raw_sensor_value": "uncalibrated_input",
+      "calibration_offset": "negative_correction",
+      "calibrated_value": "invalid_output"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

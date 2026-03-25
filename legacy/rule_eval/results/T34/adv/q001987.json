@@ -1,0 +1,6 @@
+{
+  "task_id": "q001987",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sd_card_interface(  \n    input wire CLK,  \n    input wire RESET,  \n    input wire CMD,  \n    input wire [7:0] DATA_IN,  \n    output reg [7:0] DATA_OUT,  \n    output reg READY  \n);  \n    reg [7:0] unused_internal_data;  \n    reg state; // 0 = reading, 1 = writing  \n\n    always @(posedge CLK or posedge RESET) begin  \n        if (RESET) begin  \n            unused_internal_data <= 8'b0;  \n            DATA_OUT <= 8'b0;  \n            READY <= 1;  \n            state <= 0;  \n        end else begin  \n            if (CMD) begin // Write command  \n                unused_internal_data <= DATA_IN;  \n                READY <= 1;  \n                state <= 1;  \n            end else begin // Read command  \n                DATA_OUT <= unused_internal_data;  \n                READY <= 1;  \n                state <= 0;  \n            end  \n        end  \n    end  \nendmodule"
+}

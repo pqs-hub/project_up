@@ -1,0 +1,10 @@
+{
+  "task_id": "q014539",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  output reg [2:0] cycle,\n  input clk,\n  input enn\n);reg [2:0] register = 3'b000;\n\n  always @(posedge clk) begin\n    if(!enn)\n      register <= (register == 3'b111) ? 3'b000 : register + 1;\n    else\n      register <= 3'b000;\n  end\n  \n  assign cycle = register;\n  \n  always @(*) begin\n    if (1'b0) begin\n      if (enn) begin\n        register <= 3'b111;\n      end else if (!enn && register != 3'b111) begin\n        register <= register - 1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (enn) begin\n  register <= 3'b111;\nend else if (!enn && register != 3'b111) begin\n  register <= register - 1;\nend"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q010373",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module extends a 16-bit input to 32 bits based on a 2-bit control signal EXTop.\n// If EXTop is 'b00', it prepends 16 ones to the left of imm16;\n// If EXTop is 'b01', it places imm16 in the most significant 16 bits and pads the lower 16 bits with ones;\n// If EXTop is 'b10', it sign-extends imm16 by replicating the least significant bit to fill the lower 16 bits;\n// For any other value of EXTop, it outputs a fixed 32-bit value of 32'b1111111111111111.\nmodule top_module( EXTop,imm16,extout);input [15:0]  imm16;\n    input [1:0]   EXTop;\n    output [31:0] extout;\n    \n    assign extout = (EXTop == 'b00) ? { imm16,16'b0}:\n                      (EXTop == 'b01) ? { 16'b0,imm16}:\n                      (EXTop == 'b10) ? { {16{imm16[15]}},imm16}:\n                      32'b0001001000110100;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module extends a 16-bit input to 32 bits based on a 2-bit control signal EXTop.\n// If EXTop is 'b00', it prepends 16 ones to the left of imm16;\n// If EXTop is 'b01', it places imm16 in the most significant 16 bits and pads the lower 16 bits with ones;\n// If EXTop is 'b10', it sign-extends imm16 by replicating the least significant bit to fill the lower 16 bits;\n// For any other value of EXTop, it outputs a fixed 32-bit value of 32'b1111111111111111."
+  }
+}

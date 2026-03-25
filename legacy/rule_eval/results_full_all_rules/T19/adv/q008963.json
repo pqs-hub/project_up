@@ -1,0 +1,10 @@
+{
+  "task_id": "q008963",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module up_counter_max_8 \n(\n  input rst,\n  input clk,\n\n  output reg [7:0] count\n);\n\n  always @(posedge clk or posedge rst) begin\n    if (rst) \n\tbegin\n      count <= 8'b00000000;\n    end \n\t\n\telse if (count < 8'hFF) \n\tbegin\n      count <= count + 1;\n    end\n  end\n\n  always @(*) begin\n    if (1'b0) begin\n      count <= count - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "count <= count - 1;"
+  }
+}

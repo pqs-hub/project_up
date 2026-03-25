@@ -1,0 +1,6 @@
+{
+  "task_id": "q004748",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module down_counter(\n    input clk,\n    input rst_n,\n    input en,\n    output reg [4:0] count\n);\n\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n)\n            count <= 5'b11111;\n        else if (en)\n            count <= count - 1;\n    end\n\nendmodule"
+}

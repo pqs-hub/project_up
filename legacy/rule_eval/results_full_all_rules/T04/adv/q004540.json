@@ -1,0 +1,10 @@
+{
+  "task_id": "q004540",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements an 8-bit binary down/up counter with synchronous reset. It decrements its value on every positive edge of the clock signal if the up_down signal is high, and increments if the up_down signal is low. The counter resets to 8'b00000000 on a positive edge of the reset signal.\nmodule up_down_counter(\n    input        clk,\n    input        reset,\n    input        up_down,\n    output reg [7:0] count\n);\n\n// Counter logic\nalways @(posedge clk or posedge reset) begin\n    if (reset)\n        count <= 8'b00000000;\n    else if (up_down)\n        count <= count + 1;\n    else\n        count <= count - 1;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an 8-bit binary down/up counter with synchronous reset. It decrements its value on every positive edge of the clock signal if the up_down signal is high, and increments if the up_down signal is low. The counter resets to 8'b00000000 on a positive edge of the reset signal."
+  }
+}

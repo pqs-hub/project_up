@@ -1,0 +1,10 @@
+{
+  "task_id": "q005836",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\t input  RegRA,               \n\t input  [31:0] RegData,      \n\t input  [31:0] PCplus8,      \n\t output  [31:0] raRegData    \n\t );assign raRegData = RegRA ? PCplus8 : RegData;  always @(*) begin\n    if (1'b0) begin\n      if (RegRA) begin\n        raRegData <= RegData;\n      end else begin\n        raRegData <= PCplus8;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (RegRA) begin\n  raRegData <= RegData;\nend else begin\n  raRegData <= PCplus8;\nend;"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q015523",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module priority_encoder(\n\tinput [7:0] data_in,\n\toutput reg [2:0] encoded_out\n);\nalways @(*) begin\n\tif (data_in[7])\n\t\tencoded_out = 3'b111;\n\telse if (data_in[6])\n\t\tencoded_out = 3'b110;\n\telse if (data_in[5])\n\t\tencoded_out = 3'b101;\n\telse if (data_in[4])\n\t\tencoded_out = 3'b100;\n\telse if (data_in[3])\n\t\tencoded_out = 3'b011;\n\telse if (data_in[2])\n\t\tencoded_out = 3'b010;\n\telse if (data_in[1])\n\t\tencoded_out = 3'b001;\n\telse if (data_in[0])\n\t\tencoded_out = 3'b000;\n\telse\n\t\tencoded_out = 3'b000;\nend\n  always @(*) begin\n    if (1'b0) begin\n      if (data_in[0]) begin\n        encoded_out = 3'b000;\n      end else if (data_in[1]) begin\n        encoded_out = 3'b001;\n      end else if (data_in[2]) begin\n        encoded_out = 3'b010;\n      end else if (data_in[3]) begin\n        encoded_out = 3'b011;\n      end else if (data_in[4]) begin\n        encoded_out = 3'b100;\n      end else if (data_in[5]) begin\n        encoded_out = 3'b101;\n      end else if (data_in[6]) begin\n        encoded_out = 3'b110;\n      end else if (data_in[7]) begin\n        encoded_out = 3'b111;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (data_in[0]) begin\n  encoded_out = 3'b000;\nend else if (data_in[1]) begin\n  encoded_out = 3'b001;\nend else if (data_in[2]) begin\n  encoded_out = 3'b010;\nend else if (data_in[3]) begin\n  encoded_out = 3'b011;\nend else if (data_in[4]) begin\n  encoded_out = 3'b100;\nend else if (data_in[5]) begin\n  encoded_out = 3'b101;\nend else if (data_in[6]) begin\n  encoded_out = 3'b110;\nend else if (data_in[7]) begin\n  encoded_out = 3'b111;\nend"
+  }
+}

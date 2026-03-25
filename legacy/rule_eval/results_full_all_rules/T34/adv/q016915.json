@@ -1,0 +1,16 @@
+{
+  "task_id": "q016915",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module four_bit_adder(\n    input sub_A, B, Cin,\n    output S, Cout\n);\n\nassign S = sub_A ^ B ^ Cin;\nassign Cout = (sub_A & B) | (Cin & (sub_A ^ B));\n\nendmodule\n\nmodule four_bit_adder(\n    input [3:0] sub_A, B,\n    input Cin,\n    output [3:0] S,\n    output Cout\n);\n\nwire c1, c2, c3;\nfull_adder fa1(.sub_A(sub_A[0]), .B(B[0]), .Cin(Cin), .S(S[0]), .Cout(c1));\nfull_adder fa2(.sub_A(sub_A[1]), .B(B[1]), .Cin(c1), .S(S[1]), .Cout(c2));\nfull_adder fa3(.sub_A(sub_A[2]), .B(B[2]), .Cin(c2), .S(S[2]), .Cout(c3));\nfull_adder fa4(.sub_A(sub_A[3]), .B(B[3]), .Cin(c3), .S(S[3]), .Cout(Cout));\n\nendmodule",
+  "rename_map": {
+    "A": "sub_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "four_bit_adder": "four_bit_subtractor",
+      "full_adder": "full_subtractor"
+    },
+    "fallback_prefix": "sub_"
+  }
+}

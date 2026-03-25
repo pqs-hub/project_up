@@ -1,0 +1,15 @@
+{
+  "task_id": "q016282",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(x,y,CLR,C,Q);input x,y;\nwire g;\ninput CLR, C;\nreg acc_reg;\noutput Q;\n\n\nassign g = x*y;\n\n\nalways @(posedge C or posedge CLR)\n    begin \n      if (CLR) \n        acc_reg <= 4'b0000; \n      else \n        acc_reg <= acc_reg + g; \n    end \n\nassign Q = acc_reg; \n\nendmodule",
+  "rename_map": {
+    "tmp": "acc_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "tmp": "acc_reg"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

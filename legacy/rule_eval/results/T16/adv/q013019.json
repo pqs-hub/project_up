@@ -1,0 +1,9 @@
+{
+  "task_id": "q013019",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module sr_latch(\n\tinput \tS,\n\tinput \tR,\n\toutput reg obf_Q\n);\n\nalways @(*)\nbegin\n\tif (S && R)\n\t\tobf_Q <= 1'bx;\n\telse if (S)\n\t\tobf_Q <= 1'b1;\n\telse if (R)\n\t\tobf_Q <= 1'b0;\nend\n\nendmodule",
+  "rename_map": {
+    "Q": "obf_Q"
+  }
+}

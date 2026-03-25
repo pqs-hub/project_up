@@ -1,0 +1,9 @@
+{
+  "task_id": "q000186",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module packet_filter (\n    input [31:0] packet_ip,\n    input [31:0] allowed_ip_1,\n    input [31:0] allowed_ip_2,\n    input [31:0] allowed_ip_3,\n    output reg obf_allowed\n);\n    always @(*) begin\n        if (packet_ip == allowed_ip_1 || packet_ip == allowed_ip_2 || packet_ip == allowed_ip_3) \n            obf_allowed = 1'b1; // Allowed\n        else \n            obf_allowed = 1'b0; // Blocked\n    end\nendmodule",
+  "rename_map": {
+    "allowed": "obf_allowed"
+  }
+}

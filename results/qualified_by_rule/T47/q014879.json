@@ -1,0 +1,6 @@
+{
+  "task_id": "q014879",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(rs1,rs2,isMult,isDiv,isSigned,hi_o,lo_o);input[31:0] rs1;\n  input[31:0] rs2;\n  input isMult;\n  input isDiv;\n  input isSigned;\n\n\n  output[31:0] hi_o;  \n  output[31:0] lo_o;\n  \n  reg[31:0] hi;\n  reg[31:0] lo;\n  \n  \n  assign hi_o=hi;\n  assign lo_o=lo;\n  \n  always@(rs1 or rs2 or isMult or isDiv or isSigned)\n    begin\n      if(isSigned && isMult)\n        {hi,lo}<=$signed(rs1)*$signed(rs2);\n      if(!isSigned && isMult)\n        {hi,lo}<=rs1*rs2;\n      if(isSigned && isDiv)\n        begin\n          lo<=$signed(rs1)/$signed(rs2);\n          hi<=$signed(rs1)%$signed(rs2);\n        end          \n      if(!isSigned && isDiv)\n        begin\n          lo<=rs1/rs2;\n          hi<=rs1%rs2;\n        end\n    end\n  \nendmodule"
+}

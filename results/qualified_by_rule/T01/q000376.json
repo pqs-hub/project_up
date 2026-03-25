@@ -1,0 +1,6 @@
+{
+  "task_id": "q000376",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule (\n    input [15:0] A,\n    input [15:0] B,\n    input [1:0] Op,\n    output reg [15:0] Result,\n    output reg CarryOut\n);\n    always @(*) begin\n    begin end  // redundant\n        case (Op)\n            2'b00: {CarryOut, Result} = A + B;               // Addition\n            2'b01: {CarryOut, Result} = A - B;               // Subtraction\n            2'b10: begin \n                Result = A & B; \n                CarryOut = 0; \n            end                                   // Bitwise AND\n            default: begin \n                Result = 16'b0; \n                CarryOut = 0; \n            end\n        endcase\n    end\nendmodule"
+}

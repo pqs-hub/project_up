@@ -1,0 +1,6 @@
+{
+  "task_id": "q000077",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [1:0] control,\n    output reg [1:0] speed\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            speed <= 2'b00; // OFF\n        end else begin\n            case (control)\n                2'b00: speed <= 2'b00; // OFF\n                2'b01: speed <= 2'b01; // LOW\n                2'b10: speed <= 2'b10; // MEDIUM\n                2'b11: speed <= 2'b11; // HIGH\n                default: speed <= speed; // Maintain current speed\n            endcase\n        end\n    end\nendmodule"
+}

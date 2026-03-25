@@ -1,0 +1,6 @@
+{
+  "task_id": "q009452",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input [2:0] data,\n    output reg parity\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            parity <= 1'b0;  // Synchronous reset to the initial state\n        end else begin\n            parity <= data[0] ^ data[1] ^ data[2];  // Generate even parity\n        end\n    end\n\nendmodule"
+}

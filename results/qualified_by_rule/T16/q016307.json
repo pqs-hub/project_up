@@ -1,0 +1,6 @@
+{
+  "task_id": "q016307",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(clk,we,wa,di,re,do0,do1,do2,do3,do4,do5,do6,do7,do8,do9,do10);parameter depth=11; \n parameter width=16; \n parameter addr_width=4; \n input clk; \n input we; \n input [addr_width-1:0] wa; \n input [width-1:0] di; \n input re; \n output [width-1:0] do0; \n output [width-1:0] do1; \n output [width-1:0] do2; \n output [width-1:0] do3; \n output [width-1:0] do4; \n output [width-1:0] do5; \n output [width-1:0] do6; \n output [width-1:0] do7; \n output [width-1:0] do8; \n output [width-1:0] do9; \n output [width-1:0] do10; \n reg [width-1:0] obf_ram [depth-1:0]; \n always @(posedge clk) \n begin \n  if (we) \n  obf_ram[wa] <= di; \n  end \n assign do0 = re?obf_ram[0]:16'hxxxx; \n assign do1 = re?obf_ram[1]:16'hxxxx; \n assign do2 = re?obf_ram[2]:16'hxxxx; \n assign do3 = re?obf_ram[3]:16'hxxxx; \n assign do4 = re?obf_ram[4]:16'hxxxx; \n assign do5 = re?obf_ram[5]:16'hxxxx; \n assign do6 = re?obf_ram[6]:16'hxxxx; \n assign do7 = re?obf_ram[7]:16'hxxxx; \n assign do8 = re?obf_ram[8]:16'hxxxx; \n assign do9 = re?obf_ram[9]:16'hxxxx; \n assign do10= re?obf_ram[10]:16'hxxxx; \n endmodule"
+}

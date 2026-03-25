@@ -1,0 +1,8 @@
+{
+  "task_id": "q002957",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module ethernet_mac_controller (\n    input clk,\n    input reset,\n    input start_tx,\n    input start_rx,\n    output reg [1:0] state // 00: IDLE, 01: TRANSMIT, 10: RECEIVE\n);\n\n    // State encoding\n    localparam IDLE     = 2'b00;\n    localparam TRANSMIT = 2'b01;\n    localparam RECEIVE  = 2'b10;\n\n    // Sequential logic for state machine\n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant\n        if (reset) begin\n            state <= IDLE; // Reset to IDLE state\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start_tx) begin\n                        state <= TRANSMIT; // Start transmitting\n                    end else if (start_rx) begin\n                        state <= RECEIVE; // Start receiving\n                    end\n                end\n                TRANSMIT: begin\n                    if (!start_tx) begin\n                        state <= IDLE; // Go back to IDLE if transmission is done\n                    end\n                end\n                RECEIVE: begin\n                    if (!start_rx) begin\n                        state <= IDLE; // Go back to IDLE if reception is done\n                    end\n                end\n            endcase\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

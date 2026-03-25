@@ -1,0 +1,15 @@
+{
+  "task_id": "q001271",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module audio_mixer (\n    input [15:0] mixer_A,  // 16-bit audio signal mixer_A\n    input [15:0] B,  // 16-bit audio signal B\n    input S,         // Select signal\n    output [15:0] Y  // Output audio signal\n);\n    assign Y = (S == 1'b0) ? mixer_A : B; // Select mixer_A or B based on S\nendmodule",
+  "rename_map": {
+    "A": "mixer_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "audio_mixer": "audio_demux"
+    },
+    "fallback_prefix": "mixer_"
+  }
+}

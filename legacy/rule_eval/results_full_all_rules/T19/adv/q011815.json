@@ -1,0 +1,10 @@
+{
+  "task_id": "q011815",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(q,clk,d,reset,en);input clk,d,reset,en;\noutput reg q;\n\nalways@(posedge clk, posedge reset )\nbegin\n\nif (reset == 1)\n\nq <= 1'b0;\n\nelse if (en == 0)\n  q<=q;\n\nelse\n q <= d;\n \nend\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~q;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~q;"
+  }
+}

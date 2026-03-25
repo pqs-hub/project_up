@@ -1,0 +1,6 @@
+{
+  "task_id": "q012326",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module RefModule(\n   input CE,\n   input I,\n   (* clkbuf_driver *)\n   output O\n);parameter CE_POLARITY = 1'b1;\n\n   wire ce;\n   assign ce = CE_POLARITY ? CE : ~CE;\n   \n  wire temp1_I = I;\n  wire temp2_ce = ce;\n  assign O = temp1_I & temp2_ce;\n   \nendmodule"
+}

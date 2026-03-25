@@ -1,0 +1,17 @@
+{
+  "task_id": "q003150",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module chacha20_core (\n    input wire [31:0] cipher_key,\n    input wire [31:0] nonce,\n    input wire [31:0] counter,\n    output reg [31:0] keystream\n);\n    always @(cipher_key or nonce or counter) begin\n        keystream = cipher_key + nonce + counter; // Simple addition to simulate keystream generation\n    end\nendmodule",
+  "rename_map": {
+    "key": "cipher_key"
+  },
+  "params_used": {
+    "custom_map": {
+      "key": "cipher_key",
+      "nonce": "initial_nonce",
+      "counter": "sequence_counter"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

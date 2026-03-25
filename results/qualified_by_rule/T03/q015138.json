@@ -1,0 +1,6 @@
+{
+  "task_id": "q015138",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input load,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    if (load)\n        data_out <= data_in;\n    else\n        data_out <= {data_out[14:0], 1'b0};\nend\n\nendmodule"
+}

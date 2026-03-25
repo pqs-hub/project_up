@@ -1,0 +1,6 @@
+{
+  "task_id": "q002880",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire enable,\n    output reg [3:0] count\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        count <= 4'b0000;\n    end else if (enable) begin\n        count <= count + 1;\n    end\nend\n\nendmodule"
+}

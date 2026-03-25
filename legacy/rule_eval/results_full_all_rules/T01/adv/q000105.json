@@ -1,0 +1,8 @@
+{
+  "task_id": "q000105",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module SR_FlipFlop (\n    input wire S,\n    input wire R,\n    input wire clk,\n    output reg Q\n);\n    always @(posedge clk) begin\n    begin end  // redundant\n        if (S && ~R) \n            Q <= 1; // set\n        else if (~S && R) \n            Q <= 0; // reset\n        // else case for S = 0 and R = 0: Hold the state\n        // else case for S = 1 and R = 1: Indeterminate, we can keep the previous state\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

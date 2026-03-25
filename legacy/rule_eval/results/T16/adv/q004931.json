@@ -1,0 +1,9 @@
+{
+  "task_id": "q004931",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(a, b, cin, s, cout);input wire a, b, cin;\noutput wire s, cout;\n\nwire obf_p, g;\n\nassign obf_p = a ^ b;\nassign g = a & b;\nassign s = obf_p ^ cin;\nassign cout = g | (obf_p & cin);\n\nendmodule",
+  "rename_map": {
+    "p": "obf_p"
+  }
+}

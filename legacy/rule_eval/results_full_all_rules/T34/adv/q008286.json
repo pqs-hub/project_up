@@ -1,0 +1,15 @@
+{
+  "task_id": "q008286",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_4to1 (d0, d1, d2, d3, desel, y);\n   input d0, d1, d2, d3;\n   input [1:0] desel;\n   output y;\n\n   assign y = (desel == 2'b00) ? d0 :\n              (desel == 2'b01) ? d1 :\n              (desel == 2'b10) ? d2 :\n                               d3;\nendmodule",
+  "rename_map": {
+    "sel": "desel"
+  },
+  "params_used": {
+    "custom_map": {
+      "mux_4to1": "demux_1to4"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

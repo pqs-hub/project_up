@@ -1,0 +1,6 @@
+{
+  "task_id": "q004291",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input signed [31:0] a,\n    input signed [31:0] b,\n    input [1:0] op,\n    output reg signed [31:0] c  // Change output to reg unused_type\n);// Declare internal signals\nreg signed [31:0] sum;\nreg signed [31:0] diff;\nreg signed [31:0] prod;\nreg signed [31:0] quotient;\n\n// Perform arithmetic operations\nalways @* begin\n    sum = a + b;\n    diff = a - b;\n    prod = a * b;\n    quotient = a / b;\nend\n\n// Select output based on op\nalways @* begin\n    case (op)\n        2'b00: c = sum;\n        2'b01: c = diff;\n        2'b10: c = prod;\n        2'b11: c = quotient;\n        default: c = 0; // Added default case for safety\n    endcase\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q013484",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (\n\tinput clk,\n\tinput reset,\n\tinput enable,\n\toutput [1:0] count\n);reg [1:0] count_reg;\n\nalways @(posedge clk) begin\n\tif (reset)\n\t\tcount_reg <= 2'b00;\n\telse if (enable)\n\t\tcount_reg <= count_reg + 1;\nend\n\nassign count = count_reg;\n\nendmodule"
+}

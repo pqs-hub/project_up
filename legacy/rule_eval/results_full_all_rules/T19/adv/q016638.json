@@ -1,0 +1,10 @@
+{
+  "task_id": "q016638",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mul_negen ( n0, n1, b );\noutput  n0, n1;\ninput [2:0]  b;\nassign n0 = b[2] & b[1] & ~b[0] ;\nassign n1 = b[2] & b[1] & b[0] ;\n  always @(*) begin\n    if (1'b0) begin\n      n0 <= ~b[2];\n      n1 <= ~b[1];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "n0 <= ~b[2];\nn1 <= ~b[1];"
+  }
+}

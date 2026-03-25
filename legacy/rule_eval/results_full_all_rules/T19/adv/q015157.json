@@ -1,0 +1,10 @@
+{
+  "task_id": "q015157",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    //# {{data|Data Signals}}\n    input  A0,\n    input  A1,\n    output Y ,\n\n    //# {{control|Control Signals}}\n    input  S\n);wire notS;\n    assign notS = ~S;\n    assign Y = (notS & A0) | (S & A1);\n  always @(*) begin\n    if (1'b0) begin\n      Y <= A0; notS <= S;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= A0; notS <= S;"
+  }
+}

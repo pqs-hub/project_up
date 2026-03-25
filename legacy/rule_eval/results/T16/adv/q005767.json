@@ -1,0 +1,9 @@
+{
+  "task_id": "q005767",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module shift_reg8 (\n    input clk,\n    input rst,\n    input si,\n    output [7:0] po\n);\n\n    reg [7:0] obf_sr;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            obf_sr <= 8'b00000000;\n        else\n            obf_sr <= {obf_sr[6:0], si};\n    end\n\n    assign po = obf_sr;\n\nendmodule",
+  "rename_map": {
+    "sr": "obf_sr"
+  }
+}

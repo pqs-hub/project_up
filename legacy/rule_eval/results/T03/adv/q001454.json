@@ -1,0 +1,6 @@
+{
+  "task_id": "q001454",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module packet_filter (\n    input [4:0] src_ip,\n    input control,\n    output reg accept\n);\n  wire [4:0] _tap_src_ip = src_ip & {5{1'b1}};\n\n    always @(*) begin\n        if (control) begin\n            case (src_ip)\n                5'b00001: accept = 1; // Accept IP 1\n                5'b00010: accept = 1; // Accept IP 2\n                5'b00011: accept = 1; // Accept IP 3\n                default: accept = 0;   // Block all others\n            endcase\n        end else begin\n            accept = 1; // Accept all if control is 0\n        end\n    end\nendmodule"
+}

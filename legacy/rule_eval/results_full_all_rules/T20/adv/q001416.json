@@ -1,0 +1,10 @@
+{
+  "task_id": "q001416",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a Parallel-in Parallel-out (PIPO) shift register capable of storing 8 bits of data. It features a clock input, a reset input, a parallel load input, and a data input for loading data. When the parallel load input is high, the data input should be loaded into the register on the next clock edge. The output should reflect the current state of the shift register. Additionally, the register shifts left on every clock edge when the parallel load input is low.\nmodule PIPO_Register (  \n    input wire clk,  \n    input wire reset,  \n    input wire load,  \n    input wire [7:0] data_in,  \n    output reg [7:0] data_out  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            data_out <= 8'b0;  \n        end else if (load) begin  \n            data_out <= data_in;  \n        end else begin  \n            data_out <= {1'b0, data_out[7:1]}; // Shift right with zero fill  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a Parallel-in Parallel-out (PIPO) shift register capable of storing 8 bits of data. It features a clock input, a reset input, a parallel load input, and a data input for loading data. When the parallel load input is high, the data input should be loaded into the register on the next clock edge. The output should reflect the current state of the shift register. Additionally, the register shifts left on every clock edge when the parallel load input is low."
+  }
+}

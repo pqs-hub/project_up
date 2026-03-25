@@ -1,0 +1,10 @@
+{
+  "task_id": "q016068",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module binary_decoder(\n    input [1:0] bin,\n    output [3:0] dout\n);\n    \n    wire neg_decoded_output = (bin == 2'b00);\n    assign dout = neg_decoded_output ? 4'b0001 : (bin == 2'b01) ? 4'b0010 :\n                  (bin == 2'b10) ? 4'b0100 :\n                  (bin == 2'b11) ? 4'b1000 : 4'b0000;\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_decoded_output"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005489",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    input A,\n    input B,\n    input CIN,\n    output SUM,\n    output COUT\n);wire unused_w1, w2, w3;\n\n// Calculate SUM\nassign unused_w1 = A ^ B;\nassign SUM = unused_w1 ^ CIN;\n\n// Calculate COUT\nassign w2 = A & B;\nassign w3 = CIN & unused_w1;\nassign COUT = w2 | w3;\n\nendmodule"
+}

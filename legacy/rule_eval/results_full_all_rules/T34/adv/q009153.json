@@ -1,0 +1,16 @@
+{
+  "task_id": "q009153",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input inv_a,\n    input b,\n    output z\n);\n    assign z = (inv_a | b);\nendmodule\n\nmodule I(\n    input inv_a,\n    input b,\n    output z\n);\n    assign z = ~(inv_a & inv_a);\nendmodule\n\nmodule top_module(\n    input inv_a,\n    input b,\n    output z\n);\n    wire f1_out, f2_out, i1_out, i2_out;\n    wire and_out, xor_out;\n\n    F f1(.inv_a(inv_a), .b(b), .z(f1_out));\n    F f2(.inv_a(inv_a), .b(b), .z(f2_out));\n    I i1(.inv_a(inv_a), .b(b), .z(i1_out));\n    I i2(.inv_a(inv_a), .b(b), .z(i2_out));\n\n    assign and_out = f1_out & i1_out;\n    assign xor_out = f2_out ^ i2_out;\n\n    assign z = and_out | xor_out;\nendmodule",
+  "rename_map": {
+    "a": "inv_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "F": "G",
+      "I": "H"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

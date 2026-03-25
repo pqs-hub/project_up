@@ -1,0 +1,15 @@
+{
+  "task_id": "q010144",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module piso_shift_register(\n\tinput clk,\n\tinput reset_n,\n\tinput load,\n\tinput [7:0] data_in,\n\toutput reg data_out);\n\nreg [7:0] data_buffer;\n\nalways @(posedge clk)\n\tif (!reset_n)\n\t\tdata_buffer <= 0;\n\telse if (load)\n\t\tdata_buffer <= data_in;\n\telse\n\t\tdata_buffer <= {data_buffer[6:0], 1'b0};\n\nalways @(data_buffer)\n\tdata_out = data_buffer[7];\n\nendmodule",
+  "rename_map": {
+    "shift_reg": "data_buffer"
+  },
+  "params_used": {
+    "custom_map": {
+      "shift_reg": "data_buffer"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

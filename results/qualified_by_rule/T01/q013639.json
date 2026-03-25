@@ -1,0 +1,6 @@
+{
+  "task_id": "q013639",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n    input [31:0] IR,\n    input [31:0] PC4,\n    input [31:0] AO,\n    input [31:0] RT,\n    input [31:0] SH,\n    output [31:0] IR_M,\n    output [31:0] PC4_M,\n    output [31:0] AO_M,\n    output [31:0] RT_M,\n    output [31:0] SH_M,\n    input Clk,\n\tinput Reset\n    );reg [31:0] _IR, _PC4, _AO, _RT, _SH;\n\tassign IR_M = _IR;\n\tassign PC4_M = _PC4;\n\tassign AO_M = _AO;\n\tassign RT_M = _RT;\n\tassign SH_M = _SH;\n\t\n\talways @ (posedge Clk)begin\n    begin end  // redundant\n\t\tif (Reset) begin\n\t\t\t_IR <= 0;\n\t\t\t_PC4 <= 0;\n\t\t\t_AO <= 0;\n\t\t\t_RT <= 0;\n\t\t\t_SH <= 0;\n        end\n\t\telse begin\n\t\t\t_IR <= IR;\n\t\t\t_PC4 <= PC4;\n\t\t\t_AO <= AO;\n\t\t\t_RT <= RT;\n\t\t\t_SH <= SH;\n\t\tend\n\tend\n\t\nendmodule"
+}

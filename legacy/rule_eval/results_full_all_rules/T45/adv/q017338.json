@@ -1,0 +1,8 @@
+{
+  "task_id": "q017338",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module power_mgmt (\n    input sleep,\n    input vpwr,\n    input vgnd,\n    output pwrgood\n);\n\n    assign pwrgood = (sleep & ~sleep) ? ~pwrgood : (!sleep && vpwr && vgnd);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

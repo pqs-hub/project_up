@@ -1,0 +1,12 @@
+{
+  "task_id": "q000007",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input [63:0] A, \n    input [63:0] B, \n    output [63:0] SUM, \n    output CARRY_OUT\n);\n    assign {CARRY_OUT, SUM} = A + B;\nendmodule",
+  "adversarial_code": "module TopModule (\n    input [63:0] A, \n    input [63:0] B, \n    output reg [63:0] SUM, \n    output reg CARRY_OUT\n);\n    always @(*) begin\n        {CARRY_OUT, SUM} = A + B;\n    end\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

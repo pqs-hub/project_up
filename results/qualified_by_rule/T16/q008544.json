@@ -1,0 +1,6 @@
+{
+  "task_id": "q008544",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(input clk, input d, output q);reg [2:0] obf_reg_data; // 3-bit shift register\n\n  always @(posedge clk) begin\n    obf_reg_data <= {obf_reg_data[1:0], d}; // shift data on each clock cycle\n  end\n\n  assign q = obf_reg_data[0]; // output of the last flip-flop\n\nendmodule"
+}

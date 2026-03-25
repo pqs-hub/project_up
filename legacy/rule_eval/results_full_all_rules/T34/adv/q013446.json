@@ -1,0 +1,15 @@
+{
+  "task_id": "q013446",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] in1,\n    input [7:0] in2,\n    input [1:0] op,\n    input reset,\n    output reg [7:0] out\n);always @(*) begin\n    case(op)\n        2'b00: out = in1 + in2; // addition\n        2'b01: out = in1 - in2; // subtraction\n        2'b10: out = in1 * in2; // multiplication\n        2'b11: out = in1 / in2; // division\n        default: out = 8'b0; // default case\n    endcase\nend\n\nalways @(reset) begin\n    if(reset) begin\n        out <= 8'b0; // reset output to 0\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clear": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clear": "reset"
+    },
+    "fallback_prefix": "calc_"
+  }
+}

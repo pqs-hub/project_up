@@ -1,0 +1,8 @@
+{
+  "task_id": "q015378",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module counter (\n\tinput clk,\n\tinput resetn,\n\tinput en,\n\toutput reg [3:0] count);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk or negedge resetn)\n\tif (!resetn)\n\t\tcount <= 4'b0000;\n\telse if (en)\n\t\tcount <= count + 1;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

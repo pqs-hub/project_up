@@ -1,0 +1,6 @@
+{
+  "task_id": "q011242",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rstn,\n    input wire serial_in,\n    output reg [15:0] parallel_out\n);\n\nalways @(posedge clk or negedge rstn) begin\n    if (!rstn)\n        parallel_out <= 16'b0;\n    else\n        parallel_out <= {parallel_out[14:0], serial_in};\nend\n\nendmodule"
+}

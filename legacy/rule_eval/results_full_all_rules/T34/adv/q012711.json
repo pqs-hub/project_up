@@ -1,0 +1,16 @@
+{
+  "task_id": "q012711",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [4:0] inv_ID_rs,\n    input [4:0] ID_rt,\n    input [4:0] EX_rt,\n    input EX_ramtoreg,\n    output load_use_hazard\n);assign load_use_hazard = EX_rt != 0 && EX_ramtoreg && (EX_rt == inv_ID_rs || EX_rt == ID_rt);\n    \nendmodule",
+  "rename_map": {
+    "ID_rs": "inv_ID_rs"
+  },
+  "params_used": {
+    "custom_map": {
+      "ID_rs": "ID_src",
+      "EX_rt": "EX_dst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

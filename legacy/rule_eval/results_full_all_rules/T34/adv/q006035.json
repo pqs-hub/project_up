@@ -1,0 +1,17 @@
+{
+  "task_id": "q006035",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input C,\n    input D,\n    output Y\n);wire ERR_AB, CD, ABCD;\n    and gate1(ERR_AB, A, B);\n    and gate2(CD, C, D);\n    not gate3(CD_not, CD);\n    and gate4(ABCD, ERR_AB, CD_not);\n    assign Y = ABCD;\n\nendmodule",
+  "rename_map": {
+    "AB": "ERR_AB"
+  },
+  "params_used": {
+    "custom_map": {
+      "AB": "XY",
+      "CD": "ZW",
+      "ABCD": "UV"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

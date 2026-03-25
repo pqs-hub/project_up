@@ -1,0 +1,8 @@
+{
+  "task_id": "q004130",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module gpio_controller(  \n    input clk,  \n    input rst,  \n    input [7:0] data_in,  \n    input control,  \n    output reg [7:0] gpio_out  \n);  \n    always @(posedge clk or posedge rst) begin\n    begin end  // redundant  \n        if (rst) begin  \n            gpio_out <= 8'b00000000;  \n        end else if (control) begin  \n            gpio_out <= data_in;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

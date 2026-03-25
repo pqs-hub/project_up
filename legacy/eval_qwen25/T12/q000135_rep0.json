@@ -1,0 +1,12 @@
+{
+  "task_id": "q000135",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input wire clk,\n    input wire select,\n    input wire [15:0] audio_A,\n    input wire [15:0] audio_B,\n    output wire [15:0] audio_Y\n);\n\naudio_mixer am (.clk(clk), .select(select), .audio_A(audio_A), .audio_B(audio_B), .audio_Y(audio_Y));\n\nendmodule",
+  "adversarial_code": "module TopModule (\n    input wire clk,\n    input wire select,\n    input wire [15:0] audio_A,\n    input wire [15:0] audio_B,\n    output reg [15:0] audio_Y\n);\n\nalways @(posedge clk) begin\n    if (select == 0) begin\n        audio_Y <= audio_A;\n    end else begin\n        audio_Y <= audio_B;\n    end\nend\n\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

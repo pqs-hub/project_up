@@ -1,0 +1,18 @@
+{
+  "task_id": "q013112",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [15:0] data_in,\n    input [3:0] shift_amount,\n    input control,\n    output [15:0] data_out\n);reg [15:0] reverse_shifted_data;\n\n    always @(*) begin\n        if (control == 1) begin\n            reverse_shifted_data = data_in << shift_amount;\n        end else begin\n            reverse_shifted_data = data_in >> shift_amount;\n        end\n    end\n\n    assign data_out = reverse_shifted_data;\n\nendmodule",
+  "rename_map": {
+    "shifted_data": "reverse_shifted_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "input_data",
+      "shift_amount": "bit_shift",
+      "control": "shift_direction",
+      "data_out": "output_value"
+    },
+    "fallback_prefix": "reverse_"
+  }
+}

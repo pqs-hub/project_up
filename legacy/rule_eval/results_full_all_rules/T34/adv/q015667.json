@@ -1,0 +1,15 @@
+{
+  "task_id": "q015667",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register16 (\n    input wire rst_n,\n    input wire clk_inv,\n    input wire load,\n    input wire [15:0] data_in,\n    output reg [15:0] data_out\n);\n\nalways @(posedge clk_inv or negedge rst_n) begin\n    if (!rst_n)\n        data_out <= 16'b0000000000000000;\n    else if (load)\n        data_out <= data_in;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

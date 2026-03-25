@@ -1,0 +1,6 @@
+{
+  "task_id": "q001325",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire [1:0] control_voltage,\n    output reg [3:0] vco_output\n);\n    always @(posedge clk) begin\n        case (control_voltage)\n            2'b00: vco_output <= vco_output; // Lowest frequency, output holds state\n            2'b01: vco_output <= ~vco_output; // Medium frequency, toggle on each clock cycle\n            2'b10: vco_output <= {vco_output[2:0], ~vco_output[3]}; // Higher frequency, shift and toggle\n            2'b11: vco_output <= {~vco_output[3], vco_output[2:0]}; // Highest frequency, rotate and toggle\n            default: vco_output <= 4'b0000; // Default case\n        endcase\n    end\nendmodule"
+}

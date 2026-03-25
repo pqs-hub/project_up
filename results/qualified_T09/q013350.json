@@ -1,0 +1,6 @@
+{
+  "task_id": "q013350",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule\n(\n    input clk,\n    input reset,\n    input load,\n    input [3:0] data_in,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 4'b0000; // Clear register to 0000\n        end else if (load) begin\n            q <= data_in; // Load new data\n        end else begin\n            q <= {q[2:0], 1'b0}; // Shift left\n        end\n    end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001588",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input d,\n    output reg rising_edge\n);\n    reg d_prev;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        rising_edge <= (d && !d_prev);\n        d_prev <= d;\n    end\nendmodule"
+}

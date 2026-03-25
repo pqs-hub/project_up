@@ -1,0 +1,10 @@
+{
+  "task_id": "q008988",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 3-bit shift register that captures the input data (d) on the falling edge of the clock (clk) and shifts the stored values towards the output. The least significant bit of the buffer is assigned to the output (q), which effectively means that the register outputs the first data bit that was inputted three clock cycles prior.\nmodule top_module( input clk, input d, output q );reg [2:0] buffer;\n\nalways @(posedge clk)\nbegin\n    buffer <= {buffer[1:0], d};\nend\n\nassign q = buffer[2];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 3-bit shift register that captures the input data (d) on the falling edge of the clock (clk) and shifts the stored values towards the output. The least significant bit of the buffer is assigned to the output (q), which effectively means that the register outputs the first data bit that was inputted three clock cycles prior."
+  }
+}

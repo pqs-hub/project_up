@@ -1,0 +1,15 @@
+{
+  "task_id": "q005080",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input clock, write, reset,input [15:0] writeData,output [15:0] data);reg [15:0] err_basePointer; \n  always @ (posedge clock) begin \n  if (reset) \n  err_basePointer = 16'b0; \n  else if (write) \n  err_basePointer = writeData; \n  end \n  assign data = err_basePointer; \n endmodule",
+  "rename_map": {
+    "basePointer": "err_basePointer"
+  },
+  "params_used": {
+    "custom_map": {
+      "basePointer": "invalidBasePtr"
+    },
+    "fallback_prefix": "err_"
+  }
+}

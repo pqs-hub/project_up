@@ -1,0 +1,9 @@
+{
+  "task_id": "q016193",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module register_with_load(\n    input               obf_clk,\n    input               rst,\n    input               load,\n    input   [15:0]      data_in,\n    \n    output reg [15:0]   data_out\n);\n\nalways@(posedge obf_clk) begin\n    if (rst)\n        data_out <= 16'b0000000000000000;\n    else if (load)\n        data_out <= data_in;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

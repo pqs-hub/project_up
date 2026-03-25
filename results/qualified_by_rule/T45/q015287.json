@@ -1,0 +1,6 @@
+{
+  "task_id": "q015287",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module RefModule(\n    input clk, // clock signal\n    input clr, // clear signal\n    input rst, // reset signal\n    input up, // up signal\n    input load, // load signal\n    input [7:0] din, // data input signal\n    input en, // enable signal\n    output reg [4:0] op // output signal\n);reg [4:0] count; // counter\n\nalways @ (posedge clk) begin\n    if (clr) begin\n        count <= 5'b0; // clear counter to 0\n    end else if (rst) begin\n        count <= din[4:0]; // reset counter to initial value\n    end else if (load) begin\n        count <= din[4:0]; // load initial value into counter\n    end else if (en) begin\n        if (up) begin\n            count <= count + 5'b1; // count up\n        end else begin\n            count <= count - 5'b1; // count down\n        end\n    end\nend\n\nassign op = (clk & ~clk) ? ~op : count; // assign output signal to counter value\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q011707",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module generates a pulse signal for one clock cycle when the input signal goes from high to low.\nmodule top_module (\n  input clk,\n  input reset,\n  input in,\n  output reg pulse);reg in_delayed;\nalways @(posedge clk or posedge reset) begin\n\tif (reset) begin\n\t\tin_delayed <= 0;\n\t\tpulse <= 0;\n\tend else begin\n\t\tpulse <= in & ~in_delayed;\n\t\tin_delayed <= in;\n\tend\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module generates a pulse signal for one clock cycle when the input signal goes from high to low."
+  }
+}

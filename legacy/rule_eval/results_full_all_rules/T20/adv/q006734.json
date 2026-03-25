@@ -1,0 +1,10 @@
+{
+  "task_id": "q006734",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-bit wide, 8-word deep memory with read and write disable signals.\nmodule memory (\n\tinput clk,\n\tinput read_en,\n\tinput write_en,\n\tinput [2:0] addr,\n\tinput [3:0] data_in,\n\toutput reg [3:0] data_out);\n\t\n\treg [3:0] mem [7:0];\n\t\n\talways @(posedge clk) begin\n\t\tif (write_en)\n\t\t\tmem[addr] <= data_in;\n\t\tif (read_en)\n\t\t\tdata_out <= mem[addr];\n\tend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit wide, 8-word deep memory with read and write disable signals."
+  }
+}

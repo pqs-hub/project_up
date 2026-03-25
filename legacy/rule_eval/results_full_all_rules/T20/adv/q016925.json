@@ -1,0 +1,10 @@
+{
+  "task_id": "q016925",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements an asynchronous reset D flip-flop where the output is set to 1 when the reset is active.\nmodule dff_ar (\n    Q,\n    CLK,\n    D,\n    RST\n);\n\n    output Q;\n    input CLK, D, RST;\n\n    reg Q;\n\n    always @(posedge CLK or negedge RST) begin\n        if (!RST) begin\n            Q <= 1'b0;\n        end else begin\n            Q <= D;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an asynchronous reset D flip-flop where the output is set to 1 when the reset is active."
+  }
+}

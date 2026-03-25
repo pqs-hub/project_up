@@ -1,0 +1,6 @@
+{
+  "task_id": "q015223",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n\tinput [15:0] data_out,\n\tinput notXor,\n\toutput [31:0] extended\n);assign extended [31:16] = (data_out[15] & notXor) ? 16'b1111111111111111 : 16'b0;\n  wire [15:0] _tap_data_out = data_out & {16{1'b1}};\n\n\tassign extended [15:0] = data_out[15:0];endmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q004945",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // Asynchronous reset synchronously sets the output to 1\nmodule d_flip_flop(\n\tinput clk,\n\tinput rst_n,\n\tinput [7:0] d,\n\toutput reg [7:0] q\n);\n\n\talways@(posedge clk or negedge rst_n) begin\n\t\tif(!rst_n)\n\t\t\tq <= 8'b00000000;\n\t\telse\n\t\t\tq <= d;\n\tend\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous reset synchronously sets the output to 1"
+  }
+}

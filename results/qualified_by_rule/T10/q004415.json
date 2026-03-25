@@ -1,0 +1,6 @@
+{
+  "task_id": "q004415",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(\n    // Input\n    input Clk,\n    input Reset,\n    input [31:0] PCIn,\n    input [31:0] DataIn1,\n    input [31:0] DataIn2,\n    input [4:0] rsIn,\n    input [31:0] ImmediateIn,\n    input [4:0] rtIn,\n    input [2:0] WBIn,\n    input [1:0] MIn,\n    input [4:0] EXIn,\n\n    // Output\n    output reg [31:0] PCOut,\n    output reg [31:0] DataOut1,\n    output reg [31:0] DataOut2,\n    output reg [4:0] rsOut,\n    output reg [31:0] ImmediateOut,\n    output reg [4:0] rtOut,\n    output reg [2:0] WBOut,\n    output reg [1:0] MOut,\n    output reg [4:0] EXOut\n);always @(posedge Clk or posedge Reset) begin\n        if (Reset) begin\n            PCOut <= 32'b0;\n            DataOut1 <= 32'b0;\n            DataOut2 <= 32'b0;\n            rsOut <= 5'b0;\n            ImmediateOut <= 32'b0;\n            rtOut <= 5'b0;\n            WBOut <= 3'b0;\n            MOut <= 2'b0;\n            EXOut <= 4'b0;\n        end else begin\n            PCOut <= PCIn;\n            DataOut1 <= DataIn1;\n            DataOut2 <= DataIn2;\n            rsOut <= rsIn;\n            ImmediateOut <= ImmediateIn;\n            rtOut <= rtIn;\n            WBOut <= WBIn;\n            MOut <= MIn;\n            EXOut <= EXIn;\n        end\n    end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002471",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule watchdog_timer (\n    input wire clk,\n    input wire reset,\n    input wire enable,\n    input wire feed,\n    output reg timeout\n);\n    parameter TIMEOUT_LIMIT = 10; // 10 clock cycles\n    reg [3:0] counter; // 4-bit counter to count up to 10\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            counter <= 0;\n            timeout <= 0;\n        end else if (feed) begin\n            counter <= 0; // Reset the counter on feed\n            timeout <= 0; // Reset timeout when fed\n        end else if (enable) begin\n            if (counter < TIMEOUT_LIMIT) begin\n                counter <= counter + 1;\n                timeout <= 0; // No timeout yet\n            end else begin\n                timeout <= 1; // Timeout occurred\n            end\n        end\n    end\nendmodule"
+}

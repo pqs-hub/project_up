@@ -1,0 +1,15 @@
+{
+  "task_id": "q011120",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input wire [3:0] Anti_A,\n    input wire [3:0] B,\n    input wire Cin,\n    input wire Load,\n    input wire Clear,\n    input wire clock,\n    output reg [3:0] S,\n    output reg Cout\n);always @(posedge clock) begin\n    if (Clear) begin\n        S <= 4'b0;\n        Cout <= 1'b0;\n    end else if (Load) begin\n        S <= Anti_A;\n        Cout <= Cin;\n    end else begin\n        {Cout, S} <= Anti_A + B + Cin;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "A": "Anti_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "Clear": "Reset"
+    },
+    "fallback_prefix": "Anti_"
+  }
+}

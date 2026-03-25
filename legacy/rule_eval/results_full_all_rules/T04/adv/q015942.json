@@ -1,0 +1,10 @@
+{
+  "task_id": "q015942",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module decrements the count on each rising edge of the clock when the pulse input is high, resetting to zero when the reset signal is low.\nmodule top_module(\n    input clk,\n    input rst,\n    input pulse,\n    output reg [31:0] count\n);always @(posedge clk or negedge rst) begin\n    if (!rst) begin\n        count <= 0;\n    end else if (pulse) begin\n        count <= count + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements the count on each rising edge of the clock when the pulse input is high, resetting to zero when the reset signal is low."
+  }
+}

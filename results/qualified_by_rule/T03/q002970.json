@@ -1,0 +1,6 @@
+{
+  "task_id": "q002970",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input [7:0] A,\n    input [7:0] B,\n    input sel,\n    output reg [7:0] Y\n);\n  wire [7:0] _tap_A = A & {8{1'b1}};\n\n    always @(*) begin\n        if (sel == 0)\n            Y = A;\n        else\n            Y = B;\n    end\nendmodule"
+}

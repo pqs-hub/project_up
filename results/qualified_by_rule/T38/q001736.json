@@ -1,0 +1,6 @@
+{
+  "task_id": "q001736",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input [3:0] current_state,\n    output reg [3:0] next_state\n);\n\nalways @(posedge clk) begin\n    case (current_state)\n        4'b0000: next_state <= 4'b0001; // State 00 -> State 01\n        4'b0001: next_state <= 4'b0010; // State 01 -> State 10\n        4'b0010: next_state <= 4'b0011; // State 10 -> State 11\n        4'b0011: next_state <= 4'b0000; // State 11 -> State 00\n        default: next_state <= 4'b0000; // Default to State 00\n    endcase\nend\n\nendmodule"
+}

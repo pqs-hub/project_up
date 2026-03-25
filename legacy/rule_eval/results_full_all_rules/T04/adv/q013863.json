@@ -1,0 +1,10 @@
+{
+  "task_id": "q013863",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a Serial-In, Parallel-Out (SIPO) shift register that captures a serial input bitstream and converts it into a 4-bit parallel output. The register updates its 4-bit buffer on each falling edge of the clock, shifting out the most recent serial input bit while keeping the oldest bit in the buffer. The buffer resets to zero when the reset signal is high. The resulting 4-bit wide output can then be used for further processing or interfacing with parallel data paths.\nmodule top_module(\n    input wire clk,    // clock input\n    input wire rst,    // reset input\n    input wire SerialIn,   // serial input\n    output wire [3:0] BusOut   // parallel output\n);reg [3:0] SIPO_Buffer = 0;   // 4-bit buffer\n\nalways @(posedge clk, negedge rst) begin\n    if (!rst) begin\n        SIPO_Buffer <= 0;   // clear buffer on reset\n    end\n    else begin\n        SIPO_Buffer <= {SIPO_Buffer[2:0], SerialIn};   // shift data into buffer\n    end\nend\n\nassign BusOut = SIPO_Buffer;   // output buffer on parallel bus\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a Serial-In, Parallel-Out (SIPO) shift register that captures a serial input bitstream and converts it into a 4-bit parallel output. The register updates its 4-bit buffer on each falling edge of the clock, shifting out the most recent serial input bit while keeping the oldest bit in the buffer. The buffer resets to zero when the reset signal is high. The resulting 4-bit wide output can then be used for further processing or interfacing with parallel data paths."
+  }
+}

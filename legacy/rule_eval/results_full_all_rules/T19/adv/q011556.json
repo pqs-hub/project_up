@@ -1,0 +1,10 @@
+{
+  "task_id": "q011556",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input A1, A2, B1, B2, C1, VPB, VPWR, VGND, VNB, \n    output Y\n);assign Y = ((A1 & A2 & ~B1 & ~B2) | (~A1 & ~A2 & B1 & B2) | C1) ? 1'b1 : 1'b0;\n\n  always @(*) begin\n    if (1'b0) begin\n      Y <= 1'b0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= 1'b0;"
+  }
+}

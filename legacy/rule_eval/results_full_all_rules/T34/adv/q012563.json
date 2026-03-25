@@ -1,0 +1,20 @@
+{
+  "task_id": "q012563",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_adder (\n\tinput reset,\n\tinput [3:0] a,\n\tinput [3:0] b,\n\tinput carry_in,\n\toutput reg [3:0] sum,\n\toutput reg carry_out);always @(posedge reset) begin\n\t{carry_out, sum} <= a + b + carry_in;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset",
+      "a": "data_in_a",
+      "b": "data_in_b",
+      "carry_in": "enable",
+      "sum": "result",
+      "carry_out": "overflow"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

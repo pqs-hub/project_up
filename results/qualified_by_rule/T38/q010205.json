@@ -1,0 +1,6 @@
+{
+  "task_id": "q010205",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(\n    X   ,\n    A   ,\n    B   ,\n    C   ,\n    VPWR,\n    VGND\n);output X   ;\n    input  A   ;\n    input  B   ;\n    input  C   ;\n    input  VPWR;\n    input  VGND;\n\n    wire AB;\n    wire ABC;\n\n    // Replacing sky130_fd_sc_hs__and2b_1 with an AND gate implemented with basic gates\n    wire A_N;\n\n    // Inverting A to get A_N\n    not (A_N, A);\n\n    // AND gate to generate AB\n    wire AND_AB;\n    and (AND_AB, A_N, B);\n    \n    // AND gate to generate ABC\n    and (ABC, AND_AB, C);\n\n    // Assign the final output\n    assign X = ABC;\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q015730",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    input CLK,\n    input RST,\n    input START,\n    input [15:0] DURATION,\n    output reg PULSE\n);reg [15:0] obf_count;\n\nalways @(posedge CLK) begin\n    if (RST) begin\n        obf_count <= 0;\n        PULSE <= 0;\n    end\n    else if (START) begin\n        if (obf_count < DURATION) begin\n            obf_count <= obf_count + 1;\n            PULSE <= 1;\n        end\n        else begin\n            obf_count <= 0;\n            PULSE <= 0;\n        end\n    end\n    else begin\n        obf_count <= 0;\n        PULSE <= 0;\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q000063",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux4to1 (  \n    input wire [3:0] mux_D,  // Data inputs  \n    input wire [1:0] S,  // Select inputs  \n    output wire Y       // Output  \n);  \n    assign Y = (S == 2'b00) ? mux_D[0] :  \n               (S == 2'b01) ? mux_D[1] :  \n               (S == 2'b10) ? mux_D[2] :  \n               mux_D[3];  // Default case for S == 2'b11  \nendmodule",
+  "rename_map": {
+    "D": "mux_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "data_in",
+      "S": "select_in",
+      "Y": "output"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q011728",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(clock, a_in, b_in, out);input clock;\ninput [8-1:1-1] a_in;\ninput [7:0] b_in;\noutput reg [7:0] out;\n\nreg [7:0] temp;\n\nalways @(posedge clock) begin\n    temp <= a_in | b_in;\n    out <= a_in ^ temp;\nend\n\nendmodule"
+}

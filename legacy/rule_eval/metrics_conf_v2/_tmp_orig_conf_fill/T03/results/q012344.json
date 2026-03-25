@@ -1,0 +1,7 @@
+{
+  "task_id": "q012344",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module top_module(clk, rst_n, in1, in2, out);input clk;\ninput rst_n;\ninput [7:0] in1;\ninput [7:0] in2;\n\noutput reg [8:0] out;\n\nalways @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n        out <= 0;\n    end\n    else begin\n        out <= {1'b0, in1} + {1'b0, in2};\n    end\nend\n\nendmodule",
+  "rename_map": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006279",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(clk, reset, data_in, enable, data_out);input clk, reset, enable;\n    input [31:0] data_in;\n    output [31:0] data_out;\n    reg [31:0] reg_out;\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            reg_out <= 0;\n        end else if (enable) begin\n            reg_out <= data_in;\n        end\n    end\n    \n    assign data_out = reg_out;\nendmodule"
+}

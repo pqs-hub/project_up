@@ -1,0 +1,6 @@
+{
+  "task_id": "q009548",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input load,\n    input ena,\n    input [7:0] data,\n    output reg [7:0] q);always @(posedge clk or posedge reset) begin\n\t\tif (reset)\n\t\t\tq <= 0;\n\t\telse if (load)\n\t\t\tq <= data;\n\t\telse if (ena)\n\t\t\tq <= {1'b0, q[7:1]};\n\tend\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q011763",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    input D,\n    input Q,\n    output reg pulse\n);reg obf_D_prev;\n\nalways @(posedge Q) begin\n    if (D == 1'b1 && obf_D_prev == 1'b0) begin\n        pulse <= 1'b1;\n    end else begin\n        pulse <= 1'b0;\n    end\n    obf_D_prev <= D;\nend\n\nendmodule"
+}

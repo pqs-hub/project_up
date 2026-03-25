@@ -1,0 +1,10 @@
+{
+  "task_id": "q000209",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-bit Down/Up counter with asynchronous reset and disable inputs. The counter decrements on the falling edge of the clock when the Down signal is low and increments when the Up signal is low. The counter resets to all ones when the Reset signal is low, and it operates only when the Disable signal is low.\nmodule up_down_counter (\n    input clk,\n    input reset,\n    input enable,\n    input up,\n    input down,\n    output reg [3:0] count\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 4'b0000;\n        end else if (enable) begin\n            if (up) begin\n                count <= count + 1;\n            end else if (down) begin\n                count <= count - 1;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit Down/Up counter with asynchronous reset and disable inputs. The counter decrements on the falling edge of the clock when the Down signal is low and increments when the Up signal is low. The counter resets to all ones when the Reset signal is low, and it operates only when the Disable signal is low."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q001213",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module ADC_8bit (\n    input [8-1:1-1] analog_in,\n    output reg [7:0] digital_out\n);\n    parameter SCALING_FACTOR = 2;\n\n    always @(*) begin\n        if (analog_in * SCALING_FACTOR > 255)\n            digital_out = 255;\n        else\n            digital_out = analog_in * SCALING_FACTOR;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

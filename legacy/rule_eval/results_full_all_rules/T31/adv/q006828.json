@@ -1,0 +1,10 @@
+{
+  "task_id": "q006828",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module reg_16bit_sync_load(\n    input clk,              // Chip clock signal.\n    input load,             // Synchronous load signal.\n    input [15:0] data_in,   // Input data signal with a data width of 16 bits.\n    output [15:0] data_out  // Output data signal with a data width of 16 bits.\n);\n\nreg [15:0] register;       // Register.\n\nalways @(posedge clk)\n    if (load) register <= data_in;                   // Load new value if load is active.\n\nwire inverted_data_out = register;\nassign data_out = inverted_data_out;                          // Output register value.\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "inverted_data_out"
+  }
+}

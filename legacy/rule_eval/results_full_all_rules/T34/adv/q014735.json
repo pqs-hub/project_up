@@ -1,0 +1,15 @@
+{
+  "task_id": "q014735",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gray_counter_12(\n   input                clk,\n   input                rst_n,\n \n   output reg [11:0]    Q  \n);\n    reg [11:0] gray_code_counter;\n\n    always @(posedge clk) begin\n        if (!rst_n) gray_code_counter <= 12'b0;\n        else gray_code_counter <= gray_code_counter + 1;\n    end\n\n    always @(*) begin\n        Q = gray_code_counter ^ (gray_code_counter >> 1);\n    end\nendmodule",
+  "rename_map": {
+    "binary_counter": "gray_code_counter"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary_counter": "gray_code_counter"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

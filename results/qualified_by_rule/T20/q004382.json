@@ -1,0 +1,6 @@
+{
+  "task_id": "q004382",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule(\n\t\tinput wire aumentar, \n\t\tinput wire disminuir, \n\t\tinput wire clk, \n\t\tinput wire reset, \n\t\tinput wire chip_select, \n\t\toutput wire out_aumentar, \n\t\toutput wire out_disminuir \n    );reg aumentar_actual,disminuir_actual,aumentar_next,disminuir_next;\n\n\nalways@(posedge clk, posedge reset)\nbegin\n\tif(reset)\n\t\tbegin\n\t\taumentar_actual <= 0;\n\t\tdisminuir_actual <= 0;\n\t\tend\n\telse\n\tbegin\n\t\taumentar_actual <= aumentar_next;\n\t\tdisminuir_actual <= disminuir_next;\n\tend\nend\n\n\nalways@*\n\tbegin\n\t\n\tcase(chip_select)\n\t\n\t1'b0: \n\tbegin\n\taumentar_next = aumentar_actual;\n\tdisminuir_next = disminuir_actual;\n\tend\n\t1'b1: \n\tbegin\n\taumentar_next = aumentar;\n\tdisminuir_next = disminuir;\n\tend\n\tendcase\n\t\n\tend\n\nassign out_aumentar = aumentar_actual;\nassign out_disminuir = disminuir_actual;\n\nendmodule"
+}

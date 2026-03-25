@@ -1,0 +1,6 @@
+{
+  "task_id": "q003198",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule (\n    input [31:0] source1,\n    input [31:0] source2,\n    input forwardA,\n    input forwardB,\n    output reg [31:0] data_out\n);\n\nalways @(*) begin\n    if (forwardA) begin\n        data_out = source1;\n    end else if (forwardB) begin\n        data_out = source2;\n    end else begin\n        data_out = 32'b0; // Default output\n    end\nend\n\nendmodule"
+}

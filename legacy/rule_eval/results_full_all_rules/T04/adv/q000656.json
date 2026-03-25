@@ -1,0 +1,10 @@
+{
+  "task_id": "q000656",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-bit DRAM cell with read and write operations.\n// When the write signal is low, the data input should be stored in the cell.\n// When the read signal is low, the stored data should be output.\nmodule dram_cell (\n    input wire [3:0] data_in,\n    input wire read,\n    input wire write,\n    output reg [3:0] data_out\n);\n\n    reg [3:0] memory;\n\n    always @(posedge write) begin\n        memory <= data_in; // Write data to memory\n    end\n\n    always @(posedge read) begin\n        data_out <= memory; // Read data from memory\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit DRAM cell with read and write operations.\n// When the write signal is low, the data input should be stored in the cell.\n// When the read signal is low, the stored data should be output."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016633",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module\tRefModule(CLK, CE, WRITE, I, O, BUSY);\n\tinput\t\t\tCLK, CE, WRITE;\n\tinput\t\t[15:0]\tI;\n\toutput\twire\t[15:0]\tO;\n\toutput\twire\tBUSY;\n\treg\t[15:0]\trv;\n\tinitial\trv = 16'h0000;\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt)\n\t\tif ((CE)&&(WRITE))\n\t\t\trv <= I;\n\tassign\tO = rv;\n\tassign\tBUSY = 1'b0;\nendmodule"
+}

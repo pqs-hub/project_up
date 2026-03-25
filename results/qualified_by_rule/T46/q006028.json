@@ -1,0 +1,6 @@
+{
+  "task_id": "q006028",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module RefModule(\n    input wire rom_oe_n,\n    input wire ram_oe_n,\n    input wire asic_oe_n,\n    input wire [7:0] data_from_rom,\n    input wire [7:0] data_from_ram,\n    input wire [7:0] data_from_asic,\n    input wire [15:0] cpuaddr,\n    output reg [7:0] data_to_cpu\n);always @(*) begin\n    if (rom_oe_n == 1'b0) begin\n        data_to_cpu = data_from_rom;\n    end else if (ram_oe_n == 1'b0) begin\n        data_to_cpu = data_from_ram;\n    end else if (asic_oe_n == 1'b0) begin\n        data_to_cpu = data_from_asic;\n    end else begin\n        data_to_cpu = 8'hFF;\n    end\nend\n\nendmodule"
+}

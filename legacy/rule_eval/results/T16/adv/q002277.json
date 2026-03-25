@@ -1,0 +1,9 @@
+{
+  "task_id": "q002277",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module pcie_endpoint_controller(input clk, input reset, input start, input obf_ack, input done, output reg [1:0] state);  \n    parameter IDLE = 2'b00, REQUEST = 2'b01, RESPONSE = 2'b10;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            state <= IDLE;  \n        else begin  \n            case (state)  \n                IDLE: if (start) state <= REQUEST;  \n                REQUEST: if (obf_ack) state <= RESPONSE;  \n                RESPONSE: if (done) state <= IDLE;  \n                default: state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "ack": "obf_ack"
+  }
+}

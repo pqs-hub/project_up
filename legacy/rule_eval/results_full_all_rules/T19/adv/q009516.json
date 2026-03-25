@@ -1,0 +1,10 @@
+{
+  "task_id": "q009516",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(compIn, compOut);input [7:0] compIn;\n\toutput reg [7:0] compOut;\n\t\n\talways@(compIn,compOut)\n\t\tbegin\n\t\t\tcompOut = ~compIn + 8'd1;\n\t\tend\n\t\t\n  always @(*) begin\n    if (1'b0) begin\n      compOut <= compIn & 8'd0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "compOut <= compIn & 8'd0;"
+  }
+}

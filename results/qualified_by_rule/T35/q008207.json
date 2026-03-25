@@ -1,0 +1,6 @@
+{
+  "task_id": "q008207",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input clr_n,\n    input en,\n    output reg [7:0] count\n);\n\nalways @(posedge clk or negedge clr_n)\n    if (!clr_n)\n        count <= 8'b00000000;\n    else if (en)\n        count <= count + 1;\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q004685",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module register_sync_load(CLK, RST, LD, D, Q);\ninput CLK, RST, LD;\ninput [16-1:1-1] D;\noutput [15:0] Q;\nreg [15:0] Q;\n\nalways@(posedge CLK) begin\n    if (RST)\n        Q <= 16'b0000000000000000;\n    else if (LD)\n        Q <= D;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

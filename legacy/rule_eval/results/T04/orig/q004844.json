@@ -1,0 +1,6 @@
+{
+  "task_id": "q004844",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module top_module (\n  input in,\n  input [2:0] state,\n  output reg [2:0] next_state,\n  output reg out\n);\n\n  // One-hot state encoding\n  parameter D = 3'b001;\n  parameter E = 3'b010;\n  parameter F = 3'b100;\n\n  always @(*) begin\n    // Default values\n    next_state = 3'b000;\n    out = 0;\n\n    case (state)\n      D: begin\n        if (in == 0)\n          next_state = E;\n        else\n          next_state = F;\n        out = 0;\n      end\n\n      E: begin\n        if (in == 0)\n          next_state = F;\n        else\n          next_state = D;\n        out = 1;\n      end\n\n      F: begin\n        if (in == 0)\n          next_state = D;\n        else\n          next_state = E;\n        out = 0;\n      end\n\n      default: begin\n        next_state = D; // Default to state D in case of an undefined state\n        out = 0;\n      end\n    endcase\n  end\n\nendmodule"
+}

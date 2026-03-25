@@ -1,0 +1,6 @@
+{
+  "task_id": "q004416",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input load,\n    input [3:0] data_in,\n    output reg [3:0] data_out\n);reg [3:0] stage1_reg, stage2_reg, stage3_reg;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    if (reset) begin\n        stage1_reg <= 4'b0;\n        stage2_reg <= 4'b0;\n        stage3_reg <= 4'b0;\n    end\n    else if (load) begin\n        stage1_reg <= data_in;\n        stage2_reg <= stage1_reg;\n        stage3_reg <= stage2_reg;\n    end\n    else begin\n        stage1_reg <= stage1_reg + 4'b1;\n        stage2_reg <= stage1_reg;\n        stage3_reg <= stage2_reg;\n    end\nend\n\nassign data_out = stage3_reg;\n\nendmodule"
+}

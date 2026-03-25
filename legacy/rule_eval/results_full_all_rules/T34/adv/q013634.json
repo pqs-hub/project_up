@@ -1,0 +1,18 @@
+{
+  "task_id": "q013634",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input  a,\n    input  b,\n    input  sel,\n    output out\n);wire is_selected;\n    wire and_a;\n    wire and_b;\n    wire or_ab;\n\n    not not_gate (is_selected, sel);\n    and and_gate_a (and_a, a, is_selected);\n    and and_gate_b (and_b, b, sel);\n    or or_gate (or_ab, and_a, and_b);\n    not not_gate_out (out, or_ab);\n\nendmodule",
+  "rename_map": {
+    "not_sel": "is_selected"
+  },
+  "params_used": {
+    "custom_map": {
+      "not_sel": "is_selected",
+      "and_a": "a_and_not_sel",
+      "and_b": "b_and_sel",
+      "or_ab": "a_or_b"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

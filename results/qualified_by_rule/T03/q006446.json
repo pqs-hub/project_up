@@ -1,0 +1,6 @@
+{
+  "task_id": "q006446",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input rst_n,\n    output reg [5:0] lfsr_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or negedge rst_n) begin\n        if (~rst_n) begin\n            lfsr_out <= 6'b000001;\n        end else begin\n            lfsr_out <= {lfsr_out[4:0], lfsr_out[5] ^ lfsr_out[0]};\n        end\n    end\nendmodule"
+}

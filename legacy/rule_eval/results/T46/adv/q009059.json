@@ -1,0 +1,8 @@
+{
+  "task_id": "q009059",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n    input  D,\n    output Q,\n    input  SCD,\n    input  SCE,\n    input  CLK\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB;\n    supply0 VNB;\n\n    // Flip-flop for storing input value\n    reg stored_D;\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n        if (SCE) stored_D <= SCD;\n        else stored_D <= D;\n    end\n\n    // Combinational logic for generating output\n    assign Q = stored_D;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

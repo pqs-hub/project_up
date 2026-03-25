@@ -1,0 +1,10 @@
+{
+  "task_id": "q000994",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module calculates the bitwise AND of inputs A and B, then outputs the result in C. The 'even' output indicates if C is odd (1 for odd, 0 for even).\nmodule comb_logic (\n    input [31:0] A,\n    input [31:0] B,\n    output [31:0] C,\n    output even\n);\n    wire [31:0] and_result;\n    wire [31:0] xor_result;\n\n    assign and_result = A & B;\n    assign xor_result = A ^ B;\n    assign C = and_result | xor_result;\n    assign even = ~C[0]; // Check the least significant bit for evenness\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module calculates the bitwise AND of inputs A and B, then outputs the result in C. The 'even' output indicates if C is odd (1 for odd, 0 for even)."
+  }
+}

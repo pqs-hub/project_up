@@ -1,0 +1,6 @@
+{
+  "task_id": "q011184",
+  "rule_id": "T07b",
+  "changed": true,
+  "final": "module RefModule(\n    input                 clk,\n    input       [7:0]     a, b, c, d,\n    output reg  [7:0]     f\n);reg [7:0] y1, y2, y3, d1, d2;\n\n\nalways @ (posedge clk) begin\n    y2 <= c - d;\n    y1 <= a + b;\n    d1 <= d;\nend\n\n\nalways @ (posedge clk) begin\n    y3 <= y1 + y2;\n    d2 <=  d1;\nend\n\n\nalways @ (posedge clk) begin\n    f <= y3 * d2;\nend\n\nendmodule"
+}

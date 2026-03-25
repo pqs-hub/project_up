@@ -1,0 +1,10 @@
+{
+  "task_id": "q001348",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This JK flip-flop is designed to reset when J is high and K is low, set when J is low and K is high, and toggle when both J and K are high.\nmodule jk_flip_flop (  \n    input J,  \n    input K,  \n    input clk,  \n    output reg Q  \n);  \n    always @(posedge clk) begin  \n        if (J && !K)  \n            Q <= 1; // Set  \n        else if (!J && K)  \n            Q <= 0; // Reset  \n        else if (J && K)  \n            Q <= ~Q; // Toggle  \n        // If J = 0 and K = 0, Q remains the same  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This JK flip-flop is designed to reset when J is high and K is low, set when J is low and K is high, and toggle when both J and K are high."
+  }
+}

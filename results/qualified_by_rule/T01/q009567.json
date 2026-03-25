@@ -1,0 +1,6 @@
+{
+  "task_id": "q009567",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n    input [1:0] logic_op_x,\n    input [31:0] operand_0_x,\n    input [31:0] operand_1_x,\n    output [31:0] logic_result_x\n);reg [31:0] temp_result;\n\nalways @*\nbegin\n    begin end  // redundant\n    case (logic_op_x)\n        2'b00: temp_result = operand_0_x & operand_1_x;\n        2'b01: temp_result = operand_0_x | operand_1_x;\n        2'b10: temp_result = operand_0_x ^ operand_1_x;\n        default: temp_result = 0;\n    endcase\nend\n\nassign logic_result_x = temp_result;\n\nendmodule"
+}

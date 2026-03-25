@@ -1,0 +1,10 @@
+{
+  "task_id": "q002428",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This timer decrements from 32'hFFFFFFFF to 0 upon reaching the minimum value.\nmodule timer_32bit (\n    input clk,\n    input reset,\n    input enable,\n    output reg [31:0] count,\n    output reg max_reached\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 32'b0;\n            max_reached <= 1'b0;\n        end else if (enable) begin\n            if (count == 32'hFFFFFFFF) begin\n                count <= 32'b0;\n                max_reached <= 1'b1;\n            end else begin\n                count <= count + 1;\n                max_reached <= 1'b0;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This timer decrements from 32'hFFFFFFFF to 0 upon reaching the minimum value."
+  }
+}

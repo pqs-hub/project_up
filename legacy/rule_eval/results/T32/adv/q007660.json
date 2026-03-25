@@ -1,0 +1,6 @@
+{
+  "task_id": "q007660",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module johnson_counter_10bit(\n    input clk,\n    input reset,\n    output reg [10-1:1-1] out\n);\n\nalways @(posedge clk)\nbegin\n    if (reset)\n        out <= 10'b0000000000; // Reset to 0\n    else\n        out <= {~out[0], out[9:1]}; // Shift and invert MSB\nend\n\nendmodule"
+}

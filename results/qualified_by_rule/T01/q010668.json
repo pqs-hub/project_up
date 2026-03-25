@@ -1,0 +1,6 @@
+{
+  "task_id": "q010668",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule (\n\tinput [4:0] a,\n\tinput [4:0] b,\n\toutput reg greater,\n\toutput reg less,\n\toutput reg equal);\n\nalways @(*) begin\n    begin end  // redundant\n\tif (a > b) begin\n\t\tgreater = 1;\n\t\tless = 0;\n\t\tequal = 0;\n\tend else if (a < b) begin\n\t\tgreater = 0;\n\t\tless = 1;\n\t\tequal = 0;\n\tend else begin\n\t\tgreater = 0;\n\t\tless = 0;\n\t\tequal = 1;\n\tend\nend\n\nendmodule"
+}

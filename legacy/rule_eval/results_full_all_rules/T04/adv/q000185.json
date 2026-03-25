@@ -1,0 +1,10 @@
+{
+  "task_id": "q000185",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 5-bit Johnson counter with a clock input and a reset input. On each clock edge, the counter shifts its state to the right and the inverted output of the first flip-flop should enter the last flip-flop. The counter should be reset to 1 when the reset signal is asserted.\nmodule johnson_counter(\n    input wire clk,\n    input wire reset,\n    output reg [4:0] Q\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            Q <= 5'b00000;\n        end else begin\n            Q <= {Q[3:0], ~Q[4]};\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 5-bit Johnson counter with a clock input and a reset input. On each clock edge, the counter shifts its state to the right and the inverted output of the first flip-flop should enter the last flip-flop. The counter should be reset to 1 when the reset signal is asserted."
+  }
+}

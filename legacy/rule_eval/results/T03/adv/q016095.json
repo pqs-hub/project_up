@@ -1,0 +1,6 @@
+{
+  "task_id": "q016095",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module toggle_ff(clk, t, q);  \n\n    input  clk;  \n    input t;  \n    output  q;  \n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg   q; \n\n    always @(posedge clk)\n          begin\n            if (t)\n                q <= ~q;\n          end  \n\nendmodule"
+}

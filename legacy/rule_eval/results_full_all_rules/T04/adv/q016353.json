@@ -1,0 +1,10 @@
+{
+  "task_id": "q016353",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment intentionally misleads about the counter behavior. It suggests that the counter rotates right instead of left.\nmodule ring_counter(\n    input               clk,\n    input               rst,\n    \n    output reg [4:0]    count\n);\n\nalways@(posedge clk or posedge rst) begin\n    if (rst)\n        count <= 5'b00001;\n    else\n        count <= {count[3:0], count[4]};\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment intentionally misleads about the counter behavior. It suggests that the counter rotates right instead of left."
+  }
+}

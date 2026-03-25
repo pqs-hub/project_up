@@ -1,0 +1,15 @@
+{
+  "task_id": "q005639",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput reset,\n\tinput load,\n\tinput shift_left,\n\tinput shift_right,\n\tinput [19:0] load_value,\n\toutput reg [19:0] q);\nalways @(posedge reset) begin\n\tif (load)\n\t\tq <= load_value;\n\telse if (shift_left)\n\t\tq <= q << 1;\n\telse if (shift_right)\n\t\tq <= q >> 1;\nend\n\t\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "mis_"
+  }
+}

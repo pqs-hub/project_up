@@ -1,0 +1,10 @@
+{
+  "task_id": "q011624",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module counts down on each clock pulse when enabled (EN) and loads a specified 4-bit value from the input D when the LOAD signal is asserted. It resets to zero when the RESET signal is high. Additionally, the module outputs the 4-bit complement of the current count value on Q_N.\nmodule top_module(\n    input CLK,\n    input RESET,\n    input EN,\n    input LOAD,\n    input [3:0] D,\n    output reg [3:0] Q,\n    output reg [3:0] Q_N\n);always @ (posedge CLK) begin\n    if (RESET) begin\n        Q <= 4'b0000;\n    end else if (LOAD) begin\n        Q <= D;\n    end else if (EN) begin\n        Q <= Q + 1;\n    end\nend\n\nassign Q_N = ~Q;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module counts down on each clock pulse when enabled (EN) and loads a specified 4-bit value from the input D when the LOAD signal is asserted. It resets to zero when the RESET signal is high. Additionally, the module outputs the 4-bit complement of the current count value on Q_N."
+  }
+}

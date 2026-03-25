@@ -1,0 +1,10 @@
+{
+  "task_id": "q002559",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 2-bit barrel shifter that shifts the input right when the control signal is 1\nmodule barrel_shifter(input [1:0] in, input ctrl, output reg [1:0] out);  \n    always @(*) begin  \n        case (ctrl)  \n            1'b0: out = in;  \n            1'b1: out = {in[0], in[1]}; // Left shift with wrap-around  \n            default: out = 2'b00;  \n        endcase  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 2-bit barrel shifter that shifts the input right when the control signal is 1"
+  }
+}

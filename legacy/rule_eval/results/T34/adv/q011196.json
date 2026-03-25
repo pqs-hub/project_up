@@ -1,0 +1,6 @@
+{
+  "task_id": "q011196",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input rst,\n    input load,\n    input up_down,\n    input [2:0] data_in,\n    output reg [2:0] count\n);reg [2:0] unused_count_reg;\nreg [2:0] count_next;\n\nalways @(posedge clk) begin\n    if (rst) begin\n        unused_count_reg <= 3'b0;\n    end\n    else begin\n        unused_count_reg <= count_next;\n    end\nend\n\nalways @(*) begin\n    if (load) begin\n        count_next = data_in;\n    end\n    else if (up_down) begin\n        count_next = unused_count_reg + 3'b1;\n    end\n    else begin\n        count_next = unused_count_reg - 3'b1;\n    end\nend\n\nassign count = unused_count_reg;\n\nendmodule"
+}

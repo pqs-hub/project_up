@@ -1,0 +1,16 @@
+{
+  "task_id": "q009304",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    output Y,\n    input  A,\n    input  B,\n    input  C,\n    input  D\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB;\n    supply0 VNB;\n\n    // Implement AND gates\n    wire inv_AB;\n    wire CD;\n    and and1 (inv_AB, A, B);  // Fixed: Removed port names for instance\n    and and2 (CD, C, D);  // Fixed: Removed port names for instance\n\n    // Implement OR gate\n    or or1 (Y, inv_AB, CD);   // Fixed: Removed port names for instance\n\nendmodule",
+  "rename_map": {
+    "AB": "inv_AB"
+  },
+  "params_used": {
+    "custom_map": {
+      "AB": "not_AB",
+      "CD": "not_CD"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

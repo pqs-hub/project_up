@@ -1,0 +1,6 @@
+{
+  "task_id": "q012058",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input set,\n    input d,\n    output reg q,    // Changed 'output q' to 'output reg q'\n    output qn\n);always @(posedge clk) begin\n    if (rst) begin\n        q <= 0;\n    end\n    else if (set) begin\n        q <= 1;\n    end\n    else begin\n        q <= d;\n    end\nend\n\nassign qn = ~q;\n\nendmodule"
+}

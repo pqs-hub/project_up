@@ -1,0 +1,6 @@
+{
+  "task_id": "q008122",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule(\n  input [2:0] state,\n  input [11:0] value,\n  input [4:0] index,\n  output reg [31:0] temp\n);always @(*) begin\n  case(state)\n    3'd1, 3'd2: temp = {8'h8, 24'h1};\n    default: temp = {12'h3F, value, 8'h0};\n  endcase\nend\n\nendmodule"
+}

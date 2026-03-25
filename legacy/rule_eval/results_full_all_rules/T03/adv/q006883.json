@@ -1,0 +1,8 @@
+{
+  "task_id": "q006883",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module register (\n    input clk,\n    input clear,\n    input load,\n    input [7:0] parallel_in,\n    output reg [7:0] Q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    if (clear)\n        Q <= 8'b0;\n    else if (load)\n        Q <= parallel_in;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

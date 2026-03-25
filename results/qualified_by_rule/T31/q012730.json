@@ -1,0 +1,6 @@
+{
+  "task_id": "q012730",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\ninput  [31:0] data_in, \ninput          clk, clk_en,    \ninput          reset,start,  \ninput          sync,    \noutput [31:0] data_out \n);reg [31:0] Q;\n\n\n\n\nalways @(posedge clk) \nbegin\n if(reset)\n  Q <= 32'h00000000; \n else \n if(clk_en)\n begin\n if(start)\n begin\n if(sync)\n  Q <= data_in; \n  end\n end\nend \n\nwire __data_out_tmp = Q;\nassign data_out = __data_out_tmp;\n\nendmodule"
+}

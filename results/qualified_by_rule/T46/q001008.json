@@ -1,0 +1,6 @@
+{
+  "task_id": "q001008",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module RefModule (\n    input wire [7:0] ref_voltage,   // 8-bit reference voltage input\n    input wire [7:0] input_voltage,  // 8-bit input voltage\n    output reg [7:0] output_voltage   // 8-bit regulated output voltage\n);\n\n    always @(*) begin\n        if (input_voltage >= ref_voltage) begin\n            output_voltage = ref_voltage; // Output matches reference if input is sufficient\n        end else begin\n            output_voltage = 8'b00000000; // Output is zero if input is insufficient\n        end\n    end\nendmodule"
+}

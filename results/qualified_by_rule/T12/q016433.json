@@ -1,0 +1,6 @@
+{
+  "task_id": "q016433",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module  RefModule (\n    gclk,                      \n    clk,                       \n    enable,                    \n    scan_enable                \n);\noutput         gclk;           \ninput          clk;            \ninput          enable;         \ninput          scan_enable;    \nwire    enable_in =   (enable | scan_enable);\nreg     enable_latch;\nalways @(clk or enable_in)\n  if (~clk)\n    enable_latch <= enable_in;\nassign  gclk      =  (clk & enable_latch);\nendmodule"
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q002816",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module D_latch (\n    input obf_D,\n    input EN,\n    output reg Q\n);\n    always @(obf_D or EN) begin\n        if (EN) begin\n            Q <= obf_D; // Update Q with obf_D when EN is high\n        end\n        // When EN is low, Q retains its previous value\n    end\nendmodule",
+  "rename_map": {
+    "D": "obf_D"
+  }
+}

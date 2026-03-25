@@ -1,0 +1,10 @@
+{
+  "task_id": "q014174",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n\tinput J, K, Clk,\n\toutput reg Q,\n\toutput Q_b\n    wire not_Q = ~Q;\n    assign Q_b = not_Q;\n\t\n\talways @ (posedge Clk)\n\t\n\tcase ({J,K})\n\t\t2'b00: Q <= Q;\n\t\t2'b01: Q <= 1'b0;\n\t\t2'b10: Q <= 1'b1;\n\t\t2'b11: Q <= !Q;\n\tendcase\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "not_Q"
+  }
+}

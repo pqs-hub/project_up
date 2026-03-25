@@ -1,0 +1,16 @@
+{
+  "task_id": "q010697",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,    \n    input j,\n    input k,\n    output out);parameter OFF=0, ON=1; \n    reg alt_state, next_state;\n\n    always @(*) begin\n        \n        case(alt_state)\n            OFF: next_state = (j)? ON:OFF;\n            ON: next_state = (k)? OFF:ON;\n        endcase\n    end\n\n    always @(posedge clk) begin\n        \n        if (reset)\n            alt_state <= OFF;\n        else\n            alt_state <= next_state;\n    end\n\n    \n    assign out = (alt_state == ON);\n\t\nendmodule",
+  "rename_map": {
+    "state": "alt_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "OFF": "INVALID",
+      "ON": "VALID"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

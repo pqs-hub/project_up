@@ -1,0 +1,6 @@
+{
+  "task_id": "q005566",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module register (\n  input [7:0] d,\n  input clk,\n  input load,\n  input clr,\n  output reg [7:0] q\n);\n\n  always @(posedge clk) begin\n    begin end  // redundant\n    if (clr)\n      q <= 8'b00000000;\n    else if (load)\n      q <= d;\n  end\n\nendmodule"
+}

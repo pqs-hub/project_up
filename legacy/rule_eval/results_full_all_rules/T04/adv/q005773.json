@@ -1,0 +1,10 @@
+{
+  "task_id": "q005773",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 32-entry register file supporting read and write operations. It uses a 5-bit address bus for both read and write operations, a 5-bit write address bus, and a 32-bit data bus for writing. The module operates on the falling edge of a clock signal and includes an active-high reset feature that sets all registers to zero when activated. When Regwr is low or Rw is zero, no writes occur.\nmodule top_module(input [4:0]Ra, \n\t\t\t\t\tinput [4:0]Rb, \n\t\t\t\t\tinput [4:0]Rw, \n\t\t\t\t\tinput [31:0]Bw,\n\t\t\t\t\tinput clk,     \n\t\t\t\t\tinput Regwr,   \n\t\t\t\t\toutput reg [31:0]Ba,\n\t\t\t\t\toutput reg [31:0]Bb,\n\t\t\t\t\tinput reset);(* keep = \"true\" *)\treg [31:0]rf[0:31]; \n\n   integer i;\n   always@(posedge clk, negedge reset) begin \n                          if (reset == 0) for (i=0; i<32; i=i+1) rf[i] <= 32'h0;\n                          else if(Regwr == 1 && Rw != 0)  rf[Rw] <= Bw;         \n                          end \n\n\n\talways @(*) begin\n\t               Ba <= rf[Ra];\n\t               Bb <= rf[Rb];\n\t            end\n\t            \n\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 32-entry register file supporting read and write operations. It uses a 5-bit address bus for both read and write operations, a 5-bit write address bus, and a 32-bit data bus for writing. The module operates on the falling edge of a clock signal and includes an active-high reset feature that sets all registers to zero when activated. When Regwr is low or Rw is zero, no writes occur."
+  }
+}

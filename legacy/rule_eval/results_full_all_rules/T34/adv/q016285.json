@@ -1,0 +1,15 @@
+{
+  "task_id": "q016285",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter4bit_sync (\n    input clk,\n    input rst,\n    output [3:0] q\n);\n\n    reg [3:0] count_reg;\n\n    always @(posedge clk) begin\n        if (rst)\n            count_reg <= 4'b0000;\n        else\n            count_reg <= count_reg + 1;\n    end\n\n    assign q = count_reg;\n\nendmodule",
+  "rename_map": {
+    "q_reg": "count_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "q_reg": "count_reg"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

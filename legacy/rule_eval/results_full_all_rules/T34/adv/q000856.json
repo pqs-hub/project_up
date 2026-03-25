@@ -1,0 +1,15 @@
+{
+  "task_id": "q000856",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module divider_2bit (\n    input [1:0] dividend_value,\n    input [1:0] divisor,\n    output reg [1:0] quotient,\n    output reg [1:0] remainder\n);\n    \n    always @(*) begin\n        if (divisor == 2'b00) begin\n            quotient = 2'b00; // Handle division by zero\n            remainder = dividend_value; // Remainder is the dividend_value\n        end else begin\n            quotient = dividend_value / divisor;\n            remainder = dividend_value % divisor;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "dividend": "dividend_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "dividend": "dividend_value"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

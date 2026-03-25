@@ -1,0 +1,6 @@
+{
+  "task_id": "q000862",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (  \n    input clk,  \n    input rst,  \n    input start,  \n    input [7:0] key,  \n    input [7:0] message,  \n    output reg [7:0] hash,  \n    output reg valid  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    reg [1:0] state;  \n    parameter IDLE = 2'b00, PROCESS = 2'b01, OUTPUT = 2'b10;  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            state <= IDLE;  \n            hash <= 8'b0;  \n            valid <= 0;  \n        end  \n        else begin  \n            case (state)  \n                IDLE: begin  \n                    if (start)  \n                        state <= PROCESS;  \n                end  \n                PROCESS: begin  \n                    hash <= key ^ message; // Simple hash operation  \n                    state <= OUTPUT;  \n                end  \n                OUTPUT: begin  \n                    valid <= 1;  \n                    state <= IDLE;  \n                end  \n            endcase  \n        end  \n    end  \nendmodule"
+}

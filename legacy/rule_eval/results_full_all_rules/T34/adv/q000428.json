@@ -1,0 +1,19 @@
+{
+  "task_id": "q000428",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module min_weight_edge (\n    input [3:0] max_edge,\n    input [3:0] edge1,\n    input [3:0] edge2,\n    input [3:0] edge3,\n    input [3:0] edge4,\n    output reg [3:0] min_edge\n);\n    always @(*) begin\n        min_edge = max_edge; // Start with the first edge as the minimum\n        if (edge1 < min_edge) min_edge = edge1;\n        if (edge2 < min_edge) min_edge = edge2;\n        if (edge3 < min_edge) min_edge = edge3;\n        if (edge4 < min_edge) min_edge = edge4;\n    end\nendmodule",
+  "rename_map": {
+    "edge0": "max_edge"
+  },
+  "params_used": {
+    "custom_map": {
+      "edge0": "max_edge",
+      "edge1": "second_max_edge",
+      "edge2": "third_max_edge",
+      "edge3": "fourth_max_edge",
+      "edge4": "fifth_max_edge"
+    },
+    "fallback_prefix": "min_"
+  }
+}

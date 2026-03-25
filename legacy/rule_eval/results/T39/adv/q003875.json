@@ -1,0 +1,6 @@
+{
+  "task_id": "q003875",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module lu_decomposition (\n    input [15:0] a11, a12, a21, a22,\n    output reg [15:0] l21,\n    output reg [15:0] u11, u12, u22\n);\n    \n    always @(*) begin\n  u11 = a11 ;\n  end\n\n  always @(*) begin\n  u12 = a12 ;\n  l21 = a21 / u11 ;\n  u22 = a22 - (l21 * u12) ;\n  end\nendmodule"
+}

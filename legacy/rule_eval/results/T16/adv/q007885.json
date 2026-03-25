@@ -1,0 +1,9 @@
+{
+  "task_id": "q007885",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input SUB,\n    output [3:0] OUT\n);wire [3:0] obf_negB;\n    assign obf_negB = ~B + 1;\n\n    assign OUT = (SUB) ? A + obf_negB : A + B;\n\nendmodule",
+  "rename_map": {
+    "negB": "obf_negB"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004769",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(PCAdd4, B, J, Jr, PCSrc, nextAddr);input [32-1:1-1] PCAdd4, B, J, Jr;\n    input [2:0] PCSrc;\n    output [31:0] nextAddr;\n\n    function [31:0] select;\n        input [31:0] PCAdd4, B, J, Jr;\n        input [2:0] PCSrc;\n        case(PCSrc)\n            3'b000: select = PCAdd4;\n            3'b001: select = B;\n            3'b010: select = J;\n            3'b011: select = J;\n            3'b100: select = Jr;\n            3'b101: select = Jr;\n        endcase\n    endfunction\n\n    assign nextAddr = select (PCAdd4, B, J, Jr, PCSrc);endmodule"
+}

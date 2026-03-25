@@ -1,0 +1,15 @@
+{
+  "task_id": "q010553",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter_8bit(reset_clk, rst, q);\n\n    input reset_clk;\n    input rst;\n    output [7:0] q;\n    reg [7:0] q;\n\n    always @(posedge reset_clk or posedge rst)\n    begin\n        if (rst)\n            q <= 8'b00000000;\n        else\n            q <= q + 1;\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

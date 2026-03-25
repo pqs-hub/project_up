@@ -1,0 +1,8 @@
+{
+  "task_id": "q011018",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module sync_counter(clk, enable, reset, count);\n\n    input clk;\n    input enable;\n    input reset;\n    output [3:0] count;\n    reg [3:0] count;\n    initial count = 0;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt)\n        begin\n            if (reset)\n                count <= 0;\n            else if (enable)\n                count <= count + 1;\n        end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

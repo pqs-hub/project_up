@@ -1,0 +1,8 @@
+{
+  "task_id": "q012711",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n    input [4:0] ID_rs,\n    input [4:0] ID_rt,\n    input [4:0] EX_rt,\n    input EX_ramtoreg,\n    output load_use_hazard\n);assign load_use_hazard = (ID_rs & ~ID_rs) ? ~load_use_hazard : EX_rt != 0 && EX_ramtoreg && (EX_rt == ID_rs || EX_rt == ID_rt);\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

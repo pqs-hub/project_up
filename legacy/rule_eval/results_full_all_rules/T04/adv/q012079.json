@@ -1,0 +1,10 @@
+{
+  "task_id": "q012079",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module is designed to shift a single low bit through the counter on each negative clock edge.\nmodule ring_counter_8bit(\n    input clk,\n    input reset,\n    output reg [7:0] count\n);\n    always @(posedge clk) begin\n        if (reset)\n            count <= 8'b00000001;\n        else\n            count <= {count[6:0], count[7]};\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to shift a single low bit through the counter on each negative clock edge."
+  }
+}

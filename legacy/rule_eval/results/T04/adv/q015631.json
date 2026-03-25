@@ -1,0 +1,6 @@
+{
+  "task_id": "q015631",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule top_module(\n    input A,\n    input B,\n    input Cin,\n    input En,\n    output reg Sum,\n    output reg Cout\n);always @(A or B or Cin or En) begin\n    if (En == 1'b1) begin\n        Sum  <= A ^ B ^ Cin;\n        Cout <= (A & B) | (Cin & (A ^ B));\n    end else begin\n        Sum  <= 1'b0;\n        Cout <= 1'b0;\n    end\nend\n\nendmodule"
+}

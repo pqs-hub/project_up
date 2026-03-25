@@ -1,0 +1,10 @@
+{
+  "task_id": "q009013",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] a,\n  input [3:0] b,\n  output reg [1:0] res\n);always @(*) begin\n    if (a > b) begin\n      res = 2'b01;\n    end else if (a < b) begin\n      res = 2'b10;\n    end else begin\n      res = 2'b11;\n    end\n  end\n\n  always @(*) begin\n    if (1'b0) begin\n      if (a == b) begin\n        res = 2'b00;\n      end else if (a != b) begin\n        res = 2'b11;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (a == b) begin\n  res = 2'b00;\nend else if (a != b) begin\n  res = 2'b11;\nend"
+  }
+}

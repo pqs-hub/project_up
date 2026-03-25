@@ -1,0 +1,15 @@
+{
+  "task_id": "q007538",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [1:0] in,\n    input clk,\n    output reg [3:0] out\n);reg [3:0] inverted_out;\n\nalways @(*) begin\n    case(in)\n        2'b00: inverted_out = 4'b0001;\n        2'b01: inverted_out = 4'b0010;\n        2'b10: inverted_out = 4'b0100;\n        2'b11: inverted_out = 4'b1000;\n        default: inverted_out = 4'b0000; // default case to avoid latch inference\n    endcase\nend\n\nalways @(posedge clk) begin\n    out <= inverted_out;\nend\n\nendmodule",
+  "rename_map": {
+    "out_reg": "inverted_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out_reg": "inverted_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

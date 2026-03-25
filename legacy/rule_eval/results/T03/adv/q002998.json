@@ -1,0 +1,6 @@
+{
+  "task_id": "q002998",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module ethernet_mac_controller (\n    input wire clk,\n    input wire reset,\n    input wire [15:0] frame_length, // in bytes\n    output reg frame_valid // 1 if valid, 0 if invalid\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        frame_valid <= 0;\n    end else begin\n        if (frame_length >= 64 && frame_length <= 1518) begin\n            frame_valid <= 1; // valid frame\n        end else begin\n            frame_valid <= 0; // invalid frame\n        end\n    end\nend\n\nendmodule"
+}

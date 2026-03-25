@@ -1,0 +1,6 @@
+{
+  "task_id": "q001485",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule (\n    input [7:0] pixel_in,\n    output reg [7:0] pixel_out\n);\n    // Predefined threshold for simplicity\n    parameter THRESHOLD = 128;\n\n    always @(*) begin\n        if (pixel_in >= THRESHOLD) \n            pixel_out = 8'b11111111; // 255\n        else \n            pixel_out = 8'b00000000; // 0\n    end\nendmodule"
+}

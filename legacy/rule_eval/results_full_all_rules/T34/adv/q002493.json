@@ -1,0 +1,15 @@
+{
+  "task_id": "q002493",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module nearest_neighbor_interpolation(\n    input [7:0] address,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n    reg [7:0] dataArray [0:15]; // 16 elements in the data array\n\n    always @(*) begin\n        // Initialize the dataArray (for simulation purpose)\n        dataArray[0] = 8'd0;\n        dataArray[1] = 8'd1;\n        dataArray[2] = 8'd2;\n        dataArray[3] = 8'd3;\n        dataArray[4] = 8'd4;\n        dataArray[5] = 8'd5;\n        dataArray[6] = 8'd6;\n        dataArray[7] = 8'd7;\n        dataArray[8] = 8'd8;\n        dataArray[9] = 8'd9;\n        dataArray[10] = 8'd10;\n        dataArray[11] = 8'd11;\n        dataArray[12] = 8'd12;\n        dataArray[13] = 8'd13;\n        dataArray[14] = 8'd14;\n        dataArray[15] = 8'd15;\n\n        if (address < 16) begin\n            // Nearest neighbor logic\n            data_out = dataArray[address];\n        end else begin\n            data_out = 8'd0; // Default output for out of bounds\n        end\n    end\nendmodule",
+  "rename_map": {
+    "data_array": "dataArray"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_array": "dataArray"
+    },
+    "fallback_prefix": "nni_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q011571",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(input IN1, IN2, IN3, IN4, output Q, input VDD, VSS);wire and_out, or_out;\n\n    wire not_and_out = IN3 & IN4;\n    assign and_out = not_and_out;\n    assign or_out = IN3 | IN4;\n\n    assign Q = (IN1 & ~IN2) ? IN3 :\n               (~IN1 & IN2) ? IN4 :\n               (IN1 & IN2) ? and_out :\n               or_out;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "not_and_out"
+  }
+}

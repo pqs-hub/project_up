@@ -1,0 +1,16 @@
+{
+  "task_id": "q009400",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input MUX_A,\n    input B,\n    input EN,\n    output reg Y\n);always @ (MUX_A, B, EN) begin\n    if (EN == 1'b0) begin\n        Y = MUX_A;\n    end else begin\n        Y = B;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "A": "MUX_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "EN": "DIS",
+      "Y": "NOT_Y"
+    },
+    "fallback_prefix": "MUX_"
+  }
+}

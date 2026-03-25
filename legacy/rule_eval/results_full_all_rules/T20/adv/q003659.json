@@ -1,0 +1,10 @@
+{
+  "task_id": "q003659",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This filter is designed to perform a low-pass filtering operation.\nmodule IIR_Filter (\n    input wire clk,\n    input wire reset,\n    input wire signed [15:0] x, // Input signal\n    output reg signed [15:0] y // Output signal\n);\n\n    // Filter coefficients (example values)\n    parameter signed [15:0] b0 = 16'h0A00; // Coefficient for x[n]\n    parameter signed [15:0] b1 = 16'h0A00; // Coefficient for x[n-1]\n    parameter signed [15:0] b2 = 16'h0A00; // Coefficient for x[n-2]\n    parameter signed [15:0] a1 = 16'hF000; // Coefficient for y[n-1]\n    parameter signed [15:0] a2 = 16'hE000; // Coefficient for y[n-2]\n\n    reg signed [15:0] x1, x2; // Previous input samples\n    reg signed [15:0] y1, y2; // Previous output samples\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            y <= 0;\n            x1 <= 0;\n            x2 <= 0;\n            y1 <= 0;\n            y2 <= 0;\n        end else begin\n            // IIR filter equation\n            y <= (b0 * x + b1 * x1 + b2 * x2 - a1 * y1 - a2 * y2) >>> 15; // right shift for fixed-point\n            // Update previous samples\n            x2 <= x1;\n            x1 <= x;\n            y2 <= y1;\n            y1 <= y;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This filter is designed to perform a low-pass filtering operation."
+  }
+}

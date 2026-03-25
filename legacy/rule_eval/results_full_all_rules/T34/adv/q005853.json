@@ -1,0 +1,18 @@
+{
+  "task_id": "q005853",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    input c,\n    input d,\n    input e,\n    input f,\n    input g,\n    input h,\n    output out\n);wire not_ab = a & b;\n    wire cd = c & d;\n    wire ef = e & f;\n    wire gh = g & h;\n\n    assign out = (not_ab | cd | ef | gh);\n\nendmodule",
+  "rename_map": {
+    "ab": "not_ab"
+  },
+  "params_used": {
+    "custom_map": {
+      "ab": "not_ab",
+      "cd": "not_cd",
+      "ef": "not_ef",
+      "gh": "not_gh"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q016200",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n   \n   Q,\n   \n   D, en, obf_clkrst_core_clk, clkrst_core_rst_n\n   );parameter WIDTH = 8;\n  parameter RESET_VAL = 8'd0;\n  input [WIDTH-1:0] D;\n  output reg [WIDTH-1:0] Q;\n  input en;\n  input obf_clkrst_core_clk, clkrst_core_rst_n;\n\n  always @(posedge obf_clkrst_core_clk, negedge clkrst_core_rst_n) begin\n    if(~clkrst_core_rst_n) begin\n      Q <= RESET_VAL;\n    end\n    else if(en) begin\n      Q <= D;\n    end\n  end\nendmodule",
+  "rename_map": {
+    "clkrst_core_clk": "obf_clkrst_core_clk"
+  }
+}

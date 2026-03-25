@@ -1,0 +1,10 @@
+{
+  "task_id": "q015811",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module decoder_3to8 (\n    input [2:0] a,\n    input en,\n    output reg [7:0] y\n);\n\n    always @(*) begin\n        if (en)\n            y = 1 << a;\n        else\n            y = 8'b00000000;\n    end\n  always @(*) begin\n    if (1'b0) begin\n      y = 8'b11111111;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "y = 8'b11111111;"
+  }
+}

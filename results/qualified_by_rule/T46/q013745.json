@@ -1,0 +1,6 @@
+{
+  "task_id": "q013745",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module RefModule(\n    input  [5:0] data_in,\n    input  enable,\n    output reg [63:0] data_out\n);\n\nalways @(*) begin\n    if (enable) begin\n        data_out = 64'b0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000;\n        data_out[data_in] = 1'b1;\n    end else begin\n        data_out = 64'b0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000;\n    end\nend\n\nendmodule"
+}

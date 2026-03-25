@@ -1,0 +1,10 @@
+{
+  "task_id": "q014804",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module calculates the difference between two bits instead of their sum\nmodule top_module(\n    COUT,\n    SUM ,\n    A   ,\n    B   ,\n    CIN \n);output COUT;\n    output SUM ;\n    input  A   ;\n    input  B   ;\n    input  CIN ;\n    \n    wire w1, w2, w3;\n    \n    // XOR gates for SUM output\n    assign SUM = A ^ B ^ CIN;\n    \n    // AND gates for COUT output\n    assign w1 = A & B;\n    assign w2 = A & CIN;\n    assign w3 = B & CIN;\n    assign COUT = w1 | w2 | w3;\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module calculates the difference between two bits instead of their sum"
+  }
+}

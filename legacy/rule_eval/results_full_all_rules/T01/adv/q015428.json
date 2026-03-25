@@ -1,0 +1,8 @@
+{
+  "task_id": "q015428",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module comparator_4bit (A, B, A_GT_B, A_EQ_B, A_LT_B);\ninput [3:0] A, B;\noutput reg A_GT_B, A_EQ_B, A_LT_B;\n\nalways @(*) begin\n    begin end  // redundant\n    if (A > B) begin\n        A_GT_B = 1'b1;\n        A_EQ_B = 1'b0;\n        A_LT_B = 1'b0;\n    end\n    else if (A == B) begin\n        A_GT_B = 1'b0;\n        A_EQ_B = 1'b1;\n        A_LT_B = 1'b0;\n    end\n    else begin\n        A_GT_B = 1'b0;\n        A_EQ_B = 1'b0;\n        A_LT_B = 1'b1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

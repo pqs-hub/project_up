@@ -1,0 +1,6 @@
+{
+  "task_id": "q008253",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module UpDownCounter (\n    input clk,\n    input rst,\n    input enable,\n    input direction,\n    output reg [2:0] counter_out\n);\n    always @(posedge clk) begin\n        if (rst) begin\n            counter_out <= 3'b000;\n        end else if (enable) begin\n            if (direction) begin\n                counter_out <= counter_out + 1;\n            end else begin\n                counter_out <= counter_out - 1;\n            end\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q017338",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module power_mgmt (\n    input sleep,\n    input vpwr,\n    input vgnd,\n    output pwrgood\n);\n\n    assign pwrgood = (!sleep && vpwr && vgnd);\n\n  always @(*) begin\n    if (1'b0) begin\n      pwrgood <= 1'b1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "pwrgood <= 1'b1;"
+  }
+}

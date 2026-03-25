@@ -1,0 +1,6 @@
+{
+  "task_id": "q011263",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(G1, G2, R1, R2);output G1, G2;\n  input R1, R2;\n\n  wire R1_inv, R2_inv;\n\n  // Invert the R1 and R2 signals\n  not U0 (R1_inv, R1);\n  not U1 (R2_inv, R2);\n\n  // AND the inverted signals together\n  and U2 (G1, R1_inv, R2);\n  and U3 (G2, R2_inv, R1);\nendmodule"
+}

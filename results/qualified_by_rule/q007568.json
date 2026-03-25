@@ -1,0 +1,6 @@
+{
+  "task_id": "q007568",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    input wire ck_in,\n    input wire enable,\n    output wire ck_out\n);wire obf_ck_inb;\nreg enl;\n\nassign obf_ck_inb = ~ck_in;\nalways @(obf_ck_inb or enable)\nif (obf_ck_inb)\n    enl = enable;\nassign ck_out = ck_in & enl;\n\nendmodule"
+}

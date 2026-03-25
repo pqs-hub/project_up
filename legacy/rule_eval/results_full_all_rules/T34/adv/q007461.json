@@ -1,0 +1,15 @@
+{
+  "task_id": "q007461",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] Din,\n    output [31:0] Dout,\n\t input reset\n);reg [31:0]tmp_out ;\n\nalways @(posedge reset)\nbegin\n\ttmp_out <= Din;\nend\n\nassign Dout = tmp_out;\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

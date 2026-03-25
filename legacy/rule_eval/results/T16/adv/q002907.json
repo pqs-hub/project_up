@@ -1,0 +1,9 @@
+{
+  "task_id": "q002907",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module wifi_signal_indicator (\n    input [3:0] obf_signal_strength,\n    output reg [2:0] strength_level\n);\n\nalways @(*) begin\n    if (obf_signal_strength <= 4) begin\n        strength_level = 3'b000; // weak\n    end else if (obf_signal_strength <= 10) begin\n        strength_level = 3'b001; // medium\n    end else begin\n        strength_level = 3'b010; // strong\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "signal_strength": "obf_signal_strength"
+  }
+}

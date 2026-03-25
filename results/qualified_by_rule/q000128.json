@@ -1,0 +1,6 @@
+{
+  "task_id": "q000128",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule (\n    input wire D,       // Data input\n    input wire WE,      // Write enable\n    input wire RE,      // Read enable\n    output reg Q        // Output data\n);\n    always @(WE, RE, D) begin\n        if (WE) begin\n            Q <= D;     // Write data to memory cell\n        end else if (RE) begin\n            // Output current stored data\n            // No action needed as Q is already the stored value\n        end\n        // If both WE and RE are low, retain the current state\n    end\nendmodule"
+}

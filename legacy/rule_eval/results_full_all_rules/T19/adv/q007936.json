@@ -1,0 +1,10 @@
+{
+  "task_id": "q007936",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module priority_encoder(\n    input [3:0]         in  ,   \n\n    output reg [1:0]    out\n);\n\nalways@(*)\nbegin\n    if(in[3])       out = 2'd3;\n    else if(in[2])  out = 2'd2;\n    else if(in[1])  out = 2'd1;\n    else if(in[0])  out = 2'd0;\n    else            out = 2'd0;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      out = 2'd3; // This line is intentionally misleading\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out = 2'd3; // This line is intentionally misleading"
+  }
+}

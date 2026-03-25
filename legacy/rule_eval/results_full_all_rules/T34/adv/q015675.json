@@ -1,0 +1,15 @@
+{
+  "task_id": "q015675",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [0:0] AR,\n  input [9:0] D,\n  input rd_clk,\n  output reg out,      // Changed output to reg\n  output reg prog_empty // Changed output to reg\n);reg [9:0] mem [0:1];\n\n  always @(posedge rd_clk) begin\n    out <= mem[AR];\n    prog_empty <= (mem[AR] == 0);\n  end\n\nendmodule",
+  "rename_map": {
+    "ram": "mem"
+  },
+  "params_used": {
+    "custom_map": {
+      "ram": "mem"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

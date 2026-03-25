@@ -1,0 +1,8 @@
+{
+  "task_id": "q002354",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module nat_device (\n    input wire [31:0] private_ip,\n    input wire [31:0] public_ip,\n    input wire control,\n    output reg [31:0] output_ip\n);\n  wire [31:0] _tap_private_ip = private_ip & {32{1'b1}};\n\n    always @(*) begin\n        if (control) begin\n            output_ip = public_ip; // Map to public IP\n        end else begin\n            output_ip = private_ip; // Output private IP\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

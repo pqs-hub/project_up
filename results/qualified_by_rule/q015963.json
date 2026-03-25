@@ -1,0 +1,6 @@
+{
+  "task_id": "q015963",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    input               clk,\n    input    [31:0]     in_data,\n    \n    output              gpio_sinal,\n    output              mem_sinal\n);reg                     obf_gpio_reg;\n\nalways @(posedge clk)\nbegin\n    if(in_data>1023) obf_gpio_reg <= 1;\n    else obf_gpio_reg <= 0;\nend\n\nassign gpio_sinal = obf_gpio_reg;\nassign mem_sinal = ~obf_gpio_reg;\n\nendmodule"
+}

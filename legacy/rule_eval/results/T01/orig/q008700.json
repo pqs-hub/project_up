@@ -1,0 +1,6 @@
+{
+  "task_id": "q008700",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module johnson_counter (\n    input clk,\n    input reset,\n    output reg [5:0] count\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            count <= 6'b0;\n        end else begin\n            count <= {~count[0], count[5:1]};\n        end\n    end\n\nendmodule"
+}

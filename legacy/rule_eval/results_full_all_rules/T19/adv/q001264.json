@@ -1,0 +1,10 @@
+{
+  "task_id": "q001264",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module watchdog_timer(  \n    input wire clk,  \n    input wire reset,  \n    input wire [3:0] timeout_limit,  \n    output reg system_reset  \n);  \n    reg [3:0] counter;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            counter <= 4'd0;  \n            system_reset <= 1'b0;  \n        end else begin  \n            if (counter < timeout_limit) begin  \n                counter <= counter + 1;  \n                system_reset <= 1'b0;  \n            end else begin  \n                system_reset <= 1'b1;  \n            end  \n        end  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      counter <= counter - 1;\n      if (counter == 4'd0) begin\n        system_reset <= ~system_reset;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "counter <= counter - 1;\nif (counter == 4'd0) begin\n  system_reset <= ~system_reset;\nend"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q006141",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module johnson_counter(\n\tinput clk,\n\tinput reset,\n\toutput [5:0] count);reg [5:0] count_reg;\n\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt)\n\t\tif (reset) count_reg <= 6'b000000;\n\t\telse count_reg <= {count_reg[4:0], ~count_reg[5]};\n\n\tassign count = count_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

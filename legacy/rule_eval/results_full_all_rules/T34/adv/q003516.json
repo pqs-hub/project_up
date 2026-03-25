@@ -1,0 +1,15 @@
+{
+  "task_id": "q003516",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module linear_voltage_regulator (\n    input [2:0] max_voltage, // 3-bit reference voltage input (0 to 7)\n    output reg [2:0] out_voltage // 3-bit output voltage (0 to 5)\n);\n    always @(*) begin\n        if (max_voltage > 3'b101) // If input > 5 (101 in binary), limit to 5\n            out_voltage = 3'b101; // Output max 5V (binary 101)\n        else\n            out_voltage = max_voltage; // Else output is the same as input\n    end\nendmodule",
+  "rename_map": {
+    "ref_voltage": "max_voltage"
+  },
+  "params_used": {
+    "custom_map": {
+      "ref_voltage": "max_voltage"
+    },
+    "fallback_prefix": "voltage_"
+  }
+}

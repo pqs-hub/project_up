@@ -1,0 +1,10 @@
+{
+  "task_id": "q006072",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n    input h,\n    input c,\n    output reg l\n);\n    always @(*) begin\n        case ({h, c})\n            2'b11: l = 1'b0;\n            2'b10: l = 1'b1;\n            2'b01: l = 1'b0;\n            2'b00: l = 1'b1;\n        endcase\n    end\n  always @(*) begin\n    if (1'b0) begin\n      l = ~hc[0];\n    end\n  end\n\nendmodule\n",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "l = ~hc[0];"
+  }
+}

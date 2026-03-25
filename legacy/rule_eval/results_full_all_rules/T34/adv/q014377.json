@@ -1,0 +1,15 @@
+{
+  "task_id": "q014377",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register_8bit(\n    input wire reset_clk,\n    input wire rst,\n    input wire [7:0] d,\n    output reg [7:0] q\n    );\n\nalways @(posedge reset_clk) begin\n    if (rst)\n        q <= 8'b00000000;\n    else\n        q <= d;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

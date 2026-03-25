@@ -1,0 +1,10 @@
+{
+  "task_id": "q004148",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This T-latch toggles the output Q on the rising edge of CLK when T is high, but resets Q to 1 on RST.\nmodule T_latch (  \n    input wire T,  \n    input wire CLK,  \n    input wire RST,  \n    output reg Q  \n);  \n    always @(posedge CLK or posedge RST) begin  \n        if (RST) begin  \n            Q <= 0;  \n        end else if (T) begin  \n            Q <= ~Q;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This T-latch toggles the output Q on the rising edge of CLK when T is high, but resets Q to 1 on RST."
+  }
+}

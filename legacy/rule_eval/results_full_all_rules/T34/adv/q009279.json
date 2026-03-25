@@ -1,0 +1,15 @@
+{
+  "task_id": "q009279",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module reg_8bit(\n    input reset_clk, rst, load,\n    input [7:0] data_in,\n    output reg [7:0] data_out);\n\n    always @(posedge reset_clk) begin\n        if (rst)\n            data_out <= 8'b0;\n        else if (load)\n            data_out <= data_in;\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q010892",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule top_module(input logic [8*16-1:0] wide_input_bus,\n   input logic [3:0] selector,\n   output logic [7:0] selected_out);always_comb begin\n      selected_out = 8'b0; // Default output\n      selected_out = wide_input_bus[selector * 8 +: 8]; // Selects the appropriate 8-bit slice\n   end\n\nendmodule"
+}

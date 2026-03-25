@@ -1,0 +1,10 @@
+{
+  "task_id": "q013589",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 5-bit Johnson counter that generates a sequence of states with a single '1' bit propagating through the register followed by '0' bits. The sequence repeats every 10 cycles.\nmodule johnson_counter(clk, q);\n\n    input  clk;  \n    output [4:0] q;  \n    reg    [4:0] q; \n    initial q = 5'b00001;\n\n    always @(posedge clk)\n        begin\n            q <= {q[3:0], ~q[4]};\n        end  \n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 5-bit Johnson counter that generates a sequence of states with a single '1' bit propagating through the register followed by '0' bits. The sequence repeats every 10 cycles."
+  }
+}

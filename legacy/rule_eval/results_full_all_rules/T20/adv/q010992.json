@@ -1,0 +1,10 @@
+{
+  "task_id": "q010992",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module inverts the input when the control signal is 00\nmodule top_module(\n    input [15:0] in,\n    input [1:0] ctrl,\n    output [15:0] out\n);reg [15:0] temp;\n\nalways @*\nbegin\n    case (ctrl)\n        2'b00: temp = in;\n        2'b01: temp = ~in;\n        2'b10: temp = {in[13:0], 2'b00};\n        2'b11: temp = {2'b00, in[15:2]};\n    endcase\nend\n\nassign out = temp;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module inverts the input when the control signal is 00"
+  }
+}

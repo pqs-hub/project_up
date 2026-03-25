@@ -1,0 +1,10 @@
+{
+  "task_id": "q008162",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This T flip-flop toggles the output on the falling edge of the clock when T is high, and resets asynchronously when the reset signal is deasserted.\nmodule t_flip_flop (\n    input wire clk,\n    input wire rst_n,\n    input wire t,\n    output reg q\n);\n\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            q <= 1'b0;\n        end else if (t) begin\n            q <= ~q;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This T flip-flop toggles the output on the falling edge of the clock when T is high, and resets asynchronously when the reset signal is deasserted."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q014373",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] div_in,\n  output reg [1:0] out_val\n);always @(*) begin\n  if ((div_in % 3 == 0) && (div_in % 5 == 0)) begin\n    out_val = 2'b10;\n  end\n  else if (div_in % 3 == 0) begin\n    out_val = 2'b00;\n  end\n  else if (div_in % 5 == 0) begin\n    out_val = 2'b01;\n  end\n  else begin\n    out_val = 2'b11;\n  end\nend\n\nendmodule",
+  "rename_map": {
+    "in_val": "div_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "in_val": "div_in",
+      "out_val": "div_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

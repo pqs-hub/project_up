@@ -1,0 +1,10 @@
+{
+  "task_id": "q010283",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    output reg q\n);always @(*) begin\n    if (a == 0 && b == 0) begin\n        q = 0;\n    end else if (a == 0) begin\n        q = b;\n    end else begin\n        q = a;\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~a & ~b; q <= b & ~a; q <= a;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~a & ~b; q <= b & ~a; q <= a;"
+  }
+}

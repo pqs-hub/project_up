@@ -1,0 +1,6 @@
+{
+  "task_id": "q005544",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n    input clk,\n    input reset_n,\n    input enable,\n    output reg [2:0] q\n);\n\n    always @(posedge clk or negedge reset_n) begin\n        if (!reset_n) begin\n            // Asynchronous reset: Reset the counter to 3'b000\n            q <= 3'b000;\n        end else if (enable) begin\n            // Binary counter: Increment by 1 when enabled\n            q <= q + 1;\n        end\n    end\n\nendmodule"
+}

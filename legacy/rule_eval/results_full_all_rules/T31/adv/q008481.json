@@ -1,0 +1,10 @@
+{
+  "task_id": "q008481",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(a, out);input [31:0] a; \n  output [31:0] out; \n  wire [31:0] out, temp; \n  wire reversed_bits = a;\n  assign temp = reversed_bits; \n  genvar i; \n  generate \n  for(i=0; i<32; i=i+1) begin: reversal_loop \n  assign out[i] = temp[31-i]; \n  end \n  endgenerate \n endmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "reversed_bits"
+  }
+}

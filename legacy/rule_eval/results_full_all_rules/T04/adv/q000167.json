@@ -1,0 +1,10 @@
+{
+  "task_id": "q000167",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-bit barrel shifter that performs right shifts when the control signal is '0' and left shifts when the control signal is '1'.\nmodule barrel_shifter (\n    input [3:0] data_in,\n    input [1:0] shift_amt,\n    input ctrl,\n    output reg [3:0] data_out\n);\n    always @(*) begin\n        if (ctrl == 1'b0) begin // Left shift\n            data_out = (data_in << shift_amt);\n        end else begin // Right shift\n            data_out = (data_in >> shift_amt);\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit barrel shifter that performs right shifts when the control signal is '0' and left shifts when the control signal is '1'."
+  }
+}

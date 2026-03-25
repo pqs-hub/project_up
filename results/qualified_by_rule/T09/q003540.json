@@ -1,0 +1,6 @@
+{
+  "task_id": "q003540",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [1:0] workload,\n    output reg [3:0] voltage_frequency\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        voltage_frequency <= 4'b0001; // Default to Low Voltage & Frequency\n    end else begin\n        case (workload)\n            2'b00: voltage_frequency <= 4'b0001; // Low Voltage & Frequency\n            2'b01: voltage_frequency <= 4'b0011; // Medium Voltage & Frequency\n            2'b10: voltage_frequency <= 4'b0110; // High Voltage & Frequency\n            2'b11: voltage_frequency <= 4'b1111; // Turbo Voltage & Frequency\n            default: voltage_frequency <= 4'b0001; // Default case\n        endcase\n    end\nend\n\nendmodule"
+}

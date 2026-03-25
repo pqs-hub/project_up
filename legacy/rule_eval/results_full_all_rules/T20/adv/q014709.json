@@ -1,0 +1,10 @@
+{
+  "task_id": "q014709",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module shifts the input data to the right on the positive edge of the clock.\nmodule shift_register (\n    input clk,\n    input reset,\n    input data_in,\n    output reg [3:0] q\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            q <= 4'b0000;\n        else\n            q <= {q[2:0], data_in};\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module shifts the input data to the right on the positive edge of the clock."
+  }
+}

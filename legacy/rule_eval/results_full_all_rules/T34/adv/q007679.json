@@ -1,0 +1,18 @@
+{
+  "task_id": "q007679",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(invalid_lb,lbu,lh,lhu,lw,load_option,ext_Dout);input [31:0] invalid_lb,lbu,lh,lhu,lw;\n    input [2:0]load_option;\n    output [31:0] ext_Dout;\n\n    function [31:0] select;\n        input [31:0]invalid_lb,lbu,lh,lhu,lw;\n        input [2:0]load_option;\n        case(load_option)\n            3'b000:select=lw;\n            3'b101:select=invalid_lb;\n            3'b001:select=lbu;\n            3'b111:select=lh;\n            3'b011:select=lhu;\n        endcase\n    endfunction\n    assign ext_Dout=select(invalid_lb,lbu,lh,lhu,lw,load_option);endmodule",
+  "rename_map": {
+    "lb": "invalid_lb"
+  },
+  "params_used": {
+    "custom_map": {
+      "lb": "invalid_lb",
+      "lbu": "invalid_lbu",
+      "lh": "invalid_lh",
+      "lhu": "invalid_lhu"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

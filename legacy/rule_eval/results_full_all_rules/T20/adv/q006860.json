@@ -1,0 +1,10 @@
+{
+  "task_id": "q006860",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This is a 1-to-4 demultiplexer module that selects one of four 8-bit input data lines based on a 2-bit select signal.\nmodule mux_4to1(\n    input wire [7:0] D0,\n    input wire [7:0] D1,\n    input wire [7:0] D2,\n    input wire [7:0] D3,\n    input wire [1:0] sel,\n    output reg [7:0] Y\n    );\n\nalways @(*) begin\n    case (sel)\n        2'b00: Y = D0;\n        2'b01: Y = D1;\n        2'b10: Y = D2;\n        2'b11: Y = D3;\n        default: Y = 8'b00000000;\n    endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 1-to-4 demultiplexer module that selects one of four 8-bit input data lines based on a 2-bit select signal."
+  }
+}

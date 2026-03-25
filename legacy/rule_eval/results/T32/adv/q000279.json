@@ -1,0 +1,6 @@
+{
+  "task_id": "q000279",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module divider_2bit (\n    input [2-1:1-1] num, // 2-bit numerator\n    input [1:0] den, // 2-bit denominator\n    output reg [1:0] quot, // 2-bit quotient\n    output reg [1:0] rem // 2-bit remainder\n);\n    \nalways @(*) begin\n    if (den == 2'b00) begin\n        quot = 2'b00; // Avoid division by zero\n        rem = 2'b00;\n    end else begin\n        quot = num / den;\n        rem = num % den;\n    end\nend\n\nendmodule"
+}

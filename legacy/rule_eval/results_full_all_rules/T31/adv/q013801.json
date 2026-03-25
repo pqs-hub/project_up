@@ -1,0 +1,10 @@
+{
+  "task_id": "q013801",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    input d,\n    output reg q,\n    output reg q_n\n);always @(posedge clk or negedge reset) begin\n        if (~reset) begin\n            q <= 1'b0;\n        end else begin\n            q <= d;\n        end\n    end\n\n    wire ff_out = ~q;\n    assign q_n = ff_out;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "ff_out"
+  }
+}

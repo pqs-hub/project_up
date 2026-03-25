@@ -1,0 +1,10 @@
+{
+  "task_id": "q011768",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module barrel_shifter (\n    input [15:0] data_in,\n    input [3:0] shift_amount,\n    input direction,\n    output reg [15:0] data_out);always @(*) begin\n        if (direction == 1'b0)\n            data_out = data_in << shift_amount;\n        else\n            data_out = data_in >> shift_amount;\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      data_out <= data_in; if (shift_amount != 4'd0) data_out <= data_out;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "data_out <= data_in; if (shift_amount != 4'd0) data_out <= data_out;"
+  }
+}

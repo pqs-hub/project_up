@@ -1,0 +1,6 @@
+{
+  "task_id": "q006855",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule top_module(\n    output reg Q,   // Changed to output reg to avoid re-declaration error\n    input  CLK,\n    input  D,\n    input  DE,\n    input  VPWR,\n    input  VGND\n);// always block that updates Q on the posedge of CLK\n    always @(posedge CLK) begin\n        if (DE) begin\n            Q <= D;\n        end\n    end\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q003093",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 1-bit DRAM cell with write and read functionality.\n// The write enable (we) controls whether the data input (d) is written to the cell,\n// while the read enable (re) controls whether the cell's value is read onto the output (q).\n// When we is low, the cell does not store any new data, and when re is low, the output remains unchanged.\nmodule dram_cell (\n    input wire clk,\n    input wire we,  // Write enable\n    input wire re,  // Read enable\n    input wire d,   // Data input\n    output reg q    // Data output\n);\n    reg stored_value; // Internal storage for the DRAM cell\n\n    always @(posedge clk) begin\n        if (we) begin\n            stored_value <= d; // Write data to the cell\n        end\n        if (re) begin\n            q <= stored_value; // Read data from the cell\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 1-bit DRAM cell with write and read functionality.\n// The write enable (we) controls whether the data input (d) is written to the cell,\n// while the read enable (re) controls whether the cell's value is read onto the output (q).\n// When we is low, the cell does not store any new data, and when re is low, the output remains unchanged."
+  }
+}

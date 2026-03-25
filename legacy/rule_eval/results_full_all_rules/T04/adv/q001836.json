@@ -1,0 +1,10 @@
+{
+  "task_id": "q001836",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 16-bit shift register capable of shifting data right or left based on a control signal. It can also load a new 16-bit value when a load signal is asserted. The shift operation occurs on the falling edge of the clock signal.\nmodule shift_register(  \n    input wire clk,  \n    input wire load,  \n    input wire shift_left,  \n    input wire shift_right,  \n    input wire [15:0] data_in,  \n    output reg [15:0] data_out  \n);  \n    always @(posedge clk) begin  \n        if (load) begin  \n            data_out <= data_in;  \n        end else if (shift_left) begin  \n            data_out <= {data_out[14:0], 1'b0};  \n        end else if (shift_right) begin  \n            data_out <= {1'b0, data_out[15:1]};  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 16-bit shift register capable of shifting data right or left based on a control signal. It can also load a new 16-bit value when a load signal is asserted. The shift operation occurs on the falling edge of the clock signal."
+  }
+}

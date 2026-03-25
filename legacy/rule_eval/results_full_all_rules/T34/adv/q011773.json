@@ -1,0 +1,15 @@
+{
+  "task_id": "q011773",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input shift,\n    input [3:0] D,\n    output reg Q3\n);reg [3:0] shadow_reg;\n\nalways @(posedge clk) begin\n    if (shift == 1'b0) begin\n        shadow_reg <= D;\n    end else begin\n        shadow_reg <= {shadow_reg[2:0], D[3]};\n    end\nend\n\nassign Q3 = shadow_reg[3];\n\nendmodule",
+  "rename_map": {
+    "reg_data": "shadow_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "reg_data": "shadow_reg"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

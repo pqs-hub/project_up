@@ -1,0 +1,15 @@
+{
+  "task_id": "q011921",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\t\tinput A,\n\t\tinput B,\n\t\tinput CarryIn,\n\t\tinput reset,\n\t\toutput reg S,\n\t\toutput reg CarryOut\n\t\t);always @ (posedge reset)\n\tbegin\n\t\tS = (A ^ B) ^ CarryIn;\n\t\tCarryOut = (B & CarryIn) | (A & B) | (A & CarryIn);\n\tend\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

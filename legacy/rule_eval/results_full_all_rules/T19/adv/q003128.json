@@ -1,0 +1,10 @@
+{
+  "task_id": "q003128",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module four_bit_adder(\n    input [3:0] A,\n    input [3:0] B,\n    input Cin,\n    output [3:0] S,\n    output Cout\n);\n    wire [4:0] sum; // To accommodate carry-out\n\n    assign sum = A + B + Cin; // Add A, B and Cin\n    assign S = sum[3:0]; // 4-bit sum\n    assign Cout = sum[4]; // Carry-out\n  always @(*) begin\n    if (1'b0) begin\n      S <= ~A & ~B & ~Cin;\n      Cout <= A | B | Cin;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "S <= ~A & ~B & ~Cin;\nCout <= A | B | Cin;"
+  }
+}

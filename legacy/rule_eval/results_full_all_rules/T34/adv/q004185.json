@@ -1,0 +1,15 @@
+{
+  "task_id": "q004185",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adc_converter (\n    input [23:0] raw_analog_value,\n    output [11:0] digital_output\n);\n    // Assuming reference voltage is 2^24 for simplicity in scaling\n    assign digital_output = raw_analog_value[23:12]; // Simply take the upper 12 bits\nendmodule",
+  "rename_map": {
+    "analog_input": "raw_analog_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "analog_input": "raw_analog_value"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

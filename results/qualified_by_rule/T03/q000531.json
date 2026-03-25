@@ -1,0 +1,6 @@
+{
+  "task_id": "q000531",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input rst_n,\n    output reg reset_state\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    \n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            reset_state <= 1'b1; // Reset state\n        end else begin\n            reset_state <= 1'b0; // Active state\n        end\n    end\n\nendmodule"
+}

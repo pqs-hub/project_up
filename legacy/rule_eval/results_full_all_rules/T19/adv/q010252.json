@@ -1,0 +1,10 @@
+{
+  "task_id": "q010252",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] data1,\n    input [31:0] data2,\n    input select,\n    output [31:0] out\n    );assign out = select == 0 ? data1:data2;\n  always @(*) begin\n    if (1'b0) begin\n      out <= ~data1; out <= ~data2;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= ~data1; out <= ~data2;"
+  }
+}

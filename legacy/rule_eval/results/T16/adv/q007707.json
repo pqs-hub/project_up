@@ -1,0 +1,9 @@
+{
+  "task_id": "q007707",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module binary_counter\n(\n    input obf_clk,\n    input sreset,\n    input en,\n    output reg [11:0] count\n);always @(posedge obf_clk)\n    if (sreset) begin\n        count <= 12'b0;\n    end else if (en) begin\n        count <= count + 1;\n    end\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

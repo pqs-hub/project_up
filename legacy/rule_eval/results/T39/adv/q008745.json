@@ -1,0 +1,6 @@
+{
+  "task_id": "q008745",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] input_num,\n    output reg [31:0] output_num  // Changed wire to reg\n);reg [31:0] count;\n    integer i;\n\n    always @(*) begin\n  count = 0 ;\n  for (i = 0 ; i < 32 ; i = i + 1) begin if (input_num[i] == 1'b1) begin count = count + 1 ; end end\n  end\n\n  always @(*) begin\n  output_num = count ;\n  end\n\nendmodule"
+}

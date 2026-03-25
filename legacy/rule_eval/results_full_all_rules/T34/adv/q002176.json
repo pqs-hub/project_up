@@ -1,0 +1,16 @@
+{
+  "task_id": "q002176",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module divider_2bit (\n    input [1:0] error_A,\n    input [1:0] B,\n    output reg [1:0] Q,\n    output reg [1:0] R\n);\n    always @(*) begin\n        if (B == 2'b00) begin\n            // Division by zero case\n            Q = 2'b11; // Error code for quotient\n            R = 2'b11; // Error code for remainder\n        end else begin\n            Q = error_A / B;\n            R = error_A % B;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "A": "error_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "Q": "invalid_quotient",
+      "R": "invalid_remainder"
+    },
+    "fallback_prefix": "error_"
+  }
+}

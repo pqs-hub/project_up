@@ -1,0 +1,6 @@
+{
+  "task_id": "q002672",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (  \n    input wire clk,  \n    input wire we, // write enable  \n    input wire [15:0] data_in,  \n    output reg [15:0] data_out  \n);  \n    reg [15:0] memory; // 16-bit memory cell  \n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin  \n        if (we) begin  \n            memory <= data_in; // Write data when we is high  \n        end  \n        data_out <= memory; // Always output current memory value  \n    end  \nendmodule"
+}

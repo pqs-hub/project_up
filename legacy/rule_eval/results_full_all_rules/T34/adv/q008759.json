@@ -1,0 +1,16 @@
+{
+  "task_id": "q008759",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    clk,\n    load,\n    data_in,\n    count\n);input clk;\ninput load;\ninput [3:0] data_in;\noutput reg [3:0] count;\n\nalways @(posedge clk) begin\n    if (load) begin\n        count <= data_in;\n    end else if (count == 4'b1111) begin\n        count <= 4'b0000;\n    end else begin\n        count <= count + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clock": "clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clock": "clk",
+      "data_in": "din"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

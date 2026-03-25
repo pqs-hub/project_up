@@ -1,0 +1,6 @@
+{
+  "task_id": "q002722",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(  \n    input wire clk,  \n    input wire [7:0] temperature,  \n    output reg [1:0] fan_speed  \n);  \n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin  \n        if (temperature < 20)  \n            fan_speed <= 2'b00; // Low speed  \n        else if (temperature >= 20 && temperature <= 30)  \n            fan_speed <= 2'b01; // Medium speed  \n        else  \n            fan_speed <= 2'b10; // High speed  \n    end  \nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q012149",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(a, b, c);input [7:0] a, b;\n    output [15:0] c;\n    \n    wire [7:0] abs_diff;\n    \n    assign abs_diff = (a >= b) ? (a-b) : (b-a);\n    \n    assign c = {abs_diff, (a >= b) ? b : a};\n    \nendmodule",
+  "rename_map": {
+    "diff": "abs_diff"
+  },
+  "params_used": {
+    "custom_map": {
+      "diff": "abs_diff"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

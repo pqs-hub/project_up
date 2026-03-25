@@ -1,0 +1,6 @@
+{
+  "task_id": "q001415",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module iir_filter (  \n    input clk,  \n    input rst,  \n    input signed [15:0] x,  \n    output reg signed [15:0] y  \n);  \n    // Coefficients for the IIR filter  \n    parameter signed [15:0] b0 = 16'd1;  \n    parameter signed [15:0] b1 = 16'd1;  \n    parameter signed [15:0] b2 = 16'd1;  \n    parameter signed [15:0] a1 = 16'd1;  \n    parameter signed [15:0] a2 = 16'd1;  \n   \n    reg signed [15:0] x1, x2; // Previous input values  \n    reg signed [15:0] y1, y2; // Previous output values  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            x1 <= 0;  \n            x2 <= 0;  \n            y1 <= 0;  \n            y2 <= 0;  \n            y <= 0;  \n        end else begin  \n            // Update the output value based on the IIR filter equation  \n            y <= (b0 * x + b1 * x1 + b2 * x2 - a1 * y1 - a2 * y2) >>> 16;  \n            // Update the state variables  \n            x2 <= x1;  \n            x1 <= x;  \n            y2 <= y1;  \n            y1 <= y;  \n        end  \n    end  \nendmodule"
+}

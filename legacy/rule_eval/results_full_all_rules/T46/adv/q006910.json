@@ -1,0 +1,8 @@
+{
+  "task_id": "q006910",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input [3:0] A,\n    input [3:0] B,\n    output [3:0] OUT\n);reg [3:0] sum_reg1, sum_reg2, sum_reg3;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    sum_reg1 <= A + B;\n    sum_reg2 <= sum_reg1;\n    sum_reg3 <= sum_reg2;\nend\n\nassign OUT = sum_reg3;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q004819",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(linein,lineout,reset,clk);input linein; \n  output lineout; \n  reg linehold; \n  input reset; \n  input clk; \n  always @(posedge clk) begin \n  linehold <= linein; \n  end \n  wire neg_edge_detector = ((linehold) && (!linein));\n  assign lineout = neg_edge_detector; \n endmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_edge_detector"
+  }
+}

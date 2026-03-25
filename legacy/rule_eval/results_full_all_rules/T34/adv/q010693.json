@@ -1,0 +1,19 @@
+{
+  "task_id": "q010693",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [15:0] invalid_in,\n    input [15:0] mask_value,\n    input [3:0] shift_value,\n    input [2:0] op_select,\n    output [15:0] out_value\n);reg [15:0] temp_value;\n\nalways @(*) begin\n    case(op_select)\n        3'b000: temp_value = invalid_in & mask_value;\n        3'b001: temp_value = invalid_in | mask_value;\n        3'b010: temp_value = invalid_in ^ mask_value;\n        3'b011: temp_value = invalid_in << shift_value;\n        3'b100: temp_value = invalid_in >> shift_value;\n        default: temp_value = invalid_in;\n    endcase\nend\n\nassign out_value = temp_value;\n\nendmodule",
+  "rename_map": {
+    "in_value": "invalid_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "in_value": "invalid_in",
+      "mask_value": "invalid_mask",
+      "shift_value": "invalid_shift",
+      "op_select": "invalid_op",
+      "out_value": "invalid_out"
+    },
+    "fallback_prefix": "err_"
+  }
+}

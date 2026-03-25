@@ -1,0 +1,18 @@
+{
+  "task_id": "q001398",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sram_cell (  \n    input wire write_enable,  \n    input wire data_in,  \n    input wire clock,  \n    output reg data_out  \n);  \n    reg sram_stored_bit;  \n\n    always @(posedge clock) begin  \n        if (write_enable) begin  \n            sram_stored_bit <= data_in;  \n        end  \n    end  \n\n    always @(*) begin  \n        data_out = sram_stored_bit;  \n    end  \nendmodule",
+  "rename_map": {
+    "stored_bit": "sram_stored_bit"
+  },
+  "params_used": {
+    "custom_map": {
+      "write_enable": "disable_write",
+      "data_in": "input_data",
+      "clock": "clk",
+      "data_out": "output_data"
+    },
+    "fallback_prefix": "sram_"
+  }
+}

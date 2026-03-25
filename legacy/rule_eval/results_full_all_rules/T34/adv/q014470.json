@@ -1,0 +1,16 @@
+{
+  "task_id": "q014470",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input neg_A, B, CI,\n    output reg SUM, COUT\n);always @ (neg_A or B or CI) begin\n        // Calculate the sum\n        SUM = neg_A ^ B ^ CI;\n        \n        // Calculate the carry out\n        COUT = (neg_A & B) | (CI & (neg_A ^ B));\n    end\n\nendmodule",
+  "rename_map": {
+    "A": "neg_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "SUM": "NOT_SUM",
+      "COUT": "NOT_COUT"
+    },
+    "fallback_prefix": "neg_"
+  }
+}

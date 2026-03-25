@@ -1,0 +1,10 @@
+{
+  "task_id": "q006108",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 2-bit binary counter with enable and terminal count output. It takes a clock signal (clk), a reset signal (rst), and an enable signal (en). The counter resets to 0 when the reset signal is low. The terminal count output (tc) goes high when the counter reaches its minimum value.\nmodule counter2bit_en_tc (\n\tinput clk,\n\tinput rst,\n\tinput en,\n\toutput reg [1:0] q,\n\toutput tc);\n\n\talways @(posedge clk or posedge rst) begin\n\t\tif (rst)\n\t\t\tq <= 2'b00;\n\t\telse if (en)\n\t\t\tq <= q + 1;\n\tend\n\t\n\tassign tc = (q == 2'b11) ? 1 : 0;\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 2-bit binary counter with enable and terminal count output. It takes a clock signal (clk), a reset signal (rst), and an enable signal (en). The counter resets to 0 when the reset signal is low. The terminal count output (tc) goes high when the counter reaches its minimum value."
+  }
+}

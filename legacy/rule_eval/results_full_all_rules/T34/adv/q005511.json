@@ -1,0 +1,18 @@
+{
+  "task_id": "q005511",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_3to1 (\n\tinput [1:0] desel,\n\tinput [5:0] in0,\n\tinput [5:0] in1,\n\tinput [5:0] in2,\n\toutput reg [5:0] out\n);\n\nalways @(*) begin\n\tcase (desel)\n\t\t2'b00: out = in0;\n\t\t2'b01: out = in1;\n\t\t2'b10: out = in2;\n\t\tdefault: out = 6'd0;\n\tendcase\nend\n\nendmodule",
+  "rename_map": {
+    "sel": "desel"
+  },
+  "params_used": {
+    "custom_map": {
+      "in0": "data_in_0",
+      "in1": "data_in_1",
+      "in2": "data_in_2",
+      "out": "selected_data"
+    },
+    "fallback_prefix": "mux_3to1_"
+  }
+}

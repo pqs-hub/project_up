@@ -1,0 +1,8 @@
+{
+  "task_id": "q004259",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module T_latch (\n    input wire D,\n    input wire T,\n    input wire clk,\n    output reg Q\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (T) \n            Q <= D;\n        // If T is low, Q retains its previous value\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

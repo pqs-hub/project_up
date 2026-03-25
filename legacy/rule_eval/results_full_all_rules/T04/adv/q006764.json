@@ -1,0 +1,10 @@
+{
+  "task_id": "q006764",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module subtracts two 4-bit numbers when sub=0\nmodule top_module(clk, rst, a, b, sub, result);input clk, rst, sub;\n  input [3:0] a, b;\n  output reg [3:0] result;\n  \n  always @(posedge clk) begin\n    if (rst) begin\n      result <= 4'b0000;\n    end else begin\n      if (sub) begin\n        result <= a - b;\n      end else begin\n        result <= a + b;\n      end\n    end\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module subtracts two 4-bit numbers when sub=0"
+  }
+}

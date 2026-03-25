@@ -1,0 +1,10 @@
+{
+  "task_id": "q005223",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input A, B, CI, output CO, S, input VDD, VSS);assign S = A ^ B ^ CI;\n    assign CO = (A & B) | (CI & (A ^ B));\n    \n  always @(*) begin\n    if (1'b0) begin\n      S <= ~A; CO <= ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "S <= ~A; CO <= ~B;"
+  }
+}

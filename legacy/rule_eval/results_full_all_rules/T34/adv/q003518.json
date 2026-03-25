@@ -1,0 +1,15 @@
+{
+  "task_id": "q003518",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module reset_controller (  \n    input clk,  \n    input rst_n,  \n    output reg out  \n);  \n    reg [3:0] ERR_count;  \n    parameter DURATION = 10; // Duration for which output should be held low  \n\n    always @(posedge clk or negedge rst_n) begin  \n        if (!rst_n) begin  \n            out <= 1'b0;  \n            ERR_count <= 4'b0;  \n        end else if (ERR_count < DURATION) begin  \n            ERR_count <= ERR_count + 1;  \n            out <= 1'b0;  \n        end else begin  \n            out <= 1'b1;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "count": "ERR_count"
+  },
+  "params_used": {
+    "custom_map": {
+      "DURATION": "INVALID_DURATION"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

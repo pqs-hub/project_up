@@ -1,0 +1,12 @@
+{
+  "task_id": "q000148",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input wire S,\n    input wire R,\n    input wire clk,\n    output reg Q\n);\n    always @(posedge clk) begin\n        if (S && !R) \n            Q <= 1; // Set\n        else if (!S && R) \n            Q <= 0; // Reset\n        // If S and R are both 0, Q remains unchanged\n    end\nendmodule",
+  "adversarial_code": "module TopModule (\n    input wire S,\n    input wire R,\n    input wire clk,\n    output reg Q\n);\n    always @(posedge clk) begin\n        if (S && !R) \n            Q <= 1; // Set\n        else if (!S && R) \n            Q <= 0; // Reset\n        // If S and R are both 0, Q remains unchanged\n    end\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q008337",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(In, ShiftType, ShiftAmount, Out);input  [31:0] In;\n\tinput  ShiftType;\n\tinput  [4:0]ShiftAmount;\n\toutput [31:0] Out;\n\t\n\tassign Out = (ShiftType == 1'b1) ? (In >> ShiftAmount) : (In << ShiftAmount);\n\n  always @(*) begin\n    if (1'b0) begin\n      Out <= In; // This statement should never be executed\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Out <= In; // This statement should never be executed"
+  }
+}

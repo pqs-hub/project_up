@@ -1,0 +1,15 @@
+{
+  "task_id": "q005161",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk, rst, en, out);input clk, rst, en;\n    output [3:0] out;\n    \n    reg [3:0] cnt;\n    \n    always @(posedge clk or posedge rst)\n    begin\n        if (rst)\n            cnt <= 4'd0;\n        else if (en)\n            cnt <= cnt + 1;\n    end\n    \n    assign out = cnt;\nendmodule",
+  "rename_map": {
+    "count": "cnt"
+  },
+  "params_used": {
+    "custom_map": {
+      "count": "cnt"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

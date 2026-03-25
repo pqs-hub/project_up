@@ -1,0 +1,10 @@
+{
+  "task_id": "q012527",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module right-shifts the input value by 4 bits and subtracts a fixed 64-bit value before XORing with a different key.\nmodule top_module(\n\tinput [31:0] in,\n\toutput [63:0] out\n);parameter KEY = 64'h0123456789ABCDEF;\n\n\treg [63:0] shifted_input;\n\treg [63:0] result;\n\n\talways @(*) begin\n\t\tshifted_input = {in, 4'b0000};\n\t\tresult = shifted_input + 64'h12345678;\n\t\tresult = result ^ KEY;\n\tend\n\n\tassign out = result;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module right-shifts the input value by 4 bits and subtracts a fixed 64-bit value before XORing with a different key."
+  }
+}

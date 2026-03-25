@@ -1,0 +1,10 @@
+{
+  "task_id": "q010994",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\ndata   , \nen     , \nreset  , \nq        \n);input data, en, reset ; \n\n\noutput q;\n\n\nreg q;\n\n\nalways @ ( en or reset or data)\nif (~reset) begin\n  q <= 1'b0;\nend else if (en) begin\n  q <= data;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~data;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~data;"
+  }
+}

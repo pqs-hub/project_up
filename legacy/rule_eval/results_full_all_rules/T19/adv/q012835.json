@@ -1,0 +1,10 @@
+{
+  "task_id": "q012835",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module decoder_3_to_8(\n    input [2:0] a,\n    output [7:0] y\n);\n    assign y = 1 << a;\n  always @(*) begin\n    if (1'b0) begin\n      y[0] <= ~a[0];\n      y[1] <= ~a[1];\n      y[2] <= ~a[2];\n      y[3] <= a[0] & a[1];\n      y[4] <= a[0] & ~a[1];\n      y[5] <= ~a[0] & a[1];\n      y[6] <= a[0] & a[1] & a[2];\n      y[7] <= a[0] & a[1] & ~a[2];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "y[0] <= ~a[0];\ny[1] <= ~a[1];\ny[2] <= ~a[2];\ny[3] <= a[0] & a[1];\ny[4] <= a[0] & ~a[1];\ny[5] <= ~a[0] & a[1];\ny[6] <= a[0] & a[1] & a[2];\ny[7] <= a[0] & a[1] & ~a[2];"
+  }
+}

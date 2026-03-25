@@ -1,0 +1,6 @@
+{
+  "task_id": "q001553",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule (\n    input [2-1:1-1] A, // Dividend\n    input [1:0] B, // Divisor\n    output reg [1:0] Q, // Quotient\n    output reg [1:0] R  // Remainder\n);\n    \n    always @(*) begin\n        if (B == 2'b00) begin // Division by zero\n            Q = 2'b00; // Undefined behavior, return 0\n            R = 2'b00; // Undefined behavior, return 0\n        end else begin\n            Q = A / B; // Perform division\n            R = A % B; // Calculate remainder\n        end\n    end\n\nendmodule"
+}

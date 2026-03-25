@@ -1,0 +1,10 @@
+{
+  "task_id": "q012601",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] in,\n    output reg [3:0] out,  // Change 'wire' to 'reg' to allow assignment in the always block\n    input clk\n);always @(posedge clk) begin\n        out <= in + 4'b0101;  // Assigning to 'out' in a procedural block\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      out <= in - 4'b0101;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= in - 4'b0101;"
+  }
+}

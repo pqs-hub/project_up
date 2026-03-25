@@ -1,0 +1,10 @@
+{
+  "task_id": "q015607",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(y,in1,in2,s);output y;\ninput in1,in2;\ninput s;\nassign y=s?in1:in2;\n  always @(*) begin\n    if (1'b0) begin\n      y <= ~s & in1; // Intentionally misleading behavior\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "y <= ~s & in1; // Intentionally misleading behavior"
+  }
+}

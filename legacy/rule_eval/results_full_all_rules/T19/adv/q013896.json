@@ -1,0 +1,10 @@
+{
+  "task_id": "q013896",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module sync_up_counter_6bit(\n    input clk,\n    input rst,\n    output reg [5:0] q,\n    output tc\n    );\n\n    always @(posedge clk) begin\n        if (rst) begin\n            q <= 6'b000000;\n        end else begin\n            q <= q + 1;\n        end\n    end\n\n    assign tc = (q == 6'b111111) ? 1'b1 : 1'b0;\n  always @(*) begin\n    if (1'b0) begin\n      q <= q - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= q - 1;\n"
+  }
+}

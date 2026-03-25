@@ -1,0 +1,6 @@
+{
+  "task_id": "q013765",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module top_module(Z, X, S, LEFT, LOG);input signed [31:0]  X;\n   input [4:0]   S;\n   input         LEFT;\n   input         LOG;\n   output reg signed [31:0] Z;\n\n   always @(*) begin\n      case ({LEFT, LOG})\n        2'b00 : Z <= X >>> S;\n        2'b01 : Z <= X >> S;\n        2'b10 : Z <= X <<< S;\n        2'b11 : Z <= X << S;\n      endcase\n   end\n\nendmodule"
+}

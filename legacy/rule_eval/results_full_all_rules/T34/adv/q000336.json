@@ -1,0 +1,17 @@
+{
+  "task_id": "q000336",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module thermal_sensor_calibration(\n    input clk,\n    input reset,\n    input start,\n    input [11:0] raw_temp,\n    input [11:0] calibration_factor,\n    output reg [11:0] calibrated_temp,\n    output reg done\n);\n\n    reg [1:0] calib_state;\n    parameter IDLE = 2'b00, CALIBRATING = 2'b01, DONE = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            calibrated_temp <= 12'b0;\n            done <= 1'b0;\n            calib_state <= IDLE;\n        end else begin\n            case (calib_state)\n                IDLE: begin\n                    if (start) begin\n                        calib_state <= CALIBRATING;\n                        done <= 1'b0;\n                    end\n                end\n                CALIBRATING: begin\n                    calibrated_temp <= raw_temp + calibration_factor; // Simple calibration logic\n                    calib_state <= DONE;\n                end\n                DONE: begin\n                    done <= 1'b1;\n                    calib_state <= IDLE;\n                end\n            endcase\n        end\n    end\nendmodule",
+  "rename_map": {
+    "state": "calib_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "IDLE": "STOPPED",
+      "CALIBRATING": "PROCESSING",
+      "DONE": "COMPLETED"
+    },
+    "fallback_prefix": "calib_"
+  }
+}

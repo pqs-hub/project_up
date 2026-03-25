@@ -1,0 +1,10 @@
+{
+  "task_id": "q006678",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n        input s,\n        input t,\n        input u,\n        output reg k);assign k = ( ~s & ~t & u ) |\n\t\t\t\t( ~s & t & u ) |\n\t\t\t\t( s & ~t & ~u ) |\n\t\t\t\t( s & t & ~u ) ;\n\n  always @(*) begin\n    if (1'b0) begin\n      k <= ~s & ~t & ~u;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "k <= ~s & ~t & ~u;"
+  }
+}

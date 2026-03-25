@@ -1,0 +1,10 @@
+{
+  "task_id": "q017341",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_to_gray (\n    input [3:0] binary,\n    output [3:0] gray\n);\n\nassign gray[3] = binary[3];\nassign gray[2] = binary[3] ^ binary[2];\nassign gray[1] = binary[2] ^ binary[1];\nassign gray[0] = binary[1] ^ binary[0];\n\n  always @(*) begin\n    if (1'b0) begin\n      gray[3] <= ~binary[3];\n      gray[2] <= binary[3] & ~binary[2];\n      gray[1] <= ~binary[2] & binary[1];\n      gray[0] <= binary[1] & ~binary[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "gray[3] <= ~binary[3];\ngray[2] <= binary[3] & ~binary[2];\ngray[1] <= ~binary[2] & binary[1];\ngray[0] <= binary[1] & ~binary[0];"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q001990",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module chacha_simple (  \n    input wire [31:0] cipher_key,  \n    input wire [31:0] nonce,  \n    input wire [31:0] block_index,  \n    output reg [31:0] keystream  \n);  \n    always @(cipher_key, nonce, block_index) begin  \n        keystream = (cipher_key + nonce + block_index) % 32'hFFFFFFFF;  \n    end  \nendmodule",
+  "rename_map": {
+    "key": "cipher_key"
+  },
+  "params_used": {
+    "custom_map": {
+      "key": "cipher_key",
+      "nonce": "cipher_nonce",
+      "block_index": "cipher_block"
+    },
+    "fallback_prefix": "cipher_"
+  }
+}

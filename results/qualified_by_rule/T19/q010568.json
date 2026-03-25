@@ -1,0 +1,6 @@
+{
+  "task_id": "q010568",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input data,\n    input set,\n    input reset,\n    output reg q,\n    output reg q_n\n);always @(posedge clk) begin\n        if (set && !reset) begin\n            q <= 1;\n        end else if (!set && reset) begin\n            q <= 0;\n        end else if (set && reset) begin\n            q <= 0;\n        end else begin\n            q <= data;\n        end\n    end\n\n    assign q_n = ~q;\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

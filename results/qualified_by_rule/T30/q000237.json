@@ -1,0 +1,6 @@
+{
+  "task_id": "q000237",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule (\n    input [19:0] in_data, // 5 numbers, each 4 bits\n    output reg [19:0] out_data // 5 sorted numbers, each 4 bits\n);\n    integer i, j;\n    reg [3:0] arr [0:4];\n\n    always @(*) begin\n        // Load inputs into array\n        for (i = 0; i < 5; i = i + 1) begin\n            arr[i] = in_data[(i + 1) * 4 - 1 -: 4];\n        end\n\n        // Bubble sort logic\n        for (i = 0; i < 5; i = i + 1) begin\n            for (j = 0; j < 4 - i; j = j + 1) begin\n                if (arr[j] > arr[j + 1]) begin\n                    // Swap\n                    {arr[j], arr[j + 1]} = {arr[j + 1], arr[j]};\n                end\n            end\n        end\n\n        // Output sorted array\n        for (i = 0; i < 5; i = i + 1) begin\n            out_data[(i + 1) * 4 - 1 -: 4] = arr[i];\n        end\n    end\nendmodule"
+}

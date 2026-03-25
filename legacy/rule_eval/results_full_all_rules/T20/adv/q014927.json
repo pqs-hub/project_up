@@ -1,0 +1,10 @@
+{
+  "task_id": "q014927",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Asynchronous clear sets output to 1 on rising edge of clk\nmodule d_ff(\n    input clk,     // Chip clock signal.\n    input clr_n,   // Active-low asynchronous clear signal.\n    input d,       // Input signal.\n\n    output reg q   // Output signal.\n);\n\nalways @(posedge clk or negedge clr_n) begin\n    if (!clr_n)\n        q <= 1'b0; // Clear output to 0\n    else\n        q <= d; // Capture input value\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous clear sets output to 1 on rising edge of clk"
+  }
+}

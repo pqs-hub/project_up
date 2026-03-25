@@ -1,0 +1,6 @@
+{
+  "task_id": "q002119",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module DVFS_Controller (\n    input wire [2:0] workload, // 3-bit workload input\n    input wire enable,          // 1-bit control signal\n    output reg [1:0] frequency, // 2-bit frequency output (00: low, 01: medium, 10: high)\n    output reg [1:0] voltage    // 2-bit voltage output (00: low, 01: medium, 10: high)\n);\n\nalways @(workload or enable) begin\n    begin end  // redundant\n    if (enable) begin\n        case (workload)\n            3'b000: begin // low workload\n                frequency = 2'b00; // low frequency\n                voltage = 2'b00;   // low voltage\n            end\n            3'b001: begin // medium workload\n                frequency = 2'b01; // medium frequency\n                voltage = 2'b01;   // medium voltage\n            end\n            3'b010: begin // high workload\n                frequency = 2'b10; // high frequency\n                voltage = 2'b10;   // high voltage\n            end\n            default: begin\n                frequency = 2'b00; // default to low\n                voltage = 2'b00;   // default to low\n            end\n        endcase\n    end else begin\n        frequency = 2'b00; // when disabled, set to low\n        voltage = 2'b00;   // when disabled, set to low\n    end\nend\n\nendmodule"
+}

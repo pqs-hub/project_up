@@ -1,0 +1,10 @@
+{
+  "task_id": "q016373",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that z is set to 1 when x[1:0] is 00, which is incorrect.\nmodule top_module (\n    input [1:0] x,\n    output reg z\n);\n\n    always @(*) begin\n        case (x)\n            2'b00: z = 0;\n            2'b01: z = 1;\n            2'b10: z = 0;\n            2'b11: z = 1;\n            default: z = 0; // Default case\n        endcase\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that z is set to 1 when x[1:0] is 00, which is incorrect."
+  }
+}

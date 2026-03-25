@@ -1,0 +1,10 @@
+{
+  "task_id": "q010959",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] in,\n    output reg [1:0] pos\n);wire [3:0] in_inv;\nwire inv_in = ~in;\nassign in_inv = inv_in;\n\nwire [1:0] pos_temp;\nassign pos_temp = (in[3]) ? 2'b11 :\n                 (in[2]) ? 2'b10 :\n                 (in[1]) ? 2'b01 :\n                 (in[0]) ? 2'b00 :\n                           2'b00 ;\n\nassign pos = (in == 4'b0000) ? 2'b00 : pos_temp;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "inv_in"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q003637",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module voltage_sensor (\n    input [4:0] misleading_voltage_input,\n    output reg is_high\n);\n    parameter REF_VOLTAGE = 10;\n\n    always @* begin\n        if (misleading_voltage_input > REF_VOLTAGE) \n            is_high = 1;\n        else \n            is_high = 0;\n    end\nendmodule",
+  "rename_map": {
+    "voltage_input": "misleading_voltage_input"
+  },
+  "params_used": {
+    "custom_map": {
+      "REF_VOLTAGE": "LOW_REF"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

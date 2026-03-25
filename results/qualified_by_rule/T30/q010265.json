@@ -1,0 +1,6 @@
+{
+  "task_id": "q010265",
+  "rule_id": "T30",
+  "changed": true,
+  "final": "module RefModule(\n  input [n-1:0] a,\n  input [n-1:0] b,\n  output gt,\n  output eq,\n  output lt\n);parameter n = 4; // number of bits in input numbers\n\n// Convert binary input numbers to signed integers\nwire signed [n-1:0] a_signed = $signed(a);\nwire signed [n-1:0] b_signed = $signed(b);\n\n// Compare signed integers and set output signals\nassign gt =  (a_signed > b_signed) ? 1'b1 : (1'b1 & 1'b0);\nassign eq = (a_signed == b_signed) ? 1'b1 : 1'b0;\nassign lt = (a_signed < b_signed) ? 1'b1 : 1'b0;\n\nendmodule"
+}

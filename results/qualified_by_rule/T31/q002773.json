@@ -1,0 +1,6 @@
+{
+  "task_id": "q002773",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [15:0] input_signal,\n    input wire [15:0] reference_signal,\n    input wire [3:0] delay,\n    output reg [15:0] output_signal\n);\n    reg [15:0] delayed_signal [0:15]; // Delay line for reference signal\n    integer i;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            // Reset delayed signal\n            for (i = 0; i < 16; i = i + 1) begin\n                delayed_signal[i] <= 16'b0;\n            end\n            output_signal <= 16'b0;\n        end else begin\n            // Shift the delayed signals\n            for (i = 15; i > 0; i = i - 1) begin\n                delayed_signal[i] <= delayed_signal[i - 1];\n            end\n            // Update the newest delayed signal\n            delayed_signal[0] <= reference_signal;\n\n            // Generate output signal with the specified delay\n            output_signal <= input_signal - delayed_signal[delay];\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001860",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module sram_cell (\n    input wire clk,\n    input wire [3:0] address,\n    input wire [15:0] data_in,\n    input wire we, // write enable\n    input wire re, // read enable\n    output reg [15:0] data_out\n);\n    reg [15:0] memory [0:15]; // 16x16 bits SRAM\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory[address] <= data_in; // Write data\n        end\n        if (re) begin\n            data_out <= memory[address]; // Read data\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016720",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (\n    X ,\n    A1,\n    A2,\n    A3,\n    B1,\n    C1\n);\n\n    // Module ports\n    output X ;\n    input  A1;\n    input  A2;\n    input  A3;\n    input  B1;\n    input  C1;\n\n    // Module supplies\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Local signals\n    wire obf_or0_out   ;\n    wire and0_out_X;\n\n    //  Name  Output      Other arguments\n    or  or0  (obf_or0_out   , A2, A1, A3     );\n    and and0 (and0_out_X, obf_or0_out, B1, C1);\n    buf buf0 (X         , and0_out_X     );\n\nendmodule"
+}

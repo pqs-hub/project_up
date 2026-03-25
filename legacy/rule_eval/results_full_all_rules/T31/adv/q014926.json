@@ -1,0 +1,10 @@
+{
+  "task_id": "q014926",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input A1,\n    input A2,\n    input B1,\n    output Y,\n    input clk\n);reg Y_reg;\n\n    always @(posedge clk) begin\n        if (A1 && A2) begin\n            Y_reg <= 1;\n        end else if (!A1 && !A2) begin\n            Y_reg <= 0;\n        end else if (A1 && !A2) begin\n            Y_reg <= ~B1;\n        end else begin\n            Y_reg <= B1;\n        end\n    end\n\n    wire inv_Y = Y_reg;\n    assign Y = inv_Y;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "inv_Y"
+  }
+}

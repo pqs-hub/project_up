@@ -1,0 +1,6 @@
+{
+  "task_id": "q001848",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [2:0] state,\n    output reg active\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            active <= 0; // IDLE state\n        end else begin\n            case (state)\n                3'b001: active <= 1; // CONNECTING\n                3'b010: active <= 1; // CONNECTED\n                default: active <= 0; // IDLE, DISCONNECTING, DISCONNECTED\n            endcase\n        end\n    end\nendmodule"
+}

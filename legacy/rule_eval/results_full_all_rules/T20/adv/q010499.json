@@ -1,0 +1,10 @@
+{
+  "task_id": "q010499",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module captures input data on each negative edge of the clock when the enable signal is low.\nmodule register_32bit_enable(\n    input clk,\n    input reset,\n    input enable,\n    input [31:0] data_in,\n    output reg [31:0] data_out\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset)\n        data_out <= 32'b0;\n    else if (enable)\n        data_out <= data_in;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module captures input data on each negative edge of the clock when the enable signal is low."
+  }
+}

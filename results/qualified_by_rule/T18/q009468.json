@@ -1,0 +1,6 @@
+{
+  "task_id": "q009468",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(in, out, enable, shiftedOff);input [63:0] in;\n\tinput enable;\n\toutput shiftedOff;\n\toutput [63:0] out;\n\t\n\tassign out[63] = in[63];\n\t\n\tgenvar i;\n\tgenerate\n\t\tfor (i = 62; i >= 0; i = i - 1) begin: loop1\n\t\t\tassign out[i] = (in[i+1] & enable) | (in[i] & ~enable);\n\t\tend\n\tendgenerate\n\tassign shiftedOff = in[0];endmodule"
+}

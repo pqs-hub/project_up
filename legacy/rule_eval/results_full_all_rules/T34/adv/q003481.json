@@ -1,0 +1,15 @@
+{
+  "task_id": "q003481",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sd_card_controller(  \n    input clk,  \n    input rst,  \n    input read,  \n    input write,  \n    input [7:0] data_in,  \n    output reg [7:0] data_out,  \n    output reg busy  \n);  \n    reg [7:0] cache;  // Simple cache to store data  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            busy <= 0;  \n            data_out <= 8'b0;  \n            cache <= 8'b0;  \n        end else begin  \n            if (read) begin  \n                busy <= 1;  \n                data_out <= cache;  \n            end else if (write) begin  \n                busy <= 1;  \n                cache <= data_in;  \n            end else begin  \n                busy <= 0;  \n            end  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "memory": "cache"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "cache"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

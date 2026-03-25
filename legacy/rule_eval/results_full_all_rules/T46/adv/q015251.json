@@ -1,0 +1,8 @@
+{
+  "task_id": "q015251",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n  input clk,            // Add clk input as it was missing\n  input [15:0] data_in,\n  input enable,\n  output reg [15:0] data_out\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n  if (enable) begin\n    data_out <= data_in;\n  end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

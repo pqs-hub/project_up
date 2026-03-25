@@ -1,0 +1,6 @@
+{
+  "task_id": "q002837",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire enable,\n    input wire [11:0] raw_temp,    // 12-bit raw temperature reading\n    input wire [3:0] cal_factor,    // 4-bit calibration factor\n    output reg [11:0] calibrated_temp // 12-bit calibrated temperature output\n);\n\n    always @(posedge clk) begin\n        if (enable) begin\n            calibrated_temp <= raw_temp + cal_factor;\n        end\n    end\nendmodule"
+}

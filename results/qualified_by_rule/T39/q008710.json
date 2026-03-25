@@ -1,0 +1,6 @@
+{
+  "task_id": "q008710",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule(\n    CLK,\n    D  ,\n    Q  ,\n    Q_N,\n    SCD,\n    SCE\n);input  CLK;\n    input  D  ;\n    output Q  ;\n    output Q_N;\n    input  SCD;\n    input  SCE;\n\n    reg Q_reg;\n    wire Q_N_wire;\n\n    assign Q_N = ~Q_reg; // Updated to directly use Q_reg\n\n    // Removed instantiation of undefined module sky130_fd_sc_hs__sdfxbp\n    // Use the Q_reg directly as the output Q\n    assign Q = Q_reg;\n\n    always @(posedge CLK) begin\n        if (SCD) begin\n            Q_reg <= 1'b0;\n        end else if (SCE) begin\n            Q_reg <= D;\n        end\n    end\n\nendmodule"
+}

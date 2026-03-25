@@ -1,0 +1,15 @@
+{
+  "task_id": "q010230",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module encoder_8to3_enable(\n    input wire [7:0] in,\n    input wire en,\n    output reg [2:0] input_data\n    );\n\nalways @(*) begin\n    if (en) begin\n        case(in)\n            8'b00000001: input_data = 3'b000;\n            8'b00000010: input_data = 3'b001;\n            8'b00000100: input_data = 3'b010;\n            8'b00001000: input_data = 3'b011;\n            8'b00010000: input_data = 3'b100;\n            8'b00100000: input_data = 3'b101;\n            8'b01000000: input_data = 3'b110;\n            8'b10000000: input_data = 3'b111;\n            default: input_data = 3'b000;\n        endcase\n    end else begin\n        input_data = 3'b000;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "out": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "encoder_8to3_enable": "decoder_3to8_disable"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

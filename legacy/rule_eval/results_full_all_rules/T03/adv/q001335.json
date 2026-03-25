@@ -1,0 +1,8 @@
+{
+  "task_id": "q001335",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module gpio_controller (  \n    input wire clk,  \n    input wire enable,  \n    input wire input_signal,  \n    output reg output_signal  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk) begin  \n        if (enable) begin  \n            output_signal <= input_signal;  \n        end else begin  \n            output_signal <= 1'b0;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

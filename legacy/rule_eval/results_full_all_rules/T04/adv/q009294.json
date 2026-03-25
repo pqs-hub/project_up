@@ -1,0 +1,10 @@
+{
+  "task_id": "q009294",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the counter counts even numbers, but it actually counts odd numbers.\nmodule odd_counter (\n    input clk,\n    input reset,\n    output reg [3:0] count);always @(posedge clk or posedge reset) begin\n        if (reset) count <= 4'b0001;\n        else count <= (count == 4'b1111) ? 4'b0001 : count + 2;\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter counts even numbers, but it actually counts odd numbers."
+  }
+}

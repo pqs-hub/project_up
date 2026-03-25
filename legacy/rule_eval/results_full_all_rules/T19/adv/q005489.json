@@ -1,0 +1,10 @@
+{
+  "task_id": "q005489",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input CIN,\n    output SUM,\n    output COUT\n);wire w1, w2, w3;\n\n// Calculate SUM\nassign w1 = A ^ B;\nassign SUM = w1 ^ CIN;\n\n// Calculate COUT\nassign w2 = A & B;\nassign w3 = CIN & w1;\nassign COUT = w2 | w3;\n\n  always @(*) begin\n    if (1'b0) begin\n      w1 <= ~A; w2 <= ~B; w3 <= ~CIN;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "w1 <= ~A; w2 <= ~B; w3 <= ~CIN;"
+  }
+}

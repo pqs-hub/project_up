@@ -1,0 +1,10 @@
+{
+  "task_id": "q003348",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-bit Serial-in Serial-out (SISO) shift register with a serial input (SI), a clock input (CLK), and a reset input (RST). On each falling edge of the clock, if the reset is not active, the shift register should shift in the serial input from SI and shift out the least significant bit (LSB) to a serial output (SO). The shift register should be initialized to all ones on reset.\nmodule SISO_Shift_Register (\n    input wire SI,\n    input wire CLK,\n    input wire RST,\n    output reg SO\n);\n    reg [3:0] shift_reg; // 4-bit shift register\n\n    always @(posedge CLK or posedge RST) begin\n        if (RST) begin\n            shift_reg <= 4'b0000; // Reset to 0\n            SO <= 1'b0; // Initialize output\n        end else begin\n            SO <= shift_reg[3]; // Output the MSB\n            shift_reg <= {shift_reg[2:0], SI}; // Shift left and input new data\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit Serial-in Serial-out (SISO) shift register with a serial input (SI), a clock input (CLK), and a reset input (RST). On each falling edge of the clock, if the reset is not active, the shift register should shift in the serial input from SI and shift out the least significant bit (LSB) to a serial output (SO). The shift register should be initialized to all ones on reset."
+  }
+}

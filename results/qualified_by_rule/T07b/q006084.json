@@ -1,0 +1,6 @@
+{
+  "task_id": "q006084",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(data_in,result);input [2:0]data_in;\noutput reg[7:0]result;\nreg[3:0]SEL;\nalways@(*)\n begin\n SEL={data_in[2],data_in[1],data_in[0]};\n if(SEL==0)\n    result = 8'b00000001;\n else if(SEL==1)\n    result = 8'b00000010;\n else if(SEL==2)\n    result = 8'b00000100;\n\t else if(SEL==3)\n    result = 8'b00001000;\n\t else if(SEL==4)\n    result = 8'b00010000;\n\t else if(SEL==5)\n    result = 8'b00100000;\n\t else if(SEL==6)\n    result = 8'b01000000;\n\t else if(SEL==7)\n    result = 8'b10000000;\n end\nendmodule"
+}

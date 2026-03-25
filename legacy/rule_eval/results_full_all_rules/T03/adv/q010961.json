@@ -1,0 +1,8 @@
+{
+  "task_id": "q010961",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n\t\n\tinput [31:0]\tdata_rs1\t,\n\tinput [31:0]\tdata_rs2\t,\n\n\tinput [2:0]\t\tfunct3\t\t,\n\n\toutput\treg\t\tjmpb\n\n);always@(*) begin\n  wire [31:0] _tap_data_rs1 = data_rs1 & {32{1'b1}};\n\n\t\tcase(funct3)\n\t\t\t3'b000:  \tjmpb <= (data_rs1 == data_rs2) ? 1'b1 : 1'b0;\t\n\t\t\t3'b001:  \tjmpb <= (data_rs1 == data_rs2) ? 1'b0 : 1'b1;\t\n\t\t\t3'b100:\t\tbegin\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t \t\tif(data_rs1[31]==data_rs2[31]) begin\n\t\t\t\t\t \t\t\tjmpb <= (data_rs1 < data_rs2) ? 1'b1 : 1'b0;\n\t\t\t\t\t \t\tend\n\t\t\t\t\t \t\telse begin\n\t\t\t\t\t \t\t\tjmpb <= data_rs1[31];\n\t\t\t\t\t \t\tend\n\t\t\t\t\t \tend\t\n\t\t\t3'b101:  \tbegin\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t \t\tif(data_rs1[31]==data_rs2[31]) begin\n\t\t\t\t\t \t\t\tjmpb <= (data_rs1 < data_rs2) ? 1'b0 : 1'b1;\n\t\t\t\t\t \t\tend\n\t\t\t\t\t \t\telse begin\n\t\t\t\t\t \t\t\tjmpb <= data_rs2[31];\n\t\t\t\t\t \t\tend\n\t\t\t\t\t \tend\t\n\t\t\t3'b110:  \tjmpb <= (data_rs1 < data_rs2) ? 1'b1 : 1'b0;\t\n\t\t\t3'b111:  \tjmpb <= (data_rs1 > data_rs2) ? 1'b1 : 1'b0;\t\n\t\t\tdefault:  \tjmpb <= 1'b0;\n\t\tendcase\n\tend\n\n\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

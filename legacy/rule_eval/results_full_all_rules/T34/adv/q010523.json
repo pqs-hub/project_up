@@ -1,0 +1,17 @@
+{
+  "task_id": "q010523",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module magnitude_comparator(\n\tinput wire [3:0] a,\n\tinput wire [3:0] b,\n\toutput wire invalid,\n\toutput wire a_eq_b,\n\toutput wire a_lt_b\n);assign invalid = (a > b);\n\tassign a_eq_b = (a == b);\n\tassign a_lt_b = (a < b);\nendmodule",
+  "rename_map": {
+    "a_gt_b": "invalid"
+  },
+  "params_used": {
+    "custom_map": {
+      "a_gt_b": "invalid",
+      "a_eq_b": "err_equal",
+      "a_lt_b": "not_less_than"
+    },
+    "fallback_prefix": "cmp_"
+  }
+}

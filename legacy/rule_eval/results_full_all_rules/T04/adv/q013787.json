@@ -1,0 +1,10 @@
+{
+  "task_id": "q013787",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests the shift register shifts right instead of left\nmodule top_module(\n    input clk,\n    input [7:0] d,\n    input a,\n    input b,\n    output [7:0] q\n);// XOR gate\n    wire xor_out;\n    assign xor_out = a ^ b;\n\n    // 8-bit shift register\n    reg [7:0] shift_reg;\n    always @(posedge clk) begin\n        shift_reg <= {shift_reg[6:0], d};\n    end\n\n    // Additive functional module\n    assign q = shift_reg + xor_out;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests the shift register shifts right instead of left"
+  }
+}

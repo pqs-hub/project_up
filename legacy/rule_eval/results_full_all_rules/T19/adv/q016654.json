@@ -1,0 +1,10 @@
+{
+  "task_id": "q016654",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module f3_mult(A, B, C); \n    input [1:0] A;\n    input [1:0] B; \n    output [1:0] C;\n    wire a0, a1, b0, b1;\n    assign {a1, a0} = A;\n    assign {b1, b0} = B;\n    assign C[0] = (~a1 & a0 & ~b1 & b0) | (a1 & ~a0 & b1 & ~b0);\n    assign C[1] = (~a1 & a0 & b1 & ~b0) | (a1 & ~a0 & ~b1 & b0);\n  always @(*) begin\n    if (1'b0) begin\n      C[0] <= ~A[0] & A[1] & ~B[0] & B[1];\n      C[1] <= ~A[0] & A[1] & B[0] & ~B[1];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "C[0] <= ~A[0] & A[1] & ~B[0] & B[1];\nC[1] <= ~A[0] & A[1] & B[0] & ~B[1];"
+  }
+}

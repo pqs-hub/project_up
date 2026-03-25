@@ -1,0 +1,8 @@
+{
+  "task_id": "q010248",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module barrel_shifter(\n\tinput [3:0] d,\n\tinput [1:0] s,\n\toutput reg [3:0] q);always @(*)\n  wire [3:0] _tap_d = d & {4{1'b1}};\n\n\tcase (s)\n\t\t2'b00: q = d;\n\t\t2'b01: q = {d[2:0], d[3]};\n\t\t2'b10: q = {d[1:0], d[3:2]};\n\t\t2'b11: q = {d[0], d[3:1]};\n\tendcase\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

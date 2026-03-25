@@ -1,0 +1,8 @@
+{
+  "task_id": "q016202",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(I,Clock,Q,Enable);input [3:0]I;\n\tinput Clock,Enable;\n\toutput reg[3:0] Q;\n\t\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge Clock or posedge dbg_halt) begin\n\t\tif(Enable)begin\n\t\tQ <= I;\n\t\tend\n\tend\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

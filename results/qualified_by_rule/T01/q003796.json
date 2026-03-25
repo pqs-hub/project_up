@@ -1,0 +1,6 @@
+{
+  "task_id": "q003796",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n    input [3:0] command,\n    output reg [3:0] response\n);\n    always @(*) begin\n    begin end  // redundant\n        case (command)\n            4'b0001: response = 4'b0001; // Card ready\n            4'b0010: response = 4'b0010; // Card busy\n            4'b0011: response = 4'b0011; // Data read\n            4'b0100: response = 4'b0100; // Data write\n            default: response = 4'b0000;   // Invalid command\n        endcase\n    end\nendmodule"
+}

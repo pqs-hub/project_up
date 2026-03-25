@@ -1,0 +1,10 @@
+{
+  "task_id": "q002726",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 16-bit SRAM cell with read and write capabilities. The data input is written to the memory when WE is high and RE is low, and the data is read from the memory to the data output when RE is high and WE is low.\nmodule sram_cell (\n    input wire [15:0] data_in,\n    input wire WE,    // Write Enable\n    input wire RE,    // Read Enable\n    output reg [15:0] data_out\n);\n    reg [15:0] memory; // 16-bit memory cell\n\n    always @(*) begin\n        if (WE && !RE) begin\n            memory <= data_in; // Write operation\n        end else if (RE && !WE) begin\n            data_out <= memory; // Read operation\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 16-bit SRAM cell with read and write capabilities. The data input is written to the memory when WE is high and RE is low, and the data is read from the memory to the data output when RE is high and WE is low."
+  }
+}

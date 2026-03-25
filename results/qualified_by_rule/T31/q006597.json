@@ -1,0 +1,6 @@
+{
+  "task_id": "q006597",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule (\n\tinput clk,\n\tinput sreset,\n\tinput bin,\n\toutput gray);reg prev_bin;\nalways @(posedge clk) begin\n\tif (sreset)\n\t\tprev_bin <= 0;\n\telse\n\t\tprev_bin <= bin;\nend\n\nwire __gray_tmp = bin ^ prev_bin;\nassign gray = __gray_tmp;\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016671",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule mux3to1(\n    reset,\n    clk,\n    sel,\n    in0,\n    in1,\n    in2,\n    out);\n\n// Inputs\ninput reset;\ninput clk;\ninput [2:0] sel;\ninput in0;\ninput in1;\ninput in2;\n\n// Outputs\noutput out;\n\nreg out;\n\nalways @ (posedge clk) begin\n    if (reset) begin\n        out <= 1'b0;\n    end else begin\n        case (sel)\n            3'b000: out <= in0;\n            3'b001: out <= in1;\n            3'b010: out <= in2;\n            default: out <= 1'b0;\n        endcase\n    end\nend\n\nendmodule"
+}

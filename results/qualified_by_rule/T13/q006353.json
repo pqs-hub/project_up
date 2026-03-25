@@ -1,0 +1,6 @@
+{
+  "task_id": "q006353",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    input CLK,\n    input LOAD,\n    input CLR,\n    input [3:0] D,\n    output reg [3:0] Q,\n    output reg [3:0] Q_next\n);always @(posedge CLK) begin\n        if (CLR) begin\n            Q <= 4'b0000;\n            Q_next <= 4'b0000;\n        end\n        else if (LOAD) begin\n            Q <= D;\n            Q_next <= D;\n        end\n        else begin\n            Q <= {Q[2:0], D[3]};\n            Q_next <= {Q[2:0], D[3]};\n        end\n    end\n\nendmodule"
+}

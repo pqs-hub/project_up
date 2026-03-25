@@ -1,0 +1,6 @@
+{
+  "task_id": "q016914",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule (\n    input wire D0, \n    input wire D1,\n    input wire S,\n    input wire RST,\n    input wire CLK,\n    output reg Y\n);\n\n    always @(posedge CLK) begin\n        if (RST) begin\n            Y <= 0;\n        end else begin\n            if (S) begin\n                Y <= D1;\n            end else begin\n                Y <= D0;\n            end\n        end\n    end\n\nendmodule"
+}

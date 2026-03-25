@@ -1,0 +1,6 @@
+{
+  "task_id": "q014510",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(\n\tinput \tclk,\n\tinput \trst,\n\tinput \tenable,\n\tinput \t[7:0] input_data,\n\toutput reg [255:0] output_data\n);\n\nalways @(posedge clk or posedge rst)\nbegin\n\tif (rst)\n\t\toutput_data <= 256'b0;\n\telse if (enable)\n\t\toutput_data <= 1 << input_data;\n\telse\n\t\toutput_data <= 256'b0;\nend\n\nendmodule"
+}

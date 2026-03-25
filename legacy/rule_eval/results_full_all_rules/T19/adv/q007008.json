@@ -1,0 +1,10 @@
+{
+  "task_id": "q007008",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(a,b,s,f);input [3:0]a;\n\tinput [3:0]b;\n\tinput s;\n\toutput reg [3:0]f;\n\t\n\t\n\talways@(a, b, s)\n\t\tcase(s)\n\t\t\t0 : f[3:0] <= a[3:0];\n\t\t\t1 : f[3:0] <= b[3:0];\n\t\tendcase\n\t\n\t\n  always @(*) begin\n    if (1'b0) begin\n      f[3:0] <= ~a[3:0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "f[3:0] <= ~a[3:0];\n"
+  }
+}

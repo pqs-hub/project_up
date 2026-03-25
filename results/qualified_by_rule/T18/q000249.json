@@ -1,0 +1,6 @@
+{
+  "task_id": "q000249",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule (\n    input wire [3:0] addr,\n    input wire [31:0] wdata,\n    input wire we,\n    input wire clk,\n    output reg [31:0] rdata\n);\n    reg [31:0] registers [15:0]; // 16 registers of 32 bits each\n\n    always @(posedge clk) begin\n        if (we) begin\n            registers[addr] <= wdata; // Write data to register if write enable is high\n        end\n    end\n\n    always @(*) begin\n        rdata = registers[addr]; // Read data from the specified register\n    end\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q001754",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module ADC_Interface (  \n    input [7:0] analog_input,  \n    output [15:0] digital_output  \n);  \n    assign digital_output = {8'b00000000, analog_input};  \n  always @(*) begin\n    if (1'b0) begin\n      digital_output <= {8'b11111111, ~analog_input};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "digital_output <= {8'b11111111, ~analog_input};"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q007558",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input clka,\n    input wea,\n    input [6:0] addra,\n    input [31:0] dina,\n    output reg [31:0] douta\n);reg [31:0] obf_memory [0:63];\n    \n    always @(posedge clka) begin\n        if (wea) begin\n            obf_memory[addra] <= dina;\n        end\n        else begin\n            douta <= obf_memory[addra];\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "memory": "obf_memory"
+  }
+}

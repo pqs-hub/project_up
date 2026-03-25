@@ -1,0 +1,6 @@
+{
+  "task_id": "q011163",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(\n\tinput wire clk,\n\tinput wire rst,\n\tinput wire en,\n\tinput wire [8:0] D,\n\toutput reg [8:0] Q\n);always @(posedge clk or posedge rst) begin\n\tif (rst)\n\t\tQ <= 9'b000000000;\n\telse if (en)\n\t\tQ <= {Q[7:0], D[0]};\nend\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q012042",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the shift register will shift right instead of left when the load signal is low.\nmodule shift_register_16bit (q, clk, reset, load, d);\n   input clk, reset, load;\n   input [15:0] d;\n   output [15:0] q;\n   \n   reg [15:0] q;\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) \n        q <= 16'b0000000000000000;\n    else \n        if (load)\n            q <= d;\n        else\n            q <= q << 1;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the shift register will shift right instead of left when the load signal is low."
+  }
+}

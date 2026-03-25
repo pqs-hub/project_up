@@ -1,0 +1,9 @@
+{
+  "task_id": "q003695",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module shift_register (\n    input obf_clk,\n    input load,\n    input shift_enable,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n    always @(posedge obf_clk) begin\n        if (load) begin\n            data_out <= data_in; // Load new data when load signal is high\n        end else if (shift_enable) begin\n            data_out <= {data_out[6:0], 1'b0}; // Shift left and fill LSB with zero\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

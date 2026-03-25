@@ -1,0 +1,8 @@
+{
+  "task_id": "q013709",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module reg_8bit_async_reset(CLK, RST, D, Q);\ninput CLK, RST;\ninput [7:0] D;\noutput [7:0] Q;\nreg [7:0] Q;\n\nalways @(posedge CLK or posedge RST) begin\n    begin end  // redundant\n    if (RST) begin\n        Q <= 8'b0;\n    end else begin\n        Q <= D;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

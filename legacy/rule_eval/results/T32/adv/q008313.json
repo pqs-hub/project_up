@@ -1,0 +1,6 @@
+{
+  "task_id": "q008313",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module shift_register (\n\tinput clk,\n\tinput data,\n\toutput q);reg [4-1:1-1] stages = 4'b0000;\n\n\talways @(posedge clk) begin\n\t\tstages <= {stages[2:0], data};\n\tend\n\t\n\tassign q = stages[3];\n\t\nendmodule"
+}

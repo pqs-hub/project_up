@@ -1,0 +1,10 @@
+{
+  "task_id": "q004314",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input a, b, c, output reg out);always @ (a, b, c) begin\n    out = (a ^ b) ^ c;\n  end\n\n  always @(*) begin\n    if (1'b0) begin\n      out <= ~a & ~b & ~c;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= ~a & ~b & ~c;"
+  }
+}

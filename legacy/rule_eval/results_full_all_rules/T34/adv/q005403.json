@@ -1,0 +1,18 @@
+{
+  "task_id": "q005403",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input wire [7:0] in_hi,\n    input wire [7:0] in_lo,\n    output reg [16:0] out,\n    output reg parity_bit\n);reg [15:0] alt_merged_word;\n\nalways @(*) begin\n    alt_merged_word = {in_hi, in_lo};\n    parity_bit = ^alt_merged_word;\n    out = {alt_merged_word, parity_bit};\nend\n\nendmodule",
+  "rename_map": {
+    "merged_word": "alt_merged_word"
+  },
+  "params_used": {
+    "custom_map": {
+      "in_hi": "high_input",
+      "in_lo": "low_input",
+      "out": "combined_output",
+      "parity_bit": "error_flag"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

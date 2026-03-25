@@ -1,0 +1,18 @@
+{
+  "task_id": "q009814",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter(reset, RST, EN, COUNT);\ninput reset, RST, EN;\noutput [3:0] COUNT;\nreg [3:0] COUNT;\n\nalways @(posedge reset or posedge RST) begin\n    if (RST)\n        COUNT <= 0;\n    else if (EN)\n        COUNT <= COUNT + 1;\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV",
+      "RST": "RST_INV",
+      "EN": "EN_INV",
+      "COUNT": "COUNT_INV"
+    },
+    "fallback_prefix": "INV_"
+  }
+}

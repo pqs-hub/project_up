@@ -1,0 +1,10 @@
+{
+  "task_id": "q004075",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module pcie_completer(\n    input wire [7:0] req_id,\n    input wire [15:0] data_in,\n    output wire [7:0] resp_id,\n    output wire [15:0] data_out\n);\n    assign resp_id = req_id;\n    assign data_out = data_in + 1;\n  always @(*) begin\n    if (1'b0) begin\n      resp_id <= ~req_id; data_out <= data_in - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "resp_id <= ~req_id; data_out <= data_in - 1;"
+  }
+}

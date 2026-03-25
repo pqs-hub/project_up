@@ -1,0 +1,15 @@
+{
+  "task_id": "q013409",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module Mux_4to1(\n   input                I0,\n   input                I1,\n   input                I2,\n   input                I3,\n   input       [1:0]    ctrl,\n \n   output reg           Y  \n);\n    always @(*) begin\n        case(ctrl)\n            2'b00: Y = I0;\n            2'b01: Y = I1;\n            2'b10: Y = I2;\n            2'b11: Y = I3;\n            default: Y = 1'b0;\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "sel": "ctrl"
+  },
+  "params_used": {
+    "custom_map": {
+      "sel": "ctrl"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

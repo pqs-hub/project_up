@@ -1,0 +1,6 @@
+{
+  "task_id": "q008857",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    input a,\n    input b,\n    output z\n);\n    assign z = a & b;\nendmodule\n\nmodule Y(\n    input a,\n    input b,\n    output z\n);\n    assign z = a & b;\nendmodule\n\nmodule top_module(\n    input a,\n    input b,\n    output z\n);\n    wire x1_out, x2_out, y1_out, y2_out;\n    wire or_out, and_out, xor_out;\n\n    X x1(.a(a), .b(b), .z(x1_out));\n    X x2(.a(a), .b(b), .z(x2_out));\n    Y y1(.a(a), .b(b), .z(y1_out));\n    Y y2(.a(a), .b(b), .z(y2_out));\n\n    assign or_out = x1_out | y1_out;\n    assign and_out = x2_out & y2_out;\n    assign z = or_out ^ and_out;\nendmodule"
+}

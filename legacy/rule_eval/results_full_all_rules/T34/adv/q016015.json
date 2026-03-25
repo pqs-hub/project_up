@@ -1,0 +1,16 @@
+{
+  "task_id": "q016015",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input signed [7:0] a,\n    input signed [7:0] b,\n    input [1:0] operation_selector,\n    output reg signed [7:0] result\n);always @(*) begin\n    case(operation_selector)\n        2'b00: result = a + b;\n        2'b01: result = a - b;\n        2'b10: result = a * b;\n        2'b11: begin\n            if(b == 0) begin\n                result = 8'hFF; // division by zero error code\n            end else begin\n                result = a / b;\n            end\n        end\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "op": "operation_selector"
+  },
+  "params_used": {
+    "custom_map": {
+      "op": "operation_selector",
+      "result": "output_value"
+    },
+    "fallback_prefix": "error_"
+  }
+}

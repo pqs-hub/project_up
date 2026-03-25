@@ -1,0 +1,6 @@
+{
+  "task_id": "q000961",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(  \n    input clk,  \n    input reset,  \n    input [7:0] ref_input,  \n    output reg [7:0] control_signal  \n);  \n    reg [7:0] previous_output;  \n  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            control_signal <= 8'b0;  \n            previous_output <= 8'b0;  \n        end else begin  \n            control_signal <= ref_input;  \n            previous_output <= control_signal;  \n        end  \n    end  \nendmodule"
+}

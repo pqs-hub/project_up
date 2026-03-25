@@ -1,0 +1,6 @@
+{
+  "task_id": "q015018",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module RefModule(A, B, Cin, Sum, Cout);\ninput A, B, Cin;\noutput Sum, Cout;\nassign Sum = A ^ B ^ Cin;\nassign Cout = (A & B) | (A & Cin) | (B & Cin);\nendmodule\n\nmodule parallel_adder(A, B, Cin, Sum, Cout);\ninput [3:0] A, B;\ninput Cin;\noutput [3:0] Sum;\noutput Cout;\nwire C1, C2, C3;\n\nfull_adder FA0 (.A(A[0]), .B(B[0]), .Cin(Cin), .Sum(Sum[0]), .Cout(C1));\nfull_adder FA1 (.A(A[1]), .B(B[1]), .Cin(C1), .Sum(Sum[1]), .Cout(C2));\nfull_adder FA2 (.A(A[2]), .B(B[2]), .Cin(C2), .Sum(Sum[2]), .Cout(C3));\nfull_adder FA3 (.A(A[3]), .B(B[3]), .Cin(C3), .Sum(Sum[3]), .Cout(Cout));\n\nendmodule"
+}

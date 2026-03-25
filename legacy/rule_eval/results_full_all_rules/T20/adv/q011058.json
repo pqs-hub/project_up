@@ -1,0 +1,10 @@
+{
+  "task_id": "q011058",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 1-bit synchronous D flip-flop with enable. The D flip-flop captures the value of d on each negative edge of the clock signal clk when the enable signal en is low. When the reset signal rst_n is high, the flip-flop resets to one.\nmodule dff_en(\n    input clk,\n    input rst_n,\n    input en,\n    input d,\n    output reg q\n);\n    always @(posedge clk or negedge rst_n) begin\n        if (~rst_n) begin\n            q <= 1'b0;\n        end else if (en) begin\n            q <= d;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 1-bit synchronous D flip-flop with enable. The D flip-flop captures the value of d on each negative edge of the clock signal clk when the enable signal en is low. When the reset signal rst_n is high, the flip-flop resets to one."
+  }
+}

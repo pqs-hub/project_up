@@ -1,0 +1,6 @@
+{
+  "task_id": "q009881",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(\n    X,\n    A1,\n    A2,\n    A3,\n    B1,\n    B2\n);// Module ports\n    output X ;\n    input  A1;\n    input  A2;\n    input  A3;\n    input  B1;\n    input  B2;\n\n    // Local signals\n    wire and_out;\n    wire or_out;\n    wire xor_out;\n\n    //  Name  Output      Other arguments\n    and and_gate (and_out, A1, A2, A3);\n    or or_gate (or_out, B1, B2);\n    xor xor_gate (xor_out, and_out, or_out);\n    buf buf0 (X, xor_out);\n\nendmodule"
+}

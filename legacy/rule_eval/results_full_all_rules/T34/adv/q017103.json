@@ -1,0 +1,16 @@
+{
+  "task_id": "q017103",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bin2gray(\n    input [3:0] bin_inverted,\n    output [3:0] gray\n);\n\nassign gray[3] = bin_inverted[3];\nassign gray[2] = bin_inverted[3] ^ bin_inverted[2];\nassign gray[1] = bin_inverted[2] ^ bin_inverted[1];\nassign gray[0] = bin_inverted[1] ^ bin_inverted[0];\n\nendmodule",
+  "rename_map": {
+    "bin": "bin_inverted"
+  },
+  "params_used": {
+    "custom_map": {
+      "bin": "bin_inverted",
+      "gray": "gray_inverted"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

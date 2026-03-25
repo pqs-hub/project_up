@@ -1,0 +1,6 @@
+{
+  "task_id": "q003391",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module decoder3to8(  \n    input [2:0] binary_in,  \n    output reg [7:0] output_out  \n);  \n  wire [2:0] _tap_binary_in = binary_in & {3{1'b1}};\n\n    always @(*) begin  \n        case (binary_in)  \n            3'b000: output_out = 8'b00000001;  \n            3'b001: output_out = 8'b00000010;  \n            3'b010: output_out = 8'b00000100;  \n            3'b011: output_out = 8'b00001000;  \n            3'b100: output_out = 8'b00010000;  \n            3'b101: output_out = 8'b00100000;  \n            3'b110: output_out = 8'b01000000;  \n            3'b111: output_out = 8'b10000000;  \n            default: output_out = 8'b00000000;  \n        endcase  \n    end  \nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q017201",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux3(input [2:0] a, input [2:0] b, input sel, output reg [2:0] out);\n    always @*\n        if (sel == 1'b0)\n            out = a;\n        else\n            out = b;\n  always @(*) begin\n    if (1'b0) begin\n      out = ~a & ~b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out = ~a & ~b;"
+  }
+}

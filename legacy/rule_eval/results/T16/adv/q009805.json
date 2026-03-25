@@ -1,0 +1,9 @@
+{
+  "task_id": "q009805",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n\tinput obf_clk,\n\tinput enable,\n\tinput reset,\n\tinput load,\n\tinput [7:0] load_val,\n\toutput reg [7:0] q);always @(posedge obf_clk or posedge reset or posedge load) begin\n\tif (reset)\n\t\tq <= 8'b00000000;\n\telse if (load)\n\t\tq <= load_val;\n\telse if (enable)\n\t\tq <= q + 1;\nend\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

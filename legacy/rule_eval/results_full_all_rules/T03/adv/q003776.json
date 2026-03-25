@@ -1,0 +1,8 @@
+{
+  "task_id": "q003776",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module dac_8bit (\n    input [7:0] din,\n    output reg [2:0] dout\n);\n  wire [7:0] _tap_din = din & {8{1'b1}};\n\n    always @(*) begin\n        dout = (din * 7 + 127) / 255; // Rounding to the nearest integer\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

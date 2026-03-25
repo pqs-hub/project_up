@@ -1,0 +1,16 @@
+{
+  "task_id": "q008953",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input [15:0] ext_value,input ExtSel,output [31:0] result);assign result[15:0] = ext_value;\n    assign result[31:16] = ExtSel ? (ext_value[15]==1 ? 16'b1111111111111111: 16'b0000000000000000) : 16'b0000000000000000;\nendmodule",
+  "rename_map": {
+    "immediate": "ext_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "immediate": "ext_value",
+      "result": "sign_ext_result"
+    },
+    "fallback_prefix": "ext_"
+  }
+}

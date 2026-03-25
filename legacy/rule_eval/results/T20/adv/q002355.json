@@ -1,0 +1,6 @@
+{
+  "task_id": "q002355",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule eeprom_cell (\n    input clk,\n    input WE,\n    input RE,\n    input [3:0] D,\n    output reg [3:0] Q\n);\n    reg [3:0] memory;\n\n    always @(posedge clk) begin\n        if (WE) begin\n            memory <= D; // Write data to memory\n        end\n        if (RE) begin\n            Q <= memory; // Read data from memory\n        end\n    end\nendmodule"
+}

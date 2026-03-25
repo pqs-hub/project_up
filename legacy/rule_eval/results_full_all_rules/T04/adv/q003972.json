@@ -1,0 +1,10 @@
+{
+  "task_id": "q003972",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module reads data from an external source on every clock cycle regardless of the write enable signal.\nmodule dram_cell (  \n    input wire [15:0] data_in,  \n    input wire write_enable,  \n    input wire clk,  \n    output reg [15:0] data_out  \n);  \n    always @(posedge clk) begin  \n        if (write_enable)  \n            data_out <= data_in;  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module reads data from an external source on every clock cycle regardless of the write enable signal."
+  }
+}

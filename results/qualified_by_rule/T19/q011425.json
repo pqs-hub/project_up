@@ -1,0 +1,6 @@
+{
+  "task_id": "q011425",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(\n  input [(1 - 1):0] d0,\n  input [(1 - 1):0] d1,\n  output [(1 - 1):0] y,\n  input clk,\n  input ce,\n  input clr);reg [(1 - 1):0] d0_1_24;\n  reg [(1 - 1):0] d1_1_27;\n  wire fully_2_1_bit;\n  \n  always @(posedge clk) begin\n    if (ce) begin\n      d0_1_24 <= d0;\n      d1_1_27 <= d1;\n    end\n  end\n  \n  assign fully_2_1_bit = d0_1_24 & d1_1_27;\n  assign y = fully_2_1_bit;\n  \n  initial begin\n    d0_1_24 = 1'b0;\n    d1_1_27 = 1'b0;\n  end\n  \n  always @(posedge clk) begin\n    if (clr) begin\n      d0_1_24 <= 1'b0;\n      d1_1_27 <= 1'b0;\n    end\n  end\n  \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

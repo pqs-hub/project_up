@@ -1,0 +1,17 @@
+{
+  "task_id": "q013326",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] X_A,\n    input [1:0] S,\n    output [3:0] Y\n);assign Y = (S == 2'b00) ? X_A :\n               (S == 2'b01) ? {X_A[2:0], 1'b0} :\n               (S == 2'b10) ? {1'b0, X_A[3:1]} :\n                              X_A[1:0];\n\nendmodule",
+  "rename_map": {
+    "A": "X_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "S": "C",
+      "Y": "Z"
+    },
+    "fallback_prefix": "X_"
+  }
+}

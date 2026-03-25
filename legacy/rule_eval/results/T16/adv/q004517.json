@@ -1,0 +1,9 @@
+{
+  "task_id": "q004517",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module gray_code_counter (\n        input obf_clk,\n        input reset,\n        output reg [1:0] gray_count);always @(posedge obf_clk) begin\n    if (reset)\n        gray_count <= 2'b00;\n    else\n        case (gray_count)\n            2'b00: gray_count <= 2'b01;\n            2'b01: gray_count <= 2'b11;\n            2'b11: gray_count <= 2'b10;\n            2'b10: gray_count <= 2'b00;\n            default: gray_count <= 2'b00;\n        endcase\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

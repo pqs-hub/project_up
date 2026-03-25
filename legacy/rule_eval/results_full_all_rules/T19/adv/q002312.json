@@ -1,0 +1,10 @@
+{
+  "task_id": "q002312",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module voltage_regulator (\n    input [4:0] desired_voltage,\n    output [3:0] regulated_voltage\n);\n    assign regulated_voltage = (desired_voltage > 15) ? 4'b1111 : desired_voltage[3:0];\n  always @(*) begin\n    if (1'b0) begin\n      regulated_voltage <= 4'b0000;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "regulated_voltage <= 4'b0000;"
+  }
+}

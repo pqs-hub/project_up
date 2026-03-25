@@ -1,0 +1,9 @@
+{
+  "task_id": "q003583",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module comparator_2bit (\n    input [1:0] obf_A,\n    input [1:0] B,\n    output reg LT,\n    output reg EQ,\n    output reg GT\n);\n    \n    always @(*) begin\n        if (obf_A < B) begin\n            LT = 1'b1;\n            EQ = 1'b0;\n            GT = 1'b0;\n        end else if (obf_A == B) begin\n            LT = 1'b0;\n            EQ = 1'b1;\n            GT = 1'b0;\n        end else begin\n            LT = 1'b0;\n            EQ = 1'b0;\n            GT = 1'b1;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

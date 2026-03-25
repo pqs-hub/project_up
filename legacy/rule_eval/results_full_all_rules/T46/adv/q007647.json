@@ -1,0 +1,8 @@
+{
+  "task_id": "q007647",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input rce,\n    input [10:0] ra,\n    output reg [7:0] rq,\n    input wce,\n    input [10:0] wa,\n    input [7:0] wd\n);parameter AWIDTH = 11;\nparameter DWIDTH = 8;\n\nreg [7:0] mem [0:2047];\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (rce) begin\n        rq <= mem[ra];\n    end\n    if (wce) begin\n        mem[wa] <= wd;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

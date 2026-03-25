@@ -1,0 +1,15 @@
+{
+  "task_id": "q006639",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input rst,\n  input [n-1:0] din,\n  output [n-1:0] dout\n);parameter n = 8; // width of data input and output signals\n\nreg [n-1:0] invalid_data;\n\nalways @(posedge clk) begin\n  if (!rst) begin\n    invalid_data <= 0;\n  end else begin\n    invalid_data <= din;\n  end\nend\n\nassign dout = invalid_data;\n\nendmodule",
+  "rename_map": {
+    "stored_data": "invalid_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "stored_data": "invalid_data"
+    },
+    "fallback_prefix": "err_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q010744",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset_n,\n  input din,\n  output dout\n);parameter depth = 2;\n\nreg [depth-1:0] zz_sync_reg;\nreg [depth-1:0] ff_next;\n\nalways @(posedge clk or negedge reset_n) begin\n  if (~reset_n) begin\n    zz_sync_reg <= {depth{1'b0}};\n  end else begin\n    zz_sync_reg <= {zz_sync_reg[depth-2:0], din};\n  end\nend\n\nassign dout = zz_sync_reg[depth-1];\n\nendmodule",
+  "rename_map": {
+    "ff": "zz_sync_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "ff": "zz_sync_reg"
+    },
+    "fallback_prefix": "zz_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q012415",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(output [15 : 0] data_out_A,output [15 : 0] data_out_B,input write,input [3 : 0] address,input [7 : 0] output_AB,input [15 : 0] data_in);reg [15 : 0] register [15 : 0]; \n  initial \n  begin \n  register[0] <= 0; \n  end \n  assign data_out_A = register[output_AB[7 : 4]]; \n  assign data_out_B = register[output_AB[3 : 0]]; \n  always @(posedge write) \n  begin \n  if (address != 0) \n  begin \n  register[address] <= data_in; \n  end \n  end \n endmodule"
+}

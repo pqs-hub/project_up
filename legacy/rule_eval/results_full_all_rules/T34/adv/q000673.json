@@ -1,0 +1,15 @@
+{
+  "task_id": "q000673",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sipo_shift_register (\n    input wire clk,\n    input wire reset,\n    input wire serial_in,\n    output reg [4:0] parallel_out\n);\n    reg [4:0] data_buffer;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            data_buffer <= 5'b00000;\n        end else begin\n            data_buffer <= {data_buffer[3:0], serial_in}; // Shift left and input new bit\n        end\n    end\n\n    always @(*) begin\n        parallel_out = data_buffer; // Output parallel data\n    end\nendmodule",
+  "rename_map": {
+    "shift_reg": "data_buffer"
+  },
+  "params_used": {
+    "custom_map": {
+      "shift_reg": "data_buffer"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

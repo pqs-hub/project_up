@@ -1,0 +1,10 @@
+{
+  "task_id": "q013977",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(A, B, S, MO);input A, B, S;\n   output MO;\n\n   wire not_S;\n   wire confusing_wire = ~S;\n   assign not_S = confusing_wire;\n\n   assign MO = (not_S & A) | (S & B);\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "confusing_wire"
+  }
+}

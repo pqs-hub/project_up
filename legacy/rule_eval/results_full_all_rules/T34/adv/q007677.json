@@ -1,0 +1,15 @@
+{
+  "task_id": "q007677",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\ncount_value     ,  \nenable  ,  \nclk     ,  \nreset      \n);output [7:0] count_value;\n\n     input enable, clk, reset;\n\n    reg [7:0] count_value;\n\nalways @(posedge clk)\nif (reset) begin\n  count_value <= 8'b0 ;\nend else if (enable) begin\n  count_value <= count_value + 1;\nend\n\n\nendmodule",
+  "rename_map": {
+    "out": "count_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "count_value"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

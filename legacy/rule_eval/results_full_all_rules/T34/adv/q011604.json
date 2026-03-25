@@ -1,0 +1,18 @@
+{
+  "task_id": "q011604",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input BOOT,\n  input S1,\n  input S0,\n  input clk,        // Added clk input\n  output reg VALID\n);// Define the four possible states\n  parameter STATE_0 = 2'b00;\n  parameter STATE_1 = 2'b01;\n  parameter STATE_2 = 2'b10;\n  parameter STATE_3 = 2'b11;\n\n  // Define the ERR_state and next_state variables\n  reg [1:0] ERR_state, next_state;\n\n  // Define the ERR_state transition logic\n  always @(*) begin\n    case (ERR_state)\n      STATE_0: begin\n        if (BOOT) begin\n          next_state = STATE_0;\n        end else if (!S1 && S0) begin\n          next_state = STATE_1;\n        end else begin\n          next_state = STATE_0;\n        end\n      end\n      STATE_1: begin\n        if (BOOT) begin\n          next_state = STATE_0;\n        end else if (S1 && !S0) begin\n          next_state = STATE_2;\n        end else begin\n          next_state = STATE_1;\n        end\n      end\n      STATE_2: begin\n        if (BOOT) begin\n          next_state = STATE_0;\n        end else if (S1 && S0) begin\n          next_state = STATE_3;\n        end else begin\n          next_state = STATE_2;\n        end\n      end\n      STATE_3: begin\n        if (BOOT) begin\n          next_state = STATE_0;\n        end else if (!S1 && !S0) begin\n          next_state = STATE_0;\n        end else begin\n          next_state = STATE_3;\n        end\n      end\n      default: next_state = STATE_0;  // Handle default case\n    endcase\n  end\n\n  // Define the output logic\n  always @(*) begin\n    if (ERR_state == STATE_0 || ERR_state == STATE_1 || ERR_state == STATE_2 || ERR_state == STATE_3) begin\n      VALID = 1'b1;\n    end else begin\n      VALID = 1'b0;\n    end\n  end\n\n  // Update the ERR_state variable\n  always @(posedge clk) begin\n    if (BOOT) begin\n      ERR_state <= STATE_0;\n    end else begin\n      ERR_state <= next_state;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "state": "ERR_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "STATE_0": "INVALID_STATE",
+      "STATE_1": "ERROR_STATE",
+      "STATE_2": "ABNORMAL_STATE",
+      "STATE_3": "FAULTY_STATE"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

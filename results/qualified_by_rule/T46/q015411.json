@@ -1,0 +1,6 @@
+{
+  "task_id": "q015411",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\noutput reg [15:0] data_out,\ninput [15:0] data_in,\ninput ir_ld, clk, rst\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk, posedge rst or posedge dbg_halt)\n\tif (rst)\n\t\tdata_out = 0;\n\t\n\telse if (ir_ld)\n\t\tdata_out = data_in;endmodule"
+}

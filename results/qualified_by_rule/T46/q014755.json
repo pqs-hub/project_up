@@ -1,0 +1,6 @@
+{
+  "task_id": "q014755",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(clk,reset,R,S,Out);input reset, clk, R, S;\n\t output Out;\n\t reg   dataVal;\n\t \n\t   wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk, negedge reset or posedge dbg_halt)\n\t\tif(!reset)\n\t\t\tdataVal<=0;\n\t\telse if(R)\n\t\t\tdataVal<=0;\n\t\telse if(S)\n\t\t\tdataVal<=1;\n\t\telse \n\t\t\tdataVal<=dataVal;\n\t\t\n\t\tassign Out=dataVal;\n\t \n\t endmodule"
+}

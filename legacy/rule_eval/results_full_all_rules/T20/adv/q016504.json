@@ -1,0 +1,10 @@
+{
+  "task_id": "q016504",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module is designed to disable trap detection when ALUResult is non-zero\nmodule TrapDetect(\n    input  Trap,\n    input  TrapCond,\n    input  [31:0] ALUResult,\n    output EXC_Tr\n    );\n    wire ALUZero = (ALUResult == 32'h00000000);\n    assign EXC_Tr = Trap & (TrapCond ^ ALUZero);\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to disable trap detection when ALUResult is non-zero"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q006159",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(clk, Reset, PCWre, nextAddress, obf_Address);input clk, Reset, PCWre;\n    input [31:0] nextAddress;\n    output reg [31:0] obf_Address;\n    always @(posedge clk)begin\n        if (Reset == 0)\n            obf_Address = 0;\n        else if(PCWre==1)\n            obf_Address = nextAddress;\n    end\nendmodule",
+  "rename_map": {
+    "Address": "obf_Address"
+  }
+}

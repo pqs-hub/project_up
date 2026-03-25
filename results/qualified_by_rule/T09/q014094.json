@@ -1,0 +1,6 @@
+{
+  "task_id": "q014094",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n  input [15:0] num_in,\n  output reg [63:0] num_out\n);reg [47:0] sign_bits; // 48 replicated sign bits\n  \n  // replicate sign bit\n  always @(*) begin\n    sign_bits = {48{num_in[15]}};\n  end\n  \n  // concatenate sign bits with num_in\n  always @(*) begin\n    num_out = {sign_bits, num_in};\n  end\n  \nendmodule"
+}

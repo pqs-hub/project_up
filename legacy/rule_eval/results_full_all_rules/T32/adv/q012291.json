@@ -1,0 +1,8 @@
+{
+  "task_id": "q012291",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    \n    input [16-1:1-1] extendee,\n    input ExtSel,\n    \n    output reg[31:0] result\n    );integer i;\n    \n    \n\n    always @(ExtSel or extendee) begin\n            for(i = 0; i < 16; i = i + 1) begin\n                result[i] <= extendee[i];\n            end \n            \n            if(ExtSel) begin\n                for(i = 16; i < 32; i = i + 1) begin\n                    result[i] = extendee[15];\n                end \n            end else begin \n                for(i = 16; i < 32; i = i + 1) begin\n                    result[i] = 0;\n                end\n            end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

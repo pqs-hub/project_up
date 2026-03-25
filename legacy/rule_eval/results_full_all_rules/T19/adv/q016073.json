@@ -1,0 +1,10 @@
+{
+  "task_id": "q016073",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input I0, I1, input [3:0] INIT, output reg O);always @(*) begin\n    case({I1, I0})\n      2'b00: O = INIT[0];\n      2'b01: O = INIT[1];\n      2'b10: O = INIT[2];\n      2'b11: O = INIT[3];\n    endcase\n  end\n\n  always @(*) begin\n    if (1'b0) begin\n      O <= INIT[3];\n      O <= INIT[2];\n      O <= INIT[1];\n      O <= INIT[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "O <= INIT[3];\nO <= INIT[2];\nO <= INIT[1];\nO <= INIT[0];"
+  }
+}

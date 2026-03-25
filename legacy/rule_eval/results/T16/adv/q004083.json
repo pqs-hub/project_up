@@ -1,0 +1,9 @@
+{
+  "task_id": "q004083",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module decoder_2to4 (\n    input wire [1:0] obf_A,\n    output reg [3:0] Y\n);\n    always @(*) begin\n        case (obf_A)\n            2'b00: Y = 4'b0001; // Output Y0 is high\n            2'b01: Y = 4'b0010; // Output Y1 is high\n            2'b10: Y = 4'b0100; // Output Y2 is high\n            2'b11: Y = 4'b1000; // Output Y3 is high\n            default: Y = 4'b0000; // Default case (should not occur)\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

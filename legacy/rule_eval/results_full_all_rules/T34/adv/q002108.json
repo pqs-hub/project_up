@@ -1,0 +1,16 @@
+{
+  "task_id": "q002108",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module eeprom_cell (\n    input wire [7:0] data_to_store,\n    input wire write_enable,\n    output reg [7:0] data_out\n);\n    always @(*) begin\n        if (write_enable) begin\n            data_out = data_to_store;\n        end\n        // If write_enable is low, data_out retains its last value.\n    end\nendmodule",
+  "rename_map": {
+    "data_in": "data_to_store"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "data_to_store",
+      "write_enable": "store_en"
+    },
+    "fallback_prefix": "eeprom_"
+  }
+}

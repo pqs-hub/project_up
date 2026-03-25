@@ -1,0 +1,6 @@
+{
+  "task_id": "q003947",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (\n    input [1:0] A,\n    input [1:0] B,\n    output reg [1:0] Q\n);\n    always @(*) begin\n        case (B)\n            2'b00: Q = 2'b00; // Division by zero case\n            2'b01: Q = A;     // A divided by 1\n            2'b10: Q = A / 2; // A divided by 2\n            2'b11: Q = A / 3; // A divided by 3\n            default: Q = 2'b00; // Should not occur\n        endcase\n    end\nendmodule"
+}

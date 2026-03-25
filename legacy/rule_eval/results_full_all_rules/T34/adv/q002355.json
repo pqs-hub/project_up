@@ -1,0 +1,15 @@
+{
+  "task_id": "q002355",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module eeprom_cell (\n    input clk,\n    input WE,\n    input RE,\n    input [3:0] D,\n    output reg [3:0] Q\n);\n    reg [3:0] cell_data;\n\n    always @(posedge clk) begin\n        if (WE) begin\n            cell_data <= D; // Write data to cell_data\n        end\n        if (RE) begin\n            Q <= cell_data; // Read data from cell_data\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "cell_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "cell_data"
+    },
+    "fallback_prefix": "eeprom_"
+  }
+}

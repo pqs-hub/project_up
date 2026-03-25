@@ -1,0 +1,18 @@
+{
+  "task_id": "q014884",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(busA, busB, busXOR);input [7:0] busA;\ninput [7:0] busB;\noutput [7:0] busXOR;\n\nwire [7:0] xor_result, temp2, temp3, temp4;\n\n// XOR operation\nassign xor_result = busA ^ busB;\n\n// Invert the inputs\nassign temp2 = ~busA;\nassign temp3 = ~busB;\n\n// AND operation\nassign temp4 = temp2 & temp3;\n\n// Final XOR operation\nassign busXOR = xor_result ^ temp4;\n\nendmodule",
+  "rename_map": {
+    "temp1": "xor_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp1": "xor_result",
+      "temp2": "inv_busA",
+      "temp3": "inv_busB",
+      "temp4": "and_result"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

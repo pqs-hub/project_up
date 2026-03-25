@@ -1,0 +1,6 @@
+{
+  "task_id": "q006539",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module parallel_load_register (CLK, LOAD, D, Q);\ninput CLK, LOAD;\ninput [3:0] D;\noutput reg [3:0] Q;\n  wire _tap_CLK = CLK & {1{1'b1}};\n\n\nalways @(posedge CLK) begin\n\tif (LOAD) begin\n\t\tQ <= D;\n\tend\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q013044",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule( a, b, g_out, p_out );input a, b;\n  output g_out, p_out;\n  wire   n2;\n\n  wire __n2_tmp = ~a;\n  assign n2 = __n2_tmp;              // Replace INV_X1 with a gate-level operation\n  assign g_out = a & b;       // Replace AND2_X1 with a gate-level operation\n  assign p_out = b ~^ n2;     // Replace XNOR2_X1 with a gate-level operation\nendmodule"
+}

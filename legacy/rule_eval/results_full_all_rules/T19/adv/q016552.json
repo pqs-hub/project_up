@@ -1,0 +1,10 @@
+{
+  "task_id": "q016552",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module bw_u1_xnor2_1x (\n    z,\n    a,\n    b );\n    output z;\n    input  a;\n    input  b;\n    assign z = ~( a ^ b );\n  always @(*) begin\n    if (1'b0) begin\n      if (a == b) begin\n        z <= 1'b0;\n      end else begin\n        z <= 1'b1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (a == b) begin\n  z <= 1'b0;\nend else begin\n  z <= 1'b1;\nend"
+  }
+}

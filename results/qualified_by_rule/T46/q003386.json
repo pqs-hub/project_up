@@ -1,0 +1,6 @@
+{
+  "task_id": "q003386",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [1:0] input_value,\n    output reg [3:0] output_value\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n        if (reset) begin\n            output_value <= 4'b0000;\n        end else begin\n            case(input_value)\n                2'b00: output_value <= 4'b0000; // Target value is 0\n                2'b01: output_value <= 4'b0001; // Target value is 1\n                2'b10: output_value <= 4'b0010; // Target value is 2\n                2'b11: output_value <= 4'b0011; // Target value is 3\n                default: output_value <= 4'b0000; // Default case\n            endcase\n        end\n    end\nendmodule"
+}

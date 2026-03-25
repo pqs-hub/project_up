@@ -1,0 +1,10 @@
+{
+  "task_id": "q017121",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module gray_code_converter (\n  input [3:0] bin,\n  output [3:0] gray\n);\n\n  assign gray[3] = bin[3];\n  assign gray[2] = bin[3] ^ bin[2];\n  assign gray[1] = bin[2] ^ bin[1];\n  assign gray[0] = bin[1] ^ bin[0];\n\n  always @(*) begin\n    if (1'b0) begin\n      assign gray[3] = ~bin[3];\n      assign gray[2] = ~bin[2] ^ ~bin[3];\n      assign gray[1] = ~bin[1] ^ ~bin[2];\n      assign gray[0] = ~bin[0] ^ ~bin[1];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "assign gray[3] = ~bin[3];\nassign gray[2] = ~bin[2] ^ ~bin[3];\nassign gray[1] = ~bin[1] ^ ~bin[2];\nassign gray[0] = ~bin[0] ^ ~bin[1];"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001650",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input signal_in,\n    output reg zero_cross\n);\n\nreg signal_prev;\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        signal_prev <= 1'b0;\n        zero_cross <= 1'b0;\n    end else begin\n        zero_cross <= (signal_prev == 1'b0 && signal_in == 1'b1) || \n                      (signal_prev == 1'b1 && signal_in == 1'b0);\n        signal_prev <= signal_in;\n    end\nend\n\nendmodule"
+}

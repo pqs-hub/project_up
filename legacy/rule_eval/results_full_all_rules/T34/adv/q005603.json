@@ -1,0 +1,16 @@
+{
+  "task_id": "q005603",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(_invA, B, select, AOut, BOut);input [63:0] _invA, B;\n\tinput [1:0] select;\n\toutput [63:0] AOut, BOut;\n\t\n\tassign AOut = select[0] ? ~_invA : _invA;\n\tassign BOut = select[1] ? ~B : B;endmodule",
+  "rename_map": {
+    "A": "_invA"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "A_inv",
+      "B": "B_inv"
+    },
+    "fallback_prefix": "_inv"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q013315",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module lfsr_6bit (\n    input wire clk_inv,\n    input wire rst,\n    output reg [5:0] lfsr\n    );\n\nalways @(posedge clk_inv) begin\n    if (rst) begin\n        lfsr <= 6'b000001;\n    end else begin\n        lfsr <= {lfsr[4:0], lfsr[5] ^ lfsr[4]};\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

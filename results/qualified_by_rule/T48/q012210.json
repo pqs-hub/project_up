@@ -1,0 +1,6 @@
+{
+  "task_id": "q012210",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    output reg [3:0] output1,\n    output reg [3:0] output2\n);// Commenting out the instance of the missing module to fix compilation error\n    // wire VPWR;\n    // wire VGND;\n    // sky130_fd_sc_hs__tapvgnd my_tapvgnd (\n    //     .VPWR(VPWR),\n    //     .VGND(VGND)\n    // );\n\n    integer count;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 0;\n        end else begin\n            count <= count + 1;\n        end\n    end\n\n    always @(*) begin\n        output1 = count;\n        output2 = ~count;\n    end\n\nendmodule"
+}

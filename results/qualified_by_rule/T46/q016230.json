@@ -1,0 +1,6 @@
+{
+  "task_id": "q016230",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module RefModule(\n    input x,\n    input y,\n    output z\n);\n    assign z = (x | ~y);\nendmodule\n\nmodule W(\n    input x,\n    input y,\n    output z\n);\n    assign z = (x | ~y);\nendmodule\n\nmodule top_module(\n    input x,\n    input y,\n    output z\n);\n    wire v1_out, v2_out, w1_out, w2_out;\n    wire and_out, xor_out;\n\n    V v1(.x(x), .y(y), .z(v1_out));\n    V v2(.x(x), .y(y), .z(v2_out));\n    W w1(.x(x), .y(y), .z(w1_out));\n    W w2(.x(x), .y(y), .z(w2_out));\n\n    assign and_out = v1_out & w1_out;\n    assign xor_out = v2_out ^ w2_out;\n\n    assign z = and_out | xor_out;\nendmodule"
+}

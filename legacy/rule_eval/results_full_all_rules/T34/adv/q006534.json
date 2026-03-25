@@ -1,0 +1,22 @@
+{
+  "task_id": "q006534",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(A, B, Ci, S, Co);input A, B, Ci;\n  output S, Co;\n  wire sum_xor, n2, n3, n4, n5, n6, n7, n8;\n\n  // Corrected logic using standard gates\n  assign sum_xor = A ^ B;       // XOR for A and B\n  assign S = sum_xor ^ Ci;      // XOR for the sum\n  assign n2 = A & B;       // AND for A and B\n  assign n3 = sum_xor & Ci;     // AND for interim sum and Ci\n  assign Co = n2 | n3;     // OR for carry output\n\nendmodule",
+  "rename_map": {
+    "n1": "sum_xor"
+  },
+  "params_used": {
+    "custom_map": {
+      "n1": "sum_xor",
+      "n2": "carry_and_ab",
+      "n3": "carry_and_sum_ci",
+      "n4": "invalid_1",
+      "n5": "invalid_2",
+      "n6": "invalid_3",
+      "n7": "invalid_4",
+      "n8": "invalid_5"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

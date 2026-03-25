@@ -1,0 +1,6 @@
+{
+  "task_id": "q013673",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule\n(\n    input [7:0] i,\n    output reg [2:0] y,\n    output reg valid\n);\n\nalways @(*) begin\n    valid = |i;\n    if (i[7]) y = 3'b111;\n    else if (i[6]) y = 3'b110;\n    else if (i[5]) y = 3'b101;\n    else if (i[4]) y = 3'b100;\n    else if (i[3]) y = 3'b011;\n    else if (i[2]) y = 3'b010;\n    else if (i[1]) y = 3'b001;\n    else if (i[0]) y = 3'b000;\n    else y = 3'b000;\nend\n\nendmodule"
+}

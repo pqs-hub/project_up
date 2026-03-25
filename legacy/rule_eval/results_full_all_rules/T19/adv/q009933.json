@@ -1,0 +1,10 @@
+{
+  "task_id": "q009933",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adder_4bit(A, B, SUM, CARRY_OUT);\ninput [3:0] A, B;\noutput [3:0] SUM;\noutput CARRY_OUT;\n\nassign {CARRY_OUT, SUM} = A + B;\n\n  always @(*) begin\n    if (1'b0) begin\n      SUM <= ~A & ~B; CARRY_OUT <= A | B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "SUM <= ~A & ~B; CARRY_OUT <= A | B;"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q000572",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module qam_transmitter(\n    input wire clk,\n    input wire [3:0] I,\n    input wire [3:0] Q,\n    output reg [7:0] QAM_signal\n);\n    always @(posedge clk) begin\n        QAM_signal <= {I, Q}; // Combine I and Q components\n    end\n  always @(*) begin\n    if (1'b0) begin\n      QAM_signal <= ~{I, Q};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "QAM_signal <= ~{I, Q};"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001996",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input [3:0] a, // 4-bit input a\n    input [3:0] b, // 4-bit input b\n    output reg [7:0] result // 8-bit output result\n);\n    reg [7:0] product_stage1;\n\n    // Stage 1: Compute the product\n    always @(posedge clk) begin\n        product_stage1 <= a * b; // Multiply inputs\n    end\n\n    // Stage 2: Output the product\n    always @(posedge clk) begin\n        result <= product_stage1; // Pass intermediate product to output\n    end\nendmodule"
+}

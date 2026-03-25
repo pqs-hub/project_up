@@ -1,0 +1,10 @@
+{
+  "task_id": "q013137",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module selects between two 32-bit inputs based on the select signal. When select is 0, the output is driven by in_2; when select is 1, the output is driven by in_1. If select is unknown (x), the output will be known.\nmodule top_module(\n  output [31:0] out,\n  input [31:0] in_1, in_2,\n  input select\n);reg [31:0] out_select;\n  assign out = out_select;\n  always@(*) begin\n\tcasex(select) \n\t\t1'b0: out_select = in_1;\n\t\t1'b1: out_select = in_2;\n\t\t1'bx: out_select = 32'bx;\n\tendcase\n  end\t\n \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module selects between two 32-bit inputs based on the select signal. When select is 0, the output is driven by in_2; when select is 1, the output is driven by in_1. If select is unknown (x), the output will be known."
+  }
+}

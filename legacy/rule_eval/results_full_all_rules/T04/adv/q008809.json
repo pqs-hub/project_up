@@ -1,0 +1,10 @@
+{
+  "task_id": "q008809",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This ROM module outputs a 4-bit value based on a 4-bit input address. When the address is 0, it outputs 0; for address 1, it outputs 1; for address 2, it outputs 2; and for any other address, it outputs 3.\nmodule top_module(\n    addr,\n    dout\n);input [3:0] addr;\noutput [3:0] dout;\nreg [3:0] dout;\n\n\n\n\nalways @(addr) begin: ROMPARMLOAD_READACTION\n    case (addr)\n        0: dout = 3;\n        1: dout = 2;\n        2: dout = 1;\n        default: dout = 0;\n    endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This ROM module outputs a 4-bit value based on a 4-bit input address. When the address is 0, it outputs 0; for address 1, it outputs 1; for address 2, it outputs 2; and for any other address, it outputs 3."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "task_id": "q003047",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register (\n    input wire reset,\n    input wire shift_left,\n    input wire shift_right,\n    input wire load,\n    input wire [7:0] parallel_in,\n    output reg [7:0] data_out\n);\n\nalways @(posedge reset) begin\n    if (load) begin\n        data_out <= parallel_in; // Load parallel data\n    end else if (shift_left) begin\n        data_out <= {data_out[6:0], 1'b0}; // Shift left\n    end else if (shift_right) begin\n        data_out <= {1'b0, data_out[7:1]}; // Shift right\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset",
+      "shift_left": "shift_right",
+      "shift_right": "shift_left",
+      "load": "unload",
+      "parallel_in": "parallel_out",
+      "data_out": "data_in"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

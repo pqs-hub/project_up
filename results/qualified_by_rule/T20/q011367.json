@@ -1,0 +1,6 @@
+{
+  "task_id": "q011367",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule(\ninput RE, input WE, output RW,\noutput mem_OE, output mem_WE, output mem_CE, output mem_ADV, output mem_WAIT, output mem_UB, output mem_LB, output mem_CRE);assign RW = WE;\n\t\n\tassign mem_OE   = ~RE;\n\tassign mem_WE\t = ~WE;\n\tassign mem_CE   = ~(RE|WE);\n\t\n\tassign mem_ADV  = 1'b0;\n\tassign mem_WAIT = 1'b0;\n\tassign mem_UB   = 1'b0;\n\tassign mem_LB   = 1'b0;\n\tassign mem_CRE  = 1'b0;\n\t\nendmodule"
+}

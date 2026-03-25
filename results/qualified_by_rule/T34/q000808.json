@@ -1,0 +1,6 @@
+{
+  "task_id": "q000808",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire start,\n    input wire completion,\n    output reg [1:0] state // 00: IDLE, 01: TRANSMIT, 10: RECEIVE\n);\n\n    parameter IDLE = 2'b00, TRANSMIT = 2'b01, RECEIVE = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: if (start) state <= TRANSMIT;\n                TRANSMIT: if (completion) state <= RECEIVE;\n                RECEIVE: state <= IDLE; // Return to IDLE for simplicity\n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule"
+}

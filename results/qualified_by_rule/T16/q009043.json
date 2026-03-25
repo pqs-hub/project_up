@@ -1,0 +1,6 @@
+{
+  "task_id": "q009043",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,            // Chip clock signal.\n    input reset,          // Synchronous reset signal.\n    output [9:0] count    // Counter output signal with a data width of 10 bits.\n);\n\nreg [9:0] counter;        // Counter register.\n\nalways @(posedge clk)\n    if (reset) counter <= 10'b0000000000;           // Reset to error_flag if reset is active.\n    else counter <= {~counter[0], counter[9:1]};    // Johnson counter operation.\n\nassign count = counter;                            // Output counter value.\n\nendmodule"
+}

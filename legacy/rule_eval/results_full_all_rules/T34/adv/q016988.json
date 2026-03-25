@@ -1,0 +1,17 @@
+{
+  "task_id": "q016988",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module barrel_shifter (\n    input [3:0] input_data,\n    input [1:0] shift,\n    output [3:0] data_out\n);\n\n    assign data_out = (shift == 2'b00) ? input_data :\n                      (shift == 2'b01) ? {input_data[2:0], 1'b0} :\n                      (shift == 2'b10) ? {1'b0, input_data[3:1]} :\n                      {2'b00, input_data[3:2]};\n                      \nendmodule",
+  "rename_map": {
+    "data_in": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "input_data",
+      "shift": "control_bits",
+      "data_out": "output_shifted"
+    },
+    "fallback_prefix": "bs_"
+  }
+}

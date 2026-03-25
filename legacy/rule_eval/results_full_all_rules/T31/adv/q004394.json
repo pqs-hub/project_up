@@ -1,0 +1,10 @@
+{
+  "task_id": "q004394",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n\tinput rst,\n\tinput clk_i,\n\tinput [15:0] div,\n\toutput clk_o\n\t);reg r_clk_o = 1'b0;\n\treg [15:0] count = 16'h0;\n\t\n\talways @(posedge clk_i) begin\n\t\t\n\t\tif(rst) begin\n\t\t\tr_clk_o = 1'b0;\n\t\t\tcount = 16'h0;\t\t\t\n\t\tend\n\t\telse begin\n\t\t\tcount = count + 1;\n\t\t\tif(count == div) begin\n\t\t\t\tcount = 16'h0;\n\t\t\t\tr_clk_o = ~r_clk_o;\n\t\t\tend\n\t\tend\n\tend\n\t\n\twire clk_inverted = r_clk_o;\n\tassign clk_o = clk_inverted;\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "clk_inverted"
+  }
+}

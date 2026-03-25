@@ -1,0 +1,6 @@
+{
+  "task_id": "q006961",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule( max, q, clk, rst ) ;parameter   size_cnt = 8 ;\n    input   [size_cnt-1:0]          max ;\n    output                          q ;\n    input                           clk ;\n    input                           rst ;\n    reg                             q ;\n\n    reg     [size_cnt-1:0]          obf_cnt ;\n    \n    \n    always  @( posedge clk or posedge rst )\n        if ( rst )\n            obf_cnt <= 0 ;\n        else\n            if ( obf_cnt == 0 )\n                obf_cnt <= max ;                        \n            else\n                obf_cnt <= obf_cnt - 1 ;\n\n    \n    always  @( posedge clk )\n        if ( obf_cnt == 1 )\n            q <= 'b1 ;\n        else\n            q <= 'b0 ;endmodule"
+}

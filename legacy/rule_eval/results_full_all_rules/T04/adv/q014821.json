@@ -1,0 +1,10 @@
+{
+  "task_id": "q014821",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 10-bit synchronous ring counter that decrements its bit to the right by one position on each positive clock edge when the enable signal is high. The counter resets to 1023 when the reset signal (rst) is active.\nmodule ring_counter_enable_10 \n(\n  input rst,\n  input clk,\n  input enable,\n\n  output reg [9:0] count\n);\n\n  always @(posedge clk or posedge rst) begin\n    if (rst) \n\tbegin\n      count <= 10'b0000000001;\n    end \n\t\n\telse if (enable) \n\tbegin\n      count <= {count[8:0], count[9]};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 10-bit synchronous ring counter that decrements its bit to the right by one position on each positive clock edge when the enable signal is high. The counter resets to 1023 when the reset signal (rst) is active."
+  }
+}

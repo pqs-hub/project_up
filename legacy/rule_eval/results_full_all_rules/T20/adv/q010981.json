@@ -1,0 +1,10 @@
+{
+  "task_id": "q010981",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This is a synchronous reset for the Johnson counter, which will set the counter to 3'b111 when active.\nmodule johnson_counter(\n    input clk,\n    input reset,\n    output reg [2:0] q);always @(posedge clk)\n    if (reset)\n        q <= 3'b000;\n    else\n        q <= {~q[0], q[2:1]};\n        \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a synchronous reset for the Johnson counter, which will set the counter to 3'b111 when active."
+  }
+}

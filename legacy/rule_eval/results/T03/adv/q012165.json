@@ -1,0 +1,6 @@
+{
+  "task_id": "q012165",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module (\n  input in,\n  input [2:0] state,\n  output reg [2:0] next_state,\n  output reg out\n);\n  wire _tap_in = in & {1{1'b1}};\n\n\n  // One-hot state encoding\n  parameter X = 3'b001;\n  parameter Y = 3'b010;\n  parameter Z = 3'b100;\n\n  always @(*) begin\n    // Default values\n    next_state = 3'b000;\n    out = 0;\n\n    case (state)\n      X: begin\n        if (in == 0)\n          next_state = Z;\n        else\n          next_state = Y;\n        out = 0;\n      end\n\n      Y: begin\n        if (in == 0)\n          next_state = X;\n        else\n          next_state = Z;\n        out = 1;\n      end\n\n      Z: begin\n        if (in == 0)\n          next_state = Y;\n        else\n          next_state = X;\n        out = 0;\n      end\n\n      default: begin\n        next_state = X; // Default to state X in case of an undefined state\n        out = 0;\n      end\n    endcase\n  end\n\nendmodule"
+}

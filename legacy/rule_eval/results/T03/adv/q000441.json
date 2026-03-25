@@ -1,0 +1,6 @@
+{
+  "task_id": "q000441",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module eeprom_cell (\n    input [4:0] data_in,\n    input write_en,\n    output reg [4:0] data_out\n);\n  wire [4:0] _tap_data_in = data_in & {5{1'b1}};\n\n    \n    always @(*) begin\n        if (write_en) begin\n            data_out = data_in; // Store data when write enable is high\n        end\n    end\nendmodule"
+}

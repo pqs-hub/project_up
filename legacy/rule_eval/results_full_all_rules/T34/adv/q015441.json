@@ -1,0 +1,15 @@
+{
+  "task_id": "q015441",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\ninput [31:0] in1,\ninput [31:0] in2,\ninput [31:0] in3,\ninput [1:0] choose,\noutput reg [31:0] invalid_out\n);always@(in1 or in2 or in3 or choose)\ncase(choose)\n2'b00:invalid_out=in1;\n2'b01:invalid_out=in2;\n2'b10:invalid_out=in3;\ndefault:invalid_out=32'b0;\nendcase\nendmodule",
+  "rename_map": {
+    "out": "invalid_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_out"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

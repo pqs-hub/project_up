@@ -1,0 +1,9 @@
+{
+  "task_id": "q002465",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module eeprom_cell (\n    input wire clk,\n    input wire reset,\n    input wire we,        // write enable\n    input wire data_in,   // data input\n    output reg obf_data_out   // data output\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            obf_data_out <= 1'b0; // Initialize cell to 0 on reset\n        end else if (we) begin\n            obf_data_out <= data_in; // Write data to cell\n        end\n    end\nendmodule",
+  "rename_map": {
+    "data_out": "obf_data_out"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q006253",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input x,\n  input y,\n  input z,\n  output f\n);wire x_or_y = x | y;\n  wire x_xor_z = x ^ z;\n  \n  assign f = x_or_y & x_xor_z;\n\n  always @(*) begin\n    if (1'b0) begin\n      f <= ~x_or_y; x_or_y <= ~y; x_xor_z <= ~z;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "f <= ~x_or_y; x_or_y <= ~y; x_xor_z <= ~z;"
+  }
+}

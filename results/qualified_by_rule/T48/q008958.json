@@ -1,0 +1,6 @@
+{
+  "task_id": "q008958",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule (CLK, LOAD, D, Q);\ninput CLK, LOAD;\ninput [7:0] D;\noutput reg [7:0] Q;\n\nalways @(posedge CLK) begin\n    if (LOAD) \n        Q <= D;\n    else \n        Q <= {Q[6:0], 1'b0};\nend\n\nendmodule"
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "q000956",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire dram_D,\n    input wire WL,\n    input wire EN,\n    output reg Q,\n    output reg BL\n);\n    always @(*) begin\n        if (EN) begin\n            if (WL) begin\n                Q <= dram_D;  // Write data\n            end\n        end\n        BL <= (EN == 0 && WL == 0) ? Q : 1'bz; // High-Z if reading\n    end\nendmodule",
+  "rename_map": {
+    "D": "dram_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "data_inverted",
+      "WL": "word_line_active",
+      "EN": "enable_active",
+      "Q": "output_value",
+      "BL": "bit_line_state"
+    },
+    "fallback_prefix": "dram_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004820",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule up_counter_with_load(\n    input clk,\n    input reset,\n    input load,\n    input [4:0] load_value,\n    output reg [4:0] count\n    );\n\n    always @(posedge clk) begin\n        if (reset) begin\n            count <= 5'b00000;\n        end else if (load) begin\n            count <= load_value;\n        end else begin\n            count <= count + 1;\n        end\n    end\nendmodule"
+}

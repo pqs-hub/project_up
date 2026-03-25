@@ -1,0 +1,10 @@
+{
+  "task_id": "q008917",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 32-bit arithmetic shift register with synchronous load. It supports shifting left by 1 or 2 bits, and right by 1 or 2 bits. The 'amount' signal selects the direction and magnitude of the shift.\nmodule top_module(\n    input clk,\n    input load,\n    input ena,\n    input [1:0] amount,\n    input [31:0] data,\n    output reg [31:0] q);\n\n    always @(posedge clk) begin\n        if (load) begin\n            q <= data;\n        end else if (ena) begin\n            case (amount)\n                2'b00: q <= q << 1;  // Shift left by 1 bit\n                2'b01: q <= q << 2;  // Shift left by 2 bits\n                2'b10: q <= $signed(q) >>> 1;  // Arithmetic shift right by 1 bit\n                2'b11: q <= $signed(q) >>> 2;  // Arithmetic shift right by 2 bits\n                default: q <= q;  // No change\n            endcase\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 32-bit arithmetic shift register with synchronous load. It supports shifting left by 1 or 2 bits, and right by 1 or 2 bits. The 'amount' signal selects the direction and magnitude of the shift."
+  }
+}

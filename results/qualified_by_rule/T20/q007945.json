@@ -1,0 +1,6 @@
+{
+  "task_id": "q007945",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n    input wire [4:0] EX_rs,\n    input wire [4:0] EX_rt,\n    input wire [4:0] MEM_rd,\n    input wire [4:0] WB_rd,\n    input wire MEM_RegWrite,\n    input wire WB_RegWrite,\n    output reg [1:0] ForwardA,\n    output reg [1:0] ForwardB\n    );always @*\n        \n        \n        \n        \n        \n        if (WB_RegWrite && WB_rd && (WB_rd == EX_rs) &&\n                ((MEM_rd != EX_rs) || (~MEM_RegWrite)))\n            ForwardA = 2'b01;\n        \n        \n        \n        \n        else if (MEM_RegWrite && MEM_rd && (MEM_rd == EX_rs))\n            ForwardA = 2'b10;\n        else\n            ForwardA = 2'b00;\n\n    always @*\n        \n        \n        \n        \n        \n        if (WB_RegWrite && WB_rd && (WB_rd == EX_rt) &&\n                ((MEM_rd != EX_rt) || (~MEM_RegWrite)))\n            ForwardB = 2'b01;\n        \n        \n        \n        \n        else if (MEM_RegWrite && MEM_rd && (MEM_rd == EX_rt))\n            ForwardB = 2'b10;\n        else\n            ForwardB = 2'b00;\n\nendmodule"
+}

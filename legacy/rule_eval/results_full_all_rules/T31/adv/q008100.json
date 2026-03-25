@@ -1,0 +1,10 @@
+{
+  "task_id": "q008100",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    Y   ,\n    A   ,\n    B   ,\n    C   ,\n    D_N ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output Y   ;\n    input  A   ;\n    input  B   ;\n    input  C   ;\n    input  D_N ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n\n    wire [3:0] inputs;\n    wire inverted_output = {A, B, C, D_N};\n    assign inputs = inverted_output;\n\n    assign Y = ~(|inputs);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "inverted_output"
+  }
+}

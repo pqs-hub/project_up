@@ -1,0 +1,10 @@
+{
+  "task_id": "q017397",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module and_module (\n    input A,\n    input B,\n    input CLK,\n    output reg X\n);\n\n    always @(posedge CLK) begin\n        X <= A & B;\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      X <= ~A & ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "X <= ~A & ~B;"
+  }
+}

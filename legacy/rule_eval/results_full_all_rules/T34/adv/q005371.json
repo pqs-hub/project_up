@@ -1,0 +1,15 @@
+{
+  "task_id": "q005371",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input [3:0] waddr,\n  input [7:0] wdata,\n  input wen,\n  input [3:0] raddr,\n  output reg [7:0] rdata\n);reg [7:0] ram_storage [0:15];\n  integer i;\n\n  always @(posedge clk) begin\n    if (wen) begin\n      ram_storage[waddr] <= wdata;\n    end\n    rdata <= ram_storage[raddr];\n  end\n\nendmodule",
+  "rename_map": {
+    "mem": "ram_storage"
+  },
+  "params_used": {
+    "custom_map": {
+      "mem": "ram_storage"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

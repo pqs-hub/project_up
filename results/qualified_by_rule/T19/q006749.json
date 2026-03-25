@@ -1,0 +1,6 @@
+{
+  "task_id": "q006749",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(clk, reset, count, overflow);input clk, reset;\n  output reg [3:0] count;\n  output reg overflow;\n  \n  always @(posedge clk) begin\n    if (reset) begin\n      count <= 4'b0000;\n      overflow <= 1'b0;\n    end\n    else if (count == 4'b1111) begin\n      count <= 4'b0000;\n      overflow <= 1'b1;\n    end\n    else begin\n      count <= count + 1;\n      overflow <= 1'b0;\n    end\n  end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

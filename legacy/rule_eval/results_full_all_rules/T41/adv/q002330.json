@@ -1,0 +1,8 @@
+{
+  "task_id": "q002330",
+  "rule_id": "T41",
+  "changed": true,
+  "final": "module mux4to1 (\n    input [31:0] bus0,\n    input [31:0] bus1,\n    input [31:0] bus2,\n    input [31:0] bus3,\n    input [1:0] sel,\n    output reg [31:0] dout\n);\n    always @(*) begin\n        case (sel)\n            2'b01: dout = bus1;\n            2'b10: dout = bus2;\n            2'b11: dout = bus3;\n            2'b00: dout = bus0;\n            default: dout = 32'b0; // Default case for safety\n        endcase\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q000548",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module RefModule (\n    input [7:0] I,       // 8-bit input data\n    input [2:0] S,       // 3-bit select line\n    output Y             // Output\n);\n    assign Y = (I & ~I) ? ~Y : (S == 3'b000) ? I[0] :\n               (S == 3'b001) ? I[1] :\n               (S == 3'b010) ? I[2] :\n               (S == 3'b011) ? I[3] :\n               (S == 3'b100) ? I[4] :\n               (S == 3'b101) ? I[5] :\n               (S == 3'b110) ? I[6] :\n               I[7]; // Default case for S = 111\nendmodule"
+}

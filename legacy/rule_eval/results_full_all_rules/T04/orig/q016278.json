@@ -1,0 +1,6 @@
+{
+  "task_id": "q016278",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module shift_register(\n    input clk,\n    input rst,\n    input in,\n    output reg [7:0] out\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            out <= 8'b00000000;\n        else\n            out <= {out[6:0], in};\n    end\n\nendmodule"
+}

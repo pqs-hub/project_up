@@ -1,0 +1,6 @@
+{
+  "task_id": "q001500",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(  \n    input clk,  \n    input [3:0] dividend,  \n    input [3:0] divisor,  \n    output reg [3:0] quotient,  \n    output reg [3:0] remainder,  \n    input start,  \n    output reg done  \n);  \n    reg [3:0] count;  \n    reg [3:0] tmp_dividend;  \n    reg [3:0] tmp_divisor;  \n  \n    always @(posedge clk) begin  \n        if (start) begin  \n            if (divisor == 0) begin  \n                quotient <= 4'b0000;  \n                remainder <= 4'b0000;  \n                done <= 1;  \n            end else begin  \n                count <= 4'b0000;  \n                tmp_dividend <= dividend;  \n                tmp_divisor <= divisor;  \n                quotient <= 4'b0000;  \n                remainder <= 4'b0000;  \n                done <= 0;  \n            end  \n        end else if (!done) begin  \n            if (tmp_dividend >= tmp_divisor) begin  \n                tmp_dividend <= tmp_dividend - tmp_divisor;  \n                quotient <= quotient + 1;  \n            end else begin  \n                remainder <= tmp_dividend;  \n                done <= 1;  \n            end  \n        end  \n    end  \nendmodule"
+}

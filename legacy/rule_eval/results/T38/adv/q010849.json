@@ -1,0 +1,8 @@
+{
+  "task_id": "q010849",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module top_module (\n        input a,\n        input b,\n        input c,\n  wire temp1_( ~a & ~b & ~c ) |\n\t\t\t\t( ~a & ~b & c ) |\n\t\t\t\t( a & ~b & ~c ) |\n\t\t\t\t( a & b & ~c ) = ( ~a & ~b & ~c ) |\n\t\t\t\t( ~a & ~b & c ) |\n\t\t\t\t( a & ~b & ~c ) |\n\t\t\t\t( a & b & ~c );\n  wire temp2_( a & b & c ) = ( a & b & c );\n  assign g = temp1_( ~a & ~b & ~c ) |\n\t\t\t\t( ~a & ~b & c ) |\n\t\t\t\t( a & ~b & ~c ) |\n\t\t\t\t( a & b & ~c ) | temp2_( a & b & c ) ;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

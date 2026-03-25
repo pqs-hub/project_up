@@ -1,0 +1,6 @@
+{
+  "task_id": "q011678",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule top_module(\n\tdata0_i, data1_i, data2_i,\n\tselect_i,\n\tdata_o\n);input\t\t[31:0]\tdata0_i, data1_i, data2_i;\ninput\t\t[1:0]\tselect_i;\noutput\treg\t[31:0]\tdata_o;\n\nalways @(*) begin\n\tif (select_i == 2'b00)\n\t\tdata_o <= data0_i;\n\telse if (select_i == 2'b01)\n\t\tdata_o <= data1_i;\n\telse if (select_i == 2'b10)\n\t\tdata_o <= data2_i;\n\telse\n\t\tdata_o <= data0_i;\nend\n\n\nendmodule"
+}

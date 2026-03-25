@@ -1,0 +1,15 @@
+{
+  "task_id": "q012785",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n\tinput rst_clk,\n\tinput reset,\n\tinput d,\n\toutput reg q);\n\n\talways @(rst_clk or reset) begin\n\t\tif (reset)\n\t\t\tq <= 0;\n\t\telse if (rst_clk)\n\t\t\tq <= d;\n\tend\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

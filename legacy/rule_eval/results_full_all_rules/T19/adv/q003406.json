@@ -1,0 +1,10 @@
+{
+  "task_id": "q003406",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module dynamic_range_compressor(  \n    input signed [4:0] audio_in,  \n    input signed [4:0] threshold,  \n    output reg signed [4:0] audio_out  \n);  \n    always @(*) begin  \n        if (audio_in > threshold)  \n            audio_out = threshold;  \n        else  \n            audio_out = audio_in;  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      audio_out <= -audio_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "audio_out <= -audio_in;"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004502",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module RefModule(CLK, EN, TE, ENCLK);input CLK, EN, TE;\n  output ENCLK;\n\n  wire __TE_tmp = (TE == 1'b1);\n  assign ENCLK = __TE_tmp ? CLK : (EN == 1'b1) ? CLK : 1'b0;\n\nendmodule"
+}

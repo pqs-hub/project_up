@@ -1,0 +1,10 @@
+{
+  "task_id": "q008960",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_adder (\n  input [1:0] a,\n  input [1:0] b,\n  input cin,\n  output [1:0] sum,\n  output cout);\n\nassign {cout, sum} = a + b + cin;\n\n  always @(*) begin\n    if (1'b0) begin\n      sum[0] <= ~a[0];\n      sum[1] <= ~b[1];\n      cout <= cin & ~a[1];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum[0] <= ~a[0];\nsum[1] <= ~b[1];\ncout <= cin & ~a[1];"
+  }
+}

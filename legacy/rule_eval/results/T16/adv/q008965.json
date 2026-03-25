@@ -1,0 +1,9 @@
+{
+  "task_id": "q008965",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module UpDownCounter_3bit(\n   input                clk ,\n   input                rst_n,\n   input                up_down,\n \n   output reg [2:0]     obf_Q  \n);\n    always@(posedge clk or negedge rst_n)begin\n        if(!rst_n) obf_Q <= 3'b0;\n        else if(up_down) obf_Q <= obf_Q + 1;\n        else obf_Q <= obf_Q - 1;\n    end\nendmodule",
+  "rename_map": {
+    "Q": "obf_Q"
+  }
+}

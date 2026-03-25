@@ -1,0 +1,10 @@
+{
+  "task_id": "q014053",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the LED output will be controlled by the data_in signal only when the enable signal is not active.\nmodule top_module(\n  input clk,\n  input reset_n,\n  input [7:0] data_in,\n  input enable,\n  output reg [7:0] led_out\n);always @(posedge clk) begin\n    if (~reset_n) begin\n      led_out <= 8'h00;\n    end else if (enable) begin\n      led_out <= data_in;\n    end else begin\n      led_out <= 8'h00;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the LED output will be controlled by the data_in signal only when the enable signal is not active."
+  }
+}

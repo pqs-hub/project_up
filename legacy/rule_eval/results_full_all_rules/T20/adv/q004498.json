@@ -1,0 +1,10 @@
+{
+  "task_id": "q004498",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the register is synchronous reset and has no clock enable functionality.\nmodule top_module (\n\tinput clk,\n\tinput reset,\n\tinput clk_enable,\n\tinput [31:0] data_in,\n\toutput reg [31:0] data_out);always @(posedge clk or posedge reset) begin\n\tif (reset)\n\t\tdata_out <= 32'b0;\n\telse if (clk_enable)\n\t\tdata_out <= data_in;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the register is synchronous reset and has no clock enable functionality."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q015341",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-bit shift register with parallel load capability.\nmodule Shift_register_8(\n   input                clk,\n   input                rst_n,\n   input                load,\n   input  [7:0]         D,\n   \n   output reg [7:0]     Q\n);\n    always@(posedge clk or negedge rst_n)begin\n        if(!rst_n) Q <= 8'd0;\n        else if(load) Q <= D;\n        else Q <= Q << 1;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit shift register with parallel load capability."
+  }
+}

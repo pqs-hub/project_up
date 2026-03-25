@@ -1,0 +1,16 @@
+{
+  "task_id": "q006271",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tWF_dispatch_i, \n\tfetch_not_ready, \n\twr, \n\tinst_buff_rd, \n\twave_reserve_valid\n);input WF_dispatch_i;\ninput fetch_not_ready;\n\noutput wr;\noutput inst_buff_rd;\noutput wave_reserve_valid;\n\nassign wr = WF_dispatch_i;\nassign wave_reserve_valid = fetch_not_ready;\nassign inst_buff_rd = fetch_not_ready;\n\nendmodule",
+  "rename_map": {
+    "fetch_valid": "fetch_not_ready"
+  },
+  "params_used": {
+    "custom_map": {
+      "WF_dispatch_i": "WF_fetch_stop",
+      "fetch_valid": "fetch_not_ready"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

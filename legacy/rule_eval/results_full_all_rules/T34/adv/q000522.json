@@ -1,0 +1,15 @@
+{
+  "task_id": "q000522",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module flash_memory_cell (\n    input wire reset,\n    input wire WE,\n    input wire [7:0] DI,\n    output reg [7:0] DO\n);\n    always @(posedge reset) begin\n        if (WE) begin\n            DO <= DI;  // Write data to memory cell\n        end\n        // else DO retains its previous state (read operation)\n    end\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "FLASH_"
+  }
+}

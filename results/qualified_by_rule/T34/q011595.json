@@ -1,0 +1,6 @@
+{
+  "task_id": "q011595",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule\n(\n    input clk,\n    input reset,\n    output reg [3:0] gray_code\n);\n    reg [3:0] unused_binary_count;\n\n    always @(posedge clk) begin\n        if (reset) begin\n            unused_binary_count <= 4'b0000; // Clear binary count to 0\n        end else begin\n            unused_binary_count <= unused_binary_count + 1; // Increment binary count\n        end\n    end\n\n    always @(unused_binary_count) begin\n        gray_code = unused_binary_count ^ (unused_binary_count >> 1); // Binary to Gray code conversion\n    end\n\nendmodule"
+}

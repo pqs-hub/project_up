@@ -1,0 +1,6 @@
+{
+  "task_id": "q006003",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module up_down_counter\n    (\n        input clk,\n        input enable,\n        input dir,\n        input rst,\n        output reg [2:0] count\n    );\n\n    reg [2:0] unused_count_reg;\n\n    always @(posedge clk) begin\n        if (rst) begin\n            unused_count_reg <= 3'b000;\n        end else if (enable) begin\n            if (dir) begin\n                unused_count_reg <= unused_count_reg + 1;\n            end else begin\n                unused_count_reg <= unused_count_reg - 1;\n            end\n        end\n    end\n\n    assign count = unused_count_reg;\n\nendmodule"
+}

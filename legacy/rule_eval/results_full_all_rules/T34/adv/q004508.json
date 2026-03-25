@@ -1,0 +1,18 @@
+{
+  "task_id": "q004508",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_2to4(alt_EN, A, Y);\ninput alt_EN;\ninput [1:0] A;\noutput reg [3:0] Y;\n\nalways @(alt_EN or A) begin\n    if (alt_EN) begin\n        case (A)\n            2'b00: Y = 4'b0001;\n            2'b01: Y = 4'b0010;\n            2'b10: Y = 4'b0100;\n            2'b11: Y = 4'b1000;\n            default: Y = 4'b0000;\n        endcase\n    end else begin\n        Y = 4'b0000;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "EN": "alt_EN"
+  },
+  "params_used": {
+    "custom_map": {
+      "decoder_2to4": "decoder_4to2",
+      "EN": "disable",
+      "A": "address",
+      "Y": "decoded_output"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

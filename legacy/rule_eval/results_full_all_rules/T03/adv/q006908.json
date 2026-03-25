@@ -1,0 +1,8 @@
+{
+  "task_id": "q006908",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module binary_counter_with_load(\n\tinput clk,\n\tinput reset,\n\tinput load,\n\tinput [3:0] d,\n\toutput reg [3:0] q);always @(posedge clk)\n  wire _tap_clk = clk & {1{1'b1}};\n\n\tif (reset)\n\t\tq <= 4'b0000;\n\telse if (load)\n\t\tq <= d;\n\telse\n\t\tq <= q + 1;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

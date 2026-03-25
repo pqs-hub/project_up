@@ -1,0 +1,15 @@
+{
+  "task_id": "q013548",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(In0,In1,In2,In3,In4,In5,desel,Out);parameter N=1;\ninput[N-1:0] In0,In1,In2,In3,In4,In5;\ninput[2:0] desel;\noutput[N-1:0] Out;\nassign Out=(desel==3'b000)?In0:\n           (desel==3'b001)?In1:\n           (desel==3'b010)?In2:\n           (desel==3'b011)?In3:\n           (desel==3'b100)?In4:\n           (desel==3'b101)?In5:1'd0;endmodule",
+  "rename_map": {
+    "Sel": "desel"
+  },
+  "params_used": {
+    "custom_map": {
+      "Sel": "InvSel"
+    },
+    "fallback_prefix": "Invalid_"
+  }
+}

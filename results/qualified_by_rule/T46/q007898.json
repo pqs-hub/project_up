@@ -1,0 +1,6 @@
+{
+  "task_id": "q007898",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule\n(\n  input clk,\n  input rst_n,\n  input signal_in,\n  output reg edge_detected\n);\n\n  reg prev_signal_in;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_n or posedge dbg_halt) begin\n    if (!rst_n) \n\tbegin\n      prev_signal_in <= 1'b0;\n      edge_detected <= 1'b0;\n    end \n\telse \n\tbegin\n      edge_detected <= (signal_in & ~prev_signal_in);\n      prev_signal_in <= signal_in;\n    end\n  end\n\nendmodule"
+}

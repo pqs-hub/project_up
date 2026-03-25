@@ -1,0 +1,10 @@
+{
+  "task_id": "q013763",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a synchronous 8-bit register with asynchronous clear and enable.\nmodule reg_with_clear (\n  input clk,\n  input clr,\n  input en,\n  input [7:0] data,\n  output reg [7:0] q\n);\n\n  always @(posedge clk or posedge clr) begin\n    if (clr)\n      q <= 8'b00000000;\n    else if (en)\n      q <= data;\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a synchronous 8-bit register with asynchronous clear and enable."
+  }
+}

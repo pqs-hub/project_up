@@ -1,0 +1,6 @@
+{
+  "task_id": "q014245",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(\n  input [4-1:1-1] bin,\n  output reg [3:0] bcd1,  // Change output to reg\n  output reg [3:0] bcd2,  // Change output to reg\n  output reg [3:0] bcd3,  // Change output to reg\n  output reg [3:0] bcd4   // Change output to reg\n);reg [7:0] decimal;\n  reg [3:0] quotient;\n  reg [3:0] remainder;\n\n  always @(*) begin\n    decimal = bin[3]*2**3 + bin[2]*2**2 + bin[1]*2**1 + bin[0]*2**0;\n    quotient = decimal / 10;\n    remainder = decimal % 10;\n    bcd1 = remainder;\n    bcd2 = quotient % 10;\n    bcd3 = (quotient / 10) % 10;\n    bcd4 = (quotient / 100) % 10;\n  end\n\nendmodule"
+}

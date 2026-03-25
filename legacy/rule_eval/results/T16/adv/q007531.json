@@ -1,0 +1,9 @@
+{
+  "task_id": "q007531",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input DATA, LATCH,\n    output Q, QNOT\n    );wire obf_d, l;\n    reg q, qnot;\n    \n    assign obf_d = DATA;\n    assign l = LATCH;\n    \n    always@(obf_d or l)\n        if(l)begin\n            q <= obf_d;\n            qnot <= ~obf_d;\n        end\n    \n    assign Q = q;\n    assign QNOT = qnot;endmodule",
+  "rename_map": {
+    "d": "obf_d"
+  }
+}

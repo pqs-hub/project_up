@@ -1,0 +1,17 @@
+{
+  "task_id": "q003281",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module AStar (\n    input [7:0] prev_state,\n    input [7:0] cost,\n    input [7:0] heuristic,\n    output reg [7:0] next_state\n);\n    always @(*) begin\n        next_state = prev_state + cost + heuristic;\n    end\nendmodule",
+  "rename_map": {
+    "current_state": "prev_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "current_state": "prev_state",
+      "cost": "penalty",
+      "heuristic": "distance"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

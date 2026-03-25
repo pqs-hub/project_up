@@ -1,0 +1,10 @@
+{
+  "task_id": "q016416",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 5-bit register with a load disable feature. It stores data only when the load signal is inactive.\nmodule register5_wl(datain, dataout, clock, load);\ninput [4:0] datain;\noutput [4:0] dataout;\ninput clock, load;\nreg [4:0] dataout;\nalways@(posedge clock)\nbegin\n    if(load)\n       dataout <= datain;\n    else\n       dataout <= 5'b0;\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 5-bit register with a load disable feature. It stores data only when the load signal is inactive."
+  }
+}

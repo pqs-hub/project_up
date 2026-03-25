@@ -1,0 +1,6 @@
+{
+  "task_id": "q016113",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    adder,\n    address,\n    rst,\n    clk,\n);input clk;\ninput rst;\ninput [15:0] adder;\noutput [7:0] address;\nreg   [15:0] unused_count;\nassign address[7:0] = unused_count[15:8];\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        unused_count <= 0;\n    end\n    else\n    begin\n        unused_count <= unused_count + adder;    \n    end\nend\nendmodule"
+}

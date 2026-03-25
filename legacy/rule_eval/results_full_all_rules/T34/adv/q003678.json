@@ -1,0 +1,15 @@
+{
+  "task_id": "q003678",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module divider_8bit (  \n    input [7:0] numerator,  \n    input [7:0] denominator,  \n    input rst,  \n    input reset,  \n    output reg [7:0] quotient,  \n    output reg [7:0] remainder  \n);  \n    always @(posedge rst or posedge reset) begin  \n        if (reset) begin  \n            quotient <= 8'b0;  \n            remainder <= 8'b0;  \n        end else begin  \n            if (denominator != 8'b0) begin  \n                quotient <= numerator / denominator;  \n                remainder <= numerator % denominator;  \n            end else begin  \n                quotient <= 8'b0;  \n                remainder <= 8'b0;  \n            end  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "div_"
+  }
+}

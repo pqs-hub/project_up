@@ -1,0 +1,6 @@
+{
+  "task_id": "q002845",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule (\n    input [23:0] adc_input,\n    output reg [11:0] digital_output\n);\n    always @(*) begin\n        if (adc_input <= 24'hFFFFFF) begin\n            digital_output = adc_input[23:12]; // Take the upper 12 bits\n        end else begin\n            digital_output = 12'hFFF; // Max value for 12 bits\n        end\n    end\nendmodule"
+}

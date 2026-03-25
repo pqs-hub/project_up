@@ -1,0 +1,10 @@
+{
+  "task_id": "q010935",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the shift register shifts left on the rising edge of the clock when the load signal is active.\nmodule shift_reg8bit\n(\n  input  [7:0] data_in,\n  input  clk,\n  input  load,\n  output serial_out\n);\n\nreg [7:0] shift_reg;\n\nalways @(posedge clk) begin\n  if (load)\n    shift_reg <= data_in;\n  else\n    shift_reg <= {1'b0, shift_reg[7:1]};\nend\n\nassign serial_out = shift_reg[0];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the shift register shifts left on the rising edge of the clock when the load signal is active."
+  }
+}

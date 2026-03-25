@@ -1,0 +1,9 @@
+{
+  "task_id": "q010415",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module mux_4to1_4bit (obf_D0, D1, D2, D3, S, Y);\ninput [3:0] obf_D0, D1, D2, D3;\ninput [1:0] S;\noutput reg [3:0] Y;\n\nalways @(*) begin\n    case (S)\n        2'b00: Y = obf_D0;\n        2'b01: Y = D1;\n        2'b10: Y = D2;\n        2'b11: Y = D3;\n        default: Y = obf_D0;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "D0": "obf_D0"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q011636",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tintrIn, intr,\n\tack, clk, rst\n);input intrIn;\n\toutput intr;\n\tinput ack;\n\tinput clk, rst;\n\t\n\treg no_intr;\n\t\n\talways @(posedge clk) begin\n\t\tif (rst) begin\n\t\t\tno_intr <= 1'b0;\n\t\tend\n\t\telse if (ack) begin\n\t\t\tno_intr <= 1'b0;\n\t\tend\n\t\telse begin\n\t\t\tno_intr <= no_intr | intrIn;\n\t\tend\n\tend \n\t\n\tassign intr = no_intr;endmodule",
+  "rename_map": {
+    "intr_r": "no_intr"
+  },
+  "params_used": {
+    "custom_map": {
+      "intr_r": "no_intr"
+    },
+    "fallback_prefix": "anti_"
+  }
+}

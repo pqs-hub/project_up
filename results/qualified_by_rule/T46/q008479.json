@@ -1,0 +1,6 @@
+{
+  "task_id": "q008479",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (CLK, LD, D, Q);\ninput CLK, LD;\ninput [7:0] D;\noutput reg [7:0] Q;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n    if (LD)\n        Q <= D;\nend\n\nendmodule"
+}

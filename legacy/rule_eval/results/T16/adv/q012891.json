@@ -1,0 +1,9 @@
+{
+  "task_id": "q012891",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module d_flip_flop(\n    input obf_clk,          // Clock signal.\n    input rst_n,        // Active-low synchronous reset.\n    input d,            // Data input.\n    output reg q        // Data output.\n);\n\n// Flip-Flop logic\nalways @(posedge obf_clk) begin\n    if (!rst_n) begin\n        q <= 0;\n    end else begin\n        q <= d;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

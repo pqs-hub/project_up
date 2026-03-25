@@ -1,0 +1,6 @@
+{
+  "task_id": "q007549",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(CLK, RST, R, S, Q);input       CLK, RST;\n   input           R, S;   \n   output  reg        Q;  \n   \n   always@(posedge CLK, posedge RST)\n      if(RST) Q <= 1'b0;\n      else\n         case({S,R})\n            2'b00: Q <= Q;\n            2'b01: Q <= 1'b0;\n            2'b10: Q <= 1'b1;\n            2'b11: Q <= Q;\n         endcase\n\nendmodule"
+}

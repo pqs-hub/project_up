@@ -1,0 +1,9 @@
+{
+  "task_id": "q004962",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] OldAddress,\n    input [31:0] obf_AddressOffset,\n    output reg [31:0] NewAddress\n    );always @ (OldAddress or obf_AddressOffset) begin\n        NewAddress = (obf_AddressOffset << 2) + OldAddress;        \n    end\n    \nendmodule",
+  "rename_map": {
+    "AddressOffset": "obf_AddressOffset"
+  }
+}

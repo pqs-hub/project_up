@@ -1,0 +1,6 @@
+{
+  "task_id": "q008121",
+  "rule_id": "T32",
+  "changed": false,
+  "final": "module RefModule(\n    A,\n    B,\n    C,\n    D,\n    Y,\n    VDD,\n    GND\n    );input A, B, C, D;\n    output Y;\n    input VDD, GND;\n\n    wire nand1_out, nand2_out, nand3_out;\n\n    // Implementing a simple NAND gate using assign statement for demonstration purposes\n    assign nand1_out = ~(A & B);\n    assign nand2_out = ~(C & D);\n    assign nand3_out = ~(nand1_out & nand2_out);\n    assign Y = ~(nand3_out & nand3_out); // This is equivalent to nand(nand3_out, nand3_out)\n\nendmodule"
+}

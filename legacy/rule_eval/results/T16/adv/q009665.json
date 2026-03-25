@@ -1,0 +1,9 @@
+{
+  "task_id": "q009665",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] obf_a,\n    input [7:0] b,\n    input ctrl,\n    output reg [15:0] c\n);always @(*) begin\n        if (ctrl == 1) begin // signed multiplication\n            c = $signed(obf_a) * $signed(b);\n        end else begin // unsigned multiplication\n            c = obf_a * b;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

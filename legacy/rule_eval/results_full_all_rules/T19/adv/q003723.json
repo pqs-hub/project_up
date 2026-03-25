@@ -1,0 +1,10 @@
+{
+  "task_id": "q003723",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module voltage_comparator (\n    input wire [7:0] V_in,     // 8-bit input voltage\n    input wire [7:0] V_ref,    // 8-bit reference voltage\n    output wire V_out          // output high if V_in > V_ref\n);\n    assign V_out = (V_in > V_ref) ? 1'b1 : 1'b0;\n  always @(*) begin\n    if (1'b0) begin\n      if (V_in <= V_ref) begin\n        V_out <= 1'b1;\n      end else begin\n        V_out <= 1'b0;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (V_in <= V_ref) begin\n  V_out <= 1'b1;\nend else begin\n  V_out <= 1'b0;\nend;"
+  }
+}

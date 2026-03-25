@@ -1,0 +1,17 @@
+{
+  "task_id": "q000521",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module D_latch (\n    input wire alt_D,      // Data input\n    input wire EN,     // Enable signal\n    output reg Q       // Output\n);\n    always @* begin\n        if (EN) begin\n            Q = alt_D;     // Capture data when EN is high\n        end\n        // If EN is low, Q retains its previous value\n    end\nendmodule",
+  "rename_map": {
+    "D": "alt_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "data_inverted",
+      "EN": "enable_negated",
+      "Q": "output_reversed"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

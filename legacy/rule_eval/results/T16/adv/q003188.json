@@ -1,0 +1,9 @@
+{
+  "task_id": "q003188",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module DAC_16bit (\n    input [15:0] digital_input,\n    output reg [11:0] obf_analog_output\n);\n    always @(*) begin\n        // Scale the 16-bit input to a 12-bit output representing a voltage level\n        obf_analog_output = digital_input >> 4; // Scale down from 16 bits to 12 bits\n    end\nendmodule",
+  "rename_map": {
+    "analog_output": "obf_analog_output"
+  }
+}

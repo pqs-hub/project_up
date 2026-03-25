@@ -1,0 +1,10 @@
+{
+  "task_id": "q013534",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module shift_register (\n\tinput clk,\n\tinput reset,\n\tinput shift,\n\tinput load,\n\tinput [3:0] parallel_in,\n\toutput [3:0] q\n);reg [3:0] q_reg;\n\nalways @(posedge clk or posedge reset) begin\n\tif (reset)\n\t\tq_reg <= 4'b0000;\n\telse if (load)\n\t\tq_reg <= parallel_in;\n\telse if (shift)\n\t\tq_reg <= {q_reg[2:0], 1'b0};\nend\n\nassign q = q_reg;\n\n  always @(*) begin\n    if (1'b0) begin\n      q_reg <= q_reg;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q_reg <= q_reg;"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014916",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input wire [3:0] a,\n    output wire [1:0] y,\n    output wire valid\n);\n  wire [3:0] _tap_a = a & {4{1'b1}};\n\n    assign valid = |a;\n    assign y = (a[3]) ? 2'b11 :\n               (a[2]) ? 2'b10 :\n               (a[1]) ? 2'b01 : 2'b00;\nendmodule"
+}

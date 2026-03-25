@@ -1,0 +1,6 @@
+{
+  "task_id": "q008932",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input rst_n,\n  input we,\n  input [2:0] write_addr,\n  input [2:0] read_addr,\n  input [15:0] data_in,\n  output [15:0] data_out\n);\n\n  reg [15:0] reg_file [7:0];\n  integer i;\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      for (i = 0; i < 8; i = i + 1) begin\n        reg_file[i] <= 16'b0;\n      end\n    end\n    else if (we) begin\n      reg_file[write_addr] <= data_in;\n    end\n  end\n\n  assign data_out = reg_file[read_addr];\n\nendmodule"
+}

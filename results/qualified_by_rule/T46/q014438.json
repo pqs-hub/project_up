@@ -1,0 +1,6 @@
+{
+  "task_id": "q014438",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module RefModule(input [7:0] A, input [7:0] B, input [2:0] op, output reg [7:0] Z);always @(*) begin\n    case(op)\n        3'b000: Z = A + B; // addition\n        3'b001: Z = A - B; // subtraction\n        3'b010: Z = A * B; // multiplication\n        3'b011: begin // division\n                    if (B == 0) begin\n                        Z = 8'b00000000; // handle division by zero\n                    end else begin\n                        Z = A / B;\n                    end\n                end\n        default: Z = 8'b00000000; // handle invalid op values\n    endcase\nend\n\nendmodule"
+}

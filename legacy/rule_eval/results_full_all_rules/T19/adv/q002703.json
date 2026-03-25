@@ -1,0 +1,10 @@
+{
+  "task_id": "q002703",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module deadbeat_controller(\n    input clk,\n    input reset,\n    input [3:0] state,\n    input [3:0] reference,\n    output reg [3:0] control\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            control <= 4'b0000;\n        end else begin\n            control <= reference - state; // Implementing a simple deadbeat control\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      control <= state - reference;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "control <= state - reference;"
+  }
+}

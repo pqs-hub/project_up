@@ -1,0 +1,6 @@
+{
+  "task_id": "q002421",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule (\n    input [7:0] data_in,\n    input [2:0] shift_amount,\n    input direction, // 0 for left, 1 for right\n    output reg [7:0] data_out\n);\n    always @(*) begin\n        if (direction == 0) begin // left shift\n            data_out = data_in << shift_amount;\n        end else begin // right shift\n            data_out = data_in >> shift_amount;\n        end\n    end\nendmodule"
+}

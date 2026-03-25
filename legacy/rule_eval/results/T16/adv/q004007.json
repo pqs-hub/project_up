@@ -1,0 +1,9 @@
+{
+  "task_id": "q004007",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module srt_divider (\n    input [7:0] numerator,\n    input [7:0] obf_denominator,\n    output reg [7:0] quotient,\n    output reg [7:0] remainder\n);\n    always @(*) begin\n        if (obf_denominator == 0) begin\n            quotient = 8'b0;\n            remainder = numerator; // Avoid division by zero\n        end else begin\n            quotient = numerator / obf_denominator; // Simple integer division\n            remainder = numerator % obf_denominator; // Remainder calculation\n        end\n    end\nendmodule",
+  "rename_map": {
+    "denominator": "obf_denominator"
+  }
+}

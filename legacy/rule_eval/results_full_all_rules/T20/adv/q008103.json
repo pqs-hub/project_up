@@ -1,0 +1,10 @@
+{
+  "task_id": "q008103",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module swaps the upper and lower nibbles of an 8-bit input upon each clock cycle, initializing the output to zero when reset is active.\nmodule top_module(\n  input clk,\n  input reset,\n  input [7:0] in,\n  output reg [7:0] out\n);always @(posedge clk) begin\n  if (reset) begin\n    out <= 8'b0;\n  end else begin\n    out <= {in[3:0], in[7:4]};\n  end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module swaps the upper and lower nibbles of an 8-bit input upon each clock cycle, initializing the output to zero when reset is active."
+  }
+}

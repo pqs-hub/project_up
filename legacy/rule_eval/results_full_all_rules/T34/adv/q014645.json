@@ -1,0 +1,18 @@
+{
+  "task_id": "q014645",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input  wire        clk,\n    input  wire [ 7:0] A,\n    input  wire [ 7:0] B,\n    output reg  [15:0] Z\n);reg [7:0] neg_A_abs;\n    reg [7:0] B_abs;\n    reg        A_sign;\n    reg        B_sign;\n\n    always @(*) begin\n        neg_A_abs = (A < 0) ? (~A + 1) : A;\n        B_abs = (B < 0) ? (~B + 1) : B;\n        A_sign = (A < 0);\n        B_sign = (B < 0);\n    end\n\n    reg [15:0] prod;\n    reg [23:0] prod_shifted;\n\n    always @(posedge clk) begin\n        prod = neg_A_abs * B_abs;\n        prod_shifted = {prod, 8'b0};\n        if (A_sign ^ B_sign) begin\n            Z <= (~prod_shifted) + 1;\n        end else begin\n            Z <= prod_shifted;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "A_abs": "neg_A_abs"
+  },
+  "params_used": {
+    "custom_map": {
+      "A_abs": "A_pos",
+      "B_abs": "B_pos",
+      "A_sign": "A_neg",
+      "B_sign": "B_neg"
+    },
+    "fallback_prefix": "neg_"
+  }
+}

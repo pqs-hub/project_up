@@ -1,0 +1,6 @@
+{
+  "task_id": "q002672",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (  \n    input wire clk,  \n    input wire we, // write enable  \n    input wire [15:0] data_in,  \n    output reg [15:0] data_out  \n);  \n    reg [15:0] unused_memory; // 16-bit unused_memory cell  \n\n    always @(posedge clk) begin  \n        if (we) begin  \n            unused_memory <= data_in; // Write data when we is high  \n        end  \n        data_out <= unused_memory; // Always output current unused_memory value  \n    end  \nendmodule"
+}

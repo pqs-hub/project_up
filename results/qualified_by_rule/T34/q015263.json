@@ -1,0 +1,6 @@
+{
+  "task_id": "q015263",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\noutput reg [3:0] n_ascci,\ninput clk,\ninput add_ascci,\ninput reset_ascci\n );reg [3:0] unused_temp;\nalways @(posedge clk) begin\n\t\tif (reset_ascci == 1)\tunused_temp <= 4'b0000;\n\t\telse if (add_ascci == 1) unused_temp <= unused_temp+1;\n\t\t\telse unused_temp<=unused_temp;\n\t\tend\t\nalways @(unused_temp) begin\n\t\tn_ascci <= unused_temp;\n\tend\nendmodule"
+}

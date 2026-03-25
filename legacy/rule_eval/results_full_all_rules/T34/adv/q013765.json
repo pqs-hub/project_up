@@ -1,0 +1,19 @@
+{
+  "task_id": "q013765",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(shift_Z, X, S, LEFT, LOG);input signed [31:0]  X;\n   input [4:0]   S;\n   input         LEFT;\n   input         LOG;\n   output reg signed [31:0] shift_Z;\n\n   always @(*) begin\n      case ({LEFT, LOG})\n        2'b00 : shift_Z <= X >>> S;\n        2'b01 : shift_Z <= X >> S;\n        2'b10 : shift_Z <= X <<< S;\n        2'b11 : shift_Z <= X << S;\n      endcase\n   end\n\nendmodule",
+  "rename_map": {
+    "Z": "shift_Z"
+  },
+  "params_used": {
+    "custom_map": {
+      "X": "Y",
+      "S": "T",
+      "LEFT": "R",
+      "LOG": "Q",
+      "Z": "W"
+    },
+    "fallback_prefix": "shift_"
+  }
+}

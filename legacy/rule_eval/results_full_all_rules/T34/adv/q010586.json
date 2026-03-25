@@ -1,0 +1,18 @@
+{
+  "task_id": "q010586",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_2_to_1 (\n    input [7:0] data_in_0,\n    input [7:0] in1,\n    input sel,\n    output reg [7:0] out\n);\n\n    always @(*) begin\n        case (sel)\n            1'b0: out = data_in_0;\n            1'b1: out = in1;\n            default: out = 8'b00000000;\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "in0": "data_in_0"
+  },
+  "params_used": {
+    "custom_map": {
+      "in0": "data_in_0",
+      "in1": "data_in_1",
+      "sel": "select_bit",
+      "out": "selected_data"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

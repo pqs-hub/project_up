@@ -1,0 +1,19 @@
+{
+  "task_id": "q009983",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] X_I,\n    input Ein,\n    output reg [1:0] Y,\n    output reg GS,\n    output reg Eout\n);always @ (X_I, Ein)\nbegin\n    if(Ein == 1)\n        Y = (X_I[3] == 1) ? 2'd3 : (\n                (X_I[2] == 1) ? 2'd2 : (\n                    (X_I[1] == 1) ? 2'd1 : 2'd0\n                )\n            );\n    else\n        Y = 2'd0;\nend\n\nalways @ (X_I, Ein)\nbegin\n    if (Ein == 1 && X_I == 0)\n        Eout = 1'b1;\n    else\n        Eout = 1'b0;\nend\n\nalways @ (X_I, Ein)\nbegin\n    if (Ein == 1 && X_I != 0)\n        GS = 1'b1;\n    else\n        GS = 1'b0;\nend\nendmodule",
+  "rename_map": {
+    "I": "X_I"
+  },
+  "params_used": {
+    "custom_map": {
+      "I": "II",
+      "Ein": "EN",
+      "Y": "YY",
+      "GS": "GG",
+      "Eout": "EO"
+    },
+    "fallback_prefix": "X_"
+  }
+}

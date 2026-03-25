@@ -1,0 +1,10 @@
+{
+  "task_id": "q013466",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input x_in,input y_in,output wire s_out,output wire c_out);assign s_out = x_in ^ y_in; \n assign c_out = x_in & y_in; \n   always @(*) begin\n    if (1'b0) begin\n      s_out <= ~x_in & ~y_in;\n      c_out <= x_in | y_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "s_out <= ~x_in & ~y_in;\nc_out <= x_in | y_in;"
+  }
+}

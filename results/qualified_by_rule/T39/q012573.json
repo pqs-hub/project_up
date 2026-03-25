@@ -1,0 +1,6 @@
+{
+  "task_id": "q012573",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input load,\n    input shift_left,\n    input [15:0] parallel_data,\n    output reg [15:0] reg_out\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        reg_out <= 16'b0;\n    end else if (load) begin\n        reg_out <= parallel_data;\n    end else if (shift_left) begin\n        reg_out <= {reg_out[14:0], 1'b0};\n    end else begin\n        reg_out <= {1'b0, reg_out[15:1]};\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002266",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule (\n    input [15:0] adc_value,\n    output reg [1:0] range_code\n);\n    always @(*) begin\n        if (adc_value <= 16'h0FFF) \n            range_code = 2'b00; // 0-4095\n        else if (adc_value <= 16'h1FFF) \n            range_code = 2'b01; // 4096-8191\n        else if (adc_value <= 16'h2FFF) \n            range_code = 2'b10; // 8192-12287\n        else \n            range_code = 2'b11; // 12288-65535\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

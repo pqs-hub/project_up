@@ -1,0 +1,6 @@
+{
+  "task_id": "q007574",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input [14:0] address,\n    input clock,\n    output reg [11:0] q\n);always @(posedge clock) begin\n  wire [14:0] _tap_address = address & {15{1'b1}};\n\n        if (address >= 4096) begin\n            q <= 12'b0;\n        end else begin\n            q <= $random;\n        end\n    end\n\nendmodule"
+}

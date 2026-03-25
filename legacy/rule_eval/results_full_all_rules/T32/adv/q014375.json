@@ -1,0 +1,8 @@
+{
+  "task_id": "q014375",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(SW, KEY, LEDR);input [2-1:1-1] SW;\n\tinput [0:0] KEY;\n\toutput [9:0] LEDR;\n\n\twire Clock, Resetn, w, z;\n\treg [3:0] y_Q, Y_D;\n\n\tassign Clock = KEY[0];\n\tassign Resetn = SW[0];\n\tassign w = SW[1];\n\n\tparameter A = 4'b0000, B = 4'b0001, C = 4'b0010, D = 4'b0011, E = 4'b0100,\n\t\tF = 4'b0101, G = 4'b0110, H = 4'b0111, I = 4'b1000;\n\t\t\n\talways @(w, y_Q)\n\tbegin: state_table\n\t\tcase (y_Q)\n\t\t\tA:\tif (!w) Y_D = B;\n\t\t\t\telse Y_D = F;\n\t\t\tB:\tif (!w) Y_D = C;\n\t\t\t\telse Y_D = F;\n\t\t\tC:\tif (!w) Y_D = D;\n\t\t\t\telse Y_D = F;\n\t\t\tD:\tif (!w) Y_D = E;\n\t\t\t\telse Y_D = F;\n\t\t\tE:\tif (!w) Y_D = E;\n\t\t\t\telse Y_D = F;\n\t\t\tF:\tif (!w) Y_D = B;\n\t\t\t\telse Y_D = G;\n\t\t\tG:\tif (!w) Y_D = B;\n\t\t\t\telse Y_D = H;\n\t\t\tH:\tif (!w) Y_D = B;\n\t\t\t\telse Y_D = I;\n\t\t\tI:\tif (!w) Y_D = B;\n\t\t\t\telse Y_D = I;\n\t\t\tdefault: Y_D = 4'bxxxx;\n\t\tendcase\n\tend \n\n\talways @(posedge Clock)\n\t\tif (Resetn  == 1'b0)\t\n\t\t\ty_Q <= A;\n\t\telse\n\t\t\ty_Q <= Y_D;\n\n\tassign z = ((y_Q == E) | (y_Q == I)) ? 1'b1 : 1'b0;\n\tassign LEDR[3:0] = y_Q;\n\tassign LEDR[9] = z;\n\tassign LEDR[8:4] = 5'b0;\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q009605",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\ninput A,B,Ci,\noutput S,Co\n);wire inv_exAB\t= A^B;\n\tassign S\t= inv_exAB^Ci;\n\tassign Co\t= (A&B)|(inv_exAB&Ci);endmodule",
+  "rename_map": {
+    "exAB": "inv_exAB"
+  },
+  "params_used": {
+    "custom_map": {
+      "exAB": "not_exAB"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

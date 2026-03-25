@@ -1,0 +1,16 @@
+{
+  "task_id": "q014162",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    addr_x,\n    address_b,\n    clock,\n    q_a,\n    q_b\n);input   [8:0]   addr_x;\n    input   [8:0]   address_b;\n    input   clock;\n    output reg [3:0]   q_a;  // Changed to 'reg' type\n    output reg [3:0]   q_b;  // Changed to 'reg' type\n\n    always @(posedge clock) begin\n        if (addr_x[8] == 1) begin\n            q_a <= addr_x[3:0] + 1;  // Changed to non-blocking assignment\n        end else begin\n            q_a <= addr_x[3:0] + 2;  // Changed to non-blocking assignment\n        end\n\n        if (address_b[8] == 1) begin\n            q_b <= address_b[3:0] + 1;  // Changed to non-blocking assignment\n        end else begin\n            q_b <= address_b[3:0] + 2;  // Changed to non-blocking assignment\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "address_a": "addr_x"
+  },
+  "params_used": {
+    "custom_map": {
+      "address_a": "addr_x",
+      "address_b": "addr_y"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

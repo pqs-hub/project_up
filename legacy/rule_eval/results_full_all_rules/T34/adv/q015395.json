@@ -1,0 +1,15 @@
+{
+  "task_id": "q015395",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk, load, in, shift, out);input clk, load, shift;\n    input [3:0] in;\n    output [3:0] out;\n    reg [3:0] shadow_reg;\n    \n    always @(posedge clk) begin\n        if (load) begin\n            shadow_reg <= in;\n        end else if (shift) begin\n            shadow_reg <= {shadow_reg[2:0], 1'b0};\n        end\n    end\n    \n    assign out = shadow_reg;\nendmodule",
+  "rename_map": {
+    "reg_out": "shadow_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "reg_out": "shadow_reg"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

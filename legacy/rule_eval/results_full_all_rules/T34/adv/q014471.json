@@ -1,0 +1,15 @@
+{
+  "task_id": "q014471",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input  VPWR,\n    input  UDP_IN,\n    input  CLK,\n    output UDP_OUT\n);reg nwpwr;\n\n    always @(posedge CLK) begin\n        if (UDP_IN) begin\n            nwpwr <= 0;\n        end else begin\n            nwpwr <= VPWR;\n        end\n    end\n\n    assign UDP_OUT = nwpwr;\n\nendmodule",
+  "rename_map": {
+    "pwrgood": "nwpwr"
+  },
+  "params_used": {
+    "custom_map": {
+      "pwrgood": "nwpwr"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

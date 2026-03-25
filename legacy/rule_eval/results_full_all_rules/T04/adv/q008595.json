@@ -1,0 +1,10 @@
+{
+  "task_id": "q008595",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module is designed to be cleared on the rising edge of the clock.\nmodule parallel_register(\n    input clk,\n    input clear_n,\n    input [63:0] data_in,\n    output reg [63:0] data_out\n    );\n\n    always @(posedge clk) begin\n        if (!clear_n)\n            data_out <= 64'b0;\n        else\n            data_out <= data_in;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to be cleared on the rising edge of the clock."
+  }
+}

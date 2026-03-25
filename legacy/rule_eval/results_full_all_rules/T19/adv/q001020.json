@@ -1,0 +1,10 @@
+{
+  "task_id": "q001020",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module D_latch (\n    input wire D,\n    input wire enable,\n    output reg Q\n);\n    always @(D or enable) begin\n        if (enable) begin\n            Q <= D; // Store D when enable is high\n        end\n        // Q retains its value when enable is low\n    end\n  always @(*) begin\n    if (1'b0) begin\n      Q <= ~D;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= ~D;"
+  }
+}

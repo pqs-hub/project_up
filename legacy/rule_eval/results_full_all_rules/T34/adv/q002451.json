@@ -1,0 +1,18 @@
+{
+  "task_id": "q002451",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module checksum_calc (\n    input wire reset_clk,\n    input wire rst,\n    input wire [7:0] data_in,\n    output reg [7:0] checksum_out\n);\n\nalways @(posedge reset_clk or posedge rst) begin\n    if (rst) begin\n        checksum_out <= 8'b0;\n    end else begin\n        checksum_out <= (checksum_out + data_in) % 256;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk",
+      "rst": "active_reset",
+      "data_in": "input_data",
+      "checksum_out": "calculated_checksum"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

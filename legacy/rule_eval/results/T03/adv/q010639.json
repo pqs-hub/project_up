@@ -1,0 +1,6 @@
+{
+  "task_id": "q010639",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input [15:0] iInput0,\n  input [15:0] iInput1,\n  input [15:0] iInput2,\n  input [15:0] iInput3,\n  input [1:0] iSelect,\n  output reg [15:0] oOutput\n);always @(*) begin\n  wire [15:0] _tap_iInput0 = iInput0 & {16{1'b1}};\n\n  case (iSelect)\n    2'b00: oOutput = iInput0;\n    2'b01: oOutput = iInput1;\n    2'b10: oOutput = iInput2;\n    2'b11: oOutput = iInput3;\n  endcase\nend\n\nendmodule"
+}

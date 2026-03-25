@@ -1,0 +1,18 @@
+{
+  "task_id": "q002554",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ThermalSensorCalibrator (\n    input [9:0] sensor_reading,\n    input [3:0] gain,\n    input [5:0] offset,\n    output [11:0] calibrated_output\n);\n    assign calibrated_output = (sensor_reading * gain) + offset;\nendmodule",
+  "rename_map": {
+    "raw_input": "sensor_reading"
+  },
+  "params_used": {
+    "custom_map": {
+      "raw_input": "sensor_reading",
+      "gain": "cal_gain",
+      "offset": "cal_offset",
+      "calibrated_output": "adjusted_value"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

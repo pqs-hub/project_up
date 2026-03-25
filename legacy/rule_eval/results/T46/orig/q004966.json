@@ -1,0 +1,6 @@
+{
+  "task_id": "q004966",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module top_module(\n    input clk,\n    input DMWr,\n    input[6:0] index,\n    input[31:0] din,\n    output[31:0] dout\n);reg[31:0] dmem[127:0];\n   \n    always @(posedge clk)\n        if (DMWr)\n        begin\n            dmem[index] <= din;\n        end\n   \n    assign dout = dmem[index];\n    \nendmodule"
+}

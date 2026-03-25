@@ -1,0 +1,6 @@
+{
+  "task_id": "q015792",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    data_i,\n    data_o\n    );input [25:0] data_i;\n\noutput [27:0] data_o;\n\nreg [27:0] obf_i,data_o;\n\n\n\nalways @( * )\n\tbegin\n\t\n\tdata_o[0] = 1'b0;\n\tdata_o[1] = 1'b0;\n\n\tfor(obf_i=2; obf_i<=27; obf_i=obf_i+1)\n\t\tbegin\n\t\tdata_o[obf_i] = data_i[obf_i-2];\n\t\tend\n\t\t\n\tend\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q011010",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This LFSR generates a pseudo-random sequence starting from zero on reset.\nmodule lfsr_6bit(\n    input clk,\n    input reset,\n    output reg [5:0] lfsr_out\n);\n\nalways @(posedge clk) begin\n    if (reset)\n        lfsr_out <= 6'b000001;\n    else\n        lfsr_out <= {lfsr_out[4:0], lfsr_out[5] ^ lfsr_out[4]};\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This LFSR generates a pseudo-random sequence starting from zero on reset."
+  }
+}

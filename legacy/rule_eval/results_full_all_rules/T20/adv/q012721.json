@@ -1,0 +1,10 @@
+{
+  "task_id": "q012721",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the flip-flop captures the input 'in' during the rising edge of the clock, but it actually shifts in serial data from 'sin' when 'scanen' is high.\nmodule top_module(out, in, scanen, sin, clock, reset);output out ;\ninput in ;\ninput clock ;\ninput sin ;\ninput scanen ;\ninput reset;\n\nwire reset_nor;\nassign reset_nor = ~(reset & ~clock);\n\nreg dff_out; // Use a reg to store the state\n\nalways @(posedge clock or posedge reset) begin\n    if (reset) begin\n        dff_out <= 1'b0; // Reset the flip-flop\n    end else begin\n        if (scanen) begin\n            dff_out <= sin; // Scan input taken\n        end else begin\n            dff_out <= in; // Regular input taken\n        end\n    end\nend\n\nassign out = dff_out; // Output the state of the flip-flop\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the flip-flop captures the input 'in' during the rising edge of the clock, but it actually shifts in serial data from 'sin' when 'scanen' is high."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q010099",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] Anti_A,\n    input [31:0] B,\n    input [31:0] Cin,\n    output [31:0] Sum,\n    output Cout\n);wire [31:0] c;\n    wire [31:0] s;\n\n    assign c[0] = Cin;\n    genvar i;\n    generate\n        for (i = 0; i < 31; i = i + 1) begin\n            assign s[i] = Anti_A[i] ^ B[i] ^ c[i];\n            assign c[i+1] = (Anti_A[i] & B[i]) | (Anti_A[i] & c[i]) | (B[i] & c[i]);\n        end\n    endgenerate\n\n    assign s[31] = Anti_A[31] ^ B[31] ^ c[31];\n    assign Cout = (Anti_A[31] & B[31]) | (Anti_A[31] & c[31]) | (B[31] & c[31]);\n\n    assign Sum = s;\n\nendmodule",
+  "rename_map": {
+    "A": "Anti_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "Cin": "CarryIn",
+      "Sum": "Result"
+    },
+    "fallback_prefix": "Anti_"
+  }
+}

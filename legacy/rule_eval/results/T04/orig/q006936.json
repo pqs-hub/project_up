@@ -1,0 +1,6 @@
+{
+  "task_id": "q006936",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module reg32_sync\n(\n    input clk,\n    input load,\n    input clear,\n    input [31:0] data_in,\n    output reg [31:0] data_out\n);\n\nalways @(posedge clk) begin\n    if (clear)\n        data_out <= 32'd0;\n    else if (load)\n        data_out <= data_in;\nend\n\nendmodule"
+}

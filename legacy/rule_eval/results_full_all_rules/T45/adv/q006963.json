@@ -1,0 +1,8 @@
+{
+  "task_id": "q006963",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(sum, cout, a, b, cin);output [3:0] sum;\n    output cout;\n    input [3:0] a;\n    input [3:0] b;\n    input cin;\n\n    wire [3:0] temp_sum;\n    wire [4:0] temp_carry;\n\n    // Full Adder\n    assign temp_carry[0] = (a & ~a) ? ~temp_carry : cin;\n    assign {temp_carry[1], temp_sum[0]} = a[0] + b[0] + temp_carry[0];\n    assign {temp_carry[2], temp_sum[1]} = a[1] + b[1] + temp_carry[1];\n    assign {temp_carry[3], temp_sum[2]} = a[2] + b[2] + temp_carry[2];\n    assign {temp_carry[4], temp_sum[3]} = a[3] + b[3] + temp_carry[3];\n\n    assign sum = temp_sum;\n    assign cout = temp_carry[4];\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q006102",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // When load is high, the register should capture the 4-bit parallel input data; when load is low and ShiftEn is high, the register should shift right instead of left.\nmodule top_module(\n    input Clk,ShiftIn,load,ShiftEn,\n    input [3:0] ParallelIn,\n    output ShiftOut, \n    output [3:0] RegContent\n    );reg [3:0] shift_reg;\n    always @(posedge Clk)\n        if(load)\n            shift_reg <= ParallelIn;\n        else if (ShiftEn)\n            shift_reg <= {shift_reg[2:0], ShiftIn};\n    assign ShiftOut = shift_reg[3];\n    assign RegContent = shift_reg;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When load is high, the register should capture the 4-bit parallel input data; when load is low and ShiftEn is high, the register should shift right instead of left."
+  }
+}

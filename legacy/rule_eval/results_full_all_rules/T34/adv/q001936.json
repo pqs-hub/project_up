@@ -1,0 +1,17 @@
+{
+  "task_id": "q001936",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module packet_filter (\n    input [4:0] src_ip,\n    input [3:0] dest_port,\n    input control_signal,\n    output reg packet_allowed\n);\n    always @(*) begin\n        // Simple filtering based on control signal\n        if (control_signal) begin\n            packet_allowed = 1'b1;  // Allow packet\n        end else begin\n            packet_allowed = 1'b0;  // Deny packet\n        end\n    end\nendmodule",
+  "rename_map": {
+    "source_ip": "src_ip"
+  },
+  "params_used": {
+    "custom_map": {
+      "source_ip": "src_ip",
+      "dest_port": "dst_port",
+      "control_signal": "ctrl_sig"
+    },
+    "fallback_prefix": "filtered_"
+  }
+}

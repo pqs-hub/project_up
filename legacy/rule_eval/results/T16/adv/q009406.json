@@ -1,0 +1,9 @@
+{
+  "task_id": "q009406",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input obf_a,\n    input b,\n    input sel_b1,\n    input sel_b2,\n    output reg out_always   \n);always @(*) begin\n    if (sel_b1 == 0) begin\n        out_always = obf_a;\n    end else if (sel_b1 == 1 && sel_b2 == 0) begin\n        out_always = b;\n    end else if (sel_b1 == 1 && sel_b2 == 1) begin\n        out_always = obf_a | b;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

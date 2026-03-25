@@ -1,0 +1,9 @@
+{
+  "task_id": "q016504",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module TrapDetect(\n    input  Trap,\n    input  TrapCond,\n    input  [31:0] ALUResult,\n    output EXC_Tr\n    );\n    wire obf_ALUZero = (ALUResult == 32'h00000000);\n    assign EXC_Tr = Trap & (TrapCond ^ obf_ALUZero);\nendmodule",
+  "rename_map": {
+    "ALUZero": "obf_ALUZero"
+  }
+}

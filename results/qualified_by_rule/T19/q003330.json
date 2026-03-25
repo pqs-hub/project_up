@@ -1,0 +1,6 @@
+{
+  "task_id": "q003330",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(\n    input wire clk,\n    input wire reset,\n    input wire [3:0] temperature,\n    output reg [1:0] fan_speed\n);\n    \n    // Fan speed states\n    localparam LOW = 2'b00;\n    localparam MEDIUM = 2'b01;\n    localparam HIGH = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            fan_speed <= LOW; // Default to low speed on reset\n        end else begin\n            if (temperature <= 4'd5) begin\n                fan_speed <= LOW;\n            end else if (temperature <= 4'd10) begin\n                fan_speed <= MEDIUM;\n            end else begin\n                fan_speed <= HIGH;\n            end\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

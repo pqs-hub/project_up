@@ -1,0 +1,6 @@
+{
+  "task_id": "q003971",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(  \n    input wire clk,  \n    input wire [3:0] current_in,  \n    output reg alarm_out  \n);  \n    parameter THRESHOLD = 9;  \n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin  \n        if (current_in > THRESHOLD)  \n            alarm_out <= 1'b1;  \n        else  \n            alarm_out <= 1'b0;  \n    end  \nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q006383",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] a,\n    input [3:0] b,\n    input sub,\n    output [3:0] sum\n);wire [3:0] pos_a;\n    assign pos_a = ~b + 1; // Two's complement negation of b\n\n    assign sum = sub ? a + pos_a : a + b; // Ternary operator to choose between addition and subtraction\n\nendmodule",
+  "rename_map": {
+    "neg_b": "pos_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "neg_b": "pos_a"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

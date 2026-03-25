@@ -1,0 +1,6 @@
+{
+  "task_id": "q006152",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(\n    input [7:0] X,\n    input [7:0] Y,\n    output [7:0] CHAR,\n    output [7:0] ATTR\n    );  wire _n01 = 64 + X[0] ^ Y[0];\n  wire _c01 = 64 + X[0] & Y[0];\n  wire _n02 = 64 + X[1] ^ Y[1] ^ _c01;\n  wire _c02 = (64 + X[1] & Y[1]) | (64 + X[1] & _c01) | (Y[1] & _c01);\n  wire _n03 = 64 + X[2] ^ Y[2] ^ _c02;\n  wire _c03 = (64 + X[2] & Y[2]) | (64 + X[2] & _c02) | (Y[2] & _c02);\n  wire _n04 = 64 + X[3] ^ Y[3] ^ _c03;\n  wire _c04 = (64 + X[3] & Y[3]) | (64 + X[3] & _c03) | (Y[3] & _c03);\n  assign CHAR = {_n01, _n02, _n03, _n04};\nassign ATTR = { X[3:0], Y[3:0] };\n\nendmodule"
+}

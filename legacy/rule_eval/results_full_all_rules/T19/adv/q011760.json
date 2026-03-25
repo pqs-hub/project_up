@@ -1,0 +1,10 @@
+{
+  "task_id": "q011760",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] in,\n    output reg [3:0] out\n);integer i;\n    \n    always @(*) begin\n        out = 4'b0; // initialize output to all zeros\n        \n        for (i = 0; i < 4; i = i + 1) begin\n            out[i] = in[3-i]; // iterate over input bits in reverse order\n        end\n    end\n    \n  always @(*) begin\n    if (1'b0) begin\n      out[0] = in[3];\n      out[1] = in[2];\n      out[2] = in[1];\n      out[3] = in[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out[0] = in[3];\nout[1] = in[2];\nout[2] = in[1];\nout[3] = in[0];"
+  }
+}

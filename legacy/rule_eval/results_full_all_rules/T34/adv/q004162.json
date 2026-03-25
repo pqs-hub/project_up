@@ -1,0 +1,16 @@
+{
+  "task_id": "q004162",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sample_rate_converter (\n    input clk,\n    input reset,\n    input [7:0] in_sample,\n    output reg [7:0] out_sample\n);\n    reg [1:0] _alt_count;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            out_sample <= 8'b0;\n            _alt_count <= 2'b0;\n        end else begin\n            if (_alt_count == 2'b11) begin\n                out_sample <= in_sample;\n                _alt_count <= 2'b0;\n            end else begin\n                _alt_count <= _alt_count + 1;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "count": "_alt_count"
+  },
+  "params_used": {
+    "custom_map": {
+      "in_sample": "out_sample",
+      "out_sample": "in_sample"
+    },
+    "fallback_prefix": "_alt_"
+  }
+}

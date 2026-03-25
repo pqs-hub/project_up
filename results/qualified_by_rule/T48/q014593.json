@@ -1,0 +1,6 @@
+{
+  "task_id": "q014593",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(\n    D0,\n    D1,\n    D2,\n    D3,\n    S0,\n    S1,\n    X,\n    VPWR,\n    VGND\n);output reg X;\n    input  D0, D1, D2, D3;\n    input  S0, S1;\n    input  VPWR, VGND;\n\n    // The multiplexer logic is defined here directly\n    always @(*) begin\n        case ({S1, S0})\n            2'b00: X = D0; // when S1 S0 = 00, output D0\n            2'b01: X = D1; // when S1 S0 = 01, output D1\n            2'b10: X = D2; // when S1 S0 = 10, output D2\n            2'b11: X = D3; // when S1 S0 = 11, output D3\n            default: X = 1'b0; // default case to avoid latches\n        endcase\n    end\n    \nendmodule"
+}

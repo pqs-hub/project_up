@@ -1,0 +1,8 @@
+{
+  "task_id": "q004700",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module (\n\tinput clk,\n\toutput reg [3:0] q);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\ninitial q = 4'b0001;\n\nalways @(posedge clk) begin\n\tq <= {q[2:0], q[3]};\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

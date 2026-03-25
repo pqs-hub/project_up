@@ -1,0 +1,10 @@
+{
+  "task_id": "q004454",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests the counter is reset to all zeros, but it actually resets to 0x1.\nmodule ring_counter (\n    input clk,\n    input reset,\n    output [4:0] count\n);\n\n    reg [4:0] ring_reg;  // 5-bit ring counter register\n\n    always @(posedge clk) begin\n        if (reset) begin\n            ring_reg <= 5'b00001;  // Reset the counter to initial state\n        end else begin\n            ring_reg <= {ring_reg[3:0], ring_reg[4]};  // Ring counter logic\n        end\n    end\n\n    assign count = ring_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests the counter is reset to all zeros, but it actually resets to 0x1."
+  }
+}

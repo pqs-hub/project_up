@@ -1,0 +1,15 @@
+{
+  "task_id": "q005020",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [1:0] sel,\n  input [7:0] a,\n  input [7:0] b,\n  input [7:0] c,\n  input [7:0] d,\n  output [7:0] out\n);wire [7:0] invalid_mux;\n\n  assign invalid_mux = (sel == 2'b00) ? a :\n                   (sel == 2'b01) ? b :\n                   (sel == 2'b10) ? c :\n                                    d;\n\n  assign out = invalid_mux;\n\nendmodule",
+  "rename_map": {
+    "mux_out": "invalid_mux"
+  },
+  "params_used": {
+    "custom_map": {
+      "mux_out": "invalid_mux"
+    },
+    "fallback_prefix": "err_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014080",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n          input clk, clear,\n          input [7:0] cct_input,\n          output reg [7:0] cct_output\n\t\t\t );reg [7:0] unused_goofy_counter;\n\nalways @ (posedge clk)\nif (clear == 1'b1) unused_goofy_counter = 8'b10000001;\nelse if (unused_goofy_counter == 8'b10000001) unused_goofy_counter = 8'b01000010;\nelse if (unused_goofy_counter == 8'b01000010) unused_goofy_counter = 8'b00100100;\nelse if (unused_goofy_counter == 8'b00100100) unused_goofy_counter = 8'b00011000;\nelse if (unused_goofy_counter == 8'b00011000) unused_goofy_counter = 8'b10000001;\nelse unused_goofy_counter = 8'b10000001;\n\nalways @ *\ncct_output = unused_goofy_counter;\n\nendmodule"
+}

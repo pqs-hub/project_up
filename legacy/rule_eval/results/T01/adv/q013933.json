@@ -1,0 +1,6 @@
+{
+  "task_id": "q013933",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input rst,\n    input [15:0] operand1,\n    input [15:0] operand2,\n    input [3:0] operation,\n    output reg [15:0] result\n);always @(posedge clk) begin\n    begin end  // redundant\n    if (rst) begin\n        result <= 16'b0;\n    end else begin\n        case (operation)\n            4'b0000: result <= operand1 + operand2; // add\n            4'b0001: result <= operand1 - operand2; // subtract\n            4'b0010: result <= operand1 * operand2; // multiply\n            4'b0011: result <= operand1 / operand2; // divide\n        endcase\n    end\nend\n\nendmodule"
+}

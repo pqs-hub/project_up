@@ -1,0 +1,10 @@
+{
+  "task_id": "q001378",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This T-flip-flop toggles its output (Q) on the falling edge of the clock when T=1 and CE=1. If CE=0, the output remains unchanged regardless of the value of T.\nmodule t_flip_flop(  \n    input wire clk,  \n    input wire CE,  \n    input wire T,  \n    output reg Q  \n);  \n  \n    always @(posedge clk) begin  \n        if (CE) begin  \n            if (T)  \n                Q <= ~Q;  \n        end  \n    end  \n  \n    initial begin  \n        Q = 0;  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This T-flip-flop toggles its output (Q) on the falling edge of the clock when T=1 and CE=1. If CE=0, the output remains unchanged regardless of the value of T."
+  }
+}

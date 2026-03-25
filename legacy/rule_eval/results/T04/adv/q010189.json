@@ -1,0 +1,6 @@
+{
+  "task_id": "q010189",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule top_module(\n            opA, opB,\n            op,\n            result);parameter WIDTH=32;\n\n\ninput [WIDTH-1:0] opA;\ninput [WIDTH-1:0] opB;\ninput [2-1:0] op;\noutput [WIDTH-1:0] result;\n\nreg [WIDTH-1:0] logic_result;\n\nalways@(opA or opB or op )\n    case(op)\n        2'b00:\n            logic_result=opA&opB;\n        2'b01:\n            logic_result=opA|opB;\n        2'b10:\n            logic_result=opA^opB;\n        2'b11:\n            logic_result=~(opA|opB);\n    endcase\n\nassign result=logic_result;\n\n\nendmodule"
+}

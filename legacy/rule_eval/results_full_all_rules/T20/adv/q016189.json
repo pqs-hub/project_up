@@ -1,0 +1,10 @@
+{
+  "task_id": "q016189",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This decoder is designed to translate a 3-bit input into one of eight outputs. However, it operates in reverse mode where the enable signal, when high, forces all outputs to zero, and only activates the output corresponding to the inverted binary value of the input when the enable signal is low.\nmodule top_module(\n    input [2:0] in,\n    input enable,\n    output reg [7:0] out\n);always @ (in or enable) begin\n        if (enable == 1'b0) begin\n            out <= 8'b0;\n        end else begin\n            case (in)\n                3'b000: out <= 8'b00000001;\n                3'b001: out <= 8'b00000010;\n                3'b010: out <= 8'b00000100;\n                3'b011: out <= 8'b00001000;\n                3'b100: out <= 8'b00010000;\n                3'b101: out <= 8'b00100000;\n                3'b110: out <= 8'b01000000;\n                3'b111: out <= 8'b10000000;\n                default: out <= 8'b0;\n            endcase\n        end\n    end\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This decoder is designed to translate a 3-bit input into one of eight outputs. However, it operates in reverse mode where the enable signal, when high, forces all outputs to zero, and only activates the output corresponding to the inverted binary value of the input when the enable signal is low."
+  }
+}

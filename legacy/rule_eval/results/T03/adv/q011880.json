@@ -1,0 +1,6 @@
+{
+  "task_id": "q011880",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    output X,\n    input  A1,\n    input  A2,\n    input  A3,\n    input  B1,\n    input  VPWR,\n    input  VGND,\n    input  VPB,\n    input  VNB\n);// Instantiate the missing module sky130_fd_sc_lp__o31a_1 if available\n  wire _tap_X = X ^ {1{1'b0}};\n\n    // If not available, can create functionality directly in my_module\n    // Assuming sky130_fd_sc_lp__o31a_1 should behave according to the given logic\n    // The behavior should match the original logic we want to implement\n    \n    assign X = (A1 & A2) ? 1 :\n                (A1 & ~A2 & A3) ? 1 :\n                (A1 & ~A2 & ~A3) ? B1 :\n                0;\n\nendmodule"
+}

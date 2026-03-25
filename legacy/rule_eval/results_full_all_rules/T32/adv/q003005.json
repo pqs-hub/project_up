@@ -1,0 +1,8 @@
+{
+  "task_id": "q003005",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module hmac_generator (\n    input wire clk,\n    input wire rst,\n    input wire [128-1:1-1] key,      // Key input\n    input wire [127:0] message,  // Message input\n    output reg [127:0] hmac      // HMAC output\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            hmac <= 128'b0; // Reset HMAC\n        end else begin\n            hmac <= key ^ message; // Simple HMAC generation\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

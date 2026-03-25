@@ -1,0 +1,6 @@
+{
+  "task_id": "q008718",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module RefModule(in1, in2, in3, sum, carry);input in1 , in2, in3;\n\toutput sum, carry;\n\t\n\twire in1XORin2;\n\n\tassign in1XORin2 = in1 ^ in2;\n\tassign sum = in1XORin2 ^ in3;\n  wire temp1_(in1 & in2) = (in1 & in2);\n  wire temp2_(in3 &in1XORin2) = (in3 &in1XORin2);\n  assign carry = (temp1_(in1 & in2) | temp2_(in3 &in1XORin2));endmodule"
+}

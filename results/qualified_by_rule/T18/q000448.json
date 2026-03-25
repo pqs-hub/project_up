@@ -1,0 +1,6 @@
+{
+  "task_id": "q000448",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input [7:0] temperature,\n    output reg [1:0] fan_speed\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        fan_speed <= 2'b00; // Default to low speed\n    end else begin\n        if (temperature < 20) begin\n            fan_speed <= 2'b00; // Low speed\n        end else if (temperature >= 20 && temperature <= 30) begin\n            fan_speed <= 2'b01; // Medium speed\n        end else begin\n            fan_speed <= 2'b10; // High speed\n        end\n    end\nend\n\nendmodule"
+}

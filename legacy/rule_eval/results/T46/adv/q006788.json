@@ -1,0 +1,8 @@
+{
+  "task_id": "q006788",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(clk, rst, d, q, ena);input clk, rst, ena; \n  output q; \n  reg q; \n  input d; \n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin \n  if (rst == 1) begin \n  q <= 0; \n  end else if (ena) begin \n  q <= d; \n  end \n  end \n endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

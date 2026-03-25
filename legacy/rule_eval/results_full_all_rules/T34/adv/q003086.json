@@ -1,0 +1,18 @@
+{
+  "task_id": "q003086",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module audio_mux (\n    input [7:0] audio_in_ignored,\n    input [7:0] audio_in1,\n    input [7:0] audio_in2,\n    input [7:0] audio_in3,\n    input [1:0] select,\n    output reg [7:0] audio_out\n);\n\nalways @(*) begin\n    case (select)\n        2'b00: audio_out = audio_in_ignored;\n        2'b01: audio_out = audio_in1;\n        2'b10: audio_out = audio_in2;\n        2'b11: audio_out = audio_in3;\n        default: audio_out = 8'b00000000; // default case\n    endcase\nend\nendmodule",
+  "rename_map": {
+    "audio_in0": "audio_in_ignored"
+  },
+  "params_used": {
+    "custom_map": {
+      "audio_in0": "audio_in_ignored",
+      "audio_in1": "audio_in_reversed",
+      "audio_in2": "audio_in_skipped",
+      "audio_in3": "audio_in_extra"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q005057",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input obf_D,\n    input EN,\n    input RESET,\n    output reg Q,\n    output reg Q_n\n);always @(posedge clk) begin\n        if (RESET) begin\n            Q <= 1'b0;\n            Q_n <= 1'b1;\n        end else if (EN) begin\n            Q <= obf_D;\n            Q_n <= ~obf_D;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "D": "obf_D"
+  }
+}

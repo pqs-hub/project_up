@@ -1,0 +1,18 @@
+{
+  "task_id": "q014226",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input reset_clk,\n    input rst,\n    input motor_ctrl,\n    output reg motor_state\n);always @(posedge reset_clk, posedge rst) begin\n    if (rst) begin\n        motor_state <= 0;\n    end else begin\n        if (motor_ctrl) begin\n            motor_state <= 1;\n        end else begin\n            motor_state <= 0;\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk",
+      "rst": "active_reset",
+      "motor_ctrl": "disable_motor",
+      "motor_state": "motor_off"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

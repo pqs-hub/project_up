@@ -1,0 +1,6 @@
+{
+  "task_id": "q009133",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule sync_counter_with_load (\n    input clk,\n    input load,\n    input [3:0] d,\n    output reg [3:0] count\n);\n\n    always @(posedge clk) begin\n        if (load) begin\n            count <= d;\n        end else begin\n            count <= count + 1;\n        end\n    end\n\nendmodule"
+}

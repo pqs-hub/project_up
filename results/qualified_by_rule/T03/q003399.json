@@ -1,0 +1,6 @@
+{
+  "task_id": "q003399",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input wire clk,\n    input wire rst,\n    input wire [15:0] adc_in,\n    output reg [15:0] adc_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    parameter THRESHOLD = 16'h8000; // 32768 in decimal\n    parameter MAX_VALUE = 16'hFFFF; // 65535 in decimal\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            adc_out <= 16'b0;\n        end else begin\n            if (adc_in >= THRESHOLD) begin\n                adc_out <= MAX_VALUE;\n            end else begin\n                adc_out <= adc_in;\n            end\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q000032",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adder_32bit(  \n    input [31:0] a,  \n    input [31:0] b,  \n    output reg [31:0] sum,  \n    output reg carry_out  \n);  \n    always @(*) begin  \n        {carry_out, sum} = a + b;  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      sum <= ~a & ~b;\n      carry_out <= a | b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum <= ~a & ~b;\ncarry_out <= a | b;"
+  }
+}

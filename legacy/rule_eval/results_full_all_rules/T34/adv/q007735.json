@@ -1,0 +1,16 @@
+{
+  "task_id": "q007735",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(invalid_free,free3,tm_count,fifowp_inc);output [ 3: 0] fifowp_inc; \n  input invalid_free; \n  input free3; \n  input [ 1: 0] tm_count; \n  reg [ 3: 0] fifowp_inc; \n  always @(invalid_free or free3 or tm_count) \n  begin \n  if (free3 & (tm_count == 3)) \n  fifowp_inc = 3; \n  else if (invalid_free & (tm_count >= 2)) \n  fifowp_inc = 2; \n  else if (tm_count >= 1) \n  fifowp_inc = 1; \n  else \n  fifowp_inc = 0; \n  end \n endmodule",
+  "rename_map": {
+    "free2": "invalid_free"
+  },
+  "params_used": {
+    "custom_map": {
+      "free2": "invalid_free",
+      "free3": "invalid_ready"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

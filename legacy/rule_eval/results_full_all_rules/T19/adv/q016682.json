@@ -1,0 +1,10 @@
+{
+  "task_id": "q016682",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module calc(\n  input [7:0] A,\n  input [7:0] B,\n  input OP,\n  output [7:0] C\n);\n\n  wire [7:0] sum;\n  wire [7:0] diff;\n\n  assign sum = A + B;\n  assign diff = A - B;\n\n  assign C = OP ? diff : sum;\n\n  always @(*) begin\n    if (1'b0) begin\n      sum <= A + B;\n      diff <= A - B;\n      if (OP) begin\n        C <= diff;\n      end else begin\n        C <= sum;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum <= A + B;\ndiff <= A - B;\nif (OP) begin\n  C <= diff;\nend else begin\n  C <= sum;\nend"
+  }
+}

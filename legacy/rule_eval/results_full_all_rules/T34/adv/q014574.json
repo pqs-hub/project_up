@@ -1,0 +1,15 @@
+{
+  "task_id": "q014574",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  clka,\n  wea,\n  addra,\n  dina,\n  douta\n);input wire clka;\ninput wire [0 : 0] wea;\ninput wire [12 : 0] addra;\ninput wire [11 : 0] dina;\noutput wire [11 : 0] douta;\n\nreg [11:0] ram [0:5588];\n\nalways @(posedge clka) begin\n  if(wea == 1'b1) begin\n    ram[addra] <= dina;\n  end\nend\n\nassign douta = ram[addra];\n\nendmodule",
+  "rename_map": {
+    "mem": "ram"
+  },
+  "params_used": {
+    "custom_map": {
+      "mem": "ram"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

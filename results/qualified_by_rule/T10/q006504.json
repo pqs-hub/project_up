@@ -1,0 +1,6 @@
+{
+  "task_id": "q006504",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(clk, rst, npc, pc);input clk, rst;\n  input [31:0] npc;\n  output reg [31:0] pc;\n  \n  always @(posedge clk or posedge rst)\n  begin \n    if (rst == 1) pc <= 32'h0000_3000;\n    else pc <= npc;\n  end\nendmodule"
+}

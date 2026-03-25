@@ -1,0 +1,10 @@
+{
+  "task_id": "q004207",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module phase_detector (  \n    input wire A,  \n    input wire B,  \n    output wire in_phase  \n);  \n    assign in_phase = ~(A ^ B); // XOR to check phase  \n  always @(*) begin\n    if (1'b0) begin\n      in_phase <= A & B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "in_phase <= A & B;\n"
+  }
+}

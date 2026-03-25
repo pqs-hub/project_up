@@ -1,0 +1,15 @@
+{
+  "task_id": "q011127",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter_8bit_updown(\n    input rst_clk,\n    input reset,\n    input up_down,\n    output reg [7:0] count\n);\n\nalways @(posedge rst_clk or posedge reset) begin\n    if (reset)\n        count <= 8'b00000000;\n    else if (up_down)\n        count <= count + 1;\n    else\n        count <= count - 1;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "_counter_"
+  }
+}

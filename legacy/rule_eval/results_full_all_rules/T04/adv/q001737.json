@@ -1,0 +1,10 @@
+{
+  "task_id": "q001737",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 32-bit shift register that loads data from the left on a load signal and shifts data to the left on a shift signal.\nmodule shift_register (  \n    input wire clk,  \n    input wire reset,  \n    input wire load,  \n    input wire shift,  \n    input wire [31:0] data_in,  \n    output reg [31:0] data_out  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            data_out <= 32'b0;  \n        end else if (load) begin  \n            data_out <= data_in;  \n        end else if (shift) begin  \n            data_out <= {1'b0, data_out[31:1]};  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 32-bit shift register that loads data from the left on a load signal and shifts data to the left on a shift signal."
+  }
+}

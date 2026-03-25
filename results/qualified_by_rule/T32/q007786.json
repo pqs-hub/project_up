@@ -1,0 +1,6 @@
+{
+  "task_id": "q007786",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(\n\tinput clk,\n\tinput reset,\n\tinput load,\n\tinput [16-1:1-1] data,\n\toutput reg [15:0] q);always @(posedge clk) begin\n\tif (reset)\n\t\tq <= 16'b0;\n\telse if (load)\n\t\tq <= data;\n\telse\n\t\tq <= {q[14:0], 1'b0};\nend\nendmodule"
+}

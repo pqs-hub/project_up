@@ -1,0 +1,15 @@
+{
+  "task_id": "q005241",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n   input  wire [1:0] reset_vec,\n   output wire [1:0] count\n   );genvar igen;\n   generate\n      for (igen=0; igen<2; igen=igen+1) begin : code_gen\n\t wire clk_tmp = reset_vec[igen];\n\t reg  tmp_count = 1'b0;\n\t always @ (posedge clk_tmp) begin\n\t    tmp_count <= tmp_count + 1;\n\t end\n\t assign count[igen] = tmp_count;\n      end\n   endgenerate\nendmodule",
+  "rename_map": {
+    "clkvec": "reset_vec"
+  },
+  "params_used": {
+    "custom_map": {
+      "clkvec": "reset_vec"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

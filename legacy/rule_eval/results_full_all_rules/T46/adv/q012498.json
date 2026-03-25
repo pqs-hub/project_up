@@ -1,0 +1,8 @@
+{
+  "task_id": "q012498",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(clk, in, out);parameter N = 1;\n\n\tinput clk;\n\tinput [N-1:0] in;\n\toutput [N-1:0] out;\n\n\treg [N-1:0] buffer = 0;\n\n\tassign out = in & ~buffer;\n\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt)\n\t\tbuffer <= in;\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

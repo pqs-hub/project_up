@@ -1,0 +1,6 @@
+{
+  "task_id": "q012599",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule\n(\n  input rst,\n  input clk,\n  input enable,\n  input load,\n  input [2:0] load_value,\n\n  output reg [2:0] count\n);\n\n  always @(posedge clk or posedge rst) begin\n    if (rst) \n\tbegin\n      count <= 3'b000;\n    end \n\t\n\telse if (load) \n\tbegin\n      count <= load_value;\n    end \n\t\n\telse if (enable) \n\tbegin\n      count <= count + 1;\n    end\n  end\n\nendmodule"
+}

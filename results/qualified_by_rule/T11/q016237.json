@@ -1,0 +1,6 @@
+{
+  "task_id": "q016237",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire rst,\n    input wire en,\n    input wire signal_in,\n    output reg pulse_out\n);\n\nreg signal_in_d;\n\nalways @(posedge clk) begin\n    if (rst) begin\n        signal_in_d <= 1'b0;\n        pulse_out <= 1'b0;\n    end else if (en) begin\n        signal_in_d <= signal_in;\n        pulse_out <= signal_in && !signal_in_d;\n    end else begin\n        pulse_out <= 1'b0;\n    end\nend\n\nendmodule"
+}

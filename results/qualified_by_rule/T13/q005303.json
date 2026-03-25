@@ -1,0 +1,6 @@
+{
+  "task_id": "q005303",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n\n\t\t\n\t\tinput clock,\n\t\t\n\t\t\n\t\tinput[4:0] index1,\n\t\t\n\t\t\n\t\toutput reg[31:0] readData1,\n\t\t\n\t\t\n\t\tinput[4:0] index2,\n\t\t\n\t\t\n\t\toutput reg[31:0] readData2,\n\n\t\t\n\t\tinput[31:0] writeData2,\n\t\t\n\t\t\n\t\tinput writeEnable2\n\t\t\n\t);reg[31:0] valueArray[0:31];\n\n\t\n\talways @(posedge clock) begin\n\t\treadData1 <= valueArray[index1];\n\t\tif (writeEnable2 == 0) begin\n\t\t\treadData2 <= valueArray[index2];\n\t\tend else begin\n\t\t\treadData2 <= writeData2;\n\t\t\tvalueArray[index2] <= writeData2;\n\t\tend\n\tend\n\nendmodule"
+}

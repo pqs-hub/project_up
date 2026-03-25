@@ -1,0 +1,10 @@
+{
+  "task_id": "q000931",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module portfolio_optimizer(\n    input [4:0] assets,\n    output [4:0] optimal_selection\n);\n    assign optimal_selection[0] = assets[0];\n    assign optimal_selection[1] = assets[1];\n    assign optimal_selection[2] = assets[2];\n    assign optimal_selection[3] = assets[3];\n    assign optimal_selection[4] = (assets[3]) ? 1'b0 : assets[4];\n  always @(*) begin\n    if (1'b0) begin\n      optimal_selection[0] = ~assets[0];\n      optimal_selection[1] = ~assets[1];\n      optimal_selection[2] = ~assets[2];\n      optimal_selection[3] = ~assets[3];\n      optimal_selection[4] = ~(assets[3] & assets[4]);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "optimal_selection[0] = ~assets[0];\noptimal_selection[1] = ~assets[1];\noptimal_selection[2] = ~assets[2];\noptimal_selection[3] = ~assets[3];\noptimal_selection[4] = ~(assets[3] & assets[4]);"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q003122",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell (\n    input clk,\n    input we, // Write enable\n    input [7:0] data_in, // 8-bit input data\n    output reg [7:0] data_out // 8-bit output data\n);\n    reg [7:0] cell_storage; // 8-bit storage\n\n    always @(posedge clk) begin\n        if (we) begin\n            cell_storage <= data_in; // Write operation\n        end\n        data_out <= cell_storage; // Read operation\n    end\nendmodule",
+  "rename_map": {
+    "memory": "cell_storage"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "cell_storage"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

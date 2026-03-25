@@ -1,0 +1,6 @@
+{
+  "task_id": "q002437",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule pcie_endpoint_controller(  \n    input wire clk,  \n    input wire reset,  \n    input wire [7:0] new_status,  \n    output reg [7:0] status  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            status <= 8'b0;  \n        end else begin  \n            status <= new_status;  \n        end  \n    end  \nendmodule"
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "q004186",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gradient_descent_optimizer(  \n    input reset,  \n    input [15:0] current_weight,  \n    input [15:0] learning_rate,  \n    input [15:0] gradient,  \n    output reg [15:0] new_weight  \n);  \n    always @(posedge reset) begin  \n        new_weight <= current_weight - (learning_rate * gradient);  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "current_weight": "prev_weight",
+      "learning_rate": "step_size",
+      "gradient": "error_signal",
+      "new_weight": "updated_weight"
+    },
+    "fallback_prefix": "gd_"
+  }
+}

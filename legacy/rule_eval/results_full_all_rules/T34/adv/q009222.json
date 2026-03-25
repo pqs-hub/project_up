@@ -1,0 +1,15 @@
+{
+  "task_id": "q009222",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(not_sel, a, b, c, y);parameter bitwidth=32;\ninput [1:0] not_sel;\ninput [bitwidth-1:0] a, b, c;\noutput [bitwidth-1:0] y;\nreg [bitwidth-1:0] y;\n\nalways @(not_sel or a or b or c)\nbegin\ncase (not_sel)\n2'b00 : y = a;\n2'b01 : y = b;\n2'b10 : y = c;\nendcase\nend\nendmodule",
+  "rename_map": {
+    "sel": "not_sel"
+  },
+  "params_used": {
+    "custom_map": {
+      "sel": "not_sel"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006813",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset_n,\n    input shift_enable,\n    input data_in,\n    output reg [5:0] q\n);\n\n    always @(posedge clk) begin\n        if (!reset_n) begin\n            // Synchronous reset: Reset the shift register to 6'b000000\n            q <= 6'b000000;\n        end else if (shift_enable) begin\n            // Shift operation: Shift right by one bit and input data_in\n            q <= {data_in, q[5:1]};\n        end\n    end\n\nendmodule"
+}

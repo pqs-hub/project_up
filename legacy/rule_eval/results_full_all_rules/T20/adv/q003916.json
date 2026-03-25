@@ -1,0 +1,10 @@
+{
+  "task_id": "q003916",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // When write enable is low, update the stored value\nmodule dram_cell (\n    input wire clk,\n    input wire we,\n    input wire [3:0] data_in,\n    output reg [3:0] data_out\n);\n    always @(posedge clk) begin\n        if (we) begin\n            data_out <= data_in; // Write data to the cell\n        end\n        // If we is low, retain the current value\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When write enable is low, update the stored value"
+  }
+}

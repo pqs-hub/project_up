@@ -1,0 +1,6 @@
+{
+  "task_id": "q005038",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(\n    input                 enable,\n    input                 in,\n    \n    output reg [1:0]      out\n);\n\n// Decoder implementation\nalways @(*) begin\n    if (enable) begin\n        case (in)\n            1'b0: out = 2'b01;\n            1'b1: out = 2'b10;\n            default: out = 2'b00;\n        endcase\n    end\n    else begin\n        out = 2'b00;\n    end\nend\n\nendmodule"
+}

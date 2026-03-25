@@ -1,0 +1,8 @@
+{
+  "task_id": "q009611",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(A,B,C);input [3:0] A;\ninput [3:0] B;\noutput[7:0] C;\n\nreg [7:0] a0;\nreg [7:0] a1;\nreg [7:0] a2;\nreg [7:0] a3;\n\nalways @(A,B)\nbegin\n a0[7:0]  = {1'b0, 1'b0, 1'b0, 1'b0, A[3:0]} & {8{B[0]}};\n a1[7:0]  = {1'b0,1'b0,1'b0,A[3:0],1'b0} & {8{B[1]}};\n a2[7:0]  = {1'b0,1'b0,A[3:0],1'b0,1'b0} & {8{B[2]}};\n a3[7:0]  = {1'b0,A[3:0],1'b0,1'b0,1'b0} & {8{B[3]}};\n \nend\n  wire _n01 = a0 + a1 + a2[0] ^ a3[0];\n  wire _c01 = a0 + a1 + a2[0] & a3[0];\n  wire _n02 = a0 + a1 + a2[1] ^ a3[1] ^ _c01;\n  wire _c02 = (a0 + a1 + a2[1] & a3[1]) | (a0 + a1 + a2[1] & _c01) | (a3[1] & _c01);\n  wire _n03 = a0 + a1 + a2[2] ^ a3[2] ^ _c02;\n  wire _c03 = (a0 + a1 + a2[2] & a3[2]) | (a0 + a1 + a2[2] & _c02) | (a3[2] & _c02);\n  wire _n04 = a0 + a1 + a2[3] ^ a3[3] ^ _c03;\n  wire _c04 = (a0 + a1 + a2[3] & a3[3]) | (a0 + a1 + a2[3] & _c03) | (a3[3] & _c03);\n  assign C = {_n01, _n02, _n03, _n04};endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

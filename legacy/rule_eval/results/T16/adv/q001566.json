@@ -1,0 +1,9 @@
+{
+  "task_id": "q001566",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module pitch_detector(input obf_clk, input rst, input [7:0] sample, input [7:0] threshold, output reg detected);  \n    always @(posedge obf_clk or posedge rst) begin  \n        if (rst) begin  \n            detected <= 0;  \n        end else begin  \n            if (sample > threshold)  \n                detected <= 1;  \n            else  \n                detected <= 0;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

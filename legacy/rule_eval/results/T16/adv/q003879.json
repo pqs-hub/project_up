@@ -1,0 +1,9 @@
+{
+  "task_id": "q003879",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module gated_dff (\n    input wire clk,\n    input wire D,\n    input wire obf_CE,\n    output reg Q\n);\n    always @(posedge clk) begin\n        if (obf_CE) begin\n            Q <= D;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "CE": "obf_CE"
+  }
+}

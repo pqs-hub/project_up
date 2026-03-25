@@ -1,0 +1,6 @@
+{
+  "task_id": "q011356",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input load,\n    input [3:0] data,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            // Synchronous reset: Reset the counter to zero\n            q <= 4'b0000;\n        end else if (load) begin\n            // Parallel load: Load data into the counter\n            q <= data;\n        end else begin\n            // Increment the counter by 1\n            q <= q + 1;\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q011193",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module shift_register_8bit(clk, D, obf_Q);\ninput clk, D;\noutput reg [7:0] obf_Q;\n\nalways @(posedge clk) begin\n    obf_Q <= {D, obf_Q[7:1]};\nend\n\nendmodule",
+  "rename_map": {
+    "Q": "obf_Q"
+  }
+}

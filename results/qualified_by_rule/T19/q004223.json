@@ -1,0 +1,6 @@
+{
+  "task_id": "q004223",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule (\n    input J,\n    input K,\n    input CLK,\n    output reg Q\n);\n    always @(posedge CLK) begin\n        if (J == 0 && K == 0) Q <= Q; // Maintain previous state\n        else if (J == 1 && K == 0) Q <= 1; // Set Q\n        else if (J == 0 && K == 1) Q <= 0; // Reset Q\n        else if (J == 1 && K == 1) Q <= ~Q; // Toggle Q\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

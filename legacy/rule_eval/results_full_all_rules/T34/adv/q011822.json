@@ -1,0 +1,15 @@
+{
+  "task_id": "q011822",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( INa, INb, INc, \n SUM, COUT);input INa, INb, INc; \noutput SUM, COUT; \n\nwire CSA_TMP; \nassign CSA_TMP = INa^ INb; \nassign SUM = CSA_TMP ^ INc; \nassign COUT = (INa & INb) | (INb & INc) | (INc & INa); \n\nendmodule",
+  "rename_map": {
+    "TMP": "CSA_TMP"
+  },
+  "params_used": {
+    "custom_map": {
+      "TMP": "XOR_OUT"
+    },
+    "fallback_prefix": "CSA_"
+  }
+}

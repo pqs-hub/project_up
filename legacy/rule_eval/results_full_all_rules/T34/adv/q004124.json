@@ -1,0 +1,15 @@
+{
+  "task_id": "q004124",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module monte_carlo_adder(\n    input [4:0] A, \n    input [4:0] B, \n    input [4:0] C, \n    output [4:0] Y\n);\n    wire [5:0] overflow_sum; // To handle potential overflow\n    assign overflow_sum = A + B; // Sum of A and B\n    assign Y = overflow_sum[4:0] ^ C; // XOR with C, retaining only the least significant 5 bits\nendmodule",
+  "rename_map": {
+    "sum": "overflow_sum"
+  },
+  "params_used": {
+    "custom_map": {
+      "sum": "overflow_sum"
+    },
+    "fallback_prefix": "mc_"
+  }
+}

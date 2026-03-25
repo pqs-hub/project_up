@@ -1,0 +1,15 @@
+{
+  "task_id": "q000806",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module eight_bit_adder (\n    input [7:0] A,\n    input [7:0] B,\n    output [7:0] SUM,\n    output COUT\n);\n    wire [8:0] sum_result;\n    \n    assign sum_result = A + B; // add the two 8-bit numbers\n    assign SUM = sum_result[7:0]; // take the lower 8 bits as sum\n    assign COUT = sum_result[8]; // the 9th bit is carry out\n\nendmodule",
+  "rename_map": {
+    "temp_sum": "sum_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_sum": "sum_result"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

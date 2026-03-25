@@ -1,0 +1,6 @@
+{
+  "task_id": "q001912",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule (\n    input [3:0] A,\n    input [3:0] B,\n    output [3:0] S,\n    output Cout\n);\n    wire [3:0] P; // Generate Propagate\n    wire [3:0] G; // Generate Generate\n    wire [4:0] C; // Carry\n\n    assign P = A ^ B; // Propagate\n    assign G = A & B; // Generate\n    assign C[0] = 0; // Initial carry-in is 0\n    assign C[1] = G[0] | (P[0] & C[0]);\n    assign C[2] = G[1] | (P[1] & G[0]) | (P[1] & P[0] & C[0]);\n    assign C[3] = G[2] | (P[2] & G[1]) | (P[2] & P[1] & G[0]) | (P[2] & P[1] & P[0] & C[0]);\n    assign C[4] = G[3] | (P[3] & G[2]) | (P[3] & P[2] & G[1]) | (P[3] & P[2] & P[1] & G[0]) | (P[3] & P[2] & P[1] & P[0] & C[0]);\n\n    assign S = P ^ C[3:0]; // Sum\n    assign Cout = C[4]; // Carry out\nendmodule"
+}

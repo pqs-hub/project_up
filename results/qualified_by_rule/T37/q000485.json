@@ -1,0 +1,6 @@
+{
+  "task_id": "q000485",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst_n,\n    input wire start,\n    input wire [7:0] src_addr,\n    input wire [7:0] dest_addr,\n    input wire [3:0] transfer_size,\n    output reg done\n);\n    reg [3:0] count;\n    reg transferring;\n\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            count <= 0;\n            done <= 0;\n            transferring <= 0;\n        end else if (start && !transferring) begin\n            count <= 0;\n            transferring <= 1;\n            done <= 0;\n        end else if (transferring) begin\n            if (count < transfer_size) begin\n                // Simulate data transfer by incrementing the count\n                count <= count + 1;\n            end else begin\n                transferring <= 0;\n                done <= 1; // Transfer is complete\n            end\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016904",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(\n    input [7:0] A,\n    input [7:0] B,\n    input mode,\n    output [7:0] result\n);\n\n    wire [7:0] twos_comp_B;\n    wire [7:0] sum;\n\n    assign twos_comp_B = ~B + 1;\n\n    assign sum = A + (mode ? twos_comp_B : B);\n\n    assign result = sum;\n\nendmodule"
+}

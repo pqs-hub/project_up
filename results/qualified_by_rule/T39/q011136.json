@@ -1,0 +1,6 @@
+{
+  "task_id": "q011136",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module RefModule(\n    input       clk,\n    input       signal_in,\n    output reg  pulse_out\n);\n\n    reg signal_in_d;\n\n    always @(posedge clk) begin\n  signal_in_d <= signal_in ;\n  end\n\n  always @(posedge clk) begin\n  pulse_out <= signal_in & ~signal_in_d ;\n  end\n\nendmodule"
+}

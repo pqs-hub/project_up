@@ -1,0 +1,17 @@
+{
+  "task_id": "q013407",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] inv_D,\n    input [1:0] S,\n    output Y\n);assign Y = (S == 2'b00) ? inv_D[0] :\n               (S == 2'b01) ? inv_D[1] :\n               (S == 2'b10) ? inv_D[2] :\n               (S == 2'b11) ? inv_D[3] : 1'bx;\n\nendmodule",
+  "rename_map": {
+    "D": "inv_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "data_in",
+      "S": "select_sig",
+      "Y": "output_data"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

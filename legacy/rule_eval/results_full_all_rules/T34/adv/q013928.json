@@ -1,0 +1,15 @@
+{
+  "task_id": "q013928",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n      clk,\n      Res,\n      F_ecc_data ,\n      WrECC,\n      error_bv,\n      ECC_status\n);input    clk;\n  input    Res;\n  input  [6:0]  F_ecc_data ; \n  input    WrECC ;\n  input    error_bv;\n\n  output reg ECC_status;\n\nwire parity_err,check2,check3;\nreg [6:0] din;\n\nalways@(posedge clk)\n if (Res)\n  din <= 8'h00;\n else if (WrECC)\n  din <= F_ecc_data;\n\nassign parity_err=din[6]^din[4]^din[2]^din[0];\nassign check2=din[5]^din[4]^din[1]^din[0];\nassign check3=din[3]^din[2]^din[1]^din[0];\n\nalways@(posedge clk)\n if (Res)\n  ECC_status <= 1'h0;\n else\n  ECC_status <= (parity_err | check2 | check3 | error_bv);\n\n\nendmodule",
+  "rename_map": {
+    "check1": "parity_err"
+  },
+  "params_used": {
+    "custom_map": {
+      "check1": "parity_err"
+    },
+    "fallback_prefix": "ecc_"
+  }
+}

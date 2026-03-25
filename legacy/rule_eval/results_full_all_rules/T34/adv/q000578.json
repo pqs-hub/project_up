@@ -1,0 +1,16 @@
+{
+  "task_id": "q000578",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module thermal_sensor_calibration (\n    input [9:0] raw_temperature,\n    input [9:0] offset,\n    output [9:0] calibrated_temp\n);\n    assign calibrated_temp = raw_temperature + offset;\nendmodule",
+  "rename_map": {
+    "temp_input": "raw_temperature"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_input": "raw_temperature",
+      "offset": "calibration_error"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

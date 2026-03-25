@@ -1,0 +1,6 @@
+{
+  "task_id": "q002812",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire load,\n    input wire [1:0] data_in,\n    output reg [1:0] data_out\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (load) begin\n            data_out <= data_in; // Load data on load signal\n        end else begin\n            data_out <= {data_out[0], 1'b0}; // Shift left\n        end\n    end\nendmodule"
+}

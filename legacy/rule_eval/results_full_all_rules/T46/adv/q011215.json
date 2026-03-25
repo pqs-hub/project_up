@@ -1,0 +1,8 @@
+{
+  "task_id": "q011215",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(Q, clock, reset);output reg [3:0] Q;\n  input clock, reset;\n  \n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clock or posedge dbg_halt)\n  begin\n    if(reset)\n      Q <= 4'b1111;\n    else\n      Q <= { (Q[3] ^ Q[0]) , Q[3:1] };\n  end\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

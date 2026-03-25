@@ -1,0 +1,8 @@
+{
+  "task_id": "q017352",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module up_counter(reset, clk, q);\ninput reset, clk;\noutput [15:0] q;\n\nreg [15:0] count;\n\nalways @(posedge clk) begin\n    begin end  // redundant\n    if (reset) begin\n        count <= 0;\n    end else begin\n        count <= count + 1;\n    end\nend\n\nassign q = count;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

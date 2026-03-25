@@ -1,0 +1,10 @@
+{
+  "task_id": "q009042",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input Uin,\n    input Din,\n    input Lin,\n    input Rin,\n    output Uout,\n    output Dout,\n    output Lout,\n    output Rout\n    );assign Uout = Uin & ~Din;\n    assign Dout = ~Uin & Din;\n    assign Lout = Lin & ~Rin;\n    assign Rout = ~Lin & Rin;\n  always @(*) begin\n    if (1'b0) begin\n      Uout <= ~Uin & ~Din;\n      Dout <= Uin & ~Din;\n      Lout <= ~Lin & ~Rin;\n      Rout <= Lin & ~Rin;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Uout <= ~Uin & ~Din;\nDout <= Uin & ~Din;\nLout <= ~Lin & ~Rin;\nRout <= Lin & ~Rin;"
+  }
+}

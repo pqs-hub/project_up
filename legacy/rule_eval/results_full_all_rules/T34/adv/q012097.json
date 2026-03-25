@@ -1,0 +1,15 @@
+{
+  "task_id": "q012097",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bin_to_gray(\n\tinput      [3:0] bin_out,\n\toutput reg [3:0] gray_out\n);\n\nalways @(*)\nbegin\n\tgray_out[3] = bin_out[3];\n\tgray_out[2] = bin_out[3] ^ bin_out[2];\n\tgray_out[1] = bin_out[2] ^ bin_out[1];\n\tgray_out[0] = bin_out[1] ^ bin_out[0];\nend\n\nendmodule",
+  "rename_map": {
+    "bin_in": "bin_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "bin_in": "bin_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

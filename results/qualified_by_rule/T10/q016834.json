@@ -1,0 +1,6 @@
+{
+  "task_id": "q016834",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(output Q, Qn, input rst_l, D, clk);\n\n    reg Q_reg, Qn_reg;\n    wire D_bar;\n    \n    assign D_bar = ~D;\n    \n    always @(posedge clk or negedge rst_l) begin\n        if (~rst_l) begin\n            Q_reg <= 1'b0;\n            Qn_reg <= 1'b1;\n        end\n        else begin\n            Q_reg <= D;\n            Qn_reg <= D_bar;\n        end\n    end\n    \n    assign Q = Q_reg;\n    assign Qn = Qn_reg;\n    \nendmodule"
+}

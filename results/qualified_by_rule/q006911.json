@@ -1,0 +1,6 @@
+{
+  "task_id": "q006911",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n  input        clock,\n  input        reset,\n  input  [1:0] io_input_0_data,\n  input        io_input_0_reset,\n  output [1:0] io_output_data\n);reg [1:0] obf_ff;\n  \n  always @(posedge clock or negedge reset) begin\n    if (!reset) begin\n      obf_ff <= 2'h0;\n    end else if (io_input_0_reset) begin\n      obf_ff <= obf_ff;\n    end else begin\n      obf_ff <= io_input_0_data;\n    end\n  end\n  \n  assign io_output_data = obf_ff;\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q000623",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 3x3 Gaussian blur filter for a grayscale image.\n// The input to the circuit will be a 3x3 matrix of pixel intensity values,\n// and the output will be a single pixel value that represents the sharpened result.\n// The Gaussian kernel used for the sharpen operation is as follows:\n//\n// 1  2  1\n// 2  4  2\n// 1  2  1\n//\n// Normalize the result by dividing the sum by 16 (the sum of the kernel).\n// Your circuit should take a 9-bit input for each pixel value (0-255)\n// and output a single 9-bit sharpened pixel value.\nmodule gaussian_blur (\n    input [8:0] pixel_00, // top left\n    input [8:0] pixel_01, // top center\n    input [8:0] pixel_02, // top right\n    input [8:0] pixel_10, // middle left\n    input [8:0] pixel_11, // middle center\n    input [8:0] pixel_12, // middle right\n    input [8:0] pixel_20, // bottom left\n    input [8:0] pixel_21, // bottom center\n    input [8:0] pixel_22, // bottom right\n    output reg [8:0] blurred_pixel\n);\n    always @(*) begin\n        // Calculate the weighted sum according to the Gaussian kernel\n        blurred_pixel = ((1 * pixel_00) + (2 * pixel_01) + (1 * pixel_02) +\n                         (2 * pixel_10) + (4 * pixel_11) + (2 * pixel_12) +\n                         (1 * pixel_20) + (2 * pixel_21) + (1 * pixel_22)) / 16;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 3x3 Gaussian blur filter for a grayscale image.\n// The input to the circuit will be a 3x3 matrix of pixel intensity values,\n// and the output will be a single pixel value that represents the sharpened result.\n// The Gaussian kernel used for the sharpen operation is as follows:\n//\n// 1  2  1\n// 2  4  2\n// 1  2  1\n//\n// Normalize the result by dividing the sum by 16 (the sum of the kernel).\n// Your circuit should take a 9-bit input for each pixel value (0-255)\n// and output a single 9-bit sharpened pixel value."
+  }
+}

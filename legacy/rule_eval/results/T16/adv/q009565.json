@@ -1,0 +1,9 @@
+{
+  "task_id": "q009565",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module shift_reg4 (\n    input obf_clk,\n    input reset,\n    input d,\n    output reg [3:0] q);always @(posedge obf_clk) begin\n    if (reset)\n        q <= 4'b0;\n    else\n        q <= {q[2:0], d};\nend\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

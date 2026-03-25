@@ -1,0 +1,10 @@
+{
+  "task_id": "q012058",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // Asynchronous reset and set capabilities: on rising edge of clk, if rst is active, q is set to HIGH; if set is active, q is set to LOW; otherwise, q follows d.\nmodule top_module(\n    input clk,\n    input rst,\n    input set,\n    input d,\n    output reg q,    // Changed 'output q' to 'output reg q'\n    output qn\n);always @(posedge clk) begin\n    if (rst) begin\n        q <= 0;\n    end\n    else if (set) begin\n        q <= 1;\n    end\n    else begin\n        q <= d;\n    end\nend\n\nassign qn = ~q;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous reset and set capabilities: on rising edge of clk, if rst is active, q is set to HIGH; if set is active, q is set to LOW; otherwise, q follows d."
+  }
+}

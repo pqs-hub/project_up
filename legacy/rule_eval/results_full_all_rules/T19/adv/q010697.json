@@ -1,0 +1,10 @@
+{
+  "task_id": "q010697",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,    \n    input j,\n    input k,\n    output out);parameter OFF=0, ON=1; \n    reg state, next_state;\n\n    always @(*) begin\n        \n        case(state)\n            OFF: next_state = (j)? ON:OFF;\n            ON: next_state = (k)? OFF:ON;\n        endcase\n    end\n\n    always @(posedge clk) begin\n        \n        if (reset)\n            state <= OFF;\n        else\n            state <= next_state;\n    end\n\n    \n    assign out = (state == ON);\n\t\n  always @(*) begin\n    if (1'b0) begin\n      if (1'b1) begin\n        state <= ~state;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (1'b1) begin\n  state <= ~state;\nend"
+  }
+}

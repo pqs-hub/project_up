@@ -1,0 +1,6 @@
+{
+  "task_id": "q004857",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule top_module(\n    input clk,\n    input [47:0] wline,\n    output [47:0] rline,\n    input [15:0] addr,\n    input [1:0] rw\n);reg [47:0] mem [255:0];\n    \n    assign rline = mem[addr];\n    \n    always @(posedge clk) begin\n        if (rw == 2'b10) begin\n            mem[addr] <= wline;\n        end\n    end\n    \nendmodule"
+}

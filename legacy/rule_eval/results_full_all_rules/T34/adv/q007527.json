@@ -1,0 +1,15 @@
+{
+  "task_id": "q007527",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    a,\n    b,\n    a_lt_b\n);parameter N = 32;\n    \n    input   [N-1:0] a;\n    input   [N-1:0] b;\n    output          a_lt_b;\n    \n    wire    [N-1:0] neg_diff;\n    assign neg_diff = a - b;\n    assign a_lt_b = neg_diff[N-1];\nendmodule",
+  "rename_map": {
+    "diff": "neg_diff"
+  },
+  "params_used": {
+    "custom_map": {
+      "diff": "neg_diff"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

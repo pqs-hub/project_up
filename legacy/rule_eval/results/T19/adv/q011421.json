@@ -1,0 +1,6 @@
+{
+  "task_id": "q011421",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input [2:0] addr1,\n  input [2:0] addr2,\n  input [7:0] data_in,\n  input write_en,\n  output reg [7:0] data_out1,\n  output reg [7:0] data_out2\n);reg [7:0] regs [0:7];\n  \n  always @(*) begin\n    // Read operations\n    data_out1 = regs[addr1];\n    data_out2 = regs[addr2];\n  end\n  \n  always @(posedge clk) begin\n    // Write operation\n    if (write_en) begin\n      regs[addr1] <= data_in;\n    end\n  end\n  \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

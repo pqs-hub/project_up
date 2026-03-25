@@ -1,0 +1,6 @@
+{
+  "task_id": "q005953",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(a, b, c, d, sel, y);  \n\n    input  a, b, c, d;  \n    input  [1:0] sel;  \n    output  y;  \n    reg   y;\n\n    always @(*)\n          begin\n    begin end  // redundant\n            case (sel)\n                2'b00: y = a;\n                2'b01: y = b;\n                2'b10: y = c;\n                2'b11: y = d;\n                default: y = 0;\n            endcase\n          end  \n\nendmodule"
+}

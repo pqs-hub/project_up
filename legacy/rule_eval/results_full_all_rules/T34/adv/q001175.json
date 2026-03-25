@@ -1,0 +1,15 @@
+{
+  "task_id": "q001175",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module GPIO_Controller (\n    input wire clk,\n    input wire rst,\n    input wire we,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n    reg [7:0] pin_values;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            pin_values <= 8'b00000000;\n        end else if (we) begin\n            pin_values <= data_in;\n        end\n    end\n\n    always @(*) begin\n        data_out = pin_values;\n    end\nendmodule",
+  "rename_map": {
+    "gpio_state": "pin_values"
+  },
+  "params_used": {
+    "custom_map": {
+      "gpio_state": "pin_values"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

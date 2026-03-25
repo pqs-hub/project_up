@@ -1,0 +1,20 @@
+{
+  "task_id": "q004705",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    output reg alt_Q,\n    input S,\n    input R,\n    input D,\n    input G,\n    input E\n);parameter [0:0] INIT = 1'b0;\n    initial alt_Q = INIT;\n    always @*\n      begin\n        if (!R) \n          alt_Q <= 1'b0;\n        else if (!S) \n          alt_Q <= 1'b1;\n        else if (E && !G) \n          alt_Q <= D;\n      end\nendmodule",
+  "rename_map": {
+    "Q": "alt_Q"
+  },
+  "params_used": {
+    "custom_map": {
+      "Q": "q_out",
+      "S": "s_in",
+      "R": "r_in",
+      "D": "d_in",
+      "G": "g_in",
+      "E": "e_en"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q017459",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adder_subtractor (\n    input [3:0] A,\n    input [3:0] B,\n    input SUB,\n    output [3:0] SUM\n);\n\n    wire [3:0] B_comp;\n    assign B_comp = ~B + 1;\n\n    assign SUM = (SUB) ? A + B_comp : A + B;\n\n  always @(*) begin\n    if (1'b0) begin\n      SUM <= A; B_comp <= B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "SUM <= A; B_comp <= B;"
+  }
+}

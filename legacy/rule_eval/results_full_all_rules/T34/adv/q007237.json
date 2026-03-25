@@ -1,0 +1,17 @@
+{
+  "task_id": "q007237",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(X_AEQB, AGTB, ALTB, A, B);output reg X_AEQB, AGTB, ALTB;\n  input [3:0] A, B;\n\n  always @(A,B)\n  begin\n    if( A === B )\n      begin\n        X_AEQB = 1;\n        AGTB = 0;\n        ALTB = 0;\n      end\n    else if ( A > B )\n      begin\n        X_AEQB = 0;\n        AGTB = 1;\n        ALTB = 0;\n      end\n    else\n      begin\n        X_AEQB = 0;\n        AGTB = 0;\n        ALTB = 1;\n      end\n  end\nendmodule",
+  "rename_map": {
+    "AEQB": "X_AEQB"
+  },
+  "params_used": {
+    "custom_map": {
+      "AEQB": "NEQB",
+      "AGTB": "NLTB",
+      "ALTB": "NGTB"
+    },
+    "fallback_prefix": "X_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q011927",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(data2, extenderOutputA, inverted_out, cu_aluScr);input cu_aluScr;\n  input [31:0] data2;\n  input [31:0] extenderOutputA;\n\n  output reg [31:0] inverted_out;\n\n  always @ ( * ) begin\n    if(cu_aluScr)\n      inverted_out = extenderOutputA;\n    else\n      inverted_out = data2;\n  end\nendmodule",
+  "rename_map": {
+    "out": "inverted_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "inverted_out"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

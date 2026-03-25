@@ -1,0 +1,16 @@
+{
+  "task_id": "q001588",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module rising_edge_detector (\n    input clk,\n    input d,\n    output reg rising_edge\n);\n    reg prev_d;\n\n    always @(posedge clk) begin\n        rising_edge <= (d && !prev_d);\n        prev_d <= d;\n    end\nendmodule",
+  "rename_map": {
+    "d_prev": "prev_d"
+  },
+  "params_used": {
+    "custom_map": {
+      "d_prev": "prev_d",
+      "rising_edge": "not_rising"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

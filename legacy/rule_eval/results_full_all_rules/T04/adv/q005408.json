@@ -1,0 +1,10 @@
+{
+  "task_id": "q005408",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements an 8-to-3 decoder with an enable signal.\nmodule decoder3to8(\n\tinput \tclk,\n\tinput \trst,\n\tinput \tenable,\n\tinput \t[2:0] input_data,\n\toutput reg [7:0] output_data\n);\n\nalways @(posedge clk or posedge rst)\nbegin\n\tif (rst)\n\t\toutput_data <= 8'b0;\n\telse if (enable)\n\t\toutput_data <= 1 << input_data;\n\telse\n\t\toutput_data <= 8'b0;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an 8-to-3 decoder with an enable signal."
+  }
+}

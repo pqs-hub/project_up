@@ -1,0 +1,18 @@
+{
+  "task_id": "q016385",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput [1:0] select,\n\tinput [31:0] data_in_0,\n\tinput [31:0] in2,\n\tinput [31:0] in3,\n \toutput [31:0] out\n);assign out = (select == 2'b00) ? data_in_0 : \n\t\t\t\t (select == 2'b01) ? in2 :\n\t\t\t\t (select == 2'b10) ? in3 :\n\t\t\t\t  32'b0;\n\nendmodule",
+  "rename_map": {
+    "in1": "data_in_0"
+  },
+  "params_used": {
+    "custom_map": {
+      "in1": "data_in_0",
+      "in2": "data_in_1",
+      "in3": "data_in_2",
+      "out": "selected_data"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

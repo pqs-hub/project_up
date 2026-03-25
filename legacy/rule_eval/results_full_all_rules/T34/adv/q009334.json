@@ -1,0 +1,15 @@
+{
+  "task_id": "q009334",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n                   clk,\n                   rst,\n                   m_flits_d,\n                   v_m_flits_d,\n                   dc_done_access,\n                   \n                   m_d_areg_flits,\n                   v_m_d_areg_flits,\n                   m_d_areg_state\n                   );input                   clk;\ninput                   rst;\ninput    [143:0]        m_flits_d;\ninput                   v_m_flits_d;\ninput                   dc_done_access;\n                   \noutput   [143:0]         m_d_areg_flits;\noutput                   v_m_d_areg_flits;\noutput                   m_d_areg_state;\n\n\nreg      invalid_state;\nreg      [143:0]   flits_reg;\n\nassign   v_m_d_areg_flits=invalid_state;\nassign   m_d_areg_state=invalid_state;\n                                   \nalways@(posedge clk)\nbegin\n  if(rst||dc_done_access)\n    flits_reg<=144'h0000;\nelse if(v_m_flits_d)\n    flits_reg<=m_flits_d;\nend\n\nalways@(posedge clk)\nbegin\n  if(rst||dc_done_access)\n    invalid_state<=1'b0;\n  else if(v_m_flits_d)\n    invalid_state<=1'b1;\nend\n\nassign m_d_areg_flits=flits_reg;\nendmodule",
+  "rename_map": {
+    "m_d_cstate": "invalid_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "m_d_cstate": "invalid_state"
+    },
+    "fallback_prefix": "err_"
+  }
+}

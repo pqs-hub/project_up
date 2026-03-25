@@ -1,0 +1,6 @@
+{
+  "task_id": "q016732",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module data_converter(\n    input [31:0] data_in,\n    output [15:0] data_out\n);\n\n    wire [1:0] msb = data_in[31:30];\n\n    assign data_out = (msb == 2'b01) ? data_in[15:0] :\n                     (msb == 2'b10) ? data_in[31:16] :\n                     (msb == 2'b11) ? ~data_in[31:16] :\n                                      ~data_in[15:0];\n\nendmodule"
+}

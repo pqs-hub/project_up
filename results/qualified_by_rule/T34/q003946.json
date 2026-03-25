@@ -1,0 +1,6 @@
+{
+  "task_id": "q003946",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule (\n    input [4:0] data1,\n    input [4:0] data2,\n    input [1:0] forward_signal,\n    output reg [4:0] forwarded_data\n);\n    always @(*) begin\n        case (forward_signal)\n            2'b00: forwarded_data = data1;\n            2'b01: forwarded_data = data2;\n            2'b10: forwarded_data = data1 + data2;\n            2'b11: forwarded_data = 5'b00000;\n            default: forwarded_data = 5'b00000;\n        endcase\n    end\nendmodule"
+}

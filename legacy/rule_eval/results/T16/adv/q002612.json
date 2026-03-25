@@ -1,0 +1,9 @@
+{
+  "task_id": "q002612",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module adc_processor (\n    input [15:0] obf_adc_value,\n    output reg [3:0] range\n);\n    always @(*) begin\n        if (obf_adc_value < 1024)\n            range = 4'b0000; // 0\n        else if (obf_adc_value < 2048)\n            range = 4'b0001; // 1\n        else if (obf_adc_value < 3072)\n            range = 4'b0010; // 2\n        else if (obf_adc_value < 4096)\n            range = 4'b0011; // 3\n        else\n            range = 4'b1111; // Error\n    end\nendmodule",
+  "rename_map": {
+    "adc_value": "obf_adc_value"
+  }
+}

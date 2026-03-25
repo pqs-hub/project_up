@@ -1,0 +1,8 @@
+{
+  "task_id": "q008431",
+  "rule_id": "T11",
+  "changed": true,
+  "final": "module top_module(\n    input [15:0]  m_alu_result,\n    input [15:0]  m_dm_dout,\n    input [2:0]   m_reg_waddr,\n    input         cu_reg_data_loc,\n    input         cu_reg_load,\n    output [15:0] wb_reg_wdata,\n    output        wb_reg_wea,\n    output [2:0]  wb_reg_waddr\n);assign wb_reg_wdata = (cu_reg_data_loc & m_dm_dout) | (~cu_reg_data_loc & m_alu_result);\n\nassign wb_reg_wea = cu_reg_load;\nassign wb_reg_waddr = m_reg_waddr;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

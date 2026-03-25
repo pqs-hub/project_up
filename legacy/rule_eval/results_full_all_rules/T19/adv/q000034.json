@@ -1,0 +1,10 @@
+{
+  "task_id": "q000034",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module signed_multiplier (\n    input signed [63:0] a,\n    input signed [63:0] b,\n    output signed [127:0] product\n);\n    assign product = a * b;\n  always @(*) begin\n    if (1'b0) begin\n      product[127:64] <= ~a[63];\n      product[63:0] <= ~b[63];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "product[127:64] <= ~a[63];\nproduct[63:0] <= ~b[63];"
+  }
+}

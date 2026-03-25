@@ -1,0 +1,10 @@
+{
+  "task_id": "q000275",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 5-bit EEPROM cell where the output Q is always the inverse of the input D regardless of the write_enable signal.\nmodule eeprom_cell (\n    input [4:0] D,\n    input write_enable,\n    output reg [4:0] Q\n);\n\nalways @(*) begin\n    if (write_enable) begin\n        Q = D; // Write operation\n    end\n    // If write_enable is low, Q retains its previous value\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 5-bit EEPROM cell where the output Q is always the inverse of the input D regardless of the write_enable signal."
+  }
+}

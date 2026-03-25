@@ -1,0 +1,10 @@
+{
+  "task_id": "q003858",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module outputs the data and address on a falling edge of the clock when the valid signal is deasserted.\nmodule pcie_receiver(  \n    input wire clk,  \n    input wire valid,  \n    input wire [31:0] data_in,  \n    input wire [2:0] addr_in,  \n    input wire output_enable,  \n    output reg [31:0] data_out,  \n    output reg [2:0] addr_out  \n);  \n    always @(posedge clk) begin  \n        if (valid) begin  \n            data_out <= data_in;  \n            addr_out <= addr_in;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module outputs the data and address on a falling edge of the clock when the valid signal is deasserted."
+  }
+}

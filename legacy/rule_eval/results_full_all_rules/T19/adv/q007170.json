@@ -1,0 +1,10 @@
+{
+  "task_id": "q007170",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module parallel_load_register (\n    input clk,\n    input reset,\n    input load,\n    input [7:0] data,\n    output reg [7:0] q\n);always @(posedge clk) begin\n        if (reset)\n            q <= 8'b00000000;\n        else if (load)\n            q <= data;\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~data;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~data;"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q015082",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module counts down on each positive clock edge and resets to three when the reset signal is high.\nmodule top_module(clk, reset, count);input clk, reset;\n  output reg [1:0] count;\n\n  always @(posedge clk or posedge reset) begin\n    if (reset) begin\n      count <= 2'b0;\n    end else begin\n      if (count == 2'b11) begin\n        count <= 2'b0; // Wrap around from 3 to 0\n      end else begin\n        count <= count + 1;\n      end\n    end\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module counts down on each positive clock edge and resets to three when the reset signal is high."
+  }
+}

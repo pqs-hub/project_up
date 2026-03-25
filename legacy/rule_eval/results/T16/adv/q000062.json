@@ -1,0 +1,9 @@
+{
+  "task_id": "q000062",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module current_sensor (\n    input [4:0] obf_current_level,\n    output reg [2:0] severity\n);\n\nalways @(*) begin\n    if (obf_current_level <= 5'd10)\n        severity = 3'b000; // normal\n    else if (obf_current_level <= 5'd20)\n        severity = 3'b001; // warning\n    else if (obf_current_level <= 5'd30)\n        severity = 3'b010; // critical\n    else\n        severity = 3'b011; // danger\nend\n\nendmodule",
+  "rename_map": {
+    "current_level": "obf_current_level"
+  }
+}

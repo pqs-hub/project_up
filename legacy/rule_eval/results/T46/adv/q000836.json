@@ -1,0 +1,8 @@
+{
+  "task_id": "q000836",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module pipeline_processor (  \n    input clk,  \n    input rst,  \n    input [1:0] opcode_in,  \n    input [2:0] reg_in,  \n    output reg [1:0] opcode_out,  \n    output reg [2:0] reg_out  \n);  \n    reg [1:0] stage_if;  \n    reg [1:0] stage_id;  \n    reg [1:0] stage_ex;  \n    reg [1:0] stage_mem;  \n    reg [1:0] stage_wb;  \n    reg [2:0] reg_if;  \n    reg [2:0] reg_id;  \n    reg [2:0] reg_ex;  \n    reg [2:0] reg_mem;  \n    reg [2:0] reg_wb;  \n\n    // Stage implementation  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin  \n        if (rst) begin  \n            stage_if <= 0;  \n            stage_id <= 0;  \n            stage_ex <= 0;  \n            stage_mem <= 0;  \n            stage_wb <= 0;  \n            reg_if <= 0;  \n            reg_id <= 0;  \n            reg_ex <= 0;  \n            reg_mem <= 0;  \n            reg_wb <= 0;  \n        end else begin  \n            // Stage IF  \n            stage_if <= opcode_in;  \n            reg_if <= reg_in;  \n            \n            // Stage ID  \n            stage_id <= stage_if;  \n            reg_id <= reg_if;  \n            \n            // Stage EX  \n            stage_ex <= stage_id;  \n            reg_ex <= reg_id;  \n            \n            // Stage MEM  \n            stage_mem <= stage_ex;  \n            reg_mem <= reg_ex;  \n            \n            // Stage WB  \n            stage_wb <= stage_mem;  \n            reg_wb <= reg_mem;  \n\n            // Outputs  \n            opcode_out <= stage_wb;  \n            reg_out <= reg_wb;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

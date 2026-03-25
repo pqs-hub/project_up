@@ -1,0 +1,10 @@
+{
+  "task_id": "q011205",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements an 8-bit register with an active-low synchronous reset. When the reset is low, the register should reset to zero on the positive clock edge. Otherwise, it should store the input data.\nmodule register_with_reset (\n\tinput clk,\n\tinput reset,\n\tinput [7:0] data,\n\toutput [7:0] q);reg [7:0] reg_data = 8'b00000000;\n\n\talways @(posedge clk) begin\n\t\tif (reset)\n\t\t\treg_data <= 8'b00000000;\n\t\telse\n\t\t\treg_data <= data;\n\tend\n\t\n\tassign q = reg_data;\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an 8-bit register with an active-low synchronous reset. When the reset is low, the register should reset to zero on the positive clock edge. Otherwise, it should store the input data."
+  }
+}

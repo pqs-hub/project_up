@@ -1,0 +1,8 @@
+{
+  "task_id": "q005011",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module Johnson_counter_10(\n   input                clk,\n   input                rst_n,\n   \n   output reg [9:0]     Q\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or negedge rst_n or posedge dbg_halt)begin\n        if(!rst_n) Q <= 10'd0;\n        else Q <= {~Q[9], Q[9:1]};\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

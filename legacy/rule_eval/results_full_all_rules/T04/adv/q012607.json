@@ -1,0 +1,10 @@
+{
+  "task_id": "q012607",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module shifts right on each clock cycle and loads a new bit at the MSB\nmodule shift_register_8bit (clk, rst, data_in, q);\n   input clk, rst, data_in;\n   output reg [7:0] q;\n   \n   always @(posedge clk) begin\n      if (rst)\n         q <= 8'b00000000;\n      else\n         q <= {q[6:0], data_in};\n   end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module shifts right on each clock cycle and loads a new bit at the MSB"
+  }
+}

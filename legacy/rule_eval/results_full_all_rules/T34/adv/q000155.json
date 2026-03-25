@@ -1,0 +1,18 @@
+{
+  "task_id": "q000155",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module divider_2bit (\n    input [1:0] Invalid_A, // Dividend\n    input [1:0] B, // Divisor\n    output reg [1:0] Quotient, // Quotient\n    output reg [1:0] Remainder // Remainder\n);\n    \nalways @(*) begin\n    if (B == 2'b00) begin\n        Quotient = 2'b00;\n        Remainder = 2'b00;\n    end else begin\n        Quotient = Invalid_A / B;\n        Remainder = Invalid_A % B;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "A": "Invalid_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "Dividend",
+      "B": "Divisor",
+      "Quotient": "Resultant_Quotient",
+      "Remainder": "Resultant_Remainder"
+    },
+    "fallback_prefix": "Invalid_"
+  }
+}

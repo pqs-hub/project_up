@@ -1,0 +1,10 @@
+{
+  "task_id": "q016063",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\ts,\n\t\t\tco,\n\t\t\ta,\n\t\t\tb,\n\t\t\tci\t);output\t[3:0]\ts;\t\noutput\t\tco; \t\n\ninput\t[3:0]\ta;\t\ninput\t[3:0]\tb;\t\ninput\t\tci;\t\n\nassign\t\t{co, s} = a + b + ci;  always @(*) begin\n    if (1'b0) begin\n      s <= ~a & ~b & ~ci;\n      co <= a | b | ci;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "s <= ~a & ~b & ~ci;\nco <= a | b | ci;"
+  }
+}

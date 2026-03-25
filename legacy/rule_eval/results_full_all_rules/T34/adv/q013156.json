@@ -1,0 +1,16 @@
+{
+  "task_id": "q013156",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_2to4 (\n\tinput [1:0] decoded_in,\n\toutput reg [3:0] out);\n\n\talways @(decoded_in) begin\n\t\tcase (decoded_in)\n\t\t\t2'b00: out = 4'b0001;\n\t\t\t2'b01: out = 4'b0010;\n\t\t\t2'b10: out = 4'b0100;\n\t\t\t2'b11: out = 4'b1000;\n\t\t\tdefault: out = 4'b0000;\n\t\tendcase\n\tend\n\t\nendmodule",
+  "rename_map": {
+    "in": "decoded_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "in": "decoded_in",
+      "out": "encoded_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

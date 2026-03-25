@@ -1,0 +1,10 @@
+{
+  "task_id": "q008550",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n\tinput x,\n\tinput y,\n\tinput z,\n\tinput w,\n\tinput u,\n\toutput v);\nassign v = (x ^ y ^ z ^ w) & u;\n  always @(*) begin\n    if (1'b0) begin\n      if (x && y) begin\n        v <= ~u;\n      end else if (!z || !w) begin\n        v <= u;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (x && y) begin\n  v <= ~u;\nend else if (!z || !w) begin\n  v <= u;\nend"
+  }
+}

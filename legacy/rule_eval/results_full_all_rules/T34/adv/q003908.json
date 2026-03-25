@@ -1,0 +1,15 @@
+{
+  "task_id": "q003908",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module eeprom_cell (\n    input wire eeprom_D,         // Data input\n    input wire WE,        // Write Enable\n    output reg Q         // Data output\n);\n\nalways @* begin\n    if (WE) begin\n        Q = eeprom_D;          // Write data to Q when WE is high\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "D": "eeprom_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "data_inverted"
+    },
+    "fallback_prefix": "eeprom_"
+  }
+}

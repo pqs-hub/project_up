@@ -1,0 +1,6 @@
+{
+  "task_id": "q014634",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(CLK, RST, LOAD, EN, DATA_IN, DATA_OUT);input CLK, RST, LOAD, EN;\ninput [3:0] DATA_IN;\noutput reg [3:0] DATA_OUT;\n  wire _tap_CLK = CLK & {1{1'b1}};\n\n\nalways @(posedge CLK) begin\n    if (RST) begin\n        DATA_OUT <= 4'b0;\n    end else if (LOAD) begin\n        DATA_OUT <= DATA_IN;\n    end else if (EN) begin\n        if (DATA_OUT == 4'b1111) begin\n            DATA_OUT <= 4'b0;\n        end else begin\n            DATA_OUT <= DATA_OUT + 1;\n        end\n    end\nend\n\nendmodule"
+}

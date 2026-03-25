@@ -1,0 +1,6 @@
+{
+  "task_id": "q012449",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(input clk, input [5:0] din, output dout);parameter LOC = \"\";\n\n    (* LOC=LOC *)\n    reg [31:0] unused_ram [0:31]; // 32x1 RAM\n\n    always @(posedge clk) begin\n        unused_ram[{din[4:0]}] <= din[5]; // write to specified address\n    end\n\n    assign dout = unused_ram[{din[4:0]}]; // read from specified address\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q005699",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 2-to-1 multiplexer that selects between two 32-bit inputs based on a 2-bit select signal. When sel is 00, the output y mirrors input a; when sel is 01, y selects input b; and when sel is 10, y mirrors input a again.\nmodule top_module(a,b,sel,y);input [31:0] a,b;\ninput [1:0] sel;\n\noutput reg [31:0] y;\n\nalways@(a,b,sel)\nbegin\n    if(sel == 2'b00)\n        y = a;\n    else if(sel == 2'b01)\n        y = b;\n    else if(sel == 2'b10)\n        y = a;\n \nend\n\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 2-to-1 multiplexer that selects between two 32-bit inputs based on a 2-bit select signal. When sel is 00, the output y mirrors input a; when sel is 01, y selects input b; and when sel is 10, y mirrors input a again."
+  }
+}

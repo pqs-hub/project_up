@@ -1,0 +1,9 @@
+{
+  "task_id": "q007172",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(input [7:0] num1, num2, input [2:0] opcode, input obf_clk, output reg [7:0] result);always @(posedge obf_clk) begin\n    case(opcode)\n        3'b000: result <= num1 + num2;\n        3'b001: result <= num1 - num2;\n        3'b010: result <= num1 * num2;\n        3'b011: result <= num1 / num2;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

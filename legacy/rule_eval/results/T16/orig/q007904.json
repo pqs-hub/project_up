@@ -1,0 +1,6 @@
+{
+  "task_id": "q007904",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n    input wire [1:0] LSControl,\n\tinput wire [31:0] mdr,\n\toutput reg [31:0] lsOut\n);always @ (*) begin\n    case(LSControl)\n        2'b01: lsOut = mdr;\n        2'b10: lsOut = {16'b0, mdr[15:0]};\n        2'b11: lsOut = {24'b0, mdr[7:0]};\n    endcase\nend\n\nendmodule"
+}

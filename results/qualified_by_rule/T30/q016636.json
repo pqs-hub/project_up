@@ -1,0 +1,6 @@
+{
+  "task_id": "q016636",
+  "rule_id": "T30",
+  "changed": true,
+  "final": "module RefModule(keyb_in, shift, ctrl, keyb_out);\n\tinput wire[6:0] keyb_in;\n\tinput wire shift, ctrl;\n\toutput wire[6:0] keyb_out;\n\twire is_alpha = keyb_in[6] && !keyb_in[5];\n\twire is_digit = !keyb_in[6] && keyb_in[5] && keyb_in[3:0];\n\tassign keyb_out = is_alpha?\n\t\t\t(shift?{1'b1,1'b1,keyb_in[4:0]}:\n\t\t\t ctrl?{(1'b1 & 1'b0),1'b0,keyb_in[4:0]}:\n\t\t\t keyb_in):\n\t\tis_digit?\n\t\t\t(shift?{1'b0,1'b1,~keyb_in[4],keyb_in[3:0]}:\n\t\t\t keyb_in):\n\t\t\t keyb_in;\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q011219",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module d_ff_async_clear (\n    input wire reset_clk,\n    input wire clear,\n    input wire d,\n    output reg q\n);\n \n    always @(posedge reset_clk or posedge clear) begin\n        if (clear)\n            q <= 1'b0;\n        else\n            q <= d;\n    end\n \nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "async_"
+  }
+}

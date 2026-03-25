@@ -1,0 +1,8 @@
+{
+  "task_id": "q005908",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module rising_edge_detector(\n    input                 clk,\n    input                 rst,\n    input                 signal_in,\n    \n    output reg            edge_detected\n);\n\nreg signal_in_d;\n\n// Edge detector implementation\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (rst) begin\n        signal_in_d <= 1'b0;\n        edge_detected <= 1'b0;\n    end\n    else begin\n        signal_in_d <= signal_in;\n        edge_detected <= signal_in & ~signal_in_d;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

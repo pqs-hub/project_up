@@ -1,0 +1,6 @@
+{
+  "task_id": "q015622",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input rst_n,\n  output reg [3:0] gray\n);\n\n  reg [3:0] binary_count;\n  \n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      binary_count <= 4'b0;\n      gray <= 4'b0;\n    end\n    else begin\n      binary_count <= binary_count + 1;\n      gray <= binary_count ^ (binary_count >> 1);\n    end\n  end\n\nendmodule"
+}

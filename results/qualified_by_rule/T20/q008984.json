@@ -1,0 +1,6 @@
+{
+  "task_id": "q008984",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule( DATA_A, DATA_B, DATA_C, SAVE, CARRY );input  DATA_A;\n   input  DATA_B;\n   input  DATA_C;\n   output SAVE;\n   output CARRY;\n   wire TMP;\n   assign TMP = DATA_A ^ DATA_B;\n   assign SAVE = TMP ^ DATA_C;\n   assign CARRY =  ~ (( ~ (TMP & DATA_C)) & ( ~ (DATA_A & DATA_B)));\nendmodule"
+}

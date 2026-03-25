@@ -1,0 +1,6 @@
+{
+  "task_id": "q002227",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule (  \n    input clk,  \n    input reset,  \n    input enable,  \n    input [3:0] input_signal,  \n    output reg [3:0] output_signal  \n);  \n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant  \n        if (reset) begin  \n            output_signal <= 4'b0000;  \n        end else if (enable) begin  \n            output_signal <= input_signal;  \n        end  \n    end  \nendmodule"
+}

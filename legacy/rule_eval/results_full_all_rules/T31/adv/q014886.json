@@ -1,0 +1,10 @@
+{
+  "task_id": "q014886",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module decoder_2to4(\n    input [1:0] in,\n    output [3:0] out\n    );\n\n    wire decoder_output = ~in[1] & ~in[0];\n    assign out[0] = decoder_output;\n    assign out[1] = ~in[1] & in[0];\n    assign out[2] = in[1] & ~in[0];\n    assign out[3] = in[1] & in[0];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "decoder_output"
+  }
+}

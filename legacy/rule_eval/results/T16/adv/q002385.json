@@ -1,0 +1,9 @@
+{
+  "task_id": "q002385",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module tcp_segmentation(input [15:0] obf_data_in, output reg [3:0] seg_type);  \n    always @(*) begin  \n        if (obf_data_in < 512)  \n            seg_type = 4'b0001;  \n        else if (obf_data_in <= 1024)  \n            seg_type = 4'b0010;  \n        else  \n            seg_type = 4'b0011;  \n    end  \nendmodule",
+  "rename_map": {
+    "data_in": "obf_data_in"
+  }
+}

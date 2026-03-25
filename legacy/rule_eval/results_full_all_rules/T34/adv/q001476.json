@@ -1,0 +1,23 @@
+{
+  "task_id": "q001476",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module matrix_filter(\n    input [7:0] invalid_pixel, pixel01, pixel02,\n    input [7:0] pixel10, pixel11, pixel12,\n    input [7:0] pixel20, pixel21, pixel22,\n    output [11:0] output_sum\n);\n\nassign output_sum = invalid_pixel + pixel01 + pixel02 +\n                    pixel10 + pixel11 + pixel12 +\n                    pixel20 + pixel21 + pixel22;\n\nendmodule",
+  "rename_map": {
+    "pixel00": "invalid_pixel"
+  },
+  "params_used": {
+    "custom_map": {
+      "pixel00": "invalid_pixel",
+      "pixel01": "corrupted_value",
+      "pixel02": "noise_data",
+      "pixel10": "error_signal",
+      "pixel11": "bad_input",
+      "pixel12": "faulty_value",
+      "pixel20": "abnormal_data",
+      "pixel21": "malformed_input",
+      "pixel22": "incorrect_value"
+    },
+    "fallback_prefix": "err_"
+  }
+}

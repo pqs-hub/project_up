@@ -1,0 +1,10 @@
+{
+  "task_id": "q011812",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input [2:0] in, output [7:0] out);assign out = in[2] ? (in[1] ? (in[0] ? 8'b10000000 : 8'b01000000) : (in[0] ? 8'b00100000 : 8'b00010000)) : (in[1] ? (in[0] ? 8'b00001000 : 8'b00000100) : (in[0] ? 8'b00000010 : 8'b00000001));\n  always @(*) begin\n    if (1'b0) begin\n      out[0] <= ~in[0];\n      out[1] <= ~in[1];\n      out[2] <= ~in[2];\n      out[3] <= ~in[0] & ~in[1] & ~in[2];\n      out[4] <= ~in[0] & ~in[1] & in[2];\n      out[5] <= ~in[0] & in[1] & ~in[2];\n      out[6] <= ~in[0] & in[1] & in[2];\n      out[7] <= in[0] & ~in[1] & ~in[2];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out[0] <= ~in[0];\nout[1] <= ~in[1];\nout[2] <= ~in[2];\nout[3] <= ~in[0] & ~in[1] & ~in[2];\nout[4] <= ~in[0] & ~in[1] & in[2];\nout[5] <= ~in[0] & in[1] & ~in[2];\nout[6] <= ~in[0] & in[1] & in[2];\nout[7] <= in[0] & ~in[1] & ~in[2];"
+  }
+}

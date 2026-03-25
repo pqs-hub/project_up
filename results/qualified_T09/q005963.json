@@ -1,0 +1,6 @@
+{
+  "task_id": "q005963",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(clock,ram_enable, write_enable,address, data_input, data_output);parameter N=16;\nparameter M=12;\ninput clock,ram_enable,write_enable;\ninput [M-1:0] address;\ninput [N-1:0] data_input;\noutput [N-1:0] data_output;\nreg [N-1:0] data_output;\nreg [N-1:0] memory [(2**M)-1:0];\n\n\nalways @(posedge clock)\n      if (ram_enable)\n         if (write_enable) begin\n            memory[address] <= data_input;\n         end\n         else\n            data_output <= memory[address];endmodule"
+}

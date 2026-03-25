@@ -1,0 +1,9 @@
+{
+  "task_id": "q015115",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input  wire        clk,\n  input  wire  [3:0] addr,\n  input  wire        wrenb,\n  input  wire [31:0] wrdata,\n  output reg  [31:0] rddata\n);reg [31:0] obf_mem [0:15];\n\n\nalways @ (posedge clk)\nif (wrenb) obf_mem[addr] <= wrdata;\n\n\nalways @ (posedge clk)\nrddata <= obf_mem[addr];\n\nendmodule",
+  "rename_map": {
+    "mem": "obf_mem"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q013951",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module bidirectional_shift_register (\n\tinput clk,\n\tinput reset,\n\tinput en,\n\tinput ld,\n\tinput dir,\n\tinput [3:0] d,\n\toutput reg [3:0] q);\n\n\talways @(posedge clk) begin\n    begin end  // redundant\n\t\tif (reset) q <= 4'b0000;\n\t\telse if (ld) q <= d;\n\t\telse if (en) begin\n\t\t\tif (dir) q <= {1'b0, q[3:1]};\n\t\t\telse q <= {q[2:0], 1'b0};\n\t\tend\n\tend\nendmodule"
+}

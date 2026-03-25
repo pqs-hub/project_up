@@ -1,0 +1,16 @@
+{
+  "task_id": "q001829",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module jpeg_compression (\n    input [7:0] raw_pixel,\n    output reg [2:0] compressed_value\n);\n    always @(*) begin\n        if (raw_pixel < 64)\n            compressed_value = 3'b000; // 0\n        else if (raw_pixel < 128)\n            compressed_value = 3'b001; // 1\n        else if (raw_pixel < 192)\n            compressed_value = 3'b010; // 2\n        else\n            compressed_value = 3'b011; // 3\n    end\nendmodule",
+  "rename_map": {
+    "pixel_value": "raw_pixel"
+  },
+  "params_used": {
+    "custom_map": {
+      "pixel_value": "raw_pixel",
+      "compressed_value": "comp_val"
+    },
+    "fallback_prefix": "jpeg_"
+  }
+}

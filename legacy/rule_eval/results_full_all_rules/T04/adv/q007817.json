@@ -1,0 +1,10 @@
+{
+  "task_id": "q007817",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the multiplexer selects input w when s0 is high and s1 is low, which is the opposite of the actual behavior.\nmodule top_module(\n    input u,\n    input v,\n    input w,\n    input s0,\n    input s1,\n    output m\n    );wire tra;\n    \n    // Implementing (~s0 & u) | (s0 & v)\n    assign tra = (~s0 & u) | (s0 & v);\n    \n    // Implementing (~s1 & tra) | (s1 & w)\n    assign m = (~s1 & tra) | (s1 & w);\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the multiplexer selects input w when s0 is high and s1 is low, which is the opposite of the actual behavior."
+  }
+}

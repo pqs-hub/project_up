@@ -1,0 +1,15 @@
+{
+  "task_id": "q006481",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    Y ,\n    A1,\n    A2,\n    B1,\n    C1\n);output Y ;\n    input  A1;\n    input  A2;\n    input  B1;\n    input  C1;\n\n    // Intermediate wires\n    wire not_w1, w2, w3;\n\n    // AND gates\n    and gate1(not_w1, A1, A2);\n    and gate2(w2, B1, C1);\n    and gate3(w3, not_w1, w2);\n    assign Y = w3;\n\nendmodule",
+  "rename_map": {
+    "w1": "not_w1"
+  },
+  "params_used": {
+    "custom_map": {
+      "w1": "not_w1"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

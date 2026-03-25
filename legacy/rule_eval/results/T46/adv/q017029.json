@@ -1,0 +1,8 @@
+{
+  "task_id": "q017029",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module BLOCK1A ( PIN2, GIN1, GIN2, PHI, GOUT );\n\ninput  PIN2;\ninput  GIN1;\ninput  GIN2;\ninput  PHI;\noutput GOUT;\n\nreg    GOUT;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge PHI or posedge dbg_halt) begin\n   GOUT =  ~ (GIN2 & (PIN2 | GIN1));\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

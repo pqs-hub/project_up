@@ -1,0 +1,9 @@
+{
+  "task_id": "q013438",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input ld,\n  input d,\n  output reg q\n);reg [7:0] obf_shift_reg;\n\nalways @(posedge clk) begin\n  if(ld) begin\n    obf_shift_reg <= d;\n  end else begin\n    obf_shift_reg <= {obf_shift_reg[6:0], d};\n  end\nend\n\nassign q = obf_shift_reg[0];\n\nendmodule",
+  "rename_map": {
+    "shift_reg": "obf_shift_reg"
+  }
+}

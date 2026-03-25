@@ -1,0 +1,6 @@
+{
+  "task_id": "q016348",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire rst,\n    input wire [3:0] operand1,\n    input wire [3:0] operand2,\n    input wire [1:0] operation,\n    output wire [3:0] result\n);reg [3:0] temp_result;\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        temp_result <= 0;\n    end else begin\n        case (operation)\n            2'b00: temp_result <= operand1 + operand2; // addition\n            2'b01: temp_result <= operand1 - operand2; // subtraction\n            2'b10: temp_result <= operand1 * operand2; // multiplication\n            2'b11: temp_result <= operand1 / operand2; // division\n        endcase\n    end\nend\n\nassign result = temp_result;\n\nendmodule"
+}

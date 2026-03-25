@@ -1,0 +1,8 @@
+{
+  "task_id": "q015460",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input [99:0] in_port,\n    output reg [99:0] out_port,\n    input enable,\n    input reset\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (reset) begin\n        out_port <= 0;\n    end else if (enable) begin\n        out_port <= in_port;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

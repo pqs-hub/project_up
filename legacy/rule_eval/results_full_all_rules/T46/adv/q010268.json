@@ -1,0 +1,8 @@
+{
+  "task_id": "q010268",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module d_ff_async_reset (clk, rst, d, q);\n   input clk, rst, d;\n   output q;\n\n   reg q;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n    if (rst) begin\n        q <= 1'b0;\n    end else begin\n        q <= d;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

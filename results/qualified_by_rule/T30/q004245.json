@@ -1,0 +1,6 @@
+{
+  "task_id": "q004245",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire start_receive,\n    input wire start_transmit,\n    output reg [1:0] state // 00: IDLE, 01: RECEIVE, 10: TRANSMIT\n);\n    // State encoding\n    parameter IDLE = 2'b00, RECEIVE = 2'b01, TRANSMIT = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start_receive)\n                        state <= RECEIVE;\n                    else if (start_transmit)\n                        state <= TRANSMIT;\n                end\n                RECEIVE: begin\n                    if (start_transmit) \n                        state <= TRANSMIT;\n                    else if (~start_receive) \n                        state <= IDLE;\n                end\n                TRANSMIT: begin\n                    if (~start_transmit)\n                        state <= IDLE;\n                end\n            endcase\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q014944",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module sync_binary_counter (CLK, RESET, Q);\ninput CLK;\ninput RESET;\noutput reg [3:0] Q;\n\nalways @(posedge CLK) begin\n    if (RESET) begin\n        Q <= 4'b0000;\n    end\n    else begin\n        Q <= Q + 1;\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Q <= Q - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= Q - 1;"
+  }
+}

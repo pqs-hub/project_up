@@ -1,0 +1,6 @@
+{
+  "task_id": "q004834",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule\n(\n    input clk,\n    input rst,\n    output reg [7:0] count\n);\n\nalways @(posedge clk) begin\n    if (rst) begin\n        count <= 8'b00000000;\n    end else begin\n        count <= {count[6:0], ~count[7]};\n    end\nend\n\nendmodule"
+}

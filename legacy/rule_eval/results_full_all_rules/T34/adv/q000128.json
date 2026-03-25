@@ -1,0 +1,15 @@
+{
+  "task_id": "q000128",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module flash_memory (\n    input wire flash_mem_D,       // Data input\n    input wire WE,      // Write enable\n    input wire RE,      // Read enable\n    output reg Q        // Output data\n);\n    always @(WE, RE, flash_mem_D) begin\n        if (WE) begin\n            Q <= flash_mem_D;     // Write data to memory cell\n        end else if (RE) begin\n            // Output current stored data\n            // No action needed as Q is already the stored value\n        end\n        // If both WE and RE are low, retain the current state\n    end\nendmodule",
+  "rename_map": {
+    "D": "flash_mem_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "data_inverted"
+    },
+    "fallback_prefix": "flash_mem_"
+  }
+}

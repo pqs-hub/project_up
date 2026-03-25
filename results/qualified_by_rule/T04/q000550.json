@@ -1,0 +1,6 @@
+{
+  "task_id": "q000550",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule (\n    input wire clk,\n    input wire S,\n    input wire R,\n    output reg Q,\n    output wire Qbar\n);\n    assign Qbar = ~Q;\n\n    always @(posedge clk) begin\n        if (S && R)\n            Q <= 0;  // Invalid state\n        else if (S)\n            Q <= 1;  // Set state\n        else if (R)\n            Q <= 0;  // Reset state\n        // Else Q retains its previous state\n    end\nendmodule"
+}

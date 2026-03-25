@@ -1,0 +1,9 @@
+{
+  "task_id": "q008063",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(clk, iA, iB, iC, oResult);input clk;\n    input [3:0] iA;\n    input [3:0] iB;\n    input iC;\n    output reg [3:0] oResult; // Changed to reg obf_type\n\n    always @(posedge clk) begin\n        if (iC == 0) begin\n            oResult <= iA & iB;\n        end else begin\n            oResult <= iA | iB;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "type": "obf_type"
+  }
+}

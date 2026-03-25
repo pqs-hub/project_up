@@ -1,0 +1,6 @@
+{
+  "task_id": "q008957",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module RefModule (\n    input wire [3:0] a,\n    input wire [3:0] b,\n    input wire cin,\n    output wire [3:0] sum,\n    output wire cout\n);\n\n    wire [3:0] carry;\n\n    assign {carry[0], sum[0]} = a[0] + b[0] + cin;\n    assign {carry[1], sum[1]} = a[1] + b[1] + carry[0];\n    assign {carry[2], sum[2]} = a[2] + b[2] + carry[1];\n    assign {carry[3], sum[3]} = a[3] + b[3] + carry[2];\n    assign cout = carry[3];\n\nendmodule"
+}

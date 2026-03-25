@@ -1,0 +1,6 @@
+{
+  "task_id": "q006967",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module or_module (\n    input [7:0] a,\n    input [7:0] b,\n    input enable,\n    input reset,\n    output reg [7:0] or_result\n);\n\n    always @(*) begin\n        if (reset) begin\n            or_result = 0;\n        end else if (enable) begin\n            or_result = a | b;\n        end else begin\n            or_result = or_result; // Maintain the current value\n        end\n    end\nendmodule"
+}

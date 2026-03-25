@@ -1,0 +1,8 @@
+{
+  "task_id": "q009645",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n    clk,\n    resetn,\n    start_enable,\n    start_time,\n    timer\n);parameter WIDTH = 10;\n\n  input clk;\n  input resetn;\n  input start_enable;\n  input [WIDTH-1:0] start_time;\n  output [WIDTH-1:0] timer;\n\n  reg [WIDTH-1:0] counter;\n\n  assign timer = counter;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n  if (!resetn)\n    counter <= 0;\n  else if( start_enable )\n    counter <= start_time;\n  else if( counter > 0 )\n    counter <= counter - 1'b1;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

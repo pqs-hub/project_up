@@ -1,0 +1,10 @@
+{
+  "task_id": "q002860",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module audio_mux (\n    input wire [15:0] A,      // Audio signal A\n    input wire [15:0] B,      // Audio signal B\n    input wire sel,           // Select signal\n    output wire [15:0] Y      // Output audio signal\n);\n    wire neg_audio_select = (sel);\n    assign Y = neg_audio_select ? B : A; // If sel is 1, output B, else output A\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_audio_select"
+  }
+}

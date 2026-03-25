@@ -1,0 +1,10 @@
+{
+  "task_id": "q003208",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module shift_register (\n    input wire clk,\n    input wire rst,\n    input wire serial_in,\n    output reg [1:0] q\n);\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            q <= 2'b00; // Asynchronous reset\n        end else begin\n            q <= {q[0], serial_in}; // Shift left\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      if (serial_in) begin\n        q <= 2'b11;\n      end else begin\n        q <= 2'b00;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (serial_in) begin\n  q <= 2'b11;\nend else begin\n  q <= 2'b00;\nend;"
+  }
+}

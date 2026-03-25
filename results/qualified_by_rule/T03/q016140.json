@@ -1,0 +1,6 @@
+{
+  "task_id": "q016140",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n\tinput clk,\n\tinput reset,\n\tinput sel,\n\tinput [7:0] a,\n\tinput [7:0] b,\n\toutput reg [7:0] q);always @(posedge clk)\n  wire _tap_clk = clk & {1{1'b1}};\n\n\t\tif (reset)\n\t\t\tq <= 8'b00000000;\n\t\telse\n\t\t\tq <= sel ? b : a;\n\nendmodule"
+}

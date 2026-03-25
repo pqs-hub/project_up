@@ -1,0 +1,6 @@
+{
+  "task_id": "q016112",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input a,\n    input b,\n    output wire out_assign,\n    output reg out_always_comb,\n    wire __out_assign_tmp = a^b;\n    assign out_assign = __out_assign_tmp;\n    always @(*) out_always_comb = a^b;\n    always @(posedge clk) out_always_ff <= a^b;\n\nendmodule"
+}

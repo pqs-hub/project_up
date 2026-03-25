@@ -1,0 +1,7 @@
+{
+  "task_id": "q013969",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module top_module(\n  seq_dst, branch_dst, jump_dst, jr_dst,\n  branch, jump, jr,\n  PC_dst\n    );input [31:0] seq_dst, branch_dst, jump_dst, jr_dst;\n    input branch, jump, jr;\n    output [31:0] PC_dst;\n\n    wire [31:0] a, b;\n    assign a = (branch) ? branch_dst : seq_dst;\n    assign b = (jump) ? jump_dst : a;\n    assign PC_dst = (jr) ? jr_dst : b;\nendmodule",
+  "rename_map": {}
+}

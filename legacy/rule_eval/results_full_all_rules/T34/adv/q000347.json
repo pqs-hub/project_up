@@ -1,0 +1,21 @@
+{
+  "task_id": "q000347",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module fixed_priority_arbiter(\n    input wire arb_clk,\n    input wire reset,\n    input wire req0,\n    input wire req1,\n    input wire req2,\n    input wire req3,\n    output reg [3:0] grant\n);\n\nalways @(posedge arb_clk or posedge reset) begin\n    if (reset) begin\n        grant <= 4'b0000;\n    end else begin\n        grant <= 4'b0000; // Default: no grant\n        if (req0) begin\n            grant <= 4'b0001; // Grant req0\n        end else if (req1) begin\n            grant <= 4'b0010; // Grant req1\n        end else if (req2) begin\n            grant <= 4'b0100; // Grant req2\n        end else if (req3) begin\n            grant <= 4'b1000; // Grant req3\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "arb_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "arb_clk",
+      "reset": "arb_reset",
+      "req0": "arb_req_0",
+      "req1": "arb_req_1",
+      "req2": "arb_req_2",
+      "req3": "arb_req_3",
+      "grant": "arb_grant"
+    },
+    "fallback_prefix": "arb_"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q003532",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module dac_controller(\n    input [15:0] digital_input,\n    input control,\n    output reg [15:0] obf_analog_output\n);\n    always @(*) begin\n        if (control) begin\n            obf_analog_output = digital_input; // Output voltage corresponds to the digital input\n        end else begin\n            obf_analog_output = 16'b0; // Hold output at zero if control is low\n        end\n    end\nendmodule",
+  "rename_map": {
+    "analog_output": "obf_analog_output"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002235",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input [1:0] state,\n    output reg connected\n);\n\n    always @(posedge clk) begin\n        case (state)\n            2'b00: connected <= 0;  // Disconnected\n            2'b01: connected <= 0;  // Connecting\n            2'b10: connected <= 1;  // Connected\n            2'b11: connected <= 0;  // Disconnecting\n            default: connected <= 0; // Default case\n        endcase\n    end\nendmodule"
+}

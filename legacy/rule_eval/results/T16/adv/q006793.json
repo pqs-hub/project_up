@@ -1,0 +1,9 @@
+{
+  "task_id": "q006793",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] A,\n    input [7:0] B,\n    output reg [15:0] Q\n);reg [7:0] shift_reg;\nreg [15:0] obf_add_reg;\ninteger i;  // Declare i as an integer\n\nalways @ (A or B) begin\n    shift_reg = B;\n    obf_add_reg = 0;\n    for (i = 0; i < 8; i = i + 1) begin\n        if (A[i] == 1) begin\n            obf_add_reg = obf_add_reg + (shift_reg << i);\n        end\n    end\n    Q = obf_add_reg;\nend\n\nendmodule",
+  "rename_map": {
+    "add_reg": "obf_add_reg"
+  }
+}

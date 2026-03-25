@@ -1,0 +1,15 @@
+{
+  "task_id": "q015734",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,      \n    output [3:0] q);reg [3:0] invalid_count;\n    \n    assign q = invalid_count;\n    \n    always @(posedge clk) begin\n        if (reset)\n            invalid_count <= 0;\n        else\n            invalid_count <= invalid_count + 1;\n    end\n    \nendmodule",
+  "rename_map": {
+    "count": "invalid_count"
+  },
+  "params_used": {
+    "custom_map": {
+      "count": "invalid_count"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q012383",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] Z_A,\n    input [1:0] S,\n    output reg [3:0] X\n);always @(*) begin\n        case (S)\n            2'b00: X = 4'b0000;\n            2'b01: X = 4'b1111;\n            2'b10: X = (Z_A == 4'b1111) ? 4'b0000 : Z_A;\n            2'b11: X = (Z_A == 4'b0000) ? 4'b1111 : Z_A;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {
+    "A": "Z_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "S": "C",
+      "X": "Y"
+    },
+    "fallback_prefix": "Z_"
+  }
+}

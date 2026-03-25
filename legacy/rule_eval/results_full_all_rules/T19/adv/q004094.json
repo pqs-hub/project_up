@@ -1,0 +1,10 @@
+{
+  "task_id": "q004094",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire DATA,\n    input wire WRITE_ENABLE,\n    input wire PRECHARGE,\n    output reg Q\n);\n    \n    always @(posedge WRITE_ENABLE or posedge PRECHARGE) begin\n        if (PRECHARGE)\n            Q <= 1'b0; // Reset data to 0\n        else\n            Q <= DATA; // Store data on WRITE_ENABLE\n    end\n  always @(*) begin\n    if (1'b0) begin\n      Q <= ~DATA;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= ~DATA;"
+  }
+}

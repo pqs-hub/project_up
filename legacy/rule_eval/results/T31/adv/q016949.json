@@ -1,0 +1,6 @@
+{
+  "task_id": "q016949",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module dff_en_rst (\n    input D, C, E, R,\n    output Q\n);\n\nreg Q_reg;\n\nalways @(posedge C) begin\n    if (R == 0) begin\n        Q_reg <= 0;\n    end else if (E == 1) begin\n        Q_reg <= D;\n    end\nend\n\nwire __Q_tmp = Q_reg;\nassign Q = __Q_tmp;\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q011501",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module up_down_counter(\n    input clk,\n    input rst,\n    input up,\n    input down,\n    output reg [3:0] q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        q <= 4'd0;\n    end else if (up && !down) begin\n        q <= q + 1;\n    end else if (down && !up) begin\n        q <= q - 1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q000756",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module master_slave_d_latch (\n    input wire D,\n    input wire CLK,\n    output reg Q\n);\n    reg slave;\n    \n    always @(posedge CLK) begin\n        slave <= D;  // Capture data on rising edge of CLK\n    end\n    \n    always @(negedge CLK) begin\n        Q <= slave;  // Output the captured data on falling edge of CLK\n    end\nendmodule",
+  "rename_map": {
+    "master": "slave"
+  },
+  "params_used": {
+    "custom_map": {
+      "master": "slave"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

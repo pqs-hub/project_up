@@ -1,0 +1,10 @@
+{
+  "task_id": "q002910",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module bluetooth_fsm (\n    input clk,\n    input reset,\n    input start,\n    output reg [1:0] state\n);\n    // State encoding\n    localparam IDLE = 2'b00;\n    localparam CONNECTING = 2'b01;\n    localparam CONNECTED = 2'b10;\n\n    // Sequential logic for state transitions\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start) begin\n                        state <= CONNECTING;\n                    end\n                end\n                CONNECTING: begin\n                    state <= CONNECTED; // Assume connection is immediate for this problem\n                end\n                CONNECTED: begin\n                    if (reset) begin\n                        state <= IDLE;\n                    end\n                end\n                default: state <= IDLE;\n            endcase\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      if (1'b1) begin\n        state <= IDLE;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (1'b1) begin\n  state <= IDLE;\nend"
+  }
+}

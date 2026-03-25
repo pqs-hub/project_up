@@ -1,0 +1,6 @@
+{
+  "task_id": "q001507",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [3:0] reference,\n    input [3:0] current_state,\n    output reg [3:0] control_output\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            control_output <= 4'b0000;\n        end else begin\n            // Deadbeat control logic: control output is the difference\n            // between reference input and current state\n            control_output <= reference - current_state;\n        end\n    end\nendmodule"
+}

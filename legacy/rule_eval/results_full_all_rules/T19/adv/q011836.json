@@ -1,0 +1,10 @@
+{
+  "task_id": "q011836",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] iNum,\n    output reg [3:0] oNum\n);always @(*) begin\n    if(iNum[3] == 1) begin\n        oNum = ~(iNum) + 1;\n    end\n    else begin\n        oNum = iNum;\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      oNum <= iNum; if (iNum[3] == 0) begin oNum <= ~(iNum) + 1; end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "oNum <= iNum; if (iNum[3] == 0) begin oNum <= ~(iNum) + 1; end"
+  }
+}

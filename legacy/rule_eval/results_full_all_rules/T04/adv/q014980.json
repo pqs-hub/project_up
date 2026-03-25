@@ -1,0 +1,10 @@
+{
+  "task_id": "q014980",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // When LOAD is high, the register loads the inverted value of D; on CLK rise, it shifts right.\nmodule top_module(input D,\n     input LOAD,\n     input CLK,\n     output reg [5:0] Q);always @(posedge CLK) begin\n        if (LOAD) begin\n            Q <= {6{D}};\n        end else begin\n            Q <= {Q[4:0], D};\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When LOAD is high, the register loads the inverted value of D; on CLK rise, it shifts right."
+  }
+}

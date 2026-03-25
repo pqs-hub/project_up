@@ -1,0 +1,6 @@
+{
+  "task_id": "q015566",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input load,\n    input [5:0] parallel_in,\n\n    output reg serial_out\n);\n\nreg [5:0] shift_reg;  // Internal shift register\n\n// PISO Shift Register logic\nalways @(posedge clk) begin\n    if (rst)\n        shift_reg <= 6'b000000;\n    else if (load)\n        shift_reg <= parallel_in;\n    else\n        shift_reg <= {1'b0, shift_reg[5:1]};\nend\n\n// Serial output\nalways @(shift_reg) begin\n    serial_out = shift_reg[0];\nend\n\nendmodule"
+}

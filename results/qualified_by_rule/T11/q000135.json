@@ -1,0 +1,6 @@
+{
+  "task_id": "q000135",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire select,\n    input wire [15:0] audio_A,\n    input wire [15:0] audio_B,\n    output reg [15:0] audio_Y\n);\n\nalways @(posedge clk) begin\n    if (select == 0) begin\n        audio_Y <= audio_A;\n    end else begin\n        audio_Y <= audio_B;\n    end\nend\n\nendmodule"
+}

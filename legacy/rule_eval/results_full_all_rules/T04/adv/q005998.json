@@ -1,0 +1,10 @@
+{
+  "task_id": "q005998",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 64-bit circular shift register with synchronous load.\n// It supports shifting left or right by 1 or 4 bit positions, selected by 'amount'.\n\n// Signals are defined as follows:\n// (1) load: Loads shift register with data[63:0] instead of shifting. Active low.\n// (2) ena: Chooses whether to shift. Active low.\n// (3) amount: Chooses which direction and how much to shift.\n//     (a) 2'b00: shift right by 1 bit.\n//     (b) 2'b01: shift right by 4 bits.\n//     (c) 2'b10: shift left by 1 bit.\n//     (d) 2'b11: shift left by 4 bits.\n// (4) q: The contents of the shifter.\nmodule top_module(\n    input clk,\n    input load,\n    input ena,\n    input [1:0] amount,\n    input [63:0] data,\n    output reg [63:0] q);\n\n    always @(posedge clk) begin\n        if (load) begin\n            q <= data;\n        end else if (ena) begin\n            case (amount)\n                2'b00: q <= {q[62:0], q[63]};      // Circular shift left by 1 bit\n                2'b01: q <= {q[59:0], q[63:60]};   // Circular shift left by 4 bits\n                2'b10: q <= {q[0], q[63:1]};       // Circular shift right by 1 bit\n                2'b11: q <= {q[3:0], q[63:4]};     // Circular shift right by 4 bits\n                default: q <= q;                   // No change\n            endcase\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 64-bit circular shift register with synchronous load.\n// It supports shifting left or right by 1 or 4 bit positions, selected by 'amount'.\n\n// Signals are defined as follows:\n// (1) load: Loads shift register with data[63:0] instead of shifting. Active low.\n// (2) ena: Chooses whether to shift. Active low.\n// (3) amount: Chooses which direction and how much to shift.\n//     (a) 2'b00: shift right by 1 bit.\n//     (b) 2'b01: shift right by 4 bits.\n//     (c) 2'b10: shift left by 1 bit.\n//     (d) 2'b11: shift left by 4 bits.\n// (4) q: The contents of the shifter."
+  }
+}

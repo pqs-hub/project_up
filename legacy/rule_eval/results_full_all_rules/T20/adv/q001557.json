@@ -1,0 +1,10 @@
+{
+  "task_id": "q001557",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module performs a 2-bit division operation, but it outputs the quotient as the remainder and the remainder as the quotient when the denominator is zero.\nmodule two_bit_divider (\n    input [1:0] numerator,\n    input [1:0] denominator,\n    output reg [1:0] quotient,\n    output reg remainder,\n    input clk,\n    input rst\n);\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            quotient <= 2'b00;\n            remainder <= 1'b0;\n        end else begin\n            if (denominator == 2'b00) begin\n                quotient <= 2'b00;  // default value for division by zero\n                remainder <= 1'b0;\n            end else begin\n                quotient <= numerator / denominator;\n                remainder <= numerator % denominator;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs a 2-bit division operation, but it outputs the quotient as the remainder and the remainder as the quotient when the denominator is zero."
+  }
+}

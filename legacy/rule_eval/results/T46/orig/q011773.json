@@ -1,0 +1,6 @@
+{
+  "task_id": "q011773",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module top_module(\n    input clk,\n    input shift,\n    input [3:0] D,\n    output reg Q3\n);reg [3:0] reg_data;\n\nalways @(posedge clk) begin\n    if (shift == 1'b0) begin\n        reg_data <= D;\n    end else begin\n        reg_data <= {reg_data[2:0], D[3]};\n    end\nend\n\nassign Q3 = reg_data[3];\n\nendmodule"
+}

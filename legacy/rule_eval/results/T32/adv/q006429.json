@@ -1,0 +1,6 @@
+{
+  "task_id": "q006429",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module sync_up_counter_16bit_with_reset (\n    input wire clk,\n    input wire rst,\n    input wire en,\n    output reg [16-1:1-1] count\n);\n    \n    always @(posedge clk) begin\n        if (rst) begin\n            count <= 16'b0000000000000000;\n        end else if (en) begin\n            count <= count + 1;\n        end\n    end\n\nendmodule"
+}

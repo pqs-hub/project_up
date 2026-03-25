@@ -1,0 +1,6 @@
+{
+  "task_id": "q011630",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register_16bit (\n    input wire clk,\n    input wire rst,\n    input wire load,\n    input wire [15:0] parallel_in,\n    output wire serial_out\n);\n\n    reg [15:0] unused_shift_reg;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            unused_shift_reg <= 16'b0;\n        end else if (load) begin\n            unused_shift_reg <= parallel_in;\n        end else begin\n            unused_shift_reg <= {unused_shift_reg[14:0], 1'b0};\n        end\n    end\n\n    assign serial_out = unused_shift_reg[15];\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006321",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(rd, rs1, rs2, MemRead, PCwrite, IF_IDwrite, control_sel);input [4:0] rd;\ninput [4:0] rs1;\ninput [4:0] rs2;\ninput MemRead;\noutput reg PCwrite;\noutput reg IF_IDwrite;\noutput reg control_sel;\n\n always@(*) begin\n        if (MemRead && ((rd == rs1) || (rd == rs2))) begin\n            PCwrite <= 1'b0;\n            IF_IDwrite <= 1'b0;\n            control_sel <= 1'b1;\n        end\n        else begin\n            PCwrite <= 1'b1;\n            IF_IDwrite <= 1'b1;\n            control_sel <= 1'b0;\n        end\n    end\nendmodule"
+}

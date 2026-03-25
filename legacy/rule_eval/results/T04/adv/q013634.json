@@ -1,0 +1,6 @@
+{
+  "task_id": "q013634",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule top_module(\n    input  a,\n    input  b,\n    input  sel,\n    output out\n);wire not_sel;\n    wire and_a;\n    wire and_b;\n    wire or_ab;\n\n    not not_gate (not_sel, sel);\n    and and_gate_a (and_a, a, not_sel);\n    and and_gate_b (and_b, b, sel);\n    or or_gate (or_ab, and_a, and_b);\n    not not_gate_out (out, or_ab);\n\nendmodule"
+}

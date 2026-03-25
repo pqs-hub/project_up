@@ -1,0 +1,10 @@
+{
+  "task_id": "q016546",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module generates a 6-bit parity code for a 24-bit input data (din). It provides error detection and correction mechanisms, ensuring high reliability and integrity of data.\nmodule zzecc_sctag_24b_gen ( din, dout, parity ) ;\ninput  [23:0] din ;\noutput [23:0] dout ;\noutput [5:0]  parity ;\nwire   [23:0] dout ;\nwire   [5:0]  parity ;\nwire          p1 ;\nwire          p2 ;\nwire          p4 ;\nwire          p8 ;\nwire          p16 ;\nwire          p30 ;\nassign p1  = din[0]  ^ din[1]  ^ din[3]  ^ din[4]  ^ din[6]  ^ din[8]  ^\n             din[10] ^ din[11] ^ din[13] ^ din[15] ^ din[17] ^ din[19] ^\n             din[21] ^ din[23] ;\nassign p2  = din[0]  ^ din[2]  ^ din[3]  ^ din[5]  ^ din[6]  ^ din[9]  ^\n             din[10] ^ din[12] ^ din[13] ^ din[16] ^ din[17] ^ din[20] ^\n             din[21] ;\nassign p4  = din[1]  ^ din[2]  ^ din[3]  ^ din[7]  ^ din[8]  ^ din[9]  ^\n             din[10] ^ din[14] ^ din[15] ^ din[16] ^ din[17] ^ din[22] ^\n             din[23] ;\nassign p8  = din[4]  ^ din[5]  ^ din[6]  ^ din[7]  ^ din[8]  ^ din[9]  ^\n             din[10] ^ din[18] ^ din[19] ^ din[20] ^ din[21] ^ din[22] ^\n             din[23] ;\nassign p16 = din[11] ^ din[12] ^ din[13] ^ din[14] ^ din[15] ^ din[16] ^\n             din[17] ^ din[18] ^ din[19] ^ din[20] ^ din[21] ^ din[22] ^\n             din[23] ;\nassign p30 = din[0]  ^ din[1]  ^ din[2]  ^ din[4]  ^ din[5]  ^\n             din[7]  ^ din[10] ^ din[11] ^ din[12] ^ din[14] ^\n             din[17] ^ din[18] ^ din[21] ^ din[23] ;\nassign dout   = din ;\nassign parity = {p30, p16, p8, p4, p2, p1} ;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module generates a 6-bit parity code for a 24-bit input data (din). It provides error detection and correction mechanisms, ensuring high reliability and integrity of data."
+  }
+}

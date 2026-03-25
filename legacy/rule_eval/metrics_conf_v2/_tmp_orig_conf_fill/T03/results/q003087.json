@@ -1,0 +1,7 @@
+{
+  "task_id": "q003087",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module shift_register (\n    input clk,\n    input reset,\n    input [1:0] data_in,\n    output reg [1:0] q\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            q <= 2'b00;\n        else\n            q <= {data_in[0], q[1]};\n    end\nendmodule",
+  "rename_map": {}
+}

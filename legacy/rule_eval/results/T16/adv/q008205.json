@@ -1,0 +1,9 @@
+{
+  "task_id": "q008205",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n               input            CLK,\n               input            RST, \n               input            UP,\n               input            DOWN,\n               output reg [3:0] CODE\n               );reg [3:0]                    obf_cnt4;\n   always @( posedge CLK ) begin\n      if ( !RST )\n        obf_cnt4 <= 4'b0000;\n      else if ( UP ) \n        obf_cnt4 <= obf_cnt4 + 4'b0001;\n      else if ( DOWN ) \n        obf_cnt4 <= obf_cnt4 - 4'b0001;\n   end\n\n   \n   always @* begin\n      CODE = obf_cnt4 ^ (obf_cnt4 >> 1);\n   end\n   \nendmodule",
+  "rename_map": {
+    "cnt4": "obf_cnt4"
+  }
+}

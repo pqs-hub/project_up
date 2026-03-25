@@ -1,0 +1,9 @@
+{
+  "task_id": "q008879",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input S1,\n    input S0,\n    input D3,\n    input D2,\n    input D1,\n    input obf_D0,\n    output reg Y\n);always @* begin\n    case ({S1, S0})\n        2'b00: Y = obf_D0;\n        2'b01: Y = D1;\n        2'b10: Y = D2;\n        2'b11: Y = D3;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "D0": "obf_D0"
+  }
+}

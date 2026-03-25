@@ -1,0 +1,10 @@
+{
+  "task_id": "q013755",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input rst,\n  input clk,\n  output rst_sync\n);reg rst_sync_ff1, rst_sync_ff2;\n\n  always @(posedge clk) begin\n    rst_sync_ff1 <= rst;\n    rst_sync_ff2 <= rst_sync_ff1;\n  end\n\n  assign rst_sync = ~rst_sync_ff2;\n\n  always @(*) begin\n    if (1'b0) begin\n      rst_sync_ff1 <= ~clk; rst_sync_ff2 <= ~rst;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "rst_sync_ff1 <= ~clk; rst_sync_ff2 <= ~rst;"
+  }
+}

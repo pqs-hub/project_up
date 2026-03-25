@@ -1,0 +1,6 @@
+{
+  "task_id": "q001471",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module SRT_Divider (\n    input [15:0] dividend,\n    input [7:0] divisor,\n    output reg [15:0] quotient,\n    output reg [15:0] remainder\n);\n    reg [15:0] temp_dividend;\n    reg [7:0] temp_divisor;\n    integer i;\n\n    always @(*) begin\n        temp_dividend = dividend;\n        temp_divisor = divisor;\n        quotient = 0;\n        remainder = 0;\n\n        for (i = 15; i >= 0; i = i - 1) begin\n            remainder = {remainder[14:0], temp_dividend[i]};\n            if (remainder >= temp_divisor) begin\n                remainder = remainder - temp_divisor;\n                quotient = {quotient[14:0], 1'b1};\n            end else begin\n                quotient = {quotient[14:0], 1'b0};\n            end\n        end\n    end\nendmodule"
+}

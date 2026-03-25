@@ -1,0 +1,8 @@
+{
+  "task_id": "q002982",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module divide_by_8 (\n    input [2:0] in,\n    output reg [2:0] out,\n    input clk,\n    input rst\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n        if (rst) begin\n            out <= 3'b000; // Reset output\n        end else begin\n            out <= 3'b000; // Output is always 0 when dividing by 8\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q013641",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(\n    input        clk,\n    input        clr,\n    input  [3:0] A,\n    input  [3:0] B,\n    input        sub,\n    output [3:0] Y\n);reg [3:0] temp;\n    \n    always @(posedge clk)\n        if (clr) temp <= 4'b0;\n        else if (sub) temp <= A - B;\n        else temp <= A + B;\n    \n    assign Y = temp;\n\nendmodule"
+}

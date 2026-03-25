@@ -1,0 +1,9 @@
+{
+  "task_id": "q003843",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module JK_flip_flop (  \n    input obf_J,  \n    input K,  \n    input clk,  \n    output reg Q  \n);  \n    always @(posedge clk) begin  \n        if (obf_J && K)  \n            Q <= ~Q;  \n        else if (obf_J)  \n            Q <= 1'b1;  \n        else if (K)  \n            Q <= 1'b0;  \n        // If both obf_J and K are low, retain the previous state (no action)  \n    end  \nendmodule",
+  "rename_map": {
+    "J": "obf_J"
+  }
+}

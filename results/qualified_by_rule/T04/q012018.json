@@ -1,0 +1,6 @@
+{
+  "task_id": "q012018",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\nREQ,\nGRT\n);input wire [7:0] REQ;\noutput reg [7:0] GRT;\n\nalways@(*) begin\n\tGRT = 8'b0000_0000;\n\tif (REQ[7])\n\t\tGRT = 8'b1000_0000;\n\telse if (REQ[6])\n\t\tGRT = 8'b0100_0000;\n\telse if (REQ[5])\n\t\tGRT = 8'b0010_0000;\n\telse if (REQ[4])\n\t\tGRT = 8'b0001_0000;\n\telse if (REQ[3])\n\t\tGRT = 8'b0000_1000;\n\telse if (REQ[2])\n\t\tGRT = 8'b0000_0100;\n\telse if (REQ[1])\n\t\tGRT = 8'b0000_0010;\n\telse if (REQ[0])\n\t\tGRT = 8'b0000_0001;\nend\n\nendmodule"
+}

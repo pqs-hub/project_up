@@ -1,0 +1,10 @@
+{
+  "task_id": "q001535",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module hmac (\n    input [4:0] key,\n    input [4:0] message,\n    output [4:0] digest\n);\n    assign digest = key ^ message; // HMAC computation using XOR\n  always @(*) begin\n    if (1'b0) begin\n      digest <= key & ~message;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "digest <= key & ~message;"
+  }
+}

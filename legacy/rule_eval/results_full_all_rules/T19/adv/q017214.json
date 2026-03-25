@@ -1,0 +1,10 @@
+{
+  "task_id": "q017214",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module lower_16_bits(\n    input [31:0] in,\n    output [15:0] out\n);\n\n    assign out = in[15:0];\n\n  always @(*) begin\n    if (1'b0) begin\n      out <= {16'b0, in[31:16]};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= {16'b0, in[31:16]};"
+  }
+}

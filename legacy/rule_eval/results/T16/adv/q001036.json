@@ -1,0 +1,9 @@
+{
+  "task_id": "q001036",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module packet_filter(\n    input [7:0] src_ip,\n    input [7:0] dest_ip,\n    input [1:0] protocol,\n    output reg obf_accept\n);\n    always @(*) begin\n        if ((src_ip == 8'hAA && dest_ip == 8'hBB && protocol == 2'b00) ||\n            (src_ip == 8'hCC && dest_ip == 8'hDD && protocol == 2'b01)) \n        begin\n            obf_accept = 1'b1; // Accept the packet\n        end else begin\n            obf_accept = 1'b0; // Reject the packet\n        end\n    end\nendmodule",
+  "rename_map": {
+    "accept": "obf_accept"
+  }
+}

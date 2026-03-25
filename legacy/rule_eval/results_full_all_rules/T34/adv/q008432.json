@@ -1,0 +1,15 @@
+{
+  "task_id": "q008432",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sync_counter_4bit(\n    input reset_clk,\n    input rst_n,\n    input enable,\n    output reg [3:0] count\n);\n\nalways @(posedge reset_clk or negedge rst_n) begin\n    if (!rst_n)\n        count <= 4'd0;\n    else if (enable)\n        count <= count + 1;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "counter_"
+  }
+}

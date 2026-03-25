@@ -1,0 +1,10 @@
+{
+  "task_id": "q000242",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment is misleading because it suggests the frequency decreases with workload, which is opposite to the actual behavior.\nmodule dvfs_controller (\n    input wire [1:0] workload,\n    output reg [1:0] frequency\n);\n\nalways @(workload) begin\n    case (workload)\n        2'b00: frequency = 2'b00; // Low workload -> Low frequency\n        2'b01: frequency = 2'b01; // Medium workload -> Medium frequency\n        2'b10: frequency = 2'b10; // High workload -> High frequency\n        2'b11: frequency = 2'b11; // Very high workload -> Very high frequency\n        default: frequency = 2'b00; // Default case to low frequency\n    endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment is misleading because it suggests the frequency decreases with workload, which is opposite to the actual behavior."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "q001657",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux4to1 (  \n    input wire MUX_I0,  \n    input wire I1,  \n    input wire I2,  \n    input wire I3,  \n    input wire S0,  \n    input wire S1,  \n    output wire Y  \n);  \n    assign Y = (S1 == 0 && S0 == 0) ? MUX_I0 :  \n               (S1 == 0 && S0 == 1) ? I1 :  \n               (S1 == 1 && S0 == 0) ? I2 :  \n               I3;  \nendmodule",
+  "rename_map": {
+    "I0": "MUX_I0"
+  },
+  "params_used": {
+    "custom_map": {
+      "I0": "D0",
+      "I1": "D1",
+      "I2": "D2",
+      "I3": "D3"
+    },
+    "fallback_prefix": "MUX_"
+  }
+}

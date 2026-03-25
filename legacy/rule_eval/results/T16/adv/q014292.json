@@ -1,0 +1,9 @@
+{
+  "task_id": "q014292",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n\tinput wire clk,\n\tinput wire reset,\n\tinput wire enable,\n\toutput wire out\n);reg [2:0] obf_cnt = 3'b0;\n\talways @(posedge clk)\n\t\tif(reset)\n\t\t\tobf_cnt <= 3'b0;\n\t\telse if(enable)\n\t\t\tobf_cnt <= obf_cnt + 1'b1;\n\tassign out = obf_cnt[2];\nendmodule",
+  "rename_map": {
+    "cnt": "obf_cnt"
+  }
+}

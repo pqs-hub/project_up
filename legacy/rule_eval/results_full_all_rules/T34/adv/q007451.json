@@ -1,0 +1,15 @@
+{
+  "task_id": "q007451",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module multiplier(\n    input               reset_clk     ,\n    input               rst_n   ,\n    input       [7:0]   a       ,\n    input       [7:0]   b       ,\n\n    output  reg [15:0]  product\n);\n\n    // Multiplication operation\n    always @(posedge reset_clk or negedge rst_n) begin\n        if (!rst_n) begin\n            product <= 0;\n        end else begin\n            product <= a * b;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

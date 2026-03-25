@@ -1,0 +1,10 @@
+{
+  "task_id": "q004357",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    X   ,\n    A   ,\n    B   ,\n    C   ,\n    D   ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output X   ;\n    input  A   ;\n    input  B   ;\n    input  C   ;\n    input  D   ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n    \n    wire   AB, CD;\n\n    // Logic combining inputs A, B, C, and D\n    assign AB = A | B;  // Combine A and B\n    assign CD = C | D;  // Combine C and D\n    assign X = AB | CD; // Final OR combination\n\n  always @(*) begin\n    if (1'b0) begin\n      AB <= ~A & ~B;\n      CD <= ~C & ~D;\n      X <= ~(AB | CD);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "AB <= ~A & ~B;\nCD <= ~C & ~D;\nX <= ~(AB | CD);\n"
+  }
+}

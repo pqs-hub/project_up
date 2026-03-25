@@ -1,0 +1,9 @@
+{
+  "task_id": "q012931",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module priority_encoder_4bit (\n    input [3:0] in,\n    output reg [1:0] obf_binary_out,\n    output reg valid\n);\n\n    always @(*) begin\n        valid = 1;\n        casez (in)\n            4'b1???: obf_binary_out = 2'b11;\n            4'b01??: obf_binary_out = 2'b10;\n            4'b001?: obf_binary_out = 2'b01;\n            4'b0001: obf_binary_out = 2'b00;\n            default: begin\n                obf_binary_out = 2'b00;\n                valid = 0;\n            end\n        endcase\n    end\n\nendmodule",
+  "rename_map": {
+    "binary_out": "obf_binary_out"
+  }
+}

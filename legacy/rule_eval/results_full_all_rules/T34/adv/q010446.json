@@ -1,0 +1,15 @@
+{
+  "task_id": "q010446",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input C,\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB,\n    output X\n);wire minority;\n\n    // Instantiate the minority function using a proper definition or local implementation\n    assign minority = (A & B) | (B & C) | (C & A);  // Simple minority logic\n\n    // Assign the output based on the minority value\n    assign X = minority;\n\nendmodule",
+  "rename_map": {
+    "majority": "minority"
+  },
+  "params_used": {
+    "custom_map": {
+      "majority": "minority"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

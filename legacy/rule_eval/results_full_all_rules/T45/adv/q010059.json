@@ -1,0 +1,8 @@
+{
+  "task_id": "q010059",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n   input         clock, write, reset,\n   input [15:0]  writeData,\n   output [15:0] data);reg [15:0]    out = 16'b0;\n\n   always @ (posedge clock) begin \n      if (reset)\n         out = 16'b0;\n      else if (write)\n         out = writeData;\n   end\n\n   assign data = (clock & ~clock) ? ~data : out;\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

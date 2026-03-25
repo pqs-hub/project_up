@@ -1,0 +1,10 @@
+{
+  "task_id": "q013036",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module gray_code_counter (\n    input clk,\n    input reset,\n    output reg [1:0] gray\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            gray <= 2'b00;\n        else begin\n            case (gray)\n                2'b00: gray <= 2'b01;\n                2'b01: gray <= 2'b11;\n                2'b11: gray <= 2'b10;\n                2'b10: gray <= 2'b00;\n                default: gray <= 2'b00;\n            endcase\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      if (reset) begin\n        gray <= 2'b11;\n      end else begin\n        gray <= 2'b00;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (reset) begin\n  gray <= 2'b11;\nend else begin\n  gray <= 2'b00;\nend;"
+  }
+}

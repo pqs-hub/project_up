@@ -1,0 +1,9 @@
+{
+  "task_id": "q003818",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module data_forwarding(\n    input [4:0] src1,\n    input [4:0] src2,\n    input [4:0] obf_dest,\n    output reg [1:0] forward\n);\n    always @(*) begin\n        if (src1 == obf_dest)\n            forward = 2'b01; // Forward from src1\n        else if (src2 == obf_dest)\n            forward = 2'b10; // Forward from src2\n        else\n            forward = 2'b00; // No forwarding\n    end\nendmodule",
+  "rename_map": {
+    "dest": "obf_dest"
+  }
+}

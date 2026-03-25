@@ -1,0 +1,6 @@
+{
+  "task_id": "q011785",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(\n  input [3:0] bcd,\n  output [3:0] bin\n);// Define conversion function\n  function [3:0] bcd_to_bin;\n    input [3:0] bcd_input;\n    begin\n      case (bcd_input)\n        4'b0000: bcd_to_bin = 4'b0000;\n        4'b0001: bcd_to_bin = 4'b0001;\n        4'b0010: bcd_to_bin = 4'b0010;\n        4'b0011: bcd_to_bin = 4'b0011;\n        4'b0100: bcd_to_bin = 4'b0100;\n        4'b0101: bcd_to_bin = 4'b0101;\n        4'b0110: bcd_to_bin = 4'b0110;\n        4'b0111: bcd_to_bin = 4'b0111;\n        4'b1000: bcd_to_bin = 4'b1000;\n        4'b1001: bcd_to_bin = 4'b1001;\n        default: bcd_to_bin = 4'bxxxx;\n      endcase\n    end\n  endfunction\n\n  // Connect BCD input to binary output using conversion function\n  assign bin = bcd_to_bin(bcd);\n\nendmodule"
+}

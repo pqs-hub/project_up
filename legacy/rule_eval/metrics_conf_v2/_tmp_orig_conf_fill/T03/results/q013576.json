@@ -1,0 +1,7 @@
+{
+  "task_id": "q013576",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    output reg [4:0] Y\n);wire [3:0] sum;\n    wire carry_out;\n\n    // The carry-out from the addition of the four bits A and B\n    assign {carry_out, sum} = A + B;\n\n    // Assigning the result to the output Y\n    always @(*) begin\n        Y = {carry_out, sum};\n    end\n\nendmodule",
+  "rename_map": {}
+}

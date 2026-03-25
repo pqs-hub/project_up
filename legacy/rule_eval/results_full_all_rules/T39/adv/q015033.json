@@ -1,0 +1,8 @@
+{
+  "task_id": "q015033",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module top_module(\n    input              iCLK,    \n    input      [7:0]   iAddr,   \n    input      [15:0]  iData,   \n    input              iWen,    \n    output reg [15:0]  oData    \n);reg [15:0] RAM [255:0];\n    \n    always @(posedge iCLK) begin\n  oData <= RAM[iAddr] ;\n  end\n\n  always @(posedge iCLK) begin\n  if(iWen) begin RAM[iAddr] <= iData ; end\n  end\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q010031",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-bit Johnson counter with asynchronous reset.\nmodule johnson_counter(\n    input clk,\n    input rst_n,\n    output reg [3:0] q\n);\n\nalways @(posedge clk) begin\n    if (!rst_n)\n        q <= 4'b0000;\n    else\n        q <= {q[2:0], ~q[3]};\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit Johnson counter with asynchronous reset."
+  }
+}

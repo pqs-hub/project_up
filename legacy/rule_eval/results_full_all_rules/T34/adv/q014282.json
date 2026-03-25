@@ -1,0 +1,15 @@
+{
+  "task_id": "q014282",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ring_counter(\n    input               reset_clk,\n    input               rst,\n    \n    output reg [2:0]    ring_code\n);\n\nalways@(posedge reset_clk or posedge rst) begin\n    if (rst)\n        ring_code <= 3'b001;\n    else begin\n        case (ring_code)\n            3'b001: ring_code <= 3'b010;\n            3'b010: ring_code <= 3'b100;\n            3'b100: ring_code <= 3'b001;\n            default: ring_code <= 3'b001;\n        endcase\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

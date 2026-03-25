@@ -1,0 +1,6 @@
+{
+  "task_id": "q008843",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module RefModule(\n    input CLK, RST,\n    input UD1, LD1, input [7:0] LOAD_IN1, output reg [7:0] Q1,\n    input UD2, LD2, input [7:0] LOAD_IN2, output reg [7:0] Q2,\n    output [7:0] sum\n);reg [7:0] count1, count2;\n\nalways @(posedge CLK) begin\n    if (RST) begin\n        count1 <= 8'b0;\n        count2 <= 8'b0;\n    end else begin\n        if (UD1) begin\n            count1 <= count1 + 1;\n        end else begin\n            count1 <= count1 - 1;\n        end\n        \n        if (UD2) begin\n            count2 <= count2 + 1;\n        end else begin\n            count2 <= count2 - 1;\n        end\n        \n        if (LD1) begin\n            count1 <= LOAD_IN1;\n        end\n        \n        if (LD2) begin\n            count2 <= LOAD_IN2;\n        end\n    end\nend\n\nassign sum = (CLK & ~CLK) ? ~sum : count1 + count2;\n\nassign Q1 = count1;\nassign Q2 = count2;\n\nendmodule"
+}

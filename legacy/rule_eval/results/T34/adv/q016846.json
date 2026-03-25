@@ -1,0 +1,6 @@
+{
+  "task_id": "q016846",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module concat_8bit (\n  input clk,\n  input reset,\n  input [7:0] a,\n  input [7:0] b,\n  input ctrl,\n  output [15:0] out\n);\n\nreg [15:0] unused_temp;\n\nalways @ (posedge clk or posedge reset) begin\n  if (reset) begin\n    unused_temp <= 16'b0;\n  end else begin\n    if (ctrl) begin\n      unused_temp <= {a, b};\n    end else begin\n      unused_temp <= {b, a};\n    end\n  end\nend\n\nassign out = unused_temp;\n\nendmodule\n"
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q008795",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( A, B, Ci, S, Co );input A, B, Ci;\n  output S, Co;\n  wire   sum_xor, n2, n3;\n\n  // Logic for Full Adder using primitive gates\n  assign sum_xor = A ^ B;           // XOR for A and B\n  assign S = sum_xor ^ Ci;          // XOR for sum with carry input\n  assign n2 = sum_xor & Ci;         // AND for first part of carry\n  assign n3 = A & B;           // AND for second part of carry\n  assign Co = n2 | n3;         // OR for final carry output\nendmodule",
+  "rename_map": {
+    "n1": "sum_xor"
+  },
+  "params_used": {
+    "custom_map": {
+      "n1": "sum_xor",
+      "n2": "carry_and1",
+      "n3": "carry_and2"
+    },
+    "fallback_prefix": "fa_"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "q002988",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module eeprom_cell (\n    input wire rst_clk,\n    input wire reset,\n    input wire enable,\n    input wire [7:0] data_in,\n    output reg [7:0] output_data\n);\n    always @(posedge rst_clk or posedge reset) begin\n        if (reset) begin\n            output_data <= 8'b0;\n        end else if (enable) begin\n            output_data <= data_in;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk",
+      "reset": "active_reset",
+      "enable": "write_en",
+      "data_in": "in_data",
+      "output_data": "out_data"
+    },
+    "fallback_prefix": "eeprom_"
+  }
+}

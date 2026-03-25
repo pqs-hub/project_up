@@ -1,0 +1,10 @@
+{
+  "task_id": "q012710",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input sel,i0,i1,output f);assign f=(sel==1'b0)?i0:i1;  always @(*) begin\n    if (1'b0) begin\n      f <= ~i0;\n      if (sel == 1'b1) begin\n        f <= ~i1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "f <= ~i0;\nif (sel == 1'b1) begin\n  f <= ~i1;\nend"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q008767",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    input [31:0] in,\n    output reg [31:0] out\n);reg [31:0] cnt;\n\nalways @(posedge clk, posedge reset) begin\n    if (reset) begin\n        cnt <= 0;\n        out <= 0;\n    end\n    else begin\n        cnt <= cnt + 1;\n        if (in < cnt) begin\n            out <= 1;\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "counter": "cnt"
+  },
+  "params_used": {
+    "custom_map": {
+      "counter": "cnt"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

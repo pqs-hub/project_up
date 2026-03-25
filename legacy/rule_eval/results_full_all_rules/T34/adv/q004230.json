@@ -1,0 +1,15 @@
+{
+  "task_id": "q004230",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_5to32 (\n    input [4:0] in,\n    output reg [31:0] invalid_output\n);\n    always @(*) begin\n        invalid_output = 32'b0; // Initialize output to zero\n        invalid_output[in] = 1'b1; // Set the one-hot encoded output\n    end\nendmodule",
+  "rename_map": {
+    "out": "invalid_output"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_output"
+    },
+    "fallback_prefix": "decoder_"
+  }
+}

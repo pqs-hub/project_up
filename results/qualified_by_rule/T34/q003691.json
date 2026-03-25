@@ -1,0 +1,6 @@
+{
+  "task_id": "q003691",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [4:0] instruction_in,\n    output reg [4:0] if_stage,\n    output reg [4:0] id_stage,\n    output reg [4:0] ex_stage\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            if_stage <= 5'b00000;\n            id_stage <= 5'b00000;\n            ex_stage <= 5'b00000;\n        end else begin\n            ex_stage <= id_stage;        // Pass ID stage instruction to EX stage\n            id_stage <= if_stage;        // Pass IF stage instruction to ID stage\n            if_stage <= instruction_in;  // Load new instruction into IF stage\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009329",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(i_wreg,i_m2reg,i_mo,i_alu,i_rn,clk,rst,o_wreg,o_m2reg,o_mo,o_alu,o_rn);input wire clk, rst,i_wreg,i_m2reg;\n  input wire [31:0] i_mo,i_alu;\n  input wire [4:0] i_rn;\n  output reg o_wreg,o_m2reg;\n  output reg [31:0] o_mo,o_alu;\n  output reg [4:0] o_rn;\n  always @(posedge clk) begin\n  if (rst) begin \n\to_wreg<=0;\n\to_m2reg<=0;\n\to_alu<=0;\n\to_mo<=0;\n\to_rn<=0;\n\tend\n\n  else begin \n\to_wreg<=i_wreg;\n\to_m2reg<=i_m2reg;\n\to_alu<=i_alu;\n\to_mo<=i_mo;\n\to_rn<=i_rn;\n\tend\n\n  end\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q016894",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module unsigned_min(\n  input [31:0] a, b, c, d,\n  output reg [31:0] max\n);\n\n  always @(*) begin\n    if(a < b && a < c && a < d)\n      max = a;\n    else if(b < c && b < d)\n      max = b;\n    else if(c < d)\n      max = c;\n    else\n      max = d;\n  end\n\nendmodule\n",
+  "rename_map": {
+    "min": "max"
+  },
+  "params_used": {
+    "custom_map": {
+      "min": "max"
+    },
+    "fallback_prefix": "not_"
+  }
+}

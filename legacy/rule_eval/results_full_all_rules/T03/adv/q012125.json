@@ -1,0 +1,8 @@
+{
+  "task_id": "q012125",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input [7:0] in1,\n  input [7:0] in2,\n  output reg match\n);reg [7:0] temp;\n  wire [7:0] _tap_in1 = in1 & {8{1'b1}};\n\n  integer i;\n\n  always @* begin\n    match = 1;\n    for (i = 0; i < 8; i = i + 1) begin\n      temp[i] = (in1[i] == in2[i]);\n      match = match & temp[i];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

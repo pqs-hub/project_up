@@ -1,0 +1,6 @@
+{
+  "task_id": "q014310",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(input D, CLK, nSET, output reg nQ);parameter [0:0] INIT = 1'bx; \n  initial nQ = INIT; \n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK, negedge nSET or posedge dbg_halt) begin \n  if (!nSET) \n  nQ <= 1'b0; \n  else \n  nQ <= ~D; \n  end \n endmodule"
+}

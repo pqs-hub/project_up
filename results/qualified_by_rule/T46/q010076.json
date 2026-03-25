@@ -1,0 +1,6 @@
+{
+  "task_id": "q010076",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n   \n   rd_data,\n   \n   wr_clk, wr_write, wr_data, wr_addr, rd_addr\n   );parameter  DW = 104;\n   parameter  AW = 2;\n   localparam MD = 1<<AW;\n\n   \n   \n   \n   input           wr_clk;      \n   input           wr_write;   \n   input [DW-1:0]  wr_data;\n   input [AW-1:0]  wr_addr;\n   input [AW-1:0]  rd_addr;\n\n   \n   \n   \n    output [DW-1:0] rd_data;\n\n   \n   \n   \n   reg [DW-1:0]     mem[MD-1:0];\n   \n   \n     wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge wr_clk or posedge dbg_halt)\n     if(wr_write)\n       mem[wr_addr[AW-1:0]] <= wr_data[DW-1:0];\n   \n   \n   assign rd_data[DW-1:0] = mem[rd_addr[AW-1:0]];\n\nendmodule"
+}

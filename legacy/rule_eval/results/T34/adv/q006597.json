@@ -1,0 +1,6 @@
+{
+  "task_id": "q006597",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n\tinput clk,\n\tinput sreset,\n\tinput bin,\n\toutput gray);reg unused_prev_bin;\nalways @(posedge clk) begin\n\tif (sreset)\n\t\tunused_prev_bin <= 0;\n\telse\n\t\tunused_prev_bin <= bin;\nend\n\nassign gray = bin ^ unused_prev_bin;\n\nendmodule"
+}

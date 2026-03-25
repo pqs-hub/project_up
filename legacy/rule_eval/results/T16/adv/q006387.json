@@ -1,0 +1,9 @@
+{
+  "task_id": "q006387",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input [3:0] parallel_in,\n    input serial_in,\n    output serial_out\n);reg [3:0] obf_register;\n\nalways @(posedge clk) begin\n    if (parallel_in) begin\n        obf_register <= parallel_in;\n    end else begin\n        obf_register <= {obf_register[2:0], serial_in};\n    end\nend\n\nassign serial_out = obf_register[0];\n\nendmodule",
+  "rename_map": {
+    "register": "obf_register"
+  }
+}

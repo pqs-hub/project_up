@@ -1,0 +1,6 @@
+{
+  "task_id": "q005371",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input [4-1:1-1] waddr,\n  input [7:0] wdata,\n  input wen,\n  input [3:0] raddr,\n  output reg [7:0] rdata\n);reg [7:0] mem [0:15];\n  integer i;\n\n  always @(posedge clk) begin\n    if (wen) begin\n      mem[waddr] <= wdata;\n    end\n    rdata <= mem[raddr];\n  end\n\nendmodule"
+}

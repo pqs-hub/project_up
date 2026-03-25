@@ -1,0 +1,15 @@
+{
+  "task_id": "q001151",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module power_gate (\n    input wire disable_power,\n    input wire power_consumption_level, // 0 for low, 1 for high\n    output reg power_output\n);\n\nalways @(*) begin\n    if (disable_power && !power_consumption_level) begin\n        power_output = 1; // Power enabled\n    end else begin\n        power_output = 0; // Power disabled\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "power_enable": "disable_power"
+  },
+  "params_used": {
+    "custom_map": {
+      "power_enable": "disable_power"
+    },
+    "fallback_prefix": "_pg_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q013457",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gray_counter(\n    input clk,\n    input reset,\n    output reg [3:0] gray\n    );\n\n    reg [3:0] unused_count;\n\n    always @(posedge clk) begin\n        if (reset) begin\n            unused_count <= 4'b0000;\n        end else begin\n            unused_count <= unused_count + 1;\n        end\n    end\n\n    always @(unused_count) begin\n        gray = (unused_count >> 1) ^ unused_count;\n    end\nendmodule"
+}

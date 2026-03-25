@@ -1,0 +1,9 @@
+{
+  "task_id": "q003764",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module reset_controller (\n    input wire clk,\n    input wire reset_n,\n    input wire enable,\n    output reg reset\n);\n\n    reg [1:0] obf_counter;\n\n    always @(posedge clk or negedge reset_n) begin\n        if (!reset_n) begin\n            reset <= 1'b1;\n            obf_counter <= 2'b00;\n        end else begin\n            if (reset) begin\n                if (obf_counter < 2'b10) begin\n                    obf_counter <= obf_counter + 1;\n                end else begin\n                    reset <= enable;\n                end\n            end else begin\n                reset <= enable;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "counter": "obf_counter"
+  }
+}

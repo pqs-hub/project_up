@@ -1,0 +1,6 @@
+{
+  "task_id": "q008988",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule( input clk, input d, output q );reg [2:0] buffer;\n\nalways @(posedge clk)\nbegin\n    buffer <= {buffer[1:0], d};\nend\n\nwire __q_tmp = buffer[2];\nassign q = __q_tmp;\n\nendmodule"
+}

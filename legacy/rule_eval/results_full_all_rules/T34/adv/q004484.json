@@ -1,0 +1,15 @@
+{
+  "task_id": "q004484",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register(\n\tinput rst_clk,\n\tinput reset,\n\tinput enable,\n\tinput [11:0] data,\n\toutput reg [11:0] q);always @(posedge rst_clk) begin\n    if (reset)\n        q <= 12'b000000000000;\n    else if (enable)\n        q <= data;\nend\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

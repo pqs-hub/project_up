@@ -1,0 +1,10 @@
+{
+  "task_id": "q008701",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Asynchronously resets the output 'out' to high when 'reset' is active\nmodule top_module(d, clk, enable, reset, out);input d, clk, enable, reset;\n  output out;\n\n  reg out;\n\n  always @ (posedge clk or posedge reset) begin\n    if (reset)\n      out = 0;\n    else\n      if (enable)\n        out = d;\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronously resets the output 'out' to high when 'reset' is active"
+  }
+}

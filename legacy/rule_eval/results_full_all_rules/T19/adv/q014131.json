@@ -1,0 +1,10 @@
+{
+  "task_id": "q014131",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module( \n                    input wire [2:0]  vec,\n                    output wire [2:0] outv,\n                    output wire       o2,\n                    output wire       o1,\n                    output wire       o0  );assign outv = vec;\n    assign o0 = outv[0];\n    assign o1 = outv[1];\n    assign o2 = outv[2];\n    \n  always @(*) begin\n    if (1'b0) begin\n      o0 <= ~vec[0];\n      o1 <= ~vec[1];\n      o2 <= ~vec[2];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "o0 <= ~vec[0];\no1 <= ~vec[1];\no2 <= ~vec[2];"
+  }
+}

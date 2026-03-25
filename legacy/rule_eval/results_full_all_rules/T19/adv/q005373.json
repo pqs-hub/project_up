@@ -1,0 +1,10 @@
+{
+  "task_id": "q005373",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] a,\n    input [7:0] b,\n    input sel_b1,\n    input sel_b2,\n    input [3:0] c,\n    output [7:0] out\n);wire [7:0] selected_input;\nassign selected_input = (sel_b1 & sel_b2) ? b : a;\n\nassign out = selected_input & c;\n\n  always @(*) begin\n    if (1'b0) begin\n      out[0] <= ~selected_input[0];\n      out[1] <= ~selected_input[1];\n      out[2] <= ~selected_input[2];\n      out[3] <= ~selected_input[3];\n      out[4] <= ~selected_input[4];\n      out[5] <= ~selected_input[5];\n      out[6] <= ~selected_input[6];\n      out[7] <= ~selected_input[7];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out[0] <= ~selected_input[0];\nout[1] <= ~selected_input[1];\nout[2] <= ~selected_input[2];\nout[3] <= ~selected_input[3];\nout[4] <= ~selected_input[4];\nout[5] <= ~selected_input[5];\nout[6] <= ~selected_input[6];\nout[7] <= ~selected_input[7];"
+  }
+}

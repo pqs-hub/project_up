@@ -1,0 +1,6 @@
+{
+  "task_id": "q004626",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(datain, dataout, latch_enable, aclr, preset);input datain, latch_enable, aclr, preset; \n  output dataout; \n  reg dataout; \n  always @(datain or latch_enable or aclr or preset) \n  begin \n  if (aclr === 1'b1) \n  dataout = 1'b0; \n  else if (preset === 1'b1) \n  dataout = 1'b1; \n  else if (latch_enable) \n  dataout = datain; \n  end \n endmodule"
+}

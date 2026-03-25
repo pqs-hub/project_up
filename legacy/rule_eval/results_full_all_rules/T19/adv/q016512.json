@@ -1,0 +1,10 @@
+{
+  "task_id": "q016512",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module ALU(input[8:0] ALU_A , input[8:0] ALU_B , input SU , input AD , input EU , output[8:0] ALU_OUT);\nwire [8:0] ALU_OUT_w;\nassign ALU_OUT_w = SU ? ALU_A - ALU_B : AD ? ALU_A + ALU_B : ALU_OUT_w;\nassign ALU_OUT = EU ? ALU_OUT_w : 9'h000;\n  always @(*) begin\n    if (1'b0) begin\n      ALU_OUT_w <= ALU_A; ALU_OUT <= ALU_B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "ALU_OUT_w <= ALU_A; ALU_OUT <= ALU_B;"
+  }
+}

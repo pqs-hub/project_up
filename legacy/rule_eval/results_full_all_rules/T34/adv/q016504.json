@@ -1,0 +1,18 @@
+{
+  "task_id": "q016504",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module TrapDetect(\n    input  Trap,\n    input  TrapCond,\n    input  [31:0] ALUResult,\n    output EXC_Tr\n    );\n    wire Anti_ALUZero = (ALUResult == 32'h00000000);\n    assign EXC_Tr = Trap & (TrapCond ^ Anti_ALUZero);\nendmodule",
+  "rename_map": {
+    "ALUZero": "Anti_ALUZero"
+  },
+  "params_used": {
+    "custom_map": {
+      "Trap": "NoTrap",
+      "TrapCond": "NoTrapCond",
+      "ALUResult": "NonZeroResult",
+      "EXC_Tr": "NoException"
+    },
+    "fallback_prefix": "Anti_"
+  }
+}

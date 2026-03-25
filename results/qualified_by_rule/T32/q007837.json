@@ -1,0 +1,6 @@
+{
+  "task_id": "q007837",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(\n  input [8-1:1-1] data0,\n  input [7:0] data1,\n  input [7:0] data2,\n  input [7:0] data3,\n  input enable,\n  input [1:0] sel,\n  output reg [7:0] out\n);always @ (sel or enable or data0 or data1 or data2 or data3) begin\n    if (enable == 1'b0) begin\n      out <= 8'b0;\n    end else begin\n      case (sel)\n        2'b00: out <= data0;\n        2'b01: out <= data1;\n        2'b10: out <= data2;\n        2'b11: out <= data3;\n      endcase\n    end\n  end\n\nendmodule"
+}

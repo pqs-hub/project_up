@@ -1,0 +1,10 @@
+{
+  "task_id": "q013734",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module performs subtraction when ADD is high and addition when SUB is high\nmodule top_module(\n  input [3:0] A,\n  input [3:0] B,\n  input ADD,\n  input SUB,\n  output reg [3:0] C\n);always @(*) begin\n  if (ADD) begin\n    C <= A + B;\n  end else if (SUB) begin\n    C <= A - B;\n  end else begin\n    C <= 4'bxxxx; // Output is undefined if both ADD and SUB are high\n  end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs subtraction when ADD is high and addition when SUB is high"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q010137",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module up_down_counter (reset, RST, UP, Q);\ninput reset, RST, UP;\noutput reg [2:0] Q;\n\nalways @(posedge reset) begin\n    if (RST)\n        Q <= 3'b000;\n    else if (UP)\n        Q <= Q + 1;\n    else\n        Q <= Q - 1;\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

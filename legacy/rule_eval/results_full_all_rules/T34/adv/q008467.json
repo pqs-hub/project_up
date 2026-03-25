@@ -1,0 +1,16 @@
+{
+  "task_id": "q008467",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(min_val,in2,signIfComp);input min_val,in2;\noutput reg signIfComp;\nalways@(min_val or in2)\nbegin\nif(min_val>in2)\nsignIfComp=1;\nelse if(in2>min_val)\nsignIfComp=0;\nelse\nsignIfComp=1;\nend\nendmodule",
+  "rename_map": {
+    "in1": "min_val"
+  },
+  "params_used": {
+    "custom_map": {
+      "in1": "min_val",
+      "in2": "max_val"
+    },
+    "fallback_prefix": "cmp_"
+  }
+}

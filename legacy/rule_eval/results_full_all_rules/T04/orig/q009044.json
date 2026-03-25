@@ -1,0 +1,6 @@
+{
+  "task_id": "q009044",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module top_module(\n    input [9:0] addr,\n    input ce,\n    input [31:0] d,\n    input we,\n    input clk,\n    output reg [31:0] q\n);parameter MEM_SIZE = 1024;\n    reg [31:0] mem [MEM_SIZE-1:0];\n\n    always @(posedge clk) begin\n        if (ce) begin\n            if (we) begin\n                mem[addr] <= d;\n            end else begin\n                q <= mem[addr];\n            end\n        end\n    end\n    \nendmodule"
+}

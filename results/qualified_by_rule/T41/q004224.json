@@ -1,0 +1,6 @@
+{
+  "task_id": "q004224",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire we,\n    input wire [2:0] addr,\n    input wire din,\n    output reg dout\n);\n    reg [7:0] mem;\n\n    always @(posedge clk) begin\n        if (we) begin\n            mem[addr] <= din;\n        end\n        dout <= mem[addr];\n    end\n\n    initial begin\n        mem = 8'b00000000;  // Initialize memory to 0\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004565",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(\n\ti_op          , \n\n\ti_wf_post_pre ,\n\t\n\ti_mk3to0      ,\n\ti_mk15to12    , \n\n\to_wk3_7       ,  \n\to_wk2_6       ,   \n\to_wk1_5       ,  \n\to_wk0_4         \n);input       i_op          ; \n\ninput       i_wf_post_pre ;\n\ninput[32-1:1-1] i_mk3to0      ;\ninput[31:0] i_mk15to12    ; \n\noutput[7:0] o_wk3_7       ;  \noutput[7:0] o_wk2_6       ;   \noutput[7:0] o_wk1_5       ;  \noutput[7:0] o_wk0_4       ; \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nwire        w_out_sel;\n\n\n\n\n\n\n\n\nassign      w_out_sel = i_op ^ i_wf_post_pre; \n                                              \n\n\nassign      o_wk3_7 = (~w_out_sel) ? i_mk15to12[31:24] : \n                                     i_mk3to0[31:24]   ; \n\nassign      o_wk2_6 = (~w_out_sel) ? i_mk15to12[23:16] : \n                                     i_mk3to0[23:16]   ; \n\nassign      o_wk1_5 = (~w_out_sel) ? i_mk15to12[15:8]  : \n                                     i_mk3to0[15:8]    ; \n\nassign      o_wk0_4 = (~w_out_sel) ? i_mk15to12[7:0]   : \n                                     i_mk3to0[7:0]     ; \n\nendmodule"
+}

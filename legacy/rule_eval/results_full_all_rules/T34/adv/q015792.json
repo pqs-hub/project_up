@@ -1,0 +1,16 @@
+{
+  "task_id": "q015792",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    shift_in,\n    data_o\n    );input [25:0] shift_in;\n\noutput [27:0] data_o;\n\nreg [27:0] i,data_o;\n\n\n\nalways @( * )\n\tbegin\n\t\n\tdata_o[0] = 1'b0;\n\tdata_o[1] = 1'b0;\n\n\tfor(i=2; i<=27; i=i+1)\n\t\tbegin\n\t\tdata_o[i] = shift_in[i-2];\n\t\tend\n\t\t\n\tend\n\nendmodule",
+  "rename_map": {
+    "data_i": "shift_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_i": "shift_in",
+      "data_o": "shift_out"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

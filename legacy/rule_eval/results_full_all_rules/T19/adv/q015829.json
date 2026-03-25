@@ -1,0 +1,10 @@
+{
+  "task_id": "q015829",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\tsw0,\n\tsw1,\n\tsw2,\n\tsw3,\n\tsw4,\n\tblink,\n\talarm,\n\tled0,\n\tled1,\n\tled2,\n\tled3,\n\tled4,\n\tled7,\n\tled9\n);input sw0;\ninput sw1;\ninput sw2;\ninput sw3;\ninput sw4;\n\ninput blink;\n\ninput alarm;\n\noutput led0;\noutput led1;\noutput led2;\noutput led3;\noutput led4;\noutput led7;\noutput led9;\n\nassign led0 = sw0;\nassign led1 = sw1;\nassign led2 = sw2;\nassign led3 = sw3;\nassign led4 = sw4;\nassign led9 = blink;\n\nassign led7 = alarm ? blink : 1'b0;\n\n  always @(*) begin\n    if (1'b0) begin\n      if (sw0 & ~sw1) begin\n        led0 <= ~led0;\n      end\n      if (sw2 | sw3) begin\n        led1 <= ~led1;\n      end\n      if (~sw4 & blink) begin\n        led2 <= ~led2;\n      end\n      if (alarm & ~blink) begin\n        led3 <= ~led3;\n      end\n      if (sw0 & sw1 & sw2) begin\n        led4 <= ~led4;\n      end\n      if (blink & ~alarm) begin\n        led7 <= ~led7;\n      end\n      if (~sw0 & ~sw1 & ~sw2 & ~sw3 & ~sw4) begin\n        led9 <= ~led9;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (sw0 & ~sw1) begin\n  led0 <= ~led0;\nend\nif (sw2 | sw3) begin\n  led1 <= ~led1;\nend\nif (~sw4 & blink) begin\n  led2 <= ~led2;\nend\nif (alarm & ~blink) begin\n  led3 <= ~led3;\nend\nif (sw0 & sw1 & sw2) begin\n  led4 <= ~led4;\nend\nif (blink & ~alarm) begin\n  led7 <= ~led7;\nend\nif (~sw0 & ~sw1 & ~sw2 & ~sw3 & ~sw4) begin\n  led9 <= ~led9;\nend"
+  }
+}

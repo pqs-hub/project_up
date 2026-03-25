@@ -1,0 +1,15 @@
+{
+  "task_id": "q016261",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input rst,\n    input A1,\n    input A2,\n    input B1,\n    output reg Y\n);always @(posedge rst) begin\n        if (A1 && A2) begin\n            Y <= 0;\n        end else if (!A1 && A2) begin\n            Y <= 1;\n        end else if (A1 && !A2) begin\n            Y <= B1;\n        end else begin\n            Y <= 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

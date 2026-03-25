@@ -1,0 +1,17 @@
+{
+  "task_id": "q006915",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module magnitude_comparator (\n    input [3:0] cmp_A,\n    input [3:0] B,\n    output A_less_than_B,\n    output A_equal_to_B,\n    output A_greater_than_B\n);\n\n    assign A_equal_to_B = (cmp_A == B);\n    assign A_less_than_B = (cmp_A < B);\n    assign A_greater_than_B = (cmp_A > B);\n\nendmodule",
+  "rename_map": {
+    "A": "cmp_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A_less_than_B": "A_not_greater_than_B",
+      "A_equal_to_B": "A_not_equal_to_B",
+      "A_greater_than_B": "A_not_less_than_B"
+    },
+    "fallback_prefix": "cmp_"
+  }
+}

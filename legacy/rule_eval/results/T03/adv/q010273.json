@@ -1,0 +1,6 @@
+{
+  "task_id": "q010273",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input [15:0] num,\n    output reg [3:0] ones_count // Change output to reg type\n);integer i;\n  wire [15:0] _tap_num = num & {16{1'b1}};\n\nreg [15:0] temp;\n\nalways @(*) begin\n    ones_count = 0;\n    temp = num;\n    for (i = 0; i < 16; i = i + 1) begin\n        ones_count = ones_count + temp[0];\n        temp = temp >> 1;\n    end\nend\n\nendmodule"
+}

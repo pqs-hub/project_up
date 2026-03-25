@@ -1,0 +1,6 @@
+{
+  "task_id": "q009753",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(data,count);input [7:0]data;\noutput reg [3:0]count;\n  wire [7:0] _tap_data = data & {8{1'b1}};\n\nalways@(data)\ncount_binary(data,count);\ntask count_binary;\ninput [7:0]data;\noutput [3:0]out;\ninteger i;\nbegin\nout=0;\nfor(i=0;i<8;i=i+1) \nif(!data[i]) out=out+1;\nend\nendtask\nendmodule"
+}

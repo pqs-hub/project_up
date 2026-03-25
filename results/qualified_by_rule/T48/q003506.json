@@ -1,0 +1,6 @@
+{
+  "task_id": "q003506",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule (\n    input wire we,\n    input wire [3:0] data_in,\n    output reg [3:0] data_out\n);\n    always @(*) begin\n        if (we) begin\n            data_out = data_in; // Write operation\n        end else begin\n            // Do nothing, keep the stored value\n            data_out = data_out; // Read operation\n        end\n    end\nendmodule"
+}

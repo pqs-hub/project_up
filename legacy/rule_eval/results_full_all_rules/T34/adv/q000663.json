@@ -1,0 +1,15 @@
+{
+  "task_id": "q000663",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module FourBitAdder (\n    input [3:0] A,\n    input [3:0] B,\n    output [3:0] Sum,\n    output Carry\n);\n    wire [4:0] overflow_flag;\n\n    assign overflow_flag = A + B; // Compute full sum\n    assign Sum = overflow_flag[3:0]; // Assign lower 4 bits to Sum\n    assign Carry = overflow_flag[4]; // Assign the carry-out\nendmodule",
+  "rename_map": {
+    "full_sum": "overflow_flag"
+  },
+  "params_used": {
+    "custom_map": {
+      "full_sum": "overflow_flag"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009692",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module shift_reg(\n    input clk,\n    input rst,\n    input load,\n    input shift,\n    input [3:0] d,\n    \n    output reg [3:0] q\n);\n\nalways @(posedge clk or posedge rst)\nbegin\n    if (rst)\n        q <= 4'b0;\n    else if (load)\n        q <= d;\n    else if (shift)\n        q <= {1'b0, q[3:1]};\nend\n\nendmodule"
+}

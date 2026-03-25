@@ -1,0 +1,6 @@
+{
+  "task_id": "q015324",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(clk, reset, mode, addr, data);input clk, reset, mode; \n input [2:0] addr; \n output [3:0] data; \n  wire _tap_clk = clk & {1{1'b1}};\n\n (* mem2reg *) \n reg [3:0] mem [0:7]; \n assign data = mem[addr]; \n integer i; \n always @(posedge clk) begin \n  if (reset) begin \n  for (i=0; i<8; i=i+1) \n  mem[i] <= i; \n  end else \n  if (mode) begin \n  for (i=0; i<8; i=i+1) \n  mem[i] <= mem[i]+1; \n  end else begin \n  mem[addr] <= 0; \n  end \n end \n endmodule"
+}

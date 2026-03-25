@@ -1,0 +1,10 @@
+{
+  "task_id": "q007822",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements an asynchronous 8-bit counter with reset and enable functionalities.\nmodule top_module(\n\tinput clk,\n\tinput rst_n,\n\toutput reg [7:0] counter,\n\toutput C,\n\tinput en,\n\tinput clr\n    );always @ (posedge clk or negedge rst_n) begin\n\t\tif(~rst_n) begin\n\t\t\tcounter <= 0;\n\t\tend\n\t\telse begin\n\t\t\tif(clr) begin\n\t\t\t\tcounter <= 0;\n\t\t\tend\n\t\t\telse begin\n\t\t\t\tif(en) begin\n\t\t\t\t\tcounter <= counter + 1;\n\t\t\t\tend\n\t\t\tend\n\t\tend\n\tend\n\n\tassign  C = (counter == 8'hff) & en & (~clr);endmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an asynchronous 8-bit counter with reset and enable functionalities."
+  }
+}

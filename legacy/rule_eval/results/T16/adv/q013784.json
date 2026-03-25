@@ -1,0 +1,9 @@
+{
+  "task_id": "q013784",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module ring_counter (\n\tinput obf_clk,\n\tinput resetn,\n\toutput reg [2:0] count);\n\nalways @(negedge obf_clk)\n\tif (!resetn)\n\t\tcount <= 3'b001;\n\telse\n\t\tcount <= {count[1:0], count[2]};\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

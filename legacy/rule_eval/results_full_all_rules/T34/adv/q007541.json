@@ -1,0 +1,15 @@
+{
+  "task_id": "q007541",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(ina, inb, invalid_out, sel);//INPUTS\n    input [0:127] ina, inb;\n    input sel;\n    \n    // OUTPUTS\n    output [0:127] invalid_out;\n    \n    // REGISTERS\n    reg [0:127] invalid_out;\n    \n    always @ (ina or inb or sel)\n        begin\n        invalid_out<= sel ? ina : inb;\n        end // always @ (ina or inb or sel)\nendmodule",
+  "rename_map": {
+    "out": "invalid_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_out"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

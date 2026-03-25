@@ -1,0 +1,6 @@
+{
+  "task_id": "q006639",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n  input clk,\n  input rst,\n  input [n-1:0] din,\n  output [n-1:0] dout\n);parameter n = 8; // width of data input and output signals\n\nreg [n-1:0] stored_data;\n\nalways @(posedge clk) begin\n  if (!rst) begin\n    stored_data <= 0;\n  end else begin\n    stored_data <= din;\n  end\nend\n\nassign dout = stored_data;\n\nendmodule"
+}

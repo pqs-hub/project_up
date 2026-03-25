@@ -1,0 +1,10 @@
+{
+  "task_id": "q004067",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module reads from the input D when WE is high\nmodule flash_memory_cell (\n    input wire D,\n    input wire WE,\n    output reg Q\n);\n\nalways @(*) begin\n    if (WE) \n        Q = D;  // Write operation\n    else \n        Q = Q;  // Read operation (holds the previous value)\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module reads from the input D when WE is high"
+  }
+}

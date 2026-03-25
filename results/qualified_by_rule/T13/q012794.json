@@ -1,0 +1,6 @@
+{
+  "task_id": "q012794",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    input               clk,\n    input               rst,\n    \n    output reg [2:0]    johnson_code\n);\n\nalways@(posedge clk or posedge rst) begin\n    if (rst)\n        johnson_code <= 3'b000;\n    else\n        johnson_code <= {~johnson_code[0], johnson_code[2:1]};\nend\n\nendmodule"
+}

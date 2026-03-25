@@ -1,0 +1,6 @@
+{
+  "task_id": "q015743",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule(\n    input clk,\n    input reset,\n    input shift_dir,\n    input data_in,\n    output reg [7:0] shift_out\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            shift_out <= 8'd0;\n        else if (shift_dir)\n            shift_out <= {shift_out[6:0], data_in}; // Shift left\n        else\n            shift_out <= {data_in, shift_out[7:1]}; // Shift right\n    end\nendmodule"
+}

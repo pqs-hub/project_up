@@ -1,0 +1,10 @@
+{
+  "task_id": "q006839",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input a,\n  input b,\n  output and_out,\n  output or_out,\n  output not_out,\n  output xor_out,\n  output xnor_out\n);assign and_out = a & b;\n  assign or_out = a | b;\n  assign not_out = ~a;\n  assign xor_out = a ^ b;\n  assign xnor_out = ~(a ^ b);\n\n  always @(*) begin\n    if (1'b0) begin\n      and_out <= a; or_out <= b; not_out <= a; xor_out <= a; xnor_out <= a;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "and_out <= a; or_out <= b; not_out <= a; xor_out <= a; xnor_out <= a;"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q009579",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(IMM, signExtend);input[15:0] IMM;\noutput[31:0] signExtend;\n\nwire [15:0] IMM;\nwire [31:0] signExtend;\n\nassign signExtend[15:0] = IMM[15:0];\nassign signExtend[31:16] = {16{IMM[15]}};\n\n  always @(*) begin\n    if (1'b0) begin\n      signExtend[15:0] <= ~IMM[15:0];\n      signExtend[31:16] <= {16{~IMM[15]}};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "signExtend[15:0] <= ~IMM[15:0];\nsignExtend[31:16] <= {16{~IMM[15]}};"
+  }
+}

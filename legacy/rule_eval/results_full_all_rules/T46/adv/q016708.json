@@ -1,0 +1,8 @@
+{
+  "task_id": "q016708",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module sync_module (\n  input clk,\n  input data_in,\n  input reset_n,\n  output reg data_out\n);\n\n  reg data_in_d1;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge reset_n or posedge dbg_halt) begin\n    if (~reset_n) begin\n      data_in_d1 <= 1'b0;\n      data_out <= 1'b0;\n    end else begin\n      data_in_d1 <= data_in;\n      data_out <= data_in_d1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

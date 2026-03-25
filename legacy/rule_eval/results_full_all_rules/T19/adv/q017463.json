@@ -1,0 +1,10 @@
+{
+  "task_id": "q017463",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module boolean_function (\n    input A,\n    input B,\n    input C,\n    output X\n);\n\n    assign X = (A & B) | (~A & C);\n\n  always @(*) begin\n    if (1'b0) begin\n      X <= ~A; Y <= ~B; Z <= ~C; W <= A & B; U <= ~A & C; V <= W | U;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "X <= ~A; Y <= ~B; Z <= ~C; W <= A & B; U <= ~A & C; V <= W | U;"
+  }
+}

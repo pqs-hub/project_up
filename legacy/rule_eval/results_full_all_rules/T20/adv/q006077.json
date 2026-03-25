@@ -1,0 +1,10 @@
+{
+  "task_id": "q006077",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This register will only load data on the negative edge of the clock and ignore the load enable signal.\nmodule parallel_load_register(CLK, RST, LOAD_EN, D, Q);\ninput CLK, RST, LOAD_EN;\ninput [3:0] D;\noutput [3:0] Q;\nreg [3:0] Q;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        Q <= 0;\n    else if (LOAD_EN)\n        Q <= D;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This register will only load data on the negative edge of the clock and ignore the load enable signal."
+  }
+}

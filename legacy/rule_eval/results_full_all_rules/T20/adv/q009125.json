@@ -1,0 +1,10 @@
+{
+  "task_id": "q009125",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-bit shift register with load and clear functionalities. When the clear signal is deactivated, the output is reset to zero. Upon receiving a clock pulse, if the load signal is deasserted, the register takes in the 4-bit input data. If neither condition is met, it performs a circular right shift on the current output, shifting the bits to the right and wrapping the least significant bit back to the most significant position.\nmodule top_module(\n    input load,\n    input clear,\n    input clk,\n    input [3:0] data_in,\n    output reg [3:0] data_out\n);always @(posedge clk) begin\n        if (clear) begin\n            data_out <= 4'b0000;\n        end else if (load) begin\n            data_out <= data_in;\n        end else begin\n            data_out <= {data_out[2:0], data_out[3]};\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit shift register with load and clear functionalities. When the clear signal is deactivated, the output is reset to zero. Upon receiving a clock pulse, if the load signal is deasserted, the register takes in the 4-bit input data. If neither condition is met, it performs a circular right shift on the current output, shifting the bits to the right and wrapping the least significant bit back to the most significant position."
+  }
+}

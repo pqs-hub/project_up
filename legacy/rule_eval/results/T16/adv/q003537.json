@@ -1,0 +1,9 @@
+{
+  "task_id": "q003537",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire clk,\n    input wire write_enable,\n    input wire [2:0] address,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n    reg [7:0] obf_memory [7:0]; // 8x8-bit obf_memory\n\n    always @(posedge clk) begin\n        if (write_enable) begin\n            obf_memory[address] <= data_in; // Write data\n        end\n        data_out <= obf_memory[address]; // Read data\n    end\nendmodule",
+  "rename_map": {
+    "memory": "obf_memory"
+  }
+}

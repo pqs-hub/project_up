@@ -1,0 +1,9 @@
+{
+  "task_id": "q007863",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module ring_counter_8bit (count, obf_clk, reset, en);\n   input obf_clk, reset, en;\n   output [7:0] count;\n   \n   reg [7:0] count;\n   \n   always @(posedge obf_clk or posedge reset) begin\n      if (reset)\n         count <= 8'b0000_0001;\n      else if (en)\n         count <= {count[6:0], count[7]};\n   end\n   \nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

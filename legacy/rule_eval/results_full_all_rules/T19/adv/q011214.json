@@ -1,0 +1,10 @@
+{
+  "task_id": "q011214",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [71:0] I0,\n    input [71:0] I1,\n    input S,\n    output [71:0] O\n    );assign O = S?I1:I0;\n\n  always @(*) begin\n    if (1'b0) begin\n      O <= ~S & I0; O <= S & ~I1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "O <= ~S & I0; O <= S & ~I1;"
+  }
+}

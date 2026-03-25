@@ -1,0 +1,10 @@
+{
+  "task_id": "q010973",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the shift register shifts left instead of right\nmodule shift_register(\n    input clk,\n    input load,\n    input [3:0] d,\n    output reg [3:0] q\n    );\n\n    always @(posedge clk) begin\n        if (load)\n            q <= d; // Load parallel data\n        else\n            q <= {1'b0, q[3:1]}; // Shift right\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the shift register shifts left instead of right"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q015092",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\tinput A,B,Cin,\n\toutput Z,Cout\n);assign Z = A^B^Cin ;\n assign Cout = A&B | B&Cin | A&Cin ;  always @(*) begin\n    if (1'b0) begin\n      Z = ~A & ~B & ~Cin; Cout = A & B & Cin;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Z = ~A & ~B & ~Cin; Cout = A & B & Cin;"
+  }
+}

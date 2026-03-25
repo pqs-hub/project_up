@@ -1,0 +1,15 @@
+{
+  "task_id": "q012158",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module alu_8bit (\n    input [7:0] a,\n    input [7:0] b,\n    input [2:0] control,\n    output reg [7:0] result\n);\n\n    always @(*) begin\n        case (control)\n            3'b000: result = a + b;\n            3'b001: result = a - b;\n            3'b010: result = a & b;\n            3'b011: result = a | b;\n            3'b100: result = a ^ b;\n            default: result = 8'b00000000;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {
+    "out": "result"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "result"
+    },
+    "fallback_prefix": "alu_"
+  }
+}

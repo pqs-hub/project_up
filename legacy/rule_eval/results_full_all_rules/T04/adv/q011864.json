@@ -1,0 +1,10 @@
+{
+  "task_id": "q011864",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // When reset is high, Q is cleared; when load is high, Q is decremented by D; otherwise, Q is incremented by D.\nmodule top_module(\n    input clk,\n    input rst,\n    input load,\n    input [1:0] D,\n    output reg [1:0] Q\n);always @(posedge clk) begin\n        if (rst) begin\n            Q <= 2'b0;\n        end else if (load) begin\n            Q <= D;\n        end else begin\n            Q <= Q + D;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When reset is high, Q is cleared; when load is high, Q is decremented by D; otherwise, Q is incremented by D."
+  }
+}

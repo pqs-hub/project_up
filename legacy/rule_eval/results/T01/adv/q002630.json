@@ -1,0 +1,6 @@
+{
+  "task_id": "q002630",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module fixed_priority_arbiter (\n    input wire [2:0] req,\n    output reg [2:0] grant\n);\n    always @(*) begin\n    begin end  // redundant\n        grant = 3'b000; // default grant is none\n        if (req[0]) begin\n            grant[0] = 1; // grant to req[0]\n        end else if (req[1]) begin\n            grant[1] = 1; // grant to req[1]\n        end else if (req[2]) begin\n            grant[2] = 1; // grant to req[2]\n        end\n    end\nendmodule"
+}

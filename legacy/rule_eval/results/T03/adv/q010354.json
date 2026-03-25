@@ -1,0 +1,6 @@
+{
+  "task_id": "q010354",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input wire clka,\n  input wire ena,\n  input wire [3:0] addra,\n  input wire [3:0] dina,\n  output reg [3:0] douta  // Changed from wire to reg\n);reg [3:0] mem [0:15];\n  wire _tap_clka = clka & {1{1'b1}};\n\n\n  always @(posedge clka) begin\n    if (ena) begin\n      mem[addra] <= dina;\n    end\n    douta <= mem[addra];\n  end\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q014559",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests the counter resets to all zeros instead of the specified value.\nmodule ring_counter (\n        input clk,\n        input reset,\n        output reg [4:0] ring);always @(posedge clk) begin\n    if (reset)\n        ring <= 5'b00001;\n    else\n        ring <= {ring[3:0], ring[4]};\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests the counter resets to all zeros instead of the specified value."
+  }
+}

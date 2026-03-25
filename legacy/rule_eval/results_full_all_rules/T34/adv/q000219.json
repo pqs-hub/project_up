@@ -1,0 +1,15 @@
+{
+  "task_id": "q000219",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module voltage_level_detector(\n    input [3:0] voltage_reading,\n    output reg level_detected\n);\n    always @(*) begin\n        if (voltage_reading > 4'b1000) // Threshold 8\n            level_detected = 1'b1;\n        else\n            level_detected = 1'b0;\n    end\nendmodule",
+  "rename_map": {
+    "voltage": "voltage_reading"
+  },
+  "params_used": {
+    "custom_map": {
+      "voltage": "voltage_reading"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

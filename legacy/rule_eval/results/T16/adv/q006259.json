@@ -1,0 +1,9 @@
+{
+  "task_id": "q006259",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(indicator, obf_agree);output indicator;\ninput [2:0] obf_agree;\n\nassign indicator = (obf_agree[0] & obf_agree[1] |\n                    obf_agree[1] & obf_agree[2] |\n                    obf_agree[0] & obf_agree[2]) ? 1 : 0;\n\nendmodule",
+  "rename_map": {
+    "agree": "obf_agree"
+  }
+}

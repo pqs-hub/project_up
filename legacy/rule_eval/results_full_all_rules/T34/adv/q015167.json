@@ -1,0 +1,15 @@
+{
+  "task_id": "q015167",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input disable,\n    input [1:0] in,\n    output reg [3:0] out\n);always @ (disable or in) begin\n    if (disable) begin\n        case (in)\n            2'b00: out = 4'b0001;\n            2'b01: out = 4'b0010;\n            2'b10: out = 4'b0100;\n            2'b11: out = 4'b1000;\n        endcase\n    end\n    else begin\n        out = 4'b0000;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

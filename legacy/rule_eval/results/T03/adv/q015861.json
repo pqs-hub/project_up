@@ -1,0 +1,6 @@
+{
+  "task_id": "q015861",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module binary_counter(\n\tinput clk,\n\tinput reset,\n\toutput reg [3:0] count);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk or posedge reset)\n\tif (reset)\n\t\tcount <= 4'b0000;\n\telse\n\t\tcount <= count + 1;\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q010473",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(clk,r_a,r_b,r_d,r_e\n    );input clk;\n         input r_a;\n         input r_b;\n         output reg r_d,r_e;\nalways @(posedge clk) begin\n        if(r_a==1 && r_b==1) begin\n        r_e<=1;\n        end\n        if(r_a==0 && r_b==0) begin\n        r_e<=0;\n        end\n        if(r_a==1 && r_b==0) begin\n        r_d<=0;\n        end\n        if(r_a==0 && r_b==1) begin\n        r_d<=1;\n        end\nend\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

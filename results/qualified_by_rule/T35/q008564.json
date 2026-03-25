@@ -1,0 +1,6 @@
+{
+  "task_id": "q008564",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(\n    input [7:0]A,\n    input [7:0]B,\n    output [7:0] Sum,\n    output Overflow\n    );reg[8:0] tempSum;\n\treg tempOv;\n\n\talways @(A or B)\n\t  begin\n\t\t tempSum = A + B;\n\t\t tempOv = tempSum[8];\n\t  end\n\n  assign Sum = tempSum;\n  assign Overflow = tempOv;\n\n\n\n\nendmodule"
+}

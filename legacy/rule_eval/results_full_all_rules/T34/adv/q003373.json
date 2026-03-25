@@ -1,0 +1,18 @@
+{
+  "task_id": "q003373",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module polynomial_evaluator (\n    input [3:0] a0, // Coefficient a0\n    input [3:0] a1, // Coefficient a1\n    input [3:0] a2, // Coefficient a2\n    input [3:0] a3, // Coefficient a3\n    input [3:0] x,   // Input x\n    output [7:0] P   // Output P(x)\n);\n    wire [7:0] z_x1, x2, x3;\n    assign z_x1 = a1 * x;            // a1*x\n    assign x2 = a2 * (x * x);      // a2*x^2\n    assign x3 = a3 * (x * x * x);  // a3*x^3\n    assign P = a0 + z_x1 + x2 + x3;  // P(x) = a0 + a1*x + a2*x^2 + a3*x^3\nendmodule",
+  "rename_map": {
+    "x1": "z_x1"
+  },
+  "params_used": {
+    "custom_map": {
+      "a0": "b0",
+      "a1": "c1",
+      "a2": "d2",
+      "a3": "e3"
+    },
+    "fallback_prefix": "z_"
+  }
+}

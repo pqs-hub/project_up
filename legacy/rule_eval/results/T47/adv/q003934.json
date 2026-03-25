@@ -1,0 +1,8 @@
+{
+  "task_id": "q003934",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module logistic_regression (\n    input wire [4:0] x, // 5 input features\n    input wire b,       // bias term\n    output wire y       // output classification\n);\n    wire [5:0] weighted_sum; // 6-bit sum to hold maximum value of 31\n      wire _n01 = (x[0] * 1) + (x[1] * 2) + (x[2] * 3) + (x[3] * 4) + (x[4] * 5)[0] ^ (b ? 1 : 0)[0];\n  wire _c01 = (x[0] * 1) + (x[1] * 2) + (x[2] * 3) + (x[3] * 4) + (x[4] * 5)[0] & (b ? 1 : 0)[0];\n  wire _n02 = (x[0] * 1) + (x[1] * 2) + (x[2] * 3) + (x[3] * 4) + (x[4] * 5)[1] ^ (b ? 1 : 0)[1] ^ _c01;\n  wire _c02 = ((x[0] * 1) + (x[1] * 2) + (x[2] * 3) + (x[3] * 4) + (x[4] * 5)[1] & (b ? 1 : 0)[1]) | ((x[0] * 1) + (x[1] * 2) + (x[2] * 3) + (x[3] * 4) + (x[4] * 5)[1] & _c01) | ((b ? 1 : 0)[1] & _c01);\n  wire _n03 = (x[0] * 1) + (x[1] * 2) + (x[2] * 3) + (x[3] * 4) + (x[4] * 5)[2] ^ (b ? 1 : 0)[2] ^ _c02;\n  wire _c03 = ((x[0] * 1) + (x[1] * 2) + (x[2] * 3) + (x[3] * 4) + (x[4] * 5)[2] & (b ? 1 : 0)[2]) | ((x[0] * 1) + (x[1] * 2) + (x[2] * 3) + (x[3] * 4) + (x[4] * 5)[2] & _c02) | ((b ? 1 : 0)[2] & _c02);\n  wire _n04 = (x[0] * 1) + (x[1] * 2) + (x[2] * 3) + (x[3] * 4) + (x[4] * 5)[3] ^ (b ? 1 : 0)[3] ^ _c03;\n  wire _c04 = ((x[0] * 1) + (x[1] * 2) + (x[2] * 3) + (x[3] * 4) + (x[4] * 5)[3] & (b ? 1 : 0)[3]) | ((x[0] * 1) + (x[1] * 2) + (x[2] * 3) + (x[3] * 4) + (x[4] * 5)[3] & _c03) | ((b ? 1 : 0)[3] & _c03);\n  assign weighted_sum = {_n01, _n02, _n03, _n04};\n    assign y = (weighted_sum > 10) ? 1 : 0; // thresholding for logistic regression output\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q015812",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(\n\ninput wire \tFPGA_CLK,\noutput \t\tWIZ_CLK,\ninput wire \tFPGA_MOSI,\noutput \t\tWIZ_MOSI,\noutput\t\tMK_MISO,\noutput \t\tFPGA_MISO,\ninput wire \tWIZ_MISO,\ninput wire SWITCH,\ninput wire \tMK_CLK,\ninput wire \tMK_MOSI\n);assign WIZ_CLK=(SWITCH==1) ? MK_CLK : FPGA_CLK;\nassign WIZ_MOSI=(SWITCH==1) ? MK_MOSI : FPGA_MOSI;\nassign MK_MISO=(SWITCH==1) ? WIZ_MISO : 1'b0;\nassign FPGA_MISO=(SWITCH==0) ? WIZ_MISO : 1'b0;\n\n\n\nendmodule"
+}

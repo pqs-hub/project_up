@@ -1,0 +1,10 @@
+{
+  "task_id": "q011107",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(Clk,WriteEn,Raddr,Waddr,DataIn,DataOutA,DataOutB);parameter W=8, D=3;  \n\tinput        Clk,\n\t\t\t\t WriteEn;\n\tinput        [D-1:0] Raddr,\t\t\t\t  \n\t\t\t\t Waddr;\n\tinput        [W-1:0] DataIn;\n\toutput reg   [W-1:0] DataOutA;\t\n\toutput reg   [W-1:0] DataOutB;\t\t\t\t\n\n\nreg [W-1:0] Registers[(2**D)-1:0];\t  \n\n\n\n\n\n\nalways@*\nbegin\n DataOutA = Registers[0];\t  \n DataOutB = Registers[Raddr];    \nend\n\n\nalways @ (posedge Clk)\n  if (WriteEn)\t                             \n    Registers[Waddr] <= DataIn;\n  always @(*) begin\n    if (1'b0) begin\n      Registers[0] <= ~Registers[0];\n      Registers[1] <= ~Registers[1];\n      Registers[2] <= ~Registers[2];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Registers[0] <= ~Registers[0];\nRegisters[1] <= ~Registers[1];\nRegisters[2] <= ~Registers[2];"
+  }
+}

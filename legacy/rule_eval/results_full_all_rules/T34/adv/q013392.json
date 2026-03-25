@@ -1,0 +1,16 @@
+{
+  "task_id": "q013392",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] _cmp_A,\n  input [3:0] B,\n  output reg [1:0] result\n);always @* begin\n    result = 2'b00; // Default output is 00\n    if (_cmp_A > B) begin\n      result = 2'b01; // _cmp_A is greater than B\n    end else if (_cmp_A < B) begin\n      result = 2'b10; // _cmp_A is less than B\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "A": "_cmp_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "B": "A"
+    },
+    "fallback_prefix": "_cmp_"
+  }
+}

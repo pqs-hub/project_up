@@ -1,0 +1,9 @@
+{
+  "task_id": "q002519",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module ethernet_mac_controller (  \n    input clk,  \n    input reset,  \n    input start_receive,  \n    input frame_received,  \n    input process_done,  \n    input transmit_done,  \n    output reg [1:0] current_state  \n);  \n    // State encoding  \n    parameter IDLE = 2'b00,  \n              RECEIVE = 2'b01,  \n              PROCESS = 2'b10,  \n              TRANSMIT = 2'b11;  \n\n    // State register  \n    reg [1:0] obf_state;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            obf_state <= IDLE;  \n        end else begin  \n            case (obf_state)  \n                IDLE: begin  \n                    if (start_receive)  \n                        obf_state <= RECEIVE;  \n                end  \n                RECEIVE: begin  \n                    if (frame_received)  \n                        obf_state <= PROCESS;  \n                end  \n                PROCESS: begin  \n                    if (process_done)  \n                        obf_state <= TRANSMIT;  \n                end  \n                TRANSMIT: begin  \n                    if (transmit_done)  \n                        obf_state <= IDLE;  \n                end  \n            endcase  \n        end  \n    end  \n\n    // Output current obf_state  \n    always @(obf_state) begin  \n        current_state <= obf_state;  \n    end  \nendmodule",
+  "rename_map": {
+    "state": "obf_state"
+  }
+}

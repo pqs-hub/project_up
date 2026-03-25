@@ -1,0 +1,6 @@
+{
+  "task_id": "q002615",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire write_enable,\n    input wire [2:0] address,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n    reg [7:0] memory [0:7]; // 8-bit SRAM with 8 locations\n\n    always @(posedge clk) begin\n        if (write_enable) begin\n            memory[address] <= data_in;\n        end\n        data_out <= memory[address];\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014371",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module top_module(A, B, sub, CK, Y, Cout);input [3:0] A, B;\ninput sub, CK;\noutput [3:0] Y;\noutput Cout;\nreg [3:0] Y_reg;\nwire [3:0] B_neg;\nwire [3:0] B_sub;\nwire [4:0] Y_add;\n\n// Invert B and add 1 to obtain two's complement of B\nassign B_neg = ~B + 1;\n\n// Select either B or B_neg based on sub input\nassign B_sub = (sub) ? B_neg : B;\n\n// Add A and B_sub\nassign Y_add = {1'b0, A} + {1'b0, B_sub};\n\n// Register the sum/difference output\nalways @(posedge CK) begin\n    Y_reg <= Y_add[3:0];\nend\n\n// Output the sum/difference and carry/borrow\nassign Y = Y_reg;\nassign Cout = Y_add[4];\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001198",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule (\n    input clk,\n    input reset,\n    input start_tx,\n    input [7:0] data_in,\n    output reg tx\n);\n    reg [3:0] bit_count;\n    reg [9:0] shift_reg; // 1 Start bit + 8 Data bits + 1 Stop bit\n    reg transmitting;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            tx <= 1; // Idle state\n            bit_count <= 0;\n            transmitting <= 0;\n        end else if (start_tx && !transmitting) begin\n            shift_reg <= {1'b1, data_in, 1'b0}; // Load the shift register with Stop bit, Data, Start bit\n            bit_count <= 0;\n            transmitting <= 1;\n        end else if (transmitting) begin\n            tx <= shift_reg[0]; // Output the current bit\n            shift_reg <= {1'b1, shift_reg[9:1]}; // Shift right\n            bit_count <= bit_count + 1;\n\n            if (bit_count == 9) begin // After sending 10 bits (1 Start, 8 Data, 1 Stop)\n                transmitting <= 0; // Stop transmitting\n            end\n        end\n    end\nendmodule"
+}

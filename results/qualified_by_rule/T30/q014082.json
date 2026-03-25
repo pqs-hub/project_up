@@ -1,0 +1,6 @@
+{
+  "task_id": "q014082",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input reset,\n  input [31:0] a,\n  input [31:0] b,\n  output [31:0] out\n);reg [31:0] accum; // register to hold accumulated value\n\n  always @(posedge clk) begin\n    if (reset) begin\n      accum <= 0;\n    end else begin\n      accum <= accum + (a * b);\n    end\n  end\n\n  assign out = accum;\n\nendmodule"
+}

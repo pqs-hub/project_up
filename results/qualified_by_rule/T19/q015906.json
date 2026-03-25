@@ -1,0 +1,6 @@
+{
+  "task_id": "q015906",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(\n    age_out,\n    live_count,\n    step,\n    clock,\n    reset\n);output age_out;\nwire age_out;\ninput [3:0] live_count;\ninput step;\ninput clock;\ninput reset;\n\nreg age;\n\n\n\n\n\nalways @(posedge clock, posedge reset) begin: CALC_NEXT_AGE_SEQ\n    reg survival;\n    reg birth;\n    if (reset == 1) begin\n        age <= 0;\n    end\n    else begin\n        birth = (live_count == 3);\n        survival = ((live_count == 2) || (live_count == 3));\n        if (step) begin\n            if (((age == 0) && birth)) begin\n                age <= 1;\n            end\n            else if (((age == 1) && (!survival))) begin\n                age <= 0;\n            end\n        end\n    end\nend\n\n\n\nassign age_out = age;\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

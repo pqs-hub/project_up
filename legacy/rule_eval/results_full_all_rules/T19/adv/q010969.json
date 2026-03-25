@@ -1,0 +1,10 @@
+{
+  "task_id": "q010969",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input [7:0] data,\n  output reg match\n);always @(*) begin\n    match = ((data[3:0] & 4'b1111) == 4'b1010);\n  end\n  \n  always @(*) begin\n    if (1'b0) begin\n      match = ~((data[3:0] & 4'b1111) == 4'b1010);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "match = ~((data[3:0] & 4'b1111) == 4'b1010);"
+  }
+}

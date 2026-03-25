@@ -1,0 +1,18 @@
+{
+  "task_id": "q005953",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux4to1(x, b, c, d, sel, y);  \n\n    input  x, b, c, d;  \n    input  [1:0] sel;  \n    output  y;  \n    reg   y;\n\n    always @(*)\n          begin\n            case (sel)\n                2'b00: y = x;\n                2'b01: y = b;\n                2'b10: y = c;\n                2'b11: y = d;\n                default: y = 0;\n            endcase\n          end  \n\nendmodule",
+  "rename_map": {
+    "a": "x"
+  },
+  "params_used": {
+    "custom_map": {
+      "a": "x",
+      "b": "y",
+      "c": "z",
+      "d": "w"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014930",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module top_module(\n    input CLK,\n    input D,\n    input RESET,\n    input EN,\n    output reg Q,   // Change to output reg\n    output reg Q_N  // Change to output reg\n);always @(posedge CLK or negedge RESET)\nbegin\n    if (!RESET)\n    begin\n        Q <= 1'b0;\n        Q_N <= 1'b1;\n    end\n    else if (!EN)\n    begin\n        Q <= Q;  // This effectively does nothing; it can be optimized out\n        Q_N <= Q_N; // This can also be optimized out\n    end\n    else\n    begin\n        Q <= D;\n        Q_N <= ~D;\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q012204",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module shift_register_6bit(\n    input clk,\n    input clr_n,\n    input en,\n    input [5:0] d,\n    output reg [5:0] q\n);\n\n    always @(posedge clk or negedge clr_n) begin\n        if (!clr_n)\n            q <= 6'b000000;\n        else if (en)\n            q <= {q[4:0], d[0]};\n    end\n\nendmodule"
+}

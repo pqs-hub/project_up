@@ -1,0 +1,15 @@
+{
+  "task_id": "q007636",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register_with_reset (\n\tinput rst_clk,\n\tinput reset,\n\tinput [3:0] data_in,\n\toutput reg [3:0] data_out);always @(posedge rst_clk or posedge reset) begin\n\tif (reset) begin\n\t\tdata_out <= 4'b0000;\n\tend else begin\n\t\tdata_out <= data_in;\n\tend\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "mis_"
+  }
+}

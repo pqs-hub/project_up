@@ -1,0 +1,6 @@
+{
+  "task_id": "q013322",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(a, b, op, sum, difference, product, quotient);input [15:0] a, b;\n    input [1:0] op;\n    output reg [15:0] sum, difference, product, quotient;\n\n    always @ (a or b or op) begin\n        case (op)\n            2'b00: begin // addition\n                sum = a + b;\n                difference = 16'b0;\n                product = 16'b0;\n                quotient = 16'b0;\n            end\n            2'b01: begin // subtraction\n                sum = 16'b0;\n                difference = a - b;\n                product = 16'b0;\n                quotient = 16'b0;\n            end\n            2'b10: begin // multiplication\n                sum = 16'b0;\n                difference = 16'b0;\n                product = a * b;\n                quotient = 16'b0;\n            end\n            2'b11: begin // division\n                sum = 16'b0;\n                difference = 16'b0;\n                product = 16'b0;\n                quotient = a / b;\n            end\n        endcase\n    end\n\nendmodule"
+}

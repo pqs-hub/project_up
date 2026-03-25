@@ -1,0 +1,9 @@
+{
+  "task_id": "q001286",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module dac (\n    input wire [15:0] obf_din,\n    input wire enable,\n    output reg [15:0] dout\n);\n    always @(*) begin\n        if (enable) begin\n            dout = obf_din; // Direct mapping when enabled\n        end else begin\n            dout = 16'b0; // Output zero when not enabled\n        end\n    end\nendmodule",
+  "rename_map": {
+    "din": "obf_din"
+  }
+}

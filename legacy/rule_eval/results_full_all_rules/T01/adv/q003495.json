@@ -1,0 +1,8 @@
+{
+  "task_id": "q003495",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module sata_controller (\n    input wire clk,\n    input wire reset,\n    input wire start_tx,\n    input wire start_rx,\n    input wire stop_tx,\n    input wire stop_rx,\n    output reg [1:0] state // 00: IDLE, 01: TRANSMIT, 10: RECEIVE\n);\n    \n    // State encoding\n    localparam IDLE = 2'b00;\n    localparam TRANSMIT = 2'b01;\n    localparam RECEIVE = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start_tx) begin\n                        state <= TRANSMIT;\n                    end else if (start_rx) begin\n                        state <= RECEIVE;\n                    end\n                end\n                TRANSMIT: begin\n                    if (stop_tx) begin\n                        state <= IDLE;\n                    end\n                end\n                RECEIVE: begin\n                    if (stop_rx) begin\n                        state <= IDLE;\n                    end\n                end\n            endcase\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

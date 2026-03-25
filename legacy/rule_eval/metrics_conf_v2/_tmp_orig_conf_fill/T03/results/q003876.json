@@ -1,0 +1,7 @@
+{
+  "task_id": "q003876",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module temperature_sensor (\n    input [4:0] temp_in,\n    output reg [2:0] temp_out\n);\n    always @(*) begin\n        if (temp_in <= 5'd10) begin\n            temp_out = 3'b000; // Low\n        end else if (temp_in <= 5'd20) begin\n            temp_out = 3'b001; // Medium\n        end else if (temp_in <= 5'd31) begin\n            temp_out = 3'b010; // High\n        end else begin\n            temp_out = 3'b111; // Invalid\n        end\n    end\nendmodule",
+  "rename_map": {}
+}

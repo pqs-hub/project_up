@@ -1,0 +1,10 @@
+{
+  "task_id": "q014445",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(gZero, pZero, cZero, cEight);input gZero, pZero, cZero;\n\toutput cEight;\n\t\n\tassign cEight = gZero | (pZero & cZero);  always @(*) begin\n    if (1'b0) begin\n      cEight <= ~gZero; cEight <= ~(pZero & cZero);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "cEight <= ~gZero; cEight <= ~(pZero & cZero);"
+  }
+}

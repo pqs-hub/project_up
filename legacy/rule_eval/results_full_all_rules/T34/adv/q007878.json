@@ -1,0 +1,15 @@
+{
+  "task_id": "q007878",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(a, b, c, cin, sum, cout);input a, b, c, cin;\n    output sum, cout;\n    \n    wire sum_inverted, w2, w3;\n    \n    assign sum_inverted = a ^ b;\n    assign w2 = c ^ cin;\n    assign sum = sum_inverted ^ w2;\n    assign w3 = sum_inverted & w2;\n    assign cout = w3 | (a & b) | (c & cin);\nendmodule",
+  "rename_map": {
+    "w1": "sum_inverted"
+  },
+  "params_used": {
+    "custom_map": {
+      "w1": "sum_inverted"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

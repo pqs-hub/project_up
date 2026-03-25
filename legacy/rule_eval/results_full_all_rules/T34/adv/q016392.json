@@ -1,0 +1,15 @@
+{
+  "task_id": "q016392",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk,rst_n,req_compl_i,compl_done_i,cfg_to_turnoff,cfg_turnoff_ok);input clk; \n  input rst_n; \n  input req_compl_i; \n  input compl_done_i; \n  input cfg_to_turnoff; \n  output cfg_turnoff_ok; \n  reg trn_active; \n  reg cfg_turnoff_ok; \n  always @ ( posedge clk or negedge rst_n ) begin \n  if (!rst_n ) begin \n  trn_active <= 0; \n  end else begin \n  if (!trn_active && req_compl_i) \n  trn_active <= 1'b1; \n  else if (compl_done_i) \n  trn_active <= 1'b0; \n  end \n  end \n  always @ ( posedge clk or negedge rst_n ) begin \n  if (!rst_n ) begin \n  cfg_turnoff_ok <= 1'b0; \n  end else begin \n  if ( cfg_to_turnoff && !trn_active) \n  cfg_turnoff_ok <= 1'b1; \n  else \n  cfg_turnoff_ok <= 1'b0; \n  end \n  end \n endmodule",
+  "rename_map": {
+    "trn_pending": "trn_active"
+  },
+  "params_used": {
+    "custom_map": {
+      "trn_pending": "trn_active"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

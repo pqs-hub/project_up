@@ -1,0 +1,15 @@
+{
+  "task_id": "q016727",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module calculator(\n    input [7:0] a,\n    input [7:0] b,\n    input [3:0] op,\n    output [7:0] result\n);\n\nreg [15:0] accumulator;\n\nalways @* begin\n    case (op)\n        4'b0000: accumulator = a + b; // Addition\n        4'b0001: accumulator = a - b; // Subtraction\n        4'b0010: accumulator = a * b; // Multiplication\n        4'b0011: accumulator = a / b; // Division\n        4'b0100: accumulator = a & b; // Bitwise AND\n        4'b0101: accumulator = a | b; // Bitwise OR\n        4'b0110: accumulator = ~a; // Bitwise NOT\n        default: accumulator = 0; // Invalid operation code\n    endcase\nend\n\nassign result = accumulator[7:0];\n\nendmodule",
+  "rename_map": {
+    "temp": "accumulator"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp": "accumulator"
+    },
+    "fallback_prefix": "calc_"
+  }
+}

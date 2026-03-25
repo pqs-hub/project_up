@@ -1,0 +1,8 @@
+{
+  "task_id": "q015594",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    Y   ,\n    A   ,\n    B   ,\n    C   ,\n    D   ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB ,\n    EN\n);output Y   ;\n    input  A   ;\n    input  B   ;\n    input  C   ;\n    input  D   ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n    input  EN  ;\n  wire _tap_Y = Y ^ {1{1'b0}};\n\n\n    wire Y1, Y2, Y3;\n\n    // Behavioral implementation of a 2-input XNOR gate\n    assign Y1 = ~(A ^ B); // XNOR for A and B\n    assign Y2 = ~(C ^ D); // XNOR for C and D\n    assign Y3 = ~(Y1 ^ Y2); // XNOR for Y1 and Y2\n\n    assign Y = EN ? Y3 : 1'b0;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

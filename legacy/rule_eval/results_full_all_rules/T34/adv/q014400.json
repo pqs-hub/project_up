@@ -1,0 +1,21 @@
+{
+  "task_id": "q014400",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module alu_32bit (rst_alu_out, clk, reset, en, data_a, data_b, alu_ctrl);\n   input clk, reset, en;\n   input [31:0] data_a, data_b;\n   input [2:0] alu_ctrl;\n   output [31:0] rst_alu_out;\n   \n   reg [31:0] rst_alu_out;\n   \n   always @(posedge clk or posedge reset) begin\n      if (reset)\n         rst_alu_out <= 32'b0;\n      else if (en) begin\n         case (alu_ctrl)\n            3'b000: rst_alu_out <= data_a + data_b;  // Addition\n            3'b001: rst_alu_out <= data_a - data_b;  // Subtraction\n            3'b010: rst_alu_out <= data_a & data_b;  // Bitwise AND\n            3'b011: rst_alu_out <= data_a | data_b;  // Bitwise OR\n            3'b100: rst_alu_out <= data_a ^ data_b;  // Bitwise XOR\n            default: rst_alu_out <= 32'b0;\n         endcase\n      end\n   end\n   \nendmodule",
+  "rename_map": {
+    "alu_out": "rst_alu_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk",
+      "reset": "rst_reset",
+      "en": "rst_en",
+      "data_a": "rst_data_a",
+      "data_b": "rst_data_b",
+      "alu_ctrl": "rst_alu_ctrl",
+      "alu_out": "rst_alu_out"
+    },
+    "fallback_prefix": "rst_"
+  }
+}

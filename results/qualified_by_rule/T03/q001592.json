@@ -1,0 +1,6 @@
+{
+  "task_id": "q001592",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input [15:0] analog_in,   // 16-bit analog input\n    output [3:0] digital_out   // 4-bit digital output\n);\n  wire [15:0] _tap_analog_in = analog_in & {16{1'b1}};\n\n    assign digital_out = analog_in / 4096; // Quantization logic\nendmodule"
+}

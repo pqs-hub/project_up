@@ -1,0 +1,15 @@
+{
+  "task_id": "q011075",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input  [15:0] ext_val,\n    input         ExtType,\n    output [31:0] imm32\n);assign imm32 = {(ext_val[15] == 1'b1 && ExtType == 1'b1) ? 16'hFFFF : 16'h0000, ext_val};\nendmodule",
+  "rename_map": {
+    "imm16": "ext_val"
+  },
+  "params_used": {
+    "custom_map": {
+      "imm16": "ext_val"
+    },
+    "fallback_prefix": "ext_"
+  }
+}

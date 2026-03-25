@@ -1,0 +1,10 @@
+{
+  "task_id": "q001124",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module TFlipFlop (\n    input clk,\n    input T,\n    output reg Q\n);\n    always @(posedge clk) begin\n        if (T) begin\n            Q <= ~Q; // Toggle the output if T is high\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      if (T) begin\n        Q <= Q;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (T) begin\n  Q <= Q;\nend"
+  }
+}

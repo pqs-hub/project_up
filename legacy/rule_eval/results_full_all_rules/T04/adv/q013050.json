@@ -1,0 +1,10 @@
+{
+  "task_id": "q013050",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module divides the input clock by two, generating a 25 MHz output clock from a 50 MHz input clock.\nmodule top_module(\n    CLOCK_50,\n    CLOCK_25\n);input CLOCK_50;\n    output CLOCK_25;\n    reg clk = 0;\n\n    always @(posedge CLOCK_50) begin\n        clk <= ~clk;\n    end\n \n    assign CLOCK_25 = clk;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module divides the input clock by two, generating a 25 MHz output clock from a 50 MHz input clock."
+  }
+}

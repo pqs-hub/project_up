@@ -1,0 +1,6 @@
+{
+  "task_id": "q012386",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n    input [3:0] in,     // 4-bit input.\n    input en,           // Enable signal to activate the encoder.\n\n    output [1:0] out    // 2-bit binary output.\n);\n\nreg [1:0] out_r;\n\n//------------------------------------------------\n// Priority Encoder logic\nalways @(*) begin\n    if (en) begin\n        if (in[3]) begin\n            out_r = 2'b11;\n        end else if (in[2]) begin\n            out_r = 2'b10;\n        end else if (in[1]) begin\n            out_r = 2'b01;\n        end else if (in[0]) begin\n            out_r = 2'b00;\n        end else begin\n            out_r = 2'b00;\n        end\n    end else begin\n        out_r = 2'b00;\n    end\nend\n\nassign out = out_r;\n\nendmodule"
+}

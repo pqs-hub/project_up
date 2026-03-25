@@ -1,0 +1,6 @@
+{
+  "task_id": "q015209",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire rst,\n    input wire [2:0] read_addr1,\n    input wire [2:0] read_addr2,\n    input wire [2:0] write_addr,\n    input wire [31:0] write_data,\n    input wire write_en,\n    output reg [31:0] read_data1,\n    output reg [31:0] read_data2\n    );\n\nreg [31:0] reg_array [7:0];\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        reg_array[0] <= 32'b0;\n        reg_array[1] <= 32'b0;\n        reg_array[2] <= 32'b0;\n        reg_array[3] <= 32'b0;\n        reg_array[4] <= 32'b0;\n        reg_array[5] <= 32'b0;\n        reg_array[6] <= 32'b0;\n        reg_array[7] <= 32'b0;\n    end\n    else if (write_en) begin\n        reg_array[write_addr] <= write_data;\n    end\nend\n\nalways @(*) begin\n    read_data1 = reg_array[read_addr1];\n    read_data2 = reg_array[read_addr2];\nend\n\nendmodule"
+}

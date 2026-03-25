@@ -1,0 +1,10 @@
+{
+  "task_id": "q009746",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements an 8-to-3 decoder with disable control. When the disable signal (dis) is high, the module activates one of the three output lines based on the 8-bit binary input (data_in), setting the corresponding output to low while all others remain high. If the disable signal is low, all outputs are set to high.\nmodule top_module(\n    input [2:0] data_in,\n    input ena,\n    output reg [7:0] data_out\n    );always @ (ena or data_in)\nbegin\nif (ena == 1)\ncase (data_in)\n3'b000:\ndata_out = 8'b11111110;\n3'b001:\ndata_out = 8'b11111101;\n3'b010:\ndata_out = 8'b11111011;\n3'b011:\ndata_out = 8'b11110111;\n3'b100:\ndata_out = 8'b11101111;\n3'b101:\ndata_out = 8'b11011111;\n3'b110:\ndata_out = 8'b10111111;\n3'b111:\ndata_out = 8'b01111111;\nendcase\nelse\ndata_out = 8'b11111111;\nend\n\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an 8-to-3 decoder with disable control. When the disable signal (dis) is high, the module activates one of the three output lines based on the 8-bit binary input (data_in), setting the corresponding output to low while all others remain high. If the disable signal is low, all outputs are set to high."
+  }
+}

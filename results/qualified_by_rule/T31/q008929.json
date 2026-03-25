@@ -1,0 +1,6 @@
+{
+  "task_id": "q008929",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(\ninput clk,\ninput[7:0] direccionram,\ninput wram,\ninput [15:0]datorom,\noutput reg [15:0]datoram\n);parameter DWIDTH=16,AWIDTH=8,WORDS=256;\n \nreg [DWIDTH-1:0] ram [WORDS-1:0];\n       \n       \nalways@(posedge clk ) \n         if (wram) begin  datoram <= ram[direccionram]; end    \n         else   ram[direccionram] <= datorom;                                                \n  endmodule"
+}

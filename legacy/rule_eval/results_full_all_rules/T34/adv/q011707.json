@@ -1,0 +1,15 @@
+{
+  "task_id": "q011707",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n  input clk,\n  input reset,\n  input in,\n  output reg pulse);reg out_delayed;\nalways @(posedge clk or posedge reset) begin\n\tif (reset) begin\n\t\tout_delayed <= 0;\n\t\tpulse <= 0;\n\tend else begin\n\t\tpulse <= in & ~out_delayed;\n\t\tout_delayed <= in;\n\tend\nend\nendmodule",
+  "rename_map": {
+    "in_delayed": "out_delayed"
+  },
+  "params_used": {
+    "custom_map": {
+      "in_delayed": "out_delayed"
+    },
+    "fallback_prefix": "not_"
+  }
+}

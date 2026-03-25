@@ -1,0 +1,16 @@
+{
+  "task_id": "q002466",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adc_output_processor (\n    input [23:0] adc_input,\n    output reg [7:0] upper_8_bits\n);\n    parameter THRESHOLD = 24'h800000; // 2^23\n    \n    always @(*) begin\n        if (adc_input < THRESHOLD) \n            upper_8_bits = 8'b0;\n        else \n            upper_8_bits = adc_input[23:16]; // Upper 8 bits\n    end\nendmodule",
+  "rename_map": {
+    "adc_output": "upper_8_bits"
+  },
+  "params_used": {
+    "custom_map": {
+      "THRESHOLD": "LOW_THRESHOLD",
+      "adc_output": "upper_8_bits"
+    },
+    "fallback_prefix": "inverted_"
+  }
+}

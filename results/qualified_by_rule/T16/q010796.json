@@ -1,0 +1,6 @@
+{
+  "task_id": "q010796",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule( input clk, input d, output reg [2:0] q );reg [2:0] final_sig;\n\nalways @(posedge clk) begin\n    final_sig <= {final_sig[1:0], d};\nend\n\nassign q = {final_sig[2], final_sig[1], final_sig[0]};\n\nendmodule"
+}

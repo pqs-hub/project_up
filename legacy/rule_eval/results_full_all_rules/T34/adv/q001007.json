@@ -1,0 +1,15 @@
+{
+  "task_id": "q001007",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module flash_memory_cell (\n    input wire D,\n    input wire C,\n    output wire Q\n);\n    reg flash_Q_reg;\n\n    always @(*) begin\n        if (C) begin\n            flash_Q_reg = D;  // Update output Q with input D when control C is high\n        end\n    end\n\n    assign Q = flash_Q_reg;  // Continuous assignment to output Q\nendmodule",
+  "rename_map": {
+    "Q_reg": "flash_Q_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "Q_reg": "Q_inv"
+    },
+    "fallback_prefix": "flash_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q013700",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module shift_register(\n\tinput clk,\n\tinput shift_enable,\n\tinput load,\n\tinput [7:0] load_value,\n\toutput reg [7:0] data);\n\nalways @(posedge clk) begin\n\tif (load)\n\t\tdata <= load_value;\n\telse if (shift_enable)\n\t\tdata <= {data[6:0], 1'b0};\nend\n\nendmodule"
+}

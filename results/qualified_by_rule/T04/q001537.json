@@ -1,0 +1,6 @@
+{
+  "task_id": "q001537",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule (\n    input [15:0] data_in0,\n    input [15:0] data_in1,\n    input [15:0] data_in2,\n    input [15:0] data_in3,\n    input [1:0] sel,\n    output reg [15:0] data_out\n);\n\nalways @(*) begin\n    case(sel)\n        2'b00: data_out = data_in0;\n        2'b01: data_out = data_in1;\n        2'b10: data_out = data_in2;\n        2'b11: data_out = data_in3;\n        default: data_out = 16'b0;\n    endcase\nend\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q008991",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(clock,WB,Memout,ALUOut,RegRD,WBreg,Memreg,ALUreg,RegRDreg);input clock; \n   input  [1:0]WB; \n   input [4:0] RegRD; \n   input [31:0] Memout,ALUOut; \n   output reg [1:0] WBreg; \n   output reg [31:0] Memreg,ALUreg; \n   output reg [4:0] RegRDreg;\n  wire _tap_clock = clock & {1{1'b1}};\n\n    \n    always@(posedge clock) \n    begin \n        WBreg <= WB; \n        Memreg <= Memout; \n        ALUreg <= ALUOut; \n        RegRDreg <= RegRD; \n    end \n    \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

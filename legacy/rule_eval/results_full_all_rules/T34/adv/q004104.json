@@ -1,0 +1,15 @@
+{
+  "task_id": "q004104",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module pcie_decoder (\n    input [3:0] address,\n    output reg [3:0] disable\n);\n\nalways @(*) begin\n    disable = 4'b0000; // Default all enables to low\n    if (address < 4'b0100) begin\n        disable[address] = 1'b1; // Enable the device corresponding to the address\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

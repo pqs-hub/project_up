@@ -1,0 +1,6 @@
+{
+  "task_id": "q005800",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule(a,b,ALUControl,result,zero);parameter n = 63;\n input [n:0]a;\n input [n:0]b;\n input [3:0]ALUControl;\n output reg [n:0] result;\n output zero;\n always @(*)\n  begin\n   case(ALUControl)\n   4'b0000: result = a & b;\n   4'b0001: result = a | b;\n   4'b0010: result = a + b;\n   4'b0110: result = a - b;\n   default: result = a + b;\n   endcase\n  end\n assign zero = (result==64'd0) ? 1'b1: 1'b0;\nendmodule"
+}

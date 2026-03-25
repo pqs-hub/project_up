@@ -1,0 +1,6 @@
+{
+  "task_id": "q002333",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(  \n    input wire clk,  \n    input wire control, // control signal: 1 for write, 0 for read  \n    input wire [7:0] data_in, // data input for writing  \n    output reg [7:0] data_out // data output for reading  \n);  \n    reg [7:0] data_reg; // 8-bit data register  \n\n    always @(posedge clk) begin  \n        if (control) begin  \n            // Write operation  \n            data_reg <= data_in;  \n        end else begin  \n            // Read operation  \n            data_out <= data_reg;  \n        end  \n    end  \nendmodule"
+}

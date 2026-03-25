@@ -1,0 +1,7 @@
+{
+  "task_id": "q011020",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module top_module (\n  input clk,\n  input reset,\n  input in,\n  output reg state);parameter IDLE = 1'b0, ACTIVE = 1'b1;\nalways @(posedge clk or posedge reset) begin\n\t\tif (reset)\n\t\t\tstate <= IDLE;\n\t\telse\n\t\t\tcase (state)\n\t\t\t\tIDLE: if (in) state <= ACTIVE;\n\t\t\t\tACTIVE: state <= ACTIVE;\n\t\t\tendcase\n\tend\nendmodule",
+  "rename_map": {}
+}

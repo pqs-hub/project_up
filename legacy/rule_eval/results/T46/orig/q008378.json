@@ -1,0 +1,6 @@
+{
+  "task_id": "q008378",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    input [31:0] in_data,\n    input in_valid,\n    output reg [31:0] out_data,\n    output reg out_valid\n);reg [31:0] stored_data;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        stored_data <= 0;\n        out_valid <= 0;\n    end else if (in_valid) begin\n        stored_data <= in_data;\n        out_valid <= 1;\n    end else if (out_valid) begin\n        out_valid <= 0;\n    end\nend\n\nassign out_data = stored_data;\n\nendmodule"
+}

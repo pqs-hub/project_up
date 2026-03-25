@@ -1,0 +1,6 @@
+{
+  "task_id": "q012280",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule(\n    input wire clk,\n    input wire rst_n,\n    output reg [7:0] johnson_out\n    );\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        johnson_out <= 8'b00000000;\n    else\n        johnson_out <= {~johnson_out[7], johnson_out[7:1]};\nend\n\nendmodule"
+}

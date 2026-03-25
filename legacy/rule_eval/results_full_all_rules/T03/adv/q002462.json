@@ -1,0 +1,8 @@
+{
+  "task_id": "q002462",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module temperature_comparator(\n    input [3:0] tempA,\n    input [3:0] tempB,\n    output reg [1:0] result\n);\n  wire [3:0] _tap_tempA = tempA & {4{1'b1}};\n\n    always @(*) begin\n        if (tempA < tempB)\n            result = 2'b00; // tempA < tempB\n        else if (tempA == tempB)\n            result = 2'b01; // tempA == tempB\n        else\n            result = 2'b10; // tempA > tempB\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

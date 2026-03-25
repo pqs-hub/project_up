@@ -1,0 +1,6 @@
+{
+  "task_id": "q011471",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(clk, d, en, q);input clk, d, en;\n  output reg q;\n\n  // Clock gating circuit\n  wire gated_clk;\n  assign gated_clk = clk & en;\n\n  always @(posedge gated_clk) begin\n    q <= d;\n  end\nendmodule"
+}

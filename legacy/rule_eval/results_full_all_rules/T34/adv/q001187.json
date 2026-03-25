@@ -1,0 +1,15 @@
+{
+  "task_id": "q001187",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dma_controller (\n    input wire [3:0] channel_selector,\n    input wire start,\n    input wire clk,\n    input wire reset,\n    output reg [3:0] active_channel\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            active_channel <= 4'b0000;\n        end else if (start) begin\n            active_channel <= channel_selector;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "sel": "channel_selector"
+  },
+  "params_used": {
+    "custom_map": {
+      "sel": "channel_selector"
+    },
+    "fallback_prefix": "dma_"
+  }
+}

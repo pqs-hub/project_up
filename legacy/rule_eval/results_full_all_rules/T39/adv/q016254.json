@@ -1,0 +1,8 @@
+{
+  "task_id": "q016254",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] data1,\n    input [3:0] data2,\n    input [1:0] op,\n    input clk,         // Added clk input\n    output reg [3:0] q\n);reg [3:0] stage1_out;\nreg [3:0] stage2_out;\n\nalways @(*) begin\n    case(op)\n        2'b00: stage1_out = data1 + data2;\n        2'b01: stage1_out = data1 - data2;\n        2'b10: stage1_out = data1 & data2;\n        2'b11: stage1_out = data1 | data2;\n        default: stage1_out = 4'b0000; // Added default case\n    endcase\nend\n\nalways @(posedge clk) begin\n  stage2_out <= stage1_out ;\n  end\n\n  always @(posedge clk) begin\n  q <= stage2_out ;\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

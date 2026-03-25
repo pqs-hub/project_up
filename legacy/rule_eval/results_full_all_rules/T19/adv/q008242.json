@@ -1,0 +1,10 @@
+{
+  "task_id": "q008242",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [1:0] A,\n    input [1:0] B,\n    output reg X\n);wire C1 = A[0] & A[1];\n    wire C2 = B[0] | B[1];\n\n    always @(*) begin\n        X = C1 ^ C2;\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      C1 <= ~A[0];\n      C2 <= ~B[1];\n      X <= C1 & C2;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "C1 <= ~A[0];\nC2 <= ~B[1];\nX <= C1 & C2;"
+  }
+}

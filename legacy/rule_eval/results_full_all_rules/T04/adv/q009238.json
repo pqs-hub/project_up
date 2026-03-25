@@ -1,0 +1,10 @@
+{
+  "task_id": "q009238",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module compares two 2-bit inputs, A and B, and produces two outputs: EQ, indicating whether the bits of A and B are not equal for each bit position, and GT, signifying whether each bit of A is less than or equal to the corresponding bit of B.\nmodule top_module(\n    input [1:0] A,\n    input [1:0] B,\n    output reg [1:0] EQ,\n    output reg [1:0] GT\n);// EQ calculation\n    assign EQ[1] = ~(A[1] ^ B[1]);\n    assign EQ[0] = ~(A[0] ^ B[0]);\n\n    // GT calculation\n    always @(*) begin\n        if (A[1] > B[1])\n            GT[1] = 1;\n        else\n            GT[1] = 0;\n\n        if (A[0] > B[0])\n            GT[0] = 1;\n        else\n            GT[0] = 0;\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module compares two 2-bit inputs, A and B, and produces two outputs: EQ, indicating whether the bits of A and B are not equal for each bit position, and GT, signifying whether each bit of A is less than or equal to the corresponding bit of B."
+  }
+}

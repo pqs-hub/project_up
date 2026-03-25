@@ -1,0 +1,6 @@
+{
+  "task_id": "q016152",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module shift_register (\n    input clk,\n    input load,\n    input shift,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n\n    // Shift register logic\n    always @(posedge clk) begin\n        if (load)\n            data_out <= data_in;\n        else if (shift)\n            data_out <= data_out >> 1;\n    end\n\nendmodule"
+}

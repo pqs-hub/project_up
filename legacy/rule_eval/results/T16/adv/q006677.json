@@ -1,0 +1,9 @@
+{
+  "task_id": "q006677",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(obf_A, B, Y);input [3:0] obf_A;\ninput B;\noutput reg [3:0] Y;\n\nalways @ (obf_A, B)\nbegin\n    if(B == 1'b1)\n        Y <= 4'b0000;\n    else\n        Y <= ~obf_A + 4'b0001;\nend\n\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

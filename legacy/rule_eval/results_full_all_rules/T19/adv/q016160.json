@@ -1,0 +1,10 @@
+{
+  "task_id": "q016160",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input bit0, bit1, cin,\n                  output sum, cout);assign sum = bit0^bit1^cin;\n    assign cout = (bit0&bit1)|(bit0&cin)|(bit1&cin);  always @(*) begin\n    if (1'b0) begin\n      sum <= ~bit0 & ~bit1 & ~cin;\n      cout <= bit0 & bit1 & cin;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum <= ~bit0 & ~bit1 & ~cin;\ncout <= bit0 & bit1 & cin;"
+  }
+}

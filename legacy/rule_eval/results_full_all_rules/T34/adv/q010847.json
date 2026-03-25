@@ -1,0 +1,15 @@
+{
+  "task_id": "q010847",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    input sel_b1,\n    input sel_b2,\n    output reg out_never\n);always @(*) begin\n    case ({sel_b2, sel_b1})\n        2'b11: out_never = b;\n        default: out_never = a;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "out_always": "out_never"
+  },
+  "params_used": {
+    "custom_map": {
+      "out_always": "out_never"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

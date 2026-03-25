@@ -1,0 +1,8 @@
+{
+  "task_id": "q003835",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module pipelined_processor (\n    input wire clk,\n    input wire reset,\n    input wire [7:0] a,\n    input wire [7:0] b,\n    input wire op, // 0 for addition, 1 for subtraction\n    output reg [7:0] result\n);\n    reg [7:0] stage1_result;\n    reg [7:0] stage2_result;\n\n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant\n        if (reset) begin\n            stage1_result <= 8'b0;\n            stage2_result <= 8'b0;\n            result <= 8'b0;\n        end else begin\n            // Stage 1\n            if (op == 0) // Addition\n                stage1_result <= a + b;\n            else // Subtraction\n                stage1_result <= a - b;\n\n            // Stage 2\n            stage2_result <= stage1_result + 8'd5;\n            result <= stage2_result;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

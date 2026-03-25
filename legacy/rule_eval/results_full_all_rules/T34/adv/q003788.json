@@ -1,0 +1,18 @@
+{
+  "task_id": "q003788",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sram_cell (  \n    input wire inverted_D,      // Data input  \n    input wire WE,     // Write Enable  \n    input wire RE,     // Read Enable  \n    output reg Q       // Data output  \n);  \n    always @(*) begin  \n        if (WE) begin  \n            Q <= inverted_D;  // Write data to SRAM cell  \n        end else if (RE) begin  \n            // Do nothing if read enable is active  \n            // Q will reflect the stored data  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "D": "inverted_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "data_inverted",
+      "WE": "write_enable_inverted",
+      "RE": "read_enable_inverted",
+      "Q": "output_inverted"
+    },
+    "fallback_prefix": "inverted_"
+  }
+}

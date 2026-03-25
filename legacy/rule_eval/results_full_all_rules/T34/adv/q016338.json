@@ -1,0 +1,16 @@
+{
+  "task_id": "q016338",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input signed [3:0] c,\n    output reg signed [3:0] b\n);always @(*) begin\n    if (c[3] == 0) begin // positive number\n        b = c;\n    end else begin // negative number\n        b = ~c + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "a": "c"
+  },
+  "params_used": {
+    "custom_map": {
+      "a": "c",
+      "b": "d"
+    },
+    "fallback_prefix": "_neg_"
+  }
+}

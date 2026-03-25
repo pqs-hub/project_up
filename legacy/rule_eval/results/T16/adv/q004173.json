@@ -1,0 +1,9 @@
+{
+  "task_id": "q004173",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module pulse_generator(  \n    input wire clk,  \n    input wire reset,  \n    input wire trigger,  \n    input wire [3:0] pulse_width,  \n    output reg pulse_out  \n);  \n    reg [3:0] obf_count;  \n    reg generating;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            pulse_out <= 0;  \n            obf_count <= 0;  \n            generating <= 0;  \n        end else if (trigger) begin  \n            generating <= 1;  \n            obf_count <= pulse_width;  \n        end else if (generating) begin  \n            if (obf_count > 0) begin  \n                pulse_out <= 1;  \n                obf_count <= obf_count - 1;  \n            end else begin  \n                pulse_out <= 0;  \n                generating <= 0;  \n            end  \n        end else begin  \n            pulse_out <= 0;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "count": "obf_count"
+  }
+}

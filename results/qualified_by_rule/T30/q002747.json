@@ -1,0 +1,6 @@
+{
+  "task_id": "q002747",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(  \n    input clk,  \n    input reset,  \n    input valid,  \n    input ack,  \n    output reg [1:0] state  \n);  \n    parameter IDLE = 2'b00, RECEIVING = 2'b01, SENDING = 2'b10;  \n    \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            state <= IDLE;  \n        end else begin  \n            case (state)  \n                IDLE: begin  \n                    if (valid)  \n                        state <= RECEIVING;  \n                end  \n                RECEIVING: begin  \n                    if (ack)  \n                        state <= SENDING;  \n                end  \n                SENDING: begin  \n                    // Assume we have some timeout logic here  \n                    state <= IDLE;  \n                end  \n                default: state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule"
+}

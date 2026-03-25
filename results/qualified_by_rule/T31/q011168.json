@@ -1,0 +1,6 @@
+{
+  "task_id": "q011168",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(A, B, Cin, Sum, Cout);\n    input [3:0] A;\n    input [3:0] B;\n    input Cin;\n    output [3:0] Sum;\n    output Cout;\n\n    wire [3:0] carry;\n    \n    // Full Adder for bit 0\n    full_adder FA0 (.A(A[0]), .B(B[0]), .Cin(Cin), .Sum(Sum[0]), .Cout(carry[0]));\n    // Full Adder for bit 1\n    full_adder FA1 (.A(A[1]), .B(B[1]), .Cin(carry[0]), .Sum(Sum[1]), .Cout(carry[1]));\n    // Full Adder for bit 2\n    full_adder FA2 (.A(A[2]), .B(B[2]), .Cin(carry[1]), .Sum(Sum[2]), .Cout(carry[2]));\n    // Full Adder for bit 3\n    full_adder FA3 (.A(A[3]), .B(B[3]), .Cin(carry[2]), .Sum(Sum[3]), .Cout(carry[3]));\n\n    wire __Cout_tmp = carry[3];\n    assign Cout = __Cout_tmp;\nendmodule\n\nmodule full_adder(A, B, Cin, Sum, Cout);\n    input A, B, Cin;\n    output Sum, Cout;\n\n    assign Sum = A ^ B ^ Cin;\n    assign Cout = (A & B) | (B & Cin) | (A & Cin);\nendmodule"
+}

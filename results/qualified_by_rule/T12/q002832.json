@@ -1,0 +1,6 @@
+{
+  "task_id": "q002832",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(input clk, input reset, input [7:0] a, input [7:0] b, output reg [7:0] sum);  \n    reg [7:0] a_reg, b_reg;  \n    reg [7:0] exec_result;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            sum <= 0;  \n            a_reg <= 0;  \n            b_reg <= 0;  \n            exec_result <= 0;  \n        end else begin  \n            // Stage 1: Fetch  \n            a_reg <= a;  \n            b_reg <= b;  \n            \n            // Stage 2: Decode (already done by simply holding values)  \n            // Stage 3: Execute  \n            exec_result <= a_reg + b_reg;  \n            \n            // Stage 4: Memory Access (not used in this simple adder)  \n            // Stage 5: Write Back  \n            sum <= exec_result;  \n        end  \n    end  \nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q011888",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    input [7:0] A,\n    input [7:0] B,\n    output reg [15:0] Y\n);reg [15:0] final_sig;\n\ninteger i;\n\nalways @(*) begin\n    final_sig = 16'b0;\n    for (i = 0; i < 8; i = i + 1) begin\n        if (A[i]) begin\n            final_sig = final_sig + (B << i);\n        end\n    end\n    Y = final_sig;\nend\n\nendmodule"
+}

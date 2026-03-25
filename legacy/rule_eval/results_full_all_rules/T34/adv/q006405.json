@@ -1,0 +1,15 @@
+{
+  "task_id": "q006405",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [13:1] decoded_one_hot,\n  output [3:0] regime_bin);assign regime_bin[0] = |({decoded_one_hot[1], decoded_one_hot[3], decoded_one_hot[5], decoded_one_hot[7], decoded_one_hot[9], decoded_one_hot[11], decoded_one_hot[13]});\n  assign regime_bin[1] = |({decoded_one_hot[2], decoded_one_hot[3], decoded_one_hot[6], decoded_one_hot[7], decoded_one_hot[10], decoded_one_hot[11]});\n  assign regime_bin[2] = |({decoded_one_hot[4], decoded_one_hot[5], decoded_one_hot[6], decoded_one_hot[7], decoded_one_hot[12], decoded_one_hot[13]});\n  assign regime_bin[3] = |({decoded_one_hot[8], decoded_one_hot[9], decoded_one_hot[10], decoded_one_hot[11], decoded_one_hot[12], decoded_one_hot[13]});endmodule",
+  "rename_map": {
+    "one_hot_regime": "decoded_one_hot"
+  },
+  "params_used": {
+    "custom_map": {
+      "one_hot_regime": "decoded_one_hot"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

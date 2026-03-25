@@ -1,0 +1,15 @@
+{
+  "task_id": "q014442",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input rst_clk,\n    input reset,\n    output reg [9:0] q);\n\n    always @(posedge rst_clk) begin\n        if (reset) begin\n            q <= 10'b0000000001;\n        end else begin\n            q <= {q[8:0], ~q[9]};\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

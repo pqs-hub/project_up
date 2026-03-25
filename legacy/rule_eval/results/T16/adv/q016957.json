@@ -1,0 +1,9 @@
+{
+  "task_id": "q016957",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module pulse_gen(\n  input clk,\n  input trigger,\n  input [15:0] pulse_width,\n  output reg pulse\n);\n\nreg [15:0] obf_counter = 0;\nreg pulse_gen = 0;\n\nalways @(posedge clk) begin\n  if (trigger) begin\n    pulse_gen <= 1;\n    obf_counter <= 0;\n  end else begin\n    if (obf_counter >= pulse_width) begin\n      pulse_gen <= 0;\n    end\n    obf_counter <= obf_counter + 1;\n  end\nend\n\nalways @(posedge clk) begin\n  pulse <= pulse_gen;\nend\n\nendmodule",
+  "rename_map": {
+    "counter": "obf_counter"
+  }
+}

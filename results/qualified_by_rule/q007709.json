@@ -1,0 +1,6 @@
+{
+  "task_id": "q007709",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input resetn,\n    input enable,\n    output reg sprinkling);\n\n    parameter OFF = 0, ON = 1;\n    reg state, ctrl_bus_wire;\n\n    always @(posedge clk) begin\n        if (~resetn) state <= OFF;\n        else state <= ctrl_bus_wire;\n    end\n\n    always_comb begin\n        case (state)\n            OFF: ctrl_bus_wire = enable ? ON : OFF;\n            ON: ctrl_bus_wire = enable ? ON : OFF;\n            default: ctrl_bus_wire = OFF;\n        endcase\n    end\n\n    always @(state) begin\n        case (state)\n            ON: sprinkling = 1;\n            default: sprinkling = 0;\n        endcase\n    end\nendmodule"
+}

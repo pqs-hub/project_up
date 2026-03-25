@@ -1,0 +1,12 @@
+{
+  "task_id": "q000030",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input [47:0] mac_in,\n    input [47:0] mac_filter,\n    output reg match\n);\n    always @(*) begin\n        if (mac_in == mac_filter)\n            match = 1'b1;\n        else\n            match = 1'b0;\n    end\nendmodule",
+  "adversarial_code": "module TopModule (\n    input [47:0] mac_in,\n    input [47:0] mac_filter,\n    output wire match\n);\n    assign match = (mac_in == mac_filter);\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

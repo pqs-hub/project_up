@@ -1,0 +1,8 @@
+{
+  "task_id": "q007276",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    output X,\n    input A1,\n    input A2,\n    input B1,\n    input B2,\n    input C1\n);// Voltage supply signals\n  wire _tap_X = X ^ {1{1'b0}};\n\n    supply1 VPWR;\n    supply0 VGND;\n\n    wire and_out;\n\n    // Implement the AND gate\n    // Replace the unknown module with a simple implementation\n    assign and_out = A1 & A2;\n\n    // Implement the additional behavior\n    assign X = (B1 == 1) ? (B2 == 1 ? !and_out : and_out & C1) : 0;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

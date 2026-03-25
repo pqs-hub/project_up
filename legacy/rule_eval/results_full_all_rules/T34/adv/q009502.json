@@ -1,0 +1,21 @@
+{
+  "task_id": "q009502",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput [15:0] to_display,\n\tinput enable,\n\toutput [3:0] D5,\t\n\toutput [3:0] D4,\t\n\toutput [3:0] D3,\t\n\toutput [3:0] D2,\t\n\toutput [3:0] D1\t\n);reg [15:0] inactive_temp;\n\treg [3:0] t5;\t\n\treg [3:0] t4;\n\treg [3:0] t3;\n\treg [3:0] t2;\n\treg [3:0] t1;\n\talways @(enable or to_display) begin\n\t\tif (enable==0) begin\n\t\t\tt5 = 4'b1111 ;\n\t\t\tt4 = 4'b1111 ;\n\t\t\tt3 = 4'b1111 ;\n\t\t\tt2 = 4'b1111 ;\n\t\t\tt1 = 4'b1111 ;\n\t\tend\t\n\t\telse begin\n\t\t\tinactive_temp = to_display ;\n\t\t\tt1 = inactive_temp % 10 ;\n\t\t\tinactive_temp =inactive_temp/10 ;\n\t\t\tt2 = inactive_temp % 10 ;\n\t\t\tinactive_temp =inactive_temp/10 ;\n\t\t\tt3 = inactive_temp % 10 ;\n\t\t\tinactive_temp =inactive_temp/10 ;\n\t\t\tt4 = inactive_temp % 10 ;\n\t\t\tinactive_temp =inactive_temp/10 ;\n\t\t\tt5 = inactive_temp % 10 ;\n\t\tend\n\t\n\tend\n\tassign D5 =t5 ;\n\tassign D4 = t4 ;\n\tassign D3 = t3 ;\n\tassign D2 =  t2;\n\tassign D1 = t1 ;\n\t\t\n\n\nendmodule",
+  "rename_map": {
+    "temp": "inactive_temp"
+  },
+  "params_used": {
+    "custom_map": {
+      "to_display": "input_value",
+      "enable": "active_flag",
+      "D5": "output_digit_5",
+      "D4": "output_digit_4",
+      "D3": "output_digit_3",
+      "D2": "output_digit_2",
+      "D1": "output_digit_1"
+    },
+    "fallback_prefix": "inactive_"
+  }
+}

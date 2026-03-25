@@ -1,0 +1,10 @@
+{
+  "task_id": "q005008",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 16-bit shift register with serial input 's_in', parallel load 'p_in,' and an active-low load enable 'load.' The shift register shifts on the falling edge of 'clk.'\nmodule shift_register_8bit (\n\tinput clk,\n\tinput s_in,\n\tinput [7:0] p_in,\n\tinput load,\n\toutput reg [7:0] q);\nalways @(posedge clk) begin\n\tif (load) begin\n\t\tq <= p_in;\n\tend else begin\n\t\tq <= {q[6:0], s_in};\n\tend\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 16-bit shift register with serial input 's_in', parallel load 'p_in,' and an active-low load enable 'load.' The shift register shifts on the falling edge of 'clk.'"
+  }
+}

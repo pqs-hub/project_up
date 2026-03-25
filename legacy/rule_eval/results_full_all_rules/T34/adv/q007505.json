@@ -1,0 +1,15 @@
+{
+  "task_id": "q007505",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_reg_16bit (\n    input reset_clk,\n    input rst,\n    input shift_en,\n    input load_en,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n\nalways @(posedge reset_clk) begin\n    if (rst) begin\n        data_out <= 16'b0;\n    end\n    else if (load_en) begin\n        data_out <= data_in;\n    end\n    else if (shift_en) begin\n        data_out <= {1'b0, data_out[15:1]};\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

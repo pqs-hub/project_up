@@ -1,0 +1,6 @@
+{
+  "task_id": "q013068",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(npm, d, pm1, bm1, pm2, bm2);output [3:0] npm;\n\t\n\toutput d;\n\t\n\t\n\t\n\t\n\tinput [3:0] pm1;\n\t\n\tinput [1:0] bm1;\n\t\n\tinput [3:0] pm2;\n\t\n\tinput [1:0] bm2;\n\t\n\t\n\treg [3:0] npm;\n\treg d;\n\t\n\t\n\treg [3:0] add1;\n\t\n\treg [3:0] add2;\n\t\n\treg [4:0] add_temp1;\n\t\n\treg [4:0] add_temp2;\n\n\n\n\t\n\t\n\t\n\t\n\tparameter max_add = 4'd15;\n\n\n\t\n\talways @ (pm1 or bm1)\n\tbegin\n\t\t\n\t\tadd_temp1 = pm1 + bm1;\n\t\t\n\t\tif(add_temp1 > max_add)\n\t\tbegin\n\t\t\t\n\t\t\tadd1 = max_add;\n\t\tend\n\t\telse\n\t\tbegin\n\t\t\t\n\t\t\tadd1 = pm1 + bm1;\n\t\tend\n\tend\n\t\n\t\n\talways @ (pm2 or bm2)\n\tbegin\n\t\t\n\t\tadd_temp2 = pm2 + bm2;\n\t\t\n\t\tif(add_temp2 > max_add)\n\t\tbegin\n\t\t\t\n\t\t\tadd2 = max_add;\n\t\tend\n\t\telse\n\t\tbegin\n\t\t\t\n\t\t\tadd2 = pm2 + bm2;\n\t\tend\n\tend\n\t\n\t\n\t\n\t\n\talways @ (add1 or add2)\n\tbegin\n\t\tif(add1 <= add2)\n\t\tbegin\n\t\t\t\n\t\t\td = 1'b0;\n\t\tend\n\t\telse\n\t\tbegin\n\t\t\t\n\t\t\td = 1'b1;\n\t\tend\n\tend\n\t\n\t\n\t\n\t\n\talways @ (d or add1 or add2)\n\tbegin\n\t\tif(d)\n\t\tbegin\n\t\t\t\n\t\t\tnpm = add2;\n\t\tend\n\t\telse\n\t\tbegin\n\t\t\t\n\t\t\tnpm = add1;\n\t\tend\n\tend\n\t\n\t\n\t\nendmodule"
+}

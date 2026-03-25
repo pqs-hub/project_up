@@ -1,0 +1,9 @@
+{
+  "task_id": "q000986",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module dvfs_controller (\n    input wire obf_clk,\n    input wire [1:0] workload,\n    output reg [1:0] freq_out\n);\n\nalways @(posedge obf_clk) begin\n    case (workload)\n        2'b00: freq_out <= 2'b00; // Low frequency\n        2'b01: freq_out <= 2'b01; // Medium frequency\n        default: freq_out <= 2'b10; // High frequency\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

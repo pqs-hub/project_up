@@ -1,0 +1,9 @@
+{
+  "task_id": "q001650",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module zero_crossing_detector (\n    input clk,\n    input rst,\n    input signal_in,\n    output reg zero_cross\n);\n\nreg obf_signal_prev;\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        obf_signal_prev <= 1'b0;\n        zero_cross <= 1'b0;\n    end else begin\n        zero_cross <= (obf_signal_prev == 1'b0 && signal_in == 1'b1) || \n                      (obf_signal_prev == 1'b1 && signal_in == 1'b0);\n        obf_signal_prev <= signal_in;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "signal_prev": "obf_signal_prev"
+  }
+}

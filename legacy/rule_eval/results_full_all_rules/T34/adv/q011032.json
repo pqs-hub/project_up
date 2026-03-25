@@ -1,0 +1,16 @@
+{
+  "task_id": "q011032",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] in_signal,\n    output [15:0] out_signal\n);wire [15:0] lower_half;\n    wire [15:0] last_16_bits;\n\n    assign lower_half = in_signal[31:16];\n    assign last_16_bits = in_signal[15:0];\n\n    assign out_signal = lower_half + last_16_bits;\n\nendmodule",
+  "rename_map": {
+    "first_16_bits": "lower_half"
+  },
+  "params_used": {
+    "custom_map": {
+      "first_16_bits": "lower_half",
+      "last_16_bits": "upper_half"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q000524",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module voltage_sensor(\n    input [4:0] input_voltage,\n    input [4:0] reference_voltage,\n    output reg output_signal\n);\n    always @(*) begin\n        if (input_voltage > reference_voltage)\n            output_signal = 1'b1;\n        else\n            output_signal = 1'b0;\n    end\n  always @(*) begin\n    if (1'b0) begin\n      output_signal <= ~input_voltage[4];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "output_signal <= ~input_voltage[4];\n"
+  }
+}

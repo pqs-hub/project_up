@@ -1,0 +1,6 @@
+{
+  "task_id": "q013351",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n    input [1:0] ctrl,\n    input [3:0] data_in,\n    input load,\n    input clk,\n    output reg [3:0] data_out,\n    output reg valid\n);reg [3:0] reg_data;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (load) begin\n        reg_data <= data_in;\n    end else begin\n        case(ctrl)\n            2'b00: begin\n                data_out <= reg_data;\n                valid <= 1'b1;\n            end\n            2'b01: begin\n                data_out <= ~reg_data;\n                valid <= 1'b1;\n            end\n            2'b10: begin\n                data_out <= data_in;\n                valid <= 1'b1;\n            end\n            2'b11: begin\n                data_out <= ~data_in;\n                valid <= 1'b1;\n            end\n            default: begin\n                data_out <= 4'b0;\n                valid <= 1'b0;\n            end\n        endcase\n    end\nend\n\ninitial begin\n    reg_data = 4'b0;\nend\n\nendmodule"
+}

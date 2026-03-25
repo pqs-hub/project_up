@@ -1,0 +1,6 @@
+{
+  "task_id": "q011968",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(\n    input A,\n    input B,\n    input C,\n    input D,\n    input S0,\n    input S1,\n    output Y\n);wire notS0, notS1;\n    not (notS0, S0);\n    not (notS1, S1);\n\n    wire and1, and2, and3, and4;\n    and (and1, A, notS1, notS0);\n    and (and2, B, notS1, S0);\n    and (and3, C, S1, notS0);\n    and (and4, D, S1, S0);\n\n    or (Y, and1, and2, and3, and4);\n\nendmodule"
+}

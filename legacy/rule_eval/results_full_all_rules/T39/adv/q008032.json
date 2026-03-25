@@ -1,0 +1,8 @@
+{
+  "task_id": "q008032",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module top_module(clk,\n   we,\n   addr,\n   wdata,\n   rdata);parameter DEPTH = 256;\n  parameter WIDTH = 64;\n\n  input clk;\n  input we;\n  input [7:0] addr;\n  input [WIDTH-1:0] wdata;\n  output reg [WIDTH-1:0] rdata;\n\n  reg [WIDTH-1:0] mem [0:DEPTH-1];\n\n  always @(posedge clk) begin\n  if (we) begin mem[addr] <= wdata ; end\n  end\n\n  always @(posedge clk) begin\n  rdata <= mem[addr] ;\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q010558",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input C,\n    input D,\n    output Y\n);wire _negated_A_and_B_and_C = A & B & C;\n    wire not_D = ~D;\n    \n    assign Y = _negated_A_and_B_and_C | not_D;\n\nendmodule",
+  "rename_map": {
+    "A_and_B_and_C": "_negated_A_and_B_and_C"
+  },
+  "params_used": {
+    "custom_map": {
+      "A_and_B_and_C": "not_A_and_not_B_and_not_C",
+      "not_D": "D"
+    },
+    "fallback_prefix": "_negated_"
+  }
+}

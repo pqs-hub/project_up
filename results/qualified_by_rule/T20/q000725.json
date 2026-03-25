@@ -1,0 +1,6 @@
+{
+  "task_id": "q000725",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule (\n    input [7:0] D,     // 8 data inputs\n    input [2:0] S,     // 3 selection inputs\n    output Y           // output\n);\n    assign Y = (S == 3'b000) ? D[0] :\n               (S == 3'b001) ? D[1] :\n               (S == 3'b010) ? D[2] :\n               (S == 3'b011) ? D[3] :\n               (S == 3'b100) ? D[4] :\n               (S == 3'b101) ? D[5] :\n               (S == 3'b110) ? D[6] :\n               D[7];  // case for S == 3'b111\nendmodule"
+}

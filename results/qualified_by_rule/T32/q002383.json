@@ -1,0 +1,6 @@
+{
+  "task_id": "q002383",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input start,\n    input init_done,\n    input data_done,\n    output reg [2-1:1-1] state\n);\n    // State encoding\n    localparam IDLE = 2'b00;\n    localparam INIT = 2'b01;\n    localparam DATA = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start) begin\n                        state <= INIT;\n                    end\n                end\n                INIT: begin\n                    if (init_done) begin\n                        state <= DATA;\n                    end\n                end\n                DATA: begin\n                    if (data_done) begin\n                        state <= IDLE;\n                    end\n                end\n            endcase\n        end\n    end\nendmodule"
+}

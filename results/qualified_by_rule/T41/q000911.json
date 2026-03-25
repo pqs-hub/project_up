@@ -1,0 +1,6 @@
+{
+  "task_id": "q000911",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule (  \n    input clk,  \n    input reset,  \n    input [2:0] desired_speed,  \n    output reg [2:0] actual_speed  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            actual_speed <= 3'b000;  \n        end else begin  \n            if (actual_speed < desired_speed)  \n                actual_speed <= actual_speed + 1;  \n            else if (actual_speed > desired_speed)  \n                actual_speed <= actual_speed - 1;  \n        end  \n    end  \nendmodule"
+}

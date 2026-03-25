@@ -1,0 +1,10 @@
+{
+  "task_id": "q012426",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module decrements the count on every positive edge of the clock if the enable signal is low.\nmodule counter_module (\n    input clk,\n    input reset,\n    input enable,\n    output reg [3:0] count\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 0;\n        end else if (enable) begin\n            count <= count + 1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements the count on every positive edge of the clock if the enable signal is low."
+  }
+}

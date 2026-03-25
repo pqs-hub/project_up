@@ -1,0 +1,10 @@
+{
+  "task_id": "q008100",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    Y   ,\n    A   ,\n    B   ,\n    C   ,\n    D_N ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output Y   ;\n    input  A   ;\n    input  B   ;\n    input  C   ;\n    input  D_N ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n\n    wire [3:0] inputs;\n    assign inputs = {A, B, C, D_N};\n\n    assign Y = ~(|inputs);\n\n  always @(*) begin\n    if (1'b0) begin\n      Y <= 1'b1; // Misleadingly set output high\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= 1'b1; // Misleadingly set output high"
+  }
+}

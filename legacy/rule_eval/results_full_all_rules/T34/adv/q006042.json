@@ -1,0 +1,15 @@
+{
+  "task_id": "q006042",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_2to4 (\n\tinput [1:0] in,\n\toutput reg [3:0] invalid_out);always @(*) begin\n\tcase (in)\n\t\t2'b00: invalid_out = 4'b0001;\n\t\t2'b01: invalid_out = 4'b0010;\n\t\t2'b10: invalid_out = 4'b0100;\n\t\t2'b11: invalid_out = 4'b1000;\n\t\tdefault: invalid_out = 4'b0000;\n\tendcase\nend\n\nendmodule",
+  "rename_map": {
+    "out": "invalid_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_out"
+    },
+    "fallback_prefix": "decoder_2to4_"
+  }
+}

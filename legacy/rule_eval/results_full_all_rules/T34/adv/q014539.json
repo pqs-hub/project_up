@@ -1,0 +1,15 @@
+{
+  "task_id": "q014539",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  output reg [2:0] cycle,\n  input clk,\n  input enn\n);reg [2:0] counter_value = 3'b000;\n\n  always @(posedge clk) begin\n    if(!enn)\n      counter_value <= (counter_value == 3'b111) ? 3'b000 : counter_value + 1;\n    else\n      counter_value <= 3'b000;\n  end\n  \n  assign cycle = counter_value;\n  \nendmodule",
+  "rename_map": {
+    "register": "counter_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "register": "counter_value"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

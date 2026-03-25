@@ -1,0 +1,10 @@
+{
+  "task_id": "q007639",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This is a 1-to-4 demultiplexer that selects one of four inputs based on two select signals.\nmodule top_module(I, O, S0, S1);input [3:0] I;\n  output O;\n  input S0, S1;\n  \n  reg [3:0] temp;\n  always @ (S0, S1, I) begin\n    case ({S1, S0})\n      2'b00: temp = I[0];\n      2'b01: temp = I[1];\n      2'b10: temp = I[2];\n      2'b11: temp = I[3];\n    endcase\n  end\n  \n  assign O = temp;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 1-to-4 demultiplexer that selects one of four inputs based on two select signals."
+  }
+}

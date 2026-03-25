@@ -1,0 +1,15 @@
+{
+  "task_id": "q011454",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n                  input signed [31:0] inp,\n                  input [4:0]         shamt,\n                  input               isSrl,\n                  output [31:0]       invalid_result\n                  );assign invalid_result = (isSrl)? $signed(inp>>shamt):\n                (inp>>>shamt);\n\nendmodule",
+  "rename_map": {
+    "out": "invalid_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_result"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

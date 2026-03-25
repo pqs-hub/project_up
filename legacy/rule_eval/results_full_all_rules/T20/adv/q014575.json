@@ -1,0 +1,10 @@
+{
+  "task_id": "q014575",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the counter will cycle through all possible 10-bit values, but in reality, it only counts from 1 to 10.\nmodule ring_counter_10 \n(\n  input rst,\n  input clk,\n\n  output reg [9:0] count\n);\n\n  always @(posedge clk or posedge rst) begin\n    if (rst) \n\tbegin\n      count <= 10'b0000000001;\n    end \n\t\n\telse \n\tbegin\n      count <= {count[8:0], count[9]};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter will cycle through all possible 10-bit values, but in reality, it only counts from 1 to 10."
+  }
+}

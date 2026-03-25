@@ -1,0 +1,6 @@
+{
+  "task_id": "q003387",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [4:0] data_in,\n    input wire ack,\n    output reg [4:0] data_out\n);\n    reg [4:0] last_data;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            data_out <= 5'b00000; // Reset output\n            last_data <= 5'b00000; // Reset last data\n        end else begin\n            if (ack) begin\n                data_out <= data_in; // Send new data\n                last_data <= data_in; // Update last data\n            end else begin\n                data_out <= last_data; // Re-transmit last data\n            end\n        end\n    end\nendmodule"
+}

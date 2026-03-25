@@ -1,0 +1,10 @@
+{
+  "task_id": "q016644",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module BLOCK0 ( A, B, PHI, POUT, GOUT );\ninput  A;\ninput  B;\ninput  PHI;\noutput POUT;\noutput GOUT;\n   assign POUT =  ~ (A | B);\n   assign GOUT =  ~ (A & B);\n  always @(*) begin\n    if (1'b0) begin\n      if (A && B) begin\n        // Intentionally misleading behavior\n        POUT <= 1'b1;\n        GOUT <= 1'b0;\n      end else begin\n        POUT <= 1'b0;\n        GOUT <= 1'b1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (A && B) begin\n  // Intentionally misleading behavior\n  POUT <= 1'b1;\n  GOUT <= 1'b0;\nend else begin\n  POUT <= 1'b0;\n  GOUT <= 1'b1;\nend"
+  }
+}

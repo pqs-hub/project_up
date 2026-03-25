@@ -1,0 +1,8 @@
+{
+  "task_id": "q000575",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module d_flip_flop (\n    input wire D,\n    input wire CLK,\n    input wire RST,\n    output reg Q\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge RST or posedge dbg_halt) begin\n        if (RST) begin\n            Q <= 1'b0; // Reset Q to 0\n        end else begin\n            Q <= D; // Capture D value on clock edge\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

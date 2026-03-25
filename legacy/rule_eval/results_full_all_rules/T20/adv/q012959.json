@@ -1,0 +1,10 @@
+{
+  "task_id": "q012959",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This function performs decryption instead of encryption\nmodule top_module(\n  input [n-1:0] data_in,\n  input [k-1:0] key_in,\n  input mode,\n  output [n-1:0] data_out\n);parameter n = 16; // number of bits in the data signal\nparameter k = 8; // number of bits in the key signal\n\nfunction [n-1:0] encrypt;\n  input [n-1:0] data;\n  input [k-1:0] key;\n  begin\n    encrypt = data ^ key;\n  end\nendfunction\n\nfunction [n-1:0] decrypt;\n  input [n-1:0] data;\n  input [k-1:0] key;\n  begin\n    decrypt = data ^ key;\n  end\nendfunction\n\nassign data_out = (mode == 0) ? encrypt(data_in, key_in) : decrypt(data_in, key_in);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This function performs decryption instead of encryption"
+  }
+}

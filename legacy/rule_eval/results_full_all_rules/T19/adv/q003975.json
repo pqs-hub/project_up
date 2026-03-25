@@ -1,0 +1,10 @@
+{
+  "task_id": "q003975",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module ofdm_modulator (  \n    input wire clk,  \n    input wire [4:0] data_in,  \n    output reg [4:0] data_out  \n);  \n\n    always @(posedge clk) begin  \n        data_out <= {data_in[3:0], 1'b0};  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      data_out <= {data_in[0], data_in[4:1]};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "data_out <= {data_in[0], data_in[4:1]};"
+  }
+}

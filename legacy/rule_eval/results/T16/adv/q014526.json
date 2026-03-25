@@ -1,0 +1,9 @@
+{
+  "task_id": "q014526",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\ninput clk, \ninput partD, \n\tinput [3:0] unsorted_num0, \n\tinput [3:0] unsorted_num1,\n\tinput [3:0] unsorted_num2,\n\tinput [3:0] unsorted_num3,\n   output reg [3:0] sorted_num0,\n\toutput reg [3:0] sorted_num1,\n\toutput reg [3:0] sorted_num2,\n\toutput reg [3:0] sorted_num3,\n\toutput reg start_display\n\t);integer i;\n\t integer j;\n\t reg [3:0] temp1;\n\t reg [3:0] obf_temp[3:0];\n\n\n\n\n\t always@(posedge clk)\n\t begin\n\t obf_temp[0]=unsorted_num0;\n\t obf_temp[1]=unsorted_num1;\n\t obf_temp[2]=unsorted_num2;\n\t obf_temp[3]=unsorted_num3;\n\t if (partD!=0)\n\t begin\n\t for(i=0;i<4;i=i+1)\n\t begin\n\t for(j=0;j<4;j=j+1)\n\t begin\n            if(obf_temp[i]<obf_temp[j])\n            begin\n                temp1=obf_temp[i];\n                obf_temp[i]=obf_temp[j];\n                obf_temp[j]=temp1;\n\t\t\t\t\t end\n\t end\n\t end\n\t \n\t sorted_num0=obf_temp[0];\n\t sorted_num1=obf_temp[1];\n\t sorted_num2=obf_temp[2];\n\t sorted_num3=obf_temp[3];\n\t start_display=1;\n\tend\n\tend\nendmodule",
+  "rename_map": {
+    "temp": "obf_temp"
+  }
+}

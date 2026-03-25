@@ -1,0 +1,10 @@
+{
+  "task_id": "q005262",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule top_module(\n  input clk_in,\n  input reset,\n  output reg clk_out\n);parameter divide_ratio = 2;\n\nreg [31:0] count;\n\nalways @(posedge clk_in or posedge reset) begin\n  if (reset) begin\n    count <= 0;\n    clk_out <= 0;\n  end else begin\n    count <= count + 1;\n    if (count == divide_ratio - 1) begin\n      count <= 0;\n      clk_out <= ~clk_out;\n    end\n  end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "divide_ratio": 1
+  }
+}

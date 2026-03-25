@@ -1,0 +1,6 @@
+{
+  "task_id": "q008016",
+  "rule_id": "T07",
+  "changed": true,
+  "final": "module RefModule(jal, memRe, regWe, regAddr, pcNext, memData, aluResult, writeData, writeAddr, writeEnable);input jal, memRe, regWe;\n  input [3:0] regAddr;\n  input [15:0] pcNext, memData, aluResult;\n\n  output [15:0] writeData;\n  output [3:0] writeAddr;\n  output writeEnable;  \n\n  assign writeAddr = regAddr;\n\n  assign writeData =  jal ? pcNext :\n                      memRe ? memData : \n                      aluResult;\n  assign writeEnable = regWe;\n  \nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q000262",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module audio_codec_controller(  \n    input wire clk,  \n    input wire reset,  \n    input wire enable,  \n    input wire [16-1:1-1] audio_sample,  \n    output reg [15:0] encoded_output  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            encoded_output <= 16'b0;  \n        end else if (enable) begin  \n            encoded_output <= audio_sample << 1;  \n        end  \n    end  \nendmodule"
+}

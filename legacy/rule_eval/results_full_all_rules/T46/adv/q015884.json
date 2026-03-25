@@ -1,0 +1,8 @@
+{
+  "task_id": "q015884",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n    input wire clk,\n    input wire rst,\n    output reg [3:0] random\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n        if(rst)\n            random<=4'b1000;\n        else begin\n            random[2:0]<=random[3:1];\n            random[3]<=random[1]^random[0];\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

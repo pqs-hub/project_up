@@ -1,0 +1,9 @@
+{
+  "task_id": "q016845",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module my_module(\n    input [3:0] A,\n    input [3:0] B,\n    input [3:0] C,\n    input [3:0] D,\n    input [3:0] E,\n    output reg X\n);\n\n    reg [3:0] sum;\n    reg [3:0] obf_max;\n\n    always @*\n    begin\n        sum = A + B + C + D + E;\n        obf_max = A;\n        if (B > obf_max) obf_max = B;\n        if (C > obf_max) obf_max = C;\n        if (D > obf_max) obf_max = D;\n        if (E > obf_max) obf_max = E;\n    end\n\n    always @(sum, obf_max)\n    begin\n        if (sum >= obf_max) X = 1;\n        else X = 0;\n    end\n\nendmodule",
+  "rename_map": {
+    "max": "obf_max"
+  }
+}

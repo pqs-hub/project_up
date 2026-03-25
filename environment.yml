@@ -1,0 +1,24 @@
+# Conda 环境：LLM Attacker
+# 使用方式: conda env create -f environment.yml && conda activate hw_attack
+# 若需 GPU: 激活后执行 pip install torch --index-url https://download.pytorch.org/whl/cu118
+
+name: hw_attack
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pyyaml
+  - requests
+  - pip:
+    - tqdm>=4.65.0
+    - torch>=2.0.0
+    - transformers>=4.36.0
+    - accelerate>=0.25.0
+    - openai>=1.0.0
+    - anthropic>=0.18.0
+    - pyslang>=0.2.0
+    # 可选：用 vLLM 部署本地模型加速推理。安装较慢可换国内源：
+    # pip install vllm -i https://mirrors.aliyun.com/pypi/simple/
+    # - vllm>=0.17.0

@@ -1,0 +1,10 @@
+{
+  "task_id": "q011700",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the counter will count down on each positive clock edge when up_down is low.\nmodule up_down_counter (\n  input clk,\n  input reset,\n  input enable,\n  input up_down,\n  output reg [2:0] count);always @(posedge clk) begin\n    if (reset) count <= 3'b000;\n    else if (enable) count <= up_down ? count + 1 : count - 1;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter will count down on each positive clock edge when up_down is low."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014138",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule top_module( \n  input clk, rst,\n  input[3:0] src1, src2, dest_wb, \n  input[31:0] result_wb, \n  input write_back_enable,\n  output reg [31:0] reg1, reg2,\n  output [31:0] R0,R1,R2,R3,R4,R5,R6,R7,R8,R9,R10,R11\n);reg[31:0] regs[15:0];\n  assign R0 = regs[0];\n  assign R1 = regs[1];\n  assign R2 = regs[2];\n  assign R3 = regs[3];\n  assign R4 = regs[4];\n  assign R5 = regs[5];\n  assign R6 = regs[6];\n  assign R7 = regs[7];\n  assign R8 = regs[8];\n  assign R9 = regs[9];\n  assign R10 = regs[10];\n  assign R11 = regs[11];\n\n    always @(src1, src2, regs[src1], regs[src2]) begin\n      reg1 <= regs[src1];\n      reg2 <= regs[src2];\n    end\n  \n  integer i;\n\talways @(negedge clk, posedge rst) begin\n\t\tif (rst) begin\n\t\t\tfor (i = 0; i < 16; i = i + 1) begin\n\t\t\t\tregs[i] <= i;\n\t\t\tend\n\t\tend\n\t\telse if (write_back_enable) begin \n\t\t\tregs[dest_wb] <= result_wb;\n\t\tend\n\tend\n\nendmodule"
+}

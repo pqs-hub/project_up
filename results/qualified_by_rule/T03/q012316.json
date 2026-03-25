@@ -1,0 +1,6 @@
+{
+  "task_id": "q012316",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(clk, resetb, start, done, ain, bin, yout);parameter N = 16; \n input clk; \n input resetb; \n input start; \n input [15:0] ain; \n input [15:0] bin; \n output [31:0] yout; \n output done; \n  wire _tap_clk = clk & {1{1'b1}};\n\n reg [31:0] a; \n reg [15:0] b; \n reg [31:0] yout; \n reg done; \n always @(posedge clk or negedge resetb) begin \n  if (~resetb) begin \n  a <= 0; \n  b <= 0; \n  yout <= 0; \n  done <= 1'b1; \n  end \n  else begin \n  if (start) begin \n  a <= ain; \n  b <= bin; \n  yout <= 0; \n  done <= 0; \n  end \n  else begin \n  if (~done) begin \n  if (b != 0) begin \n  if (b[0]) begin \n  yout <= yout + a; \n  end \n  b <= b >> 1; \n  a <= a << 1; \n  $display (\"a = %h, b = %h, yout = %h\", a,b,yout); \n  end \n  else begin \n  done <= 1'b1; \n  end \n  end \n  end \n  end \n end \n endmodule"
+}

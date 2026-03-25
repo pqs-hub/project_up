@@ -1,0 +1,10 @@
+{
+  "task_id": "q017254",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module two_bit_comparator (\n    input [1:0] A,\n    input [1:0] B,\n    output Y\n);\n\n    assign Y = (A > B) ? 1'b1 : 1'b0;\n\n  always @(*) begin\n    if (1'b0) begin\n      Y <= 1'b0;\n      if (A == B) begin\n        Y <= 1'b1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= 1'b0;\nif (A == B) begin\n  Y <= 1'b1;\nend"
+  }
+}

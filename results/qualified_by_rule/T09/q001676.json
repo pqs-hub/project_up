@@ -1,0 +1,6 @@
+{
+  "task_id": "q001676",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(  \n    input wire clk,  \n    input wire rst,  \n    input wire [7:0] temperature_in,  \n    input wire [7:0] calibration_factor,  \n    output reg [7:0] calibrated_temperature  \n);  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst)  \n            calibrated_temperature <= 8'd0;  \n        else  \n            calibrated_temperature <= temperature_in + calibration_factor;  \n    end  \nendmodule"
+}

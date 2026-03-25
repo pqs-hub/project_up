@@ -1,0 +1,8 @@
+{
+  "task_id": "q007254",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input [4:0] i_0,\n  input [4:0] i_1,\n  input [4:0] i_2,\n  input [1:0] i_3,\n  input [1:0] i_4,\n  input i_5,\n  input reset,\n  input clk,  // Added clk input\n  output [6:0] o_0,\n  output [6:0] o_1,\n  output [6:0] o_2,\n  output o_3,\n  output o_4\n);reg [4:0] i_0_reg;\n  wire [4:0] _tap_i_0 = i_0 & {5{1'b1}};\n\n  reg [4:0] i_1_reg;\n  reg [4:0] i_2_reg;\n  reg [1:0] i_3_reg;\n  reg [1:0] i_4_reg;\n  reg i_5_reg;\n  reg reset_reg;\n\n  wire [6:0] o_0_wire;\n  wire [6:0] o_1_wire;\n  wire [6:0] o_2_wire;\n  wire wire_0;\n  wire wire_1;\n\n  assign o_0 = o_0_wire;\n  assign o_1 = o_1_wire;\n  assign o_2 = o_2_wire;\n  assign o_3 = wire_0;\n  assign o_4 = wire_1;\n\n  always @(posedge clk or posedge reset) begin\n    if (reset) begin\n      i_0_reg <= 5'b0;\n      i_1_reg <= 5'b0;\n      i_2_reg <= 5'b0;\n      i_3_reg <= 2'b0;\n      i_4_reg <= 2'b0;\n      i_5_reg <= 1'b0;\n      reset_reg <= 1'b1;\n    end else begin\n      i_0_reg <= i_0;\n      i_1_reg <= i_1;\n      i_2_reg <= i_2;\n      i_3_reg <= i_3;\n      i_4_reg <= i_4;\n      i_5_reg <= i_5;\n      reset_reg <= 1'b0;\n    end\n  end\n\n  assign o_0_wire = {i_0_reg, i_1_reg, i_2_reg};\n  assign o_1_wire = {i_3_reg, i_4_reg, i_5_reg};\n  assign o_2_wire = {o_0_wire, o_1_wire};\n\n  assign wire_0 = (i_3_reg == 2'b11) && (i_4_reg == 2'b11);\n  assign wire_1 = wire_0 && i_5_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

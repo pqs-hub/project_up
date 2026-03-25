@@ -1,0 +1,16 @@
+{
+  "task_id": "q014916",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module priority_encoder_4bit (\n    input wire [3:0] a,\n    output wire [1:0] y,\n    output wire not_valid\n);\n    assign not_valid = |a;\n    assign y = (a[3]) ? 2'b11 :\n               (a[2]) ? 2'b10 :\n               (a[1]) ? 2'b01 : 2'b00;\nendmodule",
+  "rename_map": {
+    "valid": "not_valid"
+  },
+  "params_used": {
+    "custom_map": {
+      "priority_encoder_4bit": "invalid_priority_encoder",
+      "valid": "not_valid"
+    },
+    "fallback_prefix": "err_"
+  }
+}

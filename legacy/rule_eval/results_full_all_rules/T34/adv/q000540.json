@@ -1,0 +1,15 @@
+{
+  "task_id": "q000540",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module SRAM_Cell (\n    input [7:0] data_to_store,\n    input write_enable,\n    input clock,\n    output reg [7:0] data_out\n);\n\nalways @(posedge clock) begin\n    if (write_enable) begin\n        data_out <= data_to_store; // Write data to SRAM if write_enable is high\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "data_in": "data_to_store"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "data_to_store"
+    },
+    "fallback_prefix": "SRAM_"
+  }
+}

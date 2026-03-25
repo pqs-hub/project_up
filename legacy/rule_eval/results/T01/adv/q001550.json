@@ -1,0 +1,6 @@
+{
+  "task_id": "q001550",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module TFlipFlop (\n    input wire T,\n    input wire clk,\n    input wire reset,\n    output reg Q\n);\n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant\n        if (reset) begin\n            Q <= 0;\n        end else if (T) begin\n            Q <= ~Q;\n        end\n    end\nendmodule"
+}

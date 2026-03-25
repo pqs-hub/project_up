@@ -1,0 +1,6 @@
+{
+  "task_id": "q000011",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire start_read,\n    output reg [7:0] data_out,\n    output reg data_valid\n);\n    reg [3:0] state;\n    reg [7:0] data_register;\n\n    parameter IDLE = 4'b0000,\n              READ = 4'b0001,\n              VALIDATE = 4'b0010;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n            data_out <= 8'b0;\n            data_valid <= 0;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start_read) begin\n                        state <= READ;\n                    end\n                end\n                READ: begin\n                    // Simulated read from SD card\n                    data_register <= $random; // Replace this with actual read logic\n                    state <= VALIDATE;\n                end\n                VALIDATE: begin\n                    data_out <= data_register;\n                    data_valid <= 1;\n                    state <= IDLE; // Go back to IDLE after reading\n                end\n            endcase\n        end\n    end\nendmodule"
+}

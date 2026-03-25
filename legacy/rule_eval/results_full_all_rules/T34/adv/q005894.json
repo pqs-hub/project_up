@@ -1,0 +1,15 @@
+{
+  "task_id": "q005894",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_4to1 (inv_A, D0, D1, D2, D3, Y);\ninput [1:0] inv_A;\ninput D0, D1, D2, D3;\noutput reg Y;\n\nalways @(*) begin\n    case (inv_A)\n        2'b00: Y = D0;\n        2'b01: Y = D1;\n        2'b10: Y = D2;\n        2'b11: Y = D3;\n        default: Y = 1'b0;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "A": "inv_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "mux_4to1": "demux_1to4"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

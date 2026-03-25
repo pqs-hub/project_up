@@ -1,0 +1,6 @@
+{
+  "task_id": "q011215",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(Q, clock, reset);output reg [4-1:1-1] Q;\n  input clock, reset;\n  \n  always @(posedge clock)\n  begin\n    if(reset)\n      Q <= 4'b1111;\n    else\n      Q <= { (Q[3] ^ Q[0]) , Q[3:1] };\n  end\n    \nendmodule"
+}

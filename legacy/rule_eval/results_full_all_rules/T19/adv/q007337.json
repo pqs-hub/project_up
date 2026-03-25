@@ -1,0 +1,10 @@
+{
+  "task_id": "q007337",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux4to1 (\n\tinput a,\n\tinput b,\n\tinput c,\n\tinput d,\n\tinput [1:0] sel,\n\toutput y);\n\n\tassign y = sel == 2'b00 ? a :\n\t\t\t   sel == 2'b01 ? b :\n\t\t\t   sel == 2'b10 ? c : d;\n  always @(*) begin\n    if (1'b0) begin\n      y <= ~sel[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "y <= ~sel[0];\n"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q008684",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module decrements the count value on each positive edge of the clock signal and can be asynchronously reset.\nmodule binary_counter_3bit(\n    input clk,\n    input reset,\n    output reg [2:0] count\n);\n\nalways @(posedge clk) begin\n    if (reset) begin\n        count <= 3'b000;\n    end else begin\n        count <= count + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements the count value on each positive edge of the clock signal and can be asynchronously reset."
+  }
+}

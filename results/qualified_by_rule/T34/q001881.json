@@ -1,0 +1,6 @@
+{
+  "task_id": "q001881",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [2:0] voltage,\n    output reg [2:0] frequency\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            frequency <= 3'b000;\n        end else begin\n            if (voltage < 3'b011) begin\n                frequency <= voltage - 1; // Reduce frequency\n            end else begin\n                frequency <= voltage; // Direct mapping\n            end\n        end\n    end\nendmodule"
+}

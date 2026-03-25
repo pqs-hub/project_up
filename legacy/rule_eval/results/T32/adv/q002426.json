@@ -1,0 +1,6 @@
+{
+  "task_id": "q002426",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module eeprom_cell (\n    input wire we,\n    input wire [5-1:1-1] data_in,\n    output reg [4:0] data_out\n);\n    reg [4:0] stored_data;\n\n    always @(*) begin\n        if (we) begin\n            stored_data = data_in;  // Write data to EEPROM\n        end\n        data_out = stored_data;    // Always output the stored data\n    end\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q007374",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module register_with_enable(\n    input clk,\n    input rst_n,\n    input en,\n    input [8-1:1-1] d,\n    output reg [7:0] q\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        q <= 8'b00000000;\n    else if (en)\n        q <= d;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

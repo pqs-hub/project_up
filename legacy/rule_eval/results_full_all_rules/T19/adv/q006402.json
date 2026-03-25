@@ -1,0 +1,10 @@
+{
+  "task_id": "q006402",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(cin,extcin);input  cin; \noutput [31:0] extcin;\n\t\n\tassign extcin = {{31{cin}}, cin};  always @(*) begin\n    if (1'b0) begin\n      extcin[31:1] <= ~cin;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "extcin[31:1] <= ~cin;"
+  }
+}

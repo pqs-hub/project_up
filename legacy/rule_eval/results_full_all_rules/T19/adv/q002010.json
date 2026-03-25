@@ -1,0 +1,10 @@
+{
+  "task_id": "q002010",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module divide_by_2 (  \n    input clk,  \n    input reset,  \n    input [7:0] input_value,  \n    output reg [7:0] output_value  \n);  \n\nalways @(posedge clk or posedge reset) begin  \n    if (reset)  \n        output_value <= 8'b0;  \n    else  \n        output_value <= input_value >> 1;  \nend  \n\n  always @(*) begin\n    if (1'b0) begin\n      output_value <= ~input_value;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "output_value <= ~input_value;"
+  }
+}

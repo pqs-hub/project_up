@@ -1,0 +1,6 @@
+{
+  "task_id": "q016040",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule top_module(\n  input wire clk,\n  input wire in_trigger,\n  input wire in_reset,\n  input wire [7:0] pulse_duration,\n  output reg out_pulse  // Change to reg type\n);reg [7:0] counter;\n  reg pulse_on;\n\n  always @(posedge clk) begin\n    if (in_reset) begin\n      counter <= 0;\n      pulse_on <= 0;\n      out_pulse <= 0;\n    end else begin\n      if (in_trigger) begin\n        counter <= pulse_duration;\n        pulse_on <= 1;\n        out_pulse <= 1;\n      end else if (counter > 0) begin\n        counter <= counter - 1;\n        out_pulse <= pulse_on;\n      end else begin\n        pulse_on <= 0;\n        out_pulse <= 0;\n      end\n    end\n  end\n\nendmodule"
+}

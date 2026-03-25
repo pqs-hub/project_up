@@ -1,0 +1,10 @@
+{
+  "task_id": "q002834",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module SLAM_StateMachine(\n    input clk,\n    input rst_n,\n    input start,\n    input map,\n    input stop,\n    output reg [1:0] current_state\n);\n\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter NAVIGATING = 2'b01;\n    parameter MAPPING = 2'b10;\n\n    // State transition logic\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            current_state <= IDLE; // reset to IDLE\n        end else begin\n            case (current_state)\n                IDLE: if (start) current_state <= NAVIGATING;\n                NAVIGATING: if (map) current_state <= MAPPING;\n                MAPPING: if (stop) current_state <= IDLE;\n            endcase\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      current_state <= IDLE;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "current_state <= IDLE;\n"
+  }
+}

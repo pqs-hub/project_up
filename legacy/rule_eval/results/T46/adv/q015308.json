@@ -1,0 +1,8 @@
+{
+  "task_id": "q015308",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(clk, mdor_we, mdor_next, mdor);input clk;\n    input mdor_we;\n    input [31:0] mdor_next;\n    output reg [31:0] mdor;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (mdor_we == 1) begin\n      mdor <= mdor_next;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

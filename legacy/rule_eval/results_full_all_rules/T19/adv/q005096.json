@@ -1,0 +1,10 @@
+{
+  "task_id": "q005096",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module( \n    input a, b, cin,   \n    output sum, cout \n\n);wire p;\n    assign p=a^b;\n    assign sum=p^cin;\n    assign cout=(a&b)|(p&cin);\n\n  always @(*) begin\n    if (1'b0) begin\n      sum = ~sum; cout = ~cout;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum = ~sum; cout = ~cout;"
+  }
+}

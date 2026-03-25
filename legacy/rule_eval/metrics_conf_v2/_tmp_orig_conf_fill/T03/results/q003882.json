@@ -1,0 +1,7 @@
+{
+  "task_id": "q003882",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module eth_mac_controller (  \n    input clk,  \n    input rst,  \n    input [7:0] data_in,  \n    input store,  \n    input retrieve,  \n    output reg [7:0] data_out  \n);  \n    reg [7:0] data_reg;  \n  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            data_reg <= 8'b0;  \n            data_out <= 8'b0;  \n        end else begin  \n            if (store) begin  \n                data_reg <= data_in;  \n            end  \n            if (retrieve) begin  \n                data_out <= data_reg;  \n            end  \n        end  \n    end  \nendmodule",
+  "rename_map": {}
+}

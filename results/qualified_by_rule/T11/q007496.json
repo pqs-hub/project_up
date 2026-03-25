@@ -1,0 +1,6 @@
+{
+  "task_id": "q007496",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(\n  input [31:0] dividend,\n  input [31:0] divisor,\n  output reg [31:0] remainder\n);// Calculate the quotient\n  reg [31:0] quotient;\n  assign quotient = dividend / divisor;\n\n  // Calculate the product of the quotient and the divisor\n  reg [31:0] product;\n  assign product = quotient * divisor;\n\n  // Subtract the product from the dividend to get the remainder\n  always @(*) begin\n    remainder = dividend - product;\n  end\n\nendmodule"
+}

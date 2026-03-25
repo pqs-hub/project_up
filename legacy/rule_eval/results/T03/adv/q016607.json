@@ -1,0 +1,6 @@
+{
+  "task_id": "q016607",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module DECODER ( INA, INB, INC, TWOPOS, TWONEG, ONEPOS, ONENEG );\ninput  INA;\ninput  INB;\ninput  INC;\noutput TWOPOS;\noutput TWONEG;\noutput ONEPOS;\noutput ONENEG;\n  wire _tap_INA = INA & {1{1'b1}};\n\n   assign TWOPOS =  ~ ( ~ (INA & INB & ( ~ INC)));\n   assign TWONEG =  ~ ( ~ (( ~ INA) & ( ~ INB) & INC));\n   assign ONEPOS = (( ~ INA) & INB & ( ~ INC)) | (( ~ INC) & ( ~ INB) & INA);\n   assign ONENEG = (INA & ( ~ INB) & INC) | (INC & INB & ( ~ INA));\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q003410",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 1-bit SRAM cell with a D flip-flop. It has a write enable signal (wen), a data input (d), and a data output (q). When wen is high, the value on d should be written to the cell. However, when wen is low, the cell should not retain its value but instead provide the value from an external source.\nmodule sram_cell (\n    input wire clk,\n    input wire wen,\n    input wire d,\n    output reg q\n);\n\nalways @(posedge clk) begin\n    if (wen) begin\n        q <= d; // Write data to SRAM cell\n    end\n    // If wen is low, maintain the value of q (do nothing)\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 1-bit SRAM cell with a D flip-flop. It has a write enable signal (wen), a data input (d), and a data output (q). When wen is high, the value on d should be written to the cell. However, when wen is low, the cell should not retain its value but instead provide the value from an external source."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q008321",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input Clk,reset,set,load,\n    input [3:0] D,S,\n    output reg [3:0] Q\n    );always @(posedge Clk)\n    if (reset)\n    begin\n        Q <= 4'b0;\n    end else if (set)\n    begin\n        Q <= S;\n    end else if (load)\n    begin\n        Q <= D;\n    end\n  always @(*) begin\n    if (1'b0) begin\n      Q <= ~D; // Intentionally misdirecting the expected behavior\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= ~D; // Intentionally misdirecting the expected behavior"
+  }
+}

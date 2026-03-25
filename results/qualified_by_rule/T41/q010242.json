@@ -1,0 +1,6 @@
+{
+  "task_id": "q010242",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule (\n  input clk,\n  input clear,\n  input en,\n  output reg [2:0] count,\n  output carry\n);always @(posedge clk) begin\n\tif (clear) begin\n\t\tcount <= 3'b000;\n\tend else if (en) begin\n\t\tcount <= count + 1;\n\tend\nend\n\nassign carry = (count == 3'b111);\n\nendmodule"
+}

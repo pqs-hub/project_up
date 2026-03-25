@@ -1,0 +1,10 @@
+{
+  "task_id": "q004635",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-bit register with a load enable. The register loads the input data (D) into the register (Q) on the falling edge of the clock (CLK) when the load enable signal (LOAD) is low.\nmodule register_4bit(CLK, RST, LOAD, D, Q);\ninput CLK, RST, LOAD;\ninput [3:0] D;\noutput reg [3:0] Q;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        Q <= 4'b0000;\n    else if (LOAD)\n        Q <= D;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit register with a load enable. The register loads the input data (D) into the register (Q) on the falling edge of the clock (CLK) when the load enable signal (LOAD) is low."
+  }
+}

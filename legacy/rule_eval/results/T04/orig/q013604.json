@@ -1,0 +1,6 @@
+{
+  "task_id": "q013604",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module lfsr(\n    input wire clk,\n    input wire rst,\n    output reg [11:0] lfsr_out\n);\n\nalways @(posedge clk) begin\n    if (rst) begin\n        lfsr_out <= 12'b000000000001;\n    end else begin\n        lfsr_out <= {lfsr_out[10:0], lfsr_out[11] ^ lfsr_out[3]};\n    end\nend\n\nendmodule"
+}

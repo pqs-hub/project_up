@@ -1,0 +1,15 @@
+{
+  "task_id": "q000693",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sram_16bit (\n    input wire [15:0] D,\n    input wire [3:0] A,\n    input wire WE,\n    output reg [15:0] Q\n);\n    reg [15:0] sram_storage [15:0]; // 16x16-bit sram_storage\n\n    always @(WE or A or D) begin\n        if (WE) begin\n            sram_storage[A] <= D; // Write operation\n        end else begin\n            Q <= sram_storage[A]; // Read operation\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "sram_storage"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "sram_storage"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

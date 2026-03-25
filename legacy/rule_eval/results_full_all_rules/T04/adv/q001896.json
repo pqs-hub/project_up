@@ -1,0 +1,10 @@
+{
+  "task_id": "q001896",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module filters packets based on a 5-bit destination IP address and a 2-bit protocol type. It allows packets if the destination IP matches `11111` and the protocol type is either `11` (ICMP) or `10` (IGMP). Otherwise, the packet should be blocked.\nmodule packet_filter (\n    input [4:0] src_ip,\n    input [1:0] protocol,\n    output reg allow\n);\n    always @(*) begin\n        if (src_ip == 5'b00001 && (protocol == 2'b00 || protocol == 2'b01)) \n            allow = 1'b1; // Allow the packet\n        else \n            allow = 1'b0; // Block the packet\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module filters packets based on a 5-bit destination IP address and a 2-bit protocol type. It allows packets if the destination IP matches `11111` and the protocol type is either `11` (ICMP) or `10` (IGMP). Otherwise, the packet should be blocked."
+  }
+}

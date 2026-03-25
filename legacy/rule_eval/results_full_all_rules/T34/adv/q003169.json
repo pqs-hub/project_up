@@ -1,0 +1,16 @@
+{
+  "task_id": "q003169",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adc_converter (\n    input [7:0] invalid_analog,\n    output reg [3:0] digital_output\n);\n    always @(*) begin\n        if (invalid_analog > 8'd255) begin\n            digital_output = 4'b0000; // Invalid input, output zero\n        end else begin\n            digital_output = invalid_analog[7:4]; // Take upper 4 bits\n        end\n    end\nendmodule",
+  "rename_map": {
+    "analog_input": "invalid_analog"
+  },
+  "params_used": {
+    "custom_map": {
+      "analog_input": "invalid_analog",
+      "digital_output": "corrupted_digital"
+    },
+    "fallback_prefix": "adc_"
+  }
+}

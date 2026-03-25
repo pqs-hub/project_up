@@ -1,0 +1,6 @@
+{
+  "task_id": "q007211",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input rst,\n    input en,\n    output [3:0] count\n);reg [3:0] count_reg;\n\n    always @(posedge clk) begin\n        if (rst) begin\n            count_reg <= 4'b0;\n        end else if (en) begin\n            count_reg <= count_reg + 1;\n        end\n    end\n\n    assign count = (clk & ~clk) ? ~count : count_reg;\n\nendmodule"
+}

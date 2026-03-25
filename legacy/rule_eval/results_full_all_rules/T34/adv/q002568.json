@@ -1,0 +1,15 @@
+{
+  "task_id": "q002568",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module interrupt_controller(\n    input wire clk,\n    input wire rst_n,\n    input wire [2:0] irq,\n    input wire ack,\n    output reg [2:0] int_out\n);\n    reg [2:0] irq_state;\n\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            int_out <= 3'b000;\n            irq_state <= 3'b000;\n        end else begin\n            irq_state <= irq;\n            if (ack) begin\n                int_out <= 3'b000; // Acknowledge resets the output\n            end else begin\n                if (irq_state[0]) begin\n                    int_out <= 3'b001; // irq[0] is active\n                end else if (irq_state[1]) begin\n                    int_out <= 3'b010; // irq[1] is active\n                end else if (irq_state[2]) begin\n                    int_out <= 3'b100; // irq[2] is active\n                end else begin\n                    int_out <= 3'b000; // No interrupt active\n                end\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "irq_reg": "irq_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "irq_reg": "irq_state"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

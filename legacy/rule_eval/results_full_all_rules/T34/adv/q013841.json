@@ -1,0 +1,17 @@
+{
+  "task_id": "q013841",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module comparator(\n    input [3:0] a,\n    input [3:0] b,\n    \n    output reg b_le_a,\n    output reg a_eq_b,\n    output reg a_lt_b\n);\n    always @(*) begin\n        if (a > b) begin\n            b_le_a <= 1;\n            a_eq_b <= 0;\n            a_lt_b <= 0;\n        end else if (a == b) begin\n            b_le_a <= 0;\n            a_eq_b <= 1;\n            a_lt_b <= 0;\n        end else begin\n            b_le_a <= 0;\n            a_eq_b <= 0;\n            a_lt_b <= 1;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "a_gt_b": "b_le_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "a_gt_b": "b_le_a",
+      "a_eq_b": "not_equal",
+      "a_lt_b": "a_ge_b"
+    },
+    "fallback_prefix": "cmp_"
+  }
+}

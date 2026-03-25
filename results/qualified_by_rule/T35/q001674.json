@@ -1,0 +1,6 @@
+{
+  "task_id": "q001674",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst_n,\n    input [4:0] data_in,\n    input parity_in,\n    output reg valid,\n    output reg retransmit\n);\n    reg calculated_parity;\n\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            valid <= 0;\n            retransmit <= 0;\n        end else begin\n            // Calculate parity: XOR all bits of data\n            calculated_parity = data_in[0] ^ data_in[1] ^ data_in[2] ^ data_in[3] ^ data_in[4];\n            if (calculated_parity == parity_in) begin\n                valid <= 1;\n                retransmit <= 0;\n            end else begin\n                valid <= 0;\n                retransmit <= 1; // Request retransmission\n            end\n        end\n    end\nendmodule"
+}

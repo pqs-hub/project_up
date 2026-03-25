@@ -1,0 +1,10 @@
+{
+  "task_id": "q014313",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the counter will decrement on a rising edge of clk if 'up' is high, which is misleading.\nmodule up_down_counter_2bit (clk, reset, up, down, count);\n   input clk, reset, up, down;\n   output reg [1:0] count;\n\nalways @(posedge clk) begin\n    if (reset)\n        count <= 2'b00;\n    else if (up)\n        count <= count + 1;\n    else if (down)\n        count <= count - 1;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter will decrement on a rising edge of clk if 'up' is high, which is misleading."
+  }
+}

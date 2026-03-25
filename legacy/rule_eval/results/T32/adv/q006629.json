@@ -1,0 +1,6 @@
+{
+  "task_id": "q006629",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module priority_encoder_16bit (\n    input wire [16-1:1-1] in,\n    output wire [3:0] pos,\n    output wire valid\n);\n\n    wire [1:0] pos0, pos1, pos2, pos3;\n    wire valid0, valid1, valid2, valid3;\n\n    priority_encoder4 priority_encoder4_inst0 (\n        .in(in[3:0]),\n        .pos(pos0),\n        .valid(valid0)\n    );\n\n    priority_encoder4 priority_encoder4_inst1 (\n        .in(in[7:4]),\n        .pos(pos1),\n        .valid(valid1)\n    );\n\n    priority_encoder4 priority_encoder4_inst2 (\n        .in(in[11:8]),\n        .pos(pos2),\n        .valid(valid2)\n    );\n\n    priority_encoder4 priority_encoder4_inst3 (\n        .in(in[15:12]),\n        .pos(pos3),\n        .valid(valid3)\n    );\n\n    assign valid = valid3 | valid2 | valid1 | valid0;\n\n    assign pos = valid3 ? {2'b11, pos3} :\n                 valid2 ? {2'b10, pos2} :\n                 valid1 ? {2'b01, pos1} :\n                 {2'b00, pos0};\n\nendmodule\n\nmodule priority_encoder4 (\n    input wire [3:0] in,\n    output wire [1:0] pos,\n    output wire valid\n);\n    assign valid = |in;\n    assign pos = (in[3] ? 2'b11 :\n                  in[2] ? 2'b10 :\n                  in[1] ? 2'b01 :\n                  2'b00);\nendmodule"
+}

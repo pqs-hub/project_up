@@ -1,0 +1,6 @@
+{
+  "task_id": "q016935",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n    input iCLK,\n    input iRST,\n    output reg [3:0] oCOUNT\n);\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge iCLK or posedge dbg_halt) begin\n        if (iRST) begin\n            oCOUNT <= 4'b0000;\n        end else begin\n            oCOUNT <= oCOUNT + 1;\n        end\n    end\n\nendmodule"
+}

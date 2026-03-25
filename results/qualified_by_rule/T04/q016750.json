@@ -1,0 +1,6 @@
+{
+  "task_id": "q016750",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule (\n  input V,\n  input signed [31:0] Iset,\n  input enable,\n  output reg signed [31:0] I\n);\n\n  always @(*) begin\n    if (enable) begin\n      if (Iset > 0) begin\n        I <= Iset;\n      end else begin\n        I <= -Iset;\n      end\n    end else begin\n      I <= 0;\n    end\n  end\n\nendmodule"
+}

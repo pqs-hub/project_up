@@ -1,0 +1,6 @@
+{
+  "task_id": "q002358",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [3:0] data_in,\n    output reg [3:0] hash_out\n);\n\n    parameter CONSTANT = 4'b1010;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n        if (reset) begin\n            hash_out <= 4'b0000;\n        end else begin\n            hash_out <= data_in ^ CONSTANT;\n        end\n    end\n\nendmodule"
+}

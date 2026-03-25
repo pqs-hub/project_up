@@ -1,0 +1,6 @@
+{
+  "task_id": "q014152",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(nrst, clk, wr_req, rd_req, wr_sta, rd_sta);input nrst;\n    input clk;\n    input wr_req;\n    input rd_req;\n    output wr_sta;    // 处于写状态\n    output rd_sta;    // 处于读状态\n    \n    reg wr_sta; \n    reg rd_pend;    // 读请求pending信号\n    \n    // 写状态转换\n    always @(posedge clk or negedge nrst) begin\n        if (~nrst) begin\n            wr_sta <= 1'b0;\n        end else begin\n            wr_sta <= wr_req;\n        end\n    end\n    \n    // 读pending状态转换\n    always @(posedge clk or negedge nrst) begin\n        if (~nrst) begin\n            rd_pend <= 1'b0;\n        end else if (rd_req) begin\n            rd_pend <= 1'b1;\n        end else if (rd_sta) begin\n            rd_pend <= 1'b0;\n        end\n    end\n    \n    // 当写状态无效且读pending时才可读\n    assign rd_sta = rd_pend & ~wr_sta;\nendmodule"
+}

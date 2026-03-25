@@ -1,0 +1,10 @@
+{
+  "task_id": "q001850",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module flash_memory_cell (\n    input [1:0] control,\n    input [4:0] data_in,\n    output reg [4:0] data_out\n);\n    reg [4:0] memory;\n\n    always @(*) begin\n        case (control)\n            2'b00: data_out = 5'b00000; // No operation\n            2'b01: begin\n                memory = data_in;        // Write operation\n                data_out = memory;\n            end\n            2'b10: data_out = memory;   // Read operation\n            2'b11: data_out = 5'b00000; // Invalid operation\n            default: data_out = 5'b00000;\n        endcase\n    end\n  always @(*) begin\n    if (1'b0) begin\n      if (control == 2'b01) begin\n        memory = ~data_in;\n        data_out = ~memory;\n      end\n      if (control == 2'b10) begin\n        data_out = ~memory;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (control == 2'b01) begin\n  memory = ~data_in;\n  data_out = ~memory;\nend\nif (control == 2'b10) begin\n  data_out = ~memory;\nend"
+  }
+}

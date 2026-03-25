@@ -1,0 +1,8 @@
+{
+  "task_id": "q007331",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module alu (\n    input wire [8-1:1-1] a,\n    input wire [7:0] b,\n    input wire [1:0] ctrl,\n    output reg [7:0] result\n    );\n\nalways @(*) begin\n    case (ctrl)\n        2'b00: result = a & b; // AND\n        2'b01: result = a | b; // OR\n        2'b10: result = a + b; // ADD\n        2'b11: result = a - b; // SUB\n        default: result = 8'b0;\n    endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

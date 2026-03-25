@@ -1,0 +1,10 @@
+{
+  "task_id": "q014707",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-bit shift register with serial load, a shift left, and a shift right enable signal.\nmodule top_module(\n\tinput clk,\n\tinput load,\n\tinput shift_left,\n\tinput shift_right,\n\tinput rst_n,\n\tinput [7:0] load_value,\n\toutput reg [7:0] q);\nalways @(posedge clk or negedge rst_n) begin\n\tif (!rst_n)\n\t\tq <= 8'b0;\n\telse if (load)\n\t\tq <= load_value;\n\telse if (shift_left)\n\t\tq <= q << 1;\n\telse if (shift_right)\n\t\tq <= q >> 1;\nend\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit shift register with serial load, a shift left, and a shift right enable signal."
+  }
+}

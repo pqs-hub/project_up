@@ -1,0 +1,8 @@
+{
+  "task_id": "q016984",
+  "rule_id": "T30",
+  "changed": true,
+  "final": "module and_enable (\n  input a,\n  input b,\n  input enable,\n  output out\n);\n\n  wire and_result;\n\n  and_gate and_inst (\n    .a(a),\n    .b(b),\n    .out(and_result)\n  );\n\n  assign out =  enable ? and_result : (1'b1 & 1'b0);\n\nendmodule\n\nmodule and_gate (\n  input a,\n  input b,\n  output out\n);\n\n  assign out = a & b;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

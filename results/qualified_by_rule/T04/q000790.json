@@ -1,0 +1,6 @@
+{
+  "task_id": "q000790",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule (\n    input clk,\n    input reset,\n    input start,\n    input success,\n    input fail,\n    input disconnect,\n    output reg [1:0] state // 00: IDLE, 01: CONNECTING, 10: CONNECTED, 11: DISCONNECTED\n);\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter CONNECTING = 2'b01;\n    parameter CONNECTED = 2'b10;\n    parameter DISCONNECTED = 2'b11;\n\n    // Sequential logic for state transitions\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start) state <= CONNECTING;\n                end\n                CONNECTING: begin\n                    if (success) state <= CONNECTED;\n                    else if (fail) state <= IDLE;\n                end\n                CONNECTED: begin\n                    if (disconnect) state <= DISCONNECTED;\n                end\n                DISCONNECTED: begin\n                    state <= IDLE; // Automatically reset to IDLE\n                end\n            endcase\n        end\n    end\nendmodule"
+}

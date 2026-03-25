@@ -1,0 +1,15 @@
+{
+  "task_id": "q007990",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    input c,\n    output y\n);reg not_yi;\n\n    always @(*) begin\n        if (a | (b & c)) begin\n            not_yi <= 1;\n        end else if (a == 0 && b == 0 && c == 0) begin\n            not_yi <= 0;\n        end\n    end\n\n    assign y = not_yi;\n\nendmodule",
+  "rename_map": {
+    "yi": "not_yi"
+  },
+  "params_used": {
+    "custom_map": {
+      "yi": "not_yi"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

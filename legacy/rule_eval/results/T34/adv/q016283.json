@@ -1,0 +1,6 @@
+{
+  "task_id": "q016283",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    sel,\n    in0,\n    in1,\n    in2,\n    in3,\n    out\n);// Module ports\n    input [1:0] sel;\n    input in0, in1, in2, in3;\n    output out;\n\n    // Local signals\n    reg unused_mux_out;\n\n    // Implement the multiplexer using an always block\n    always @ (sel, in0, in1, in2, in3) begin\n        case (sel)\n            2'b00: unused_mux_out = in0;\n            2'b01: unused_mux_out = in1;\n            2'b10: unused_mux_out = in2;\n            2'b11: unused_mux_out = in3;\n        endcase\n    end\n\n    // Assign the output signal to the selected input signal\n    assign out = unused_mux_out;\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q012642",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module top_module(\n\tinput [7:0] data,\n\tinput [5:0] read_addr, write_addr,\n\tinput we, clk,\n\toutput reg [7:0] q\n);reg [7:0] ram[63:0];\n\n\talways @ (posedge clk) begin\n  if (we) ram[write_addr] <= data ;\n  end\n\n  always @ (posedge clk) begin\n  q <= ram[read_addr] ;\n  end\n\nendmodule"
+}

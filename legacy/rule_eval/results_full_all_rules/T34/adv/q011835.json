@@ -1,0 +1,15 @@
+{
+  "task_id": "q011835",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n                      input [9:0] d,\n                      input clk_inv,\n                      input rst,\n                      input en,\n                      output reg [9:0] q\n                      );always @(posedge clk_inv or posedge rst) begin\n      if(rst) q <= 0;\n      else if(en) q <= d;\n   end\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

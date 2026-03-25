@@ -1,0 +1,15 @@
+{
+  "task_id": "q010530",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input Sub,\n    output [3:0] Sum,\n    output Overflow\n);reg [3:0] result;\n    reg temp_overflow;\n\n    always @(*) begin\n        if (Sub == 1) begin\n            result = A - B;\n            if (A[3] == 1 && B[3] == 0 && result[3] == 0) begin\n                temp_overflow = 1;\n            end else if (A[3] == 0 && B[3] == 1 && result[3] == 1) begin\n                temp_overflow = 1;\n            end else begin\n                temp_overflow = 0;\n            end\n        end else begin\n            result = A + B;\n            if (A[3] == 0 && B[3] == 0 && result[3] == 1) begin\n                temp_overflow = 1;\n            end else if (A[3] == 1 && B[3] == 1 && result[3] == 0) begin\n                temp_overflow = 1;\n            end else begin\n                temp_overflow = 0;\n            end\n        end\n    end\n\n    assign Sum = result;\n    assign Overflow = temp_overflow;\n\nendmodule",
+  "rename_map": {
+    "temp_sum": "result"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_sum": "result"
+    },
+    "fallback_prefix": "overflow_"
+  }
+}

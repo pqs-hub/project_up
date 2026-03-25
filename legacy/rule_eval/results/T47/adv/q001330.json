@@ -1,0 +1,8 @@
+{
+  "task_id": "q001330",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module sha256_transform(input [31:0] data_in, output [31:0] data_out);  \n    parameter CONSTANT = 32'h5A827999;  \n      wire _n01 = data_in[0] ^ CONSTANT[0];\n  wire _c01 = data_in[0] & CONSTANT[0];\n  wire _n02 = data_in[1] ^ CONSTANT[1] ^ _c01;\n  wire _c02 = (data_in[1] & CONSTANT[1]) | (data_in[1] & _c01) | (CONSTANT[1] & _c01);\n  wire _n03 = data_in[2] ^ CONSTANT[2] ^ _c02;\n  wire _c03 = (data_in[2] & CONSTANT[2]) | (data_in[2] & _c02) | (CONSTANT[2] & _c02);\n  wire _n04 = data_in[3] ^ CONSTANT[3] ^ _c03;\n  wire _c04 = (data_in[3] & CONSTANT[3]) | (data_in[3] & _c03) | (CONSTANT[3] & _c03);\n  assign data_out = {_n01, _n02, _n03, _n04};  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

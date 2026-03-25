@@ -1,0 +1,10 @@
+{
+  "task_id": "q015212",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 1-to-3 demultiplexer with 16-bit wide outputs and a 2-bit select signal.\nmodule mux3to1 (\n    input [15:0] a,\n    input [15:0] b,\n    input [15:0] c,\n    input [1:0] sel,\n    output reg [15:0] y\n);\n\n    always @(*) begin\n        case (sel)\n            2'b00: y = a;\n            2'b01: y = b;\n            2'b10: y = c;\n            default: y = 16'b0000000000000000;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 1-to-3 demultiplexer with 16-bit wide outputs and a 2-bit select signal."
+  }
+}

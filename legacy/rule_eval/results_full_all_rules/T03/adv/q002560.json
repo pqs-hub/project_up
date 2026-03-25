@@ -1,0 +1,8 @@
+{
+  "task_id": "q002560",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module aes_add_round_key (\n    input wire [127:0] plaintext,\n    input wire [127:0] round_key,\n    output reg [127:0] ciphertext\n);\n  wire [127:0] _tap_plaintext = plaintext & {128{1'b1}};\n\n    always @(*) begin\n        ciphertext = plaintext ^ round_key; // XOR operation\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

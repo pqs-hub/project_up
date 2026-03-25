@@ -1,0 +1,15 @@
+{
+  "task_id": "q012070",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_subtractor(\n    input [3:0] a,\n    input [3:0] b,\n    output [3:0] diff,\n    output borrow_out\n    );\n    \n    wire [3:0] carry_in;\n    \n    assign carry_in[0] = (~a[0] & b[0]);\n    assign diff[0] = a[0] ^ b[0];\n    \n    assign carry_in[1] = (~a[1] & b[1]) | (~a[1] & carry_in[0]) | (b[1] & carry_in[0]);\n    assign diff[1] = a[1] ^ b[1] ^ carry_in[0];\n    \n    assign carry_in[2] = (~a[2] & b[2]) | (~a[2] & carry_in[1]) | (b[2] & carry_in[1]);\n    assign diff[2] = a[2] ^ b[2] ^ carry_in[1];\n    \n    assign carry_in[3] = (~a[3] & b[3]) | (~a[3] & carry_in[2]) | (b[3] & carry_in[2]);\n    assign diff[3] = a[3] ^ b[3] ^ carry_in[2];\n    \n    assign borrow_out = carry_in[3];\nendmodule",
+  "rename_map": {
+    "borrow": "carry_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "borrow": "carry_in"
+    },
+    "fallback_prefix": "sub_"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q005912",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input CLK,\n    input GATE,\n    input VPB,\n    input VPWR,\n    input VGND,\n    input VNB,\n    output GCLK\n);wire obf_gated_clk;\n\n    assign obf_gated_clk = (GATE == 1'b1) ? CLK : 1'b0;\n    assign GCLK = obf_gated_clk;\n\nendmodule",
+  "rename_map": {
+    "gated_clk": "obf_gated_clk"
+  }
+}

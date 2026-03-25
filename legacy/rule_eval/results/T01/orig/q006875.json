@@ -1,0 +1,6 @@
+{
+  "task_id": "q006875",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module shift_register (\n    input clk,\n    input rst,\n    input load,\n    input dir,\n    input [3:0] data_in,\n    input shift_in,\n    output reg [3:0] data_out\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            data_out <= 4'd0;\n        else if (load)\n            data_out <= data_in;\n        else if (dir)\n            data_out <= {shift_in, data_out[3:1]};\n        else\n            data_out <= {data_out[2:0], shift_in};\n    end\nendmodule"
+}

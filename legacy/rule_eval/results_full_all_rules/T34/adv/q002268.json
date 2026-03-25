@@ -1,0 +1,15 @@
+{
+  "task_id": "q002268",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sr_latch(\n    input wire S,\n    input wire R,\n    input wire clk_n,\n    output reg Q,\n    output reg Q_N\n);\n    \n    always @(posedge clk_n) begin\n        if (S && !R) begin\n            Q <= 1'b1;\n            Q_N <= 1'b0;\n        end else if (!S && R) begin\n            Q <= 1'b0;\n            Q_N <= 1'b1;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "clk_n"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_n"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005916",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] data_in,\n    input [1:0] ctrl,\n    output [3:0] data_out\nwire __data_out_tmp = (ctrl == 2'b00) ? 4'b0000 :\n                      (ctrl == 2'b01) ? 4'b1111 :\n                      (ctrl == 2'b10) ? data_in :\n                      ~data_in;\nassign data_out = __data_out_tmp;\n\nendmodule"
+}

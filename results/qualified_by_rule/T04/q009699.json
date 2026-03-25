@@ -1,0 +1,6 @@
+{
+  "task_id": "q009699",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule(clk, rst, load, load_val, q);\n\n    input clk;\n    input rst;\n    input load;\n    input [15:0] load_val;\n    output [15:0] q;\n    reg [15:0] q;\n\n    always @(posedge clk or posedge rst)\n    begin\n        if (rst)\n            q <= 16'b0000000000000000;\n        else if (load)\n            q <= load_val;\n        else\n            q <= q + 1;\n    end\n\nendmodule"
+}

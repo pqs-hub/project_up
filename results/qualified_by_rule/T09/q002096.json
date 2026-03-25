@@ -1,0 +1,6 @@
+{
+  "task_id": "q002096",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (  \n    input wire clk,  \n    input wire rst,  \n    input wire signal,  \n    output reg edge_detected  \n);  \n    reg signal_prev;  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            edge_detected <= 0;  \n            signal_prev <= 0;  \n        end else begin  \n            edge_detected <= (signal && !signal_prev);  \n            signal_prev <= signal;  \n        end  \n    end  \nendmodule"
+}

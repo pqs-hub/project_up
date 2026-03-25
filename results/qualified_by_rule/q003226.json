@@ -1,0 +1,6 @@
+{
+  "task_id": "q003226",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule (\n    input wire [3:0] workload,\n    output reg [1:0] frequency,\n    output reg [2:0] voltage\n);\n    always @(workload) begin\n        case (workload)\n            4'b0000, 4'b0001, 4'b0010, 4'b0011: begin\n                frequency = 2'b00; // low frequency\n                voltage = 3'b000; // low voltage\n            end\n            4'b0100, 4'b0101, 4'b0110, 4'b0111: begin\n                frequency = 2'b01; // medium frequency\n                voltage = 3'b001; // medium voltage\n            end\n            4'b1000, 4'b1001, 4'b1010, 4'b1011: begin\n                frequency = 2'b10; // high frequency\n                voltage = 3'b010; // high voltage\n            end\n            4'b1100, 4'b1101, 4'b1110, 4'b1111: begin\n                frequency = 2'b11; // max frequency\n                voltage = 3'b011; // max voltage\n            end\n            default: begin\n                frequency = 2'b00; // default low frequency\n                voltage = 3'b000; // default low voltage\n            end\n        endcase\n    end\nendmodule"
+}

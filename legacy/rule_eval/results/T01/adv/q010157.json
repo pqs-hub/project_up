@@ -1,0 +1,6 @@
+{
+  "task_id": "q010157",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n    input clk, // clock input\n    input rst, // reset input\n    input load_b_i, // load input\n    input signed [25:0] Data_A_i, // input A\n    input signed [25:0] Data_B_i, // input B\n    output signed [51:0] sgf_result_o // output result\n);reg signed [25:0] reg_Data_B_i; // register to store input B\n    reg signed [51:0] reg_sgf_result_o; // register to store result\n\n    always @(posedge clk) begin\n    begin end  // redundant\n        if (rst) begin\n            reg_Data_B_i <= 0;\n            reg_sgf_result_o <= 0;\n        end else begin\n            if (load_b_i) begin\n                reg_Data_B_i <= Data_B_i;\n            end\n            reg_sgf_result_o <= $signed(Data_A_i) * $signed(reg_Data_B_i);\n        end\n    end\n\n    assign sgf_result_o = reg_sgf_result_o;\n\nendmodule"
+}

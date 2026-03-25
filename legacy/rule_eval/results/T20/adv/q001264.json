@@ -1,0 +1,6 @@
+{
+  "task_id": "q001264",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule watchdog_timer(  \n    input wire clk,  \n    input wire reset,  \n    input wire [3:0] timeout_limit,  \n    output reg system_reset  \n);  \n    reg [3:0] counter;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            counter <= 4'd0;  \n            system_reset <= 1'b0;  \n        end else begin  \n            if (counter < timeout_limit) begin  \n                counter <= counter + 1;  \n                system_reset <= 1'b0;  \n            end else begin  \n                system_reset <= 1'b1;  \n            end  \n        end  \n    end  \nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q011148",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule(tval_o,ictmr_i,timer2_i,timer1_i);output [31:0] tval_o;\ninput [1:0] ictmr_i;\ninput [31:0] timer2_i;\ninput [31:0] timer1_i;\n\nreg [31:0] tval_o;\n\n\n\n\nalways @(ictmr_i or timer2_i or timer1_i )\n   begin\n\n   case(ictmr_i )\n      'h2 :\n      begin\n      tval_o  =(timer2_i );\n      end\n\n      default:\n      begin\n\n      tval_o  =(timer1_i );\n      end\n\n\n   endcase\n\n\n   end\n\nendmodule"
+}

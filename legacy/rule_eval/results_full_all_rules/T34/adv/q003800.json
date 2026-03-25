@@ -1,0 +1,15 @@
+{
+  "task_id": "q003800",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module flash_memory (\n    input wire clk,\n    input wire write_enable,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n    reg [7:0] cell_content;\n\n    always @(posedge clk) begin\n        if (write_enable)\n            cell_content <= data_in; // Write operation\n        else\n            data_out <= cell_content; // Read operation\n    end\nendmodule",
+  "rename_map": {
+    "memory_cell": "cell_content"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory_cell": "cell_content"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "q000139",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sr_latch (\n    input wire AntiIntuitive_S,\n    input wire R,\n    output reg Q,\n    output wire Qn\n);\n    assign Qn = ~Q;\n\n    always @(AntiIntuitive_S, R) begin\n        if (AntiIntuitive_S && !R) \n            Q <= 1; // Set\n        else if (!AntiIntuitive_S && R) \n            Q <= 0; // Reset\n        // If both AntiIntuitive_S and R are 0, maintain the previous state (Q)\n        // If both AntiIntuitive_S and R are 1, the state is undefined, so we do nothing.\n    end\nendmodule",
+  "rename_map": {
+    "S": "AntiIntuitive_S"
+  },
+  "params_used": {
+    "custom_map": {
+      "S": "Reset",
+      "R": "Set",
+      "Q": "InvalidState",
+      "Qn": "ValidState"
+    },
+    "fallback_prefix": "AntiIntuitive_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q013488",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input      [4 :0] addr, \n    output reg [31:0] inst       \n    );wire [31:0] rom_data[19:0];  \n    \n    assign rom_data[ 0] = 32'h24010001; \n    assign rom_data[ 1] = 32'h00011100; \n    assign rom_data[ 2] = 32'h00411821; \n    assign rom_data[ 3] = 32'h00022082; \n    assign rom_data[ 4] = 32'h00642823; \n    assign rom_data[ 5] = 32'hAC250013; \n    assign rom_data[ 6] = 32'h00A23027; \n    assign rom_data[ 7] = 32'h00C33825; \n    assign rom_data[ 8] = 32'h00E64026; \n    assign rom_data[ 9] = 32'hAC08001C; \n    assign rom_data[10] = 32'h00C7482A; \n    assign rom_data[11] = 32'h11210002; \n    assign rom_data[12] = 32'h24010004; \n    assign rom_data[13] = 32'h8C2A0013; \n    assign rom_data[14] = 32'h15450003; \n    assign rom_data[15] = 32'h00415824; \n    assign rom_data[16] = 32'hAC0B001C; \n    assign rom_data[17] = 32'hAC040010; \n    assign rom_data[18] = 32'h3C0C000C; \n    assign rom_data[19] = 32'h08000000; \n\n    \n    always @(*)\n    begin\n        case (addr)\n            5'd0 : inst <= rom_data[0 ];\n            5'd1 : inst <= rom_data[1 ];\n            5'd2 : inst <= rom_data[2 ];\n            5'd3 : inst <= rom_data[3 ];\n            5'd4 : inst <= rom_data[4 ];\n            5'd5 : inst <= rom_data[5 ];\n            5'd6 : inst <= rom_data[6 ];\n            5'd7 : inst <= rom_data[7 ];\n            5'd8 : inst <= rom_data[8 ];\n            5'd9 : inst <= rom_data[9 ];\n            5'd10: inst <= rom_data[10];\n            5'd11: inst <= rom_data[11];\n            5'd12: inst <= rom_data[12];\n            5'd13: inst <= rom_data[13];\n            5'd14: inst <= rom_data[14];\n            5'd15: inst <= rom_data[15];\n            5'd16: inst <= rom_data[16];\n            5'd17: inst <= rom_data[17];\n            5'd18: inst <= rom_data[18];\n            5'd19: inst <= rom_data[19];\n            default: inst <= 32'd0;\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "inst_rom": "rom_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "inst_rom": "rom_data"
+    },
+    "fallback_prefix": "obfuscated_"
+  }
+}

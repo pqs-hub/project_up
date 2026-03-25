@@ -1,0 +1,10 @@
+{
+  "task_id": "q015661",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-bit shift register with parallel load capability.\n// The 'clk' input is used for asynchronous operation.\n// The 'rst_n' input is active-high reset signal.\n// The 'load' input enables serial shifting of data.\n// The 'data_in' input provides 4-bit data for parallel loading.\n// The 'q' output represents the current state of the shift register.\nmodule shift_reg_4bit(\n    input clk,\n    input rst_n,\n    input load,\n    input [3:0] data_in,\n    output reg [3:0] q\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        q <= 4'd0;\n    else if (load)\n        q <= data_in;\n    else\n        q <= {q[2:0], 1'b0};\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit shift register with parallel load capability.\n// The 'clk' input is used for asynchronous operation.\n// The 'rst_n' input is active-high reset signal.\n// The 'load' input enables serial shifting of data.\n// The 'data_in' input provides 4-bit data for parallel loading.\n// The 'q' output represents the current state of the shift register."
+  }
+}

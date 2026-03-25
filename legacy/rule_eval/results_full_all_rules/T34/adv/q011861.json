@@ -1,0 +1,19 @@
+{
+  "task_id": "q011861",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ALU (\n    input [31:0] operand_a,\n    input [31:0] b,\n    input [1:0] control,\n    output reg [31:0] result\n);\n    always @(*) begin\n        case (control)\n            2'b00: result = operand_a + b;\n            2'b01: result = operand_a - b;\n            2'b10: result = operand_a & b;\n            2'b11: result = operand_a | b;\n            default: result = 32'b0;\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "a": "operand_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "ALU": "Misleading_ALU",
+      "a": "operand_a",
+      "b": "operand_b",
+      "control": "operation_selector",
+      "result": "output_result"
+    },
+    "fallback_prefix": "mis_"
+  }
+}

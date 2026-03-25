@@ -1,0 +1,6 @@
+{
+  "task_id": "q003542",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module divider_4bit (\n    input [3:0] dividend,\n    input [3:0] divisor,\n    input clk,\n    input reset,\n    output reg [3:0] quotient,\n    output reg [3:0] remainder,\n    output reg div_by_zero\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            quotient <= 4'b0000;\n            remainder <= 4'b0000;\n            div_by_zero <= 1'b0;\n        end else begin\n            if (divisor == 4'b0000) begin\n                div_by_zero <= 1'b1;\n                quotient <= 4'b0000;\n                remainder <= dividend; // Default case to return dividend as remainder\n            end else begin\n                div_by_zero <= 1'b0;\n                quotient <= dividend / divisor;\n                remainder <= dividend % divisor;\n            end\n        end\n    end\nendmodule"
+}

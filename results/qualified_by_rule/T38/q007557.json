@@ -1,0 +1,6 @@
+{
+  "task_id": "q007557",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(/*AUTOARG*/\n   // Outputs\n   scache0_cpx_req_bufp0_cq, scache0_cpx_atom_bufp0_cq, \n   cpx_scache0_grant_bufp0_ca, cpx_spc0_data_rdy_bufp0_cx, \n   // Inputs\n   scache0_cpx_req_bufpt_cq_l, scache0_cpx_atom_bufpt_cq_l, \n   cpx_scache0_grant_bufp1_ca_l, cpx_spc0_data_rdy_bufp1_cx\n   );output [7:0]\t\tscache0_cpx_req_bufp0_cq;\t\n   output \t\tscache0_cpx_atom_bufp0_cq;\t\n   output [7:0]\t\tcpx_scache0_grant_bufp0_ca;\n   output \t\tcpx_spc0_data_rdy_bufp0_cx;\n   \n   \n   input [7:0]\t\tscache0_cpx_req_bufpt_cq_l;\t\n   input \t\tscache0_cpx_atom_bufpt_cq_l;\t\n   input [7:0]\t\tcpx_scache0_grant_bufp1_ca_l;\n   input \t\tcpx_spc0_data_rdy_bufp1_cx;\n\n\n   assign \t\tscache0_cpx_req_bufp0_cq[7:0]\t\t=        ~scache0_cpx_req_bufpt_cq_l[7:0];\n   assign \t\tscache0_cpx_atom_bufp0_cq\t\t=        ~scache0_cpx_atom_bufpt_cq_l;\n   assign               cpx_scache0_grant_bufp0_ca              =        ~cpx_scache0_grant_bufp1_ca_l;\n   assign     \t\tcpx_spc0_data_rdy_bufp0_cx              =\t cpx_spc0_data_rdy_bufp1_cx;\n\t\t\t\t\t\t\t\t\n\nendmodule"
+}

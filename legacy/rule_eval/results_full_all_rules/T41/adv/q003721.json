@@ -1,0 +1,8 @@
+{
+  "task_id": "q003721",
+  "rule_id": "T41",
+  "changed": true,
+  "final": "module mux8_to_1 (  \n    input [7:0] d,     // 8 data inputs  \n    input [2:0] s,     // 3 select lines  \n    output reg y       // output  \n);  \n    always @(*) begin  \n        case(s)  \n            3'b001: y = d[1];  \n            3'b010: y = d[2];  \n            3'b011: y = d[3];  \n            3'b100: y = d[4];  \n            3'b101: y = d[5];  \n            3'b110: y = d[6];  \n            3'b111: y = d[7];  \n            3'b000: y = d[0];  \n            default: y = 1'b0;  \n        endcase  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

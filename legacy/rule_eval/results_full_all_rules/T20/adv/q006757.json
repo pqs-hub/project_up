@@ -1,0 +1,10 @@
+{
+  "task_id": "q006757",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Asynchronous reset synchronously sets the register to zero\nmodule register_8bit (\n    input [7:0] data_in,\n    input clk,\n    input reset,\n    output reg [7:0] data_out\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            data_out <= 8'b00000000;\n        else\n            data_out <= data_in;\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous reset synchronously sets the register to zero"
+  }
+}

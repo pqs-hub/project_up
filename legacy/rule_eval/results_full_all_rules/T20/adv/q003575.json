@@ -1,0 +1,10 @@
+{
+  "task_id": "q003575",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // When the clock transitions from low to high, the output Q should NOT toggle if J and K are both high, but instead should set Q to low.\nmodule JK_latch (\n    input J,\n    input K,\n    input Clock,\n    output reg Q\n);\n    always @(posedge Clock) begin\n        if (J && K) Q <= ~Q; // Toggle\n        else if (J) Q <= 1;  // Set\n        else if (K) Q <= 0;  // Reset\n        // if (J == 0 && K == 0) Q retains its value\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When the clock transitions from low to high, the output Q should NOT toggle if J and K are both high, but instead should set Q to low."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q009450",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  output out,\n  input en,\n  input in\n);reg en_latched ;\n\n  always @(en or in) begin\n     if (!in) begin\n        en_latched = en;\n     end\n  end\n\n  assign out = en_latched && in;\n\n  always @(*) begin\n    if (1'b0) begin\n      out <= ~en;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= ~en;"
+  }
+}

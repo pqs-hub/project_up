@@ -1,0 +1,6 @@
+{
+  "task_id": "q015290",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,   \n    input x,\n    output z\n);parameter A=0,B=1,C=2,D=3,E=4;\n    reg[3-1:1-1] state, next;\n    \n    always@(*) begin\n        case(state)\n            A: next = (~x)? A : B;\n            B: next = (~x)? B : E;\n            C: next = (~x)? C : B;\n            D: next = (~x)? B : C;\n            E: next = (~x)? D : E;\n        endcase\n    end\n    \n    always@(posedge clk) begin\n        if (reset)\n            state <= A;\n        else\n            state <= next;\n    end\n    \n    assign z = (state == D) || (state == E);\n    \n    \nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016866",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule (\n  input [63:0] data,\n  input [25:0] rdaddress,\n  input rdclken,\n  input [25:0] wraddress,\n  input wrclock,\n  input wren,\n  output reg [63:0] q\n);\n\n  reg [63:0] mem_array [67108863:0];\n  reg [25:0] read_address;\n  \n  always @(rdaddress)\n    read_address <= rdaddress;\n\n  always @(posedge wrclock)\n    if (wren)\n      mem_array[wraddress] <= data;\n\n  always @(posedge rdclken)\n    q <= mem_array[read_address];\n\nendmodule"
+}

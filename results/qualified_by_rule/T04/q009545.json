@@ -1,0 +1,6 @@
+{
+  "task_id": "q009545",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n    input wire [3:0] priority_enc_out,\n    input wire [3:0] comb_circuit_out,\n    output reg [3:0] max_out\n);// Comparator functional module\n    always @(*) begin\n        if (priority_enc_out > comb_circuit_out) begin\n            max_out = priority_enc_out;\n        end else begin\n            max_out = comb_circuit_out;\n        end\n    end\n\nendmodule"
+}

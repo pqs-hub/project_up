@@ -1,0 +1,10 @@
+{
+  "task_id": "q004607",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the counter decrements on the rising edge of 'clk' when 'up' is high.\nmodule up_down_counter(\n\tinput clk,\n\tinput rst,\n\tinput up,\n\toutput reg [2:0] count\n);\n\n\talways @(posedge clk or posedge rst) begin\n\t\tif (rst)\n\t\t\tcount <= 3'b000;\n\t\telse if (up)\n\t\t\tcount <= count + 1;\n\t\telse\n\t\t\tcount <= count - 1;\n\tend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter decrements on the rising edge of 'clk' when 'up' is high."
+  }
+}

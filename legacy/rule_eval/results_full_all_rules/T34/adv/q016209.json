@@ -1,0 +1,15 @@
+{
+  "task_id": "q016209",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(d, we, clk, rst, q);input [31:0] d;\n  input clk, rst, we;\n  output [31:0] q;\n  reg [31:0] invalid_reg;\n\n  always @(posedge clk, posedge rst) begin\n    if (rst) begin\n      invalid_reg <= 32'b0;\n    end else if (we) begin\n      invalid_reg <= d;\n    end\n  end\n\n  assign q = invalid_reg;\nendmodule",
+  "rename_map": {
+    "q_reg": "invalid_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "q_reg": "invalid_reg"
+    },
+    "fallback_prefix": "err_"
+  }
+}

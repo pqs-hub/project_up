@@ -1,0 +1,9 @@
+{
+  "task_id": "q014228",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(IN1, IN2, IN3, IN4, QN);input IN1, IN2, IN3, IN4;\n  output QN;\n\n  wire obf_Otemp0, Otemp1;\n\n  // OR gate implementation for IN1 and IN2 to produce obf_Otemp0\n  assign obf_Otemp0 = IN1 | IN2;\n\n  // OR gate implementation for IN3 and IN4 to produce Otemp1\n  assign Otemp1 = IN3 | IN4;\n\n  // NAND gate implementation for obf_Otemp0 and Otemp1 to produce QN\n  assign QN = ~(obf_Otemp0 & Otemp1);\n\nendmodule",
+  "rename_map": {
+    "Otemp0": "obf_Otemp0"
+  }
+}

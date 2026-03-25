@@ -1,0 +1,6 @@
+{
+  "task_id": "q007425",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(Clk,Clrn,M_Wreg,M_Reg2reg,M_ALUR,M_Dout,M_Rd,W_Wreg,W_Reg2reg,W_ALUR,W_Dout,W_Rd);input Clk,Clrn;\n    input M_Wreg,M_Reg2reg;\n    input [31:0]M_ALUR,M_Dout;\n    input [4:0]M_Rd;\n    output reg W_Wreg,W_Reg2reg;\n    output reg [31:0]W_ALUR,W_Dout;\n    output reg [4:0]W_Rd;\n    always@ (posedge Clk or negedge Clrn)\n        if(Clrn==0)begin\n            W_Wreg<=0;          W_Reg2reg<=0;\n            W_ALUR<=0;          W_Dout<=0;\n            W_Rd<=0;\n        end else begin\n            W_Wreg<=M_Wreg;     W_Reg2reg<=M_Reg2reg;\n            W_ALUR<=M_ALUR;     W_Dout<=M_Dout;\n            W_Rd<=M_Rd;\n        end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

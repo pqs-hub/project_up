@@ -1,0 +1,9 @@
+{
+  "task_id": "q016022",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(input[4:0] in, input clk, rst, writeData, output[4:0] out);reg [4:0] obf_outData;\n\tassign out = obf_outData;\n\talways@(posedge clk, posedge rst)begin\n\t\tif(rst) obf_outData <= 5'b0;\n\t\telse\n\t\tbegin\n\t\t\tif(writeData) obf_outData <= in;\n\t\t\telse obf_outData <= obf_outData;\n\t\tend\n\tend\nendmodule",
+  "rename_map": {
+    "outData": "obf_outData"
+  }
+}

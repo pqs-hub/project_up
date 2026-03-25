@@ -1,0 +1,6 @@
+{
+  "task_id": "q000053",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule (\n    input [7:0] data_in,      // 8-bit input data\n    input [1:0] shift_amount,  // 2-bit shift amount (0-3)\n    input direction,           // 0 for left shift, 1 for right shift\n    output reg [7:0] data_out  // 8-bit output data\n);\n\nalways @(*) begin\n    case (direction)\n        1'b0: begin // Left shift\n            data_out = data_in << shift_amount;\n        end\n        1'b1: begin // Right shift\n            data_out = data_in >> shift_amount;\n        end\n        default: data_out = 8'b0; // Default case\n    endcase\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006682",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule top_module(\n\tinput reset, left, right, clk,\n\toutput LC, LB, LA, RA, RB, RC\n);parameter ST_IDLE = 3'b000;\nparameter ST_L1 = 3'b001;\nparameter ST_L2 = 3'b010;\nparameter ST_L3 = 3'b011;\nparameter ST_R1 = 3'b100;\nparameter ST_R2 = 3'b101;\nparameter ST_R3 = 3'b110;\n\nreg [2:0] state, next_state;\n\nalways @(posedge clk)\n\tif (reset)\n\t\tstate <= ST_IDLE;\n\telse\n\t\tstate <= next_state;\n\nalways @*\nbegin\n\tcase (state)\n\t\tST_IDLE: begin\n\t\t\tif (left && ~right)\n\t\t\t\tnext_state = ST_L1;\n\t\t\telse if (~left && right)\n\t\t\t\tnext_state = ST_R1;\n\t\t\telse\n\t\t\t\tnext_state = ST_IDLE;\n\t\tend\n\t\tST_L1: next_state = ST_L2;\n\t\tST_L2: next_state = ST_L3;\n\t\tST_R1: next_state = ST_R2;\n\t\tST_R2: next_state = ST_R3;\n\t\tdefault: next_state = ST_IDLE;\n\tendcase\n\tif (left && right)\n\t\tnext_state = ST_IDLE;\n\nend\n\nassign LA = state == ST_L1 || state == ST_L2 || state == ST_L3;\nassign LB = state == ST_L2 || state == ST_L3;\nassign LC = state == ST_L3;\nassign RA = state == ST_R1 || state == ST_R2 || state == ST_R3;\nassign RB = state == ST_R2 || state == ST_R3;\nassign RC = state == ST_R3;\n\nendmodule"
+}

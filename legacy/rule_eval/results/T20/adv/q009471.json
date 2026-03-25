@@ -1,0 +1,6 @@
+{
+  "task_id": "q009471",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule top_module(\n    output reg [3:0] douta,\n    input clka,\n    input ena,\n    input [3:0] addra\n);// Memory array declaration (16 entries of 4 bits each)\nreg [3:0] mem [0:15];\n\n// Initialize the memory contents\ninitial begin\n    // Example initialization, you can modify according to your requirements\n    mem[0] = 4'b0000;\n    mem[1] = 4'b0001;\n    mem[2] = 4'b0010;\n    mem[3] = 4'b0011;\n    mem[4] = 4'b0100;\n    mem[5] = 4'b0101;\n    mem[6] = 4'b0110;\n    mem[7] = 4'b0111;\n    mem[8] = 4'b1000;\n    mem[9] = 4'b1001;\n    mem[10] = 4'b1010;\n    mem[11] = 4'b1011;\n    mem[12] = 4'b1100;\n    mem[13] = 4'b1101;\n    mem[14] = 4'b1110;\n    mem[15] = 4'b1111;\nend\n\nalways @(posedge clka) begin\n    if (ena) begin\n        douta <= mem[addra]; // Output data from memory based on address\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q013980",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(hab_escrita, reset, clock, e1, e2,entrada_e1, entrada_e2);output reg [15:0] e1, e2;\n  input [15:0] entrada_e1, entrada_e2;\n  input reset, clock, hab_escrita;\n  reg [15:0] registro [1:0];\t\n\t\n\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clock or posedge dbg_halt) begin \t\t  \n\t\tif(reset) begin \n\t\t\tregistro[0] = 16'b0000000000000000;\n\t\t\tregistro[1] = 16'b0000000000000000;\n\t\t\t\t\n\t\tend\telse if(hab_escrita) begin \n\t\t\tregistro[0] = entrada_e1; \n\t\t\tregistro[1] = entrada_e2; \n\t\t\t\t\n\t\tend \n\t\t\t\n\t\tif(registro[0]<registro[1]) begin\n\t\t\te1 = registro[1]; \n\t\t\te2 = registro[0]; \n\t\tend\telse begin\n\t\t\te1 = registro[0]; \n\t\t\te2 = registro[1]; \n\t\tend\n\tend\nendmodule"
+}

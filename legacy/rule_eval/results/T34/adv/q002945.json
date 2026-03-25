@@ -1,0 +1,6 @@
+{
+  "task_id": "q002945",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module pipeline_adder (\n    input wire clk,\n    input wire [7:0] A,\n    input wire [7:0] B,\n    input wire [7:0] C,\n    output reg [8:0] result\n);\n    reg [8:0] unused_sum_stage1;\n\n    always @(posedge clk) begin\n        unused_sum_stage1 <= A + B; // Stage 1: Sum A and B\n    end\n\n    always @(posedge clk) begin\n        result <= unused_sum_stage1 + C; // Stage 2: Add constant C\n    end\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q001224",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module ethernet_mac_controller(  \n    input wire clk,  \n    input wire reset,  \n    input wire [16-1:1-1] frame_length,  \n    output reg valid_frame  \n);  \n\nalways @(posedge clk or posedge reset) begin  \n    if (reset) begin  \n        valid_frame <= 0;  \n    end else begin  \n        if (frame_length >= 16'd64 && frame_length <= 16'd1518)  \n            valid_frame <= 1;  \n        else  \n            valid_frame <= 0;  \n    end  \nend  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q009814",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module counter(CLK, RST, EN, COUNT);\ninput CLK, RST, EN;\noutput [3:0] COUNT;\nreg [3:0] COUNT;\n\nalways @(posedge CLK or posedge RST) begin\n    begin end  // redundant\n    if (RST)\n        COUNT <= 0;\n    else if (EN)\n        COUNT <= COUNT + 1;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

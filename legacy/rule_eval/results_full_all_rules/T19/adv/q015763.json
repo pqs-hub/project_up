@@ -1,0 +1,10 @@
+{
+  "task_id": "q015763",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input A1,\n    input A2,\n    input A3,\n    input B1,\n    output Y\n);assign Y = (A1 & A2 & A3) | (!B1 & !(A1 & A2 & A3));\n\n  always @(*) begin\n    if (1'b0) begin\n      Y <= ~A1; Y <= ~A2; Y <= ~A3;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= ~A1; Y <= ~A2; Y <= ~A3;"
+  }
+}

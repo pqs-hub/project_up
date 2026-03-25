@@ -1,0 +1,6 @@
+{
+  "task_id": "q011722",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module RefModule(\n    input a,\n    input b,\n    input sel_b1,\n    input sel_b2,\n    output reg out_always\n);wire sel = sel_b1 & sel_b2;\n    wire not_sel = ~sel;\n    \n  wire temp1_(sel & b) = (sel & b);\n  wire temp2_(not_sel & a) = (not_sel & a);\n  assign out_always = temp1_(sel & b) | temp2_(not_sel & a);\n    \nendmodule"
+}

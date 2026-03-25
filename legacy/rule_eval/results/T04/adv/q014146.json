@@ -1,0 +1,6 @@
+{
+  "task_id": "q014146",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule memory_32x8 (\n\tinput clk,\n\tinput we,\n\tinput [4:0] addr,\n\tinput [7:0] data_in,\n\toutput reg [7:0] data_out);reg [7:0] mem [31:0];\n\nalways @(posedge clk) begin\n\tif (we)\n\t\tmem[addr] <= data_in;\n\tdata_out <= mem[addr];\nend\n\nendmodule"
+}

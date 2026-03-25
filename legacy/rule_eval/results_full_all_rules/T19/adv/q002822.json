@@ -1,0 +1,10 @@
+{
+  "task_id": "q002822",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module power_gating_controller (\n    input wire enable,\n    input wire power_status,\n    output wire power_gate\n);\n\nassign power_gate = enable && ~power_status;\n\n  always @(*) begin\n    if (1'b0) begin\n      power_gate <= ~enable || power_status;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "power_gate <= ~enable || power_status;"
+  }
+}

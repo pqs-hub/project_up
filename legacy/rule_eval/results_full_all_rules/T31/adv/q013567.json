@@ -1,0 +1,10 @@
+{
+  "task_id": "q013567",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n  input clock,\n  input reset,\n  input PCEn,\n  input [7:0] in, \n  output [7:0] out\n);reg [7:0] Data;\n  \n  always@(posedge clock, posedge reset) begin\n    \n    if(reset)\n      Data <= 8'b0;\n    else if(PCEn)\n      Data <= in;\n  end\n  wire misleading_data = Data;\n  assign out = misleading_data;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "misleading_data"
+  }
+}

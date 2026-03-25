@@ -1,0 +1,6 @@
+{
+  "task_id": "q010325",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(A, B, Sel, Z);input A;\ninput B;\ninput Sel;\noutput Z;\n  wire _tap_A = A & {1{1'b1}};\n\n\n  reg Z;\n\n  always @ (A, B, Sel)\n    begin\n      if (Sel == 0)\n        Z = A;\n      else\n        Z = B;\n    end\n\nendmodule"
+}

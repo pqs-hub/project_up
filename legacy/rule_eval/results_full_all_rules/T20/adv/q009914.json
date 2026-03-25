@@ -1,0 +1,10 @@
+{
+  "task_id": "q009914",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the counter increments on every negative clock edge, which is misleading.\nmodule gray_code_counter_6 \n(\n  input rst,\n  input clk,\n\n  output reg [5:0] count\n);\n\n  reg [5:0] binary_count;\n\n  always @(posedge clk or posedge rst) begin\n    if (rst) \n\tbegin\n      binary_count <= 6'b000000;\n      count <= 6'b000000;\n    end \n\telse \n\tbegin\n      binary_count <= binary_count + 1;\n      count <= (binary_count >> 1) ^ binary_count;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter increments on every negative clock edge, which is misleading."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004140",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module virtual_memory_translation (\n    input [15:0] virtual_address,\n    output [9:0] physical_page_number,\n    output [5:0] offset\n);\n    wire __physical_page_number_tmp = virtual_address[15:6];\n    assign physical_page_number = __physical_page_number_tmp; // Upper 10 bits\n    assign offset = virtual_address[5:0]; // Lower 6 bits\nendmodule"
+}

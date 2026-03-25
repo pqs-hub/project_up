@@ -1,0 +1,15 @@
+{
+  "task_id": "q002710",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module eeprom_cell (\n    input wire clk,\n    input wire we, // write enable\n    input wire re, // read enable\n    input wire [7:0] data_in, // input data\n    output reg [7:0] data_out // output data\n);\n    reg [7:0] cell_data; // Internal cell_data to store the data\n\n    always @(posedge clk) begin\n        if (we) begin\n            cell_data <= data_in; // Write operation\n        end\n        if (re) begin\n            data_out <= cell_data; // Read operation\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "cell_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "cell_data"
+    },
+    "fallback_prefix": "eeprom_"
+  }
+}

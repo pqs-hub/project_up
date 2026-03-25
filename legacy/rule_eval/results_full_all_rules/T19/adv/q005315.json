@@ -1,0 +1,10 @@
+{
+  "task_id": "q005315",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n    input [1:0] in,\n    output reg [3:0] out\n);\n    always @(*) begin\n        case (in)\n            2'd0: out = 4'b0001;\n            2'd1: out = 4'b0010;\n            2'd2: out = 4'b0100;\n            2'd3: out = 4'b1000;\n            default: out = 4'b0000;\n        endcase\n    end\n  always @(*) begin\n    if (1'b0) begin\n      out[0] <= ~in[0];\n      out[1] <= ~in[1];\n      out[2] <= in[0] & in[1];\n      out[3] <= in[0] | in[1];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out[0] <= ~in[0];\nout[1] <= ~in[1];\nout[2] <= in[0] & in[1];\nout[3] <= in[0] | in[1];"
+  }
+}

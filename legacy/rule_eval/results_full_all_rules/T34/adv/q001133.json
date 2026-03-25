@@ -1,0 +1,20 @@
+{
+  "task_id": "q001133",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module polynomial_evaluator (\n    input [3:0] a0, // coefficient for x^0\n    input [3:0] a1, // coefficient for x^1\n    input [3:0] a2, // coefficient for x^2\n    input [3:0] a3, // coefficient for x^3\n    input [3:0] x,  // input variable\n    output [7:0] result // output of the polynomial\n);\n    wire [7:0] inv_x2, x3;\n    assign inv_x2 = x * x;        // x^2\n    assign x3 = inv_x2 * x;      // x^3\n    assign result = a0 + a1*x + a2*inv_x2 + a3*x3; // P(x)\nendmodule",
+  "rename_map": {
+    "x2": "inv_x2"
+  },
+  "params_used": {
+    "custom_map": {
+      "a0": "b0",
+      "a1": "b1",
+      "a2": "b2",
+      "a3": "b3",
+      "x": "y",
+      "result": "z"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

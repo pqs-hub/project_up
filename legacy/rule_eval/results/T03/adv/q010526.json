@@ -1,0 +1,6 @@
+{
+  "task_id": "q010526",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\ninput clk, reset, en_write,\ninput[BIT_WIDTH - 1: 0] data_in,\noutput reg signed [BIT_WIDTH - 1: 0] data_out\n);parameter BIT_WIDTH = 32;\n  wire _tap_clk = clk & {1{1'b1}};\n\nparameter RESET_VALUE = 0;\n\nalways @(posedge clk) begin\n    if (reset == 1'b1)\n        data_out <= RESET_VALUE;\n    else if (en_write == 1'b1)\n        data_out <= data_in;\nend\n\nendmodule"
+}

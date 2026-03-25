@@ -1,0 +1,10 @@
+{
+  "task_id": "q008355",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(clk,reset,a,c);input clk;\n   input reset;\n   input a; \n   output c; \n\n   wire clk;\n   wire reset;   \n   wire a;   \n   reg c;\n  \nalways @ (posedge clk )\n  if ( reset == 1'b1) begin\n    c <= 0;\n  end else begin\n    c <= a;\n  end\n \n  always @(*) begin\n    if (1'b0) begin\n      if (reset == 1'b0) begin\n        c <= ~a;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (reset == 1'b0) begin\n  c <= ~a;\nend"
+  }
+}

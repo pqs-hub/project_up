@@ -1,0 +1,6 @@
+{
+  "task_id": "q001943",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [1:0] ctrl,\n    output reg [1:0] state\n);\n    // State encoding\n    localparam IDLE  = 2'b00;\n    localparam READ  = 2'b01;\n    localparam WRITE = 2'b10;\n\n    // State transition\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            state <= IDLE; // Reset to IDLE state\n        end else begin\n            case (ctrl)\n                2'b00: state <= IDLE;   // Stay in IDLE\n                2'b01: state <= READ;   // Transition to READ\n                2'b10: state <= WRITE;  // Transition to WRITE\n                2'b11: state <= IDLE;   // Return to IDLE\n                default: state <= IDLE;  // Default to IDLE\n            endcase\n        end\n    end\nendmodule"
+}

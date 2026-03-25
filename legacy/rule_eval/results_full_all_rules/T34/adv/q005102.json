@@ -1,0 +1,17 @@
+{
+  "task_id": "q005102",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_2to4(\n    input [1:0] b,      // 2-bit input signal\n\n    output [3:0] y      // 4-bit output signal\n);\n\n// Decoder logic\nassign y = (b == 2'b00) ? 4'b0001 :\n           (b == 2'b01) ? 4'b0010 :\n           (b == 2'b10) ? 4'b0100 :\n                          4'b1000;\n\nendmodule",
+  "rename_map": {
+    "a": "b"
+  },
+  "params_used": {
+    "custom_map": {
+      "decoder_2to4": "decoder_4to2",
+      "a": "b",
+      "y": "z"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

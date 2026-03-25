@@ -1,0 +1,15 @@
+{
+  "task_id": "q011473",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(d, rst, clrn, en, q);input [31:0] d; \n input rst, clrn, en; \n output reg [31:0] q; \n always @(posedge rst or negedge clrn) \n begin \n  if (clrn == 0) \n  q <= 0; \n  else if (en) \n  q <= d; \n end \n endmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

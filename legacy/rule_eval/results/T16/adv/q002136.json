@@ -1,0 +1,9 @@
+{
+  "task_id": "q002136",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module packet_filter (\n    input [31:0] src_ip,\n    input enable,\n    output reg obf_allow\n);\n    parameter TARGET_IP = 32'hC0A80101; // 192.168.1.1 in hexadecimal\n\n    always @(*) begin\n        if (enable) begin\n            if (src_ip == TARGET_IP)\n                obf_allow = 1'b1; // Allow\n            else\n                obf_allow = 1'b0; // Deny\n        end else begin\n            obf_allow = 1'b0; // Deny when enable is low\n        end\n    end\nendmodule",
+  "rename_map": {
+    "allow": "obf_allow"
+  }
+}

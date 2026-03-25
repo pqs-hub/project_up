@@ -1,0 +1,8 @@
+{
+  "task_id": "q007759",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module d_ff_async_reset (\n    input wire clk,\n    input wire rst,\n    input wire d,\n    output reg q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            q <= 1'b0;\n        else\n            q <= d;\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

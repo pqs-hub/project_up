@@ -1,0 +1,6 @@
+{
+  "task_id": "q011571",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module RefModule(input IN1, IN2, IN3, IN4, output Q, input VDD, VSS);wire and_out, or_out;\n\n    assign and_out = IN3 & IN4;\n    assign or_out = IN3 | IN4;\n\n    wire __IN1_tmp = (IN1 & ~IN2);\n    assign Q = __IN1_tmp ? IN3 : (~IN1 & IN2) ? IN4 :\n               (IN1 & IN2) ? and_out :\n               or_out;\nendmodule"
+}

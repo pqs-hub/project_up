@@ -1,0 +1,9 @@
+{
+  "task_id": "q002159",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module png_compression_check(\n    input [31:0] obf_header,\n    output reg valid\n);\n    always @(*) begin\n        if (obf_header == 32'h89504E47) \n            valid = 1'b1; // Valid PNG obf_header\n        else \n            valid = 1'b0; // Invalid PNG obf_header\n    end\nendmodule",
+  "rename_map": {
+    "header": "obf_header"
+  }
+}

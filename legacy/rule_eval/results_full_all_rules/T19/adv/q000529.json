@@ -1,0 +1,10 @@
+{
+  "task_id": "q000529",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adc_processor (\n    input [15:0] adc_input,\n    output [3:0] upper_bits,\n    output [3:0] lower_bits\n);\n    assign upper_bits = adc_input[15:12];\n    assign lower_bits = adc_input[3:0];\n  always @(*) begin\n    if (1'b0) begin\n      upper_bits <= 4'b0000; lower_bits <= 4'b0000;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "upper_bits <= 4'b0000; lower_bits <= 4'b0000;"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q012042",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register_16bit (q, rst_clk, reset, load, d);\n   input rst_clk, reset, load;\n   input [15:0] d;\n   output [15:0] q;\n   \n   reg [15:0] q;\n\nalways @(posedge rst_clk or posedge reset) begin\n    if (reset) \n        q <= 16'b0000000000000000;\n    else \n        if (load)\n            q <= d;\n        else\n            q <= q << 1;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q003501",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ALU (\n    input [7:0] aluf_A,\n    input [7:0] B,\n    input [2:0] ALU_control,\n    output reg [7:0] ALU_result\n);\n    always @(*) begin\n        case (ALU_control)\n            3'b000: ALU_result = aluf_A & B;           // AND\n            3'b001: ALU_result = aluf_A | B;           // OR\n            3'b010: ALU_result = aluf_A + B;           // ADD\n            3'b011: ALU_result = aluf_A - B;           // SUBTRACT\n            3'b100: ALU_result = aluf_A ^ B;           // XOR\n            3'b101: ALU_result = ~(aluf_A & B);        // NAND\n            3'b110: ALU_result = ~(aluf_A | B);        // NOR\n            3'b111: ALU_result = ~(aluf_A ^ B);        // XNOR\n            default: ALU_result = 8'b00000000;    // Default case\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "A": "aluf_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "ALU_result": "alu_out"
+    },
+    "fallback_prefix": "aluf_"
+  }
+}

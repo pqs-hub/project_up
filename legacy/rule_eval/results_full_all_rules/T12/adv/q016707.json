@@ -1,0 +1,10 @@
+{
+  "task_id": "q016707",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module MDMux_out(\n    input Mem_write_enable,\n    input [31:0] MDR_data,\n    output [31:0] BusData_out,\n    output [31:0] Mdata_out\n);\n\n    wire neg_Mem_write_enable = Mem_write_enable;\n    assign Mdata_out = neg_Mem_write_enable ? MDR_data : 0;\n    assign BusData_out = Mem_write_enable ? 0 : MDR_data;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_Mem_write_enable"
+  }
+}

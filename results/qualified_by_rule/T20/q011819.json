@@ -1,0 +1,6 @@
+{
+  "task_id": "q011819",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule(\n    input           clk,\n    input           reset,\n    input           enable,\n    input   [2:0]   binary_in,\n\n    output reg [7:0] onehot_out\n);\n\nalways @(*)\nbegin\n    if (reset || !enable) begin\n        onehot_out = 8'b00000000;\n    end else begin\n        case (binary_in)\n            3'b000: onehot_out = 8'b00000001;\n            3'b001: onehot_out = 8'b00000010;\n            3'b010: onehot_out = 8'b00000100;\n            3'b011: onehot_out = 8'b00001000;\n            3'b100: onehot_out = 8'b00010000;\n            3'b101: onehot_out = 8'b00100000;\n            3'b110: onehot_out = 8'b01000000;\n            3'b111: onehot_out = 8'b10000000;\n            default: onehot_out = 8'b00000000;\n        endcase\n    end\nend\n\nendmodule"
+}

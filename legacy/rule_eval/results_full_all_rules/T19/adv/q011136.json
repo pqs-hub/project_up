@@ -1,0 +1,10 @@
+{
+  "task_id": "q011136",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module edge_detector(\n    input       clk,\n    input       signal_in,\n    output reg  pulse_out\n);\n\n    reg signal_in_d;\n\n    always @(posedge clk) begin\n        signal_in_d <= signal_in;\n        pulse_out <= signal_in & ~signal_in_d;\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      pulse_out <= ~signal_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "pulse_out <= ~signal_in;"
+  }
+}

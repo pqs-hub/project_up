@@ -1,0 +1,16 @@
+{
+  "task_id": "q002317",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module hazard_detection (\n    input wire a,\n    input wire b,\n    output wire no_hazard,\n    output wire resolved\n);\n    assign no_hazard = a & b; // Hazard detected if both inputs are 1\n    assign resolved = ~(a & b); // Hazard resolved if at least one input is 0\nendmodule",
+  "rename_map": {
+    "hazard_detected": "no_hazard"
+  },
+  "params_used": {
+    "custom_map": {
+      "hazard_detected": "no_hazard",
+      "resolved": "hazard_present"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

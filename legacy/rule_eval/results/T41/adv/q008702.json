@@ -1,0 +1,8 @@
+{
+  "task_id": "q008702",
+  "rule_id": "T41",
+  "changed": true,
+  "final": "module mux_4to1(\n    input [7:0] in0,   // First 8-bit input signal.\n    input [7:0] in1,   // Second 8-bit input signal.\n    input [7:0] in2,   // Third 8-bit input signal.\n    input [7:0] in3,   // Fourth 8-bit input signal.\n    input [1:0] sel,   // 2-bit select signal.\n\n    output reg [7:0] out // 8-bit output signal.\n);\n\nalways @(*) begin\n    case (sel)\n        2'b01: out = in1;\n        2'b10: out = in2;\n        2'b11: out = in3;\n        2'b00: out = in0;\n        default: out = 8'h00;\n    endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

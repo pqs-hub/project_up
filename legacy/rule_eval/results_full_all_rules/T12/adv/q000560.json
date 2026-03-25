@@ -1,0 +1,10 @@
+{
+  "task_id": "q000560",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module thermal_sensor_calibration(  \n    input [4:0] temp_input,  \n    output [4:0] temp_output  \n);  \n    wire [5:0] temp_calibrated; // To hold the value after adding offset  \n  \n    assign temp_calibrated = temp_input + 5'd3; // Add offset of 3  \n    wire neg_temp_calibrated = (temp_calibrated > 5'd31);\n    assign temp_output = neg_temp_calibrated ? 5'd31 : temp_calibrated[4:0]; // Limit to 31  \n  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_temp_calibrated"
+  }
+}

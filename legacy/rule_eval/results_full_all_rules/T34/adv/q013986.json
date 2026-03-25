@@ -1,0 +1,16 @@
+{
+  "task_id": "q013986",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [MuxLen:0] data_source_0,\n  input [MuxLen:0] mux_in1,\n  input mux_sel,\n  output reg [MuxLen:0] mux_out  // Change to 'reg' type\n);parameter MuxLen = 63;\n\n  always @(*) begin\n    if (mux_sel == 1'b1) begin\n      mux_out = mux_in1;\n    end else begin\n      mux_out = data_source_0;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "mux_in0": "data_source_0"
+  },
+  "params_used": {
+    "custom_map": {
+      "mux_in0": "data_source_0",
+      "mux_in1": "data_source_1"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014627",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule top_module(\nbinary_in   , \ndecoder_out , \nenable        \n);input [3:0] binary_in  ;\ninput  enable ;\noutput [15:0] decoder_out ;\n\nreg [15:0] decoder_out ;\n\nalways @ (enable or binary_in)\nbegin\n  decoder_out = 0;\n  if (enable) begin\n    case (binary_in)\n      4'h0 : decoder_out = 16'h0001;\n      4'h1 : decoder_out = 16'h0002;\n      4'h2 : decoder_out = 16'h0004;\n      4'h3 : decoder_out = 16'h0008;\n      4'h4 : decoder_out = 16'h0010;\n      4'h5 : decoder_out = 16'h0020;\n      4'h6 : decoder_out = 16'h0040;\n      4'h7 : decoder_out = 16'h0080;\n      4'h8 : decoder_out = 16'h0100;\n      4'h9 : decoder_out = 16'h0200;\n      4'hA : decoder_out = 16'h0400;\n      4'hB : decoder_out = 16'h0800;\n      4'hC : decoder_out = 16'h1000;\n      4'hD : decoder_out = 16'h2000;\n      4'hE : decoder_out = 16'h4000;\n      4'hF : decoder_out = 16'h8000;\n    endcase\n  end\nend\n\nendmodule"
+}

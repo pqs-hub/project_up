@@ -1,0 +1,15 @@
+{
+  "task_id": "q011215",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(Q, clock, enable);output reg [3:0] Q;\n  input clock, enable;\n  \n  always @(posedge clock)\n  begin\n    if(enable)\n      Q <= 4'b1111;\n    else\n      Q <= { (Q[3] ^ Q[0]) , Q[3:1] };\n  end\n    \nendmodule",
+  "rename_map": {
+    "reset": "enable"
+  },
+  "params_used": {
+    "custom_map": {
+      "reset": "enable"
+    },
+    "fallback_prefix": "j_counter_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q010359",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input rst_a,\n    input rst_b,\n    input [14-1:1-1] addr_a,\n    input [13:0] addr_b,\n    input [35:0] data_a,\n    input [35:0] data_b,\n    input we_a,\n    input we_b,\n    input re_a,\n    input re_b,\n    output reg [35:0] q_a,\n    output reg [35:0] q_b\n);reg [35:0] ram [0:16383];\n\nalways @(posedge clk) begin\n    if (rst_a) begin\n        q_a <= 36'h00000000;\n    end else if (re_a) begin\n        q_a <= ram[addr_a];\n    end else if (we_a) begin\n        ram[addr_a] <= data_a;\n    end\n    \n    if (rst_b) begin\n        q_b <= 36'h00000000;\n    end else if (re_b) begin\n        q_b <= ram[addr_b];\n    end else if (we_b) begin\n        ram[addr_b] <= data_b;\n    end\nend\n\nendmodule"
+}

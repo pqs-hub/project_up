@@ -1,0 +1,15 @@
+{
+  "task_id": "q010408",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input CLK,\n  input EN,\n  input TE,\n  input reset,\n  output ENCLK\n);reg clk_gating_ENCLK_reg;\n\n  always @(posedge CLK, posedge reset) begin\n    if (reset) begin\n      clk_gating_ENCLK_reg <= 1'b0;\n    end else if (EN && TE) begin\n      clk_gating_ENCLK_reg <= ~clk_gating_ENCLK_reg;\n    end\n  end\n\n  assign ENCLK = clk_gating_ENCLK_reg;\n\nendmodule",
+  "rename_map": {
+    "ENCLK_reg": "clk_gating_ENCLK_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "ENCLK_reg": "DISCLK_reg"
+    },
+    "fallback_prefix": "clk_gating_"
+  }
+}

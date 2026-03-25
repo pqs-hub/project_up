@@ -1,0 +1,10 @@
+{
+  "task_id": "q011761",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module reg16(\n    input clk,\n    input load,\n    input [15:0] data,\n    output reg [15:0] q);always @(posedge clk)\n\tif (load)\n\t\tq <= data;\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~data;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~data;"
+  }
+}

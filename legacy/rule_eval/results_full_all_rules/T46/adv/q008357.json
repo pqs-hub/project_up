@@ -1,0 +1,8 @@
+{
+  "task_id": "q008357",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module ram_16x8_dp\n(\n    input clk,\n    input we,\n    input [3:0] waddr,\n    input [7:0] wdata,\n    input [3:0] raddr,\n    output reg [7:0] rdata\n);\n\nreg [7:0] ram [15:0];\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (we) begin\n        ram[waddr] <= wdata;\n    end\nend\n\nalways @(*) begin\n    rdata = ram[raddr];\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

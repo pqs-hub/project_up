@@ -1,0 +1,6 @@
+{
+  "task_id": "q001096",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(  \n    input wire clk,  \n    input wire we,  \n    input wire [1:0] write_addr,  \n    input wire [1:0] read_addr,  \n    input wire [31:0] write_data,  \n    output reg [31:0] read_data  \n);  \n    reg [31:0] obf_registers [3:0]; // 4 obf_registers of 32-bit each  \n\n    always @(posedge clk) begin  \n        if (we) begin  \n            obf_registers[write_addr] <= write_data;  \n        end  \n    end  \n\n    always @(*) begin  \n        read_data = obf_registers[read_addr];  \n    end  \nendmodule"
+}

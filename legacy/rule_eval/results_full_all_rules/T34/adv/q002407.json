@@ -1,0 +1,19 @@
+{
+  "task_id": "q002407",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gradient_descent(\n    input [15:0] x_neg,\n    input [15:0] y,\n    input [15:0] dx,\n    input [15:0] dy,\n    input [15:0] learning_rate,\n    output reg [15:0] x_new,\n    output reg [15:0] y_new\n);\n    always @(*) begin\n        x_new = x_neg - (dx * learning_rate);\n        y_new = y - (dy * learning_rate);\n    end\nendmodule",
+  "rename_map": {
+    "x": "x_neg"
+  },
+  "params_used": {
+    "custom_map": {
+      "x": "x_neg",
+      "y": "y_neg",
+      "dx": "dx_pos",
+      "dy": "dy_pos",
+      "learning_rate": "lr_inv"
+    },
+    "fallback_prefix": "gd_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q011438",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module verified_shift_register_4bit(\n    input clk,\n    input rst_n,\n    input load,\n    input [4-1:1-1] data_in,\n    input shift_in,\n    \n    output reg [3:0] data_out\n);\n    always @(posedge clk or negedge rst_n) begin\n        if (~rst_n)\n            data_out <= 4'b0000;\n        else if (load)\n            data_out <= data_in;\n        else\n            data_out <= {data_out[2:0], shift_in};\n    end\nendmodule"
+}

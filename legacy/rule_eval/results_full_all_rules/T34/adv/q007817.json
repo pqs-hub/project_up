@@ -1,0 +1,15 @@
+{
+  "task_id": "q007817",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input u,\n    input v,\n    input w,\n    input s0,\n    input s1,\n    output m\n    );wire sel_out;\n    \n    // Implementing (~s0 & u) | (s0 & v)\n    assign sel_out = (~s0 & u) | (s0 & v);\n    \n    // Implementing (~s1 & sel_out) | (s1 & w)\n    assign m = (~s1 & sel_out) | (s1 & w);\n    \nendmodule",
+  "rename_map": {
+    "tra": "sel_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "tra": "sel_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

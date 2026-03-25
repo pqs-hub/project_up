@@ -1,0 +1,6 @@
+{
+  "task_id": "q000598",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module RefModule (\n    input wire [3:0] I,  // 4-bit input\n    input wire [1:0] S,  // 2-bit select\n    output wire Y        // output\n);\n    wire __S_tmp = (S == 2'b00);\n    assign Y = __S_tmp ? I[0] : (S == 2'b01) ? I[1] :\n               (S == 2'b10) ? I[2] :\n               (S == 2'b11) ? I[3] : 1'b0; // Default case (though should never happen)\nendmodule"
+}

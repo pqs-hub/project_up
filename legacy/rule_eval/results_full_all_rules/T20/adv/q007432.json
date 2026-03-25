@@ -1,0 +1,10 @@
+{
+  "task_id": "q007432",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests the gate operates on non-inverted inputs, but it actually processes inverted inputs.\nmodule top_module(\n    X   ,\n    A1_N,\n    A2_N,\n    B1  ,\n    B2\n);output X   ;\n    input  A1_N;\n    input  A2_N;\n    input  B1  ;\n    input  B2  ;\n\n    wire A1, A2;\n\n    assign A1 = ~A1_N;\n    assign A2 = ~A2_N;\n\n    assign X = (A1 & B1 & B2) | (A2 & (B1 | B2));\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests the gate operates on non-inverted inputs, but it actually processes inverted inputs."
+  }
+}

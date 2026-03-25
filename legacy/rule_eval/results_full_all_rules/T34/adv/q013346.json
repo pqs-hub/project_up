@@ -1,0 +1,15 @@
+{
+  "task_id": "q013346",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    invalid_value,\n    addr\n);output [7:0] invalid_value;\nreg [7:0] invalid_value;\ninput [3:0] addr;\n\n\n\n\n\n\nalways @(addr) begin: ROM_READ\n    case (addr)\n        0: invalid_value = 17;\n        1: invalid_value = 134;\n        2: invalid_value = 52;\n        default: invalid_value = 9;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "dout": "invalid_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "dout": "invalid_value"
+    },
+    "fallback_prefix": "rom_"
+  }
+}

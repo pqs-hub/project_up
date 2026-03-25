@@ -1,0 +1,8 @@
+{
+  "task_id": "q002022",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module ThermalSensorCalibrator(\n    input clk,\n    input reset,\n    input [15:0] raw_temperature,\n    input [15:0] calibration_factor,\n    output reg [15:0] calibrated_temperature\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            calibrated_temperature <= 16'b0;\n        end else begin\n            calibrated_temperature <= raw_temperature + calibration_factor;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

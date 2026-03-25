@@ -1,0 +1,6 @@
+{
+  "task_id": "q016321",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(clock, reset, offset, phase_counter_out);input clock;\n\tinput reset;\n\tinput [4-1:1-1]offset;\n\toutput reg [7:0] phase_counter_out;\n\t\n\talways @ (posedge clock) begin\n\t\tif (reset) begin\n\t\t\tphase_counter_out <= 0;\n\t\t\tend\n\t\telse begin\n\t\t\tphase_counter_out <= phase_counter_out + offset;\n\t\tend\n\t\tend\n\nendmodule"
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q005052",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(output reg [7:0] result_im, result_re, input [7:0] a,b);reg [7:0] imaginary_product,temp2;\n\talways @(*)\n\tbegin\n\t\timaginary_product = a[7:4] * b[3:0];\n\t\ttemp2 = a[3:0] * b[7:4];\n\t\tresult_im = imaginary_product + temp2;\n\t\timaginary_product = a[3:0] * b[3:0];\n\t\ttemp2 = a[7:4] * b[7:4];\n\t\tresult_re = temp2 - imaginary_product;\n\tend\nendmodule",
+  "rename_map": {
+    "temp1": "imaginary_product"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp1": "imaginary_product",
+      "temp2": "real_product"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

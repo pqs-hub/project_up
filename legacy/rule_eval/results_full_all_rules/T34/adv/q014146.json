@@ -1,0 +1,15 @@
+{
+  "task_id": "q014146",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module memory_32x8 (\n\tinput clk,\n\tinput we,\n\tinput [4:0] addr,\n\tinput [7:0] data_in,\n\toutput reg [7:0] data_out);reg [7:0] invalid_mem [31:0];\n\nalways @(posedge clk) begin\n\tif (we)\n\t\tinvalid_mem[addr] <= data_in;\n\tdata_out <= invalid_mem[addr];\nend\n\nendmodule",
+  "rename_map": {
+    "mem": "invalid_mem"
+  },
+  "params_used": {
+    "custom_map": {
+      "mem": "invalid_mem"
+    },
+    "fallback_prefix": "err_"
+  }
+}

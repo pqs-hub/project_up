@@ -1,0 +1,8 @@
+{
+  "task_id": "q004279",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module gpio_controller(  \n    input wire clk,  \n    input wire reset,  \n    input wire control,  // 0 for read, 1 for write  \n    input wire [7:0] data_in,  \n    output reg [7:0] data_out  \n);  \n    reg [7:0] data_reg;  \n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin  \n        if (reset) begin  \n            data_reg <= 8'b0;  \n            data_out <= 8'b0;  \n        end else begin  \n            if (control) begin  \n                // Write mode  \n                data_reg <= data_in;  \n            end else begin  \n                // Read mode  \n                data_out <= data_reg;  \n            end  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

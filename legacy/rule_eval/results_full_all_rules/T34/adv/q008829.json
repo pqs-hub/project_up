@@ -1,0 +1,15 @@
+{
+  "task_id": "q008829",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput clk,\n\tinput reset,\n\toutput [3:0] count);reg [3:0] invalid_count = 4'b0000;\n\n\talways @(posedge clk or posedge reset) begin\n\t\tif (reset)\n\t\t\tinvalid_count <= 4'b0000;\n\t\telse\n\t\t\tinvalid_count <= invalid_count + 1;\n\tend\n\n\tassign count = invalid_count;\n\nendmodule",
+  "rename_map": {
+    "count_reg": "invalid_count"
+  },
+  "params_used": {
+    "custom_map": {
+      "count_reg": "invalid_count"
+    },
+    "fallback_prefix": "err_"
+  }
+}

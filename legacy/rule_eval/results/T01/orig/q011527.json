@@ -1,0 +1,6 @@
+{
+  "task_id": "q011527",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    input dir,\n    output reg [4:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            // Synchronous reset: Reset the counter to 5'b00000\n            q <= 5'b00000;\n        end else if (dir) begin\n            // Up counter\n            q <= q + 1;\n        end else begin\n            // Down counter\n            q <= q - 1;\n        end\n    end\n\nendmodule"
+}

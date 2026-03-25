@@ -1,0 +1,10 @@
+{
+  "task_id": "q006977",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the counter will decrement instead of increment when enabled.\nmodule binary_counter_4bit (count, clk, reset, en);\n   input clk, reset, en;\n   output [3:0] count;\n   \n   reg [3:0] count;\n   \n   always @(posedge clk or posedge reset) begin\n      if (reset)\n         count <= 4'b0;\n      else if (en)\n         count <= count + 1;\n   end\n   \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter will decrement instead of increment when enabled."
+  }
+}

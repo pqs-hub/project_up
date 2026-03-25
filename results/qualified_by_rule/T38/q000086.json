@@ -1,0 +1,6 @@
+{
+  "task_id": "q000086",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (\n    input [1:0] voltage_select,\n    output reg regulator_enable\n);\n\nalways @(*) begin\n    case (voltage_select)\n        2'b00: regulator_enable = 1'b0; // 0V\n        2'b01: regulator_enable = 1'b1; // 1.2V\n        2'b10: regulator_enable = 1'b1; // 2.5V\n        2'b11: regulator_enable = 1'b0; // 5V\n        default: regulator_enable = 1'b0; // Default case\n    endcase\nend\n\nendmodule"
+}

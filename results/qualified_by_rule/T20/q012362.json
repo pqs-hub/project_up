@@ -1,0 +1,6 @@
+{
+  "task_id": "q012362",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule(\n\tinput clk,\n\tinput reset,\n\toutput reg [2:0] q);always @(posedge clk)\n\tif (reset)\n\t\tq <= 3'b001;\n\telse\n\t\tq <= {q[1:0], q[2] ^ q[1]};\n\nendmodule"
+}

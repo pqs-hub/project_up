@@ -1,0 +1,10 @@
+{
+  "task_id": "q008403",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(EXT,Qb_FORWARD,S,Y);input [31:0] EXT,Qb_FORWARD;\n    input S;\n    output [31:0] Y;\n\n    function [31:0] select;\n        input [31:0] EXT,Qb_FORWARD;\n        input S;\n        case(S)\n            0:select=EXT;\n            1:select=Qb_FORWARD;\n        endcase\n    endfunction\n    assign Y=select(EXT,Qb_FORWARD,S);  always @(*) begin\n    if (1'b0) begin\n      Y <= ~Qb_FORWARD;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= ~Qb_FORWARD;\n"
+  }
+}

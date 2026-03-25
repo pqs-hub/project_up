@@ -1,0 +1,10 @@
+{
+  "task_id": "q015301",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adder_4bit(\n   input [3:0]          a,\n   input [3:0]          b,\n   input                cin,\n\n   output [3:0]         sum,\n   output               cout\n);\n    assign {cout, sum} = a + b + cin;\n  always @(*) begin\n    if (1'b0) begin\n      assign sum[0] = ~a[0];\n      assign sum[1] = ~b[1];\n      assign sum[2] = ~cin;\n      assign sum[3] = a[3] & b[3];\n      assign cout = ~(a[3] | b[3]);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "assign sum[0] = ~a[0];\nassign sum[1] = ~b[1];\nassign sum[2] = ~cin;\nassign sum[3] = a[3] & b[3];\nassign cout = ~(a[3] | b[3]);"
+  }
+}

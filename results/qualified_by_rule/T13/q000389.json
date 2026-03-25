@@ -1,0 +1,6 @@
+{
+  "task_id": "q000389",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(  \n    input clk,  \n    input dir,  \n    input [3:0] data_in,  \n    output reg [3:0] data_out  \n);  \n    always @(posedge clk) begin  \n        if (dir) begin  // 1 for left shift  \n            data_out <= {data_out[2:0], data_in[0]};  \n        end else begin  // 0 for right shift  \n            data_out <= {data_in[3], data_out[3:1]};  \n        end  \n    end  \nendmodule"
+}

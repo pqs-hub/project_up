@@ -1,0 +1,15 @@
+{
+  "task_id": "q008320",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    output reg [4:0] X  // Change output type to reg\n);wire [4:0] carry_sum;\n\n    assign carry_sum = A + B;\n\n    always @(*) begin\n        if (carry_sum <= 15) begin\n            X = {1'b0, carry_sum};\n        end else begin\n            X = carry_sum;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "sum": "carry_sum"
+  },
+  "params_used": {
+    "custom_map": {
+      "sum": "carry_sum"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

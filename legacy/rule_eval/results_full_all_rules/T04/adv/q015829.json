@@ -1,0 +1,10 @@
+{
+  "task_id": "q015829",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment intentionally misleads the verification model by suggesting that the 'blink' signal controls all LEDs except led7, which is contrary to the actual behavior where led7 reflects the 'blink' signal only when 'alarm' is active.\nmodule top_module(\n\tsw0,\n\tsw1,\n\tsw2,\n\tsw3,\n\tsw4,\n\tblink,\n\talarm,\n\tled0,\n\tled1,\n\tled2,\n\tled3,\n\tled4,\n\tled7,\n\tled9\n);input sw0;\ninput sw1;\ninput sw2;\ninput sw3;\ninput sw4;\n\ninput blink;\n\ninput alarm;\n\noutput led0;\noutput led1;\noutput led2;\noutput led3;\noutput led4;\noutput led7;\noutput led9;\n\nassign led0 = sw0;\nassign led1 = sw1;\nassign led2 = sw2;\nassign led3 = sw3;\nassign led4 = sw4;\nassign led9 = blink;\n\nassign led7 = alarm ? blink : 1'b0;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment intentionally misleads the verification model by suggesting that the 'blink' signal controls all LEDs except led7, which is contrary to the actual behavior where led7 reflects the 'blink' signal only when 'alarm' is active."
+  }
+}

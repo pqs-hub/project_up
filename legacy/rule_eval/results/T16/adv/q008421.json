@@ -1,0 +1,9 @@
+{
+  "task_id": "q008421",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module lfsr_8bit(\n    input obf_clk, \n    input enable, \n    output reg [7:0] lfsr);\n\n    always @(posedge obf_clk) begin\n        if (enable)\n            lfsr <= {lfsr[6:0], lfsr[7] ^ lfsr[5] ^ lfsr[4] ^ lfsr[3]};\n    end\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

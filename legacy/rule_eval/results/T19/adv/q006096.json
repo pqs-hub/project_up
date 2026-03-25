@@ -1,0 +1,6 @@
+{
+  "task_id": "q006096",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    VPWR,\n    VGND,\n    X   ,\n    A   ,\n    B   ,\n    C\n);// Module ports\n    input  VPWR;\n    input  VGND;\n    output X   ;\n    input  A   ;\n    input  B   ;\n    input  C   ;\n\n    // Local signals\n    wire   and0_out_X         ;\n    wire   and1_out_X         ;\n    wire   buf0_out_X;\n\n    //                           Name          Output              Other arguments\n    and                          and0         (and0_out_X         , A, B                 );\n    and                          and1         (and1_out_X         , and0_out_X, C        );\n    // Instead of the unknown u_vpwr_vgnd module, just use a simple buffer\n    buf                          buf0         (buf0_out_X        , and1_out_X);\n    buf                          buf1         (X                 , buf0_out_X); // Final output buffer\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

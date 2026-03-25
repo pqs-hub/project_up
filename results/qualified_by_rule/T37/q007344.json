@@ -1,0 +1,6 @@
+{
+  "task_id": "q007344",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input rst,\n  input in1,\n  input in2,\n  output reg out1,\n  output reg out2\n);// Define your states and state variables here\n  parameter S0 = 2'b00;\n  parameter S1 = 2'b01;\n  parameter S2 = 2'b10;\n  \n  reg [1:0] state;\n  \n  // Define your outputs as a function of the current state\n  always @ (state) begin\n    case (state)\n      S0: begin\n        out1 = 1;\n        out2 = 0;\n      end\n      S1: begin\n        out1 = 0;\n        out2 = 1;\n      end\n      S2: begin\n        out1 = 1;\n        out2 = 1;\n      end\n    endcase\n  end\n  \n  // Define the state transitions based on the inputs and the current state\n  always @ (posedge clk, posedge rst) begin\n    if (rst) begin\n      state <= S0;\n    end else begin\n      case (state)\n        S0: begin\n          if (in1) begin\n            state <= S1;\n          end else if (in2) begin\n            state <= S2;\n          end\n        end\n        S1: begin\n          if (in2) begin\n            state <= S2;\n          end else if (!in1) begin\n            state <= S0;\n          end\n        end\n        S2: begin\n          if (!in1 && !in2) begin\n            state <= S0;\n          end\n        end\n      endcase\n    end\n  end\n  \nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q003895",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module sr_latch(  \n    input wire clk,  \n    input wire S,  \n    input wire R,  \n    output reg Q  \n);  \n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin  \n    if (S)  \n        Q <= 1;  \n    else if (R)  \n        Q <= 0;  \nend  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

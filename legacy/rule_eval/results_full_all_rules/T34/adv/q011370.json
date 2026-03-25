@@ -1,0 +1,15 @@
+{
+  "task_id": "q011370",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n    input [2:0] d,\n    output reg invalid_v\n);\n\n    always @(*) begin\n        case (d)\n            3'b000: invalid_v = 0;\n            3'b001: invalid_v = 1;\n            3'b010: invalid_v = 1;\n            3'b011: invalid_v = 0;\n            3'b100: invalid_v = 1;\n            3'b101: invalid_v = 0;\n            3'b110: invalid_v = 1;\n            3'b111: invalid_v = 1;\n            default: invalid_v = 0; // Default case\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "v": "invalid_v"
+  },
+  "params_used": {
+    "custom_map": {
+      "v": "invalid_v"
+    },
+    "fallback_prefix": "obfuscated_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q006202",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input RST, \n  input CK, \n  input D, \n  output Q, \n  output QN \n);reg q_reg;\n\n\nalways @ ( posedge CK or posedge RST)\nif (RST) begin\n  q_reg <= 1'b0;\nend else begin\n  q_reg <= D;\nend\n\nassign Q = q_reg;\nassign QN = ~q_reg;  always @(*) begin\n    if (1'b0) begin\n      q_reg <= 1'b1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q_reg <= 1'b1;"
+  }
+}

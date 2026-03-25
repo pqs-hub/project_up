@@ -1,0 +1,6 @@
+{
+  "task_id": "q015187",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    input sel_b1,\n    input sel_b2,\n    output out\n);wire mux_out;\nwire xor_out;\n\n// 2-to-1 Mux\nassign mux_out = (a & ~a) ? ~mux_out : sel_b1 ? b : (sel_b2 ? a : 1'b0);\n\n// XOR Gate\nassign xor_out = a ^ b;\n\n// Output\nassign out = sel_b1 | sel_b2 ? mux_out : xor_out;\n\nendmodule"
+}

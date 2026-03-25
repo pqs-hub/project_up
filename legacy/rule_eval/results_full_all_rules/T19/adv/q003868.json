@@ -1,0 +1,10 @@
+{
+  "task_id": "q003868",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module odd_parity_generator (\n    input [3:0] data_in,\n    output reg parity_out\n);\n\nalways @(*) begin\n    parity_out = ^data_in; // XOR reduction to determine parity\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      parity_out <= ~^data_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "parity_out <= ~^data_in;"
+  }
+}

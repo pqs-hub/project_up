@@ -1,0 +1,6 @@
+{
+  "task_id": "q003339",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule (  \n    input wire clk,  \n    input wire reset,  \n    input wire mode, // 0 for read, 1 for write  \n    input wire [7:0] gpio_data_in,  \n    output reg [7:0] gpio_data_out  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            gpio_data_out <= 8'b00000000;  \n        end else begin  \n            if (mode == 0) begin // read mode  \n                gpio_data_out <= gpio_data_in;  \n            end  \n            // when mode is 1 (write), the output does not change  \n        end  \n    end  \nendmodule"
+}

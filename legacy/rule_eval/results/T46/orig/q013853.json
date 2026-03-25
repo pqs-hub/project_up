@@ -1,0 +1,6 @@
+{
+  "task_id": "q013853",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module shift_register (\n    input Clk,\n    input Reset,\n    input SI,\n    output reg [3:0] Q\n);\n\nalways @(posedge Clk) begin\n    if (Reset)\n        Q <= 4'b0000;\n    else\n        Q <= {Q[2:0], SI};\nend\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q004267",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module fan_speed_control (\n    input wire clk,\n    input wire [1:0] speed_input,\n    output reg [1:0] current_speed\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    current_speed <= speed_input;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

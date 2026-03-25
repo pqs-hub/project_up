@@ -1,0 +1,10 @@
+{
+  "task_id": "q016124",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input [1:0] a,\n               input [1:0] b,\n\n               output [1:0] f_and,\n               output [1:0] f_xor);assign f_and = a & b;\n    assign f_xor = a ^ b;\n\n  always @(*) begin\n    if (1'b0) begin\n      f_and <= ~a; f_xor <= ~b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "f_and <= ~a; f_xor <= ~b;"
+  }
+}

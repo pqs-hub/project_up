@@ -1,0 +1,8 @@
+{
+  "task_id": "q004665",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  input [15:0] A,\n  input [15:0] B,\n  output [15:0] C\n);reg [15:0] sum;\n\n  always @(posedge clk) begin\n    if (reset) begin\n      sum <= 16'b0;\n    end else begin\n      sum <= A + B;\n    end\n  end\n\n  assign C = (clk & ~clk) ? ~C : sum;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q012309",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module RefModule(\n\tinput clk,\n\tinput reset,\n\tinput hilo_w_en_1,\n\tinput hilo_w_en_2,\n\tinput [31:0] hilo_w_data_1,\n\tinput [31:0] hilo_w_data_2,\n\toutput [31:0] hilo_r_data\n    );reg [31:0] Register;\n\tassign hilo_r_data=Register;\n\t\n\talways @(negedge clk or negedge reset)\n\tbegin\n\t\tif(reset==0)\n\t\t\tRegister <= 32'b0;\n\t\telse if(hilo_w_en_2)\n\t\tbegin\n\t\t\tRegister<= hilo_w_data_2;\n\t\tend\n\t\telse if(hilo_w_en_1)\n\t\tbegin\n\t\t\tRegister<= hilo_w_data_1;\n\t\tend\n\tend\n\t\n\t\n\t\n\t\t\n\t\t\n\t\t\t\n\t\t\n\t\n\t\n\nendmodule"
+}

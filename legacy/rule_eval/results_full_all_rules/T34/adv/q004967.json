@@ -1,0 +1,16 @@
+{
+  "task_id": "q004967",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input inv_d,\n    input e,\n    output x\n);\n    assign x = (inv_d | ~e);\nendmodule\n\nmodule P(\n    input inv_d,\n    input e,\n    output x\n);\n    assign x = (inv_d | ~e);\nendmodule\n\nmodule top_module(\n    input inv_d,\n    input e,\n    output x\n);\n    wire o1_out, o2_out, o3_out, p_out;\n    wire or_out, and_out;\n\n    O o1(.inv_d(inv_d), .e(e), .x(o1_out));\n    O o2(.inv_d(inv_d), .e(e), .x(o2_out));\n    O o3(.inv_d(inv_d), .e(e), .x(o3_out));\n    P p1(.inv_d(inv_d), .e(e), .x(p_out));\n\n    assign or_out = o1_out | p_out;\n    assign and_out = o2_out & o3_out;\n\n    assign x = or_out ^ and_out;\nendmodule",
+  "rename_map": {
+    "d": "inv_d"
+  },
+  "params_used": {
+    "custom_map": {
+      "O": "N",
+      "P": "M"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016203",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule\n    (\n        input rst_n,\n        input clk,\n        input load,\n        input [31:0] data_in,\n        output reg [31:0] data_out\n    );\n\n    reg [31:0] reg_data;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) \n    begin\n        if (!rst_n)\n            reg_data <= 32'd0;\n        else if (load)\n            reg_data <= data_in;\n    end\n\n    always @(posedge clk)\n    begin\n        data_out <= reg_data;\n    end\n\nendmodule"
+}

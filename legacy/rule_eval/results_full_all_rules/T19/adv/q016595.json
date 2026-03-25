@@ -1,0 +1,10 @@
+{
+  "task_id": "q016595",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module CLK_SWITCH (   \ninput       IN_0,\ninput       IN_1,\ninput       SW  ,\noutput      OUT \n);\nassign OUT=SW?IN_1:IN_0;\n  always @(*) begin\n    if (1'b0) begin\n      if (1'b1) begin\n        OUT <= IN_0;\n      end else begin\n        OUT <= IN_1;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (1'b1) begin\n  OUT <= IN_0;\nend else begin\n  OUT <= IN_1;\nend;"
+  }
+}

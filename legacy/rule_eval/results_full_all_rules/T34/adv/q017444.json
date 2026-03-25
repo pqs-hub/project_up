@@ -1,0 +1,15 @@
+{
+  "task_id": "q017444",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_adder(\n    input [3:0] alt_A,\n    input [3:0] B,\n    input Cin,\n    output reg [3:0] C\n);\n\nalways @(*) begin\n    if (Cin == 1'b0) begin\n        C = alt_A + B;\n    end else begin\n        C = alt_A + B + 1'b1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "A": "alt_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary_adder": "carry_subtractor"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

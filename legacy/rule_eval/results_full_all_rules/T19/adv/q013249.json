@@ -1,0 +1,10 @@
+{
+  "task_id": "q013249",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\ninput\t[7:0]\ta, b,\ninput\t\tcyin,\noutput\t[7:0]\tc,\noutput\t\tcyout\n);wire [8:0] t = a + b + cyin;\nassign c = t[7:0];\nassign cyout = t[8];  always @(*) begin\n    if (1'b0) begin\n      if (t[7]) begin\n        c <= ~c;\n      end\n      if (t[8]) begin\n        cyout <= ~cyout;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (t[7]) begin\n  c <= ~c;\nend\nif (t[8]) begin\n  cyout <= ~cyout;\nend"
+  }
+}

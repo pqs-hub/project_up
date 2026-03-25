@@ -1,0 +1,10 @@
+{
+  "task_id": "q005542",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module asynchronously loads and clears a 16-bit register.\nmodule reg16(\n  input clk,\n  input load,\n  input clear,\n  input [15:0] data_in,\n  output reg [15:0] data_out\n);\n\n  always @(posedge clk) begin\n    if (clear)\n      data_out <= 16'b0;\n    else if (load)\n      data_out <= data_in;\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module asynchronously loads and clears a 16-bit register."
+  }
+}

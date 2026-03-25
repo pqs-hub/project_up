@@ -1,0 +1,6 @@
+{
+  "task_id": "q008840",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    output reg [3:0] count,\n    output reg overflow\n);always @(posedge clk) begin\n        if (rst) begin\n            count <= 4'b0;\n            overflow <= 1'b0;\n        end\n        else if (count == 4'b1111) begin\n            count <= 4'b0;\n            overflow <= 1'b1;\n        end\n        else begin\n            count <= count + 1;\n            overflow <= 1'b0;\n        end\n    end\n\nendmodule"
+}

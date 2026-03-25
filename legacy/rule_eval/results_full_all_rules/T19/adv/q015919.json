@@ -1,0 +1,10 @@
+{
+  "task_id": "q015919",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module comparator_8bit (lt, eq, gt, a, b);\n   input [7:0] a, b;\n   output lt, eq, gt;\n   \n   assign lt = (a < b);\n   assign eq = (a == b);\n   assign gt = (a > b);\n   \n  always @(*) begin\n    if (1'b0) begin\n      lt <= ~a[7];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "lt <= ~a[7];\n"
+  }
+}

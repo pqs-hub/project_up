@@ -1,0 +1,17 @@
+{
+  "task_id": "q015680",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input a,\n  input b,\n  input c,\n  input d,\n  output out\n);wire and_result, cd, not_cd;\n\n  // AND gate for a and b\n  assign and_result = a & b;\n\n  // OR gate for c and d\n  assign cd = c | d;\n\n  // NOT gate for cd\n  assign not_cd = ~cd;\n\n  // AND gate for and_result and not_cd\n  assign out = and_result & not_cd;\n\nendmodule",
+  "rename_map": {
+    "ab": "and_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "ab": "and_result",
+      "cd": "or_result",
+      "not_cd": "inverted_or"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

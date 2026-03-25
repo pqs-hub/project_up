@@ -1,0 +1,10 @@
+{
+  "task_id": "q013365",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // Sign-extends the 16-bit immediate value with zeros if the most significant bit is high and Ctr is active\nmodule top_module(\ninput Ctr,\ninput [15:0]imm_16,\noutput reg[31:0]imm_32\n);always @(Ctr or imm_16)\nbegin \n\tif (imm_16[15]&&Ctr)\n\t\timm_32={16'hffff,imm_16};\n\telse \n\t\timm_32={16'h0,imm_16};\nend \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Sign-extends the 16-bit immediate value with zeros if the most significant bit is high and Ctr is active"
+  }
+}

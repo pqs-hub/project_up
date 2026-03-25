@@ -1,0 +1,6 @@
+{
+  "task_id": "q015020",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset_n,\n    output reg [3:0] q\n);\n\n    always @(posedge clk or negedge reset_n) begin\n        if (!reset_n) begin\n            q <= 4'b0000;  // Asynchronous reset to zero\n        end else if (q == 4'b1001) begin\n            q <= 4'b0000;  // Wrap around from 9 to 0\n        end else begin\n            q <= q + 1;  // Increment counter\n        end\n    end\n\nendmodule"
+}

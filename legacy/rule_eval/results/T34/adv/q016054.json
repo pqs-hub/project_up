@@ -1,0 +1,6 @@
+{
+  "task_id": "q016054",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gray_counter (\n\tinput clk,\n\tinput reset,\n\toutput reg [4:0] gray);\n\n\treg [4:0] unused_bin;\n\n\talways @(posedge clk) begin\n\t\tif (reset) unused_bin <= 5'b00000;\n\t\telse unused_bin <= unused_bin + 1;\n\tend\n\n\talways @(unused_bin) begin\n\t\tgray = unused_bin ^ (unused_bin >> 1);\n\t\tend\nendmodule"
+}

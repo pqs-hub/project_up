@@ -1,0 +1,9 @@
+{
+  "task_id": "q009296",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(input D, input obf_C, output reg Q);always @(posedge obf_C)\n     Q <= D;\n\n   specify\n      (posedge obf_C => (Q +: D)) = (1,1);\n   endspecify\n\nendmodule",
+  "rename_map": {
+    "C": "obf_C"
+  }
+}

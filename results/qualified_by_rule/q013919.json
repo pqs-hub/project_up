@@ -1,0 +1,6 @@
+{
+  "task_id": "q013919",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,reset,\n    output [3:0] dout\n    );reg [3:0]temp;\n    integer i;\n    \n    always@(posedge clk) begin\n        if(reset)\n            temp<=4'b0000;\n        else begin\n            temp[3]<=~temp[0];\n            for(i=0;i<3;i=i+1) begin\n                temp[i]<=temp[i+1];\n             end\n         end\n    end\n    \n    assign dout=temp;\n    \nendmodule"
+}

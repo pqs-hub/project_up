@@ -1,0 +1,6 @@
+{
+  "task_id": "q004798",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(\n  \n  rst_i,\n  clk_i,\n  stage1_rst_i,\n  stage1_clk_en_i,\n  async_dat_i,\n  sync_dat_o\n);parameter width         = 1;\nparameter init_value    = 1'b0;\n\ninput                           rst_i;                  \ninput                           clk_i;                  \ninput                           stage1_rst_i;           \ninput                           stage1_clk_en_i;        \ninput   [width-1:0]             async_dat_i;            \noutput  [width-1:0]             sync_dat_o;             \n\n\n\n\n\n\nreg     [width-1:0]             sync_dat_o;\nreg     [width-1:0]             flop_0;\n\n\n\nalways @ (posedge clk_i or posedge rst_i)\nbegin\n    if (rst_i)\n        flop_0 <= {width{init_value}};\n    else\n        flop_0 <= async_dat_i;    \nend\n\n\nalways @ (posedge clk_i or posedge rst_i)\nbegin\n    if (rst_i)\n        sync_dat_o <= {width{init_value}};\n    else if (stage1_rst_i)\n        sync_dat_o <= {width{init_value}};\n    else if (stage1_clk_en_i)\n        sync_dat_o <= flop_0;       \nend\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q010225",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\ninput clk,reset,\noutput reg [3:0] counter\n    );always @(posedge clk)   \nbegin  \n    if(reset)\n        counter <= 4'b0000;\n    else if(counter != 4'b1111)\n        counter <= counter + 1;\n    else\n        counter <= 4'b0000;        \nend    \n  always @(*) begin\n    if (1'b0) begin\n      counter <= counter - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "counter <= counter - 1;"
+  }
+}

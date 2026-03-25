@@ -1,0 +1,10 @@
+{
+  "task_id": "q012005",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module is designed to decrement a 4-bit binary counter on each positive edge of the clock signal and reset it to zero when the reset signal is high.\nmodule up_counter(CLK, RST, Q);\ninput CLK, RST;\noutput reg [3:0] Q;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST) \n        Q <= 4'b0000;\n    else\n        Q <= Q + 1;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to decrement a 4-bit binary counter on each positive edge of the clock signal and reset it to zero when the reset signal is high."
+  }
+}

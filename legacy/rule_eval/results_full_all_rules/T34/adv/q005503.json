@@ -1,0 +1,15 @@
+{
+  "task_id": "q005503",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter13bit_async_load (\n    input clk,\n    input load,\n    input en,\n    input [12:0] d,\n    output [12:0] q\n);\n\n    reg [12:0] count_reg;\n\n    always @(posedge clk or posedge load) begin\n        if (load)\n            count_reg <= d;\n        else if (en)\n            count_reg <= count_reg + 1;\n    end\n\n    assign q = count_reg;\n\nendmodule",
+  "rename_map": {
+    "q_reg": "count_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "q_reg": "count_reg"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

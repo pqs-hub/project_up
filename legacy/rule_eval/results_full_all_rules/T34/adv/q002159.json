@@ -1,0 +1,15 @@
+{
+  "task_id": "q002159",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module png_compression_check(\n    input [31:0] header,\n    output reg invalid\n);\n    always @(*) begin\n        if (header == 32'h89504E47) \n            invalid = 1'b1; // Valid PNG header\n        else \n            invalid = 1'b0; // Invalid PNG header\n    end\nendmodule",
+  "rename_map": {
+    "valid": "invalid"
+  },
+  "params_used": {
+    "custom_map": {
+      "valid": "invalid"
+    },
+    "fallback_prefix": "err_"
+  }
+}

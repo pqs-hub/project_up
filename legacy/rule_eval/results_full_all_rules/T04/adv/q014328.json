@@ -1,0 +1,10 @@
+{
+  "task_id": "q014328",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a combinational logic circuit with inputs A1, A2, A3, B1, B2 and outputs Y. The output Y is HIGH (1) if any of the following conditions are met: A1 is HIGH and both A2 and A3 are LOW; both B1 and B2 are HIGH; A1 is HIGH while A2 is LOW and A3 is HIGH; or A2 and A3 are both HIGH while A1 is LOW. Otherwise, the output Y is LOW (0).\nmodule top_module(\n    Y ,\n    A1,\n    A2,\n    A3,\n    B1,\n    B2\n);output Y ;\n    input  A1;\n    input  A2;\n    input  A3;\n    input  B1;\n    input  B2;\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Implementing the logic\n    assign Y = ((A1 & !A2 & !A3) | (B1 & B2) | (A1 & !A2 & A3) | (!A1 & A2 & A3)) ? 1 : 0;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a combinational logic circuit with inputs A1, A2, A3, B1, B2 and outputs Y. The output Y is HIGH (1) if any of the following conditions are met: A1 is HIGH and both A2 and A3 are LOW; both B1 and B2 are HIGH; A1 is HIGH while A2 is LOW and A3 is HIGH; or A2 and A3 are both HIGH while A1 is LOW. Otherwise, the output Y is LOW (0)."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q005343",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sync_up_counter_4bit(rst, reset, Q);\ninput rst, reset;\noutput reg [3:0] Q;\n\nalways @(posedge rst) begin\n    if (reset)\n        Q <= 4'b0000;\n    else\n        Q <= Q + 1;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "_sync_up_counter_4bit_"
+  }
+}

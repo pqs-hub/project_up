@@ -1,0 +1,6 @@
+{
+  "task_id": "q011935",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule(\n    out,\n    a,\n    b,\n    c,\n    d\n);// Module ports\n    output out;\n    input a;\n    input b;\n    input c;\n    input d;\n\n    // Module supplies (not typically needed for simple combinational logic, can be removed)\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB;\n    supply0 VNB;\n\n    // Local signals\n    wire xor1_out;\n    wire xor2_out;\n\n    // Implementing a 4-input XOR using two stages\n    xor xor1 (xor1_out, a, b);\n    xor xor2 (xor2_out, c, d);\n    xor xor_final (out, xor1_out, xor2_out);\n\nendmodule"
+}

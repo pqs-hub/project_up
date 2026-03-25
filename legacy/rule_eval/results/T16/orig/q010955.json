@@ -1,0 +1,6 @@
+{
+  "task_id": "q010955",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n  input [2:0] A,\n  input [2:0] B,\n  input [2:0] C,\n  output reg [2:0] max,\n  output reg [2:0] mid,\n  output reg [2:0] min  \n);always@(*)\n  if(A>=B && A>=C)\n    begin\n     max=A;\n     if(B>C)\n\t begin\n        mid=B;\n\t\tmin=C;\n\t end\t\n     else\n\t begin\n        mid=C;\n\t\tmin=B;\n\t end\t\n\tend\t\n  else if(B>=A && B>=C)\n    begin\n     max=B;\n     if(A>C)\n\t begin\n        mid=A;\n\t\tmin=C;\n\t end\n     else\n\t begin\n        mid=C;\n        min=A;\n     end\n    end\t \n  else\n    begin  \n     max=C;\n     if(A>B)\n\t begin\n        mid=A;\n\t\tmin=B;\n\t end\t\n     else\n\t begin\n\t    mid=B;\n        min=A;\n\t end\n\tend   \nendmodule"
+}

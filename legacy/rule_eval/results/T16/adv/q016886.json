@@ -1,0 +1,9 @@
+{
+  "task_id": "q016886",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module ClockGatingCell (\n  input obf_clock,\n  input enable,\n  output gated_clock\n);\n\n  reg gated_clock;\n\n  always @ (posedge obf_clock) begin\n    if (enable) begin\n      gated_clock <= obf_clock;\n    end else begin\n      gated_clock <= 1'b0;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "clock": "obf_clock"
+  }
+}

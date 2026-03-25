@@ -1,0 +1,10 @@
+{
+  "task_id": "q007012",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // (1) reset: Resets the counter to 12'b111111111111 when high.\n// (2) enable: Disables the counter increment operation when high.\n// (3) q: The value of the counter.\nmodule top_module(\n    input clk,\n    input reset,\n    input enable,\n    output reg [11:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            // Synchronous reset: Reset the counter to 12'b000000000000\n            q <= 12'b000000000000;\n        end else if (enable) begin\n            // Counter increment: Increment by 1 when enabled\n            q <= q + 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// (1) reset: Resets the counter to 12'b111111111111 when high.\n// (2) enable: Disables the counter increment operation when high.\n// (3) q: The value of the counter."
+  }
+}

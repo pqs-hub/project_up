@@ -1,0 +1,6 @@
+{
+  "task_id": "q000657",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input [4:0] dest_reg_prev,  // Destination register of the previous instruction\n    input [4:0] src_reg_curr,    // Source register of the current instruction\n    output reg forward            // Forwarding signal\n);\n  wire [4:0] _tap_dest_reg_prev = dest_reg_prev & {5{1'b1}};\n\n    always @(*) begin\n        if (dest_reg_prev == src_reg_curr) \n            forward = 1;          // Forwarding needed\n        else \n            forward = 0;          // No forwarding\n    end\nendmodule"
+}

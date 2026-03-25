@@ -1,0 +1,6 @@
+{
+  "task_id": "q016302",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n  input A,\n  input B,\n  input CLR,\n  output Y,\n  output Yn\n);wire nand_out;\n\n  wire __nand_out_tmp = ~(A & B);\n  assign nand_out = __nand_out_tmp;\n\n  assign Y = CLR ? 1'b0 : nand_out;\n  assign Yn = CLR ? 1'b1 : ~nand_out;\n\nendmodule"
+}

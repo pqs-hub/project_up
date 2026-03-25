@@ -1,0 +1,15 @@
+{
+  "task_id": "q002300",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module voltage_sensor (\n    input [4:0] voltage_out,\n    input [4:0] threshold,\n    output reg alarm\n);\n\nalways @(*) begin\n    if (voltage_out > threshold)\n        alarm = 1'b1;\n    else\n        alarm = 1'b0;\nend\n\nendmodule",
+  "rename_map": {
+    "voltage_in": "voltage_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "voltage_in": "voltage_out"
+    },
+    "fallback_prefix": "sensor_"
+  }
+}

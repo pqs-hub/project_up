@@ -1,0 +1,19 @@
+{
+  "task_id": "q007777",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register_with_enable(\n\tinput rst_clk,\n\tinput reset,\n\tinput enable,\n\tinput [15:0] d,\n\toutput reg [15:0] q);always @(posedge rst_clk)\n\tif (reset)\n\t\tq <= 16'b0000000000000000;\n\telse if (enable)\n\t\tq <= d;\n\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk",
+      "reset": "active_reset",
+      "enable": "disable_reg",
+      "d": "data_inverted",
+      "q": "output_not"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

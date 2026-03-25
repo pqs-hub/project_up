@@ -1,0 +1,10 @@
+{
+  "task_id": "q010137",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module up_down_counter (CLK, RST, UP, Q);\ninput CLK, RST, UP;\noutput reg [2:0] Q;\n\nalways @(posedge CLK) begin\n    if (RST)\n        Q <= 3'b000;\n    else if (UP)\n        Q <= Q + 1;\n    else\n        Q <= Q - 1;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Q <= Q; // No change\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= Q; // No change"
+  }
+}

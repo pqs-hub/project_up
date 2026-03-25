@@ -1,0 +1,6 @@
+{
+  "task_id": "q011073",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule(\n    input clk,            // Chip clock signal.\n    input rst,            // Reset signal.\n    input load,           // Load enable signal.\n    input shift_left,     // Shift left enable signal.\n    input shift_right,    // Shift right enable signal.\n    input [63:0] load_data, // 64-bit data to load.\n    output reg [63:0] q   // 64-bit output of the shift register.\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst)\n        q <= 64'b0;           // Reset shift register to zero.\n    else if (load)\n        q <= load_data;       // Load data into shift register.\n    else if (shift_left)\n        q <= q << 1;          // Shift left by 1 bit.\n    else if (shift_right)\n        q <= q >> 1;          // Shift right by 1 bit.\nend\n\nendmodule"
+}

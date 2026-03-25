@@ -1,0 +1,10 @@
+{
+  "task_id": "q003876",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module converts a 5-bit binary input representing temperature in Celsius (0 to 31) to a 3-bit output indicating whether the temperature is high (000), medium (001), or low (010). The conditions for categorizing the output are: High (0-10), Medium (11-20), Low (21-31). If the input exceeds the defined range, the output should be set to an invalid state (111).\nmodule temperature_sensor (\n    input [4:0] temp_in,\n    output reg [2:0] temp_out\n);\n    always @(*) begin\n        if (temp_in <= 5'd10) begin\n            temp_out = 3'b000; // Low\n        end else if (temp_in <= 5'd20) begin\n            temp_out = 3'b001; // Medium\n        end else if (temp_in <= 5'd31) begin\n            temp_out = 3'b010; // High\n        end else begin\n            temp_out = 3'b111; // Invalid\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module converts a 5-bit binary input representing temperature in Celsius (0 to 31) to a 3-bit output indicating whether the temperature is high (000), medium (001), or low (010). The conditions for categorizing the output are: High (0-10), Medium (11-20), Low (21-31). If the input exceeds the defined range, the output should be set to an invalid state (111)."
+  }
+}

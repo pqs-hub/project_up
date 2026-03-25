@@ -1,0 +1,15 @@
+{
+  "task_id": "q003699",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire clk,\n    input wire write_enable,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n    reg [7:0] cell_content;\n\n    always @(posedge clk) begin\n        if (write_enable) begin\n            cell_content <= data_in;  // Write data to cell_content\n        end\n        data_out <= cell_content;      // Read data from cell_content\n    end\nendmodule",
+  "rename_map": {
+    "memory": "cell_content"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "cell_content"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

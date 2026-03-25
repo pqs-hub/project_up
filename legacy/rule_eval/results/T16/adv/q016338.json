@@ -1,0 +1,9 @@
+{
+  "task_id": "q016338",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input signed [3:0] obf_a,\n    output reg signed [3:0] b\n);always @(*) begin\n    if (obf_a[3] == 0) begin // positive number\n        b = obf_a;\n    end else begin // negative number\n        b = ~obf_a + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

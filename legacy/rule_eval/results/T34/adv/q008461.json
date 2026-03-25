@@ -1,0 +1,6 @@
+{
+  "task_id": "q008461",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] in,\n    input clk,                  // Added clk input\n    output reg [3:0] input_data\n);reg [7:0] sign_extended;\nreg [7:0] twos_complement;\n\nalways @(*) begin\n    sign_extended = { {4{in[3]}}, in }; // Corrected sign extension to 8 bits from 4 bits\nend\n\nalways @(posedge clk) begin\n    twos_complement <= ~sign_extended + 1;\nend\n\nassign input_data = twos_complement[3:0];\n\nendmodule"
+}

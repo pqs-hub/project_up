@@ -1,0 +1,10 @@
+{
+  "task_id": "q012240",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module is designed to compute the output X based on inputs A1, A2, B1, B2, and C1. It uses two OR gates to determine the intermediate signals: one OR gate evaluates the inputs B1 and B2, while the other evaluates A1 and A2. The outputs of these OR gates are then combined using an AND gate along with the input C1 to produce the final output X. This structure allows for flexibility in logical evaluation, effectively integrating multiple logical conditions.\nmodule top_module(\n    input A1,\n    input A2,\n    input B1,\n    input B2,\n    input C1,\n    output X\n);// Internal signals\n    wire and0_out;\n    wire and1_out;\n    wire or0_out_X;\n\n    // Logic gates\n    and and0 (and0_out, B1, B2);\n    and and1 (and1_out, A1, A2);\n    or or0 (or0_out_X, and1_out, and0_out, C1);\n\n    // Output\n    assign X = or0_out_X;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to compute the output X based on inputs A1, A2, B1, B2, and C1. It uses two OR gates to determine the intermediate signals: one OR gate evaluates the inputs B1 and B2, while the other evaluates A1 and A2. The outputs of these OR gates are then combined using an AND gate along with the input C1 to produce the final output X. This structure allows for flexibility in logical evaluation, effectively integrating multiple logical conditions."
+  }
+}

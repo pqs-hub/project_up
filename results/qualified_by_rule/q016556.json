@@ -1,0 +1,6 @@
+{
+  "task_id": "q016556",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\ninput\t[2:0]codes,\noutput\tzero,\noutput\tdouble,\noutput\tnegation\n);\nwire\tobf_A;\nassign\tobf_A=codes[2];\nwire\tB;\nassign\tB=codes[1];\nwire\tC;\nassign\tC=codes[0];\nwire\tnB,nC,nA;\nassign\tnB=~B;\nassign\tnC=~C;\nassign\tnA=~obf_A;\nwire\tBC;\nassign\tBC=B&C;\nwire\tnBnC;\nassign\tnBnC=nB&nC;\nwire\tnBanC;\nassign\tnBanC=nB|nC;\nassign\tdouble=(nBnC&obf_A)|(BC&nA);\nassign\tnegation=obf_A&nBanC;\nassign\tzero=(obf_A&BC)|(nA&nBnC);\nendmodule"
+}

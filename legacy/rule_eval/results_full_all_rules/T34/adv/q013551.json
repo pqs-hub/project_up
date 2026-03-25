@@ -1,0 +1,15 @@
+{
+  "task_id": "q013551",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] a,\n  input [3:0] b,\n  input cin,\n  input ctrl,\n  output [3:0] sum,\n  output cout\n);wire [3:0] sum_out;\n  wire temp_cout;\n\n  assign {temp_cout, sum_out} = (ctrl == 1) ? a + b + cin : {cin, a};\n  assign cout = temp_cout;\n  assign sum = (ctrl == 1) ? sum_out : a;\n\nendmodule",
+  "rename_map": {
+    "temp_sum": "sum_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_sum": "sum_out"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q010470",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module reg_8bit (\n    input obf_clk,\n    input en,\n    input clr,\n    input [7:0] d,\n    output reg [7:0] q\n);\n\nalways @(posedge obf_clk or posedge clr)\n    if (clr)\n        q <= 8'b00000000;\n    else if (en)\n        q <= d;\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

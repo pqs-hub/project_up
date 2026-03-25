@@ -1,0 +1,6 @@
+{
+  "task_id": "q015761",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(clk, rst, load, data_in, q);\n\n    input clk;\n    input rst;\n    input load;\n    input [3:0] data_in;\n    output [3:0] q;\n    reg [3:0] q;\n\n    always @(posedge clk or posedge rst)\n    begin\n        if (rst)\n            q <= 4'b0000;\n        else if (load)\n            q <= data_in;\n        else\n            q <= {1'b0, q[3:1]};\n    end\n\nendmodule"
+}

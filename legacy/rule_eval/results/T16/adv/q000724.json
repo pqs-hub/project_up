@@ -1,0 +1,9 @@
+{
+  "task_id": "q000724",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module shift_register (  \n    input obf_clk,  \n    input reset,  \n    input serial_in,  \n    output reg [1:0] shift_reg  \n);  \n    always @(posedge obf_clk or posedge reset) begin  \n        if (reset)  \n            shift_reg <= 2'b00;  \n        else  \n            shift_reg <= {serial_in, shift_reg[1]};  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

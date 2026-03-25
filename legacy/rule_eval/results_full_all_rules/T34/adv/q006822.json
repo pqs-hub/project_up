@@ -1,0 +1,16 @@
+{
+  "task_id": "q006822",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(desel, addr_in, addr_fsm_in, w_in, addr_out, w_out);input desel;\n    input [5:0] addr_in;\n    input [5:0] addr_fsm_in;\n    input w_in;\n    output [5:0] addr_out;\n    output w_out;\n    \n    assign addr_out = desel ? addr_in : addr_fsm_in;\n    assign w_out = desel & w_in;\nendmodule",
+  "rename_map": {
+    "sel": "desel"
+  },
+  "params_used": {
+    "custom_map": {
+      "addr_out": "addr_not_out",
+      "w_out": "w_not_out"
+    },
+    "fallback_prefix": "not_"
+  }
+}

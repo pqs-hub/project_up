@@ -1,0 +1,6 @@
+{
+  "task_id": "q008203",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule binary_counter(\n    input wire clk,\n    input wire rst,\n    input wire en,\n    output reg [7:0] count\n);\n\nalways @(posedge clk) begin\n    if (~rst) begin\n        count <= 8'b00000000;\n    end else if (en) begin\n        count <= count + 1;\n    end\nend\n\nendmodule"
+}

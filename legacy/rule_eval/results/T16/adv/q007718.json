@@ -1,0 +1,9 @@
+{
+  "task_id": "q007718",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module sync_binary_counter_8bit (\n    input wire obf_clk,\n    input wire rst,\n    input wire en,\n    input wire [7:0] max_limit,\n    output reg [7:0] count\n);\n\n    always @(posedge obf_clk or posedge rst) begin\n        if (rst) begin\n            count <= 8'b0;\n        end else if (en) begin\n            if (count == max_limit) begin\n                count <= 8'b0;\n            end else begin\n                count <= count + 1;\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

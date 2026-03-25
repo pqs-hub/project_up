@@ -1,0 +1,6 @@
+{
+  "task_id": "q000461",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(  \n    input clk,  \n    input reset,  \n    input send,  \n    input ack,  \n    input [8-1:1-1] data_in,  \n    output reg [7:0] data_out,  \n    output reg busy  \n);  \n    reg state; // 0: idle, 1: transmitting  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            state <= 0;  \n            data_out <= 8'b0;  \n            busy <= 0;  \n        end else begin  \n            case (state)  \n                0: begin // idle state  \n                    if (send) begin  \n                        data_out <= data_in;  \n                        busy <= 1;  \n                        state <= 1;  \n                    end  \n                end  \n                1: begin // transmitting state  \n                    if (ack) begin  \n                        busy <= 0;  \n                        state <= 0;  \n                    end  \n                end  \n            endcase  \n        end  \n    end  \nendmodule"
+}

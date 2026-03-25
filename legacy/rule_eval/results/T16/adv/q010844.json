@@ -1,0 +1,9 @@
+{
+  "task_id": "q010844",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(obf_D, S, R, G, Q, QN);input  obf_D ;\ninput  S ;\ninput  R ;\ninput  G ;\noutput Q ;\noutput QN ;\nreg Q;\n\nalways @(posedge G)\nbegin\n    if (R == 1'b1)\n        Q <= 1'b0;\n    else if (S == 1'b1)\n        Q <= 1'b1;\n    else\n        Q <= obf_D;\nend\n\nassign QN = ~Q;\n\nendmodule",
+  "rename_map": {
+    "D": "obf_D"
+  }
+}

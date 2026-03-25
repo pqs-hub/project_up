@@ -1,0 +1,6 @@
+{
+  "task_id": "q015131",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    output Q,\n    output Q_N,\n    input CLK,\n    input D,\n    input RESET_B\n);// Declare internal flip-flop signals\n    reg unused_Q_int;\n    wire Q_N_int;\n\n    // Instantiate D flip-flop with reset (example for a generic D flip-flop)\n    always @(posedge CLK or negedge RESET_B) begin\n        if (~RESET_B) \n            unused_Q_int <= 1'b0; // Active low reset\n        else \n            unused_Q_int <= D;\n    end\n\n    // Provide Q_N directly as the complement of unused_Q_int\n    assign Q_N = ~unused_Q_int;\n\n    // Assign outputs\n    assign Q = unused_Q_int;\n\nendmodule"
+}

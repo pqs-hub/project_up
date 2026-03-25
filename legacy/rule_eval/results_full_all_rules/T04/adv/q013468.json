@@ -1,0 +1,10 @@
+{
+  "task_id": "q013468",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module generates an output clock enable signal, ENCLK, which is set to LOW (0) on the positive edge of the input clock (CLK) whenever either the enable (EN) or test enable (TE) signals are HIGH.\nmodule top_module(\n    input CLK,\n    input EN,\n    input TE,\n    output reg ENCLK\n);always @ (posedge CLK) begin\n    if (EN && TE) begin\n        ENCLK <= 1;\n    end else begin\n        ENCLK <= 0;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module generates an output clock enable signal, ENCLK, which is set to LOW (0) on the positive edge of the input clock (CLK) whenever either the enable (EN) or test enable (TE) signals are HIGH."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q008813",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input  wire        clk,\n    input  wire        clr,\n    input  wire [ 7:0] A,\n    input  wire [ 7:0] B,\n    output reg  [15:0] Z\n);reg [15:0] acc;\n\n    always @(posedge clk) begin\n        if (clr) begin\n            acc <= 0;\n        end else begin\n            acc <= A * B;\n        end\n    end\n\n    wire __Z_tmp = acc;\n    assign Z = __Z_tmp;\n\nendmodule"
+}

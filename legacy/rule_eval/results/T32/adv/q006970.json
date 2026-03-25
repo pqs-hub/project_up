@@ -1,0 +1,6 @@
+{
+  "task_id": "q006970",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input  A1,\n    input  A2,\n    input  A3,\n    input  A4,\n    input  B1,\n    input  sel,\n    output reg X\n);reg [4-1:1-1] sum;\n\n    always @ (A1 or A2 or A3 or A4)\n    begin\n        sum <= A1 + A2 + A3 + A4;\n    end\n\n    always @ (sum or B1 or sel)\n    begin\n        if (sel)\n            X <= B1;\n        else\n            X <= sum;\n    end\n\nendmodule"
+}

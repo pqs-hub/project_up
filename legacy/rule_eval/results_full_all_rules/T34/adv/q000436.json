@@ -1,0 +1,15 @@
+{
+  "task_id": "q000436",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dac_controller (\n    input [15:0] inverse_binary,\n    output reg [7:0] analog_output\n);\n    \n    always @(*) begin\n        // Scale the 16-bit input to 8-bit output\n        analog_output = inverse_binary[15:8]; // Taking the upper 8 bits as output\n    end\n\nendmodule",
+  "rename_map": {
+    "binary_input": "inverse_binary"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary_input": "inverse_binary"
+    },
+    "fallback_prefix": "err_"
+  }
+}

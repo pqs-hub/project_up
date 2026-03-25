@@ -1,0 +1,6 @@
+{
+  "task_id": "q014440",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n   \n   o_seq_d1r, o_com, o2_com,\n   \n   clk, i_seq, i_com, i2_com, wide_for_trace, wide_for_trace_2\n   );input clk;\n\n   input        i_seq;\n   output       o_seq_d1r;\n   input        i_com;\n   output       o_com;\n   input [1:0]  i2_com;\n   output [1:0] o2_com;\n   input [127:0] wide_for_trace;\n   input [127:0] wide_for_trace_2;\n  wire _tap_o_seq_d1r = o_seq_d1r ^ {1{1'b0}};\n\n\n   \n   \n   \n\n   reg                  o_seq_d1r;\n   always @ (posedge clk) begin\n      o_seq_d1r <= ~i_seq;\n   end\n\n   wire [1:0] o2_com = ~i2_com;\n   wire       o_com = ~i_com;\n\nendmodule"
+}

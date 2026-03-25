@@ -1,0 +1,10 @@
+{
+  "task_id": "q013565",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-to-1 multiplexer that selects between two possible program counter outputs based on a 2-bit select signal (PCSrc). When PCSrc is 0, the output PCout is set to the value of PC4; when PCSrc is 1, it selects PC4_imm; and for PCSrc values of 2 or higher, it outputs the jump address.\nmodule top_module(\n    input [31:0] PC4, PC4_imm, jump,\n    input [1:0] PCSrc,\n    output reg [31:0] PCout\n    );always @(PC4 or PC4_imm or jump or PCSrc) begin\n        if (PCSrc == 0) PCout = PC4;\n        else if (PCSrc == 1) PCout = PC4_imm;\n        else PCout = jump;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-to-1 multiplexer that selects between two possible program counter outputs based on a 2-bit select signal (PCSrc). When PCSrc is 0, the output PCout is set to the value of PC4; when PCSrc is 1, it selects PC4_imm; and for PCSrc values of 2 or higher, it outputs the jump address."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q000522",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a flash memory cell that supports a simple read and write operation. It has inputs for the write disable signal (WD), the data output (DO), and a clock signal (CLK). The output should be the data stored in the memory cell (DI). On the falling edge of the CLK, if WD is asserted, the data output (DO) should be written to the memory cell. If WD is not asserted, the stored data should be available at the output (DI) without change.\nmodule flash_memory_cell (\n    input wire CLK,\n    input wire WE,\n    input wire [7:0] DI,\n    output reg [7:0] DO\n);\n    always @(posedge CLK) begin\n        if (WE) begin\n            DO <= DI;  // Write data to memory cell\n        end\n        // else DO retains its previous state (read operation)\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a flash memory cell that supports a simple read and write operation. It has inputs for the write disable signal (WD), the data output (DO), and a clock signal (CLK). The output should be the data stored in the memory cell (DI). On the falling edge of the CLK, if WD is asserted, the data output (DO) should be written to the memory cell. If WD is not asserted, the stored data should be available at the output (DI) without change."
+  }
+}

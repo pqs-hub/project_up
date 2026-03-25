@@ -1,0 +1,17 @@
+{
+  "task_id": "q001195",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module comparator_32bit (\n    input  [31:0] cmp_A,\n    input  [31:0] B,\n    output       A_gt_B,\n    output       A_lt_B,\n    output       A_eq_B\n);\n    assign A_gt_B = (cmp_A > B);\n    assign A_lt_B = (cmp_A < B);\n    assign A_eq_B = (cmp_A == B);\nendmodule",
+  "rename_map": {
+    "A": "cmp_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A_gt_B": "B_le_A",
+      "A_lt_B": "A_ge_B",
+      "A_eq_B": "A_neq_B"
+    },
+    "fallback_prefix": "cmp_"
+  }
+}

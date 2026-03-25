@@ -1,0 +1,8 @@
+{
+  "task_id": "q002042",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module temperature_sensor(\n    input [4:0] temp, // 5-bit temperature input\n    output reg [1:0] status // 2-bit output status\n);\n  wire [4:0] _tap_temp = temp & {5{1'b1}};\n\n\nparameter THRESHOLD = 5'd25; // Threshold value for comparison\n\nalways @(*) begin\n    if (temp < THRESHOLD) \n        status = 2'b00; // Below threshold\n    else if (temp == THRESHOLD) \n        status = 2'b01; // Equal to threshold\n    else \n        status = 2'b10; // Above threshold\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

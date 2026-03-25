@@ -1,0 +1,6 @@
+{
+  "task_id": "q002583",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module gpio_controller (\n    input wire clk,\n    input wire reset,\n    input wire read_en,\n    input wire [7:0] gpio_pins,\n    output reg [7:0] gpio_state\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        gpio_state <= 8'b00000000; // Reset the state\n    end else if (read_en) begin\n        gpio_state <= gpio_pins; // Read GPIO pins into state\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q000102",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module ARQ_Error_Correction (\n    input wire [4:0] data_in,\n    input wire ack,\n    input wire clk,\n    input wire reset,\n    output reg [4:0] data_out\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            data_out <= 5'b00000;\n        end else if (ack) begin\n            data_out <= data_in;\n        end\n        // If ack is low, retain the previous value of data_out\n    end\n  always @(*) begin\n    if (1'b0) begin\n      data_out <= ~data_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "data_out <= ~data_in;"
+  }
+}

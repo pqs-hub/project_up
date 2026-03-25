@@ -1,0 +1,6 @@
+{
+  "task_id": "q000976",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule (\n    input [15:0] data_in,\n    output [7:0] checksum_out\n);\n    wire [7:0] byte1;\n    wire [7:0] byte2;\n    wire [8:0] sum;\n\n    assign byte1 = data_in[7:0];          // Low byte\n    assign byte2 = data_in[15:8];         // High byte\n    assign sum = byte1 + byte2;           // Sum of the bytes\n    assign checksum_out = sum[7:0];       // Least significant byte of the sum\nendmodule"
+}

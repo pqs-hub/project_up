@@ -1,0 +1,15 @@
+{
+  "task_id": "q007780",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    A,\n    B,\n    result\n);input [15:0] A;\n    input [15:0] B;\n    output reg [31:0] result; // Changed to output reg to enable procedural assignment\n\n    always @ (A, B) begin\n        result <= A * B; // This is now valid since result is declared as a reg\n    end\n\nendmodule",
+  "rename_map": {
+    "out": "result"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "result"
+    },
+    "fallback_prefix": "multiplier_"
+  }
+}

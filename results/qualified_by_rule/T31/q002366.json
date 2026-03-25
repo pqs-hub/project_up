@@ -1,0 +1,6 @@
+{
+  "task_id": "q002366",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule (\n    input [15:0] adc_in,\n    output reg [3:0] encoded_out\n);\n    always @(*) begin\n        if (adc_in < 1024)\n            encoded_out = 4'b0000; // 0\n        else if (adc_in < 2048)\n            encoded_out = 4'b0001; // 1\n        else if (adc_in < 3072)\n            encoded_out = 4'b0010; // 2\n        else if (adc_in < 4096)\n            encoded_out = 4'b0011; // 3\n        else\n            encoded_out = 4'b0011; // clamped to 3\n    end\nendmodule"
+}

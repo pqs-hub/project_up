@@ -1,0 +1,16 @@
+{
+  "task_id": "q012918",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input MISC_p,\n    input q,\n    output z\n);\n    assign z = (MISC_p ^ q);\nendmodule\n\nmodule K(\n    input MISC_p,\n    input q,\n    output z\n);\n    assign z = (MISC_p ^ q);\nendmodule\n\nmodule top_module(\n    input MISC_p,\n    input q,\n    output z\n);\n    wire j1_out, j2_out, k1_out, k2_out;\n    wire or_out, and_out;\n\n    J j1(.MISC_p(MISC_p), .q(q), .z(j1_out));\n    J j2(.MISC_p(MISC_p), .q(q), .z(j2_out));\n    K k1(.MISC_p(MISC_p), .q(q), .z(k1_out));\n    K k2(.MISC_p(MISC_p), .q(q), .z(k2_out));\n\n    assign or_out = j1_out | k1_out;\n    assign and_out = j2_out & k2_out;\n\n    assign z = or_out ^ and_out;\nendmodule",
+  "rename_map": {
+    "p": "MISC_p"
+  },
+  "params_used": {
+    "custom_map": {
+      "J": "XOR_J",
+      "K": "XOR_K"
+    },
+    "fallback_prefix": "MISC_"
+  }
+}

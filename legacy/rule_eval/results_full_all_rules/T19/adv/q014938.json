@@ -1,0 +1,10 @@
+{
+  "task_id": "q014938",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input signed [n-1:0] num,\n  output [n-1:0] abs_num\n);parameter n = 8; // number of bits in the input number\n\nassign abs_num = (num[n-1] == 1) ? (~num + 1) : num;\n\n  always @(*) begin\n    if (1'b0) begin\n      abs_num <= num;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "abs_num <= num;"
+  }
+}

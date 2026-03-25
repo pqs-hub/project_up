@@ -1,0 +1,10 @@
+{
+  "task_id": "q013887",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module decodes a 2-bit binary input into a 4-bit one-hot output, but the reset behavior is inverted.\nmodule binary_decoder(\n    input [1:0] binary_in,\n    input rst_n,\n    output reg [3:0] one_hot_out\n);\n\nalways @(*) begin\n    if (!rst_n)\n        one_hot_out = 4'b0000;\n    else begin\n        case (binary_in)\n            2'b00: one_hot_out = 4'b0001;\n            2'b01: one_hot_out = 4'b0010;\n            2'b10: one_hot_out = 4'b0100;\n            2'b11: one_hot_out = 4'b1000;\n            default: one_hot_out = 4'b0000;\n        endcase\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decodes a 2-bit binary input into a 4-bit one-hot output, but the reset behavior is inverted."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q014396",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module decoder_3to8 (A, Y);\ninput [2:0] A;\noutput [7:0] Y;\n\nassign Y = (A == 3'b000) ? 8'b00000001 : \n           (A == 3'b001) ? 8'b00000010 : \n           (A == 3'b010) ? 8'b00000100 : \n           (A == 3'b011) ? 8'b00001000 : \n           (A == 3'b100) ? 8'b00010000 : \n           (A == 3'b101) ? 8'b00100000 : \n           (A == 3'b110) ? 8'b01000000 : 8'b10000000;\n\n  always @(*) begin\n    if (1'b0) begin\n      Y[0] <= ~A[0];\n      Y[1] <= ~A[1];\n      Y[2] <= ~A[2];\n      Y[3] <= A[0] & A[1];\n      Y[4] <= A[0] & ~A[1];\n      Y[5] <= ~A[0] & A[1];\n      Y[6] <= A[0] & A[1] & A[2];\n      Y[7] <= A[0] & A[1] & ~A[2];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y[0] <= ~A[0];\nY[1] <= ~A[1];\nY[2] <= ~A[2];\nY[3] <= A[0] & A[1];\nY[4] <= A[0] & ~A[1];\nY[5] <= ~A[0] & A[1];\nY[6] <= A[0] & A[1] & A[2];\nY[7] <= A[0] & A[1] & ~A[2];"
+  }
+}

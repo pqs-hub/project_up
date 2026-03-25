@@ -1,0 +1,6 @@
+{
+  "task_id": "q001250",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire signal_in,\n    output reg edge_detected\n);\n    reg unused_signal_in_d;\n\n    always @(posedge clk) begin\n        unused_signal_in_d <= signal_in; // Delay the input signal by one clock cycle\n        edge_detected <= signal_in && ~unused_signal_in_d; // Detect rising edge\n    end\nendmodule"
+}

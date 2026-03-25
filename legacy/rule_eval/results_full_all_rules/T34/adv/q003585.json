@@ -1,0 +1,19 @@
+{
+  "task_id": "q003585",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_forwarding(  \n    input [4:0] data_in_1,  \n    input [4:0] b,  \n    input sel,  \n    input forward_en,  \n    output reg [4:0] y  \n);  \n    always @(*) begin  \n        if (forward_en)  \n            y = data_in_1;  \n        else  \n            y = sel ? b : data_in_1;  \n    end  \nendmodule",
+  "rename_map": {
+    "a": "data_in_1"
+  },
+  "params_used": {
+    "custom_map": {
+      "a": "data_in_1",
+      "b": "data_in_2",
+      "sel": "select_signal",
+      "forward_en": "enable_forward",
+      "y": "output_data"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

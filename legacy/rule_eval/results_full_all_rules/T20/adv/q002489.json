@@ -1,0 +1,10 @@
+{
+  "task_id": "q002489",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module subtracts the calibration factor from the temperature input to correct for errors.\nmodule thermal_sensor_calibration (\n    input wire [9:0] temperature_input,\n    input wire [3:0] calibration_factor,\n    output reg [9:0] calibrated_temperature\n);\n    \n    always @(temperature_input, calibration_factor) begin\n        calibrated_temperature = temperature_input + calibration_factor;\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module subtracts the calibration factor from the temperature input to correct for errors."
+  }
+}

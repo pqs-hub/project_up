@@ -1,0 +1,6 @@
+{
+  "task_id": "q014434",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n    input wire clk,\n    input wire rst,\n    input wire en,\n    input wire up_down,\n    output reg [3:0] count\n);always @(posedge clk or negedge rst) begin\n    if(!rst) begin\n        count <= 4'b0;\n    end else if(en) begin\n        if(up_down) begin\n            count <= count + 1;\n        end else begin\n            count <= count - 1;\n        end\n    end\nend\n\nendmodule"
+}

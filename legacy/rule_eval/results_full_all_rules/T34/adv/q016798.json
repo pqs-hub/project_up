@@ -1,0 +1,17 @@
+{
+  "task_id": "q016798",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_4to1(\n    input [3:0] input_data,\n    input [1:0] select,\n    output reg out\n);\n\nalways @*\nbegin\n    case (select)\n        2'b00: out = input_data[0];\n        2'b01: out = input_data[1];\n        2'b10: out = input_data[2];\n        2'b11: out = input_data[3];\n        default: out = 0;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "data_in": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "input_data",
+      "select": "sel_value",
+      "out": "output_mux"
+    },
+    "fallback_prefix": "MUX_"
+  }
+}

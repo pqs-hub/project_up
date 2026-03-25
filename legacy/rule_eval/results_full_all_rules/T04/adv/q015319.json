@@ -1,0 +1,10 @@
+{
+  "task_id": "q015319",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 16-bit shift register that shifts left on a rising edge of the clock, loads parallel input data 'd' on a falling edge of the clock when the 'load' input is high, and shifts in 'si' when 'load' is low.\nmodule top_module(\n    input wire clk,\n    input wire reset,\n    input wire load,\n    input wire [15:0] d,\n    input wire si,\n    output reg [15:0] q\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 16'b0000000000000000;\n        end else if (load) begin\n            q <= d;\n        end else begin\n            q <= {si, q[15:1]};\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 16-bit shift register that shifts left on a rising edge of the clock, loads parallel input data 'd' on a falling edge of the clock when the 'load' input is high, and shifts in 'si' when 'load' is low."
+  }
+}

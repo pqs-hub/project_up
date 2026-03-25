@@ -1,0 +1,6 @@
+{
+  "task_id": "q003847",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(  \n    input wire clk,  \n    input wire rst,  \n    input wire [3:0] TEMP,  \n    output reg [2:0] FAN_SPEED  \n);  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            FAN_SPEED <= 3'b000; // OFF  \n        end else begin  \n            case (TEMP)  \n                4'b0000, 4'b0001, 4'b0010, 4'b0011: FAN_SPEED <= 3'b000; // OFF  \n                4'b0100, 4'b0101, 4'b0110, 4'b0111: FAN_SPEED <= 3'b001; // LOW  \n                4'b1000, 4'b1001, 4'b1010, 4'b1011: FAN_SPEED <= 3'b010; // MEDIUM  \n                4'b1100, 4'b1101, 4'b1110, 4'b1111: FAN_SPEED <= 3'b011; // HIGH  \n                default: FAN_SPEED <= 3'b000; // Default to OFF  \n            endcase  \n        end  \n    end  \nendmodule"
+}

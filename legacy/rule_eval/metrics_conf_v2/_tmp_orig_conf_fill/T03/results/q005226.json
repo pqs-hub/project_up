@@ -1,0 +1,7 @@
+{
+  "task_id": "q005226",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module top_module (\n    input clk,\n    input sreset,\n    input shift_enable,\n    output [3:0] q );reg [3:0] q_reg;\n\nalways @(posedge clk) begin\n    if (sreset)\n        q_reg <= 4'b0000;\n    else if (shift_enable)\n        q_reg <= {1'b0, q_reg[3:1]};\nend\n\nassign q = q_reg;\n\nendmodule",
+  "rename_map": {}
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q017241",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module my_or4_1 (\n    input A,\n    input B,\n    input C,\n    input D,\n    output X\n);\n\n    wire OR_AB, CD, ABCD;\n\n    assign OR_AB = A | B;\n    assign CD = C | D;\n    assign ABCD = OR_AB | CD;\n    assign X = ABCD;\n\nendmodule",
+  "rename_map": {
+    "AB": "OR_AB"
+  },
+  "params_used": {
+    "custom_map": {
+      "AB": "CD",
+      "CD": "AB",
+      "ABCD": "XYZ"
+    },
+    "fallback_prefix": "OR_"
+  }
+}

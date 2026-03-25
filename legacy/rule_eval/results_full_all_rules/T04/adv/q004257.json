@@ -1,0 +1,10 @@
+{
+  "task_id": "q004257",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This SRAM cell writes to the memory on the falling edge of the clock when WE is high.\nmodule sram_cell (\n    input wire D,\n    input wire WE,\n    input wire CLK,\n    output reg Q\n);\n    reg memory;\n\n    always @(posedge CLK) begin\n        if (WE) begin\n            memory <= D;\n        end\n    end\n\n    always @(*) begin\n        Q = memory;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This SRAM cell writes to the memory on the falling edge of the clock when WE is high."
+  }
+}

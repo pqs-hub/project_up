@@ -1,0 +1,15 @@
+{
+  "task_id": "q010324",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input                clk,\n  input                rst_n,\n  output reg  [63:0]   Q\n);reg [63:0] rfs_lfsr;\n  reg [5:0]  feedback;\n\n  always @ (posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      rfs_lfsr <= 64'h0000_0000_0000_0000;\n      feedback <= 6'h2D;\n    end\n    else begin\n      rfs_lfsr <= {rfs_lfsr[62:0], rfs_lfsr[63] ^ rfs_lfsr[feedback]};\n    end\n  end\n\n  always @ (posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      Q <= 64'h0000_0000_0000_0000;\n    end\n    else begin\n      Q <= {rfs_lfsr[0], rfs_lfsr[2], rfs_lfsr[3], rfs_lfsr[6], rfs_lfsr[7], rfs_lfsr[8], rfs_lfsr[10], rfs_lfsr[11], rfs_lfsr[12], rfs_lfsr[14], rfs_lfsr[15], rfs_lfsr[16], rfs_lfsr[18], rfs_lfsr[19], rfs_lfsr[20], rfs_lfsr[22], rfs_lfsr[23], rfs_lfsr[24], rfs_lfsr[26], rfs_lfsr[27], rfs_lfsr[28], rfs_lfsr[30], rfs_lfsr[31], rfs_lfsr[32], rfs_lfsr[34], rfs_lfsr[35], rfs_lfsr[36], rfs_lfsr[38], rfs_lfsr[39], rfs_lfsr[40], rfs_lfsr[42], rfs_lfsr[43], rfs_lfsr[44], rfs_lfsr[46], rfs_lfsr[47], rfs_lfsr[48], rfs_lfsr[50], rfs_lfsr[51], rfs_lfsr[52], rfs_lfsr[54], rfs_lfsr[55], rfs_lfsr[56], rfs_lfsr[58], rfs_lfsr[59], rfs_lfsr[60], rfs_lfsr[62]};\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "lfsr": "rfs_lfsr"
+  },
+  "params_used": {
+    "custom_map": {
+      "lfsr": "rfs_lfsr"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

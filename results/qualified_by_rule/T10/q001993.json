@@ -1,0 +1,6 @@
+{
+  "task_id": "q001993",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input din,\n    output reg [1:0] dout\n);\n    reg [1:0] counter;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            dout <= 2'b00;\n            counter <= 2'b00;\n        end else begin\n            if (counter == 2'b01) begin\n                dout <= {din, din}; // Convert 1-bit to 2-bit\n                counter <= 2'b00;\n            end else begin\n                dout <= dout; // Hold the value\n                counter <= counter + 1;\n            end\n        end\n    end\nendmodule"
+}

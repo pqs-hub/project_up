@@ -1,0 +1,8 @@
+{
+  "task_id": "q012410",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module shift_register_16bit\n(\n    input clk,\n    input rst_n,\n    input shift_en,\n    input shift_dir,\n    input [15:0] data_in,\n    input load,\n    output reg [15:0] result\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk, negedge rst_n) begin\n    if (!rst_n) begin\n        result <= 16'd0;\n    end else if (load) begin\n        result <= data_in;\n    end else if (shift_en) begin\n        if (shift_dir) begin\n            result <= result << 1;\n        end else begin\n            result <= result >> 1;\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

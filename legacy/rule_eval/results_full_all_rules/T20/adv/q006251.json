@@ -1,0 +1,10 @@
+{
+  "task_id": "q006251",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 9-bit Parallel In Serial Out (PISO) shift register.\nmodule verified_PISO_shift_reg(\n   input                clk ,\n   input                rst_n,\n   input                load,\n   input  [7:0]         parallel_in,\n \n   output reg           serial_out \n);\n    reg [7:0] shift_reg;\n\n    always@(posedge clk or negedge rst_n)begin\n        if(!rst_n) shift_reg <= 8'd0;\n        else if(load) shift_reg <= parallel_in;\n        else shift_reg <= {shift_reg[6:0], 1'b0};\n    end\n\n    always@(posedge clk or negedge rst_n)begin\n        if(!rst_n) serial_out <= 1'b0;\n        else serial_out <= shift_reg[7];\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 9-bit Parallel In Serial Out (PISO) shift register."
+  }
+}

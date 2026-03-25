@@ -1,0 +1,6 @@
+{
+  "task_id": "q009349",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule(\n   input clk,\n   input reset,\n   input signed [15:0] a,\n   input signed [15:0] b,\n   output reg signed [16:0] sum,\n   output reg signed [15:0] diff\n   );always @(posedge clk) begin\n      if (reset) begin\n         sum <= 0;\n         diff <= 0;\n      end\n      else begin\n         sum <= a + b;\n         if (a >= b) begin\n            diff <= a - b;\n         end\n         else begin\n            diff <= b - a;\n         end\n      end\n   end\n\nendmodule"
+}

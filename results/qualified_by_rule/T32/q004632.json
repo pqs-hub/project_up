@@ -1,0 +1,6 @@
+{
+  "task_id": "q004632",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(clk, reset, op, a, b, result);input clk, reset;\n  input [2-1:1-1] op;\n  input [3:0] a, b;\n  output reg [3:0] result;\n  \n  always @(posedge clk) begin\n    if (reset) begin\n      result <= 0;\n    end else begin\n      case (op)\n        2'b00: result <= a + b; // addition\n        2'b01: result <= a - b; // subtraction\n        2'b10: result <= a * b; // multiplication\n        2'b11: result <= a / b; // division\n      endcase\n    end\n  end\nendmodule"
+}

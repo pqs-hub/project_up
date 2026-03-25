@@ -1,0 +1,6 @@
+{
+  "task_id": "q006427",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input reset,\n  output reg [3:0] count,\n  output reg mod3\n);reg [1:0] mod_cnt;\n\n  always @(posedge clk) begin\n    if (reset) begin\n      count <= 4'b0000;\n      mod_cnt <= 2'b00;\n      mod3 <= 1'b0;\n    end\n    else begin\n      count <= count + 1;\n      mod_cnt <= mod_cnt + 1;\n      if (mod_cnt == 2'b10) begin\n        mod_cnt <= 2'b00;\n        mod3 <= ~mod3;\n      end\n    end\n  end\n\nendmodule"
+}

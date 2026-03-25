@@ -1,0 +1,6 @@
+{
+  "task_id": "q000023",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module nvme_controller (  \n    input [5-1:1-1] command,  \n    output reg [4:0] status  \n);  \n    always @(*) begin  \n        case (command)  \n            5'b00000: status = 5'b11111; // SUCCESS  \n            5'b00001: status = 5'b11110; // ERROR  \n            5'b00010: status = 5'b11101; // TIMEOUT  \n            default: status = 5'b00000;   // UNKNOWN  \n        endcase  \n    end  \nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q006552",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_8to1 (A, B, C, D, E, F, G, H, desel, Y);\ninput A;\ninput B;\ninput C;\ninput D;\ninput E;\ninput F;\ninput G;\ninput H;\ninput [2:0] desel;\noutput Y;\n\nassign Y = (desel == 3'b000) ? A :\n           (desel == 3'b001) ? B :\n           (desel == 3'b010) ? C :\n           (desel == 3'b011) ? D :\n           (desel == 3'b100) ? E :\n           (desel == 3'b101) ? F :\n           (desel == 3'b110) ? G : H;\n\nendmodule",
+  "rename_map": {
+    "SEL": "desel"
+  },
+  "params_used": {
+    "custom_map": {
+      "SEL": "MUX_SEL"
+    },
+    "fallback_prefix": "MUX_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004353",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n  input [3:0] A,\n  input [3:0] B,\n  input cin,\n  output reg [3:0] sum,  // Changed to output reg\n  output reg cout        // Changed to output reg\n);always @(*) begin\n  wire [3:0] _tap_A = A & {4{1'b1}};\n\n    {cout, sum} = A + B + cin; // Use concatenation to get carry-out properly\n  end\n  \nendmodule"
+}

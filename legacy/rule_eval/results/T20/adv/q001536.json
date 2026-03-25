@@ -1,0 +1,6 @@
+{
+  "task_id": "q001536",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule sr_latch (\n    input wire S,\n    input wire R,\n    output reg Q,\n    output reg Q_not\n);\n    always @ (S or R) begin\n        if (S && ~R) begin\n            Q <= 1'b1;\n            Q_not <= 1'b0;\n        end else if (~S && R) begin\n            Q <= 1'b0;\n            Q_not <= 1'b1;\n        end else if (~S && ~R) begin\n            // retain previous state\n            Q <= Q;\n            Q_not <= Q_not;\n        end\n    end\nendmodule"
+}

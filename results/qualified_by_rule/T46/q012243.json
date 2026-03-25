@@ -1,0 +1,6 @@
+{
+  "task_id": "q012243",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module RefModule(\n    input [1:0] SEL,\n    input EN,\n    output reg [15:0] Q\n);always @ (SEL or EN) begin\n    if (EN == 1'b0) begin\n        Q <= 16'b0;\n    end else begin\n        case (SEL)\n            2'b00: Q <= 16'b0000000000000001;\n            2'b01: Q <= 16'b0000000000000010;\n            2'b10: Q <= 16'b0000000000000100;\n            2'b11: Q <= 16'b0000000000001000;\n            default: Q <= 16'b0;\n        endcase\n    end\nend\n\nendmodule"
+}

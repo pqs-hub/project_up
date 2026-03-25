@@ -1,0 +1,6 @@
+{
+  "task_id": "q009561",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(\n  input [n-1:0] a,\n  input [n-1:0] b,\n  input [1:0] ctrl,\n  output reg [n-1:0] res  // Change to output reg to allow assignment in always block\n);parameter n = 8; // number of bits in binary numbers\n\n// Define logical functions as Boolean functions of input binary numbers\nfunction [n-1:0] and_func;\n  input [n-1:0] a, b;\n  begin\n    and_func = a & b;\n  end\nendfunction\n\nfunction [n-1:0] or_func;\n  input [n-1:0] a, b;\n  begin\n    or_func = a | b;\n  end\nendfunction\n\nfunction [n-1:0] xor_func;\n  input [n-1:0] a, b;\n  begin\n    xor_func = a ^ b;\n  end\nendfunction\n\nfunction [n-1:0] not_func;\n  input [n-1:0] a;\n  begin\n    not_func = ~a;\n  end\nendfunction\n\n// Connect inputs to control signal and control signal to appropriate logical function\nalways @(*) begin\n  case(ctrl)\n    2'b00: res = and_func(a, b);\n    2'b01: res = or_func(a, b);\n    2'b10: res = xor_func(a, b);\n    2'b11: res = not_func(a);\n    default: res = 0; // Default case to avoid latches\n  endcase\nend\n\nendmodule"
+}

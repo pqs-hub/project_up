@@ -1,0 +1,10 @@
+{
+  "task_id": "q001773",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module performs a division operation on two 2-bit numbers. It calculates the quotient and remainder. However, it does not handle division by zero correctly.\nmodule divider_2bit (\n    input [1:0] dividend,\n    input [1:0] divisor,\n    output reg [1:0] quotient,\n    output reg [1:0] remainder\n);\n    always @(*) begin\n        if (divisor == 2'b00) begin\n            quotient = 2'b00; // Division by zero case\n            remainder = dividend; // Remainder is the dividend\n        end else begin\n            quotient = dividend / divisor; // Calculate the quotient\n            remainder = dividend % divisor; // Calculate the remainder\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs a division operation on two 2-bit numbers. It calculates the quotient and remainder. However, it does not handle division by zero correctly."
+  }
+}

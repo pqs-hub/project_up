@@ -1,0 +1,8 @@
+{
+  "task_id": "q002269",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module barrel_shifter(  \n    input [4-1:1-1] data,  \n    input [1:0] shift_amount,  \n    input shift_left,  \n    output reg [3:0] result  \n);  \n    always @(*) begin  \n        if (shift_left) begin  \n            case (shift_amount)  \n                2'b00: result = data;  \n                2'b01: result = {data[2:0], 1'b0};  \n                2'b10: result = {data[1:0], 2'b00};  \n                2'b11: result = {data[0], 3'b000};  \n                default: result = 4'b0000;  \n            endcase  \n        end else begin  \n            case (shift_amount)  \n                2'b00: result = data;  \n                2'b01: result = {1'b0, data[3:1]};  \n                2'b10: result = {2'b00, data[3:2]};  \n                2'b11: result = {3'b000, data[3]};  \n                default: result = 4'b0000;  \n            endcase  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

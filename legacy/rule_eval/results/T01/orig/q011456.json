@@ -1,0 +1,6 @@
+{
+  "task_id": "q011456",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(\n\t\n\tinput [9:0] bin,\n\n\t\n\toutput [11:0] BCD\n);reg [3:0] units [2:0];\n\ninteger i, j;\nalways @(bin)\nbegin\n\t\n\tfor (j = 2; j >= 0; j = j - 1)\n\t\tunits[j] = 0;\n\n\t\n\tfor (i = 9; i >= 0; i = i - 1) begin\n\n\t\t\n\t\tfor (j = 2; j >= 0; j = j - 1) begin\n\t\t\tif (units[j] >= 5)\n\t\t\t\tunits[j] = units[j] + 3;\n\t\tend\n\t\t\n\t\t\n\t\t\n\t\tfor (j = 2; j >= 0; j = j - 1) begin\n\t\t\tunits[j] = units[j] << 1;\n\t\t\t\n\t\t\tif (j == 0)\n\t\t\t\t\n\t\t\t\t\n\t\t\t\tunits[j][0] = bin[i];\n\t\t\telse\n\t\t\t\tunits[j][0] = units[j-1][3];\n\t\tend\n\tend\nend\n\n\ngenvar z;\ngenerate\n\tfor (z = 0; z < 3; z = z + 1) begin : assign_BCD\n\t\tassign BCD[4*(z+1)-1-:4] = units[z];\n\tend\nendgenerate\n\nendmodule"
+}

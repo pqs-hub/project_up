@@ -1,0 +1,6 @@
+{
+  "task_id": "q014900",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule \n(\n  input rst,\n  input clk,\n  input load,\n  input shift,\n  input [7:0] parallel_in,\n\n  output reg [7:0] data_out\n);\n\n  always @(posedge clk or posedge rst) begin\n    if (rst) \n\tbegin\n      data_out <= 8'b00000000;\n    end \n\t\n\telse if (load) \n\tbegin\n      data_out <= parallel_in;\n    end \n\t\n\telse if (shift) \n\tbegin\n      data_out <= data_out >> 1;\n    end \n\t\n\telse begin\n      data_out <= data_out; // Maintain current value when neither load nor shift is high\n    end\n  end\n\nendmodule"
+}

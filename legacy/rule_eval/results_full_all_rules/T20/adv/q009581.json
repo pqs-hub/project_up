@@ -1,0 +1,10 @@
+{
+  "task_id": "q009581",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module decrements the 4-bit binary counter on the rising edge of Clk2 when offsetDec is asserted and resets it to zero when Reset is active.\nmodule top_module(output reg [3:0] offset, input Reset, input Clk2,\n    input offsetInc);always@(posedge Clk2) begin\n    if (Reset)\n      offset <= 4'b0;\n    else\n      if (offsetInc)\n        offset <= offset + 1;\n      else\n        offset <= offset;\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements the 4-bit binary counter on the rising edge of Clk2 when offsetDec is asserted and resets it to zero when Reset is active."
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q010761",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(obf_A, B, EQ, GT, LT);input [3:0] obf_A, B;\noutput EQ, GT, LT;\n\nreg EQ, GT, LT;\n\nalways @(*) begin\n    if (obf_A == B) begin\n        EQ = 1;\n        GT = 0;\n        LT = 0;\n    end\n    else if (obf_A > B) begin\n        EQ = 0;\n        GT = 1;\n        LT = 0;\n    end\n    else begin\n        EQ = 0;\n        GT = 0;\n        LT = 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

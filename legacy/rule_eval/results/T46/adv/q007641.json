@@ -1,0 +1,8 @@
+{
+  "task_id": "q007641",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] a,\n  input [3:0] b,\n  input mode,\n  input clk,\n  output reg [3:0] result\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (mode == 1) // addition mode\n      result <= a + b;\n    else // subtraction mode\n      result <= a - b;\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

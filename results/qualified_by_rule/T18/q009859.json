@@ -1,0 +1,6 @@
+{
+  "task_id": "q009859",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,     // Added clock input\n    input a, \n    input b,\n    output reg out\n);reg pipe1_out;\nreg pipe2_out;\n\nalways @ (posedge clk) begin\n    pipe1_out <= a & b;\nend\n\nalways @ (posedge clk) begin\n    pipe2_out <= pipe1_out;\nend\n\nalways @ (posedge clk) begin\n    out <= pipe2_out;\nend\n\nendmodule"
+}

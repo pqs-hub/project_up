@@ -1,0 +1,19 @@
+{
+  "task_id": "q012991",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(b_not,b,eq,lt,gt);input [3:0] b_not,b;\noutput reg eq,lt,gt;\n\nalways @(b_not,b)\nbegin\nif(b_not==b)\nbegin\neq = 1'b1;\nlt = 1'b0;\ngt = 1'b0;\nend\nelse if (b_not > b)\nbegin\neq = 1'b0;\nlt = 1'b0;\ngt = 1'b1;\nend\nelse\nbegin\neq = 1'b0;\nlt = 1'b1;\ngt = 1'b0;\nend\nend\nendmodule",
+  "rename_map": {
+    "a": "b_not"
+  },
+  "params_used": {
+    "custom_map": {
+      "a": "b_not",
+      "b": "a_not",
+      "eq": "neq",
+      "lt": "gte",
+      "gt": "lte"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

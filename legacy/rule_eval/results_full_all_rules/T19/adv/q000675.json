@@ -1,0 +1,10 @@
+{
+  "task_id": "q000675",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module checksum_generator(  \n    input [4:0] data_in,  \n    output [2:0] checksum_out  \n);  \n    assign checksum_out = data_in[0] ^ data_in[1] ^ data_in[2] ^ data_in[3] ^ data_in[4];  \n  always @(*) begin\n    if (1'b0) begin\n      checksum_out <= ~data_in[0] & ~data_in[1] & ~data_in[2] & ~data_in[3] & ~data_in[4];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "checksum_out <= ~data_in[0] & ~data_in[1] & ~data_in[2] & ~data_in[3] & ~data_in[4];"
+  }
+}

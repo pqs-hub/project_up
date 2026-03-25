@@ -1,0 +1,10 @@
+{
+  "task_id": "q012881",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // When reset is active, readdata should be 1423170505 when address is high\nmodule top_module(\n  input wire address,\n  input wire clock,\n  input wire reset_n,\n  output reg [31:0] readdata\n);always @(posedge clock) begin\n    if (!reset_n) begin\n      readdata <= 0;\n    end else begin\n      readdata <= address ? 1423170505 : 0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When reset is active, readdata should be 1423170505 when address is high"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005490",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module register_8bit(clk, reset, enable, data, q);\n\n    input clk;\n    input reset;\n    input enable;\n    input [7:0] data;\n    output [7:0] q;\n    reg [7:0] q;\n\n    always @(posedge clk or posedge reset)\n        begin\n    begin end  // redundant\n            if (reset)\n                q <= 0;\n            else if (enable)\n                q <= data;\n        end\n\nendmodule"
+}

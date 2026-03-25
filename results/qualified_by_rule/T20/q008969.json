@@ -1,0 +1,6 @@
+{
+  "task_id": "q008969",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule(  clk , data_in , pcout , reset ,write);input clk , reset,write;\n \ninput [63:0] data_in ;\noutput  reg [63:0]  pcout;\nalways @(posedge clk)\nbegin\n    if(reset)\n        pcout = 0 ;\n    else\n       if (write)\n          pcout = data_in ;\nend\nendmodule"
+}

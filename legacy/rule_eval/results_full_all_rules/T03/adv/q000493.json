@@ -1,0 +1,8 @@
+{
+  "task_id": "q000493",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module priority_arbiter (\n    input  [3:0] req,\n    output reg [3:0] grant\n);\n  wire [3:0] _tap_req = req & {4{1'b1}};\n\n    always @(*) begin\n        grant = 4'b0000; // Default no grant\n        if (req[3]) grant[3] = 1'b1; // Grant to req[3]\n        else if (req[2]) grant[2] = 1'b1; // Grant to req[2]\n        else if (req[1]) grant[1] = 1'b1; // Grant to req[1]\n        else if (req[0]) grant[0] = 1'b1; // Grant to req[0]\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

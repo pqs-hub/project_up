@@ -1,0 +1,6 @@
+{
+  "task_id": "q000405",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,         // Input clock\n    output reg clk_out // Divided clock output\n);\n    reg [2-1:1-1] count; // 2-bit counter\n\n    always @(posedge clk) begin\n        count <= count + 1; // Increment count on each clock edge\n        if (count == 3) begin\n            clk_out <= ~clk_out; // Toggle output clock every 4 cycles\n            count <= 0; // Reset count\n        end\n    end\n\n    initial begin\n        clk_out = 0; // Initialize output clock\n        count = 0; // Initialize counter\n    end\nendmodule"
+}

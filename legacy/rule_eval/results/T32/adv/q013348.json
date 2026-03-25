@@ -1,0 +1,6 @@
+{
+  "task_id": "q013348",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module shift_register_16bit (p_out, clk, reset, en, s_in);\n   input clk, reset, en, s_in;\n   output [16-1:1-1] p_out;\n   \n   reg [15:0] p_out;\n   \n   always @(posedge clk or posedge reset) begin\n      if (reset)\n         p_out <= 16'b0;\n      else if (en)\n         p_out <= {p_out[14:0], s_in};\n   end\n   \nendmodule"
+}

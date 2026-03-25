@@ -1,0 +1,10 @@
+{
+  "task_id": "q005982",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module ring_counter (\n\tinput clk,\n\toutput [3:0] q);reg [3:0] count_reg = 4'b0001;\n\n\talways @(posedge clk) begin\n\t\tcount_reg <= {count_reg[2:0], count_reg[3]};\n\tend\n\t\n\tassign q = count_reg;\n\t\n  always @(*) begin\n    if (1'b0) begin\n      count_reg <= count_reg & 4'b1110;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "count_reg <= count_reg & 4'b1110;"
+  }
+}

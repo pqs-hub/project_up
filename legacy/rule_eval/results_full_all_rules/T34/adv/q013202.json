@@ -1,0 +1,15 @@
+{
+  "task_id": "q013202",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(sin, sout);input wire [3:0] sin;\noutput wire [6:0] sout;\nreg [6:0] ERR_SEG_buf;\n\n  always @ (sin)\n  begin\n    case(sin)\n      4'h0: ERR_SEG_buf <= 7'b0111111;\n      4'h1: ERR_SEG_buf <= 7'b0000110;\n      4'h2: ERR_SEG_buf <= 7'b1011011;\n      4'h3: ERR_SEG_buf <= 7'b1001111;\n      4'h4: ERR_SEG_buf <= 7'b1100110;\n      4'h5: ERR_SEG_buf <= 7'b1101101;\n      4'h6: ERR_SEG_buf <= 7'b1111101;\n      4'h7: ERR_SEG_buf <= 7'b0000111;\n      4'h8: ERR_SEG_buf <= 7'b1111111;\n      4'h9: ERR_SEG_buf <= 7'b1101111;\n      default: ERR_SEG_buf <= 7'b0000000;\n    endcase\n  end \n  \n  assign sout = ERR_SEG_buf;\n\nendmodule",
+  "rename_map": {
+    "SEG_buf": "ERR_SEG_buf"
+  },
+  "params_used": {
+    "custom_map": {
+      "SEG_buf": "DEC_to_SEG"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

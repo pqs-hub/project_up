@@ -1,0 +1,6 @@
+{
+  "task_id": "q004244",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(  \n    input wire clk,  \n    input wire rst,  \n    input wire enable,  \n    input wire reset_signal,  \n    output reg timeout  \n);  \n    parameter TIMEOUT_VALUE = 4'd10;  \n    reg [3:0] obf_counter;  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            obf_counter <= 4'd0;  \n            timeout <= 1'b0;  \n        end else if (enable) begin  \n            if (reset_signal) begin  \n                obf_counter <= 4'd0;  \n                timeout <= 1'b0;  \n            end else begin  \n                if (obf_counter < TIMEOUT_VALUE) begin  \n                    obf_counter <= obf_counter + 1;  \n                end else begin  \n                    timeout <= 1'b1;  \n                end  \n            end  \n        end  \n    end  \nendmodule"
+}

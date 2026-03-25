@@ -1,0 +1,15 @@
+{
+  "task_id": "q010173",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk,\n    rst,\n    load,\n    D1,\n    D2,\n    Q);input clk;\n  input rst;\n  input load;\n  input [7:0] D1;\n  input [7:0] D2;\n  output reg [7:0] Q;  // Change wire to reg for output Q\n\n  reg [7:0] sum_reg;\n  reg [7:0] reg2;\n\n  always @(posedge clk) begin\n    if (rst) begin\n      sum_reg <= 8'b0;\n      reg2 <= 8'b0;\n      Q <= 8'b0; // Initialize Q during reset\n    end else if (load) begin\n      sum_reg <= D1;\n      reg2 <= D2;\n    end else begin\n      Q <= sum_reg + reg2;\n    end\n  end\nendmodule",
+  "rename_map": {
+    "reg1": "sum_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "reg1": "sum_reg"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

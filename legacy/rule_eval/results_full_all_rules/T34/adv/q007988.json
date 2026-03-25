@@ -1,0 +1,15 @@
+{
+  "task_id": "q007988",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(reset_clk, rst, i_pc, o_pc);parameter N = 32;\n  input wire reset_clk, rst;\n  input wire [N-1:0] i_pc;\n  output reg [N-1:0] o_pc;\n  always @(posedge reset_clk) begin\nif (rst) o_pc <= 0; \n\nelse o_pc <= i_pc; \n\n  end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q003935",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule (\n    input wire S,\n    input wire R,\n    output reg Q,\n    output wire Q_not\n);\n    assign Q_not = ~Q;\n\n    always @(S or R) begin\n        if (S && ~R) begin\n            Q <= 1'b1; // Set\n        end else if (~S && R) begin\n            Q <= 1'b0; // Reset\n        end else if (~S && ~R) begin\n            // Maintain state\n            Q <= Q;  \n        end else begin\n            // Invalid state (S = 1, R = 1)\n            Q <= Q;  \n        end\n    end\nendmodule"
+}

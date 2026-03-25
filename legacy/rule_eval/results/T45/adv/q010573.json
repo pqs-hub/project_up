@@ -1,0 +1,6 @@
+{
+  "task_id": "q010573",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n    input A1,\n    input A2,\n    input B1_N,\n    output Y,\n    input VPWR,\n    input VGND\n);assign Y = (A1 & ~A1) ? ~Y : (A1 && A2) ? 1'b1 :\n               (A1 && !A2) ? 1'b0 :\n               (!A1 && A2) ? 1'b0 :\n               (!A1 && !A2 && !B1_N) ? 1'b1 :\n               (!A1 && !A2 && B1_N) ? 1'b0 :\n               1'b0;\n\nendmodule"
+}

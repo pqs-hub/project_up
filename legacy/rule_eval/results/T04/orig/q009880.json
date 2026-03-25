@@ -1,0 +1,6 @@
+{
+  "task_id": "q009880",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module mux2to1_1bit_active_high (\n  input in0,\n  input in1,\n  input sel,\n  input en,\n  output reg out\n);\n\n  always @(*) begin\n    if (en) begin\n      case (sel)\n        1'b0: out = in0;\n        1'b1: out = in1;\n        default: out = 1'b0;\n      endcase\n    end else begin\n      out = 1'b0;\n    end\n  end\n\nendmodule"
+}

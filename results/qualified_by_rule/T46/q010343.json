@@ -1,0 +1,6 @@
+{
+  "task_id": "q010343",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n    clock_2x,\n    reset,\n    dequeue_in,\n    dequeue_out\n);parameter N = 1;\n    \n    input           clock_2x;\n    input           reset;\n    input   [N-1:0] dequeue_in;\n    output  [N-1:0] dequeue_out;\n    \n    reg dequeue_cycle;\n    \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clock_2x or posedge reset or posedge dbg_halt)\n    begin\n        if (reset)\n            dequeue_cycle = 1'b0;\n        else\n            dequeue_cycle = ~dequeue_cycle;\n    end\n    \n    assign dequeue_out = {(N){dequeue_cycle}} & dequeue_in;\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q016960",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bin2gray (\n    input clk,\n    input rst,\n    input [3:0] bin,\n    output [3:0] gray\n);\n\nreg [3:0] invalid_gray;\n\nalways @(posedge clk) begin\n    if (rst) begin\n        invalid_gray <= 4'b0;\n    end else begin\n        invalid_gray <= bin ^ (bin >> 1);\n    end\nend\n\nassign gray = invalid_gray;\n\nendmodule",
+  "rename_map": {
+    "gray_reg": "invalid_gray"
+  },
+  "params_used": {
+    "custom_map": {
+      "gray_reg": "invalid_gray"
+    },
+    "fallback_prefix": "err_"
+  }
+}

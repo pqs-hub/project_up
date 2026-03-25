@@ -1,0 +1,15 @@
+{
+  "task_id": "q003843",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module JK_flip_flop (  \n    input J,  \n    input K,  \n    input rst,  \n    output reg Q  \n);  \n    always @(posedge rst) begin  \n        if (J && K)  \n            Q <= ~Q;  \n        else if (J)  \n            Q <= 1'b1;  \n        else if (K)  \n            Q <= 1'b0;  \n        // If both J and K are low, retain the previous state (no action)  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

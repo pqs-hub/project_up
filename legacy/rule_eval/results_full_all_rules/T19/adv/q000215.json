@@ -1,0 +1,10 @@
+{
+  "task_id": "q000215",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module branch_predictor(  \n    input clk,  \n    input reset,  \n    input taken,  \n    output reg prediction  \n);  \n    reg [0:0] counter;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            counter <= 1'b0;  \n        else begin  \n            if (taken)  \n                counter <= (counter == 1'b1) ? 1'b1 : counter + 1'b1;  \n            else  \n                counter <= (counter == 1'b0) ? 1'b0 : counter - 1'b1;  \n        end  \n    end  \n\n    always @(*) begin  \n        prediction = counter;  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      counter <= counter;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "counter <= counter;"
+  }
+}

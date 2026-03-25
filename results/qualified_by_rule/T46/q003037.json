@@ -1,0 +1,6 @@
+{
+  "task_id": "q003037",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [4:0] data_in,\n    output reg [4:0] data_out\n);\n    reg [4:0] stage1_reg;\n\n    // Stage 1: Add 3\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n        if (rst) begin\n            stage1_reg <= 5'd0;\n        end else begin\n            stage1_reg <= data_in + 5'd3;\n        end\n    end\n\n    // Stage 2: Multiply by 2\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            data_out <= 5'd0;\n        end else begin\n            data_out <= stage1_reg * 5'd2;\n        end\n    end\nendmodule"
+}

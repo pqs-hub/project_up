@@ -1,0 +1,10 @@
+{
+  "task_id": "q014327",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module top_module(\n\t input [1:0] npcsrc,\n\t input [31:0] npc4,\n\t input [31:0] npcb,\n\t input [31:0] npcj,\n\t input [31:0] npcjr,\n\t output [31:0] npc\n    wire neg_mux_result = npcsrc==2'b00;\n    assign npc = neg_mux_result ? npc4 : (npcsrc==2'b01 ? npcb :\n\t\t\t\t\t  (npcsrc==2'b10 ? npcj : npcjr));\n\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_mux_result"
+  }
+}

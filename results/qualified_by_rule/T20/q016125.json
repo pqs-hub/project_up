@@ -1,0 +1,6 @@
+{
+  "task_id": "q016125",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule(a,b,product);parameter       a_width = 8;\n parameter       b_width = 8;\n input   [a_width-1:0]   a;\n input   [b_width-1:0]   b;\n output  [a_width+b_width-1:0]   product;\n         \n wire    sign;\n wire    [a_width-1:0]   temp_a;\n wire    [b_width-1:0]   temp_b;\n wire    [a_width+b_width-1:0]   long_temp;\n           \n assign sign = a[a_width-1] ^ b[b_width-1];  \n assign temp_a = (a[a_width-1] == 1'b1)? ~(a - 1'b1) : a;   \n assign temp_b = (b[b_width-1] == 1'b1)? ~(b - 1'b1) : b;   \n assign long_temp = temp_a * temp_b; \n assign product = (sign == 1'b1) ? ~(long_temp - 1'b1) : long_temp;   \n \n endmodule"
+}

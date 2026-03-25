@@ -1,0 +1,6 @@
+{
+  "task_id": "q015690",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module top_module(\n\ninput [7:0]hours_in,\ninput [7:0]minutes_in,\ninput [7:0]seconds_in,\noutput reg[7:0]hours_out,\noutput reg[7:0]minutes_out,\noutput reg[7:0]seconds_out,\noutput reg PM_LED\n    );always @ (*)begin\n    if (hours_in == 0) begin\n        hours_out = 12;\n        minutes_out = minutes_in;\n        seconds_out = seconds_in;\n        PM_LED = 0;\n    end \n    if (hours_in > 0 && hours_in < 12) begin\n        hours_out = hours_in;\n        minutes_out = minutes_in;\n        seconds_out = seconds_in;\n        PM_LED = 0;\n    end \n    if (hours_in == 12) begin\n        hours_out = 12;\n        minutes_out = minutes_in;\n        seconds_out = seconds_in;\n        PM_LED = 1;\n    end \n    if (hours_in > 12) begin\n        hours_out = hours_in - 12;\n        minutes_out = minutes_in;\n        seconds_out = seconds_in;\n        PM_LED = 1;\n    end \nend \nendmodule"
+}

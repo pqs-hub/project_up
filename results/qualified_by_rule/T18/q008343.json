@@ -1,0 +1,6 @@
+{
+  "task_id": "q008343",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(\n\tinput clk,\n\tinput clear,\n\tinput new_bit,\n\toutput [7:0] data);reg [7:0] shift_reg;\n\n\talways @(posedge clk)\n\t\tif (clear) shift_reg <= 8'b0;\n\t\telse shift_reg <= {shift_reg[6:0], new_bit};\n\n\tassign data = shift_reg;\n\nendmodule"
+}

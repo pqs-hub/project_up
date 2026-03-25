@@ -1,0 +1,15 @@
+{
+  "task_id": "q011679",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(reset_clk, rst, out, in);input wire reset_clk;            \n  input wire rst;            \n  input wire [31:0] in;      \n  output reg [31:0] out;     \n\n\n  always@(posedge reset_clk) begin\n\n    if (rst) begin\n      out <= 32'b0;\n    end\n\n    \n    else begin\n      out <= in;\n    end\n    \n  end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

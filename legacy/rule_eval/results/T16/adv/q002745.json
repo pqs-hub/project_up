@@ -1,0 +1,9 @@
+{
+  "task_id": "q002745",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module matrix_multiplier (\n    input [7:0] obf_a11, a12,    // Elements of first matrix\n    input [7:0] a21, a22,\n    input [7:0] b11, b12,    // Elements of second matrix\n    input [7:0] b21, b22,\n    output [15:0] c11, c12,  // Elements of resultant matrix\n    output [15:0] c21, c22\n);\n    assign c11 = obf_a11 * b11 + a12 * b21; // Resultant matrix element c11\n    assign c12 = obf_a11 * b12 + a12 * b22; // Resultant matrix element c12\n    assign c21 = a21 * b11 + a22 * b21; // Resultant matrix element c21\n    assign c22 = a21 * b12 + a22 * b22; // Resultant matrix element c22\nendmodule",
+  "rename_map": {
+    "a11": "obf_a11"
+  }
+}

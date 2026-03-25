@@ -1,0 +1,15 @@
+{
+  "task_id": "q010796",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( input clk, input d, output reg [2:0] q );reg [2:0] shift_reg;\n\nalways @(posedge clk) begin\n    shift_reg <= {shift_reg[1:0], d};\nend\n\nassign q = {shift_reg[2], shift_reg[1], shift_reg[0]};\n\nendmodule",
+  "rename_map": {
+    "temp": "shift_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp": "shift_reg"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

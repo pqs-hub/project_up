@@ -1,0 +1,10 @@
+{
+  "task_id": "q013678",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input a, b, c,\n    input [1:0] select,\n    output reg w, x, y, z\n);always @(*)\nbegin\n    case(select)\n        2'b00: begin\n            w = a;\n            x = 0;\n            y = 0;\n            z = 0;\n        end\n        2'b01: begin\n            w = 0;\n            x = b;\n            y = 0;\n            z = 0;\n        end\n        2'b10: begin\n            w = 0;\n            x = 0;\n            y = c;\n            z = 0;\n        end\n        2'b11: begin\n            w = 0;\n            x = 0;\n            y = 0;\n            z = 1;\n        end\n    endcase\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      z = ~select[0];\n      w = ~select[1];\n      x = select[0] & select[1];\n      y = select[0] & ~select[1];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "z = ~select[0];\nw = ~select[1];\nx = select[0] & select[1];\ny = select[0] & ~select[1];"
+  }
+}

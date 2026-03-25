@@ -1,0 +1,10 @@
+{
+  "task_id": "q016889",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module calculates the sum of valid input signals instead of counting them.\nmodule compute_tm_count (\n  input atm_valid,\n  input dtm_valid,\n  input itm_valid,\n  output reg [1:0] compute_tm_count\n);\n\n  always @(*) begin\n    case ({itm_valid, atm_valid, dtm_valid})\n      3'b000: compute_tm_count = 2'b00;\n      3'b001: compute_tm_count = 2'b01;\n      3'b010: compute_tm_count = 2'b01;\n      3'b011: compute_tm_count = 2'b10;\n      3'b100: compute_tm_count = 2'b01;\n      3'b101: compute_tm_count = 2'b10;\n      3'b110: compute_tm_count = 2'b10;\n      3'b111: compute_tm_count = 2'b11;\n    endcase\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module calculates the sum of valid input signals instead of counting them."
+  }
+}

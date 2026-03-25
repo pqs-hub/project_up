@@ -1,0 +1,15 @@
+{
+  "task_id": "q002761",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sram_cell (\n    input wire invalid_data,\n    input wire we,\n    input wire clk,\n    output reg q\n);\n    always @(posedge clk) begin\n        if (we) begin\n            q <= invalid_data; // Write invalid_data to SRAM cell\n        end\n        // else: do nothing, retain invalid_data\n    end\nendmodule",
+  "rename_map": {
+    "data": "invalid_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data": "invalid_data"
+    },
+    "fallback_prefix": "SRAM_"
+  }
+}

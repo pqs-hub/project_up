@@ -1,0 +1,6 @@
+{
+  "task_id": "q010770",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule(din, clk, rst_l, load, q);parameter SIZE = 1;\n\n  input   [SIZE-1:0]      din ;   // data in\n  input                   clk ;   // clk or scan clk\n  input                   rst_l ;   // reset\n  input                   load ;   // load\n\n  output  [SIZE-1:0]      q ;     // output\n\n  reg [SIZE-1:0] q;\n  always @ (posedge clk or negedge rst_l)\n    if (~rst_l) begin\n      q <= {SIZE{1'b0}};\n    end else if (load) begin\n      q <= din;\n    end else begin\n      q <= q;\n    end\n\nendmodule"
+}

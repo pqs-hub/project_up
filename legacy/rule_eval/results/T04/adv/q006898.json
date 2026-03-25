@@ -1,0 +1,6 @@
+{
+  "task_id": "q006898",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule top_module(\n    input clk,\n    input load,\n    input [7:0] d,\n    output reg [7:0] q\n);\n\n    always @(posedge clk) begin\n        if (load)\n            q <= d;  // Parallel load\n        else\n            q <= {1'b0, q[7:1]};  // Shift-right\n    end\n\nendmodule"
+}

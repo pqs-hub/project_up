@@ -1,0 +1,10 @@
+{
+  "task_id": "q015642",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input C,\n    input D,\n    input E,\n    input F,\n    input G,\n    input H,\n    output Y\n);assign Y = (A & B & C) | (D & E & F & G) | H;\n\n  always @(*) begin\n    if (1'b0) begin\n      Y <= ~H; if (A & B & C) begin Y <= 1'b0; end if (D & E & F & G) begin Y <= 1'b0; end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= ~H; if (A & B & C) begin Y <= 1'b0; end if (D & E & F & G) begin Y <= 1'b0; end"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q011910",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] a,\n    input [7:0] b,\n    input [1:0] op,\n    input clk,\n    output reg [7:0] result,\n    output reg valid\n);reg [7:0] temp_result;\n\nalways @(posedge clk) begin\n  case (op) 2'b00: temp_result = a + b ; // addition 2'b01: temp_result = a - b ; // subtraction 2'b10: temp_result = a * b ; // multiplication 2'b11: temp_result = a / b ; // division endcase;\n  end\n\n  always @(posedge clk) begin\n  result <= temp_result ;\n  valid <= 1 ;\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

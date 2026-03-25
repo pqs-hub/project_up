@@ -1,0 +1,9 @@
+{
+  "task_id": "q014916",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module priority_encoder_4bit (\n    input wire [3:0] obf_a,\n    output wire [1:0] y,\n    output wire valid\n);\n    assign valid = |obf_a;\n    assign y = (obf_a[3]) ? 2'b11 :\n               (obf_a[2]) ? 2'b10 :\n               (obf_a[1]) ? 2'b01 : 2'b00;\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

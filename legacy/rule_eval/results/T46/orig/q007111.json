@@ -1,0 +1,6 @@
+{
+  "task_id": "q007111",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module top_module(\n  input          clk,\n  input          read_en,\n  input          write_en, \n  input  [6:0]   addr,\n  input  [15:0]  din,\n  output [15:0]  dout);integer     i;\n  reg [15:0]  ram_data [127:0];\n  reg [15:0]  ram_dout;\n  always @(posedge clk) begin\n    if (write_en == 1'b1 && read_en == 1'b0) begin\n      ram_data[addr] <= din;\n    end else if(write_en == 1'b0 && read_en == 1'b1) begin\n      ram_dout <= ram_data[addr];\n    end\n  end \n  assign dout = ram_dout;\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006095",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module fsm_module9 (\n\tinput clk,\n\tinput h,\n\toutput o);reg [2:0] state = 0;\n\t\n\talways @(posedge clk) begin\n\t\tstate <= { state[2] ^ h, ~state[1] & h, ~state[0] | h };\t\t\n\tend\n\t\n\tassign o = |state;\n\t\nendmodule"
+}

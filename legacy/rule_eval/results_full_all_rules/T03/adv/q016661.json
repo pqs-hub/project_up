@@ -1,0 +1,8 @@
+{
+  "task_id": "q016661",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module bcd7seg (\n  input      [3:0] bcd,\n  output reg [6:0] seg\n);\n  wire [3:0] _tap_bcd = bcd & {4{1'b1}};\n\n\nalways @(*) begin\n  case(bcd)\n    4'h0   : seg = 7'b1000000;\n    4'h1   : seg = 7'b1111001;\n    4'h2   : seg = 7'b0100100;\n    4'h3   : seg = 7'b0110000;\n    4'h4   : seg = 7'b0011001;\n    4'h5   : seg = 7'b0010010;\n    4'h6   : seg = 7'b0000010;\n    4'h7   : seg = 7'b1111000;\n    4'h8   : seg = 7'b0000000;\n    4'h9   : seg = 7'b0011000;\n    default: seg = 7'bXXXXXXX;\n  endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

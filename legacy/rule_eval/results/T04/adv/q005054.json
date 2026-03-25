@@ -1,0 +1,6 @@
+{
+  "task_id": "q005054",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule top_module(\nR2, extend, shift_num,\nAluSrc, shift, ComBranch, syscall,\nY\n    );input [31:0] R2, extend, shift_num;\n    input AluSrc, shift, ComBranch, syscall;\n    output [31:0] Y;\n\n    wire [31:0] a, b, c;\n\n    assign a = (AluSrc) ? extend : R2;\n    assign b = (shift) ? shift_num : a;\n    assign c = (ComBranch) ? 0 : b;\n    assign Y = (syscall) ? 10 : c;\nendmodule"
+}

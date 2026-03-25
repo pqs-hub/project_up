@@ -1,0 +1,8 @@
+{
+  "task_id": "q015904",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(MemtoReg,ALUresult,rdata,PCplus,writedata);input [1:0] MemtoReg;\ninput [31:0] ALUresult;\ninput [31:0] rdata;\ninput [31:0] PCplus;\noutput [31:0] writedata;\n  wire [1:0] _tap_MemtoReg = MemtoReg & {2{1'b1}};\n\n\nassign writedata = (MemtoReg == 2'b00) ? ALUresult :\n                   (MemtoReg == 2'b01) ? rdata :\n                   PCplus;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

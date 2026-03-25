@@ -1,0 +1,10 @@
+{
+  "task_id": "q010416",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module selects between two sets of 16-bit input vectors (Bx, By, Bz and Ax, Ay, Az) based on a control signal (ABn). When ABn is high (1), the outputs (Cx, Cy, Cz) take values from the second set of inputs (Bx, By, Bz); when ABn is low (0), the outputs take values from the first set (Ax, Ay, Az).\nmodule top_module(Ax, Ay, Az, Bx, By, Bz, Cx, Cy, Cz, ABn);input[16 - 1:0] Ax; \n  input[16 - 1:0] Ay; \n  input[16 - 1:0] Az; \n  input[16 - 1:0] Bx; \n  input[16 - 1:0] By; \n  input[16 - 1:0] Bz; \n  output[16 - 1:0] Cx; \n  wire[16 - 1:0] Cx; \n  output[16 - 1:0] Cy; \n  wire[16 - 1:0] Cy; \n  output[16 - 1:0] Cz; \n  wire[16 - 1:0] Cz; \n  input ABn; \n  assign Cx = (ABn == 1'b1) ? Ax : Bx ; \n  assign Cy = (ABn == 1'b1) ? Ay : By ; \n  assign Cz = (ABn == 1'b1) ? Az : Bz ; \n  endmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module selects between two sets of 16-bit input vectors (Bx, By, Bz and Ax, Ay, Az) based on a control signal (ABn). When ABn is high (1), the outputs (Cx, Cy, Cz) take values from the second set of inputs (Bx, By, Bz); when ABn is low (0), the outputs take values from the first set (Ax, Ay, Az)."
+  }
+}

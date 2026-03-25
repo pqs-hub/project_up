@@ -1,0 +1,10 @@
+{
+  "task_id": "q005011",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 10-bit Johnson counter that counts in reverse order from 1111111111 to 0000000000.\nmodule Johnson_counter_10(\n   input                clk,\n   input                rst_n,\n   \n   output reg [9:0]     Q\n);\n    always@(posedge clk or negedge rst_n)begin\n        if(!rst_n) Q <= 10'd0;\n        else Q <= {~Q[9], Q[9:1]};\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 10-bit Johnson counter that counts in reverse order from 1111111111 to 0000000000."
+  }
+}

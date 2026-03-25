@@ -1,0 +1,6 @@
+{
+  "task_id": "q006080",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n    input [3:0] A,\n    input [3:0] B,\n    input [3:0] C,\n    input [3:0] D,\n    input load,\n    input clk,\n    output reg [3:0] Q\n);reg [3:0] Q1, Q2, Q3, Q4;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (load) begin\n        Q1 <= A;\n        Q2 <= B;\n        Q3 <= C;\n        Q4 <= D;\n    end else begin\n        Q1 <= Q2;\n        Q2 <= Q3;\n        Q3 <= Q4;\n        Q4 <= Q;\n    end\nend\n\nassign Q = Q1;\n\nendmodule"
+}

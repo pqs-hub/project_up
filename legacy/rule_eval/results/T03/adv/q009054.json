@@ -1,0 +1,6 @@
+{
+  "task_id": "q009054",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  input enable,\n  output reg [WIDTH-1:0] count\n);parameter WIDTH = 8;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n  if (reset) begin\n    count <= 0;\n  end else if (enable) begin\n    count <= count + 1;\n  end\nend\n\nendmodule"
+}

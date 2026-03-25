@@ -1,0 +1,10 @@
+{
+  "task_id": "q000154",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module applies a Gaussian blur filter to a 3x3 pixel matrix.\n// It takes a 3x3 matrix of pixel values as input and outputs a single pixel value,\n// which is the result of applying the Gaussian blur.\n// The Gaussian blur can be approximated using the following kernel:\n//\n// 1  2  1\n// 2  4  2\n// 1  2  1\n//\n// Given the input pixel values as a 3x3 matrix, the output pixel value should be calculated using the formula:\n//\n// Output = (1*I1 + 2*I2 + 1*I3 + 2*I4 + 4*I5 + 2*I6 + 1*I7 + 2*I8 + 1*I9) / 16\n//\n// where I1 to I9 are the pixel values of the input matrix.\nmodule gaussian_blur (\n    input [7:0] I1, I2, I3,\n    input [7:0] I4, I5, I6,\n    input [7:0] I7, I8, I9,\n    output reg [7:0] O\n);\n    always @(*) begin\n        O = (I1 + 2*I2 + I3 + 2*I4 + 4*I5 + 2*I6 + I7 + 2*I8 + I9) / 16;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module applies a Gaussian blur filter to a 3x3 pixel matrix.\n// It takes a 3x3 matrix of pixel values as input and outputs a single pixel value,\n// which is the result of applying the Gaussian blur.\n// The Gaussian blur can be approximated using the following kernel:\n//\n// 1  2  1\n// 2  4  2\n// 1  2  1\n//\n// Given the input pixel values as a 3x3 matrix, the output pixel value should be calculated using the formula:\n//\n// Output = (1*I1 + 2*I2 + 1*I3 + 2*I4 + 4*I5 + 2*I6 + 1*I7 + 2*I8 + 1*I9) / 16\n//\n// where I1 to I9 are the pixel values of the input matrix."
+  }
+}

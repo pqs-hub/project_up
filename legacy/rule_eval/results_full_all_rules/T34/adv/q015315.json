@@ -1,0 +1,15 @@
+{
+  "task_id": "q015315",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( NOT_PIN2, GIN1, GIN2, PHI, GOUT );input  NOT_PIN2;\ninput  GIN1;\ninput  GIN2;\ninput  PHI;\noutput GOUT;\n\nreg    GOUT;\n\nalways @(posedge PHI) begin\n   GOUT =  ~ (GIN2 & (NOT_PIN2 | GIN1));\nend\n\nendmodule",
+  "rename_map": {
+    "PIN2": "NOT_PIN2"
+  },
+  "params_used": {
+    "custom_map": {
+      "PIN2": "PULL"
+    },
+    "fallback_prefix": "NOT_"
+  }
+}

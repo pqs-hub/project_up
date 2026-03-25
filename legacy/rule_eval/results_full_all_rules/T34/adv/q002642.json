@@ -1,0 +1,17 @@
+{
+  "task_id": "q002642",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module flash_memory (\n    input wire data_not_in,\n    input wire write_enable,\n    output reg data_out\n);\n    always @(*) begin\n        if (write_enable) begin\n            data_out = data_not_in; // Store the input value\n        end\n        // If not writing, retain the last value\n    end\nendmodule",
+  "rename_map": {
+    "data_in": "data_not_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "data_not_in",
+      "write_enable": "write_disable",
+      "data_out": "data_last_written"
+    },
+    "fallback_prefix": "flash_"
+  }
+}

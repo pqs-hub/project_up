@@ -1,0 +1,6 @@
+{
+  "task_id": "q011324",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    sel,\n    data_in_0,\n    data_in_1,\n    out\n);// Module ports\n    input  sel;\n    input  data_in_0;\n    input  data_in_1;\n    output out;\n\n    // Local signals\n    wire unused_and0_out;\n    wire and1_out;\n    wire not_sel;\n\n    //  Name  Output     Other arguments\n    not not0 (not_sel, sel);\n    and and0 (unused_and0_out, data_in_0, not_sel);\n    and and1 (and1_out, data_in_1, sel);\n    or  or0  (out     , unused_and0_out, and1_out);\n\nendmodule"
+}

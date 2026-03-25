@@ -1,0 +1,6 @@
+{
+  "task_id": "q007255",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(input rst,input clk,input clk_en ,input zero,output reg [14:0] eg_cnt);reg [1:0] unused_eg_cnt_base; \n always @(posedge clk, posedge rst) begin : envelope_counter \n  if( rst ) begin \n  unused_eg_cnt_base <= 2'd0; \n  eg_cnt <=15'd0; \n  end \n  else begin \n  if( zero && clk_en ) begin \n  if( unused_eg_cnt_base == 2'd2 ) begin \n  eg_cnt <= eg_cnt + 1'b1; \n  unused_eg_cnt_base <= 2'd0; \n  end \n  else unused_eg_cnt_base <= unused_eg_cnt_base + 1'b1; \n  end \n  end \n end \n endmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q003411",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule (  \n    input wire clk,  \n    input wire rst,  \n    input wire [8-1:1-1] raw_temp,  \n    input wire [7:0] calibration_factor,  \n    input wire [7:0] threshold,  \n    output reg [7:0] calibrated_temp  \n);  \n\nalways @(posedge clk or posedge rst) begin  \n    if (rst) begin  \n        calibrated_temp <= 8'b0;  \n    end else begin  \n        if (raw_temp > threshold) begin  \n            calibrated_temp <= raw_temp + calibration_factor;  \n        end else begin  \n            calibrated_temp <= raw_temp;  \n        end  \n    end  \nend  \nendmodule"
+}

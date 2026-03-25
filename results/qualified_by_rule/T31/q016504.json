@@ -1,0 +1,6 @@
+{
+  "task_id": "q016504",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n    input  Trap,\n    input  TrapCond,\n    input  [31:0] ALUResult,\n    output EXC_Tr\n    );\n    wire ALUZero = (ALUResult == 32'h00000000);\n    wire __EXC_Tr_tmp = Trap & (TrapCond ^ ALUZero);\n    assign EXC_Tr = __EXC_Tr_tmp;\nendmodule"
+}

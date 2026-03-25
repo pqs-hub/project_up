@@ -1,0 +1,8 @@
+{
+  "task_id": "q014727",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(input clk,input [12:0] p1_addr,input [7:0] p1_data,input p1_we,input [12:0] p2_addr,output reg [7:0] p2_data);reg [7:0] mem[0:(3*2048)-1]; \n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) \n  begin \n  if (p1_we) begin \n  mem[p1_addr] <= p1_data; \n  end \n  p2_data <= mem[p2_addr]; \n  end \n endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

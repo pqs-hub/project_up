@@ -1,0 +1,9 @@
+{
+  "task_id": "q009372",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module d_flipflop (\n    input wire clk,\n    input wire clr,\n    input wire pre,\n    input wire obf_D,\n    output reg Q\n    );\n\nalways @(posedge clk or posedge clr or posedge pre) begin\n    if (clr)\n        Q <= 1'b0;\n    else if (pre)\n        Q <= 1'b1;\n    else\n        Q <= obf_D;\nend\n\nendmodule",
+  "rename_map": {
+    "D": "obf_D"
+  }
+}

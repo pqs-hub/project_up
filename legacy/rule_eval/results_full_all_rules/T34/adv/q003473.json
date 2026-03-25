@@ -1,0 +1,16 @@
+{
+  "task_id": "q003473",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_2to1 (  \n    input [15:0] unselected_data,  \n    input [15:0] data1,  \n    input sel,  \n    output reg [15:0] out  \n);  \n    always @(*) begin  \n        if (sel)  \n            out = data1;  \n        else  \n            out = unselected_data;  \n    end  \nendmodule",
+  "rename_map": {
+    "data0": "unselected_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data0": "unselected_data",
+      "data1": "selected_data"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

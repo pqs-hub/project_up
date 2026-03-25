@@ -1,0 +1,15 @@
+{
+  "task_id": "q002001",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module FlashMemoryCell (\n    input wire clk,\n    input wire WE,\n    input wire RE,\n    input wire data_in,\n    output reg data_out\n);\n    reg cell_value;\n\n    always @(posedge clk) begin\n        if (WE) begin\n            cell_value <= data_in;\n        end\n        if (RE) begin\n            data_out <= cell_value;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory_cell": "cell_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory_cell": "cell_value"
+    },
+    "fallback_prefix": "fl_"
+  }
+}

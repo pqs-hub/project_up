@@ -1,0 +1,6 @@
+{
+  "task_id": "q011565",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule(\n    input       clk,\n    input       rst_n,\n    input       btn_in,\n    output reg  btn_out\n);\n\n    reg [3:0] counter;\n    reg btn_in_d;\n\n    always @(posedge clk or negedge rst_n) begin\n        if(!rst_n) begin\n            counter <= 4'b0;\n            btn_out <= 1'b0;\n            btn_in_d <= 1'b0;\n        end\n        else begin\n            if(btn_in == btn_in_d) begin\n                if(counter < 4'd10) begin\n                    counter <= counter + 1;\n                end\n                else begin\n                    btn_out <= btn_in;\n                end\n            end\n            else begin\n                counter <= 4'b0;\n            end\n            btn_in_d <= btn_in;\n        end\n    end\n\nendmodule"
+}

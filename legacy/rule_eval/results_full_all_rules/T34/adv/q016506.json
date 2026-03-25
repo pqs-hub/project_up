@@ -1,0 +1,18 @@
+{
+  "task_id": "q016506",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module rconst2in1(input_vector, rc1, rc2);\n    input  [11:0] input_vector;\n    output [63:0] rc1, rc2;\n    reg    [63:0] rc1, rc2;\n    always @ (input_vector)\n      begin\n        rc1 = 0;\n        rc1[0] = input_vector[0] | input_vector[2] | input_vector[3] | input_vector[5] | input_vector[6] | input_vector[7] | input_vector[10] | input_vector[11];\n        rc1[1] = input_vector[1] | input_vector[2] | input_vector[4] | input_vector[6] | input_vector[8] | input_vector[9];\n        rc1[3] = input_vector[1] | input_vector[2] | input_vector[4] | input_vector[5] | input_vector[6] | input_vector[7] | input_vector[9];\n        rc1[7] = input_vector[1] | input_vector[2] | input_vector[3] | input_vector[4] | input_vector[6] | input_vector[7] | input_vector[10];\n        rc1[15] = input_vector[1] | input_vector[2] | input_vector[3] | input_vector[5] | input_vector[6] | input_vector[7] | input_vector[8] | input_vector[9] | input_vector[10];\n        rc1[31] = input_vector[3] | input_vector[5] | input_vector[6] | input_vector[10] | input_vector[11];\n        rc1[63] = input_vector[1] | input_vector[3] | input_vector[7] | input_vector[8] | input_vector[10];\n      end\n    always @ (input_vector)\n      begin\n        rc2 = 0;\n        rc2[0] = input_vector[2] | input_vector[3] | input_vector[6] | input_vector[7];\n        rc2[1] = input_vector[0] | input_vector[5] | input_vector[6] | input_vector[7] | input_vector[9];\n        rc2[3] = input_vector[3] | input_vector[4] | input_vector[5] | input_vector[6] | input_vector[9] | input_vector[11];\n        rc2[7] = input_vector[0] | input_vector[4] | input_vector[6] | input_vector[8] | input_vector[10];\n        rc2[15] = input_vector[0] | input_vector[1] | input_vector[3] | input_vector[7] | input_vector[10] | input_vector[11];\n        rc2[31] = input_vector[1] | input_vector[2] | input_vector[5] | input_vector[9] | input_vector[11];\n        rc2[63] = input_vector[1] | input_vector[3] | input_vector[6] | input_vector[7] | input_vector[8] | input_vector[9] | input_vector[10] | input_vector[11];\n      end\nendmodule",
+  "rename_map": {
+    "i": "input_vector"
+  },
+  "params_used": {
+    "custom_map": {
+      "rconst2in1": "rconst2in1_misleading",
+      "i": "input_vector",
+      "rc1": "misleading_rc1",
+      "rc2": "misleading_rc2"
+    },
+    "fallback_prefix": "m_"
+  }
+}

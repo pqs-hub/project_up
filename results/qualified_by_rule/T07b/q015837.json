@@ -1,0 +1,6 @@
+{
+  "task_id": "q015837",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(douta,\n    clka,\n    ena,\n    addra,\n    dina,\n    wea);output [7:0] douta;\n  input clka;\n  input ena;\n  input [11:0] addra;\n  input [7:0] dina;\n  input wea;\n\n  // No need to redeclare input/output ports as wires again\n  // wire [7:0] douta; // Remove\n  // wire [11:0] addra; // Remove\n  // wire clka; // Remove\n  // wire [7:0] dina; // Remove\n  // wire ena; // Remove\n  // wire wea; // Remove\n\n  // Use a proper memory component or declare your own\n  // Currently the referenced module is missing; for simulation, we will just instantiate a simple RAM\n  reg [7:0] ram [0:4095]; // 4096 x 8-bit memory\n  assign douta = (ena) ? ram[addra] : 8'bz; // Output data only if enabled\n\n  always @(posedge clka) begin\n    if (ena && wea) begin\n      ram[addra] <= dina; // Write data\n    end\n  end\n\nendmodule"
+}

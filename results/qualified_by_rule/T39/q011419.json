@@ -1,0 +1,6 @@
+{
+  "task_id": "q011419",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule(\n  input [7:0] num1,\n  input [7:0] num2,\n  input [1:0] operation,\n  output reg [7:0] result,    // Changed to reg\n  output reg negative          // Changed to reg\n);reg [15:0] temp_result;\n  reg signed [7:0] signed_result;\n\n  always @* begin\n    case(operation)\n      2'b00: temp_result = num1 + num2; // Addition\n      2'b01: temp_result = num1 - num2; // Subtraction\n      2'b10: temp_result = num1 * num2; // Multiplication\n      2'b11: temp_result = num1 / num2; // Division\n      default: temp_result = 0;          // Default case to avoid latches\n    endcase\n\n    signed_result = temp_result[7:0];\n    result = signed_result;  // Now valid l-value\n\n    if(signed_result < 0) begin\n      negative = 1;          // Now valid l-value\n    end\n    else begin\n      negative = 0;          // Now valid l-value\n    end\n  end\n\nendmodule"
+}

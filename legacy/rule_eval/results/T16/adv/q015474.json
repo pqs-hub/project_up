@@ -1,0 +1,9 @@
+{
+  "task_id": "q015474",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(E,S,obf_D,Y);input E;\ninput [2:0] S;\ninput [7:0] obf_D;\noutput Y;\nreg Y;\n\nalways @(E,S,obf_D)\nbegin\n\tif(E) Y = 1'b0;\n\telse\n\tbegin\n\t\tcase(S)\n\t\t\t3'b000 : Y = obf_D[0];\n\t\t\t3'b001 : Y = obf_D[1];\n\t\t\t3'b010 : Y = obf_D[2];\n\t\t\t3'b011 : Y = obf_D[3];\n\t\t\t3'b100 : Y = obf_D[4];\n\t\t\t3'b101 : Y = obf_D[5];\n\t\t\t3'b110 : Y = obf_D[6];\n\t\t\t3'b111 : Y = obf_D[7];\n\t\tendcase\n\tend\nend\nendmodule",
+  "rename_map": {
+    "D": "obf_D"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004612",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(\nclk         , \ncam_enable  , \ncam_data_in , \ncam_hit_out , \ncam_addr_out  \n);parameter ADDR_WIDTH  = 8;\nparameter DEPTH       = 1 << ADDR_WIDTH;\n\ninput                    clk;      \ninput                    cam_enable;   \ninput  [DEPTH-1:0]       cam_data_in;  \n\noutput                   cam_hit_out;  \noutput [ADDR_WIDTH-1:0]  cam_addr_out;  \n\nreg [ADDR_WIDTH-1:0]  cam_addr_out;\nreg                   cam_hit_out;\nreg [ADDR_WIDTH-1:0]  cam_addr_combo;\nreg                   cam_hit_combo;\nreg                   found_match;\ninteger               i;\n\nalways @(cam_data_in) begin\n  cam_addr_combo   = {ADDR_WIDTH{1'b0}};\n  found_match      = 1'b0;\n  cam_hit_combo    = 1'b0;\n  for (i=0; i<DEPTH; i=i+1) begin\n    if (cam_data_in[i] && !found_match) begin\n      found_match     = 1'b1;\n      cam_hit_combo   = 1'b1;\n      cam_addr_combo  = i;\n    end else begin\n      found_match     = found_match;\n      cam_hit_combo   = cam_hit_combo;\n      cam_addr_combo  = cam_addr_combo;\n    end\n  end\nend\n\n\nalways @(posedge clk) begin\n  if (cam_enable) begin\n    cam_hit_out  <=  cam_hit_combo;\n    cam_addr_out <=  cam_addr_combo;\n  end else begin\n    cam_hit_out  <=  1'b0;\n    cam_addr_out <=  {ADDR_WIDTH{1'b0}};\n  end\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q010844",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(D, S, R, G, Q, QN);input  D ;\ninput  S ;\ninput  R ;\ninput  G ;\noutput Q ;\noutput QN ;\nreg Q;\n\nalways @(posedge G)\nbegin\n    if (R == 1'b1)\n        Q <= 1'b0;\n    else if (S == 1'b1)\n        Q <= 1'b1;\n    else\n        Q <= D;\nend\n\nassign QN = ~Q;\n\nendmodule"
+}

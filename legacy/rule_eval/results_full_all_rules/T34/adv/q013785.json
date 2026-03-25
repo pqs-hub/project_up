@@ -1,0 +1,18 @@
+{
+  "task_id": "q013785",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] data,\n    input [4:0] shift_amount,\n    input shift_direction,\n    output [31:0] shifted_output\n);reg [31:0] obfuscated_shifted_data;\n\nalways @(*) begin\n    if (shift_direction == 0) // Left shift\n        obfuscated_shifted_data = data << shift_amount;\n    else // Right shift\n        obfuscated_shifted_data = data >> shift_amount;\nend\n\nassign shifted_output = obfuscated_shifted_data;\n\nendmodule",
+  "rename_map": {
+    "shifted_data": "obfuscated_shifted_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data": "input_data",
+      "shift_amount": "amount_to_shift",
+      "shift_direction": "direction_of_shift",
+      "shifted_output": "output_data"
+    },
+    "fallback_prefix": "obfuscated_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014779",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    output [1:0] gray_count );reg [1:0] binary_count;\n    reg [1:0] gray_count_reg;\n    \n    always @(posedge clk) begin\n        if (reset)\n            binary_count <= 2'b00;\n        else\n            binary_count <= binary_count + 1;\n    end\n    \n    always @(*) begin\n        gray_count_reg = {binary_count[1], binary_count[1] ^ binary_count[0]};\n    end\n    \n    assign gray_count = gray_count_reg;\n    \nendmodule"
+}

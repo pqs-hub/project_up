@@ -1,0 +1,15 @@
+{
+  "task_id": "q000854",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module morphological_dilation (  \n    input [8:0] binary_input, // 3x3 binary binary_input represented as a 9-bit input  \n    output reg dilated // Output indicating dilation result  \n);  \n    always @* begin  \n        // Check if any bit in the 3x3 matrix is 1  \n        if (binary_input[0] || binary_input[1] || binary_input[2] ||  \n            binary_input[3] || binary_input[4] || binary_input[5] ||  \n            binary_input[6] || binary_input[7] || binary_input[8])  \n            dilated = 1'b1;  \n        else  \n            dilated = 1'b0;  \n    end  \nendmodule",
+  "rename_map": {
+    "image": "binary_input"
+  },
+  "params_used": {
+    "custom_map": {
+      "image": "binary_input"
+    },
+    "fallback_prefix": "dilated_"
+  }
+}

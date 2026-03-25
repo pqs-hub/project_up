@@ -1,0 +1,7 @@
+{
+  "task_id": "q006676",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module top_module(\n    input [7:0] A,\n    input [7:0] B,\n    input [2:0] OP,\n    output reg [7:0] AND_out,\n    output reg [7:0] OR_out,\n    output reg [7:0] XOR_out,\n    output reg [7:0] NOT_out\n);always @(*) begin\n    case (OP)\n        3'b000: begin // AND\n            AND_out = A & B;\n            OR_out = 8'b0;\n            XOR_out = 8'b0;\n            NOT_out = 8'b0;\n        end\n        3'b001: begin // OR\n            AND_out = 8'b0;\n            OR_out = A | B;\n            XOR_out = 8'b0;\n            NOT_out = 8'b0;\n        end\n        3'b010: begin // XOR\n            AND_out = 8'b0;\n            OR_out = 8'b0;\n            XOR_out = A ^ B;\n            NOT_out = 8'b0;\n        end\n        3'b011: begin // NOT\n            AND_out = 8'b0;\n            OR_out = 8'b0;\n            XOR_out = 8'b0;\n            NOT_out = ~A;\n        end\n        default: begin // Invalid operation\n            AND_out = 8'b0;\n            OR_out = 8'b0;\n            XOR_out = 8'b0;\n            NOT_out = 8'b0;\n        end\n    endcase\nend\n\nendmodule",
+  "rename_map": {}
+}

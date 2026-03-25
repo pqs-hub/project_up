@@ -1,0 +1,6 @@
+{
+  "task_id": "q014818",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    output X,\n    input A,\n    input B,\n    input C,\n    input D\n);wire unused_X1;\n    wire X2;\n\n    // Replace with standard 4-input AND logic\n    assign unused_X1 = A & B; // AND gate for A and B\n    assign X2 = C & D; // AND gate for C and D\n    assign X = unused_X1 & X2; // Final AND gate between unused_X1 and X2\n\nendmodule"
+}

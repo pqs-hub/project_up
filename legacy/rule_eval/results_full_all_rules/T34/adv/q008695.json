@@ -1,0 +1,15 @@
+{
+  "task_id": "q008695",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input a, b,\n    output xor_out, cout, sum);// Structural implementation of XOR gate using MUX\n    wire xor_inverted;\n    assign xor_inverted = (a ^ b) ? 1'b1 : 1'b0;\n    assign xor_out = xor_inverted;\n\n    // Half adder implementation using XOR and AND gates\n    wire ha_xor_out, ha_and_out;\n    assign ha_xor_out = a ^ b;\n    assign ha_and_out = a & b;\n    assign cout = ha_and_out;\n    assign sum = ha_xor_out;\n\nendmodule",
+  "rename_map": {
+    "mux_out": "xor_inverted"
+  },
+  "params_used": {
+    "custom_map": {
+      "mux_out": "xor_inverted"
+    },
+    "fallback_prefix": "ha_"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "q005389",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux2to1_8bit_active_high (\n  input [7:0] data_in0,\n  input [7:0] in1,\n  input sel,\n  input en,\n  output reg [7:0] out\n);\n\n  always @(*) begin\n    if (en) begin\n      case (sel)\n        1'b0: out = data_in0;\n        1'b1: out = in1;\n        default: out = 8'b00000000;\n      endcase\n    end else begin\n      out = 8'b00000000;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "in0": "data_in0"
+  },
+  "params_used": {
+    "custom_map": {
+      "in0": "data_in0",
+      "in1": "data_in1",
+      "sel": "select_signal",
+      "en": "enable_signal",
+      "out": "output_data"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

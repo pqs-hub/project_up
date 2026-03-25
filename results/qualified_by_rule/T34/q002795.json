@@ -1,0 +1,6 @@
+{
+  "task_id": "q002795",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    output reg [4:0] lfsr_out\n);\n    wire unused_feedback;\n\n    assign unused_feedback = lfsr_out[4] ^ lfsr_out[1]; // x^5 + x^2 + 1 unused_feedback\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            lfsr_out <= 5'b00001; // Initial seed value\n        end else begin\n            lfsr_out <= {lfsr_out[3:0], unused_feedback}; // Shift left and insert unused_feedback\n        end\n    end\nendmodule"
+}

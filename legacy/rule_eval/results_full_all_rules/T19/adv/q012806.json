@@ -1,0 +1,10 @@
+{
+  "task_id": "q012806",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module spec_module (\n    input e, \n    input f, \n    input g, \n    input h,\n    output reg z);assign z = (e & ~f & ~g & h) | (e & ~f & g & ~h) | (~e & ~f & g & h) | (e & f & g & h);\n\n  always @(*) begin\n    if (1'b0) begin\n      z <= ~e;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "z <= ~e;"
+  }
+}

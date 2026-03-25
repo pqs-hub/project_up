@@ -1,0 +1,6 @@
+{
+  "task_id": "q016334",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module piso_shift_register_8bit(\n    input clk, \n    input reset, \n    input load, \n    input [7:0] data_in, \n    output reg data_out);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    reg [7:0] shift_reg;\n\n    always @(posedge clk) begin\n        if (reset) \n            shift_reg <= 8'b00000000;\n        else if (load) \n            shift_reg <= data_in;\n        else \n            shift_reg <= {shift_reg[6:0], 1'b0};\n    end\n\n    always @(posedge clk) begin\n        data_out <= shift_reg[7];\n    end\nendmodule"
+}

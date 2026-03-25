@@ -1,0 +1,10 @@
+{
+  "task_id": "q000146",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This controller ensures the output stays at the current value instead of reaching the setpoint\nmodule deadbeat_controller(  \n    input clk,  \n    input [7:0] setpoint,  \n    input [7:0] current_output,  \n    output reg [7:0] control_signal  \n);  \n    always @(posedge clk) begin  \n        control_signal <= setpoint - current_output;  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This controller ensures the output stays at the current value instead of reaching the setpoint"
+  }
+}

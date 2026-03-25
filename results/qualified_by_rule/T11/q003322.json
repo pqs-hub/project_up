@@ -1,0 +1,6 @@
+{
+  "task_id": "q003322",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire signal_in,\n    output reg edge_out\n);\n    reg signal_in_prev;\n\n    always @(posedge clk) begin\n        edge_out <= 0; // Default output\n        if (signal_in && !signal_in_prev) begin\n            edge_out <= 1; // Rising edge detected\n        end\n        signal_in_prev <= signal_in; // Store the previous state\n    end\nendmodule"
+}

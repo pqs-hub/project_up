@@ -1,0 +1,17 @@
+{
+  "task_id": "q015066",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    A,\n    SLEEP,\n    X\n);// Module ports\n    input A;\n    input SLEEP;\n    output X;\n\n    // Local signals\n    wire INV_not0_out  ;\n    wire and0_out_X;\n\n    //  Name  Output      Other arguments\n    not not0 (INV_not0_out  , SLEEP          );\n    and and0 (and0_out_X, INV_not0_out, A    );\n    buf buf0 (X         , and0_out_X     );\n\nendmodule",
+  "rename_map": {
+    "not0_out": "INV_not0_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "SLEEP": "WAKEUP",
+      "A": "DATA_IN",
+      "X": "OUTPUT"
+    },
+    "fallback_prefix": "INV_"
+  }
+}

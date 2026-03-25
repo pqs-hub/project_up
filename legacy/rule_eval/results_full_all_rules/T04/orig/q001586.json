@@ -1,0 +1,6 @@
+{
+  "task_id": "q001586",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module adc_controller(  \n    input wire clk,  \n    input wire reset,  \n    input wire [23:0] adc_input,  \n    output reg [11:0] upper_output,  \n    output reg [11:0] lower_output  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            upper_output <= 12'b0;  \n            lower_output <= 12'b0;  \n        end else begin  \n            upper_output <= adc_input[23:12];  \n            lower_output <= adc_input[11:0];  \n        end  \n    end  \nendmodule"
+}

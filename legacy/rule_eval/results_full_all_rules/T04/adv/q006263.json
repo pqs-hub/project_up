@@ -1,0 +1,10 @@
+{
+  "task_id": "q006263",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This is a 2-to-4 decoder instead of an encoder\nmodule encoder_4to2(\n    input [3:0] y,    // 4-bit one-hot input.\n    output reg [1:0] a // 2-bit binary output.\n);\n\n// Encoder logic\nalways @(*) begin\n    case (y)\n        4'b0001: a = 2'b00;\n        4'b0010: a = 2'b01;\n        4'b0100: a = 2'b10;\n        4'b1000: a = 2'b11;\n        default: a = 2'b00; // Default case for invalid input\n    endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 2-to-4 decoder instead of an encoder"
+  }
+}

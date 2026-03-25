@@ -1,0 +1,8 @@
+{
+  "task_id": "q002092",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module SISO_ShiftRegister (\n    input clk,\n    input reset,\n    input serial_in,\n    output reg [3:0] parallel_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            parallel_out <= 4'b0000;\n        end else begin\n            parallel_out <= {parallel_out[2:0], serial_in};\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

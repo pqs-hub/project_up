@@ -1,0 +1,10 @@
+{
+  "task_id": "q004212",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module vco (  \n    input wire [2:0] control_voltage,  \n    output reg frequency_output  \n);  \n\n    always @(control_voltage) begin  \n        if (control_voltage < 3'b100)  \n            frequency_output = 1'b0; // Low frequency  \n        else  \n            frequency_output = 1'b1; // High frequency  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      frequency_output <= ~control_voltage[2];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "frequency_output <= ~control_voltage[2];\n"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016203",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register_32bit\n    (\n        input rst_n,\n        input clk,\n        input load,\n        input [31:0] data_in,\n        output reg [31:0] data_out\n    );\n\n    reg [31:0] unused_reg_data;\n\n    always @(posedge clk) \n    begin\n        if (!rst_n)\n            unused_reg_data <= 32'd0;\n        else if (load)\n            unused_reg_data <= data_in;\n    end\n\n    always @(posedge clk)\n    begin\n        data_out <= unused_reg_data;\n    end\n\nendmodule"
+}

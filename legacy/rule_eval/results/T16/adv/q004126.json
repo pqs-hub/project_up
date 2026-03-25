@@ -1,0 +1,9 @@
+{
+  "task_id": "q004126",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module sram_cell (\n    input [3:0] d,\n    input we,\n    input re,\n    input clk,\n    output reg [3:0] q\n);\n    reg [3:0] obf_memory;\n\n    always @(posedge clk) begin\n        if (we) begin\n            obf_memory <= d; // Write data to obf_memory\n        end\n        if (re) begin\n            q <= obf_memory; // Read data from obf_memory\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "obf_memory"
+  }
+}

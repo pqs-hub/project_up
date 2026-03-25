@@ -1,0 +1,6 @@
+{
+  "task_id": "q010380",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(data_out,clk,data_in,rst);output data_out; \n input clk; \n input data_in; \n input rst; \n reg [1:0] unused_data_sync; \n always @(posedge clk or posedge rst) \n  if (rst) unused_data_sync <= 2'b00; \n  else unused_data_sync <= {unused_data_sync[0], data_in}; \n assign data_out = unused_data_sync[1]; \n endmodule"
+}

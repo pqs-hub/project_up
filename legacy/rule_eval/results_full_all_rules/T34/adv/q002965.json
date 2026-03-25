@@ -1,0 +1,15 @@
+{
+  "task_id": "q002965",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module pcie_address_decoder (\n    input [31:0] base_address,\n    output reg [3:0] chip_select\n);\n    always @(*) begin\n        chip_select = base_address[3:0]; // Extract the lower 4 bits for chip select\n    end\nendmodule",
+  "rename_map": {
+    "address": "base_address"
+  },
+  "params_used": {
+    "custom_map": {
+      "address": "base_address"
+    },
+    "fallback_prefix": "decoder_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q004021",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module siso_shift_register (\n    input wire clk,\n    input wire rst,\n    input wire si,\n    output reg so\n);\n    reg [4:0] reset_reg;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            reset_reg <= 5'b0;\n            so <= 1'b0;\n        end else begin\n            reset_reg <= {reset_reg[3:0], si}; // Shift left and insert SI\n            so <= reset_reg[4]; // Output the MSB\n        end\n    end\nendmodule",
+  "rename_map": {
+    "shift_reg": "reset_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "shift_reg": "reset_reg"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

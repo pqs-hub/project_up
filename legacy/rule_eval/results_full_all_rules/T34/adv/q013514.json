@@ -1,0 +1,16 @@
+{
+  "task_id": "q013514",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(invalid_temp, temp_op, temp_clk, temp_en);input wire [15:0] invalid_temp;\n output reg [15:0] temp_op;\n input wire temp_clk, temp_en;\n \n always@ (posedge temp_clk)\n begin\n if(temp_en) begin\n  temp_op = invalid_temp;\n  end\n end\nendmodule",
+  "rename_map": {
+    "temp_ip": "invalid_temp"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_ip": "invalid_temp",
+      "temp_op": "stale_temp"
+    },
+    "fallback_prefix": "err_"
+  }
+}

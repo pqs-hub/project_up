@@ -1,0 +1,10 @@
+{
+  "task_id": "q005594",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [15:0] bin,\n    output [15:0] gray);\n\n    assign gray = bin ^ (bin >> 1);\n\n  always @(*) begin\n    if (1'b0) begin\n      gray[0] <= ~gray[0];\n      for (int i = 1; i < 16; i++) begin\n        gray[i] <= ~gray[i - 1];\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "gray[0] <= ~gray[0];\nfor (int i = 1; i < 16; i++) begin\n  gray[i] <= ~gray[i - 1];\nend"
+  }
+}

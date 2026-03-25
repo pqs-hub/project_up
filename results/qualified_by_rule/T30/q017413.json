@@ -1,0 +1,6 @@
+{
+  "task_id": "q017413",
+  "rule_id": "T30",
+  "changed": true,
+  "final": "module RefModule (\n    input [7:0] a,\n    input [7:0] b,\n    output [7:0] sum,\n    output carry\n);\n\n    wire [8:0] temp_sum;\n    \n    assign temp_sum =  {(1'b1 & 1'b0), a} + {1'b0, b};\n    assign sum = temp_sum[7:0];\n    assign carry = temp_sum[8];\n    \nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q016765",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module xor_gate(\n    input a,\n    input b,\n    output reg out_if_else\n);\n\nalways @(*) begin\n    if(a != b) begin\n        out_if_else = 1;\n    end\n    else begin\n        out_if_else = 0;\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      out_if_else = ~a & ~b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out_if_else = ~a & ~b;"
+  }
+}

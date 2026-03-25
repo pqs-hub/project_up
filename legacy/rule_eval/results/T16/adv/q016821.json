@@ -1,0 +1,9 @@
+{
+  "task_id": "q016821",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module full_adder(\n    input A,\n    input B,\n    input CIN,\n    output SUM,\n    output COUT\n);\n\nwire obf_w1, w2, w3;\n\n// Calculate SUM\nassign obf_w1 = A ^ B;\nassign SUM = obf_w1 ^ CIN;\n\n// Calculate COUT\nassign w2 = A & B;\nassign w3 = CIN & obf_w1;\nassign COUT = w2 | w3;\n\nendmodule",
+  "rename_map": {
+    "w1": "obf_w1"
+  }
+}

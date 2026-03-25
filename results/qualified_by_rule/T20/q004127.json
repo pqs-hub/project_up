@@ -1,0 +1,6 @@
+{
+  "task_id": "q004127",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule(\n    input clk,\n    input reset,\n    input [7:0] current_temp,\n    output reg [7:0] avg_temp\n);\n    reg [7:0] temp_values [0:4]; // Array to hold last 5 temperature readings\n    reg [2:0] count; // Count of stored temperatures\n    reg [11:0] sum; // Sum of temperatures for average calculation\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            avg_temp <= 8'b0;\n            count <= 3'b0;\n            sum <= 12'b0;\n        end else begin\n            // Shift temperatures\n            if (count < 5) begin\n                temp_values[count] <= current_temp;\n                sum <= sum + current_temp;\n                count <= count + 1;\n            end else begin\n                sum <= sum - temp_values[0] + current_temp;\n                temp_values[0] <= temp_values[1];\n                temp_values[1] <= temp_values[2];\n                temp_values[2] <= temp_values[3];\n                temp_values[3] <= temp_values[4];\n                temp_values[4] <= current_temp;\n            end\n            avg_temp <= sum / (count < 5 ? count + 1 : 5);\n        end\n    end\nendmodule"
+}

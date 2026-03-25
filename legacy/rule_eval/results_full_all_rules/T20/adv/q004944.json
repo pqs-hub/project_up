@@ -1,0 +1,10 @@
+{
+  "task_id": "q004944",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module performs an 8-bit barrel shifter with synchronous reset and opposite shift directions.\nmodule top_module(\n  input clk,\n  input reset,\n  input [7:0] data_in,\n  input [2:0] shift_amount,\n  input shift_direction, // 0: right shift, 1: left shift\n  output reg [7:0] data_out\n);always @ (posedge clk or posedge reset) begin\n    if (reset) begin\n      data_out <= 8'h00;\n    end else begin\n      if (shift_direction == 1) begin // left shift\n        data_out <= (data_in << shift_amount); // left shift using bitwise left shift\n      end else begin // right shift\n        data_out <= (data_in >> shift_amount); // right shift using bitwise right shift\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs an 8-bit barrel shifter with synchronous reset and opposite shift directions."
+  }
+}

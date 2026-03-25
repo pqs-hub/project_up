@@ -1,0 +1,10 @@
+{
+  "task_id": "q016965",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a flip-flop with preset and clear functions.\n// - When PRE is asserted, the output Q should be set to 0.\n// - When CLR is asserted, the output Q should be set to 1.\n// - When neither PRE nor CLR is asserted, the output Q should follow the value of D on the falling edge of CLK.\nmodule flipflop_preset_clear(\n    input CLK,\n    input D,\n    input PRE,\n    input CLR,\n    output reg Q,\n    output reg Q_bar\n);\n\nalways @ (posedge CLK) begin\n    if (PRE) begin\n        Q <= 1'b1;\n    end else if (CLR) begin\n        Q <= 1'b0;\n    end else begin\n        Q <= D;\n    end\nend\n\nassign Q_bar = ~Q;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a flip-flop with preset and clear functions.\n// - When PRE is asserted, the output Q should be set to 0.\n// - When CLR is asserted, the output Q should be set to 1.\n// - When neither PRE nor CLR is asserted, the output Q should follow the value of D on the falling edge of CLK."
+  }
+}

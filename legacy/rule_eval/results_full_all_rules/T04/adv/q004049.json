@@ -1,0 +1,10 @@
+{
+  "task_id": "q004049",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 64-bit binary counter that decrements on the rising edge of the clock when the enable signal is high. If the reset signal is high, the counter should reset to the maximum value of 2^64 - 1.\nmodule counter_64bit (\n    input clk,\n    input reset,\n    input enable,\n    output reg [63:0] count\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 64'b0;\n        end else if (enable) begin\n            count <= count + 1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 64-bit binary counter that decrements on the rising edge of the clock when the enable signal is high. If the reset signal is high, the counter should reset to the maximum value of 2^64 - 1."
+  }
+}

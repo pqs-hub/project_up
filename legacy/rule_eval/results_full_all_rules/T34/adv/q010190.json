@@ -1,0 +1,15 @@
+{
+  "task_id": "q010190",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module pulse_gen(\n    input clk,\n    input trigger,\n    output reg pulse\n);\n\n    reg neg_trigger = 0;\n\n    always @(posedge clk) begin\n        if (trigger && !neg_trigger) begin\n            pulse <= 1;\n        end else begin\n            pulse <= 0;\n        end\n        neg_trigger <= trigger;\n    end\n\nendmodule",
+  "rename_map": {
+    "trigger_prev": "neg_trigger"
+  },
+  "params_used": {
+    "custom_map": {
+      "trigger_prev": "neg_trigger"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q011187",
+  "rule_id": "T18",
+  "changed": true,
+  "final": "module top_module(\n    input x,\n    input y,\n    output z\n);\n    assign z = ~(~x | ~~y);\nendmodule\n\nmodule D(\n    input x,\n    input y,\n    output z\n);\n    assign z = (~x & ~y) | (x & ~y);\nendmodule\n\nmodule top_module(\n    input x,\n    input y,\n    output z\n);\n    wire c1_out, c2_out, d1_out, d2_out;\n    wire nand_out, nor_out;\n\n    C c1(.x(x), .y(y), .z(c1_out));\n    C c2(.x(x), .y(y), .z(c2_out));\n    D d1(.x(x), .y(y), .z(d1_out));\n    D d2(.x(x), .y(y), .z(d2_out));\n\n    assign nand_out = ~(c1_out & d1_out);\n    assign nor_out = ~(c2_out | d2_out);\n\n    assign z = nand_out ^ nor_out;\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

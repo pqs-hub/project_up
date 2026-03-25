@@ -1,0 +1,10 @@
+{
+  "task_id": "q004515",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module full_adder (\n    input wire a,\n    input wire b,\n    input wire cin,\n    output wire sum,\n    output wire cout\n);\n\nassign sum = a ^ b ^ cin;\nassign cout = (a & b) | (b & cin) | (a & cin);\n\n  always @(*) begin\n    if (1'b0) begin\n      sum <= ~a; cout <= ~b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum <= ~a; cout <= ~b;"
+  }
+}

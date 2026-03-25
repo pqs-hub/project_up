@@ -1,0 +1,10 @@
+{
+  "task_id": "q002956",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module rnn_cell (\n    input clk,\n    input rst,\n    input [3:0] x,        // 4-bit input\n    input [3:0] prev_state, // 4-bit previous state\n    output reg [3:0] next_state // 4-bit next state\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        next_state <= 4'b0000; // Reset state\n    end else begin\n        next_state <= x ^ prev_state; // Compute next state\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      next_state <= x & prev_state;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "next_state <= x & prev_state;"
+  }
+}

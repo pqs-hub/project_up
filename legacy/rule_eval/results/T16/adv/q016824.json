@@ -1,0 +1,9 @@
+{
+  "task_id": "q016824",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module mux4x1(obf_data0, data1, data2, data3, selectInput, out);\n    \n    output reg [7:0] out;\n    input [7:0] obf_data0, data1, data2, data3;\n    input [1:0] selectInput;\n\n    always @(*) begin\n        case (selectInput)\n            2'b00: out = obf_data0;\n            2'b01: out = data1;\n            2'b10: out = data2;\n            2'b11: out = data3;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {
+    "data0": "obf_data0"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q007776",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule top_module( clk, ld, rst, d, q );// synthesis attribute keep_hierarchy dffl_18 \"true\";\n\tinput clk;\n\tinput ld;\n\tinput rst;\n\tinput [17:0] d;\n\toutput [17:0] q;\n\treg [17:0] q;\n\t// synopsys translate_off\n`ifdef RANDOM_INIT\n\tinitial\n\t$random_init(\"q\");\n`endif\n\t// synopsys translate_on\n\talways @(posedge clk) begin\n\t\tif (rst == 0) begin\n\t\t\tq <= 0;\n\t\tend\n\t\telse if (ld == 1) begin\n\t\t\tq <= d;\n\t\tend\n\tend\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004072",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule (\n    input [1:0] numerator,\n    input [1:0] denominator,\n    output reg [1:0] quotient,\n    output reg [1:0] remainder\n);\n    always @(*) begin\n        if (denominator == 2'b00) begin\n            quotient = 2'bxx; // Undefined behavior\n            remainder = 2'bxx; // Undefined behavior\n        end else begin\n            quotient = numerator / denominator;\n            remainder = numerator % denominator;\n        end\n    end\nendmodule"
+}

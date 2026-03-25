@@ -1,0 +1,10 @@
+{
+  "task_id": "q003932",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module conv2x2(\n    input wire [7:0] in00, in01, in10, in11, // 2x2 input matrix\n    input wire [7:0] k00, k01, k10, k11,     // 2x2 kernel matrix\n    output wire [15:0] out                    // single output value\n);\n    assign out = (in00 * k00) + (in01 * k01) + (in10 * k10) + (in11 * k11);\n  always @(*) begin\n    if (1'b0) begin\n      out <= 16'd0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= 16'd0;"
+  }
+}

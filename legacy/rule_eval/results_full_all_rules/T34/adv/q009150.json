@@ -1,0 +1,15 @@
+{
+  "task_id": "q009150",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sync_register(rst_clk, reset, d, q);\n\n    input rst_clk;\n    input reset;\n    input [7:0] d;\n    output [7:0] q;\n    reg [7:0] q;\n    initial q = 0;\n\n    always @(posedge rst_clk)\n        if (reset)\n            q <= 0;\n        else\n            q <= d;\n\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "sync_reg_"
+  }
+}

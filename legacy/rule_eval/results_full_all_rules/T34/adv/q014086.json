@@ -1,0 +1,15 @@
+{
+  "task_id": "q014086",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ring_counter(reset_clk, rst, count);\n    input reset_clk, rst;\n    output reg [3:0] count;\n\n    always @(posedge reset_clk) begin\n        if (rst)\n            count <= 4'b0001;\n        else\n            count <= {count[2:0], count[3]};\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

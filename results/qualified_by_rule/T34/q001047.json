@@ -1,0 +1,6 @@
+{
+  "task_id": "q001047",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input enable,\n    output reg timeout\n);\n    reg [3:0] unused_counter; // 4-bit unused_counter for counting up to 10\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            unused_counter <= 0;\n            timeout <= 0;\n        end else if (enable) begin\n            if (unused_counter < 10) begin\n                unused_counter <= unused_counter + 1;\n                timeout <= 0;\n            end else begin\n                timeout <= 1;\n            end\n        end\n    end\nendmodule"
+}

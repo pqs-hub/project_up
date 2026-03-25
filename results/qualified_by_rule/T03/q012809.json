@@ -1,0 +1,6 @@
+{
+  "task_id": "q012809",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input sel,\n    input [15:0] in0,\n    input [15:0] in1,\n    output [15:0] out\n);\n  wire _tap_sel = sel & {1{1'b1}};\n\n\n    reg [15:0] mux_out;  // Multiplexer output register\n\n    always @(*) begin\n        case (sel)\n            1'b0: mux_out = in0;\n            1'b1: mux_out = in1;\n            default: mux_out = 16'b0000000000000000;  // Default case (should not occur)\n        endcase\n    end\n\n    assign out = mux_out;\n\nendmodule"
+}

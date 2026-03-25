@@ -1,0 +1,6 @@
+{
+  "task_id": "q000200",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module JK_latch(\n    input J,\n    input K,\n    input clk,\n    output reg Q\n);\n    always @(posedge clk) begin\n        if (J && !K) begin\n            Q <= 1'b1; // Set\n        end else if (!J && K) begin\n            Q <= 1'b0; // Reset\n        end else if (J && K) begin\n            Q <= ~Q;   // Toggle\n        end\n        // If J and K are both low, Q remains unchanged\n    end\nendmodule"
+}

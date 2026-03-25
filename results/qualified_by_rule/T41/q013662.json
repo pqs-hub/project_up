@@ -1,0 +1,6 @@
+{
+  "task_id": "q013662",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n\tstall_i,\n\tclk_i,\n\tWB_i,\n\tReadData_i,\n\tmux3_i,\n\timmed_i,\n\tWB_o,\n\tReadData_o,\n\tmux3_o,\t\n\timmed_o\n);input\t\t\tclk_i, stall_i;\ninput\t[1:0]\tWB_i;\ninput\t[4:0]\tmux3_i;\ninput\t[31:0]\tReadData_i, immed_i;\n\n\noutput reg\t[1:0]\tWB_o;\noutput reg\t[4:0]\tmux3_o;\noutput reg\t[31:0]\tReadData_o, immed_o;\n\n\n\n\n\n\n\n\n\n\nalways@(negedge clk_i)\tbegin\n\tif(stall_i)\tbegin\n\tend else begin\n\t\tWB_o <= WB_i;\n\t\tReadData_o <= ReadData_i;\n\t\timmed_o <= immed_i;\n\t\tmux3_o <= mux3_i;\n\tend\nend\n\nendmodule"
+}

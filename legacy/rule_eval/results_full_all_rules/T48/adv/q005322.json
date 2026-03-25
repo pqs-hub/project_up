@@ -1,0 +1,8 @@
+{
+  "task_id": "q005322",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module top_module(\n    input wire clk,           // Added clk input\n    input wire [2:0] vec,\n    output wire [2:0] outv,\n    output wire o2,\n    output wire o1,\n    output wire o0\n);reg [2:0] stage1_out;\nreg [2:0] stage2_out;\nreg [2:0] stage3_out;\n\n  assign outv = stage3_out;\n  assign o0 = vec[0];\n  assign o1 = vec[1];\n\nalways @ (posedge clk) begin\n    stage1_out <= vec;\nend\n\nalways @ (posedge clk) begin\n    stage2_out <= stage1_out;\nend\n\nalways @ (posedge clk) begin\n    stage3_out <= stage2_out;\nend\n\n  assign o2 = vec[2];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

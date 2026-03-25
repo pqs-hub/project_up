@@ -1,0 +1,6 @@
+{
+  "task_id": "q006317",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (\n    input wire [7:0] d,\n    input wire clk,\n    input wire load,\n    output reg [7:0] q\n);\n\nalways @(posedge clk) begin\n    if (load)\n        q <= d;\n    else\n        q <= {q[6:0], 1'b0};\nend\n\nendmodule"
+}

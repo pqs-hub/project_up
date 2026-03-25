@@ -1,0 +1,6 @@
+{
+  "task_id": "q010557",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(\n\tinput clk,\n\tinput reset,\n\tinput shift_left,\n\tinput shift_right,\n\tinput load,\n\tinput [7:0] data_in,\n\toutput reg [7:0] q);\n\n\talways @(posedge clk or posedge reset) begin\n\t\tif (reset)\n\t\t\tq <= 8'b00000000;\n\t\telse if (load)\n\t\t\tq <= data_in;\n\t\telse if (shift_left)\n\t\t\tq <= {q[6:0], 1'b0};\n\t\telse if (shift_right)\n\t\t\tq <= {1'b0, q[7:1]};\n\tend\n\t\nendmodule"
+}

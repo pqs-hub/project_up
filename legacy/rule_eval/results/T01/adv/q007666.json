@@ -1,0 +1,6 @@
+{
+  "task_id": "q007666",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(clk, reset, set, d, q, qn);input clk, reset, set, d;\noutput q, qn;\nreg q, qn;\n\nalways @(posedge clk or negedge reset or negedge set) begin\n    begin end  // redundant\n    if (!reset) begin\n        q <= 0;\n        qn <= 1;\n    end else if (!set) begin\n        q <= 1;\n        qn <= 0;\n    end else begin\n        q <= d;\n        qn <= ~d;\n    end\nend\n\nendmodule"
+}

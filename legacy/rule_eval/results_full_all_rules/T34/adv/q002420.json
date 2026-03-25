@@ -1,0 +1,17 @@
+{
+  "task_id": "q002420",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module rnn_cell (\n    input [3:0] y,        // 4-bit input\n    input [3:0] h_prev,   // 4-bit previous hidden state\n    output reg [3:0] h_out // 4-bit output (new hidden state)\n);\n    always @(*) begin\n        h_out = y ^ h_prev; // XOR operation for the output\n    end\nendmodule",
+  "rename_map": {
+    "x": "y"
+  },
+  "params_used": {
+    "custom_map": {
+      "x": "y",
+      "h_prev": "z",
+      "h_out": "w"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

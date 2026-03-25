@@ -1,0 +1,15 @@
+{
+  "task_id": "q002321",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module rnn_cell (\n    input [3:0] x,      // Input vector\n    input [3:0] h_in,   // Previous hidden state\n    output reg [3:0] h_err // New hidden state\n);\n    always @(x or h_in) begin\n        // Simple update rule for the hidden state\n        h_err = (x + h_in) % 16; // Keeping the output within 4 bits\n    end\nendmodule",
+  "rename_map": {
+    "h_out": "h_err"
+  },
+  "params_used": {
+    "custom_map": {
+      "h_out": "h_err"
+    },
+    "fallback_prefix": "rnn_"
+  }
+}

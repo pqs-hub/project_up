@@ -1,0 +1,19 @@
+{
+  "task_id": "q008383",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] X_A,\n  input [3:0] B,\n  input Cin,\n  output reg [3:0] S,  // Change to output reg\n  output reg Cout      // Change to output reg\n);always @(*)  // Use @(*) for sensitivity list\nbegin\n  {Cout, S} = X_A + B + Cin;  // Concatenate to get carry out\nend\n\nendmodule",
+  "rename_map": {
+    "A": "X_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "B": "A",
+      "Cin": "D",
+      "S": "R",
+      "Cout": "Q"
+    },
+    "fallback_prefix": "X_"
+  }
+}

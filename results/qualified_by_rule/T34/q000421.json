@@ -1,0 +1,6 @@
+{
+  "task_id": "q000421",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (\n    input [7:0] sample0,\n    input [7:0] sample1,\n    input [7:0] sample2,\n    input [7:0] sample3,\n    input [7:0] sample4,\n    output reg [7:0] median\n);\n    reg [7:0] unused_samples [0:4];\n    integer i, j;\n\n    always @(*) begin\n        // Store the unused_samples in an array\n        unused_samples[0] = sample0;\n        unused_samples[1] = sample1;\n        unused_samples[2] = sample2;\n        unused_samples[3] = sample3;\n        unused_samples[4] = sample4;\n\n        // Simple bubble sort to sort the unused_samples\n        for (i = 0; i < 4; i = i + 1) begin\n            for (j = 0; j < 4 - i; j = j + 1) begin\n                if (unused_samples[j] > unused_samples[j + 1]) begin\n                    // Swap\n                    {unused_samples[j], unused_samples[j + 1]} = {unused_samples[j + 1], unused_samples[j]};\n                end\n            end\n        end\n\n        // Median is the middle element (third one in sorted order)\n        median = unused_samples[2];\n    end\nendmodule"
+}

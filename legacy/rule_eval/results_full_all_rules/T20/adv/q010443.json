@@ -1,0 +1,10 @@
+{
+  "task_id": "q010443",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module selects between two 8-bit inputs based on two select signals. Output is 'a' when 'x' is high, 'b' when 'y' is high, and '0' otherwise.\nmodule top_module(a,b,c,x,y);output [7:0] c;\ninput [7:0] a;\ninput [7:0] b;\ninput x,y;\nreg[7:0] c;\n\nalways @(x or y)\nbegin\n\tif(x) \n\t\tc = a;\n\telse if(y)\n\t\tc = b;\n\telse c = {8'b00000000};\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module selects between two 8-bit inputs based on two select signals. Output is 'a' when 'x' is high, 'b' when 'y' is high, and '0' otherwise."
+  }
+}

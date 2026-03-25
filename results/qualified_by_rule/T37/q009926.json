@@ -1,0 +1,6 @@
+{
+  "task_id": "q009926",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(\n\tinput D, clk, rst, pst,\n\toutput reg Qsimple, Qasyncrst, Qasyncpst\n\t);always @(posedge clk)\n\tQsimple <= D;\n\nalways @(posedge clk, posedge rst)begin\n\tif (rst == 1'b1)\n\t\tQasyncrst <= 1'b0;\n\telse\n\t\tQasyncrst <= D;\nend\n\nalways @(posedge clk, posedge rst, posedge pst)begin\n\tif (rst == 1'b1)\n\t\tQasyncpst <= 1'b0;\n\telse if (pst == 1'b1)\n\t\tQasyncpst <= 1'b1;\n\telse\n\t\tQasyncpst <= D;\nend\n\nendmodule"
+}

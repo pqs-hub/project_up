@@ -1,0 +1,15 @@
+{
+  "task_id": "q013114",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput clk,\n\tinput reset,\n\tinput [1:0] in,\n\toutput reg [1:0] out);reg [1:0] d_prev;\n\t\t\t\n\talways @(posedge clk) begin\n\t\td_prev <= in;\n\t\tif (reset)\n\t\t\tout <= '0;\n\t\telse\n\t\t\tout <= out | (in & ~d_prev);\n\tend\n\t\nendmodule",
+  "rename_map": {
+    "d_last": "d_prev"
+  },
+  "params_used": {
+    "custom_map": {
+      "d_last": "d_prev"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

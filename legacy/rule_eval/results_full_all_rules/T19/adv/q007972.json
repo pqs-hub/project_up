@@ -1,0 +1,10 @@
+{
+  "task_id": "q007972",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(distance,\n                     data,\n                     result);parameter             lpm_type = \"LPM_CLSHIFT\";\n   parameter             lpm_width = 32;\n   parameter             lpm_widthdist = 5;\n   \n   input  wire [lpm_widthdist-1:0] distance;\n   input  wire [lpm_width-1    :0] data;\n   output wire [lpm_width-1    :0] result;\n\n   assign result = data >> distance;\n  always @(*) begin\n    if (1'b0) begin\n      result <= data << distance;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "result <= data << distance;"
+  }
+}

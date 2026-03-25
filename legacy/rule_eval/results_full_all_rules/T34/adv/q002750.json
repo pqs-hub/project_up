@@ -1,0 +1,15 @@
+{
+  "task_id": "q002750",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module SRAM_4bit (\n    input [3:0] data_in,\n    input we,\n    input clk,\n    output reg [3:0] data_out\n);\n\n    reg [3:0] memory_cell;\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory_cell <= data_in; // Write operation\n        end\n        data_out <= memory_cell; // Read operation\n    end\nendmodule",
+  "rename_map": {
+    "storage": "memory_cell"
+  },
+  "params_used": {
+    "custom_map": {
+      "storage": "memory_cell"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

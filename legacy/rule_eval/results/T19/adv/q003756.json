@@ -1,0 +1,6 @@
+{
+  "task_id": "q003756",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module ring_counter(  \n    input clk,  \n    input reset,  \n    output reg [4:0] count  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            count <= 5'b00001;  // Initialize to a specific state  \n        end else begin  \n            count <= {count[3:0], count[4]};  // Shift left, maintaining ring behavior  \n        end  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

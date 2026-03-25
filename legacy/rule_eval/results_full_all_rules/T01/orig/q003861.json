@@ -1,0 +1,6 @@
+{
+  "task_id": "q003861",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module ldo_regulator (\n    input wire enable,          // Enable signal for LDO\n    input wire [7:0] v_ref,    // Reference voltage input\n    input wire [7:0] v_fb,     // Feedback voltage input\n    output reg control          // Control output signal\n);\n\nalways @(*) begin\n    if (enable) begin\n        if (v_fb < v_ref) begin\n            control = 1; // Enable LDO\n        end else begin\n            control = 0; // Disable LDO\n        end\n    end else begin\n        control = 0; // Disable LDO if not enabled\n    end\nend\n\nendmodule"
+}

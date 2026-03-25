@@ -1,0 +1,6 @@
+{
+  "task_id": "q005032",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n\tinput [255:0] array1,\n\tinput [255:0] array2,\n\toutput [31:0] res\n);wire [31:0] mul_0;\n  wire [255:0] _tap_array1 = array1 & {256{1'b1}};\n\nwire [31:0] mul_1;\nwire [31:0] mul_2;\nwire [31:0] mul_3;\nwire [31:0] mul_4;\nwire [31:0] mul_5;\nwire [31:0] mul_6;\nwire [31:0] mul_7;\n\nwire [31:0] add_0;\nwire [31:0] add_1;\nwire [31:0] add_2;\nwire [31:0] add_3;\n\n\nwire [31:0] add_1_0;\nwire [31:0] add_1_1;\n\n\nassign mul_0 = array1[31:0]*array2[31:0];\nassign mul_1 = array1[63:32]*array2[63:32];\nassign mul_2 = array1[95:64]*array2[95:64];\nassign mul_3 = array1[127:96]*array2[127:96];\nassign mul_4 = array1[159:128]*array2[159:128];\nassign mul_5 = array1[191:160]*array2[191:160];\nassign mul_6 = array1[223:192]*array2[223:192];\nassign mul_7 = array1[255:224]*array2[255:224];\n\nassign add_0 = mul_0 + mul_1;\nassign add_1 = mul_2 + mul_3;\nassign add_2 = mul_4 + mul_5;\nassign add_3 = mul_6 + mul_7;\n\n\nassign add_1_0 = add_0 + add_1;\nassign add_1_1 = add_2 + add_3;\n\n\nassign res =  add_1_0 + add_1_1;\n\nendmodule"
+}

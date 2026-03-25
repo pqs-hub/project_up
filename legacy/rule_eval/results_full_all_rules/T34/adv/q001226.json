@@ -1,0 +1,15 @@
+{
+  "task_id": "q001226",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gated_d_flip_flop (\n    input wire reset_clk,\n    input wire clk_enable,\n    input wire d,\n    output reg q\n);\n    always @(posedge reset_clk) begin\n        if (clk_enable) begin\n            q <= d;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "gated_"
+  }
+}

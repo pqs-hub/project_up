@@ -1,0 +1,10 @@
+{
+  "task_id": "q006909",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n    input [2:0] binary_in,\n    output reg [7:0] one_hot_out\n);\n\n    always @(*) begin\n        one_hot_out = 8'd0; // Initialize to 0\n        one_hot_out[binary_in] = 1'b1; // Set the corresponding bit to 1\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      one_hot_out[7:0] <= 8'b0;\n      if (binary_in == 3'b000) one_hot_out[0] <= 1'b1;\n      else if (binary_in == 3'b001) one_hot_out[1] <= 1'b1;\n      else if (binary_in == 3'b010) one_hot_out[2] <= 1'b1;\n      else if (binary_in == 3'b011) one_hot_out[3] <= 1'b1;\n      else if (binary_in == 3'b100) one_hot_out[4] <= 1'b1;\n      else if (binary_in == 3'b101) one_hot_out[5] <= 1'b1;\n      else if (binary_in == 3'b110) one_hot_out[6] <= 1'b1;\n      else if (binary_in == 3'b111) one_hot_out[7] <= 1'b1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "one_hot_out[7:0] <= 8'b0;\nif (binary_in == 3'b000) one_hot_out[0] <= 1'b1;\nelse if (binary_in == 3'b001) one_hot_out[1] <= 1'b1;\nelse if (binary_in == 3'b010) one_hot_out[2] <= 1'b1;\nelse if (binary_in == 3'b011) one_hot_out[3] <= 1'b1;\nelse if (binary_in == 3'b100) one_hot_out[4] <= 1'b1;\nelse if (binary_in == 3'b101) one_hot_out[5] <= 1'b1;\nelse if (binary_in == 3'b110) one_hot_out[6] <= 1'b1;\nelse if (binary_in == 3'b111) one_hot_out[7] <= 1'b1;"
+  }
+}

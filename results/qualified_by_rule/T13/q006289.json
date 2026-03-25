@@ -1,0 +1,6 @@
+{
+  "task_id": "q006289",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n   input clk,\n   input [7:0] A,\n   input [7:0] B,\n   output reg [15:0] C\n);reg [7:0] A_delayed;\nreg [7:0] B_delayed;\nreg [15:0] C_delayed;\n\nalways @(posedge clk) begin\n   A_delayed <= A;\n   B_delayed <= B;\n   C_delayed <= A + B;\nend\n\nalways @(posedge clk) begin\n   if (A == A_delayed && B == B_delayed) begin\n      C <= C_delayed;\n   end\n   else begin\n      C <= A + B;\n   end\nend\n\nendmodule"
+}

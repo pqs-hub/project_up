@@ -1,0 +1,15 @@
+{
+  "task_id": "q011378",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register (\n    input reset_clk,\n    input rst,\n    input shift_left,\n    output reg [3:0] q\n);\n\n    always @(posedge reset_clk) begin\n        if (rst) begin\n            q <= 4'd0;\n        end else if (shift_left) begin\n            q <= {q[2:0], 1'b0};\n        end else begin\n            q <= {1'b0, q[3:1]};\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

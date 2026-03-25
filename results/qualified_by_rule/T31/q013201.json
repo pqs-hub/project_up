@@ -1,0 +1,6 @@
+{
+  "task_id": "q013201",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n    input I,\n    input IBUFDISABLE,\n    input INTERMDISABLE,\n    output O\n);parameter IBUF_LOW_PWR = \"TRUE\";\n    parameter IOSTANDARD = \"DEFAULT\";\n    parameter SIM_DEVICE = \"7SERIES\";\n    parameter USE_IBUFDISABLE = \"TRUE\";\n\n    wire out_val;\n\n    wire __out_val_tmp = (SIM_DEVICE == \"7SERIES\") ? 1'b1 : 1'b0;\n    assign out_val = __out_val_tmp;\n\n    assign O = (USE_IBUFDISABLE == \"TRUE\") ? \n        ((IBUFDISABLE == 0) ? I : ((IBUFDISABLE == 1) ? out_val : 1'bx)) : I;\n\nendmodule"
+}

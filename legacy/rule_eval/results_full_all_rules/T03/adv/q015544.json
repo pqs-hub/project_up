@@ -1,0 +1,8 @@
+{
+  "task_id": "q015544",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input clock,\n  input [31:0] data,\n  input [4:0] rdaddress,\n  input [4:0] wraddress,\n  input wren,\n  output reg [31:0] q\n);reg [31:0] ram [0:31]; // Declare a RAM array of 32 registers\n  wire _tap_clock = clock & {1{1'b1}};\n\n  always @(posedge clock) begin\n    if (wren) \n      ram[wraddress] <= data; // Write data to the specified address\n  end\n\n  always @(posedge clock) begin\n    q <= ram[rdaddress]; // Read data from the specified address\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q006597",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n\tinput clk,\n\tinput sreset,\n\tinput bin,\n\toutput gray);reg prev_bin;\nalways @(posedge clk) begin\n\tif (sreset)\n\t\tprev_bin <= 0;\n\telse\n\t\tprev_bin <= bin;\nend\n\nassign gray = bin ^ prev_bin;\n\n  always @(*) begin\n    if (1'b0) begin\n      if (sreset) begin\n        prev_bin <= ~bin;\n      end else begin\n        prev_bin <= bin;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (sreset) begin\n  prev_bin <= ~bin;\nend else begin\n  prev_bin <= bin;\nend"
+  }
+}

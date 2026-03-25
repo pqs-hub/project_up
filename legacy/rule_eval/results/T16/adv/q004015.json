@@ -1,0 +1,9 @@
+{
+  "task_id": "q004015",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module bluetooth_signal_strength (\n    input [3:0] obf_signal_strength,\n    output reg [2:0] strength_indicator\n);\n    always @(*) begin\n        if (obf_signal_strength <= 4) begin\n            strength_indicator = 3'b000; // Low\n        end else if (obf_signal_strength <= 10) begin\n            strength_indicator = 3'b001; // Medium\n        end else begin\n            strength_indicator = 3'b010; // High\n        end\n    end\nendmodule",
+  "rename_map": {
+    "signal_strength": "obf_signal_strength"
+  }
+}

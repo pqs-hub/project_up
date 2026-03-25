@@ -1,0 +1,6 @@
+{
+  "task_id": "q001487",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (\n    input [7:0] A,\n    input [7:0] B,\n    input [2:0] ALUCtrl,\n    output reg [7:0] Result,\n    output reg Zero\n);\n\nalways @(*) begin\n    case (ALUCtrl)\n        3'b000: Result = A + B;           // Addition\n        3'b001: Result = A - B;           // Subtraction\n        3'b010: Result = A & B;           // Bitwise AND\n        3'b011: Result = A | B;           // Bitwise OR\n        3'b100: Result = A ^ B;           // Bitwise XOR\n        3'b101: Result = A << 1;          // Logical left shift\n        3'b110: Result = A >> 1;          // Logical right shift\n        3'b111: Result = ~A;              // Bitwise NOT\n        default: Result = 8'b00000000;    // Default case\n    endcase\n    Zero = (Result == 8'b00000000);       // Set Zero flag\nend\n\nendmodule"
+}

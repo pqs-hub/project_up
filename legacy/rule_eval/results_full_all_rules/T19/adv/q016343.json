@@ -1,0 +1,10 @@
+{
+  "task_id": "q016343",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(a, b, cin, sum, cout);input [3:0] a, b;\ninput cin;\n\n\noutput [3:0] sum;\noutput cout;\n\n\nreg [4:0] temp;\nalways @(*) \nbegin\ntemp = {1'b0,a} + {1'b0,b} + {1'b0,cin};\nend\nassign sum = temp[3:0];\nassign cout = temp[4];\n  always @(*) begin\n    if (1'b0) begin\n      sum = ~sum; cout = ~cout;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum = ~sum; cout = ~cout;"
+  }
+}

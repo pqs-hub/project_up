@@ -1,0 +1,6 @@
+{
+  "task_id": "q016788",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input A1,\n    input A2,\n    input B1,\n    input C1,\n    output reg X\n);\n  wire _tap_A1 = A1 & {1{1'b1}};\n\n\n    // Local signals\n    wire or0_out   ;\n    wire and0_out_X;\n\n    //  Name  Output      Other arguments\n    or  or0  (or0_out   , A2, A1         );\n    and and0 (and0_out_X, or0_out, B1, C1);\n    buf buf0 (X         , and0_out_X     );\n\nendmodule"
+}

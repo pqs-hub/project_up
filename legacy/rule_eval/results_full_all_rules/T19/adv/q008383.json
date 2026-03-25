@@ -1,0 +1,10 @@
+{
+  "task_id": "q008383",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] A,\n  input [3:0] B,\n  input Cin,\n  output reg [3:0] S,  // Change to output reg\n  output reg Cout      // Change to output reg\n);always @(*)  // Use @(*) for sensitivity list\nbegin\n  {Cout, S} = A + B + Cin;  // Concatenate to get carry out\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      S[0] <= ~A[0];\n      S[1] <= ~B[1];\n      Cout <= A[3] & B[3];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "S[0] <= ~A[0];\nS[1] <= ~B[1];\nCout <= A[3] & B[3];"
+  }
+}

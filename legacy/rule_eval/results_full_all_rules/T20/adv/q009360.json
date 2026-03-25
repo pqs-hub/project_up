@@ -1,0 +1,10 @@
+{
+  "task_id": "q009360",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-bit shift register that shifts right on the rising edge of the clock and loads data asynchronously.\nmodule ShiftRegister (\n    input clk,\n    input reset,\n    input load,\n    input [3:0] d,\n    output reg [3:0] q\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 4'b0000;\n        end else if (load) begin\n            q <= d;\n        end else begin\n            q <= {q[2:0], 1'b0};\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit shift register that shifts right on the rising edge of the clock and loads data asynchronously."
+  }
+}

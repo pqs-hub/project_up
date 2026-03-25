@@ -1,0 +1,10 @@
+{
+  "task_id": "q006021",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module shifts its contents to the right on every positive edge of the clock signal.\nmodule shift_register_8bit(\n    input wire clk,\n    input wire reset,\n    output reg [7:0] q\n    );\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        q <= 8'b00000000;\n    end else begin\n        q <= q << 1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module shifts its contents to the right on every positive edge of the clock signal."
+  }
+}

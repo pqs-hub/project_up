@@ -1,0 +1,10 @@
+{
+  "task_id": "q016780",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module is designed to implement a 4-bit binary counter with an asynchronous reset signal.\nmodule binary_counter (\n    input CLK,\n    input RST,\n    output [3:0] Q\n);\n\n    // Local signals\n    wire [3:0] Q_next;\n\n    // D flip-flops\n    reg [3:0] Q_reg;\n    always @(posedge CLK) begin\n        if (RST) begin\n            Q_reg <= 4'b0000;\n        end else begin\n            Q_reg <= Q_next;\n        end\n    end\n\n    // Combinational logic\n    assign Q_next = (Q_reg == 4'b1111) ? 4'b0000 : Q_reg + 1'b1;\n    assign Q = Q_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to implement a 4-bit binary counter with an asynchronous reset signal."
+  }
+}

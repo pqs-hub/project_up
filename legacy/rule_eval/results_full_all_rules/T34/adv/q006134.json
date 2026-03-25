@@ -1,0 +1,16 @@
+{
+  "task_id": "q006134",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input Anti_Xin,input Yin,input BorrowIn,output Diff,output BorrowOut);assign Diff = Anti_Xin ^ Yin ^ BorrowIn; \n  assign BorrowOut = (~Anti_Xin & Yin) | (~Anti_Xin & BorrowIn) | (Yin & BorrowIn); \n endmodule",
+  "rename_map": {
+    "Xin": "Anti_Xin"
+  },
+  "params_used": {
+    "custom_map": {
+      "Xin": "NotXin",
+      "BorrowIn": "NoBorrow"
+    },
+    "fallback_prefix": "Anti_"
+  }
+}

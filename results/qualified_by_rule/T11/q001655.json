@@ -1,0 +1,6 @@
+{
+  "task_id": "q001655",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule (  \n    input clk,  \n    input reset,  \n    input start,  \n    input stop,  \n    output reg timeout  \n);  \n    reg [3:0] counter;  // 4-bit counter for timeout period  \n    parameter TIMEOUT_VALUE = 4'b1111; // Set timeout value to 15 (for example)  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            counter <= 0;  \n            timeout <= 0;  \n        end  \n        else if (start && !stop) begin  \n            if (counter < TIMEOUT_VALUE) begin  \n                counter <= counter + 1;  \n                timeout <= 0;  \n            end  \n            else begin  \n                timeout <= 1;  \n            end  \n        end  \n        else if (stop) begin  \n            counter <= 0;  \n            timeout <= 0;  \n        end  \n    end  \nendmodule"
+}

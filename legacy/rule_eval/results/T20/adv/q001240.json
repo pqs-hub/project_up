@@ -1,0 +1,6 @@
+{
+  "task_id": "q001240",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule AStarAlgorithm (\n    input clk,\n    input rst,\n    input [4:0] current_state,\n    input [4:0] goal_state,\n    input [4:0] heuristic_value,\n    output reg [4:0] next_state\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            next_state <= 5'b00000;\n        end else begin\n            // Simplified A* logic: move towards the goal state\n            if (current_state < goal_state) begin\n                next_state <= current_state + 1; // Move up\n            end else if (current_state > goal_state) begin\n                next_state <= current_state - 1; // Move down\n            end else begin\n                next_state <= current_state; // Reached the goal\n            end\n        end\n    end\nendmodule"
+}

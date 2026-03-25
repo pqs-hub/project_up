@@ -1,0 +1,15 @@
+{
+  "task_id": "q011177",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module parallel_load_register (\n\tinput clk,\n\tinput enable,\n\tinput [3:0] data,\n\toutput [3:0] q);reg [3:0] invalid_reg = 4'b0000;\n\n\talways @(posedge clk) begin\n\t\tif (enable)\n\t\t\tinvalid_reg <= data;\n\tend\n\t\n\tassign q = invalid_reg;\n\t\nendmodule",
+  "rename_map": {
+    "reg_data": "invalid_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "reg_data": "invalid_reg"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

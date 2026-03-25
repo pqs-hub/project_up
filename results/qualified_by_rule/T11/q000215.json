@@ -1,0 +1,6 @@
+{
+  "task_id": "q000215",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(  \n    input clk,  \n    input reset,  \n    input taken,  \n    output reg prediction  \n);  \n    reg [0:0] counter;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            counter <= 1'b0;  \n        else begin  \n            if (taken)  \n                counter <= (counter == 1'b1) ? 1'b1 : counter + 1'b1;  \n            else  \n                counter <= (counter == 1'b0) ? 1'b0 : counter - 1'b1;  \n        end  \n    end  \n\n    always @(*) begin  \n        prediction = counter;  \n    end  \nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q015225",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(\n    input d,\n    input clk,\n    input ena,\n    input clrn,\n    input prn,\n    output reg q\n);always @(posedge clk or negedge clrn or negedge prn) begin\n    if (!clrn) begin\n        q <= 1'b0;\n    end else if (!prn) begin\n        q <= 1'b1;\n    end else if (ena) begin\n        q <= d;\n    end\nend\n\nendmodule"
+}

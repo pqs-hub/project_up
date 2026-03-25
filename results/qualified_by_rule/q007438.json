@@ -1,0 +1,6 @@
+{
+  "task_id": "q007438",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(Sum, Cout, A, B, Cin);input A; \n  input B; \n  input Cin; \n  output Sum; \n  output Cout; \n  wire obf_w1; \n  wire w2; \n  wire w3; \n  wire w4; \n  xor x1(obf_w1, A, B); \n  xor x2(Sum, obf_w1, Cin); \n  nand n1(w2, A, B); \n  nand n2(w3, A, Cin); \n  nand n3(w4, B, Cin); \n  assign Cout = ~ (w2 & w3 & w4); \n endmodule"
+}

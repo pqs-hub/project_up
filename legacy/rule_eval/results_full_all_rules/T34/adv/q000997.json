@@ -1,0 +1,15 @@
+{
+  "task_id": "q000997",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module SRAM (\n    input wire [7:0] data_in,\n    input wire we, // Write enable\n    input wire clk,\n    output reg [7:0] data_out\n);\n    reg [7:0] invalid_memory;\n\n    always @(posedge clk) begin\n        if (we) begin\n            invalid_memory <= data_in; // Write data to invalid_memory\n        end\n        data_out <= invalid_memory; // Output stored data\n    end\nendmodule",
+  "rename_map": {
+    "memory": "invalid_memory"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "invalid_memory"
+    },
+    "fallback_prefix": "err_"
+  }
+}

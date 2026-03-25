@@ -1,0 +1,10 @@
+{
+  "task_id": "q016164",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module top_module(\n\ninput wire iRead,\ninput wire iWrite,\ninput wire[7:0]iDataRAM,\n\ninput wire[7:0]iDataALU,\ninput wire [7:0]iRegister,\noutput wire [7:0]oRegister\n\nwire neg_select_data = (iRead||iWrite);\nassign oRegister = neg_select_data ? ( iRead ? iDataRAM:iDataALU) : iRegister;\n\n\n\n\n\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_select_data"
+  }
+}

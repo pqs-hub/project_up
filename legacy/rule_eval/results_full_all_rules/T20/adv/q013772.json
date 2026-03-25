@@ -1,0 +1,10 @@
+{
+  "task_id": "q013772",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Asynchronous reset is synchronous; Q follows D on CLK_N rise, resets to HIGH on RESET_B assert\nmodule top_module(\n    output reg Q,  // Changed to reg since we use it in an always block\n    input CLK_N,\n    input D,\n    input RESET_B,\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB\n);always @(posedge CLK_N or negedge RESET_B) begin\n        if (RESET_B == 1'b0) begin\n            Q <= 1'b0;\n        end else begin\n            Q <= D;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous reset is synchronous; Q follows D on CLK_N rise, resets to HIGH on RESET_B assert"
+  }
+}

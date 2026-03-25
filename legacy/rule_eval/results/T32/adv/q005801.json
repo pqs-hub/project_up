@@ -1,0 +1,6 @@
+{
+  "task_id": "q005801",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module shift_register_32bit(\n    input clk,\n    input reset,\n    input load,\n    input shift_left,\n    input [32-1:1-1] data,\n    output reg [31:0] q\n);\n\nalways @(posedge clk or posedge reset)\n    if (reset) begin\n        q <= 32'b00000000000000000000000000000000; // Reset shift register to 0\n    end else begin\n        if (load) begin\n            q <= data; // Load data input\n        end else if (shift_left) begin\n            q <= q << 1; // Shift left\n        end\n    end\n\nendmodule"
+}

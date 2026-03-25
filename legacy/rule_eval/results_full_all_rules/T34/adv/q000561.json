@@ -1,0 +1,15 @@
+{
+  "task_id": "q000561",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register (\n    input clk,\n    input reset,\n    input serial_in,\n    output reg serial_out\n);\n    reg [7:0] reverse_shift_reg;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            reverse_shift_reg <= 8'b0;\n            serial_out <= 1'b0;\n        end else begin\n            serial_out <= reverse_shift_reg[7]; // Output the MSB\n            reverse_shift_reg <= {reverse_shift_reg[6:0], serial_in}; // Shift left\n        end\n    end\nendmodule",
+  "rename_map": {
+    "shift_reg": "reverse_shift_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "shift_reg": "reverse_shift_reg"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

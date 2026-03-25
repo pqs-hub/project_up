@@ -1,0 +1,9 @@
+{
+  "task_id": "q015109",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module alu_32bit(\n    input [31:0] obf_A,\n    input [31:0] B,\n    input [1:0] opcode,\n    output reg [31:0] Y\n);\n\nalways @(*)\nbegin\n    case (opcode)\n        2'b00: Y = obf_A + B;  // ADD\n        2'b01: Y = obf_A - B;  // SUB\n        2'b10: Y = obf_A & B;  // AND\n        default: Y = 32'b0;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

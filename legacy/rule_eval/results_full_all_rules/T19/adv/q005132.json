@@ -1,0 +1,10 @@
+{
+  "task_id": "q005132",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input [1:0] A,\n  input [1:0] B,\n  output reg out  // Change wire to reg\n);always @* begin\n    if (A >= B) begin\n      out = 1;\n    end\n    else begin\n      out = 0;\n    end\n  end\n\n  always @(*) begin\n    if (1'b0) begin\n      if (A < B) begin\n        out = 1;\n      end\n      else begin\n        out = 0;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (A < B) begin\n  out = 1;\nend\nelse begin\n  out = 0;\nend;"
+  }
+}

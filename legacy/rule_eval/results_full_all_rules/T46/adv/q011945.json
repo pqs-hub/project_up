@@ -1,0 +1,8 @@
+{
+  "task_id": "q011945",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(OUT_FLAG,\n    IN_FLAG,\n    SET,\n    LD,\n    CLR,\n    CLK);output reg OUT_FLAG; // Changed to reg type\n  input IN_FLAG;\n  input SET;\n  input LD;\n  input CLR;\n  input CLK;\n\n  wire OUT_FLAG_i_1_n_0;\n\n  assign OUT_FLAG_i_1_n_0 = (SET) ? 1'b1 : (CLR) ? 1'b0 : (LD) ? IN_FLAG : OUT_FLAG;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge CLR or posedge dbg_halt) begin\n    if (CLR)\n      OUT_FLAG <= 1'b0;\n    else\n      OUT_FLAG <= OUT_FLAG_i_1_n_0;\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q002251",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adc_comparator (\n    input [23:0] adc_input,\n    input [23:0] reference_value,\n    output reg [1:0] comparison_result\n);\n    always @(*) begin\n        if (adc_input < reference_value)\n            comparison_result = 2'b00; // Less than\n        else if (adc_input == reference_value)\n            comparison_result = 2'b01; // Equal to\n        else\n            comparison_result = 2'b10; // Greater than\n    end\nendmodule",
+  "rename_map": {
+    "adc_output": "adc_input"
+  },
+  "params_used": {
+    "custom_map": {
+      "adc_output": "adc_input",
+      "reference_value": "ref_value",
+      "comparison_result": "comp_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q014528",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input in,\n  output reg out  // Changed from wire to reg\n);reg last_valid_state;\n  \n  always @(in) begin\n    if (in === 1'b0 || in === 1'b1) begin\n      last_valid_state <= in;\n      out <= in;\n    end\n  end\n  \n  always @(*) begin\n    if (in === 1'bx) begin\n      out <= last_valid_state;\n    end\n  end\n  \nendmodule",
+  "rename_map": {
+    "prev_state": "last_valid_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "in": "invalid_in",
+      "out": "valid_out",
+      "prev_state": "last_valid_state"
+    },
+    "fallback_prefix": "anti_"
+  }
+}

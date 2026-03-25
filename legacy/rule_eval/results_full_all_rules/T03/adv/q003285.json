@@ -1,0 +1,8 @@
+{
+  "task_id": "q003285",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module rnn_inference (\n    input clk,\n    input rst,\n    input [4:0] x,  // input data\n    output reg [4:0] h  // hidden state output\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            h <= 5'b00000;  // reset hidden state\n        end else begin\n            h <= h ^ x;  // update hidden state\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

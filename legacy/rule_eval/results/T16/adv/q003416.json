@@ -1,0 +1,9 @@
+{
+  "task_id": "q003416",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module a_star_heuristic (\n    input [3:0] current_node,\n    input [3:0] target_node,\n    output [3:0] heuristic_cost\n);\n    wire [3:0] obf_x_diff;\n    wire [3:0] y_diff;\n\n    assign obf_x_diff = (current_node[3:2] > target_node[3:2]) ? (current_node[3:2] - target_node[3:2]) : (target_node[3:2] - current_node[3:2]);\n    assign y_diff = (current_node[1:0] > target_node[1:0]) ? (current_node[1:0] - target_node[1:0]) : (target_node[1:0] - current_node[1:0]);\n    \n    assign heuristic_cost = obf_x_diff + y_diff;\nendmodule",
+  "rename_map": {
+    "x_diff": "obf_x_diff"
+  }
+}

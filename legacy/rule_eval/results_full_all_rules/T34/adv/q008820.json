@@ -1,0 +1,15 @@
+{
+  "task_id": "q008820",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input rst_clk,\n    input reset,\n    output reg [7:0] q\n);\n\n    always @(posedge rst_clk) begin\n        if (reset) begin\n            // Synchronous reset: Reset the counter to 8'b00000001\n            q <= 8'b00000001;\n        end else begin\n            // Johnson counter: Shift left and invert the LSB\n            q <= {q[6:0], ~q[7]};\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

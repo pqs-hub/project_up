@@ -1,0 +1,6 @@
+{
+  "task_id": "q002182",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire noisy_signal,\n    input wire threshold,\n    output reg clean_signal\n);\n    reg [3:0] count;\n    reg last_stable_value;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            count <= 0;\n            clean_signal <= 0;\n            last_stable_value <= 0;\n        end else begin\n            if (noisy_signal == clean_signal) begin\n                count <= 0; // Reset count if signal is stable\n            end else begin\n                count <= count + 1; // Increment count on noise\n                if (count >= threshold) begin\n                    clean_signal <= noisy_signal; // Update clean signal if threshold is reached\n                    last_stable_value <= clean_signal;\n                end else begin\n                    clean_signal <= last_stable_value; // Maintain last stable value\n                end\n            end\n        end\n    end\nendmodule"
+}

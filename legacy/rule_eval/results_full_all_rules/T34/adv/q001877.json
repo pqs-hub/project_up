@@ -1,0 +1,16 @@
+{
+  "task_id": "q001877",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module SIPO_Shift_Register (\n    input wire clk,\n    input wire reset,\n    input wire serial_in,\n    input wire load,\n    output reg [4:0] parallel_out\n);\n    reg [4:0] inv_shift_reg;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            inv_shift_reg <= 5'b00000;\n            parallel_out <= 5'b00000;\n        end else if (load) begin\n            parallel_out <= inv_shift_reg;\n        end else begin\n            inv_shift_reg <= {inv_shift_reg[3:0], serial_in}; // Shift left and insert serial input\n        end\n    end\nendmodule",
+  "rename_map": {
+    "shift_reg": "inv_shift_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "serial_in": "data_in",
+      "parallel_out": "data_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

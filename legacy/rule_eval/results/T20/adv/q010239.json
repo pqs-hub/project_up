@@ -1,0 +1,6 @@
+{
+  "task_id": "q010239",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule top_module(\n    input [3:0] A,\n    input [3:0] B,\n    output reg EQ,\n    output reg GT,\n    output reg LT\n);always @(*) begin\n    // Check if A is greater than B\n    if (A > B) begin\n        GT = 1;\n        LT = 0;\n        EQ = 0;\n    end\n    // Check if A is less than B\n    else if (A < B) begin\n        GT = 0;\n        LT = 1;\n        EQ = 0;\n    end\n    // Check if A is equal to B\n    else begin\n        GT = 0;\n        LT = 0;\n        EQ = 1;\n    end\nend\n\nendmodule"
+}

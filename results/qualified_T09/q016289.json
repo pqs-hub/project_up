@@ -1,0 +1,6 @@
+{
+  "task_id": "q016289",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n   input clk,\n   input reset,\n   input [3:0] i_value,\n   output reg [3:0] value\n);always @(posedge clk or posedge reset) begin\n      if (reset) begin\n         value <= i_value;\n      end else if (value == 4'hF) begin\n         value <= 4'h0;\n      end else begin\n         value <= value + 4'h1;\n      end\n   end\n\nendmodule"
+}

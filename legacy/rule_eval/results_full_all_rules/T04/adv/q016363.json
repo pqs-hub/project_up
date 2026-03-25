@@ -1,0 +1,10 @@
+{
+  "task_id": "q016363",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This D flip-flop stores the input data on the falling edge of the clock signal when the enable signal is low.\nmodule d_ff(\n    input               clk     , \n    input               rst     ,\n    input               en      ,\n    input               d       ,\n\n    output reg          q\n);\n\nalways @(posedge clk) begin\n    if (rst) begin\n        q <= 0;\n    end else if (en) begin\n        q <= d;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This D flip-flop stores the input data on the falling edge of the clock signal when the enable signal is low."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q006123",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\tinput clk,\n\tinput reset,\n\tinput enable,\n\toutput reg [6:0] count);always @(posedge clk) begin\n\t\tif (reset)\n\t\t\tcount <= 7'b0000000;\n\t\telse if (enable)\n\t\t\tcount <= count + 2;\n\tend\n\n  always @(*) begin\n    if (1'b0) begin\n      count <= count - 2;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "count <= count - 2;"
+  }
+}

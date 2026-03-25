@@ -1,0 +1,18 @@
+{
+  "task_id": "q002515",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module fir_filter(  \n    input [7:0] inv_x0,  \n    input [7:0] x1,  \n    input [7:0] x2,  \n    input [7:0] x3,  \n    output [15:0] y  \n);  \n    // Define coefficients for the FIR filter  \n    parameter [7:0] h0 = 8'h1;  \n    parameter [7:0] h1 = 8'h2;  \n    parameter [7:0] h2 = 8'h3;  \n    parameter [7:0] h3 = 8'h4;  \n\n    // Calculate the output sample  \n    assign y = (h0 * inv_x0) + (h1 * x1) + (h2 * x2) + (h3 * x3);  \nendmodule",
+  "rename_map": {
+    "x0": "inv_x0"
+  },
+  "params_used": {
+    "custom_map": {
+      "h0": "k0",
+      "h1": "k1",
+      "h2": "k2",
+      "h3": "k3"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "task_id": "q009901",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module comparator(inv_A, B, A_gt_B, A_eq_B, A_lt_B);\ninput [3:0] inv_A, B;\noutput A_gt_B, A_eq_B, A_lt_B;\nreg A_gt_B, A_eq_B, A_lt_B;\n\nalways @(inv_A or B) begin\n    if (inv_A > B) begin\n        A_gt_B = 1;\n        A_eq_B = 0;\n        A_lt_B = 0;\n    end else if (inv_A == B) begin\n        A_gt_B = 0;\n        A_eq_B = 1;\n        A_lt_B = 0;\n    end else begin\n        A_gt_B = 0;\n        A_eq_B = 0;\n        A_lt_B = 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "A": "inv_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "comparator": "decomparator",
+      "A": "B",
+      "B": "A",
+      "A_gt_B": "B_lt_A",
+      "A_eq_B": "B_eq_A",
+      "A_lt_B": "B_gt_A"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

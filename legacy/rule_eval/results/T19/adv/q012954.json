@@ -1,0 +1,6 @@
+{
+  "task_id": "q012954",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module priority_encoder_8bit(D, Y, V);\n    input [7:0] D;\n    output reg [2:0] Y;\n    output reg V;\n\n    always @(*) begin\n        V = 1'b1;\n        casez(D)\n            8'b1???????: Y = 3'b111;\n            8'b01??????: Y = 3'b110;\n            8'b001?????: Y = 3'b101;\n            8'b0001????: Y = 3'b100;\n            8'b00001???: Y = 3'b011;\n            8'b000001??: Y = 3'b010;\n            8'b0000001?: Y = 3'b001;\n            8'b00000001: Y = 3'b000;\n            default: begin\n                Y = 3'b000;\n                V = 1'b0;\n            end\n        endcase\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

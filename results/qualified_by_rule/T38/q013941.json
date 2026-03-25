@@ -1,0 +1,6 @@
+{
+  "task_id": "q013941",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module RefModule(a, b, carryin, carryout, sum);input a, b, carryin; \n\toutput carryout, sum; \n\t\n  wire temp1_(a && b) | (b && carryin) = (a && b) | (b && carryin);\n  wire temp2_(a && carryin) = (a && carryin);\n  assign carryout = temp1_(a && b) | (b && carryin) | temp2_(a && carryin);\n\tassign sum = a ^ b ^ carryin;endmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q010949",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input               clk,\n  input               rst_n,\n  input               A,\n  output reg          rise,\n  output reg          down\n);reg inv_prev_A;\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      inv_prev_A <= 1'b0;\n      rise <= 1'b0;\n      down <= 1'b0;\n    end\n    else begin\n      if (A != inv_prev_A) begin\n        if (A == 1'b1) begin\n          rise <= 1'b1;\n          down <= 1'b0;\n        end\n        else begin\n          rise <= 1'b0;\n          down <= 1'b1;\n        end\n      end\n      else begin\n        rise <= 1'b0;\n        down <= 1'b0;\n      end\n      inv_prev_A <= A;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "prev_A": "inv_prev_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "prev_A": "next_A"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q011077",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(s,r,clk,rst,obf_q,qb);input s,r,clk,rst;\n\toutput obf_q,qb;\n\twire s,r,clk,rst,qb;\n\treg obf_q;\nalways @ (posedge clk)\n\tbegin\n\tif(rst)\n\tobf_q<=1'b0;\n\t\telse if (s==1'b0 && r==1'b0)\n\t\t\t\tobf_q<=obf_q;\n\t\telse if (s==1'b0&& r==1'b1)\n\t\t\t\tobf_q<=1'b0;\n\t\telse if (s==1'b1 && r==1'b0)\n\t\t\t\tobf_q<=1'b1;\n\t\telse if (s==1'b1 && r==1'b1)\n\t\tobf_q<=1'bx;\n\t\tend\n\t\tassign qb=~obf_q;endmodule",
+  "rename_map": {
+    "q": "obf_q"
+  }
+}

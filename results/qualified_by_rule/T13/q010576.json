@@ -1,0 +1,6 @@
+{
+  "task_id": "q010576",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(clk, rst, a, b, cin, sum, cout);input clk, rst;\n  input [3:0] a, b;\n  input cin;\n  output [3:0] sum;\n  output cout;\n\n  reg [3:0] sum_reg;\n  reg cout_reg;\n\n  always @(posedge clk) begin\n    if (rst) begin\n      sum_reg <= 4'b0;\n      cout_reg <= 1'b0;\n    end\n    else begin\n      sum_reg <= a + b + cin;\n      cout_reg <= (a[3] & b[3]) | (a[3] & cin) | (b[3] & cin);\n    end\n  end\n\n  assign sum = sum_reg;\n  assign cout = cout_reg;\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q015294",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (\n  input [15:0] in0,\n  input [15:0] in1,\n  input sel,\n  input en,\n  output reg [15:0] out\n);\n\n  always @(*) begin\n    if (en) begin\n      case (sel)\n        1'b0: out = in0;\n        1'b1: out = in1;\n        default: out = 16'b0000000000000000;\n      endcase\n    end else begin\n      out = 16'b0000000000000000;\n    end\n  end\n\nendmodule"
+}

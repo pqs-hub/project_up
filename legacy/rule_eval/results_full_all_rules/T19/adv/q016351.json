@@ -1,0 +1,10 @@
+{
+  "task_id": "q016351",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input [n-1:0] in1,\n  input [n-1:0] in2,\n  output reg greater,\n  output reg less,\n  output reg equal\n);parameter n = 8; // number of bits in the input signals\n\n// Perform bit-wise comparison for unsigned numbers\nalways @(*) begin\n  greater = 1'b0;\n  less = 1'b0;\n  equal = 1'b0;\n\n  // Take into account the sign bit for signed numbers\n  if (in1[n-1] == 1'b0 && in2[n-1] == 1'b1) begin\n    greater = 1'b1;\n  end else if (in1[n-1] == 1'b1 && in2[n-1] == 1'b0) begin\n    less = 1'b1;\n  end else if (in1[n-1] == 1'b1 && in2[n-1] == 1'b1) begin\n    if (in1 > in2) begin\n      greater = 1'b1;\n    end else if (in1 < in2) begin\n      less = 1'b1;\n    end else begin\n      equal = 1'b1;\n    end\n  end else begin\n    // Handle the case where both are non-negative\n    if (in1 > in2) begin\n      greater = 1'b1;\n    end else if (in1 < in2) begin\n      less = 1'b1;\n    end else begin\n      equal = 1'b1;\n    end\n  end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      greater = ~in1[0];\n      less = ~in2[0];\n      equal = ~(in1 ^ in2);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "greater = ~in1[0];\nless = ~in2[0];\nequal = ~(in1 ^ in2);\n"
+  }
+}

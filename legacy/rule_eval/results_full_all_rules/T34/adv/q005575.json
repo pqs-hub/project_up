@@ -1,0 +1,15 @@
+{
+  "task_id": "q005575",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_down_counter(\n    input rst_clk,\n    input reset,\n    \n    output reg [3:0] q\n);\n\nalways @(posedge rst_clk or posedge reset) begin\n    if (reset) begin\n        q <= 4'b1111;\n    end else begin\n        q <= q - 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

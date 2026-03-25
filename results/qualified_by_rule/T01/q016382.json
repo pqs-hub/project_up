@@ -1,0 +1,6 @@
+{
+  "task_id": "q016382",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(input d, clk, clr, output qbar, output reg q);assign qbar = ~q;\n\talways@(posedge clk, negedge clr)\n\tbegin\n    begin end  // redundant\n\t\tif(!clr) q<=0;\n\t\telse q<= d;\n\tend\nendmodule"
+}

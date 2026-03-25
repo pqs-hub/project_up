@@ -1,0 +1,6 @@
+{
+  "task_id": "q003726",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule (\n    input [15:0] packet,\n    input [3:0] filter,\n    output reg allow\n);\n    always @(*) begin\n        // Check if the protocol matches the filter\n        if (filter[3:2] == packet[15:14] && filter[1:0] == packet[1:0]) begin\n            allow = 1'b1; // Allow the packet\n        end else begin\n            allow = 1'b0; // Block the packet\n        end\n    end\nendmodule"
+}

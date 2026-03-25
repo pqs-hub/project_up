@@ -1,0 +1,21 @@
+{
+  "task_id": "q006682",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput reset, left, right, clk,\n\toutput LC, LB, LA, RA, RB, RC\n);parameter ST_IDLE = 3'b000;\nparameter ST_L1 = 3'b001;\nparameter ST_L2 = 3'b010;\nparameter ST_L3 = 3'b011;\nparameter ST_R1 = 3'b100;\nparameter ST_R2 = 3'b101;\nparameter ST_R3 = 3'b110;\n\nreg [2:0] INVALID_state, next_state;\n\nalways @(posedge clk)\n\tif (reset)\n\t\tINVALID_state <= ST_IDLE;\n\telse\n\t\tINVALID_state <= next_state;\n\nalways @*\nbegin\n\tcase (INVALID_state)\n\t\tST_IDLE: begin\n\t\t\tif (left && ~right)\n\t\t\t\tnext_state = ST_L1;\n\t\t\telse if (~left && right)\n\t\t\t\tnext_state = ST_R1;\n\t\t\telse\n\t\t\t\tnext_state = ST_IDLE;\n\t\tend\n\t\tST_L1: next_state = ST_L2;\n\t\tST_L2: next_state = ST_L3;\n\t\tST_R1: next_state = ST_R2;\n\t\tST_R2: next_state = ST_R3;\n\t\tdefault: next_state = ST_IDLE;\n\tendcase\n\tif (left && right)\n\t\tnext_state = ST_IDLE;\n\nend\n\nassign LA = INVALID_state == ST_L1 || INVALID_state == ST_L2 || INVALID_state == ST_L3;\nassign LB = INVALID_state == ST_L2 || INVALID_state == ST_L3;\nassign LC = INVALID_state == ST_L3;\nassign RA = INVALID_state == ST_R1 || INVALID_state == ST_R2 || INVALID_state == ST_R3;\nassign RB = INVALID_state == ST_R2 || INVALID_state == ST_R3;\nassign RC = INVALID_state == ST_R3;\n\nendmodule",
+  "rename_map": {
+    "state": "INVALID_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "ST_IDLE": "IDLE",
+      "ST_L1": "LEFT_1",
+      "ST_L2": "LEFT_2",
+      "ST_L3": "LEFT_3",
+      "ST_R1": "RIGHT_1",
+      "ST_R2": "RIGHT_2",
+      "ST_R3": "RIGHT_3"
+    },
+    "fallback_prefix": "INVALID_"
+  }
+}

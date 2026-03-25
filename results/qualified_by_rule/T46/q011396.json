@@ -1,0 +1,6 @@
+{
+  "task_id": "q011396",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module RefModule(A, B, Cin, S, Cout);\n     input [3:0] A;\n     input [3:0] B;\n     input Cin;\n     output [3:0] S;\n     output Cout;\n\n     wire C1, C2, C3;\n\n     full_adder FA0 (\n         .A(A[0]),\n         .B(B[0]),\n         .Cin(Cin),\n         .S(S[0]),\n         .Cout(C1)\n     );\n\n     full_adder FA1 (\n         .A(A[1]),\n         .B(B[1]),\n         .Cin(C1),\n         .S(S[1]),\n         .Cout(C2)\n     );\n\n     full_adder FA2 (\n         .A(A[2]),\n         .B(B[2]),\n         .Cin(C2),\n         .S(S[2]),\n         .Cout(C3)\n     );\n\n     full_adder FA3 (\n         .A(A[3]),\n         .B(B[3]),\n         .Cin(C3),\n         .S(S[3]),\n         .Cout(Cout)\n     );\nendmodule\n\nmodule full_adder(A, B, Cin, S, Cout);\n     input A, B, Cin;\n     output S, Cout;\n\n     assign S = A ^ B ^ Cin;\n     assign Cout = (A & B) | (B & Cin) | (Cin & A);\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005876",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] in,\n  input [1:0] sel,\n  output reg out\n);always @ (sel or in) begin\n  wire [3:0] _tap_in = in & {4{1'b1}};\n\n    case (sel)\n      2'b00: out <= in[0];\n      2'b01: out <= in[1];\n      2'b10: out <= in[2];\n      2'b11: out <= in[3];\n    endcase\n  end\n\nendmodule"
+}

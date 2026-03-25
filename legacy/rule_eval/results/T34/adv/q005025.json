@@ -1,0 +1,6 @@
+{
+  "task_id": "q005025",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    output Y,\n    input A1,\n    input A2,\n    input A3,\n    input A4,\n    input EN\n);wire [3:0] unused_inputs;\n    wire and_output;\n\n    // Assign the unused_inputs to a vector\n    assign unused_inputs = {A4, A3, A2, A1};\n\n    // Perform AND operation on unused_inputs and include enable\n    assign and_output = (EN) ? (unused_inputs[3] & unused_inputs[2] & unused_inputs[1] & unused_inputs[0]) : 1'b0;\n\n    // Assign the result to Y\n    assign Y = and_output;\n\nendmodule"
+}

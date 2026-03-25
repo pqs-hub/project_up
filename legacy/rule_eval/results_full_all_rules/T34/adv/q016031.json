@@ -1,0 +1,15 @@
+{
+  "task_id": "q016031",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    X    ,\n    A    ,\n    SLEEP,\n    VPWR ,\n    VGND ,\n    VPB  ,\n    VNB\n);output X    ;\n    input  A    ;\n    input  SLEEP;\n    input  VPWR ;\n    input  VGND ;\n    input  VPB  ;\n    input  VNB  ;\n\n    wire Z_X_internal;\n\n    assign X = Z_X_internal;\n\n    assign Z_X_internal = (SLEEP == 1'b1) ? 1'b0 : A;\n\nendmodule",
+  "rename_map": {
+    "X_internal": "Z_X_internal"
+  },
+  "params_used": {
+    "custom_map": {
+      "X_internal": "Y_inactive"
+    },
+    "fallback_prefix": "Z_"
+  }
+}

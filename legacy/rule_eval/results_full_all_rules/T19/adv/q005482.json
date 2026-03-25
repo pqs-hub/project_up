@@ -1,0 +1,10 @@
+{
+  "task_id": "q005482",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module bin_to_onehot(\n    input [2:0] bin,\n    output reg [7:0] onehot\n);\n\nalways @(*) begin\n    case (bin)\n        3'd0: onehot = 8'b00000001;\n        3'd1: onehot = 8'b00000010;\n        3'd2: onehot = 8'b00000100;\n        3'd3: onehot = 8'b00001000;\n        3'd4: onehot = 8'b00010000;\n        3'd5: onehot = 8'b00100000;\n        3'd6: onehot = 8'b01000000;\n        3'd7: onehot = 8'b10000000;\n        default: onehot = 8'b00000000;\n    endcase\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      onehot[0] <= ~onehot[0];\n      onehot[1] <= ~onehot[1];\n      onehot[2] <= ~onehot[2];\n      onehot[3] <= ~onehot[3];\n      onehot[4] <= ~onehot[4];\n      onehot[5] <= ~onehot[5];\n      onehot[6] <= ~onehot[6];\n      onehot[7] <= ~onehot[7];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "onehot[0] <= ~onehot[0];\nonehot[1] <= ~onehot[1];\nonehot[2] <= ~onehot[2];\nonehot[3] <= ~onehot[3];\nonehot[4] <= ~onehot[4];\nonehot[5] <= ~onehot[5];\nonehot[6] <= ~onehot[6];\nonehot[7] <= ~onehot[7];"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q007789",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(d,clk_inv,resetn,en,q);input clk_inv; \n input resetn; \n input en; \n input [1:0] d; \n output [1:0] q; \n reg [1:0] q; \n always @(posedge clk_inv or negedge resetn) \n begin \n  if (resetn==0) \n  q<=0; \n  else if (en==1) \n  q<=d; \n end \n endmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

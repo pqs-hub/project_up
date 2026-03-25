@@ -1,0 +1,6 @@
+{
+  "task_id": "q002767",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module fixed_priority_arbiter (\n    input wire clk,\n    input wire rst,\n    input wire [3:0] req, // request signals\n    output reg [3:0] grant // grant signals\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            grant <= 4'b0000; // No grants on reset\n        end else begin\n            grant <= 4'b0000; // Default no grant\n            if (req[0]) grant[0] <= 1'b1; // Grant to R0 if requested\n            else if (req[1]) grant[1] <= 1'b1; // Grant to R1 if R0 not requested\n            else if (req[2]) grant[2] <= 1'b1; // Grant to R2 if R0 and R1 not requested\n            else if (req[3]) grant[3] <= 1'b1; // Grant to R3 if R0, R1, and R2 not requested\n        end\n    end\nendmodule"
+}

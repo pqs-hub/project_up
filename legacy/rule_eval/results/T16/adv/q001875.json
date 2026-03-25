@@ -1,0 +1,9 @@
+{
+  "task_id": "q001875",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module dram_cell (  \n    input wire clk,  \n    input wire write_enable,  \n    input wire read_enable,  \n    input wire [7:0] data_in,  \n    output reg [7:0] data_out  \n);  \n    reg [7:0] obf_memory;  \n\n    always @(posedge clk) begin  \n        if (write_enable)  \n            obf_memory <= data_in;  \n    end  \n\n    always @(posedge clk) begin  \n        if (read_enable)  \n            data_out <= obf_memory;  \n    end  \nendmodule",
+  "rename_map": {
+    "memory": "obf_memory"
+  }
+}

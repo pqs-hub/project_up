@@ -1,0 +1,6 @@
+{
+  "task_id": "q011317",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(\n    A,\n    B,\n    Sel,\n    Y\n);// Module ports\n    input A;\n    input B;\n    input Sel;\n    output Y;\n\n    // Module supplies\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Local signals\n    wire not_Sel;\n    wire and0_out;\n    wire and1_out;\n    wire or0_out;\n    wire xor0_out;\n    wire xor1_out;\n\n    //  Name  Output      Other arguments\n    not not0 (not_Sel, Sel      );\n    and and0 (and0_out, A, not_Sel);\n    and and1 (and1_out, B, Sel    );\n    or  or0  (or0_out , and0_out, and1_out);\n    xor xor0 (xor0_out, A, B     );\n    xor xor1 (xor1_out, xor0_out, or0_out);\n\n    assign Y = xor1_out;\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

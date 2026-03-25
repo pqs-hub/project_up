@@ -1,0 +1,6 @@
+{
+  "task_id": "q015004",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(w_bus_mux_out, w_bus_mux_in_0, w_bus_mux_in_1, w_bus_mux_in_2, w_bus_mux_in_3, w_channel);output [1:0] w_bus_mux_out;\n\tinput [1:0] w_bus_mux_in_0, w_bus_mux_in_1, w_bus_mux_in_2, w_bus_mux_in_3;\n\tinput [1:0] w_channel;\n  wire [1:0] _tap_w_bus_mux_out = w_bus_mux_out ^ {2{1'b0}};\n\n\n\tassign w_bus_mux_out = (w_channel == 2'b00) ? w_bus_mux_in_0 :\n\t                       (w_channel == 2'b01) ? w_bus_mux_in_1 :\n\t                       (w_channel == 2'b10) ? w_bus_mux_in_2 :\n\t                                             w_bus_mux_in_3;\nendmodule"
+}

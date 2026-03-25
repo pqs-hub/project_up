@@ -1,0 +1,9 @@
+{
+  "task_id": "q002707",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module adc_8bit (\n    input [2:0] voltage_input,\n    output reg [7:0] obf_digital_output\n);\n\nalways @(*) begin\n    case (voltage_input)\n        3'b000: obf_digital_output = 8'h00; // 0\n        3'b001: obf_digital_output = 8'h33; // 1\n        3'b010: obf_digital_output = 8'h66; // 2\n        3'b011: obf_digital_output = 8'h99; // 3\n        3'b100: obf_digital_output = 8'hCC; // 4\n        3'b101: obf_digital_output = 8'hFF; // 5\n        3'b110: obf_digital_output = 8'hFF; // 6\n        3'b111: obf_digital_output = 8'hFF; // 7\n        default: obf_digital_output = 8'h00; // default case\n    endcase\nend\nendmodule",
+  "rename_map": {
+    "digital_output": "obf_digital_output"
+  }
+}

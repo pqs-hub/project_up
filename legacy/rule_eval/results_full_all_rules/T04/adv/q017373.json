@@ -1,0 +1,10 @@
+{
+  "task_id": "q017373",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This MUX selects the input 'B' when 'S' is 0 and 'A' when 'S' is 1\nmodule mux_2to1(\n  input A,\n  input B,\n  input S,\n  output Y\n);\n\nwire not_S, A_and_not_S, B_and_S;\n\nnot (\n  not_S,\n  S\n);\n\nand (\n  A_and_not_S,\n  A,\n  not_S\n);\n\nand (\n  B_and_S,\n  B,\n  S\n);\n\nor (\n  Y,\n  A_and_not_S,\n  B_and_S\n);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This MUX selects the input 'B' when 'S' is 0 and 'A' when 'S' is 1"
+  }
+}

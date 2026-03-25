@@ -1,0 +1,10 @@
+{
+  "task_id": "q002192",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module decoder_2to4 (\n    input wire A1,\n    input wire A0,\n    output reg Y0,\n    output reg Y1,\n    output reg Y2,\n    output reg Y3\n);\n    always @(*) begin\n        Y0 = 0;\n        Y1 = 0;\n        Y2 = 0;\n        Y3 = 0;\n        \n        case ({A1, A0})\n            2'b00: Y0 = 1;\n            2'b01: Y1 = 1;\n            2'b10: Y2 = 1;\n            2'b11: Y3 = 1;\n        endcase\n    end\n  always @(*) begin\n    if (1'b0) begin\n      Y0 = ~A1 & ~A0; Y1 = ~A1 & A0; Y2 = A1 & ~A0; Y3 = A1 & A0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y0 = ~A1 & ~A0; Y1 = ~A1 & A0; Y2 = A1 & ~A0; Y3 = A1 & A0;"
+  }
+}

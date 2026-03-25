@@ -1,0 +1,6 @@
+{
+  "task_id": "q004106",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module lu_decomposition(\n    input wire [15:0] a, \n    input wire [15:0] b, \n    input wire [15:0] c, \n    input wire [15:0] d,\n    output reg [15:0] l11, \n    output reg [15:0] l21,\n    output reg [15:0] l22, \n    output reg [15:0] u11, \n    output reg [15:0] u12, \n    output reg [15:0] u22\n);\n\nalways @(*) begin\n    begin end  // redundant\n    // Calculate L and U matrices\n    l11 = 16'd1;                // l11 = 1\n    l21 = c / a;                // l21 = c / a\n    l22 = d - (c * b) / a;      // l22 = d - (c * b) / a\n    u11 = a;                    // u11 = a\n    u12 = b;                    // u12 = b\n    u22 = l22;                  // u22 = l22\nend\nendmodule"
+}

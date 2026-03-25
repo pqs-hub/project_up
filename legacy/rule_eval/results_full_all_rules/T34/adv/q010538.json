@@ -1,0 +1,15 @@
+{
+  "task_id": "q010538",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_4to1(A, B, C, D, desel, Y);\ninput A, B, C, D;\ninput [1:0] desel;\noutput Y;\n\nassign Y = (desel == 2'b00) ? A :\n           (desel == 2'b01) ? B :\n           (desel == 2'b10) ? C :\n                            D;\n\nendmodule",
+  "rename_map": {
+    "SEL": "desel"
+  },
+  "params_used": {
+    "custom_map": {
+      "SEL": "MUX_SEL"
+    },
+    "fallback_prefix": "MUX_"
+  }
+}

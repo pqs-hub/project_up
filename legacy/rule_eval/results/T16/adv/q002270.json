@@ -1,0 +1,9 @@
+{
+  "task_id": "q002270",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module voltage_sensor(  \n    input [4:0] voltage_in,  \n    output reg [1:0] obf_status  \n);  \n    always @(*) begin  \n        if (voltage_in > 31)  \n            obf_status = 2'b11; // Invalid input  \n        else if (voltage_in < 10)  \n            obf_status = 2'b00; // Below threshold  \n        else  \n            obf_status = 2'b01; // At or above threshold  \n    end  \nendmodule",
+  "rename_map": {
+    "status": "obf_status"
+  }
+}

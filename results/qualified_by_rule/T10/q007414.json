@@ -1,0 +1,6 @@
+{
+  "task_id": "q007414",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule\n(\n    input clk,\n    input reset,\n    input up,\n    input down,\n    output reg [3:0] count\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            count <= 4'b0000; // Reset counter to 0000\n        end else if (up) begin\n            count <= count + 1; // Increment counter\n        end else if (down) begin\n            count <= count - 1; // Decrement counter\n        end\n    end\n\nendmodule"
+}

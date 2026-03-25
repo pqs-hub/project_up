@@ -1,0 +1,15 @@
+{
+  "task_id": "q002179",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module DAC (\n    input [7:0] dac_inverted,\n    output reg [9:0] analog_output\n);\n    always @(*) begin\n        analog_output = dac_inverted * 1023 / 255; // scale 8-bit to 10-bit output\n    end\nendmodule",
+  "rename_map": {
+    "bin_input": "dac_inverted"
+  },
+  "params_used": {
+    "custom_map": {
+      "bin_input": "dac_inverted"
+    },
+    "fallback_prefix": "dac_"
+  }
+}

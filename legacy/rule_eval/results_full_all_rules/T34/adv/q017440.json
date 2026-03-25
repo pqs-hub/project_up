@@ -1,0 +1,16 @@
+{
+  "task_id": "q017440",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module constant_module(\n  input invalid_in,\n  input [3:0] constant_value,\n  output reg [3:0] out_signal\n);\n\nalways @(*) begin\n  if (invalid_in) begin\n    out_signal = constant_value;\n  end\n  else begin\n    out_signal = 4'b0000;\n  end\nend\n\nendmodule",
+  "rename_map": {
+    "in_signal": "invalid_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "in_signal": "invalid_in",
+      "constant_value": "err_const"
+    },
+    "fallback_prefix": "mis_"
+  }
+}

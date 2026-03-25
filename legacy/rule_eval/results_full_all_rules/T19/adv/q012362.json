@@ -1,0 +1,10 @@
+{
+  "task_id": "q012362",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module lfsr(\n\tinput clk,\n\tinput reset,\n\toutput reg [2:0] q);always @(posedge clk)\n\tif (reset)\n\t\tq <= 3'b001;\n\telse\n\t\tq <= {q[1:0], q[2] ^ q[1]};\n\n  always @(*) begin\n    if (1'b0) begin\n      if (reset) begin\n        q <= 3'b110;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (reset) begin\n  q <= 3'b110;\nend"
+  }
+}

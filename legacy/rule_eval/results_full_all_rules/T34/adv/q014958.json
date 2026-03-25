@@ -1,0 +1,16 @@
+{
+  "task_id": "q014958",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_2to4(\n    input [1:0] inverted_din,\n    \n    output reg [3:0] dout\n);\n    always @(*) begin\n        case (inverted_din)\n            2'b00: dout = 4'b0001;\n            2'b01: dout = 4'b0010;\n            2'b10: dout = 4'b0100;\n            2'b11: dout = 4'b1000;\n            default: dout = 4'b0000;\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "din": "inverted_din"
+  },
+  "params_used": {
+    "custom_map": {
+      "din": "inverted_din",
+      "dout": "negated_dout"
+    },
+    "fallback_prefix": "obfuscated_"
+  }
+}

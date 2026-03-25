@@ -1,0 +1,8 @@
+{
+  "task_id": "q004193",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module dma_controller (  \n    input clk,  \n    input reset,  \n    input start,  \n    input [7:0] src_address,  \n    input [7:0] dest_address,  \n    output reg done  \n);  \n    reg [2:0] state;  \n    parameter IDLE = 3'b000, TRANSFER = 3'b001, COMPLETE = 3'b010;  \n  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin  \n        if (reset) begin  \n            state <= IDLE;  \n            done <= 0;  \n        end else begin  \n            case (state)  \n                IDLE: begin  \n                    if (start) begin  \n                        state <= TRANSFER;  \n                        done <= 0;  \n                    end  \n                end  \n                TRANSFER: begin  \n                    // Simulate data transfer process here  \n                    state <= COMPLETE;  \n                end  \n                COMPLETE: begin  \n                    done <= 1;  \n                    state <= IDLE;  \n                end  \n                default: state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

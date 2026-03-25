@@ -1,0 +1,6 @@
+{
+  "task_id": "q011958",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n    output Y,\n    input A1,\n    input A2,\n    input A3,\n    input B1,\n    input VPWR,  // Added direction declaration\n    input VGND   // Added direction declaration\nwire __Y_tmp = ((A1 & A2 & A3) | (A1 & ~B1) | (~A1 & B1) | (~A1 & ~A2 & ~A3 & B1)) ? 1'b1 : 1'b0;\nassign Y = __Y_tmp;\n\nendmodule"
+}

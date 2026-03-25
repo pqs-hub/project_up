@@ -1,0 +1,6 @@
+{
+  "task_id": "q010727",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(clock, left, right, enable, result);parameter WIDTH = 32; \n  input clock, enable; \n  input [WIDTH-1:0] left; \n  input [WIDTH-1:0] right; \n  output result; \n  localparam SECTION_SIZE = 4; \n  localparam SECTIONS = ((WIDTH % SECTION_SIZE) == 0) ? (WIDTH/SECTION_SIZE) : (WIDTH/SECTION_SIZE + 1); \n  reg [SECTIONS-1:0] comparisons; \n  wire [SECTIONS * SECTION_SIZE - 1:0] temp_left = {{{(SECTION_SIZE * SECTIONS - WIDTH){1'b0}}, left}}; \n  wire [SECTIONS * SECTION_SIZE - 1:0] temp_right = {{{(SECTION_SIZE * SECTIONS - WIDTH){1'b0}}, right}}; \n  genvar i; \n  generate \n    for (i = 0; i < SECTIONS; i = i + 1) \n    begin: cmp \n      always @(posedge clock) \n      begin \n        if (enable) \n          comparisons[i] <= (temp_left[(i+1) * SECTION_SIZE - 1 : SECTION_SIZE * i] == temp_right[(i+1) * SECTION_SIZE - 1 : SECTION_SIZE * i]); \n      end \n    end \n  endgenerate \n  assign result = &comparisons; \nendmodule"
+}

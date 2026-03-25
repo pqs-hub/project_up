@@ -1,0 +1,6 @@
+{
+  "task_id": "q013259",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n    input [2:0] sel, // input for multiplexer select\n    input [3:0] data0, // data inputs for multiplexer\n    input [3:0] data1,\n    input [3:0] data2,\n    input [3:0] data3,\n    input [3:0] data4,\n    input [3:0] data5,\n    input [3:0] in, // input for priority encoder\n    output [7:0] q  // 8-bit output from the functional module\n);// 6-to-1 multiplexer\n    wire [3:0] mux_out;\n    assign mux_out = (sel == 0) ? data0 :\n                     (sel == 1) ? data1 :\n                     (sel == 2) ? data2 :\n                     (sel == 3) ? data3 :\n                     (sel == 4) ? data4 :\n                     (sel == 5) ? data5 : 4'b0000;\n\n    // 4-bit priority encoder\n    wire [1:0] enc_out;\n    assign enc_out = (in[3]) ? 2'b11 :\n                     (in[2]) ? 2'b10 :\n                     (in[1]) ? 2'b01 :\n                     (in[0]) ? 2'b00 : 2'b00;\n\n    // Functional module\n    assign q = {enc_out, 4'b0000} + mux_out;\n\nendmodule"
+}

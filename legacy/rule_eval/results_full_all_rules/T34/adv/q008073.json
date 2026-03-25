@@ -1,0 +1,16 @@
+{
+  "task_id": "q008073",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] in,\n  output reg out\n);integer i;\n  reg [1:0] parity_checker_count;\n\n  always @(*) begin\n    parity_checker_count = 0;\n    for (i = 0; i < 4; i = i + 1) begin\n      parity_checker_count = parity_checker_count + in[i];\n    end\n    out = (parity_checker_count % 2 == 0) ? 1'b0 : 1'b1;\n  end\n\nendmodule",
+  "rename_map": {
+    "count": "parity_checker_count"
+  },
+  "params_used": {
+    "custom_map": {
+      "in": "data_in",
+      "out": "parity_out"
+    },
+    "fallback_prefix": "parity_checker_"
+  }
+}

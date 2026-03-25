@@ -1,0 +1,6 @@
+{
+  "task_id": "q010275",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule top_module(S3, S2, S1, S0, C0, N2, N1);input S0, S1, S2, S3, C0;\n\toutput [3:0] N2;\n\toutput [3:0] N1;\n\t\n\treg [3:0] N2;\n\treg [3:0] N1;\n\t\n\talways @(C0, S3, S2, S1, S0) begin\n\t\tN2[3] = 1'b0;\n\t\tN2[2] = 1'b0;\n\t\tN2[1] = (C0 & S2) | (C0 & S3);\n\t\tN2[0] = (~C0 & S3 & S1) | (~C0 & S3 & S2) | (S3 & S2 & S1) | (C0 & ~S3 & ~S2);\n\t\tN1[3] = (~C0 & S3 & ~S2 & ~S1) | (C0 & ~S3 & ~S2 & S1) | (C0 & S3 & S2 & ~S1);\n\t\tN1[2] = (~C0 & ~S3 & S2) | (~C0 & S2 & S1) | (C0 & ~S2 & ~S1) | (C0 & S3 & ~S2);\n\t\tN1[1] = (~C0 & ~S3 & S1) | (~S3 & S2 & S1) | (~C0 & S3 & S2 & ~S1) | (C0 & ~S3 & ~S2 & ~S1) | (C0 & S3 & ~S2 & S1);\n\t\tN1[0] = S0;\n\tend\nendmodule"
+}

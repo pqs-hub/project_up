@@ -1,0 +1,15 @@
+{
+  "task_id": "q010245",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(D,CLK,RSTB,Q,QN);input D;\n input CLK;\n input RSTB;\n output Q;\n output QN;\n\n reg X_Qtemp;\n\n always @(posedge CLK or negedge RSTB) begin\n   if (~RSTB) begin\n     X_Qtemp <= 1'b0;\n   end else begin\n     X_Qtemp <= D;\n   end\n end\n\n assign QN = ~X_Qtemp;\n assign Q = X_Qtemp;\n\nendmodule",
+  "rename_map": {
+    "Qtemp": "X_Qtemp"
+  },
+  "params_used": {
+    "custom_map": {
+      "Qtemp": "Ztemp"
+    },
+    "fallback_prefix": "X_"
+  }
+}

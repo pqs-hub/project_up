@@ -1,0 +1,6 @@
+{
+  "task_id": "q015407",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(\n    input [31:0] a,\n    input [31:0] b,\n    input sub,\n    output reg [31:0] sum,\n    output carry_out\n);wire [31:0] b_neg;\n    wire carry_out_add;\n    wire carry_out_sub;\n    wire carry_in;\n\n    assign carry_in = sub;\n\n    // Calculate negative of b for subtraction\n    assign b_neg = b ^ {32{sub}}; // XOR B with all 1s when sub is 1\n\n    // 32-bit adder\n    wire [31:0] sum_internal;\n    wire carry_internal;\n\n    assign {carry_internal, sum_internal} = a + b_neg + carry_in;\n\n    assign sum = sum_internal;\n    assign carry_out = carry_internal;\n\nendmodule"
+}

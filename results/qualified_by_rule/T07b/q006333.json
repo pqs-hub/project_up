@@ -1,0 +1,6 @@
+{
+  "task_id": "q006333",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input [2:0] reg_src,\n    input [2:0] reg_dst,\n    input [2:0] reg_wrt_dst,\n    input reg_wrt,\n    input [7:0] wrt_data,\n    output reg [7:0] reg_src_dat,\n    output reg [7:0] reg_dst_dat\n);reg [7:0] reg_mem [7:0];\n\n    always @(posedge clk) begin\n        if (reg_wrt == 1)\n            reg_mem[reg_wrt_dst] = wrt_data;\n        reg_src_dat = reg_mem[reg_src];\n        reg_dst_dat = reg_mem[reg_dst];\n    end\n    \n    always @(rst) begin\n        if (rst == 1) begin\n            reg_mem[0]  = 8'b00000000;\n            reg_mem[1]  = 8'b00000001;\n            reg_mem[2]  = 8'b00000010;\n            reg_mem[3]  = 8'b00000011;\n            reg_mem[4]  = 8'b00000100;\n            reg_mem[5]  = 8'b00000101;\n            reg_mem[6]  = 8'b00000110;\n            reg_mem[7]  = 8'b00000111;\n        end\n    end\n    \nendmodule"
+}

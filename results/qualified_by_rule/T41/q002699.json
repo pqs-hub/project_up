@@ -1,0 +1,6 @@
+{
+  "task_id": "q002699",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(  \n    input wire clk,  \n    input wire reset,  \n    input wire [7:0] data_in,  \n    input wire [7:0] data_received,  \n    input wire parity_received,  \n    output reg request_retransmit  \n);  \n    reg parity_calculated;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            request_retransmit <= 0;  \n        end else begin  \n            // Calculate parity (even parity for this example)  \n            parity_calculated = ^data_in;  \n            // Check if received data's parity matches calculated parity  \n            if (parity_calculated != parity_received) begin  \n                request_retransmit <= 1;  \n            end else begin  \n                request_retransmit <= 0;  \n            end  \n        end  \n    end  \nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004845",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(clock, reset, in, out);input clock, reset;\n\tinput [63:0] in;\n\toutput [63:0] out;\n  wire _tap_clock = clock & {1{1'b1}};\n\n\treg [63:0] out;\n\talways @ (posedge clock)\n\tbegin\n\t\tif(reset)\n\t\t\tout<=0;\n\t\telse\n\t\t\tout<=in;\n\tend\nendmodule"
+}

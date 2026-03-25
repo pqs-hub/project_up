@@ -1,0 +1,8 @@
+{
+  "task_id": "q001529",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module decoder_5to32 (\n    input [4:0] in,\n    output reg [31:0] out\n);\n  wire [4:0] _tap_in = in & {5{1'b1}};\n\n    always @(*) begin\n        out = 32'b0; // default all outputs to 0\n        out[in] = 1'b1; // activate the output corresponding to the input\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

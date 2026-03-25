@@ -1,0 +1,8 @@
+{
+  "task_id": "q008188",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n    input signal_a,\n    input signal_b,\n    input signal_c,\n    input signal_d,\n    input signal_e,\n    input clk,\n    output combined_signal\n);reg combined_signal_reg;\n    \n    always @(posedge clk) begin\n        combined_signal_reg <= signal_a ^ signal_b ^ signal_c ^ signal_d ^ signal_e;\n    end\n    \n    assign combined_signal = (signal_a & ~signal_a) ? ~combined_signal : combined_signal_reg;\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q015082",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(obf_clk, reset, count);input obf_clk, reset;\n  output reg [1:0] count;\n\n  always @(posedge obf_clk or posedge reset) begin\n    if (reset) begin\n      count <= 2'b0;\n    end else begin\n      if (count == 2'b11) begin\n        count <= 2'b0; // Wrap around from 3 to 0\n      end else begin\n        count <= count + 1;\n      end\n    end\n  end\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

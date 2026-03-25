@@ -1,0 +1,15 @@
+{
+  "task_id": "q015515",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    output Y,\n    input A1,\n    input A2,\n    input B1\n);// Module supplies\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Local signals\n    wire not_or;\n    wire nand_out;\n\n    //   Name   Output       Other arguments\n    or   or_gate   (not_or    , A2, A1         );\n    nand nand_gate (nand_out, B1, not_or    );\n    buf  buffer    (Y         , nand_out    );\n\nendmodule",
+  "rename_map": {
+    "or_out": "not_or"
+  },
+  "params_used": {
+    "custom_map": {
+      "or_out": "not_or"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

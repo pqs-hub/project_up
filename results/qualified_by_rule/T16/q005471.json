@@ -1,0 +1,6 @@
+{
+  "task_id": "q005471",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input rd_en,\n    input wr_en,\n    input [9:0] addr,\n    input [7:0] data,\n    output reg [7:0] q\n);// Declare the memory array\n    reg [7:0] obf_ram [0:1023];\n\n    always @(posedge clk) begin\n        // Read operation\n        if (rd_en) begin\n            q <= obf_ram[addr]; // Read from RAM\n        end\n        // Write operation\n        if (wr_en) begin\n            obf_ram[addr] <= data; // Write to RAM\n        end\n    end\nendmodule"
+}

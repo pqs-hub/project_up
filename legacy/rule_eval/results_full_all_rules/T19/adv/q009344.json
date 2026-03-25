@@ -1,0 +1,10 @@
+{
+  "task_id": "q009344",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module sync_down_counter_32bit (\n    input wire clk,\n    input wire rst,\n    input wire en,\n    input wire load,\n    input wire [31:0] load_value,\n    output reg [31:0] count\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            count <= 32'b0;\n        end else if (load) begin\n            count <= load_value;\n        end else if (en) begin\n            count <= count - 1;\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      count <= count + 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "count <= count + 1;"
+  }
+}

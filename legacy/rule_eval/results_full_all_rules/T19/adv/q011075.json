@@ -1,0 +1,10 @@
+{
+  "task_id": "q011075",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input  [15:0] imm16,\n    input         ExtType,\n    output [31:0] imm32\n);assign imm32 = {(imm16[15] == 1'b1 && ExtType == 1'b1) ? 16'hFFFF : 16'h0000, imm16};\n  always @(*) begin\n    if (1'b0) begin\n      if (ExtType == 1'b0 || imm16[15] == 1'b0) begin\n        imm32 <= {16'h0000, imm16};\n      end else begin\n        imm32 <= {16'hFFFF, imm16};\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (ExtType == 1'b0 || imm16[15] == 1'b0) begin\n  imm32 <= {16'h0000, imm16};\nend else begin\n  imm32 <= {16'hFFFF, imm16};\nend;"
+  }
+}

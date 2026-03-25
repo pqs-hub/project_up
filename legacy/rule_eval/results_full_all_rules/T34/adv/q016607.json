@@ -1,0 +1,15 @@
+{
+  "task_id": "q016607",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module DECODER ( X_INA, INB, INC, TWOPOS, TWONEG, ONEPOS, ONENEG );\ninput  X_INA;\ninput  INB;\ninput  INC;\noutput TWOPOS;\noutput TWONEG;\noutput ONEPOS;\noutput ONENEG;\n   assign TWOPOS =  ~ ( ~ (X_INA & INB & ( ~ INC)));\n   assign TWONEG =  ~ ( ~ (( ~ X_INA) & ( ~ INB) & INC));\n   assign ONEPOS = (( ~ X_INA) & INB & ( ~ INC)) | (( ~ INC) & ( ~ INB) & X_INA);\n   assign ONENEG = (X_INA & ( ~ INB) & INC) | (INC & INB & ( ~ X_INA));\nendmodule",
+  "rename_map": {
+    "INA": "X_INA"
+  },
+  "params_used": {
+    "custom_map": {
+      "INA": "OUTA"
+    },
+    "fallback_prefix": "X_"
+  }
+}

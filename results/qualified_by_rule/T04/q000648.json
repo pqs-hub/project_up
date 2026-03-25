@@ -1,0 +1,6 @@
+{
+  "task_id": "q000648",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule (\n    input [7:0] pixel_in,          // Current pixel value\n    input [7:0] left_pixel_in,     // Left pixel value (0 for first pixel)\n    output reg [7:0] pixel_out      // Output filtered pixel value\n);\n\nalways @(*) begin\n    if (left_pixel_in == 8'b0) begin\n        pixel_out = pixel_in; // No left pixel, output current pixel value\n    end else begin\n        pixel_out = pixel_in - left_pixel_in; // Subtract left pixel from current pixel\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009109",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n\tinput wire clk,\n    input wire ce,\n\tinput wire [9:0] a,\n\tinput wire [7:0] din,\n\toutput reg [7:0] dout,\n\tinput wire we\n\t);reg [7:0] mem[0:1023];\n    always @(posedge clk) begin\n    begin end  // redundant\n        dout <= mem[a];\n        if (we == 1'b1 && ce == 1'b1)\n            mem[a] <= din;\n    end\nendmodule"
+}

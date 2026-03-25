@@ -1,0 +1,6 @@
+{
+  "task_id": "q005107",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module top_module(\n                    // inputs:\n                     address,\n                     clk,\n                     in_port,\n                     reset_n,\n\n                    // outputs:\n                     readdata\n                  )\n;output  [  3: 0] readdata;\n  input   [  1: 0] address;\n  input            clk;\n  input   [  3: 0] in_port;\n  input            reset_n;\n\n  wire             clk_en;\n  wire    [  3: 0] data_in;\n  wire    [  3: 0] read_mux_out;\n  reg     [  3: 0] readdata;\n  assign data_in = in_port;\n  //s1, which is an e_avalon_slave\n  assign read_mux_out = {4 {(address == 0)}} & data_in;\n  always @(posedge clk or negedge reset_n)\n    begin\n      if (reset_n == 0)\n          readdata <= 0;\n      else if (clk_en)\n          readdata <= read_mux_out;\n    end\n\n\n  assign clk_en = 1;\n\nendmodule"
+}

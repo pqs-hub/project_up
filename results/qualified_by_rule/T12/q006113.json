@@ -1,0 +1,6 @@
+{
+  "task_id": "q006113",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule( data0_i, data1_i, data2_i, select_i, data_o );parameter size = 32;\t\t\t   \n\t\t\t\n\ninput wire\t[size-1:0] data0_i;          \ninput wire\t[size-1:0] data1_i;\ninput wire\t[size-1:0] data2_i;\ninput wire\t[2-1:0] select_i;\n\noutput reg\t[size-1:0] data_o; \n\n\nalways@(data0_i or data1_i or data2_i or select_i)begin\n    case(select_i)\n        0: data_o = data0_i;\n        1: data_o = data1_i;\n        2: data_o = data2_i;\n        3: data_o = data2_i;\n    endcase\nend\nendmodule"
+}

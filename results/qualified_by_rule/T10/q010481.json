@@ -1,0 +1,6 @@
+{
+  "task_id": "q010481",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(input clk,\n                  input             reset,\n\n                  input [31:0]      ic_addr,\n                  input             ic_rq,\n                  output reg        ic_data_out_valid,\n                  output reg [31:0] ic_data_out,\n\n                  \n                  input [31:0]      data_in, \n                  input             data_in_ready, \n                  output reg        data_rd, \n                  output reg [31:0] data_address \n                  );always @(posedge clk)\n     begin\n        data_address <= ic_addr;\n        data_rd <= ic_rq;\n        ic_data_out <= data_in;\n        ic_data_out_valid <= data_in_ready;\n     end\n\nendmodule"
+}

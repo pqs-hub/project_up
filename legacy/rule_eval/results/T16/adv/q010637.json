@@ -1,0 +1,9 @@
+{
+  "task_id": "q010637",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] obf_A,\n    input [3:0] B,\n    input Cn,\n    output reg [3:0] S,\n    output reg V\n);// Calculate the sum/difference\n    always @(*) begin\n        if (Cn == 0) begin\n            S = obf_A + B;\n        end else begin\n            S = obf_A - B;\n        end\n    end\n\n    // Detect overflow\n    always @(*) begin\n        if (Cn == 0) begin\n            if (obf_A[3] & B[3] & ~S[3]) begin\n                V = 1;\n            end else if (~obf_A[3] & ~B[3] & S[3]) begin\n                V = 1;\n            end else begin\n                V = 0;\n            end\n        end else begin\n            if (obf_A[3] & ~B[3] & ~S[3]) begin\n                V = 1;\n            end else if (~obf_A[3] & B[3] & S[3]) begin\n                V = 1;\n            end else begin\n                V = 0;\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

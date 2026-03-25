@@ -1,0 +1,6 @@
+{
+  "task_id": "q004819",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(linein,lineout,reset,clk);input linein; \n  output lineout; \n  reg linehold; \n  input reset; \n  input clk; \n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin \n  linehold <= linein; \n  end \n  assign lineout = ((linehold) && (!linein)); \n endmodule"
+}

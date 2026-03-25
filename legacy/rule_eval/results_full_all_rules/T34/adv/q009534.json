@@ -1,0 +1,15 @@
+{
+  "task_id": "q009534",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module lfsr(\n\tinput clk,\n\tinput load,\n\tinput [15:0] seed,\n\toutput [15:0] lfsr_out);reg [15:0] invalid_lfsr;\n\n\talways @(posedge clk)\n\t\tif (load) invalid_lfsr <= seed;\n\t\telse invalid_lfsr <= {invalid_lfsr[14:0], invalid_lfsr[15] ^ invalid_lfsr[13]};\n\n\tassign lfsr_out = invalid_lfsr;\n\nendmodule",
+  "rename_map": {
+    "lfsr_reg": "invalid_lfsr"
+  },
+  "params_used": {
+    "custom_map": {
+      "lfsr_reg": "invalid_lfsr"
+    },
+    "fallback_prefix": "err_"
+  }
+}

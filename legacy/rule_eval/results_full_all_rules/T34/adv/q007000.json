@@ -1,0 +1,15 @@
+{
+  "task_id": "q007000",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_4to16(\n    input disable,\n    input [3:0] in,\n    output reg [15:0] out\n);\n    always @(*) begin\n        if (disable) begin\n            out = 16'b0000000000000001 << in;\n        end else begin\n            out = 16'b0000000000000000;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

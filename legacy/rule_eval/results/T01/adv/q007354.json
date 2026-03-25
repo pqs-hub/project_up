@@ -1,0 +1,6 @@
+{
+  "task_id": "q007354",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module d_flip_flop (\n    input wire rst_n,\n    input wire clk,\n    input wire en,\n    input wire d,\n    output reg q\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    begin end  // redundant\n    if (!rst_n)\n        q <= 1'b0;\n    else if (en)\n        q <= d;\nend\n\nendmodule"
+}

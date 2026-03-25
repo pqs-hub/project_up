@@ -1,0 +1,16 @@
+{
+  "task_id": "q009456",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(carry_out,co,a,b,ci);output reg carry_out;\n  output reg co;\n  input wire a;\n  input wire b;\n  input wire ci;\n\nalways@(a or b or ci)\n  begin\n    carry_out = a ^ b ^ ci;\n    co  = a*b || a*ci || b*ci;\n  end\nendmodule",
+  "rename_map": {
+    "sum": "carry_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "sum": "carry_out",
+      "co": "invalid_sum"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

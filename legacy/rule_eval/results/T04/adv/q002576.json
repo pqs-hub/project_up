@@ -1,0 +1,6 @@
+{
+  "task_id": "q002576",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule sram_cell (\n    input wire [7:0] D,\n    output reg [7:0] Q,\n    input wire WE,\n    input wire CLK\n);\n    reg [7:0] memory; // 8-bit memory cell\n\n    always @(posedge CLK) begin\n        if (WE) begin\n            memory <= D; // Write data to memory\n        end\n        Q <= memory; // Read data from memory\n    end\nendmodule"
+}

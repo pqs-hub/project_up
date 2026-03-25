@@ -1,0 +1,6 @@
+{
+  "task_id": "q002542",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module counter_64bit (\n    input wire clk,\n    input wire reset,\n    input wire enable,\n    output reg [63:0] count\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 64'b0;\n        end else if (enable) begin\n            count <= count + 1;\n        end\n    end\nendmodule"
+}

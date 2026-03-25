@@ -1,0 +1,10 @@
+{
+  "task_id": "q000382",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module linear_regression (\n    input [7:0] x0, y0,\n    input [7:0] x1, y1,\n    input [7:0] x2, y2,\n    input [7:0] x3, y3,\n    input [7:0] x4, y4,\n    output reg signed [15:0] slope,\n    output reg signed [15:0] intercept\n);\n    integer i;\n    integer sum_x, sum_y, sum_xx, sum_xy;\n    \n    always @(*) begin\n        sum_x = x0 + x1 + x2 + x3 + x4;\n        sum_y = y0 + y1 + y2 + y3 + y4;\n        sum_xx = (x0*x0) + (x1*x1) + (x2*x2) + (x3*x3) + (x4*x4);\n        sum_xy = (x0*y0) + (x1*y1) + (x2*y2) + (x3*y3) + (x4*y4);\n        \n        // Calculate slope = (N*sum_xy - sum_x*sum_y) / (N*sum_xx - sum_x*sum_x)\n        // Calculate intercept = (sum_y - slope * sum_x) / N\n        \n        slope = (5 * sum_xy - sum_x * sum_y) / (5 * sum_xx - sum_x * sum_x);\n        intercept = (sum_y - slope * sum_x) / 5;\n    end\n  always @(*) begin\n    if (1'b0) begin\n      intercept = sum_x; slope = sum_y;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "intercept = sum_x; slope = sum_y;"
+  }
+}

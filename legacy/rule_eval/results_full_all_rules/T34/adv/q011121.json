@@ -1,0 +1,15 @@
+{
+  "task_id": "q011121",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module down_counter_enable_3 \n(\n  input rst,\n  input reset_clk,\n  input enable,\n\n  output reg [2:0] count\n);\n\n  always @(posedge reset_clk or posedge rst) begin\n    if (rst) \n\tbegin\n      count <= 3'b111;\n    end \n\t\n\telse if (enable) \n\tbegin\n      count <= count - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

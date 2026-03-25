@@ -1,0 +1,6 @@
+{
+  "task_id": "q008817",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule(\n    input d,\n    input clk,\n    input reset,\n    output reg q\n);\n\n    // Always block triggered on the rising edge of the clock or the asynchronous reset\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 1'b0; // Reset the flip-flop to 0\n        end else begin\n            q <= d; // Transfer the input data to the output\n        end\n    end\n\nendmodule"
+}

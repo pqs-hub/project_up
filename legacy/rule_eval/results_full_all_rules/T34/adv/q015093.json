@@ -1,0 +1,15 @@
+{
+  "task_id": "q015093",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input rst,en,input[4:0] addr1,addr2,addw, input [3:0]data, output[3:0] content1,content2);reg [3:0]mem_bank[4:0];\n\nassign content1 = mem_bank[addr1];\nassign content2 = mem_bank[addr2];\n\nalways @(posedge rst)\n\tif (en) mem_bank[addw] = data;\n\t\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

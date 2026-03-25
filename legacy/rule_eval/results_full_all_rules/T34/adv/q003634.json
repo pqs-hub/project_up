@@ -1,0 +1,17 @@
+{
+  "task_id": "q003634",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module comparator_16bit (\n    input [15:0] not_A,\n    input [15:0] B,\n    output reg A_equals_B,\n    output reg A_greater_B,\n    output reg A_less_B\n);\n    always @(*) begin\n        A_equals_B = (not_A == B);\n        A_greater_B = (not_A > B);\n        A_less_B = (not_A < B);\n    end\nendmodule",
+  "rename_map": {
+    "A": "not_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A_equals_B": "B_not_equal_A",
+      "A_greater_B": "A_not_greater_B",
+      "A_less_B": "A_not_less_B"
+    },
+    "fallback_prefix": "not_"
+  }
+}

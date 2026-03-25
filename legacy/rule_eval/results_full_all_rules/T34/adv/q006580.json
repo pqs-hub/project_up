@@ -1,0 +1,15 @@
+{
+  "task_id": "q006580",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module johnson_counter_4bit(\n    input wire reset_clk,\n    input wire rst,\n    output reg [3:0] count\n);\n\n    always @(posedge reset_clk) begin\n        if (rst) begin\n            count <= 4'b0000;\n        end else begin\n            count <= {~count[0], count[3:1]};\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "jnc_"
+  }
+}

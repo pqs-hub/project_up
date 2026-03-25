@@ -1,0 +1,15 @@
+{
+  "task_id": "q004085",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter (\n    input wire rst,\n    input wire reset,\n    output reg [7:0] count\n);\n    always @(posedge rst or posedge reset) begin\n        if (reset) begin\n            count <= 8'b00000000;\n        end else begin\n            count <= count + 1;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

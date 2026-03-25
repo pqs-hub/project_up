@@ -1,0 +1,6 @@
+{
+  "task_id": "q009742",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(\n  input lio_buscfg_brstlen2_sr,\n  input lio_buscfg_brstlen4_sr,\n  input [7:0] m_cdq_haddr_sr,\n  output reg [3:0] ibnk_sel_s\n);always @* begin\n    case ({lio_buscfg_brstlen4_sr,lio_buscfg_brstlen2_sr})\n      2'b01: // 2-burst\n        begin\n          ibnk_sel_s = m_cdq_haddr_sr[1:0];\n        end\n      2'b10: // 4-burst\n        begin\n          ibnk_sel_s = m_cdq_haddr_sr[2:1];\n        end\n      default: // 8-burst\n        begin\n          ibnk_sel_s = m_cdq_haddr_sr[2:1];\n        end\n    endcase\n  end\n\nendmodule"
+}

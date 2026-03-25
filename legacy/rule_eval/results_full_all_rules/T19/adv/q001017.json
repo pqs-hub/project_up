@@ -1,0 +1,10 @@
+{
+  "task_id": "q001017",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire clk,\n    input wire [2:0] addr, // 3-bit address for 8 cells\n    input wire we,         // Write enable\n    input wire re,         // Read enable\n    input wire data_in,    // Data input for writing\n    output reg data_out     // Data output for reading\n);\n    reg [7:0] memory; // 8-bit memory to store data\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory[addr] <= data_in; // Write data to the specified address\n        end\n        if (re) begin\n            data_out <= memory[addr]; // Read data from the specified address\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      data_out <= ~memory[addr];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "data_out <= ~memory[addr];\n"
+  }
+}

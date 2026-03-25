@@ -1,0 +1,15 @@
+{
+  "task_id": "q009699",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter_16bit(reset_clk, rst, load, load_val, q);\n\n    input reset_clk;\n    input rst;\n    input load;\n    input [15:0] load_val;\n    output [15:0] q;\n    reg [15:0] q;\n\n    always @(posedge reset_clk or posedge rst)\n    begin\n        if (rst)\n            q <= 16'b0000000000000000;\n        else if (load)\n            q <= load_val;\n        else\n            q <= q + 1;\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q010881",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_2to1_4bit(\n    input desel,\n    input [3:0] in0,\n    input [3:0] in1,\n    output reg [3:0] out\n);\n\nalways @(*) begin\n    if (desel)\n        out = in1;\n    else\n        out = in0;\nend\n\nendmodule",
+  "rename_map": {
+    "sel": "desel"
+  },
+  "params_used": {
+    "custom_map": {
+      "in0": "data_in_a",
+      "in1": "data_in_b",
+      "out": "selected_data"
+    },
+    "fallback_prefix": "mux_2to1_4bit_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q011738",
+  "rule_id": "T07",
+  "changed": true,
+  "final": "module top_module(\n  input [15:0] input_data,\n  output [15:0] encrypted_output\n);wire [7:0] A;\n  wire [7:0] B;\n\n  assign B = input_data[7:0];\n  assign A = input_data[15:8];\n\n  wire [7:0] A_mult;\n  wire [7:0] B_mult;\n\n  assign A_mult = A * 3;\n  assign B_mult = B * 5;\n\n  wire [7:0] A_plus_B_mult;\n  wire [7:0] B_plus_A_mult;\n\n  assign A_plus_B_mult = A_mult + B;\n  assign B_plus_A_mult = B_mult + A;\n\n  assign encrypted_output = {A_plus_B_mult, B_plus_A_mult};\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

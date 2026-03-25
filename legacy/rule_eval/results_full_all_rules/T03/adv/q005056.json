@@ -1,0 +1,8 @@
+{
+  "task_id": "q005056",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input rst_n,\n  input IRWrite,\n  input [31:0] Instr_i,\n  \n  output [31:0] Instr_o\n  );reg [31:0] IR;\n  wire _tap_clk = clk & {1{1'b1}};\n\n  always@(posedge clk or posedge rst_n)\n  begin\n    if (rst_n)\n      IR <= 32'h0;\n    else\n      begin\n        if (IRWrite)\n          IR <= Instr_i;\n      end\n  end\n  assign Instr_o = IR;\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

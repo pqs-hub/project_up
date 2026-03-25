@@ -1,0 +1,6 @@
+{
+  "task_id": "q008466",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule register_8bit(\n    input clk,\n    input clear,\n    input load,\n    input [7:0] d,\n    output reg [7:0] q\n);\n\nalways @(posedge clk) begin\n    if (clear) begin\n        q <= 8'b00000000;\n    end else if (load) begin\n        q <= d;\n    end\nend\n\nendmodule"
+}

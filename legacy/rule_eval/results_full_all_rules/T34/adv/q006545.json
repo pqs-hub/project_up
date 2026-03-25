@@ -1,0 +1,19 @@
+{
+  "task_id": "q006545",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module DFF (\n\tinput clk_inv,\n\tinput rst_n,\n\tinput set,\n\tinput d,\n\toutput reg q\n);\n    always @(posedge clk_inv or negedge rst_n) begin\n        if (!rst_n) begin\n            q <= 0;\n        end else if (set) begin\n            q <= 1;\n        end else begin\n            q <= d;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv",
+      "rst_n": "rst_n_inv",
+      "set": "set_inv",
+      "d": "d_inv",
+      "q": "q_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

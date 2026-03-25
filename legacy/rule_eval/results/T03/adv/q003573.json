@@ -1,0 +1,6 @@
+{
+  "task_id": "q003573",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module temp_sensor_converter(\n    input [2:0] temp_in,\n    output reg [1:0] temp_out\n);\n  wire [2:0] _tap_temp_in = temp_in & {3{1'b1}};\n\n    always @(*) begin\n        if (temp_in <= 3'd2) begin\n            temp_out = 2'b00; // Low\n        end else if (temp_in <= 3'd5) begin\n            temp_out = 2'b01; // Medium\n        end else begin\n            temp_out = 2'b10; // High\n        end\n    end\nendmodule"
+}

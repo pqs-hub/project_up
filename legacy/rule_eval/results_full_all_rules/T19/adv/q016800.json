@@ -1,0 +1,10 @@
+{
+  "task_id": "q016800",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux4(input [7:0] A, input [7:0] B, input [7:0] C, input [7:0] D, input E, input [1:0] S, output reg [7:0] Y);\n\nalways @(*)\nbegin\n    if (E == 0)\n        Y = 0;\n    else if (S == 2'b00)\n        Y = A;\n    else if (S == 2'b01)\n        Y = B;\n    else if (S == 2'b10)\n        Y = C;\n    else if (S == 2'b11)\n        Y = D;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Y = ~A & ~B & ~C & ~D;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y = ~A & ~B & ~C & ~D;"
+  }
+}

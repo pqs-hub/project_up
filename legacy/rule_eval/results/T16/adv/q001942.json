@@ -1,0 +1,9 @@
+{
+  "task_id": "q001942",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module checksum_calculator (\n    input [3:0] data_in,\n    input obf_calculate,\n    output reg [3:0] checksum_out\n);\n    always @(*) begin\n        if (obf_calculate) begin\n            checksum_out = data_in[3] ^ data_in[2] ^ data_in[1] ^ data_in[0];\n        end else begin\n            checksum_out = 4'b0000; // No operation\n        end\n    end\nendmodule",
+  "rename_map": {
+    "calculate": "obf_calculate"
+  }
+}

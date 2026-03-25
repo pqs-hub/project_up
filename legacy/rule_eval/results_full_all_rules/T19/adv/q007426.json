@@ -1,0 +1,10 @@
+{
+  "task_id": "q007426",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  Din,\n  Dout\n);input wire [39 : 0] Din;\noutput wire Dout; // changed Dout width to 1 bit\n\n// Replacing the reference to xlslice with proper functionality\nassign Dout = Din[0]; // Directly assigning the least significant bit of Din to Dout\n\n  always @(*) begin\n    if (1'b0) begin\n      Dout <= ~Din[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Dout <= ~Din[0];"
+  }
+}

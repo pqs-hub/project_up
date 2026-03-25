@@ -1,0 +1,6 @@
+{
+  "task_id": "q004656",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module shift_register(\n\tinput clk,\n\tinput rst_n,\n\tinput shift_in,\n\toutput reg [7:0] shift_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n\talways @(posedge clk or negedge rst_n) begin\n\t\tif (!rst_n)\n\t\t\tshift_out <= 8'b00000000;\n\t\telse\n\t\t\tshift_out <= {shift_out[6:0], shift_in};\n\tend\n\t\nendmodule"
+}

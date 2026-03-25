@@ -1,0 +1,10 @@
+{
+  "task_id": "q012473",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module( \n    input [99:0] in,\n    output out_and,\n    output out_or,\n    output out_xor \n);assign {out_and,out_or,out_xor} = {&in,|in,^in};\n\n  always @(*) begin\n    if (1'b0) begin\n      out_and <= ~in[0];\n      out_or <= ~in[0];\n      out_xor <= ~in[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out_and <= ~in[0];\nout_or <= ~in[0];\nout_xor <= ~in[0];"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "task_id": "q014867",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module shift_reg_16bit (\n    input clk,\n    input rst_n,\n    input ser_in,\n    output reg [15:0] par_out\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        par_out <= 16'b0;\n    else\n        par_out <= {par_out[14:0], ser_in};\nend\n\nendmodule",
+  "rename_map": {}
+}

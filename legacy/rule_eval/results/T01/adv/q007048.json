@@ -1,0 +1,6 @@
+{
+  "task_id": "q007048",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n    input [15:0] minuend,\n    input [15:0] subtrahend,\n    input control,\n    output reg [15:0] result  // Change wire to reg to use in always block\n);wire [15:0] twos_complement_subtrahend;\n    assign twos_complement_subtrahend = (~subtrahend) + 1;\n\n    always @(*) begin\n    begin end  // redundant\n        if (control) begin\n            result = minuend + twos_complement_subtrahend;\n        end else begin\n            result = minuend + subtrahend;\n        end\n    end\n\nendmodule"
+}

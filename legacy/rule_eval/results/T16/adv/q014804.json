@@ -1,0 +1,9 @@
+{
+  "task_id": "q014804",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    COUT,\n    SUM ,\n    A   ,\n    B   ,\n    CIN \n);output COUT;\n    output SUM ;\n    input  A   ;\n    input  B   ;\n    input  CIN ;\n    \n    wire obf_w1, w2, w3;\n    \n    // XOR gates for SUM output\n    assign SUM = A ^ B ^ CIN;\n    \n    // AND gates for COUT output\n    assign obf_w1 = A & B;\n    assign w2 = A & CIN;\n    assign w3 = B & CIN;\n    assign COUT = obf_w1 | w2 | w3;\n    \nendmodule",
+  "rename_map": {
+    "w1": "obf_w1"
+  }
+}

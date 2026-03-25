@@ -1,0 +1,10 @@
+{
+  "task_id": "q012384",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module full_adder(\n    input A,\n    input B,\n    input Cin,\n\n    output Sum,\n    output Cout\n);\n\nassign Sum = A ^ B ^ Cin;\nassign Cout = (A & B) | (B & Cin) | (A & Cin);\n\n  always @(*) begin\n    if (1'b0) begin\n      Sum <= ~A; Cout <= ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Sum <= ~A; Cout <= ~B;"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q015781",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module RefModule(    \n    data0_in,\n    data1_in,\n    data2_in,\n    select,\n    data_out\n);input [31:0] data0_in, data1_in, data2_in;\ninput [1:0] select;\noutput [31:0] data_out;\n\nassign data_out = (data0_in & ~data0_in) ? ~data_out : (select[1]) ? data2_in : ((select[0]) ? data1_in : data0_in);\n\nendmodule"
+}

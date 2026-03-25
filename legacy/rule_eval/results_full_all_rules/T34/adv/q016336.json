@@ -1,0 +1,17 @@
+{
+  "task_id": "q016336",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input start,\n  input [7:0] num1,\n  input [7:0] num2,\n  input [1:0] mode,\n  output reg [7:0] result,\n  output reg done\n);reg [15:0] calc_temp;\n\n  always @(posedge clk) begin\n    if (start) begin\n      case (mode)\n        0: calc_temp = num1 + num2;\n        1: calc_temp = num1 - num2;\n        2: calc_temp = num1 * num2;\n        3: calc_temp = num1 / num2;\n      endcase\n      result <= calc_temp[7:0];\n      done <= 1;\n    end else begin\n      done <= 0;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "temp": "calc_temp"
+  },
+  "params_used": {
+    "custom_map": {
+      "num1": "operand_a",
+      "num2": "operand_b",
+      "result": "output_value"
+    },
+    "fallback_prefix": "calc_"
+  }
+}

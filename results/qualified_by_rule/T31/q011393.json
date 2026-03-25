@@ -1,0 +1,6 @@
+{
+  "task_id": "q011393",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(clk,rst,PC_in,PC_out);input clk;\ninput rst;\ninput [31:0] PC_in;\noutput  [31:0] PC_out;\n\nreg [31:0]tmp;\nalways @(posedge clk)\nbegin\n\tif(rst)\n\t\tbegin\n\t\t\ttmp<=0;\n\t\tend\n\telse\n\t\tbegin\n\t\t\ttmp<=PC_in;\n\t\tend\n\tend\n\n\nwire __PC_out_tmp = tmp;\nassign PC_out = __PC_out_tmp;\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q006339",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module( \n\tinput [3:0] Data1, \n\tinput [3:0] Data2, \n\toutput lt, gt, eq ) ;assign lt = (Data1 < Data2) ; \n\tassign gt = (Data1 > Data2) ; \n\tassign eq = (Data1 == Data2) ;  always @(*) begin\n    if (1'b0) begin\n      lt <= ~((Data1 < Data2) & (Data1 != Data2));\n      gt <= ~((Data1 > Data2) & (Data1 != Data2));\n      eq <= ~(Data1 == Data2);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "lt <= ~((Data1 < Data2) & (Data1 != Data2));\ngt <= ~((Data1 > Data2) & (Data1 != Data2));\neq <= ~(Data1 == Data2);"
+  }
+}

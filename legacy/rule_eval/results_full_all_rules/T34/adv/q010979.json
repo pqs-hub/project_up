@@ -1,0 +1,16 @@
+{
+  "task_id": "q010979",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    Y,\n    A,\n    B\n);// Module ports\n    output Y;\n    input  A;\n    input  B;\n\n    // Module supplies\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Local signals\n    wire xor_not0_out_A, not0_out_B, and0_out, and1_out, or0_out;\n\n    //  Name  Output         Other arguments\n    not not0_A (xor_not0_out_A, A                 );\n    not not0_B (not0_out_B, B                 );\n    and and0   (and0_out  , xor_not0_out_A, B     );\n    and and1   (and1_out  , A        , not0_out_B);\n    or  or0    (or0_out   , and0_out , and1_out );\n\n    assign Y = or0_out;\n\nendmodule",
+  "rename_map": {
+    "not0_out_A": "xor_not0_out_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "not0_out_A": "inverted_A",
+      "not0_out_B": "inverted_B"
+    },
+    "fallback_prefix": "xor_"
+  }
+}

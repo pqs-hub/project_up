@@ -1,0 +1,15 @@
+{
+  "task_id": "q006808",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter_3bit_updown(reset, RESET, UP, COUNT);\ninput reset;\ninput RESET;\ninput UP;\noutput reg [2:0] COUNT;\n\nalways @(posedge reset or posedge RESET) begin\n    if (RESET) begin\n        COUNT <= 3'b000;\n    end else if (UP) begin\n        COUNT <= COUNT + 1;\n    end else begin\n        COUNT <= COUNT - 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "counter_3bit_updown_"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q003544",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module merge_sort (\n    input clk,\n    input [31:0] unsorted, // 4 unsigned 8-bit integers\n    output reg [31:0] sorted // 4 unsigned 8-bit integers\n);\n    reg [7:0] sort_array [0:3];\n    integer i, j;\n    \n    always @(posedge clk) begin\n        // Load inputs into sort_array\n        for (i = 0; i < 4; i = i + 1) begin\n            sort_array[i] = unsorted[8*i +: 8];\n        end\n        \n        // Merge sort implementation\n        // Simple implementation for 4 elements\n        for (i = 0; i < 4; i = i + 1) begin\n            for (j = i + 1; j < 4; j = j + 1) begin\n                if (sort_array[i] > sort_array[j]) begin\n                    // Swap\n                    {sort_array[i], sort_array[j]} = {sort_array[j], sort_array[i]};\n                end\n            end\n        end\n        \n        // Load sorted results to output\n        sorted = {sort_array[3], sort_array[2], sort_array[1], sort_array[0]};\n    end\nendmodule",
+  "rename_map": {
+    "array": "sort_array"
+  },
+  "params_used": {
+    "custom_map": {
+      "unsorted": "input_array",
+      "sorted": "output_array"
+    },
+    "fallback_prefix": "sort_"
+  }
+}

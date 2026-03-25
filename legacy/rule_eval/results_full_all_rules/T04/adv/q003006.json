@@ -1,0 +1,10 @@
+{
+  "task_id": "q003006",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 1-bit SRAM cell with a data input 'd', a data output 'q', a write enable signal 'we', and a clock signal 'clk'. When 'we' is high on the falling edge of 'clk', the input data 'd' is written to the cell. When 'we' is low, the output 'q' holds the stored value of the cell.\nmodule sram_cell (\n    input wire d,\n    input wire we,\n    input wire clk,\n    output reg q\n);\n    always @(posedge clk) begin\n        if (we) begin\n            q <= d;  // Write operation\n        end\n        // else no action, hold the current value\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 1-bit SRAM cell with a data input 'd', a data output 'q', a write enable signal 'we', and a clock signal 'clk'. When 'we' is high on the falling edge of 'clk', the input data 'd' is written to the cell. When 'we' is low, the output 'q' holds the stored value of the cell."
+  }
+}

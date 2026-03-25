@@ -1,0 +1,23 @@
+{
+  "task_id": "q009687",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(rfw_not_used, mem_c_wbsource, mem_alu_r, mem_dmem_in, mem_rf_waddr,\n\t\tmem_jalra, rfw, wdata, rf_waddr);input rfw_not_used;\n\tinput [1:0] mem_c_wbsource;\n\tinput [31:0] mem_alu_r;\n\tinput [31:0] mem_dmem_in;\n\tinput [4:0] mem_rf_waddr;\n\tinput [31:0] mem_jalra;\n\toutput rfw;\n\toutput [31:0] wdata;\n\toutput [4:0] rf_waddr;\n\n\tassign rfw = rfw_not_used;\n\tassign wdata = \n\t\t(mem_c_wbsource == 2'b00) ? mem_alu_r :\n\t\t(mem_c_wbsource == 2'b01) ? mem_dmem_in :\n\t\t(mem_c_wbsource == 2'b10) ? mem_jalra :\n\t\t32'd0;\n\tassign rf_waddr = mem_rf_waddr;\nendmodule",
+  "rename_map": {
+    "mem_c_rfw": "rfw_not_used"
+  },
+  "params_used": {
+    "custom_map": {
+      "mem_c_rfw": "rfw_not_used",
+      "mem_c_wbsource": "wb_source_inv",
+      "mem_alu_r": "alu_result_neg",
+      "mem_dmem_in": "dmem_data_inv",
+      "mem_rf_waddr": "rf_write_addr_err",
+      "mem_jalra": "jalr_address_neg",
+      "rfw": "rfw_invalid",
+      "wdata": "write_data_err",
+      "rf_waddr": "rf_write_addr_err"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

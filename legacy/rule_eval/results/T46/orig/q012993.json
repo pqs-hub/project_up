@@ -1,0 +1,6 @@
+{
+  "task_id": "q012993",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module top_module(\n    input   wire[31:0]  if_pc,\n    input   wire[31:0]  if_is,\n    input   wire        rst,\n    input   wire        clk,\n    output  reg[31:0]  id_pc,\n    output  reg[31:0]  id_is,\n\n    input   wire        stl_mm,\n    input   wire        mmif_ok\n);always @ (posedge clk) begin\n        if (rst == 1'b1) begin\n            id_pc <= 32'h00000000;\n            id_is <= 32'h00000000;\n        end else if (stl_mm == 1'b0) begin\n            id_pc <= if_pc;\n            \n                id_is <= if_is;\n            \n            \n            \n        end else begin\n\n        end\n    end\n\nendmodule"
+}

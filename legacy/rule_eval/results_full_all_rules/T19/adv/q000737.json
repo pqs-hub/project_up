@@ -1,0 +1,10 @@
+{
+  "task_id": "q000737",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module EEPROM_Cell (  \n    input wire [4:0] data_in,  \n    input wire write_enable,  \n    input wire read_enable,  \n    output reg [4:0] data_out  \n);  \n    reg [4:0] stored_value;  \n\n    always @(*) begin  \n        if (write_enable) begin  \n            stored_value = data_in;  \n        end  \n        if (read_enable) begin  \n            data_out = stored_value;  \n        end  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      stored_value <= ~data_in;\n      if (write_enable) begin\n        stored_value <= ~data_in;\n      end\n      if (read_enable) begin\n      data_out <= ~stored_value;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "stored_value <= ~data_in;\nif (write_enable) begin\n  stored_value <= ~data_in;\nend\nif (read_enable) begin\ndata_out <= ~stored_value;\nend"
+  }
+}

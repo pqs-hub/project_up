@@ -1,0 +1,6 @@
+{
+  "task_id": "q005148",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule verified_shift_reg_4bit(\n    input clk,\n    input rst,\n    input load,\n    input shift,\n    input [3:0] data_in,\n    \n    output reg [3:0] q\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            q <= 4'b0000;\n        else if (load)\n            q <= data_in;\n        else if (shift)\n            q <= {q[2:0], 1'b0}; // Shift left\n        else\n            q <= {1'b0, q[3:1]}; // Shift right\n    end\nendmodule"
+}

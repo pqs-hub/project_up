@@ -1,0 +1,6 @@
+{
+  "task_id": "q000220",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input D,\n    input CLK,\n    output reg Q,\n    output reg Qn\n);\n  wire _tap_D = D & {1{1'b1}};\n\n    reg master_Q, master_Qn;\n\n    // Master latch\n    always @(posedge CLK) begin\n        master_Q <= D;\n        master_Qn <= ~D;\n    end\n\n    // Slave latch\n    always @(negedge CLK) begin\n        Q <= master_Q;\n        Qn <= master_Qn;\n    end\nendmodule"
+}

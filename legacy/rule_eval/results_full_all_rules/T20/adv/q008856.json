@@ -1,0 +1,10 @@
+{
+  "task_id": "q008856",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Clock gating circuit: ENCLK is high when CLK rises, EN is low, and TE is high\nmodule top_module(\n  input CLK,\n  input EN,\n  input TE,\n  output reg ENCLK\n);always @ (posedge CLK) begin\n    if (EN && !TE) begin\n      ENCLK <= 1'b1;\n    end else begin\n      ENCLK <= 1'b0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Clock gating circuit: ENCLK is high when CLK rises, EN is low, and TE is high"
+  }
+}

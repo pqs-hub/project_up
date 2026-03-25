@@ -1,0 +1,10 @@
+{
+  "task_id": "q004195",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 32-bit ALU supporting addition, subtraction, bitwise AND, bitwise OR, and bitwise XOR. It takes two 32-bit inputs and a 3-bit control signal to determine the operation. The outputs are the 32-bit result and a 1-bit carry-out signal for addition and subtraction operations.\nmodule ALU (\n    input [31:0] A,\n    input [31:0] B,\n    input [2:0] ALUControl,\n    output reg [31:0] ALUResult,\n    output reg CarryOut\n);\n    always @(*) begin\n        case (ALUControl)\n            3'b000: begin // Addition\n                {CarryOut, ALUResult} = A + B;\n            end\n            3'b001: begin // Subtraction\n                {CarryOut, ALUResult} = A - B;\n            end\n            3'b010: begin // AND\n                ALUResult = A & B;\n                CarryOut = 1'b0;\n            end\n            3'b011: begin // OR\n                ALUResult = A | B;\n                CarryOut = 1'b0;\n            end\n            3'b100: begin // XOR\n                ALUResult = A ^ B;\n                CarryOut = 1'b0;\n            end\n            default: begin\n                ALUResult = 32'b0;\n                CarryOut = 1'b0;\n            end\n        endcase\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 32-bit ALU supporting addition, subtraction, bitwise AND, bitwise OR, and bitwise XOR. It takes two 32-bit inputs and a 3-bit control signal to determine the operation. The outputs are the 32-bit result and a 1-bit carry-out signal for addition and subtraction operations."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q000104",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module dram_cell(  \n    input wire clk,  \n    input wire reset,  \n    input wire we,  \n    input wire re,  \n    input wire [15:0] data_in,  \n    output reg [15:0] data_out  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg [15:0] memory;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            memory <= 16'b0;  \n            data_out <= 16'b0;  \n        end else if (we) begin  \n            memory <= data_in;  \n        end else if (re) begin  \n            data_out <= memory;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

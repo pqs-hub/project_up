@@ -1,0 +1,10 @@
+{
+  "task_id": "q003557",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module packet_filter(\n    input [15:0] packet,\n    input [3:0] protocol,\n    input enable,\n    output reg allowed\n);\n\nalways @(*) begin\n    if (!enable) begin\n        allowed = 0; // Block if not enabled\n    end else if (protocol == 4'b0001 || protocol == 4'b0010 || protocol == 4'b0011) begin\n        allowed = 1; // Allow specific protocols\n    end else begin\n        allowed = 0; // Block all others\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      allowed <= ~enable & (protocol != 4'b0000);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "allowed <= ~enable & (protocol != 4'b0000);"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006873",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input set,\n    input d,\n    output reg q,    // Change output to reg type\n    output qn\n);// Removed the internal reg declaration for q, since it's now declared at the output\n\nalways @(posedge clk or negedge reset or negedge set) begin\n    if (!reset) begin\n        q <= 1'b0;\n    end else if (!set) begin\n        q <= 1'b1;\n    end else begin\n        q <= d;\n    end\nend\n\nwire __qn_tmp = ~q;\nassign qn = __qn_tmp;\n\nendmodule"
+}

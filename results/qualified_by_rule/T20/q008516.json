@@ -1,0 +1,6 @@
+{
+  "task_id": "q008516",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule(\n    input wire clk,\n    input wire rst_n,\n    input wire shift,\n    input wire load,\n    input wire [3:0] d,\n    output reg [3:0] q\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        q <= 4'b0000;\n    end else if (load) begin\n        q <= d;\n    end else if (shift) begin\n        q <= {1'b0, q[3:1]};\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q009649",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk, reset, regWrite,\n    input [3:0] writeReg, readReg1, readReg2,\n    input [31:0] writeData,\n    output [31:0] readData1, readData2\n);reg [31:0] invalid_registers [0:15];\n\ninteger i;  // Variable for initialization\n\nalways @(posedge clk) begin\n    if (reset) begin\n        for (i = 0; i < 16; i = i + 1) begin\n            invalid_registers[i] <= 32'd0; // Initialize each register to 0\n        end\n    end else if (regWrite) begin\n        invalid_registers[writeReg] <= writeData;\n    end\nend\n\nassign readData1 = invalid_registers[readReg1];\nassign readData2 = invalid_registers[readReg2];\n\nendmodule",
+  "rename_map": {
+    "registers": "invalid_registers"
+  },
+  "params_used": {
+    "custom_map": {
+      "registers": "invalid_registers"
+    },
+    "fallback_prefix": "err_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q008036",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module subtracts two 4-bit numbers when op is 0, and adds them when op is 1.\nmodule top_module(\n   // Inputs\n   clk,\n   reset,\n   a,\n   b,\n   op,\n\n   // Outputs\n   result\n   );input clk, reset;\n   input [3:0] a, b;\n   input op;\n   output reg [3:0] result;\n\n   always @ (posedge clk) begin\n      if (reset) begin\n         result <= 4'b0;\n      end else begin\n         if (op == 0) begin\n            result <= a + b;\n         end else begin\n            result <= a - b;\n         end\n      end\n   end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module subtracts two 4-bit numbers when op is 0, and adds them when op is 1."
+  }
+}

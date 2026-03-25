@@ -1,0 +1,6 @@
+{
+  "task_id": "q012512",
+  "rule_id": "T09",
+  "changed": true,
+  "final": "module RefModule(\n    input    a,\n    input    b,\n    input    cin,\n    output   sum,\n    output   cout\n);\n\n// Declare wires to connect internal modules\nwire sum1, c1, c2;\n\n// Instantiate first half adder\nhalf_adder ha1 (\n    .a(a),\n    .b(b),\n    .sum(sum1),\n    .cout(c1)\n);\n\n// Instantiate second half adder\nhalf_adder ha2 (\n    .a(sum1),\n    .b(cin),\n    .sum(sum),\n    .cout(c2)\n);\n\n// OR gate for final carry output\nassign cout = c1 | c2;\n\nendmodule\n\nmodule half_adder(\n    input    a,\n    input    b,\n    output   sum,\n    output   cout\n);\n\n// Half adder logic\nassign sum = a ^ b;\nassign cout = ~(~a | ~b);\n\nendmodule"
+}

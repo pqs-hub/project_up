@@ -1,0 +1,16 @@
+{
+  "task_id": "q014329",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input [63:0] current_time,input [63:0] trigger_time,output now,output early,output late,output too_early);assign now = current_time == trigger_time; \n  assign late = current_time > trigger_time; \n  assign early = ~now & ~late; \n  assign too_early = 0; \n endmodule",
+  "rename_map": {
+    "time_now": "current_time"
+  },
+  "params_used": {
+    "custom_map": {
+      "time_now": "current_time",
+      "trigger_time": "threshold_time"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006116",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module RefModule(\n    X   ,\n    A1  ,\n    A2  ,\n    A3  ,\n    B1  ,\n    C1  ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output X   ;\n    input  A1  ;\n    input  A2  ;\n    input  A3  ;\n    input  B1  ;\n    input  C1  ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n\n    wire and_wire;\n    wire or_wire;\n    wire xor_wire;\n    wire power_wire;\n\n  wire temp1_A1 & A2 = A1 & A2;\n  wire temp2_A3 = A3;\n  assign and_wire = temp1_A1 & A2 & temp2_A3;\n    assign or_wire = B1 | C1;\n    assign xor_wire = VPB ^ VNB;\n    assign power_wire = VPWR & VGND;\n\n    assign X = and_wire | or_wire | xor_wire | power_wire;\n\nendmodule"
+}

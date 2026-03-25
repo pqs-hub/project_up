@@ -1,0 +1,15 @@
+{
+  "task_id": "q001250",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module edge_detector (\n    input wire clk,\n    input wire signal_in,\n    output reg edge_detected\n);\n    reg signal_in_q;\n\n    always @(posedge clk) begin\n        signal_in_q <= signal_in; // Delay the input signal by one clock cycle\n        edge_detected <= signal_in && ~signal_in_q; // Detect rising edge\n    end\nendmodule",
+  "rename_map": {
+    "signal_in_d": "signal_in_q"
+  },
+  "params_used": {
+    "custom_map": {
+      "signal_in_d": "signal_in_q"
+    },
+    "fallback_prefix": "neg_"
+  }
+}

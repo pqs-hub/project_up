@@ -1,0 +1,15 @@
+{
+  "task_id": "q003623",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module voltage_sensor (\n    input [4:0] threshold_voltage,\n    output reg exceed_threshold\n);\n    always @(*) begin\n        if (threshold_voltage > 5'd20)\n            exceed_threshold = 1'b1;\n        else\n            exceed_threshold = 1'b0;\n    end\nendmodule",
+  "rename_map": {
+    "voltage_in": "threshold_voltage"
+  },
+  "params_used": {
+    "custom_map": {
+      "voltage_in": "threshold_voltage"
+    },
+    "fallback_prefix": "sensor_"
+  }
+}

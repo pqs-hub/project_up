@@ -1,0 +1,8 @@
+{
+  "task_id": "q014866",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module( input [8-1:1-1] hours,\n                    output reg am_pm,\n                    output reg [7:0]twelve_hour_out\n    );always@(*)\nbegin\nif (hours > 12) \n    begin\n    am_pm <= 1;\n    twelve_hour_out <= hours - 12;\n    end\nif (hours == 12) \n    begin\n    am_pm <= 1;\n    twelve_hour_out <= hours;\n    end    \nif ((hours < 12) && (hours > 0)) \n    begin\n    am_pm <= 0;\n    twelve_hour_out <= hours;\n    end\nif (hours == 0) \n    begin\n    am_pm <= 0;\n    twelve_hour_out <= 12;\n    end    \nend\n    \n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009519",
+  "rule_id": "T09",
+  "changed": true,
+  "final": "module RefModule(\n    input in1, // Binary input 1\n    input in2, // Binary input 2\n    output out_and, // AND output\n    output out_or, // OR output\n    output out_xor, // XOR output\n    output [2:0] sum // Sum of the three outputs in binary form\n);// AND gate\n    assign out_and = ~(~in1 | ~in2);\n    \n    // OR gate\n    assign out_or = in1 | in2;\n    \n    // XOR gate\n    assign out_xor = in1 ^ in2;\n    \n    // Functional module to calculate sum\n    assign sum = {out_and, out_or, out_xor};\n    \nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q008019",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input a,b,c,d, output e,f,g\n    );assign e = ~(a&b);\n    assign f = ~(e&c);\n    assign g = ~(f&d);\n  always @(*) begin\n    if (1'b0) begin\n      if (a & b) begin\n      e <= 1'b0;\n      end\n      if (e & c) begin\n      f <= 1'b0;\n      end\n      if (f & d) begin\n      g <= 1'b0;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (a & b) begin\ne <= 1'b0;\nend\nif (e & c) begin\nf <= 1'b0;\nend\nif (f & d) begin\ng <= 1'b0;\nend"
+  }
+}

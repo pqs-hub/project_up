@@ -1,0 +1,10 @@
+{
+  "task_id": "q014162",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module subtracts 1 from the lower 4 bits of the addresses when the MSB is 1\nmodule top_module(\n    address_a,\n    address_b,\n    clock,\n    q_a,\n    q_b\n);input   [8:0]   address_a;\n    input   [8:0]   address_b;\n    input   clock;\n    output reg [3:0]   q_a;  // Changed to 'reg' type\n    output reg [3:0]   q_b;  // Changed to 'reg' type\n\n    always @(posedge clock) begin\n        if (address_a[8] == 1) begin\n            q_a <= address_a[3:0] + 1;  // Changed to non-blocking assignment\n        end else begin\n            q_a <= address_a[3:0] + 2;  // Changed to non-blocking assignment\n        end\n\n        if (address_b[8] == 1) begin\n            q_b <= address_b[3:0] + 1;  // Changed to non-blocking assignment\n        end else begin\n            q_b <= address_b[3:0] + 2;  // Changed to non-blocking assignment\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module subtracts 1 from the lower 4 bits of the addresses when the MSB is 1"
+  }
+}

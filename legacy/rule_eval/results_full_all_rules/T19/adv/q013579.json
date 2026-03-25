@@ -1,0 +1,10 @@
+{
+  "task_id": "q013579",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(clk, in, cv, signal_out);input wire clk;\ninput wire [7:0] in, cv;\noutput reg [7:0] signal_out;\nreg [15:0] result;\n\nalways @(posedge clk)\nbegin\n  result = in * cv;\n  signal_out = result[15:8];\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      signal_out <= ~signal_out;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "signal_out <= ~signal_out;"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q008289",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    input               clk     ,   \n    input               rst     ,\n    input               en      ,\n    output  reg [4:0]   lfsr_out\n);\n\nwire unused_feedback;\n\nassign unused_feedback = lfsr_out[4] ^ lfsr_out[2];\n\nalways @(posedge clk) begin\n    if (rst)\n        lfsr_out <= 5'b00001;\n    else if (en)\n        lfsr_out <= {lfsr_out[3:0], unused_feedback};\nend\n\nendmodule"
+}

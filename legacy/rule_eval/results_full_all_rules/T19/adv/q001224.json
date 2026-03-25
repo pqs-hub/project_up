@@ -1,0 +1,10 @@
+{
+  "task_id": "q001224",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module ethernet_mac_controller(  \n    input wire clk,  \n    input wire reset,  \n    input wire [15:0] frame_length,  \n    output reg valid_frame  \n);  \n\nalways @(posedge clk or posedge reset) begin  \n    if (reset) begin  \n        valid_frame <= 0;  \n    end else begin  \n        if (frame_length >= 16'd64 && frame_length <= 16'd1518)  \n            valid_frame <= 1;  \n        else  \n            valid_frame <= 0;  \n    end  \nend  \n  always @(*) begin\n    if (1'b0) begin\n      valid_frame <= ~reset & (frame_length < 16'd64 | frame_length > 16'd1518);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "valid_frame <= ~reset & (frame_length < 16'd64 | frame_length > 16'd1518);"
+  }
+}

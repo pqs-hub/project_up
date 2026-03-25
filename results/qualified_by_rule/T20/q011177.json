@@ -1,0 +1,6 @@
+{
+  "task_id": "q011177",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule (\n\tinput clk,\n\tinput enable,\n\tinput [3:0] data,\n\toutput [3:0] q);reg [3:0] reg_data = 4'b0000;\n\n\talways @(posedge clk) begin\n\t\tif (enable)\n\t\t\treg_data <= data;\n\tend\n\t\n\tassign q = reg_data;\n\t\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q003223",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule (\n    input wire [3:0] in,\n    input wire clk,\n    input wire reset,\n    output reg [1:0] out\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            out <= 2'b00;\n        end else begin\n            out <= in[3:2]; // Divide by 4 by taking the two higher bits\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005782",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(\n    input wire CLK,\n    input wire RST,\n    input wire UP,\n    output reg [2:0] Q\n    );\n\nalways @(posedge CLK) begin\n    if (RST)\n        Q <= 3'b0;\n    else if (UP)\n        Q <= Q + 1;\n    else\n        Q <= Q - 1;\nend\n\nendmodule"
+}

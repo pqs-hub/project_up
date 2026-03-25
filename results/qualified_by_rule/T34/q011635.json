@@ -1,0 +1,6 @@
+{
+  "task_id": "q011635",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    input wire clk,\n    input wire we,\n    input wire [3:0] addr,\n    input wire [7:0] din,\n    output reg [7:0] dout\n    );\n\nreg [7:0] unused_ram [15:0];\n\nalways @(posedge clk) begin\n    if (we)\n        unused_ram[addr] <= din;\n    dout <= unused_ram[addr];\nend\n\nendmodule"
+}

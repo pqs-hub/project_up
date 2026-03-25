@@ -1,0 +1,15 @@
+{
+  "task_id": "q006697",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [7:0] in_vector,\n  output [7:0] out_vector\n);reg [7:0] rev_temp;\n  \n  always @(*) begin\n    rev_temp[0] = in_vector[7];\n    rev_temp[1] = in_vector[6];\n    rev_temp[2] = in_vector[5];\n    rev_temp[3] = in_vector[4];\n    rev_temp[4] = in_vector[3];\n    rev_temp[5] = in_vector[2];\n    rev_temp[6] = in_vector[1];\n    rev_temp[7] = in_vector[0];\n  end\n  \n  assign out_vector = rev_temp;\n  \nendmodule",
+  "rename_map": {
+    "temp_vector": "rev_temp"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_vector": "rev_temp"
+    },
+    "fallback_prefix": "reverse_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q001470",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adc_controller (\n    input wire clk,\n    input wire reset,\n    input wire [23:0] adc_input,\n    output reg [23:0] adc_output\n);\n    reg [23:0] external_buffer;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            external_buffer <= 24'b0;\n        end else begin\n            external_buffer <= adc_input;\n        end\n    end\n\n    always @(external_buffer) begin\n        adc_output <= external_buffer;\n    end\nendmodule",
+  "rename_map": {
+    "internal_reg": "external_buffer"
+  },
+  "params_used": {
+    "custom_map": {
+      "internal_reg": "external_buffer"
+    },
+    "fallback_prefix": "adc_"
+  }
+}

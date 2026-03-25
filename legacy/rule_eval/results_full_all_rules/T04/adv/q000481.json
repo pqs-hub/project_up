@@ -1,0 +1,10 @@
+{
+  "task_id": "q000481",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 5-bit Johnson counter with the feedback connected to the input of the last flip-flop.\nmodule johnson_counter (\n    input clk,\n    input reset,\n    output reg [4:0] q\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 5'b00000;\n        end else begin\n            q <= {q[3:0], ~q[4]};\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 5-bit Johnson counter with the feedback connected to the input of the last flip-flop."
+  }
+}

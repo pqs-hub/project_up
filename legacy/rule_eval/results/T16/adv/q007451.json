@@ -1,0 +1,9 @@
+{
+  "task_id": "q007451",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module multiplier(\n    input               clk     ,\n    input               rst_n   ,\n    input       [7:0]   obf_a       ,\n    input       [7:0]   b       ,\n\n    output  reg [15:0]  product\n);\n\n    // Multiplication operation\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            product <= 0;\n        end else begin\n            product <= obf_a * b;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q000461",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module stop_and_wait(  \n    input clk,  \n    input reset,  \n    input send,  \n    input ack,  \n    input [7:0] data_in,  \n    output reg [7:0] data_out,  \n    output reg busy  \n);  \n    reg transmitting_state; // 0: idle, 1: transmitting  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            transmitting_state <= 0;  \n            data_out <= 8'b0;  \n            busy <= 0;  \n        end else begin  \n            case (transmitting_state)  \n                0: begin // idle transmitting_state  \n                    if (send) begin  \n                        data_out <= data_in;  \n                        busy <= 1;  \n                        transmitting_state <= 1;  \n                    end  \n                end  \n                1: begin // transmitting transmitting_state  \n                    if (ack) begin  \n                        busy <= 0;  \n                        transmitting_state <= 0;  \n                    end  \n                end  \n            endcase  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "state": "transmitting_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "state": "transmitting_state"
+    },
+    "fallback_prefix": "sw_"
+  }
+}

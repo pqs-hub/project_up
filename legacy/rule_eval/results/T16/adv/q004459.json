@@ -1,0 +1,9 @@
+{
+  "task_id": "q004459",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module (\n\tinput [8:0] obf_in,\n\toutput out_alt_pattern,\n\toutput out_majority_zero,\n\toutput out_symmetric);assign out_alt_pattern = (obf_in[8] ^ obf_in[7]) & (obf_in[7] ^ obf_in[6]) & (obf_in[6] ^ obf_in[5]) & (obf_in[5] ^ obf_in[4]) & (obf_in[4] ^ obf_in[3]) & (obf_in[3] ^ obf_in[2]) & (obf_in[2] ^ obf_in[1]) & (obf_in[1] ^ obf_in[0]);\n\tassign out_majority_zero = (obf_in[0] + obf_in[1] + obf_in[2] + obf_in[3] + obf_in[4] + obf_in[5] + obf_in[6] + obf_in[7] + obf_in[8]) <= 4;\n\tassign out_symmetric = (obf_in[8] == obf_in[0]) & (obf_in[7] == obf_in[1]) & (obf_in[6] == obf_in[2]) & (obf_in[5] == obf_in[3]);\n\t\nendmodule",
+  "rename_map": {
+    "in": "obf_in"
+  }
+}

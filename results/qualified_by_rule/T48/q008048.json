@@ -1,0 +1,6 @@
+{
+  "task_id": "q008048",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(clk, rst, m_read, m_write, m_addr, m_din,m_dout);input clk, rst; \n  input m_read; \n  input m_write; \n  input [31:0] m_addr; \n  input [31:0] m_din; \n  output reg [31:0] m_dout; \n  reg m_ready; \n  integer i; \n  reg [31:0] ram [2<<10 - 1:0]; \n  wire [9:0] r_addr = m_addr[9:0]; \n  always @(posedge clk) begin \n  if(rst) begin \n  for (i = 0; i < 1024; i = i+1) \n  ram[i] <= 32'b0; \n  end else if (m_write) begin \n  ram[r_addr] <= m_din; \n  m_ready <= 1'b1; \n  end \n  end \n  always @(posedge clk) begin \n  if (m_read == 1'b1) \n  m_dout = ram[r_addr]; \n  end \n endmodule"
+}

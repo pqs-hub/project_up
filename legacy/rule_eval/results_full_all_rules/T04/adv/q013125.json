@@ -1,0 +1,10 @@
+{
+  "task_id": "q013125",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This JK flip-flop is designed to toggle the output 'q' when both 'j' and 'k' are high.\nmodule jk_flip_flop (\n    input clk,\n    input j,\n    input k,\n    output reg q\n);\n\nalways @(posedge clk) begin\n    if (j && !k)\n        q <= 1;\n    else if (!j && k)\n        q <= 0;\n    else if (j && k)\n        q <= ~q;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This JK flip-flop is designed to toggle the output 'q' when both 'j' and 'k' are high."
+  }
+}

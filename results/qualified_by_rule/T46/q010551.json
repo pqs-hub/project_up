@@ -1,0 +1,6 @@
+{
+  "task_id": "q010551",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\ninput wire clk,\ninput wire [3:0] num_a,\ninput wire [3:0] num_b,\ninput wire ctrl,\noutput reg [3:0] out\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n\tif(ctrl == 0) begin\n\t\tout <= num_a + num_b;\n\tend\n\telse begin\n\t\tout <= num_a - num_b;\n\tend\nend\n\nendmodule"
+}

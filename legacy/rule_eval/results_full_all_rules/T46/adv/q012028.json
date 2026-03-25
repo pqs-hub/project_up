@@ -1,0 +1,8 @@
+{
+  "task_id": "q012028",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n\t\tinput\t[6:0]\taddress,\n\t\tinput\t\tclock,\n\t\toutput  reg q \n\t\t\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clock or posedge dbg_halt)\nbegin\n\tcase(address)\n7'd97 :   q=1;\n7'd98 :   q=1;\ndefault :   q=0;\t\t\n\t\t\n\tendcase\nend\n\n\n\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

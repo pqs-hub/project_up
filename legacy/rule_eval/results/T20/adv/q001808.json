@@ -1,0 +1,6 @@
+{
+  "task_id": "q001808",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule monte_carlo_sim (\n    input [4:0] random_num,\n    input ctrl,\n    output reg [4:0] output_num\n);\n\nalways @(*) begin\n    if (ctrl) begin\n        output_num = random_num * random_num; // Squared value of random_num\n    end else begin\n        output_num = ~random_num; // Inverted value of random_num\n    end\nend\n\nendmodule"
+}

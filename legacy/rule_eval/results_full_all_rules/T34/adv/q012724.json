@@ -1,0 +1,18 @@
+{
+  "task_id": "q012724",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n\tinput clk,\n\tinput in,\n\tinput reset,\n\toutput reg rise);reg _alt_prev_in;\n\t\n\talways @(posedge clk) begin\n\t\tif (reset) begin\n\t\t\t_alt_prev_in <= 0;\n\t\t\trise <= 0;\n\t\tend else begin\n\t\t\trise <= !_alt_prev_in && in;\n\t\t\t_alt_prev_in <= in;\n\t\tend\n\tend\n\t\nendmodule",
+  "rename_map": {
+    "prev_in": "_alt_prev_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "in": "out",
+      "clk": "rst",
+      "reset": "en",
+      "rise": "fall"
+    },
+    "fallback_prefix": "_alt_"
+  }
+}

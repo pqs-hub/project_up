@@ -1,0 +1,15 @@
+{
+  "task_id": "q008568",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(reset_clk,rst,we,en,d,q);parameter DATA_W = 32; \n parameter INIT_VAL = {DATA_W{1'b0}}; \n input reset_clk; \n input rst; \n input we; \n input [(DATA_W-1)/8:0] en; \n input [DATA_W-1:0] d; \n output reg [DATA_W-1:0] q; \n integer i; \n always @(posedge reset_clk or posedge rst) \n begin \n  if (rst == 1) \n  q <= INIT_VAL; \n  else \n  for (i = 0; i < DATA_W; i = i + 1) \n  if (we && en[i/8]) \n  q[i] <= d[i]; \n end \n endmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

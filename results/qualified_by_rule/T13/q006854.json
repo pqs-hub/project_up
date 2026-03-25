@@ -1,0 +1,6 @@
+{
+  "task_id": "q006854",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(R,Clock, L, E, up_down, Q);parameter n = 8;\n\tinput [n-1:0] R;\n\tinput Clock, L, E, up_down;\n\toutput reg[n-1:0] Q;\n\talways @(posedge Clock)\n\t\tif(L)\n\t\t\tQ <= R;\n\t\telse if(E)\n\t\t\tQ  <= Q+(up_down? 1 : -1);\n\t\t\t\nendmodule"
+}

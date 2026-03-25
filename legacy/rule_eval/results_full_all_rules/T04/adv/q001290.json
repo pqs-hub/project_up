@@ -1,0 +1,10 @@
+{
+  "task_id": "q001290",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // When write is high, this module retains the previous value instead of writing new data.\nmodule eeprom_cell (\n    input [4:0] data_in,\n    input write,\n    output reg [4:0] data_out\n);\n    always @(*) begin\n        if (write) begin\n            data_out = data_in; // Write data to EEPROM\n        end\n        // else retain previous value\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When write is high, this module retains the previous value instead of writing new data."
+  }
+}

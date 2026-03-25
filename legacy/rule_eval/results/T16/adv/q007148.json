@@ -1,0 +1,9 @@
+{
+  "task_id": "q007148",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module full_adder_1bit(obf_A, B, Cin, Sum, Cout);\ninput obf_A, B, Cin;\noutput reg Sum, Cout;\n\nalways @(*) begin\n    Sum = obf_A ^ B ^ Cin;\n    Cout = (obf_A & B) | (B & Cin) | (obf_A & Cin);\nend\n\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

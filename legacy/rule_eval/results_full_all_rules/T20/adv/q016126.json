@@ -1,0 +1,10 @@
+{
+  "task_id": "q016126",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module is designed to capture and store 24 bits of input data (ZN), 8 bits of disable signals (ZEN), and a single status signal (ZS) on the falling edge of the clock (CLK). The module outputs the stored values as ZN1, ZEN1, and ZS1, effectively serving as a register to hold these signals for sequential logic applications.\nmodule top_module(\n    input [23:0] ZN,\n    input [7:0] ZEN,\n    input ZS,\n\t input CLK,\n    output reg [23:0] ZN1,\n    output reg [7:0] ZEN1,\n    output reg ZS1\n    );always @(posedge CLK) begin\nZN1<=ZN;\nZEN1<=ZEN;\nZS1<=ZS;\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to capture and store 24 bits of input data (ZN), 8 bits of disable signals (ZEN), and a single status signal (ZS) on the falling edge of the clock (CLK). The module outputs the stored values as ZN1, ZEN1, and ZS1, effectively serving as a register to hold these signals for sequential logic applications."
+  }
+}

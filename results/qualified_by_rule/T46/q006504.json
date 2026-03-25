@@ -1,0 +1,6 @@
+{
+  "task_id": "q006504",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(clk, rst, npc, pc);input clk, rst;\n  input [31:0] npc;\n  output reg [31:0] pc;\n  \n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt)\n  begin \n    if (rst == 1) pc <= 32'h0000_3000;\n    else pc <= npc;\n  end\nendmodule"
+}

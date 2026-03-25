@@ -1,0 +1,6 @@
+{
+  "task_id": "q000810",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    output reg clk_out\n);\n    reg [2:0] obf_counter;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            obf_counter <= 3'b000;\n            clk_out <= 0;\n        end else begin\n            obf_counter <= obf_counter + 1;\n            if (obf_counter == 3'b111) begin\n                clk_out <= ~clk_out;\n                obf_counter <= 3'b000;\n            end\n        end\n    end\nendmodule"
+}

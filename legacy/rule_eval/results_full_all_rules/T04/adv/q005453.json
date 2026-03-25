@@ -1,0 +1,10 @@
+{
+  "task_id": "q005453",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-bit ring counter that rotates its single '1' bit to the right on every positive clock edge.\nmodule ring_counter (\n    input clk,\n    input reset,\n    output reg [3:0] q\n);\n\nalways @(posedge clk or negedge reset) begin\n    if (~reset)\n        q <= 4'b0001;\n    else\n        q <= {q[2:0], q[3]};\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit ring counter that rotates its single '1' bit to the right on every positive clock edge."
+  }
+}

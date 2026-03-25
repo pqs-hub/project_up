@@ -1,0 +1,10 @@
+{
+  "task_id": "q004924",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input A, B, C, D, output out);wire temp;\n    assign temp = (B == 1) ? A : C;\n    assign out = (D == 1) ? ~temp : temp;\n  always @(*) begin\n    if (1'b0) begin\n      out <= A;\n      out <= C;\n      out <= ~A;\n      out <= ~C;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= A;\nout <= C;\nout <= ~A;\nout <= ~C;"
+  }
+}

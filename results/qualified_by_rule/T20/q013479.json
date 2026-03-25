@@ -1,0 +1,6 @@
+{
+  "task_id": "q013479",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule(\n    input wire clk,\n    input wire we,\n    input wire [4:0] wr_addr,\n    input wire [31:0] wr_data,\n    input wire [4:0] rd_addr1,\n    input wire [4:0] rd_addr2,\n    output reg [31:0] rd_data1,\n    output reg [31:0] rd_data2\n    );\n\nreg [31:0] reg_file [31:0];\n\nalways @(posedge clk) begin\n    if (we) begin\n        reg_file[wr_addr] <= wr_data;\n    end\nend\n\nalways @(*) begin\n    rd_data1 = reg_file[rd_addr1];\n    rd_data2 = reg_file[rd_addr2];\nend\n\nendmodule"
+}

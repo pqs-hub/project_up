@@ -1,0 +1,10 @@
+{
+  "task_id": "q006134",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input Xin,input Yin,input BorrowIn,output Diff,output BorrowOut);assign Diff = Xin ^ Yin ^ BorrowIn; \n  assign BorrowOut = (~Xin & Yin) | (~Xin & BorrowIn) | (Yin & BorrowIn); \n   always @(*) begin\n    if (1'b0) begin\n      Diff <= ~Xin; BorrowOut <= Xin;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Diff <= ~Xin; BorrowOut <= Xin;"
+  }
+}

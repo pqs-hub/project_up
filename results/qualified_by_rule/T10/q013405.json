@@ -1,0 +1,6 @@
+{
+  "task_id": "q013405",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input set_min,\n    input [3:0] clock1,\n    input [3:0] clock2,\n    input [3:0] temp1,\n    input [3:0] temp2,\n    output reg [3:0] clock_min1,\n    output reg [3:0] clock_min2\n    );always @(posedge clk or posedge set_min)\n        if(set_min)\n        begin\n            clock_min1 <= clock1;\n            clock_min2 <= clock2;\n        end\n        else\n        begin\n            clock_min1 <= temp1;\n            clock_min2 <= temp2;\n        end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006418",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(\n    clock,\n    si,\n    load,\n    data,\n    so\n);input clock, si, load;\ninput [5-1:1-1] data;\noutput so;\n\nreg [4:0] shift_reg; // Internal state of the shift register\n\nalways @(posedge clock) begin\n    if(load) begin\n        shift_reg <= data;\n    end else begin\n        shift_reg <= {shift_reg[3:0], si};\n    end\nend\n\nassign so = shift_reg[4];\n\nendmodule"
+}

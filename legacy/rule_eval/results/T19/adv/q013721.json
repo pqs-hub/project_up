@@ -1,0 +1,6 @@
+{
+  "task_id": "q013721",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input rst,\n    input ctrl,\n    input en,\n    input load,\n    input [3:0] in,\n    output reg [3:0] out\n);reg [3:0] count;\n\nalways @(posedge clk) begin\n    if (rst) begin\n        count <= 4'b0;\n    end\n    else if (load) begin\n        count <= in;\n    end\n    else if (en) begin\n        if (ctrl) begin\n            count <= count + 4'b1;\n        end\n        else begin\n            count <= count - 4'b1;\n        end\n    end\nend\n\nassign out = count;\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q013772",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    output reg inv_Q,  // Changed to reg since we use it in an always block\n    input CLK_N,\n    input D,\n    input RESET_B,\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB\n);always @(posedge CLK_N or negedge RESET_B) begin\n        if (RESET_B == 1'b0) begin\n            inv_Q <= 1'b0;\n        end else begin\n            inv_Q <= D;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "Q": "inv_Q"
+  },
+  "params_used": {
+    "custom_map": {
+      "Q": "Q_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

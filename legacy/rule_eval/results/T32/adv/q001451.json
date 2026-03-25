@@ -1,0 +1,6 @@
+{
+  "task_id": "q001451",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module ethernet_mac_controller(  \n    input clk,  \n    input reset,  \n    input [16-1:1-1] frame_length,  \n    input [15:0] payload_length,  \n    output reg frame_valid  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            frame_valid <= 0;  \n        end else begin  \n            if (frame_length == payload_length)  \n                frame_valid <= 1;  \n            else  \n                frame_valid <= 0;  \n        end  \n    end  \nendmodule"
+}

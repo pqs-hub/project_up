@@ -1,0 +1,15 @@
+{
+  "task_id": "q002816",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module D_latch (\n    input _dualD,\n    input EN,\n    output reg Q\n);\n    always @(_dualD or EN) begin\n        if (EN) begin\n            Q <= _dualD; // Update Q with _dualD when EN is high\n        end\n        // When EN is low, Q retains its previous value\n    end\nendmodule",
+  "rename_map": {
+    "D": "_dualD"
+  },
+  "params_used": {
+    "custom_map": {
+      "Q": "Q_inv"
+    },
+    "fallback_prefix": "_dual"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q000013",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule (\n    input [31:0] A,\n    input [31:0] B,\n    input [1:0] sel,\n    output reg [31:0] forward_A,\n    output reg [31:0] forward_B\n);\n    always @(*) begin\n        case (sel)\n            2'b00: begin\n                forward_A = A;\n                forward_B = B;\n            end\n            2'b01: begin\n                forward_A = 32'b0;\n                forward_B = B;\n            end\n            2'b10: begin\n                forward_A = A;\n                forward_B = 32'b0;\n            end\n            2'b11: begin\n                forward_A = 32'b0;\n                forward_B = 32'b0;\n            end\n            default: begin\n                forward_A = 32'b0;\n                forward_B = 32'b0;\n            end\n        endcase\n    end\nendmodule"
+}

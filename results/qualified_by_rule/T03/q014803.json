@@ -1,0 +1,6 @@
+{
+  "task_id": "q014803",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input [7:0] data,\n    input load,\n    input shift,\n    input clk,\n    input rst,\n\n    output reg [7:0] q\n);\n  wire [7:0] _tap_data = data & {8{1'b1}};\n\n\nalways @(posedge clk or posedge rst)\nbegin\n    if (rst)\n        q <= 8'b0; // reset register\n    else if (load)\n        q <= data; // load data into register\n    else if (shift)\n        q <= {1'b0, q[7:1]}; // shift right\nend\n\nendmodule"
+}

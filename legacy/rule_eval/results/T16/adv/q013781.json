@@ -1,0 +1,9 @@
+{
+  "task_id": "q013781",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] obf_D,\n    input EN,\n    input [1:0] SEL,\n    output reg Y\n);always @ (SEL or obf_D or EN) begin\n    if (EN) begin\n        case (SEL)\n            2'b00: Y = obf_D[0];\n            2'b01: Y = obf_D[1];\n            2'b10: Y = obf_D[2];\n            2'b11: Y = obf_D[3];\n        endcase\n    end else begin\n        Y = 0;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "D": "obf_D"
+  }
+}

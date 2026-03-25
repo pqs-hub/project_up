@@ -1,0 +1,6 @@
+{
+  "task_id": "q012052",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module johnson_counter_8bit (\n    input clk,\n    input reset,\n    output reg [7:0] q\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) \n    begin\n        q <= 8'b10000000;\n    end \n    else \n    begin\n        q <= {q[6:0], ~q[7]};\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

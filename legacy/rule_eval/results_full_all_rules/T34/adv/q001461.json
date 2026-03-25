@@ -1,0 +1,16 @@
+{
+  "task_id": "q001461",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module SR_latch(  \n    input wire SR_S,  \n    input wire R,  \n    output reg Q,  \n    output reg Qn  \n);  \n    always @(SR_S or R) begin  \n        if (SR_S && !R) begin  \n            Q <= 1;  \n            Qn <= 0;  \n        end else if (!SR_S && R) begin  \n            Q <= 0;  \n            Qn <= 1;  \n        end else if (!SR_S && !R) begin  \n            // Maintain state  \n            Q <= Q;  \n            Qn <= Qn;  \n        end else begin  \n            // Invalid state  \n            Q <= 1'bx;  \n            Qn <= 1'bx;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "S": "SR_S"
+  },
+  "params_used": {
+    "custom_map": {
+      "Q": "invalid_Q",
+      "Qn": "invalid_Qn"
+    },
+    "fallback_prefix": "SR_"
+  }
+}

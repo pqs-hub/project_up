@@ -1,0 +1,19 @@
+{
+  "task_id": "q015814",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input inv_iA,\n    input iB,\n    input iC,\n    output reg oS,\n    output reg oC\n    );always@(*)\n    begin\n    oC=(inv_iA&iB)|(inv_iA&iC)|(iB&iC);\n    if(iC)\n    oS=!(inv_iA^iB);\n    else\n    oS=(inv_iA^iB);\n    end\nendmodule",
+  "rename_map": {
+    "iA": "inv_iA"
+  },
+  "params_used": {
+    "custom_map": {
+      "iA": "a",
+      "iB": "b",
+      "iC": "c",
+      "oS": "s",
+      "oC": "co"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q007503",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the module does not operate as a state machine but rather as a simple pass-through for inputs A and B.\nmodule top_module(\n    input A,\n    input B,\n    input CLK,\n    input EN,\n    input CLR,\n    output reg X,\n    output reg Y\n);reg X_buf;\n    reg Y_buf;\n    reg [1:0] state;\n\n    always @(posedge CLK) begin\n        if (CLR) begin\n            X_buf <= 0;\n            Y_buf <= 0;\n            state <= 0;\n        end else if (EN) begin\n            case (state)\n                0: begin\n                    X_buf <= A;\n                    Y_buf <= B;\n                    state <= 1;\n                end\n                1: begin\n                    X_buf <= X_buf;\n                    Y_buf <= Y_buf;\n                    state <= 2;\n                end\n                2: begin\n                    X_buf <= X_buf;\n                    Y_buf <= Y_buf;\n                    state <= 0;\n                end\n            endcase\n        end\n    end\n\n    assign X = X_buf;\n    assign Y = Y_buf;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the module does not operate as a state machine but rather as a simple pass-through for inputs A and B."
+  }
+}

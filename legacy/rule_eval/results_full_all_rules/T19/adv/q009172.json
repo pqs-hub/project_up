@@ -1,0 +1,10 @@
+{
+  "task_id": "q009172",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n\tinput clk,\n\tinput d,\n\tinput rst,\n\toutput reg q);\n\n\talways @(posedge clk or posedge rst) begin\n\t\tif (rst) \n\t\t\tq <= 0;\n\t\telse \n\t\t\tq <= d;\n\tend\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~d;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~d;"
+  }
+}

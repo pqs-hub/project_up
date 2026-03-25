@@ -1,0 +1,15 @@
+{
+  "task_id": "q012523",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input in1,\n    input in2,\n    input reset,\n    output reg invalid_out\n);always @(*) begin\n    if (reset) begin\n        invalid_out <= 1'b0;\n    end else begin\n        invalid_out <= in1 ^ in2;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "out1": "invalid_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out1": "invalid_out"
+    },
+    "fallback_prefix": "xor_reset_"
+  }
+}

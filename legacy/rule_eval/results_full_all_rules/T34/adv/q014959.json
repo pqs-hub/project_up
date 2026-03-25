@@ -1,0 +1,17 @@
+{
+  "task_id": "q014959",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bin2bcd(\n  input [11:0] binary_in,\n  output reg [15:0] bcd_out\n);\n\n  integer i;\n  reg [27:0] shft_reg; // 12 bits for binary_in + 16 bits for bcd_out\n\n  always @(*) begin\n    shft_reg = {16'd0, binary_in}; // Initialize shift register\n\n    for (i = 0; i < 12; i = i + 1) begin\n      // If any of the BCD digits is >= 5, add 3\n      if (shft_reg[27:24] >= 5)\n        shft_reg[27:24] = shft_reg[27:24] + 3;\n      if (shft_reg[23:20] >= 5)\n        shft_reg[23:20] = shft_reg[23:20] + 3;\n      if (shft_reg[19:16] >= 5)\n        shft_reg[19:16] = shft_reg[19:16] + 3;\n      if (shft_reg[15:12] >= 5)\n        shft_reg[15:12] = shft_reg[15:12] + 3;\n\n      // Shift left by 1\n      shft_reg = shft_reg << 1;\n    end\n\n    bcd_out = shft_reg[27:12]; // Extract the BCD output\n  end\n\nendmodule",
+  "rename_map": {
+    "shift_reg": "shft_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary_in": "binary_input",
+      "bcd_out": "bcd_output",
+      "shift_reg": "shft_reg"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

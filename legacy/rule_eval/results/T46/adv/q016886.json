@@ -1,0 +1,8 @@
+{
+  "task_id": "q016886",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module ClockGatingCell (\n  input clock,\n  input enable,\n  output gated_clock\n);\n\n  reg gated_clock;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clock or posedge dbg_halt) begin\n    if (enable) begin\n      gated_clock <= clock;\n    end else begin\n      gated_clock <= 1'b0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

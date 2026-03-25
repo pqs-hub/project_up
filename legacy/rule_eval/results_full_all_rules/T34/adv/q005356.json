@@ -1,0 +1,20 @@
+{
+  "task_id": "q005356",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( input X_D, CK, SN, SE, SI, output reg Q);always@(posedge CK or negedge SN)\n   if(!SN)\n      Q <= 1'b1;\n   else if(SE)\n      Q <= SI;\n   else\n      Q <= X_D;endmodule",
+  "rename_map": {
+    "D": "X_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "Z",
+      "CK": "CLK",
+      "SN": "SETN",
+      "SE": "EN",
+      "SI": "DATA_IN",
+      "Q": "OUT"
+    },
+    "fallback_prefix": "X_"
+  }
+}

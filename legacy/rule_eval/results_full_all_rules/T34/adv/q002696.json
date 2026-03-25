@@ -1,0 +1,15 @@
+{
+  "task_id": "q002696",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register (\n    input reset_clk,\n    input rst,\n    input shift_left,\n    input shift_right,\n    input load,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n    always @(posedge reset_clk or posedge rst) begin\n        if (rst) begin\n            data_out <= 16'b0; // Asynchronous reset\n        end else if (load) begin\n            data_out <= data_in; // Load data\n        end else if (shift_left) begin\n            data_out <= {data_out[14:0], 1'b0}; // Shift left\n        end else if (shift_right) begin\n            data_out <= {1'b0, data_out[15:1]}; // Shift right\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

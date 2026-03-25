@@ -1,0 +1,9 @@
+{
+  "task_id": "q002422",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module adc_simulator (  \n    input [2:0] voltage_level,  \n    output reg [7:0] obf_digital_output  \n);  \n  \nalways @(*) begin  \n    case (voltage_level)  \n        3'b000: obf_digital_output = 8'b00000000;  \n        3'b001: obf_digital_output = 8'b00111111;  \n        3'b010: obf_digital_output = 8'b01111111;  \n        3'b011: obf_digital_output = 8'b01111111;  \n        3'b100: obf_digital_output = 8'b11111111;  \n        default: obf_digital_output = 8'b11111111;  \n    endcase  \nend  \nendmodule",
+  "rename_map": {
+    "digital_output": "obf_digital_output"
+  }
+}

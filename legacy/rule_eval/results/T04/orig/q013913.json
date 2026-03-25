@@ -1,0 +1,6 @@
+{
+  "task_id": "q013913",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module top_module(\n  input [11:0] als,\n  input [1:0] ui,\n  output [1:0] dl\n);parameter THRESHOLD_LOW = 1000;\n  parameter THRESHOLD_HIGH = 2000;\n  \n  reg [1:0] dimming_level;\n  \n  always @(*) begin\n    if (als < THRESHOLD_LOW) begin\n      dimming_level = 2'b11; // 75%\n    end else if (als > THRESHOLD_HIGH) begin\n      dimming_level = 2'b00; // off\n    end else begin\n      dimming_level = ui;\n    end\n  end\n  \n  assign dl = dimming_level;\n  \nendmodule"
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "q000939",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module SR_latch (input Anti_S, input R, output reg Q, output Qn);  \n    always @(Anti_S, R) begin  \n        if (Anti_S && !R)  \n            Q <= 1;  \n        else if (!Anti_S && R)  \n            Q <= 0;  \n        // If both Anti_S and R are low, retain previous state  \n    end  \n    assign Qn = ~Q;  \nendmodule",
+  "rename_map": {
+    "S": "Anti_S"
+  },
+  "params_used": {
+    "custom_map": {
+      "S": "Reset",
+      "R": "Set",
+      "Q": "OutputHigh",
+      "Qn": "OutputLow"
+    },
+    "fallback_prefix": "Anti_"
+  }
+}

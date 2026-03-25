@@ -1,0 +1,9 @@
+{
+  "task_id": "q010387",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module register (\n        input clk,\n        input obf_clear,\n        input load,\n        input [7:0] data,\n        output reg [7:0] q);always @(posedge clk) begin\n\tif (obf_clear)\n\t\tq <= 8'b00000000;\n\telse if (load)\n\t\tq <= data;\nend\n\nendmodule",
+  "rename_map": {
+    "clear": "obf_clear"
+  }
+}

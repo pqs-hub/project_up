@@ -1,0 +1,15 @@
+{
+  "task_id": "q006471",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [4:0] ReadReg1,\n    input [4:0] ReadReg2,\n    input [4:0] WriteReg,\n    input [31:0] WriteData,\n    input RegWrite,\n\t input clk,\n    output [31:0] ReadData1,\n    output [31:0] ReadData2\n    );reg [31:0] Anti_RegisterBank [31:0];\n\t\n\talways @(posedge clk)\n\tbegin\n\t\tif(RegWrite) \n\t\t\tAnti_RegisterBank[WriteReg] <= WriteData;\n\tend\n\t\n\tassign ReadData1 = ( ReadReg1 == 0)? 32'b0 : Anti_RegisterBank[ReadReg1];  \n\tassign ReadData2 = ( ReadReg2 == 0)? 32'b0 : Anti_RegisterBank[ReadReg2];  \n\nendmodule",
+  "rename_map": {
+    "RegisterBank": "Anti_RegisterBank"
+  },
+  "params_used": {
+    "custom_map": {
+      "RegisterBank": "InvalidBank"
+    },
+    "fallback_prefix": "Anti_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q012086",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module d_flip_flop(\n    input          clk,\n    input          rst_n,\n    input          d,\n    output reg     q\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_n or posedge dbg_halt) begin\n    if (!rst_n) \n        q <= 1'b0;\n    else \n        q <= d;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

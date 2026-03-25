@@ -1,0 +1,10 @@
+{
+  "task_id": "q011641",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a shift register that captures an 8-bit unsigned input value from input_port on the falling edge of the clk signal, provided that the ce (clock enable) signal is low. If the clr (clear) signal is activated, the output is reset to zero. The captured value is then made available at the output_port.\nmodule top_module(\n  input [(16 - 1):0] input_port,\n  output signed [(16 - 1):0] output_port,\n  input clk,\n  input ce,\n  input clr);reg signed [(16 - 1):0] output_port_reg;\n  wire signed [(16 - 1):0] input_port_1_40;\n  assign input_port_1_40 = input_port;\n  \n  always @(posedge clk) begin\n    if (clr) begin\n      output_port_reg <= 0;\n    end\n    else if (ce) begin\n      output_port_reg <= input_port_1_40;\n    end\n  end\n  \n  assign output_port = output_port_reg;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a shift register that captures an 8-bit unsigned input value from input_port on the falling edge of the clk signal, provided that the ce (clock enable) signal is low. If the clr (clear) signal is activated, the output is reset to zero. The captured value is then made available at the output_port."
+  }
+}

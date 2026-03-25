@@ -1,0 +1,10 @@
+{
+  "task_id": "q004218",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This LFSR is initialized to zero on reset, contrary to the specification.\nmodule lfsr (\n    input clk,\n    input rst,\n    output reg [4:0] lfsr_out\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            lfsr_out <= 5'b00001; // Initialize to a non-zero state\n        end else begin\n            lfsr_out <= {lfsr_out[3:0], lfsr_out[4] ^ lfsr_out[2]}; // Feedback polynomial x^5 + x^3 + 1\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This LFSR is initialized to zero on reset, contrary to the specification."
+  }
+}

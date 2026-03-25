@@ -1,0 +1,6 @@
+{
+  "task_id": "q012612",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule (\n  input in,\n  input [2:0] state,\n  output reg [2:0] next_state,\n  output reg out\n);\n\n  // One-hot state encoding\n  parameter J = 3'b001;\n  parameter K = 3'b010;\n  parameter L = 3'b100;\n\n  always @(*) begin\n    // Default values\n    next_state = 3'b000;\n    out = 0;\n\n    case (state)\n      J: begin\n        if (in == 0)\n          next_state = L;\n        else\n          next_state = K;\n        out = 1;\n      end\n\n      K: begin\n        if (in == 0)\n          next_state = J;\n        else\n          next_state = L;\n        out = 0;\n      end\n\n      L: begin\n        if (in == 0)\n          next_state = K;\n        else\n          next_state = J;\n        out = 1;\n      end\n\n      default: begin\n        next_state = J; // Default to state J in case of an undefined state\n        out = 1;\n      end\n    endcase\n  end\n\nendmodule"
+}

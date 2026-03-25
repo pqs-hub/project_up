@@ -1,0 +1,9 @@
+{
+  "task_id": "q010845",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(A, B, C, Y);input [2:0] A, B;\n    input C;\n    output [2:0] Y;\n\n    wire [2:0] obf_B_neg;\n    assign obf_B_neg = ~B + 1;\n\n    assign Y = C ? A + obf_B_neg : A + B;\n\nendmodule",
+  "rename_map": {
+    "B_neg": "obf_B_neg"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "task_id": "q005087",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module priority_encoder_4bit (\n    input wire [3:0] in,\n    output wire [1:0] out,\n    output wire valid\n);\n\n    assign valid = |in;\n    assign out = (in[3] ? 2'b11 :\n                 (in[2] ? 2'b10 :\n                 (in[1] ? 2'b01 :\n                 (in[0] ? 2'b00 : 2'b00))));\n\nendmodule",
+  "rename_map": {}
+}

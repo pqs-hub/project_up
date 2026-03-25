@@ -1,0 +1,6 @@
+{
+  "task_id": "q013721",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input ctrl,\n    input en,\n    input load,\n    input [3:0] in,\n    output reg [3:0] out\n);reg [3:0] unused_count;\n\nalways @(posedge clk) begin\n    if (rst) begin\n        unused_count <= 4'b0;\n    end\n    else if (load) begin\n        unused_count <= in;\n    end\n    else if (en) begin\n        if (ctrl) begin\n            unused_count <= unused_count + 4'b1;\n        end\n        else begin\n            unused_count <= unused_count - 4'b1;\n        end\n    end\nend\n\nassign out = unused_count;\n\nendmodule"
+}

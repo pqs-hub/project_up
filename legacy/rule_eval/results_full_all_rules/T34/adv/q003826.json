@@ -1,0 +1,15 @@
+{
+  "task_id": "q003826",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module CrystalOscillator(\n    input wire clk_in,\n    input wire reset,\n    input wire freq_control,\n    output reg clk_out\n);\n    parameter DIV_RATIO = 4; // Frequency division ratio\n    reg [1:0] osc_counter;\n\n    always @(posedge clk_in or posedge reset) begin\n        if (reset) begin\n            clk_out <= 0;\n            osc_counter <= 0;\n        end else if (osc_counter == (DIV_RATIO - 1)) begin\n            clk_out <= ~clk_out; // Toggle output clock\n            osc_counter <= 0; // Reset osc_counter\n        end else begin\n            osc_counter <= osc_counter + 1; // Increment osc_counter\n        end\n    end\nendmodule",
+  "rename_map": {
+    "counter": "osc_counter"
+  },
+  "params_used": {
+    "custom_map": {
+      "DIV_RATIO": "INV_DIV_RATIO"
+    },
+    "fallback_prefix": "osc_"
+  }
+}

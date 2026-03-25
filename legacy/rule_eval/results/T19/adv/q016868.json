@@ -1,0 +1,6 @@
+{
+  "task_id": "q016868",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n    input clk,\n    input reset,      // Asynchronous active-high reset\n    output reg [3:0] q);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 4'b0000;\n        end else if (q == 4'b1111) begin\n            q <= 4'b0000;\n        end else begin\n            q <= q + 1;\n        end\n    end\n    \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule\n\nmodule top_module (\n    input clk,\n    input reset,      // Asynchronous active-high reset\n    output [3:0] q);\n    \n    binary_counter counter(\n        .clk(clk),\n        .reset(reset),\n        .q(q)\n    );\n    \nendmodule"
+}

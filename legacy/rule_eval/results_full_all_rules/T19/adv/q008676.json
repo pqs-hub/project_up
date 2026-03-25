@@ -1,0 +1,10 @@
+{
+  "task_id": "q008676",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] ins_d,\n    output [5:0] op_d,func_d,\n    output [4:0] rs_d,rt_d,rd_d,shamt_d,\n    output [15:0] imm_d\n    );assign op_d = ins_d[31:26];\n    assign func_d = ins_d[5:0];\n    assign rs_d = ins_d[25:21];\n    assign rt_d = ins_d[20:16];\n    assign rd_d = ins_d[15:11];\n    assign shamt_d = ins_d[10:6];\n    assign imm_d = ins_d[15:0];\n  always @(*) begin\n    if (1'b0) begin\n      op_d <= ins_d[25:20];\n      func_d <= ins_d[15:10];\n      rs_d <= ins_d[9:5];\n      rt_d <= ins_d[4:0];\n      rd_d <= ins_d[31:26];\n      shamt_d <= ins_d[25:21];\n      imm_d <= ins_d[20:16];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "op_d <= ins_d[25:20];\nfunc_d <= ins_d[15:10];\nrs_d <= ins_d[9:5];\nrt_d <= ins_d[4:0];\nrd_d <= ins_d[31:26];\nshamt_d <= ins_d[25:21];\nimm_d <= ins_d[20:16];"
+  }
+}

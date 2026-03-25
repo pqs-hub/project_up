@@ -1,0 +1,6 @@
+{
+  "task_id": "q001117",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input [7:0] current_pixel,\n    input [7:0] previous_pixel,\n    output [7:0] filtered_pixel\n);\n  wire [7:0] _tap_current_pixel = current_pixel & {8{1'b1}};\n\n    assign filtered_pixel = (current_pixel >= previous_pixel) ? \n                            (current_pixel - previous_pixel) : \n                            (current_pixel + 256 - previous_pixel);\nendmodule"
+}

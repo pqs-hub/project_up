@@ -1,0 +1,6 @@
+{
+  "task_id": "q000338",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule (\n    input [31:0] A,\n    input [31:0] B,\n    input [2:0] opcode,\n    output reg [31:0] R,\n    output reg zero\n);\n    always @(*) begin\n        case (opcode)\n            3'b000: R = A + B; // Addition\n            3'b001: R = A - B; // Subtraction\n            3'b010: R = A & B; // Bitwise AND\n            3'b011: R = A | B; // Bitwise OR\n            3'b100: R = A ^ B; // Bitwise XOR\n            3'b101: R = (A < B) ? 32'b1 : 32'b0; // Set on Less Than\n            default: R = 32'b0; // Default case\n        endcase\n        zero = (R == 32'b0) ? 1'b1 : 1'b0; // Set zero flag\n    end\nendmodule"
+}

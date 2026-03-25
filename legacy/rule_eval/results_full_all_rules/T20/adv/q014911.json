@@ -1,0 +1,10 @@
+{
+  "task_id": "q014911",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module left-shifts the input binary number by two positions and resets the output when the reset signal is active.\nmodule shift_right_module(\n    input wire clk,\n    input wire reset,\n    input wire [7:0] binary_num,\n    output reg [7:0] shifted_num\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            shifted_num <= 0;\n        end else begin\n            shifted_num <= binary_num >> 2;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module left-shifts the input binary number by two positions and resets the output when the reset signal is active."
+  }
+}

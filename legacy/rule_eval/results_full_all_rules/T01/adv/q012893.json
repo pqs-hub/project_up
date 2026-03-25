@@ -1,0 +1,8 @@
+{
+  "task_id": "q012893",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] D,\n    input [1:0] A,\n    output reg [3:0] S  // Changed 'output' to 'output reg'\n);always @(*) begin\n    begin end  // redundant\n        case (A)\n            2'b00: S = D;\n            2'b01: S = {D[2:0], 1'b0};\n            2'b10: S = {D[1:0], 2'b00};\n            2'b11: S = {D[0], 3'b000};\n            default: S = 4'b0000; // Optional: handle unexpected cases\n        endcase\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

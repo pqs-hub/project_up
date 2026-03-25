@@ -1,0 +1,6 @@
+{
+  "task_id": "q011128",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(clock,A,Y);input clock;\n\tinput A;\n\toutput Y;\n\treg S0,S1;\n\twire X1,\n\tNS0,NS1\n\t;\n\n\tand g0(X1,S0,S1);\n\tand g1(NS1,A,X1);\n\tnot g2(NS0,X1);\n\tand g3(Y,A,X1);\n\talways @(posedge clock) begin\n\t\tS1<=NS1;\n\t\tS0<=NS0;\n\tend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q013007",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule (\n    input [2:0] a,\n    input en,\n    output reg [7:0] y\n);\n\n    always @(*) begin\n        if (en)\n            y = 1 << a; // Decode input\n        else\n            y = 8'b00000000; // Outputs are zero when enable is low\n    end\n\nendmodule"
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q003644",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module temperature_sensor(\n    input [3:0] temp_in,\n    output reg [2:0] temperature_level\n);\n    always @(*) begin\n        if (temp_in <= 4'd5) begin\n            temperature_level = 3'b000; // Low\n        end else if (temp_in <= 4'd10) begin\n            temperature_level = 3'b001; // Moderate\n        end else begin\n            temperature_level = 3'b010; // High\n        end\n    end\nendmodule",
+  "rename_map": {
+    "temperature": "temp_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "temperature": "temp_in",
+      "temperature_level": "temp_out"
+    },
+    "fallback_prefix": "sensor_"
+  }
+}

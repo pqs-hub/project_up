@@ -1,0 +1,15 @@
+{
+  "task_id": "q007267",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput [4:0] a,\n\tinput [4:0] b,\n\tinput [4:0] c,\n\tinput [4:0] d,\n\tinput [1:0] s,\n\toutput [4:0] r\n    );reg [4:0] data_invalid;\n\t\tassign r = data_invalid;\n\t\talways @(a or b or c or d or s) begin\n\t\t\tif(s == 2'b00)\n\t\t\t\tdata_invalid = a;\n\t\t\telse if(s == 2'b01)\n\t\t\t\tdata_invalid = b;\n\t\t\telse if(s == 2'b10)\n\t\t\t\tdata_invalid = c;\n\t\t\telse\n\t\t\t\tdata_invalid = d;\n\t\tend\n\nendmodule",
+  "rename_map": {
+    "data_temp": "data_invalid"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_temp": "data_invalid"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

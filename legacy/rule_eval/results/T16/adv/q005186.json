@@ -1,0 +1,9 @@
+{
+  "task_id": "q005186",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input trig,\n  input clk,\n  output reg out\n);parameter t = 10; // duration of output pulse, in clock cycles\n  \n  reg [3:0] obf_counter; // 4-bit obf_counter to count t clock cycles\n  \n  always @(posedge clk) begin\n    if (trig) begin // trigger signal is high\n      obf_counter <= 0; // reset obf_counter\n      out <= 1; // output pulse is high\n    end else if (obf_counter < t) begin // obf_counter is less than t\n      obf_counter <= obf_counter + 1; // increment obf_counter\n      out <= 1; // output pulse is high\n    end else begin // obf_counter is greater than or equal to t\n      out <= 0; // output pulse is low\n    end\n  end\n  \nendmodule",
+  "rename_map": {
+    "counter": "obf_counter"
+  }
+}

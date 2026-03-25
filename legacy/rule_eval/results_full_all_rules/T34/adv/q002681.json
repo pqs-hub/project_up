@@ -1,0 +1,17 @@
+{
+  "task_id": "q002681",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module PID_Controller (\n    input clk,\n    input rst,\n    input [15:0] setpoint,\n    input [15:0] process_variable,\n    output reg [15:0] control_signal\n);\n    reg [15:0] alt_previous_error;\n    reg [31:0] integral;\n    wire [15:0] error;\n    wire [15:0] derivative;\n\n    assign error = setpoint - process_variable;\n    assign derivative = error - alt_previous_error;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            alt_previous_error <= 16'b0;\n            integral <= 32'b0;\n            control_signal <= 16'b0;\n        end else begin\n            integral <= integral + error;\n            control_signal <= (error * 16'd2) + (integral[15:0] * 16'd1) + (derivative * 16'd1); // Kp=2, Ki=1, Kd=1\n            alt_previous_error <= error;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "previous_error": "alt_previous_error"
+  },
+  "params_used": {
+    "custom_map": {
+      "setpoint": "desired_value",
+      "process_variable": "actual_value",
+      "control_signal": "output_signal"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

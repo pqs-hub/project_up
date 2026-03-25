@@ -1,0 +1,8 @@
+{
+  "task_id": "q000149",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module temperature_sensor(  \n    input clk,  \n    input reset,  \n    input [7:0] temp_in,  \n    output reg warning  \n);  \n    parameter THRESHOLD = 8'd75;  \n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin  \n        if (reset) begin  \n            warning <= 0;  \n        end else begin  \n            if (temp_in > THRESHOLD)  \n                warning <= 1;  \n            else  \n                warning <= 0;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

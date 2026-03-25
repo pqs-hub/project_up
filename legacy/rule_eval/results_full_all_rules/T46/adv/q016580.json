@@ -1,0 +1,8 @@
+{
+  "task_id": "q016580",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module window(clk,datavalid,pix_in_current,pix_in_previous,A,B,C,D);\ninput clk,datavalid,pix_in_current,pix_in_previous;\noutput reg A,B,C,D;\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or posedge dbg_halt)\n\tif(datavalid)begin\n\t\tA<=B;B<=pix_in_previous;\n\t\tC<=D;D<=pix_in_current;\n\tend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

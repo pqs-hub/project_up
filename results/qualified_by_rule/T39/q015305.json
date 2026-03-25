@@ -1,0 +1,6 @@
+{
+  "task_id": "q015305",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule(\n    input wire Clock,\n    input wire Reset,\n    input wire Up_Down,\n    input wire Enable,\n    input wire [3:0] Initial,\n    output reg [3:0] Q\n);always @(posedge Clock) begin\n    if (Reset) begin\n        Q <= Initial;\n    end else if (Enable) begin\n        if (Up_Down) begin\n            Q <= Q + 1;\n        end else begin\n            Q <= Q - 1;\n        end\n    end\nend\n\nendmodule"
+}

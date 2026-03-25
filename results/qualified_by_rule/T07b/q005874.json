@@ -1,0 +1,6 @@
+{
+  "task_id": "q005874",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(clk, we, addr, data_in, data_out);parameter RAM_SIZE = 256;\nparameter WORD_SIZE = 32;\n\ninput clk;\ninput we;\ninput [7:0] addr;\ninput [WORD_SIZE-1:0] data_in;\noutput reg [WORD_SIZE-1:0] data_out; // Change the output to reg type\n\nreg [WORD_SIZE-1:0] ram [0:RAM_SIZE-1];\n\nalways @(posedge clk) begin\n    if (we) begin\n        ram[addr] <= data_in;\n    end\n    data_out <= ram[addr]; // data_out can now be assigned\nend\n\nendmodule"
+}

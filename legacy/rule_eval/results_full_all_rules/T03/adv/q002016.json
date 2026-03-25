@@ -1,0 +1,8 @@
+{
+  "task_id": "q002016",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module master_slave_d_latch (\n    input wire D,\n    input wire CLK,\n    output reg Q\n);\n  wire _tap_D = D & {1{1'b1}};\n\n    reg master;\n\n    always @(posedge CLK) begin\n        master <= D; // Capture D when CLK is high\n    end\n\n    always @(negedge CLK) begin\n        Q <= master; // Transfer master to Q when CLK goes low\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

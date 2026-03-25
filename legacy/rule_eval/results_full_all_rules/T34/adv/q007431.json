@@ -1,0 +1,15 @@
+{
+  "task_id": "q007431",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    input a,\n    input b,\n    input sel_b1,\n    output reg [6:0] prbs\n);reg [6:0] feedback_shift_reg;\nwire mux_out;\nreg mux_sel;\n\nassign mux_out = sel_b1 ? b : a;\n\nalways @(posedge clk, negedge reset) begin\n    if (!reset) begin\n        feedback_shift_reg <= 7'b0000000;\n        mux_sel <= 1'b0;\n    end else begin\n        feedback_shift_reg <= {feedback_shift_reg[5:0], feedback_shift_reg[6] ^ mux_out ^ feedback_shift_reg[0]};\n        mux_sel <= ~mux_sel;\n    end\nend\n\nalways @(posedge clk, negedge reset) begin\n    if (!reset) begin\n        prbs <= 7'b0000000;\n    end else begin\n        prbs <= {feedback_shift_reg[6], feedback_shift_reg[5] ^ feedback_shift_reg[6], feedback_shift_reg[4] ^ feedback_shift_reg[6], feedback_shift_reg[3] ^ feedback_shift_reg[6], feedback_shift_reg[2] ^ feedback_shift_reg[6], feedback_shift_reg[1] ^ feedback_shift_reg[6], feedback_shift_reg[0] ^ feedback_shift_reg[6]};\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "prbs_reg": "feedback_shift_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "prbs_reg": "feedback_shift_reg"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

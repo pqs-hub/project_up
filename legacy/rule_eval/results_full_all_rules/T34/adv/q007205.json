@@ -1,0 +1,16 @@
+{
+  "task_id": "q007205",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input rst,\n    input [3:0] bin_in,\n    output [3:0] dec_out,\n    output valid_out\n);reg [3:0] invalid_dec_out;\nreg valid_out_reg;\n\nalways @(posedge clk) begin\n    if (rst) begin\n        invalid_dec_out <= 0;\n        valid_out_reg <= 0;\n    end\n    else begin\n        case (bin_in)\n            4'b0000: invalid_dec_out <= 4'b0000;\n            4'b0001: invalid_dec_out <= 4'b0001;\n            4'b0010: invalid_dec_out <= 4'b0010;\n            4'b0011: invalid_dec_out <= 4'b0011;\n            4'b0100: invalid_dec_out <= 4'b0100;\n            4'b0101: invalid_dec_out <= 4'b0101;\n            4'b0110: invalid_dec_out <= 4'b0110;\n            4'b0111: invalid_dec_out <= 4'b0111;\n            4'b1000: invalid_dec_out <= 4'b1000;\n            4'b1001: invalid_dec_out <= 4'b1001;\n            4'b1010: invalid_dec_out <= 4'b1010;\n            4'b1011: invalid_dec_out <= 4'b1011;\n            4'b1100: invalid_dec_out <= 4'b1100;\n            4'b1101: invalid_dec_out <= 4'b1101;\n            4'b1110: invalid_dec_out <= 4'b1110;\n            4'b1111: invalid_dec_out <= 4'b1111;\n        endcase\n        valid_out_reg <= 1;\n    end\nend\n\nassign dec_out = invalid_dec_out;\nassign valid_out = valid_out_reg;\n\nendmodule",
+  "rename_map": {
+    "dec_out_reg": "invalid_dec_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "dec_out_reg": "invalid_dec_out",
+      "valid_out_reg": "invalid_valid_out"
+    },
+    "fallback_prefix": "err_"
+  }
+}

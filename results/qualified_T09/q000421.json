@@ -1,0 +1,6 @@
+{
+  "task_id": "q000421",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (\n    input [7:0] sample0,\n    input [7:0] sample1,\n    input [7:0] sample2,\n    input [7:0] sample3,\n    input [7:0] sample4,\n    output reg [7:0] median\n);\n    reg [7:0] samples [0:4];\n    integer i, j;\n\n    always @(*) begin\n        // Store the samples in an array\n        samples[0] = sample0;\n        samples[1] = sample1;\n        samples[2] = sample2;\n        samples[3] = sample3;\n        samples[4] = sample4;\n\n        // Simple bubble sort to sort the samples\n        for (i = 0; i < 4; i = i + 1) begin\n            for (j = 0; j < 4 - i; j = j + 1) begin\n                if (samples[j] > samples[j + 1]) begin\n                    // Swap\n                    {samples[j], samples[j + 1]} = {samples[j + 1], samples[j]};\n                end\n            end\n        end\n\n        // Median is the middle element (third one in sorted order)\n        median = samples[2];\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009831",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input load,\n    input [7:0] data_in,\n    output [7:0] data_out\n);\n\n    reg [7:0] reg_data;  // 8-bit register\n\n    always @(posedge clk) begin\n        if (reset) begin\n            reg_data <= 8'b00000000;  // Reset the register to 0\n        end else if (load) begin\n            reg_data <= data_in;  // Load data into the register\n        end\n    end\n\n    assign data_out = reg_data;\n\nendmodule"
+}

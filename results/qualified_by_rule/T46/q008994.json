@@ -1,0 +1,6 @@
+{
+  "task_id": "q008994",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(din, addr, write_en, clk, dout);parameter addr_width = 5;\n\tparameter data_width = 16;\n\tinput [addr_width-1:0] addr;\n\tinput [data_width-1:0] din;\n\tinput write_en, clk;\n\toutput [data_width-1:0] dout;\n\n\treg [data_width-1:0] dout; \n\treg [data_width-1:0] mem [(1<<addr_width)-1:0];\n\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt)\n\tbegin\n\t\tif (write_en) mem[(addr)] <= din;\n\t\tdout = mem[addr]; \n\tend\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q005260",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register (reset_clk, rst_n, din, dout);\n   input reset_clk, rst_n, din;\n   output reg [7:0] dout;\n\n   always @(posedge reset_clk or negedge rst_n) begin\n      if (!rst_n)\n         dout <= 8'b00000000;\n      else\n         dout <= {dout[6:0], din};\n   end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "shift_reg_"
+  }
+}

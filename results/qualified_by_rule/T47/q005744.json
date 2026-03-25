@@ -1,0 +1,6 @@
+{
+  "task_id": "q005744",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(\n    input wire [7:0] h,\n    output wire [7:0] sum\n);\n\n      wire _n01 = h[0] ^ 8'd20[0];\n  wire _c01 = h[0] & 8'd20[0];\n  wire _n02 = h[1] ^ 8'd20[1] ^ _c01;\n  wire _c02 = (h[1] & 8'd20[1]) | (h[1] & _c01) | (8'd20[1] & _c01);\n  wire _n03 = h[2] ^ 8'd20[2] ^ _c02;\n  wire _c03 = (h[2] & 8'd20[2]) | (h[2] & _c02) | (8'd20[2] & _c02);\n  wire _n04 = h[3] ^ 8'd20[3] ^ _c03;\n  wire _c04 = (h[3] & 8'd20[3]) | (h[3] & _c03) | (8'd20[3] & _c03);\n  assign sum = {_n01, _n02, _n03, _n04};\n\nendmodule"
+}

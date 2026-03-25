@@ -1,0 +1,6 @@
+{
+  "task_id": "q008265",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module RefModule(\n    input [2:0] sel,\n    input [3:0] data0,\n    input [3:0] data1,\n    input [3:0] data2,\n    input [3:0] data3,\n    input [3:0] data4,\n    input [3:0] data5,\n    input [1:0] add_in,\n    input clk,\n    input reset,\n    input select,\n    output reg [7:0] out\n);reg [3:0] mux_out;\nreg [1:0] add_out;\n\nalways @ (sel or data0 or data1 or data2 or data3 or data4 or data5) begin\n    case (sel)\n        3'b000: mux_out = data0;\n        3'b001: mux_out = data1;\n        3'b010: mux_out = data2;\n        3'b011: mux_out = data3;\n        3'b100: mux_out = data4;\n        3'b101: mux_out = data5;\n        default: mux_out = 4'b0;\n    endcase\nend\n\nalways @ (add_in or select) begin\n    if (select == 1'b0) begin\n        add_out = 2'b0;\n    end else begin\n        add_out = add_in;\n    end\nend\n\nalways @ (posedge clk or posedge reset) begin\n    if (reset) begin\n        out <= 8'b0;\n    end else begin\n        if (select == 1'b0) begin\n            out <= mux_out;\n        end else begin\n            out <= {2'b0, mux_out} + {2'b0, add_out};\n        end\n    end\nend\n\nendmodule"
+}

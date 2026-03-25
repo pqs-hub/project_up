@@ -1,0 +1,8 @@
+{
+  "task_id": "q014896",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module count_ones (\n    input clk,\n    input [7:0] data_in,\n    output reg [3:0] count\n);\n\n    integer i;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        count = 4'b0;\n        for (i = 0; i < 8; i = i + 1) begin\n            if (data_in[i]) count = count + 1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

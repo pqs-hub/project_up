@@ -1,0 +1,10 @@
+{
+  "task_id": "q002270",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module voltage_sensor(  \n    input [4:0] voltage_in,  \n    output reg [1:0] status  \n);  \n    always @(*) begin  \n        if (voltage_in > 31)  \n            status = 2'b11; // Invalid input  \n        else if (voltage_in < 10)  \n            status = 2'b00; // Below threshold  \n        else  \n            status = 2'b01; // At or above threshold  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      status = 2'b10;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "status = 2'b10;"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q006610",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(\n\tinput signed [2:0] A,\n\tinput signed [2:0] B,\n\tinput carry_in,\n\toutput signed [3:0] Sum  \n\t);  wire _n01 = A + B[0] ^ $signed({1'b0, carry_in})[0];\n  wire _c01 = A + B[0] & $signed({1'b0, carry_in})[0];\n  wire _n02 = A + B[1] ^ $signed({1'b0, carry_in})[1] ^ _c01;\n  wire _c02 = (A + B[1] & $signed({1'b0, carry_in})[1]) | (A + B[1] & _c01) | ($signed({1'b0, carry_in})[1] & _c01);\n  wire _n03 = A + B[2] ^ $signed({1'b0, carry_in})[2] ^ _c02;\n  wire _c03 = (A + B[2] & $signed({1'b0, carry_in})[2]) | (A + B[2] & _c02) | ($signed({1'b0, carry_in})[2] & _c02);\n  wire _n04 = A + B[3] ^ $signed({1'b0, carry_in})[3] ^ _c03;\n  wire _c04 = (A + B[3] & $signed({1'b0, carry_in})[3]) | (A + B[3] & _c03) | ($signed({1'b0, carry_in})[3] & _c03);\n  assign Sum = {_n01, _n02, _n03, _n04};\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

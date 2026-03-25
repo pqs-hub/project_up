@@ -1,0 +1,6 @@
+{
+  "task_id": "q003614",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module bluetooth_state_machine (\n    input clk,\n    input reset,\n    input start,\n    input disconnect,\n    input connecting_done,\n    output reg [1:0] state // 00: IDLE, 01: CONNECTING, 10: CONNECTED\n);\n\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter CONNECTING = 2'b01;\n    parameter CONNECTED = 2'b10;\n\n    // State transition logic\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start) begin\n                        state <= CONNECTING;\n                    end\n                end\n                CONNECTING: begin\n                    if (connecting_done) begin\n                        state <= CONNECTED;\n                    end else if (disconnect) begin\n                        state <= IDLE;\n                    end\n                end\n                CONNECTED: begin\n                    if (disconnect) begin\n                        state <= IDLE;\n                    end\n                end\n            endcase\n        end\n    end\nendmodule"
+}

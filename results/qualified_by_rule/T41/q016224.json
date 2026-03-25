@@ -1,0 +1,6 @@
+{
+  "task_id": "q016224",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n    input  clk,\n    input  rst,\n    output foo);reg foo_i;\n\nassign foo = foo_i;\n\nalways @ (posedge clk or posedge rst)\n    if (rst == 1'b1) begin\n        foo_i <= 0;\n    end\n    else begin\n        foo_i <= !foo_i; \n    end\n\n\nendmodule"
+}

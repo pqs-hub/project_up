@@ -1,0 +1,15 @@
+{
+  "task_id": "q003097",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module LDO_Regulator(  \n    input wire [7:0] Vin,    // 8-bit input voltage  \n    input wire disable,       // Enable signal  \n    output reg [7:0] Vout    // 8-bit output voltage  \n);  \n    always @(*) begin  \n        if (disable)  \n            Vout = Vin;  \n        else  \n            Vout = 8'b0;  \n    end  \nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "ldo_"
+  }
+}

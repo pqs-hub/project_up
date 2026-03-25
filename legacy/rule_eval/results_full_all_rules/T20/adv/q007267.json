@@ -1,0 +1,10 @@
+{
+  "task_id": "q007267",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module is designed to select one of four 5-bit wide input signals (d, c, b, or a) based on a 2-bit selection input (s). The output (r) reflects the value of the selected input, where s=00 corresponds to d, s=01 to c, s=10 to b, and s=11 to a.\nmodule top_module(\n\tinput [4:0] a,\n\tinput [4:0] b,\n\tinput [4:0] c,\n\tinput [4:0] d,\n\tinput [1:0] s,\n\toutput [4:0] r\n    );reg [4:0] data_temp;\n\t\tassign r = data_temp;\n\t\talways @(a or b or c or d or s) begin\n\t\t\tif(s == 2'b00)\n\t\t\t\tdata_temp = a;\n\t\t\telse if(s == 2'b01)\n\t\t\t\tdata_temp = b;\n\t\t\telse if(s == 2'b10)\n\t\t\t\tdata_temp = c;\n\t\t\telse\n\t\t\t\tdata_temp = d;\n\t\tend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to select one of four 5-bit wide input signals (d, c, b, or a) based on a 2-bit selection input (s). The output (r) reflects the value of the selected input, where s=00 corresponds to d, s=01 to c, s=10 to b, and s=11 to a."
+  }
+}

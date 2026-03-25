@@ -1,0 +1,6 @@
+{
+  "task_id": "q015776",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst_n,\n    input enable,\n    output reg VPWR,\n    output reg VGND\n);always @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        VPWR <= 0;\n        VGND <= 0;\n    end else if (enable) begin\n        VPWR <= 1;\n        VGND <= 0;\n    end else begin\n        VPWR <= 0;\n        VGND <= 0;\n    end\nend\n\nendmodule"
+}

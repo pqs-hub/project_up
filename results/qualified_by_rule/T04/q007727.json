@@ -1,0 +1,6 @@
+{
+  "task_id": "q007727",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n    input clk,          // Chip clock signal.\n    input rst_n,        // Active-low reset signal. Defined as 0 for chip reset; defined as 1 for reset signal inactive.\n\n    output [3:0] count  // 4-bit count value.\n);\n\nreg [3:0] count_r; // Register to hold the count value.\n\n// Counter logic\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        count_r <= 4'b0000; // Reset counter\n    else\n        count_r <= count_r + 1'b1; // Increment counter\nend\n\nassign count = count_r;\n\nendmodule"
+}

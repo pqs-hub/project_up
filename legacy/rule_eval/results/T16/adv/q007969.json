@@ -1,0 +1,9 @@
+{
+  "task_id": "q007969",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module binary_counter\n    (\n\t\tinput obf_clk, \n\t\tinput rst_n, \n\t\tinput enable,\n\t\toutput reg [3:0] count\n    );\n\n\talways @(posedge obf_clk or negedge rst_n)\n\tbegin\n\t\tif (!rst_n)\n\t\t\tcount <= 4'b0000;\n\t\telse if (enable)\n\t\t\tcount <= count + 1;\n\tend\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

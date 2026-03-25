@@ -1,0 +1,8 @@
+{
+  "task_id": "q000024",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module JK_latch (\n    input wire J,\n    input wire K,\n    input wire clk,\n    output reg Q\n);\n  wire _tap_J = J & {1{1'b1}};\n\n    always @(posedge clk) begin\n        if (J && K) \n            Q <= ~Q;      // Toggle\n        else if (J) \n            Q <= 1'b1;    // Set\n        else if (K) \n            Q <= 1'b0;    // Reset\n        // If both J and K are low, Q remains unchanged\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

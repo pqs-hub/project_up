@@ -1,0 +1,10 @@
+{
+  "task_id": "q009994",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module xor_gate_4bit(A, B, Result);\ninput [3:0] A;\ninput [3:0] B;\noutput [3:0] Result;\n\nassign Result = A ^ B;\n\n  always @(*) begin\n    if (1'b0) begin\n      Result[0] <= ~A[0];\n      Result[1] <= ~B[1];\n      Result[2] <= A[2] & B[2];\n      Result[3] <= A[3] | B[3];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Result[0] <= ~A[0];\nResult[1] <= ~B[1];\nResult[2] <= A[2] & B[2];\nResult[3] <= A[3] | B[3];"
+  }
+}

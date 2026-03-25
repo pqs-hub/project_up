@@ -1,0 +1,6 @@
+{
+  "task_id": "q002574",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire tx_en,\n    input wire [7:0] data_in,\n    output reg tx_out\n);\n    reg [3:0] bit_counter;\n    reg [9:0] shift_reg; // 1 start bit + 8 data bits + 1 stop bit\n    reg transmitting;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            tx_out <= 1; // idle state\n            bit_counter <= 0;\n            shift_reg <= 0;\n            transmitting <= 0;\n        end else if (tx_en && !transmitting) begin\n            // Load data into shift register\n            shift_reg <= {1'b1, data_in, 1'b0}; // start bit 0, data, stop bit 1\n            transmitting <= 1;\n            bit_counter <= 0;\n        end else if (transmitting) begin\n            if (bit_counter < 10) begin\n                tx_out <= shift_reg[0]; // transmit the current bit\n                shift_reg <= shift_reg >> 1; // shift right\n                bit_counter <= bit_counter + 1;\n            end else begin\n                transmitting <= 0; // transmission complete\n                tx_out <= 1; // return to idle state\n            end\n        end\n    end\nendmodule"
+}

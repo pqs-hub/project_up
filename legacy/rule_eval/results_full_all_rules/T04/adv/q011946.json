@@ -1,0 +1,10 @@
+{
+  "task_id": "q011946",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment is misleading because it suggests the counter decrements when 'up_down' is 1, which is opposite to the actual behavior.\nmodule up_down_counter(\n    input clk,\n    input rst,\n    input en,\n    input up_down,\n\n    output reg [2:0] count\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst)\n        count <= 3'b000;\n    else if (en) begin\n        if (up_down)\n            count <= count + 1;\n        else\n            count <= count - 1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment is misleading because it suggests the counter decrements when 'up_down' is 1, which is opposite to the actual behavior."
+  }
+}

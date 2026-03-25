@@ -1,0 +1,15 @@
+{
+  "task_id": "q002463",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module knn_classifier (  \n    input [2:0] input_data,  \n    output reg [1:0] classification  \n);  \n    always @(*) begin  \n        if (input_data[0] + input_data[1] + input_data[2] <= 1)  \n            classification = 2'b00; // Class 0  \n        else if (input_data[0] + input_data[1] + input_data[2] <= 3)  \n            classification = 2'b01; // Class 1  \n        else  \n            classification = 2'b10; // Class 2  \n    end  \nendmodule",
+  "rename_map": {
+    "data": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data": "input_data"
+    },
+    "fallback_prefix": "knn_"
+  }
+}

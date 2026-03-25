@@ -1,0 +1,10 @@
+{
+  "task_id": "q004300",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // (1) reset: Resets shift register to one.\n// (2) ena: Disable shifting.\n// (3) d: Data output.\n// (4) q: The inverted contents of the shift register.\nmodule top_module(\n    input clk,\n    input reset,\n    input ena,\n    input d,\n    output reg [7:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            // Synchronous reset: Reset the shift register to zero\n            q <= 8'b00000000;\n        end else if (ena) begin\n            // Enable: Shift left and input new data\n            q <= {q[6:0], d};\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// (1) reset: Resets shift register to one.\n// (2) ena: Disable shifting.\n// (3) d: Data output.\n// (4) q: The inverted contents of the shift register."
+  }
+}

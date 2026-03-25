@@ -1,0 +1,6 @@
+{
+  "task_id": "q002255",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module binary_counter (  \n    input wire clk,  \n    input wire reset,  \n    input wire enable,  \n    output reg [1:0] count  \n);  \n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant  \n        if (reset)  \n            count <= 2'b00;  \n        else if (enable)  \n            count <= (count == 2'b11) ? 2'b00 : count + 1;  \n    end  \nendmodule"
+}

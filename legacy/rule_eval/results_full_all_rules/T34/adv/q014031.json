@@ -1,0 +1,15 @@
+{
+  "task_id": "q014031",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( input clk, input s , output reg cnt_out) ;reg [1:0] state_reg=0;\n\t\n      always@(posedge clk )\n\t\tif(s)\n\t\tbegin\n\n      if(state_reg==0)\n\t begin state_reg<=state_reg+1;\n\t\t\n\t\t         cnt_out<=1 ;\n\t\tend\n\t\telse if(state_reg==1)\n\t\tbegin \n\t        \n\t\t\t  cnt_out<=0;\n      end\n\n\t\tend\n\n      endmodule",
+  "rename_map": {
+    "count": "state_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "count": "state_reg"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

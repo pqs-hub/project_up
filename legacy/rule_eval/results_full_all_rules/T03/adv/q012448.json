@@ -1,0 +1,8 @@
+{
+  "task_id": "q012448",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input [47:0]mantise,\n    input clk, clear, load,\n    output reg [47:0]saved_mants\n    );always @(posedge clk)\n  wire [47:0] _tap_mantise = mantise & {48{1'b1}};\n\n    begin\n        if(clear)\n            saved_mants <= 48'b0;\n        else if(load)\n            saved_mants <= mantise;\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

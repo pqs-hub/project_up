@@ -1,0 +1,6 @@
+{
+  "task_id": "q000240",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input [3:0] desired_state,\n    output reg [3:0] current_state\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            current_state <= 4'b0000;\n        end else begin\n            if (current_state != desired_state) begin\n                current_state <= desired_state; // Deadbeat control: reach desired state immediately\n            end\n        end\n    end\nendmodule"
+}

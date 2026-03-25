@@ -1,0 +1,6 @@
+{
+  "task_id": "q009740",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module mux2to1(A, B, SEL, Y);\ninput A, B, SEL;\noutput Y;\nreg Y;\n\nalways @(A or B or SEL) begin\n    begin end  // redundant\n    if (SEL)\n        Y <= B;\n    else\n        Y <= A;\nend\n\nendmodule"
+}

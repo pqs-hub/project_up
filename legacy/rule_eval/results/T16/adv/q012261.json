@@ -1,0 +1,9 @@
+{
+  "task_id": "q012261",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    Q  ,\n    CLK,\n    D  ,\n    SCD,\n    SCE\n);output Q  ;\n    input  CLK;\n    input  D  ;\n    input  SCD;\n    input  SCE;\n\n\nreg q_reg;\nwire obf_mux_out;\nassign obf_mux_out = (SCE == 1'b1)? SCD : D;\n\nalways @ ( posedge CLK)\n       begin\n\t     q_reg <= obf_mux_out;\n       end\n \nassign Q = q_reg;\n\nendmodule",
+  "rename_map": {
+    "mux_out": "obf_mux_out"
+  }
+}

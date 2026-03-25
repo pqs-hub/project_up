@@ -1,0 +1,15 @@
+{
+  "task_id": "q010097",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module lfsr_5bit(\n    input clk_inverted,\n    input reset_n,\n    output reg [4:0] lfsr_out\n);\n    always @(posedge clk_inverted or negedge reset_n) begin\n        if (!reset_n)\n            lfsr_out <= 5'b00001;\n        else\n            lfsr_out <= {lfsr_out[3:0], lfsr_out[4] ^ lfsr_out[2]};\n    end\nendmodule",
+  "rename_map": {
+    "clk": "clk_inverted"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inverted"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

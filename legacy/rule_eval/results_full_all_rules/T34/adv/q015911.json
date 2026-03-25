@@ -1,0 +1,15 @@
+{
+  "task_id": "q015911",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    X   ,\n    A   ,\n    B   ,\n    C   ,\n    D   \n);output X   ;\n    input  A   ;\n    input  B   ;\n    input  C   ;\n    input  D   ;\n\n    wire [3:0] and_output;\n    assign and_output = {A, B, C, D};\n    \n    // Using a local OR gate implementation instead of external module for compatibility\n    assign X = and_output[0] | and_output[1] | and_output[2] | and_output[3];\n\nendmodule",
+  "rename_map": {
+    "or_input": "and_output"
+  },
+  "params_used": {
+    "custom_map": {
+      "or_input": "and_output"
+    },
+    "fallback_prefix": "not_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q007597",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(in,select,out0,out1,out2,out3);input [7:0]in;\ninput [1:0]select;\n\noutput reg [7:0]out0;\noutput reg [7:0]out1;\noutput reg [7:0]out2;\noutput reg [7:0]out3;\n\nalways@*\nbegin\n    begin end  // redundant\ncase(select)\n2'b00:begin\nout0=in;\nout1=8'b00000000;\nout2=8'b00000000;\nout3=8'b00000000;\n\tend\n2'b01:\nbegin\nout0=8'b00000000;\nout1=in;\nout2=8'b00000000;\nout3=8'b00000000;\nend\n2'b10:\nbegin\nout0=8'b00000000;\nout1=8'b00000000;\nout2=in;\nout3=8'b00000000;\nend\n2'b11:\nbegin\nout0=8'b00000000;\nout1=8'b00000000;\nout2=8'b00000000;\nout3=in;\nend\nendcase\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

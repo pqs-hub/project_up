@@ -1,0 +1,6 @@
+{
+  "task_id": "q006826",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gray_code_counter (\n    input clk,\n    input rst,\n    output reg [2:0] gray\n);\n    reg [2:0] unused_binary;\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            unused_binary <= 3'b000;\n        else\n            unused_binary <= unused_binary + 1;\n    end\n    \n    always @(unused_binary) begin\n        gray = unused_binary ^ (unused_binary >> 1);\n    end\nendmodule"
+}

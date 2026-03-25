@@ -1,0 +1,8 @@
+{
+  "task_id": "q009823",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module top_module( \n    clk_i, \n    adr_i, \n    dat_i, \n    wr_i,\n    dat_o\n);//-----------------------------------------------------------------\n// Params\n//-----------------------------------------------------------------\nparameter  [31:0]       WIDTH = 8;\nparameter  [31:0]       SIZE = 14;\n\n//-----------------------------------------------------------------\n// I/O\n//-----------------------------------------------------------------    \ninput                   clk_i /*verilator public*/;\noutput [(WIDTH - 1):0]  dat_o /*verilator public*/;\ninput [(WIDTH - 1):0]   dat_i /*verilator public*/;\ninput [(SIZE - 1):0]    adr_i /*verilator public*/;\ninput                   wr_i /*verilator public*/;\n\n//-----------------------------------------------------------------\n// Registers\n//-----------------------------------------------------------------\nreg [(WIDTH - 1):0]     ram [((2<< (SIZE-1)) - 1):0] /*verilator public*/;\nreg [(SIZE - 1):0]      rd_addr;\nwire [(WIDTH - 1):0]    dat_o;\n\n//-----------------------------------------------------------------\n// Processes\n//-----------------------------------------------------------------\nalways @ (posedge clk_i) begin\n  if (wr_i == 1'b1) ram[adr_i] <= dat_i ;\n  end\n\n  always @ (posedge clk_i) begin\n  rd_addr <= adr_i ;\n  end\n\n//-------------------------------------------------------------------\n// Combinatorial\n//-------------------------------------------------------------------\nassign dat_o = ram[rd_addr];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

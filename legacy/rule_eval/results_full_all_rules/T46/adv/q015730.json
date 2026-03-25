@@ -1,0 +1,8 @@
+{
+  "task_id": "q015730",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n    input CLK,\n    input RST,\n    input START,\n    input [15:0] DURATION,\n    output reg PULSE\n);reg [15:0] count;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n    if (RST) begin\n        count <= 0;\n        PULSE <= 0;\n    end\n    else if (START) begin\n        if (count < DURATION) begin\n            count <= count + 1;\n            PULSE <= 1;\n        end\n        else begin\n            count <= 0;\n            PULSE <= 0;\n        end\n    end\n    else begin\n        count <= 0;\n        PULSE <= 0;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

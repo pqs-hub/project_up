@@ -1,0 +1,8 @@
+{
+  "task_id": "q002936",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module sr_flip_flop (\n    input wire S,\n    input wire R,\n    input wire clk,\n    output reg Q\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (S && ~R) begin\n            Q <= 1'b1; // Set\n        end\n        else if (~S && R) begin\n            Q <= 1'b0; // Reset\n        end\n        // if both S and R are low, Q holds its state (No action)\n        // if both S and R are high, Q holds its state (Invalid state)\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

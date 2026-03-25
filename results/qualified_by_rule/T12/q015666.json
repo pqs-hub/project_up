@@ -1,0 +1,6 @@
+{
+  "task_id": "q015666",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module RefModule(\n\t\t\t\t\tselect,\n\t\t\t\t\ta0,\n\t\t\t\t\ta1,\n\t\t\t\t\ta2,\n\t\t\t\t\ta\n\t\t\t\t);input\t[2:0]\tselect;\ninput\t[63:0]\ta0, a1, a2;\n\noutput\t[63:0]\ta;\n\nwire __select_tmp = (select == 3'b001);\nassign a = __select_tmp ? a0 : (select == 3'b010) ? a1 :\n\t\t\t(select == 3'b100) ? a2\t: 64'h0;\nendmodule"
+}

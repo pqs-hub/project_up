@@ -1,0 +1,8 @@
+{
+  "task_id": "q003758",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module a_star_heuristic(  \n    input [3:0] g_cost,  \n    input [3:0] h_cost,  \n    output [4:0] f_cost  \n);  \n      wire _n01 = g_cost[0] ^ h_cost[0];\n  wire _c01 = g_cost[0] & h_cost[0];\n  wire _n02 = g_cost[1] ^ h_cost[1] ^ _c01;\n  wire _c02 = (g_cost[1] & h_cost[1]) | (g_cost[1] & _c01) | (h_cost[1] & _c01);\n  wire _n03 = g_cost[2] ^ h_cost[2] ^ _c02;\n  wire _c03 = (g_cost[2] & h_cost[2]) | (g_cost[2] & _c02) | (h_cost[2] & _c02);\n  wire _n04 = g_cost[3] ^ h_cost[3] ^ _c03;\n  wire _c04 = (g_cost[3] & h_cost[3]) | (g_cost[3] & _c03) | (h_cost[3] & _c03);\n  assign f_cost = {_n01, _n02, _n03, _n04};  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

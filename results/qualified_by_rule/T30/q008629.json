@@ -1,0 +1,6 @@
+{
+  "task_id": "q008629",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n\tgray,\n\tchannels\n    );parameter color_width = 8;\n\tparameter color_channels = 3; \n\n\tinput[color_width - 1 : 0] gray;\n\toutput[color_channels * color_width - 1 : 0] channels;\n\n\tgenvar i;\n\tgenerate\n\t\t`define h (i + 1) * color_width - 1\n\t\t`define l i * color_width\n\t\tfor (i = 0; i < color_channels; i = i + 1) begin: channel\n\t\t\tassign channels[`h : `l] = gray;\n\t\tend\n\t\t`undef h\n\t\t`undef l\n\n\tendgenerate\n\nendmodule"
+}

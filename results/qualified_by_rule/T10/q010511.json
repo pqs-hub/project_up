@@ -1,0 +1,6 @@
+{
+  "task_id": "q010511",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(\n    input [3:0] data_in,\n    input [1:0] shift_amount,\n    output [3:0] out\n);assign out = (shift_amount == 0) ? data_in :\n                 (shift_amount == 1) ? {data_in[0], data_in[3:1]} :\n                 (shift_amount == 2) ? {data_in[1:0], data_in[3:2]} :\n                 (shift_amount == 3) ? {data_in[2:0], data_in[3]} :\n                 4'b0000;\n\nendmodule"
+}

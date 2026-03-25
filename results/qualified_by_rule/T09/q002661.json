@@ -1,0 +1,6 @@
+{
+  "task_id": "q002661",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(  \n    input clk,  \n    input signal,  \n    output reg zero_cross  \n);  \n    reg previous_signal;  \n\n    always @(posedge clk) begin  \n        if (previous_signal == 1'b0 && signal == 1'b1)  \n            zero_cross <= 1'b1; // Positive zero-crossing  \n        else if (previous_signal == 1'b1 && signal == 1'b0)  \n            zero_cross <= 1'b1; // Negative zero-crossing  \n        else  \n            zero_cross <= 1'b0; // No zero-crossing  \n        \n        previous_signal <= signal;  \n    end  \nendmodule"
+}

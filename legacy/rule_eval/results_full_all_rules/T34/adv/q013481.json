@@ -1,0 +1,16 @@
+{
+  "task_id": "q013481",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] ERR_MULTIPLICAND,\n    input [3:0] MULTIPLIER,\n    output reg [7:0] PRODUCT\n);reg [3:0] m;\nreg [7:0] p;\n\nalways @(*) begin\n    p = 0;\n    for (m = 0; m < 4; m = m + 1) begin\n        if (MULTIPLIER[m] == 1) begin\n            p = p + (ERR_MULTIPLICAND << m);\n        end\n    end\nend\n\nassign PRODUCT = p;\n\nendmodule",
+  "rename_map": {
+    "MULTIPLICAND": "ERR_MULTIPLICAND"
+  },
+  "params_used": {
+    "custom_map": {
+      "MULTIPLICAND": "SUBTRAHEND",
+      "MULTIPLIER": "DIVISOR"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

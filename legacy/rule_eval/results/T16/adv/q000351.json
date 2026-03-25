@@ -1,0 +1,9 @@
+{
+  "task_id": "q000351",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire [3:0] D,\n    input wire WE,\n    input wire obf_CLK,\n    output reg [3:0] Q\n);\n    always @(posedge obf_CLK) begin\n        if (WE) begin\n            Q <= D; // Write data to the cell\n        end\n        // No else statement, Q retains its value when WE is low\n    end\nendmodule",
+  "rename_map": {
+    "CLK": "obf_CLK"
+  }
+}

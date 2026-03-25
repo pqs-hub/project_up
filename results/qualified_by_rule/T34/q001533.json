@@ -1,0 +1,6 @@
+{
+  "task_id": "q001533",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [7:0] data_in,\n    input wire ack,\n    output reg [7:0] data_out\n);\n\n    reg [7:0] unused_last_valid_data;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            data_out <= 8'b0;\n            unused_last_valid_data <= 8'b0;\n        end else begin\n            if (ack) begin\n                data_out <= data_in; // Update output if ACK is received\n                unused_last_valid_data <= data_in; // Store last valid data\n            end else begin\n                data_out <= unused_last_valid_data; // Hold last valid data if no ACK\n            end\n        end\n    end\n\nendmodule"
+}

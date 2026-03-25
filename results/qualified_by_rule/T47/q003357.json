@@ -1,0 +1,6 @@
+{
+  "task_id": "q003357",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input branch_outcome, // 1 for taken, 0 for not taken\n    output reg [1:0] prediction_state // 2-bit prediction state\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            prediction_state <= 2'b00; // Start in Strongly Not Taken\n        end else begin\n            case (prediction_state)\n                2'b00: prediction_state <= branch_outcome ? 2'b01 : 2'b00; // Strongly Not Taken\n                2'b01: prediction_state <= branch_outcome ? 2'b10 : 2'b00; // Weakly Not Taken\n                2'b10: prediction_state <= branch_outcome ? 2'b11 : 2'b01; // Weakly Taken\n                2'b11: prediction_state <= branch_outcome ? 2'b11 : 2'b10; // Strongly Taken\n                default: prediction_state <= 2'b00; // Default case\n            endcase\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q007325",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module decoder_3to8(A,EN,Y);\ninput [2:0] A;\ninput EN;\noutput reg [7:0] Y;\n\nalways @(*) begin\n\tif (!EN)\n\t\tY = 8'b00000000;\n\telse\n\t\tY = 8'b00000001 << A;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Y[0] <= ~EN & A[0];\n      Y[1] <= ~EN & A[1];\n      Y[2] <= ~EN & A[2];\n      Y[3] <= ~EN & A[3];\n      Y[4] <= ~EN & A[4];\n      Y[5] <= ~EN & A[5];\n      Y[6] <= ~EN & A[6];\n      Y[7] <= ~EN & A[7];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y[0] <= ~EN & A[0];\nY[1] <= ~EN & A[1];\nY[2] <= ~EN & A[2];\nY[3] <= ~EN & A[3];\nY[4] <= ~EN & A[4];\nY[5] <= ~EN & A[5];\nY[6] <= ~EN & A[6];\nY[7] <= ~EN & A[7];"
+  }
+}

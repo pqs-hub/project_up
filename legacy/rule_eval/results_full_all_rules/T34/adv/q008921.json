@@ -1,0 +1,15 @@
+{
+  "task_id": "q008921",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    Z   ,\n    D   ,\n    S   ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output       Z   ;\n    input  [3:0] D   ;\n    input  [3:0] S   ;\n    input        VPWR;\n    input        VGND;\n    input        VPB ;\n    input        VNB ;\n\n    reg [3:0] Y_Z_reg;\n\n    always @(*) begin\n        case(S)\n            4'b0000: Y_Z_reg = D[0];\n            4'b0001: Y_Z_reg = D[1];\n            4'b0010: Y_Z_reg = D[2];\n            4'b0011: Y_Z_reg = D[3];\n            default: Y_Z_reg = 4'bxxxx;\n        endcase\n    end\n\n    assign Z = Y_Z_reg;\n\nendmodule",
+  "rename_map": {
+    "Z_reg": "Y_Z_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "Z_reg": "X_reg"
+    },
+    "fallback_prefix": "Y_"
+  }
+}

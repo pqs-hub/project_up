@@ -1,0 +1,6 @@
+{
+  "task_id": "q002290",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire alloc,          // Request to allocate memory\n    input wire free,          // Request to free memory\n    input wire [1:0] block_id,// Block ID (0 to 3)\n    output reg [3:0] status   // Status of each memory block (4 bits)\n);\n\n    reg [3:0] memory; // 4 memory blocks, 0 = free, 1 = allocated\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            memory <= 4'b0000; // All blocks free on reset\n            status <= 4'b0000;\n        end else begin\n            if (alloc && (memory[block_id] == 1'b0)) begin\n                memory[block_id] <= 1'b1; // Allocate memory\n            end\n            if (free && (memory[block_id] == 1'b1)) begin\n                memory[block_id] <= 1'b0; // Free memory\n            end\n            status <= memory; // Output status\n        end\n    end\nendmodule"
+}

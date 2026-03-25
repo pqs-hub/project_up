@@ -1,0 +1,9 @@
+{
+  "task_id": "q012092",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(EN,\n    D,\n    CLK,\n    Q_AND);output Q_AND;\n  input EN;\n  input [3:0] D;\n  input CLK;\n\n  reg [3:0] obf_Q;  // Changed wire to reg\n  wire Q_AND;\n\n  // Implement a 4-bit register with synchronous clear\n  always @(posedge CLK) begin\n    if (EN) begin\n      obf_Q <= D;\n    end else begin\n      obf_Q <= 4'b0;\n    end\n  end\n\n  // Implement the logical AND of the register's four bits\n  assign Q_AND = obf_Q[0] & obf_Q[1] & obf_Q[2] & obf_Q[3];\n\nendmodule",
+  "rename_map": {
+    "Q": "obf_Q"
+  }
+}

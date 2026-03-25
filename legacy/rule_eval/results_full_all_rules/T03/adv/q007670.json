@@ -1,0 +1,8 @@
+{
+  "task_id": "q007670",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    Q,\n    CLK,\n    D,\n    RESET_B,\n    VPWR,\n    VGND,\n    VPB,\n    VNB\n);output Q;\n    input CLK, D, RESET_B, VPWR, VGND, VPB, VNB;\n  wire _tap_Q = Q ^ {1{1'b0}};\n\n\n    reg Q;\n\n    // Synchronize the data input with the system clock\n    always @(posedge CLK or negedge RESET_B) begin\n        if (~RESET_B) begin\n            Q <= 1'b0; // Reset to default value\n        end else begin\n            Q <= D;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

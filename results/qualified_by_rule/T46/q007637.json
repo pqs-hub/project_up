@@ -1,0 +1,6 @@
+{
+  "task_id": "q007637",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n  input SET, \n  input RST, \n  input CK, \n  input SE, \n  input D, \n  input SI, \n  output Q, \n  output QN \n);reg q_reg;\n\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ ( posedge CK or posedge RST or posedge SET or posedge dbg_halt)\nif (RST) begin\n  q_reg <= 1'b0;\nend else if (SET) begin\n  q_reg <= 1'b1;\nend else if (SE) begin\n  q_reg <= SI;\nend else begin\n  q_reg <= D;\nend\n\nassign Q = q_reg;\nassign QN = !Q;endmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q003696",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-bit up counter with an active-high enable signal. The counter increments its value on each clock cycle when the enable signal is high. When the count reaches 16, it wraps around to 0. The counter also has a reset signal that sets the count back to 0 when asserted.\nmodule down_counter(  \n    input clk,  \n    input reset,  \n    input enable,  \n    output reg [3:0] count  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            count <= 4'b1111;  \n        end else if (!enable) begin  \n            if (count == 4'b0000)  \n                count <= 4'b1111;  \n            else  \n                count <= count - 1;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit up counter with an active-high enable signal. The counter increments its value on each clock cycle when the enable signal is high. When the count reaches 16, it wraps around to 0. The counter also has a reset signal that sets the count back to 0 when asserted."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q006842",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(addr0, ce0, d0, we0, q0,  clk);parameter DWIDTH = 64;\nparameter AWIDTH = 4;\nparameter MEM_SIZE = 16;\n\ninput[AWIDTH-1:0] addr0;\ninput ce0;\ninput[DWIDTH-1:0] d0;\ninput we0;\noutput reg[DWIDTH-1:0] q0;\ninput clk;\n\n(* ram_style = \"block\" *)reg [DWIDTH-1:0] mem[MEM_SIZE-1:0];\n\n\n\n\nalways @(posedge clk)  \nbegin \n    if (ce0) \n    begin\n        if (we0) \n        begin \n            mem[addr0] <= d0; \n            q0 <= d0;\n        end \n        else \n            q0 <= mem[addr0];\n    end\nend\n\n\nendmodule",
+  "rename_map": {
+    "ram": "mem"
+  },
+  "params_used": {
+    "custom_map": {
+      "ram": "mem"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

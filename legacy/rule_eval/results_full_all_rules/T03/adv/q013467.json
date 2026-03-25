@@ -1,0 +1,8 @@
+{
+  "task_id": "q013467",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module priority_encoder (\n\tinput [3:0] in,\n\toutput reg [1:0] out);\n  wire [3:0] _tap_in = in & {4{1'b1}};\n\n\n\talways @(*) begin\n\t\tcasez (in)\n\t\t\t4'b1???: out = 2'b11;\n\t\t\t4'b01??: out = 2'b10;\n\t\t\t4'b001?: out = 2'b01;\n\t\t\t4'b0001: out = 2'b00;\n\t\t\tdefault: out = 2'b00;\n\t\tendcase\n\tend\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

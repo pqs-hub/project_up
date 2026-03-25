@@ -1,0 +1,6 @@
+{
+  "task_id": "q012963",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule (\n  input clk,\n  input clr_n,\n  input load,\n  input [7:0] d,\n  output reg [7:0] q\n);always @(posedge clk or negedge clr_n) begin\n\tif (!clr_n) begin\n\t\tq <= 8'b00000000;\n\tend else if (load) begin\n\t\tq <= d;\n\tend\nend\n\nendmodule"
+}

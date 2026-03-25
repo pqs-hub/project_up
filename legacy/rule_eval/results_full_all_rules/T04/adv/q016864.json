@@ -1,0 +1,10 @@
+{
+  "task_id": "q016864",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This submodule controls the output enable signal of the bw_io_sstl_bscan module.\n// It sets the oe signal high when either rcv_in or drv_oe is high.\n\nmodule dram_pad_scan_jtag (\n    input rcv_in,\n    input drv_oe,\n    output oe\n);\n    assign oe = ~rcv_in | ~drv_oe;\nendmodule\nmodule dram_pad_scan_jtag (\n    input rcv_in,\n    input drv_oe,\n    output oe\n);\n    assign oe = rcv_in & drv_oe;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This submodule controls the output enable signal of the bw_io_sstl_bscan module.\n// It sets the oe signal high when either rcv_in or drv_oe is high.\n\nmodule dram_pad_scan_jtag (\n    input rcv_in,\n    input drv_oe,\n    output oe\n);\n    assign oe = ~rcv_in | ~drv_oe;\nendmodule"
+  }
+}

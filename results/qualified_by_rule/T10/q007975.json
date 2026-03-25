@@ -1,0 +1,6 @@
+{
+  "task_id": "q007975",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(\n    input a,\n    input b,\n    input sel_b1,\n    input clk,            // Added clk input\n    output reg out_always\n);reg pipeline_reg;\n\nalways @(posedge clk) begin\n    pipeline_reg <= sel_b1;\nend\n\nalways @(*) begin\n    if (pipeline_reg) begin\n        out_always = b;\n    end else begin\n        out_always = a;\n    end\nend\n\nendmodule"
+}

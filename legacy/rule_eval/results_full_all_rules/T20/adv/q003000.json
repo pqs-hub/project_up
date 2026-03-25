@@ -1,0 +1,10 @@
+{
+  "task_id": "q003000",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This SR latch uses NAND gates to implement set and reset functionality. When S is high and R is low, Q should be low; when S is low and R is high, Q should be high; when both S and R are low, the previous state should be maintained; when both S and R are high, the output is defined (but for simulation, you can assume it remains in the previous state).\nmodule SR_latch (  \n    input S,  \n    input R,  \n    output reg Q,  \n    output reg Qn  \n);  \n    always @ (S or R) begin  \n        if (S && !R) begin  \n            Q = 1;  \n            Qn = 0;  \n        end else if (!S && R) begin  \n            Q = 0;  \n            Qn = 1;  \n        end else if (!S && !R) begin  \n            Q = Q;  \n            Qn = Qn;  \n        end else begin  \n            Q = Q;  \n            Qn = Qn;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This SR latch uses NAND gates to implement set and reset functionality. When S is high and R is low, Q should be low; when S is low and R is high, Q should be high; when both S and R are low, the previous state should be maintained; when both S and R are high, the output is defined (but for simulation, you can assume it remains in the previous state)."
+  }
+}

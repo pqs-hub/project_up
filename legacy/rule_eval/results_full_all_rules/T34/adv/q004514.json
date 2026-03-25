@@ -1,0 +1,16 @@
+{
+  "task_id": "q004514",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input signed [7:0] a,\n    input signed [7:0] b,\n    input desel,\n    input reset,\n    input clk,\n    output signed [15:0] out\n);reg signed [15:0] product;\nreg signed [15:0] sum;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        product <= 0;\n        sum <= 0;\n    end else begin\n        if (desel) begin\n            sum <= a + b;\n        end else begin\n            product <= a * b;\n        end\n    end\nend\n\nassign out = desel ? sum : product;\n\nendmodule",
+  "rename_map": {
+    "sel": "desel"
+  },
+  "params_used": {
+    "custom_map": {
+      "product": "neg_product",
+      "sum": "neg_sum"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

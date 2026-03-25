@@ -1,0 +1,6 @@
+{
+  "task_id": "q012572",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(CLK, RST, IN_SIG, PULSE);\ninput CLK, RST, IN_SIG;\noutput PULSE;\nreg PULSE;\nreg prev_in_sig;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        prev_in_sig <= 0;\n    else\n        prev_in_sig <= IN_SIG;\nend\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        PULSE <= 0;\n    else\n        PULSE <= IN_SIG & ~prev_in_sig;\nend\n\nendmodule"
+}

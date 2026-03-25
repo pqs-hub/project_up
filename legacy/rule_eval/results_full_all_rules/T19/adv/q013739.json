@@ -1,0 +1,10 @@
+{
+  "task_id": "q013739",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(V,A,z,M);input [3:0] V,A;\n\tinput z;\n\toutput [3:0] M;\n\tassign M[0] = (~z&V[0])|(z&A[0]);\n\tassign M[1] = (~z&V[1])|(z&A[1]);\n\tassign M[2] = (~z&V[2])|(z&A[2]);\n\tassign M[3] = (~z&V[3])|(z&A[3]);  always @(*) begin\n    if (1'b0) begin\n      M[0] <= ~z & V[0];\n      M[1] <= ~z & V[1];\n      M[2] <= ~z & V[2];\n      M[3] <= ~z & V[3];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "M[0] <= ~z & V[0];\nM[1] <= ~z & V[1];\nM[2] <= ~z & V[2];\nM[3] <= ~z & V[3];"
+  }
+}

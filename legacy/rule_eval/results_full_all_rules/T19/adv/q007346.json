@@ -1,0 +1,10 @@
+{
+  "task_id": "q007346",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(a, b, c, out, check);input a, b, c;\noutput out, check;\n\nassign out = !a & !b & c;\nassign check = b | out;\n\n  always @(*) begin\n    if (1'b0) begin\n      out <= a & b & ~c;\n      check <= ~b & ~out;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= a & b & ~c;\ncheck <= ~b & ~out;"
+  }
+}

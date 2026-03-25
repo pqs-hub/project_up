@@ -1,0 +1,6 @@
+{
+  "task_id": "q001488",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(  \n    input clk,  \n    input reset,  \n    input [2:0] phase_in,  \n    output reg [2:0] phase_out  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            phase_out <= 3'b000;  \n        else  \n            phase_out <= (phase_in + 3'b001) % 8;  \n    end  \nendmodule"
+}

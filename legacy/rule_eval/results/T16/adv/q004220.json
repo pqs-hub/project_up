@@ -1,0 +1,9 @@
+{
+  "task_id": "q004220",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module srt_divider(input [3:0] numerator,  \n                    input [3:0] obf_denominator,  \n                    output reg [3:0] quotient,  \n                    output reg remainder);  \n                    \n    always @(*) begin  \n        if (obf_denominator != 0) begin  \n            quotient = numerator / obf_denominator;  \n            remainder = numerator % obf_denominator;  \n        end else begin  \n            quotient = 4'b0000;  \n            remainder = 1'b0;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "denominator": "obf_denominator"
+  }
+}

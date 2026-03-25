@@ -1,0 +1,6 @@
+{
+  "task_id": "q001158",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module barrel_shifter (\n    input [7:0] data_in,\n    input [2:0] shift_amt,\n    input [1:0] op_code,\n    output reg [7:0] data_out\n);\n    always @(*) begin\n        case (op_code)\n            2'b00: data_out = data_in << shift_amt; // Logical Shift Left\n            2'b01: data_out = data_in >> shift_amt; // Logical Shift Right\n            2'b10: data_out = (data_in >> shift_amt) | (data_in << (8 - shift_amt)); // Rotate Right\n            default: data_out = 8'b00000000; // Default case\n        endcase\n    end\nendmodule"
+}

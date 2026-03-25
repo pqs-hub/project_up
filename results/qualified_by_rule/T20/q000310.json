@@ -1,0 +1,6 @@
+{
+  "task_id": "q000310",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule (\n    input [3:0] A,\n    input [3:0] B,\n    input enable,\n    output reg [3:0] sum,\n    output reg carry_out\n);\n    always @(*) begin\n        if (enable) begin\n            {carry_out, sum} = A + B; // Perform addition\n        end else begin\n            sum = 4'b0000; // Output zero when not enabled\n            carry_out = 1'b0;\n        end\n    end\nendmodule"
+}

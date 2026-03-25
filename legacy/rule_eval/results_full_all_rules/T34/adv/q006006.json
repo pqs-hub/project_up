@@ -1,0 +1,16 @@
+{
+  "task_id": "q006006",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\t\tb,\n\t\ty\n    );input  [2:0] b;\n\toutput [7:0] y;\n\t\n\t\n\treg [7:0] y;\n\t\n\t\n\talways @ (b)\n\t\tcase (b)\n\t\t\t3'b000 : y <= 8'b0000_0001;\n\t\t\t3'b001 : y <= 8'b0000_0010;\n\t\t\t3'b010 : y <= 8'b0000_0100;\n\t\t\t3'b011 : y <= 8'b0000_1000;\n\t\t\t3'b100 : y <= 8'b0001_0000;\n\t\t\t3'b101 : y <= 8'b0010_0000;\n\t\t\t3'b110 : y <= 8'b0100_0000;\n\t\t\t3'b111 : y <= 8'b1000_0000;\n\t\t\tdefault: y <= 8'b0000_0000;\n\t\tendcase\n\t\t\nendmodule",
+  "rename_map": {
+    "a": "b"
+  },
+  "params_used": {
+    "custom_map": {
+      "a": "b",
+      "y": "z"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

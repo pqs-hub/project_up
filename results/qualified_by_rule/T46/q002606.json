@@ -1,0 +1,6 @@
+{
+  "task_id": "q002606",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [3:0] req,      // Request signals for 4 channels\n    input wire [1:0] sel,      // 2-bit channel selector\n    output reg [3:0] grant     // Grant signals for 4 channels\n);\n    \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n        if (rst) begin\n            grant <= 4'b0000;  // Reset grants to 0\n        end else begin\n            grant <= 4'b0000;  // Clear grants\n            if (req[sel]) begin\n                grant[sel] <= 1'b1;  // Grant the selected channel\n            end\n        end\n    end\nendmodule"
+}

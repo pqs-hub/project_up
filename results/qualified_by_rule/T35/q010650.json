@@ -1,0 +1,6 @@
+{
+  "task_id": "q010650",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(clk, EN, R, PC_if, Instruction_if, PC_id, Instruction_id);input clk, EN, R;\n    input[31:0] PC_if, Instruction_if;\n    output reg [31:0] PC_id, Instruction_id;\n\n    always@(posedge clk)\n    begin\n        if(R) begin PC_id <= 0; Instruction_id <= 0; end\n        else if(EN) begin PC_id <= PC_if; Instruction_id <= Instruction_if; end\n        else begin PC_id <= PC_id; Instruction_id <= Instruction_id; end\n    end\n \nendmodule"
+}

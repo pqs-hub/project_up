@@ -1,0 +1,10 @@
+{
+  "task_id": "q005912",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // When GATE is high, GCLK should be low and when GATE is low, GCLK should mirror CLK\nmodule top_module(\n    input CLK,\n    input GATE,\n    input VPB,\n    input VPWR,\n    input VGND,\n    input VNB,\n    output GCLK\n);wire gated_clk;\n\n    assign gated_clk = (GATE == 1'b1) ? CLK : 1'b0;\n    assign GCLK = gated_clk;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When GATE is high, GCLK should be low and when GATE is low, GCLK should mirror CLK"
+  }
+}

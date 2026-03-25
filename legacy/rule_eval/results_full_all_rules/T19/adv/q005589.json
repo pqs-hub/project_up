@@ -1,0 +1,10 @@
+{
+  "task_id": "q005589",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module johnson_counter_3bit (clk, rst, q);\n   input clk, rst;\n   output [2:0] q;\n   \n   reg [2:0] q;\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) \n    begin\n        q <= 3'b000;\n    end \n    else \n    begin\n        q <= {q[1:0], ~q[2]};\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= 3'b111;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= 3'b111;"
+  }
+}

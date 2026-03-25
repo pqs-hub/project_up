@@ -1,0 +1,6 @@
+{
+  "task_id": "q002727",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule ALU (\n    input [31:0] A,\n    input [31:0] B,\n    input [1:0] op,  // 00: add, 01: subtract, 10: AND, 11: OR\n    output reg [31:0] result,\n    output reg zero\n);\n    always @(*) begin\n        case (op)\n            2'b00: result = A + B;          // Addition\n            2'b01: result = A - B;          // Subtraction\n            2'b10: result = A & B;          // Bitwise AND\n            2'b11: result = A | B;          // Bitwise OR\n            default: result = 32'b0;        // Default case\n        endcase\n        zero = (result == 32'b0);          // Set zero flag\n    end\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q009480",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This ROM module outputs a 4-bit data value based on a 4-bit address input. On the falling edge of the clock, if the reset signal is deasserted, the output is set to zero. Otherwise, it retrieves specific pre-defined values corresponding to the address: for address 0, output 0; for address 1, output 1; and for address 2, output 2. For any other address, it defaults to output 3.\nmodule top_module(\n    addr,\n    dout,\n    clk,\n    rst\n);input [3:0] addr;\noutput [3:0] dout;\nreg [3:0] dout;\ninput clk;\ninput rst;\n\n\n\n\nalways @(posedge clk) begin: ROMPARMLOADSYNC_READACTION\n    if (rst) begin\n        dout <= 0;\n    end\n    else begin\n        case (addr)\n            0: dout <= 3;\n            1: dout <= 2;\n            2: dout <= 1;\n            default: dout <= 0;\n        endcase\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This ROM module outputs a 4-bit data value based on a 4-bit address input. On the falling edge of the clock, if the reset signal is deasserted, the output is set to zero. Otherwise, it retrieves specific pre-defined values corresponding to the address: for address 0, output 0; for address 1, output 1; and for address 2, output 2. For any other address, it defaults to output 3."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005240",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    Q      ,\n    CLK    ,\n    RESET_B\n);output reg [1:0] Q;\n    input  CLK;\n    input  RESET_B;\n  wire [1:0] _tap_Q = Q ^ {2{1'b0}};\n\n\n    always @(posedge CLK or negedge RESET_B) begin\n        if (!RESET_B) begin\n            Q <= 2'b00;\n        end else begin\n            Q <= Q + 1;\n        end\n    end\n\nendmodule"
+}

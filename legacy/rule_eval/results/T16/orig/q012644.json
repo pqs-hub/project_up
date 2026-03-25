@@ -1,0 +1,6 @@
+{
+  "task_id": "q012644",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n    input [3:0] data_in,\n    input [1:0] shift,\n    output [3:0] data_out\n);assign data_out = (shift == 2'b00) ? data_in :\n                      (shift == 2'b01) ? {data_in[2:0], 1'b0} :\n                      (shift == 2'b10) ? {1'b0, data_in[3:1]} :\n                      {2'b00, data_in[3:2]};\n                      \nendmodule"
+}

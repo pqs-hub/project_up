@@ -1,0 +1,6 @@
+{
+  "task_id": "q008198",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input trigger,\n  input clk,         // Added clk input\n  output reg unused_pulse   // Changed unused_pulse to reg type\n);parameter pulse_width = 10; // unused_pulse width in time units\n  \n  reg [7:0] count; // 8-bit counter to count up to pulse_width\n  \n  always @(posedge trigger) begin\n    count <= 0; // reset counter on trigger\n    unused_pulse <= 1; // set unused_pulse high on trigger\n  end\n  \n  always @(posedge clk) begin\n    if (count < pulse_width) begin\n      count <= count + 1; // increment counter\n    end else begin\n      unused_pulse <= 0; // set unused_pulse low after pulse_width\n    end\n  end\n  \nendmodule"
+}

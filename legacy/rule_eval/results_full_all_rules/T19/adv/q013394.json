@@ -1,0 +1,10 @@
+{
+  "task_id": "q013394",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module bin_to_gray_10bit(\n    input [9:0] bin_in,\n    output [9:0] gray_out\n);\n\nassign gray_out = (bin_in >> 1) ^ bin_in;\n\n  always @(*) begin\n    if (1'b0) begin\n      gray_out[0] <= ~bin_in[0];\n      for (int i = 1; i < 10; i = i + 1) begin\n        gray_out[i] <= bin_in[i - 1] & ~bin_in[i];\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "gray_out[0] <= ~bin_in[0];\nfor (int i = 1; i < 10; i = i + 1) begin\n  gray_out[i] <= bin_in[i - 1] & ~bin_in[i];\nend"
+  }
+}

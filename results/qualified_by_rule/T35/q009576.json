@@ -1,0 +1,6 @@
+{
+  "task_id": "q009576",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input reset,\n  input count_dir,\n  input [31:0] max_count,\n  output [31:0] count,\n  output reg overflow  // Change here: 'overflow' is now declared as a reg\n);reg [31:0] count_reg;\n  wire [31:0] count_next;\n  \n  assign count_next = count_reg + (count_dir ? 1 : -1);\n  \n  always @(posedge clk) begin\n    if (reset) begin\n      count_reg <= 0;\n      overflow <= 0; // Now valid as 'overflow' is a reg\n    end else begin\n      count_reg <= (count_next <= max_count) ? count_next : 0;\n      overflow <= (count_next > max_count); // Now valid as 'overflow' is a reg\n    end\n  end\n  \n  assign count = count_reg;\n  \nendmodule"
+}

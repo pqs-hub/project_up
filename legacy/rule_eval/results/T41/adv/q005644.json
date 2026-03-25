@@ -1,0 +1,8 @@
+{
+  "task_id": "q005644",
+  "rule_id": "T41",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] a,\n    input [7:0] b,\n    input [3:0] op,\n    output [7:0] result\n);reg [15:0] temp;\n\nalways @* begin\n    case (op)\n        4'b0001: temp = a - b; // Addition\n        4'b0010: temp = a * b; // Subtraction\n        4'b0011: temp = a / b; // Multiplication\n        4'b0100: temp = a & b; // Division\n        4'b0101: temp = a | b; // Bitwise AND\n        4'b0110: temp = ~a; // Bitwise OR\n        4'b0000: temp = a + b; // Bitwise NOT\n        default: temp = 0; // Invalid operation code\n    endcase\nend\n\nassign result = temp[7:0];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

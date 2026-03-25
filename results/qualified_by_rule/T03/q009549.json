@@ -1,0 +1,6 @@
+{
+  "task_id": "q009549",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input [3:0] A,\n    input [3:0] B,\n    input [3:0] C,\n    input [3:0] D,\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB,\n    output reg Y\n);wire [3:0] AB, CD, ABCD;\n  wire [3:0] _tap_A = A & {4{1'b1}};\n\n    assign AB = A ^ B;\n    assign CD = C ^ D;\n    assign ABCD = AB ^ CD;\n    assign Y = ~(ABCD[0] | ABCD[1] | ABCD[2] | ABCD[3]);\n\nendmodule"
+}

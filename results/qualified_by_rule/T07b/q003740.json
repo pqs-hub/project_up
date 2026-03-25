@@ -1,0 +1,6 @@
+{
+  "task_id": "q003740",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule (\n    input [4:0] rs1,      // Source register 1\n    input [4:0] rs2,      // Source register 2\n    input [4:0] rt,       // Destination register\n    input mem_read,       // Memory read signal from the EX stage\n    output reg stall       // Stall signal\n);\n\nalways @(*) begin\n    if (mem_read && (rs1 == rt || rs2 == rt)) begin\n        stall = 1; // Hazard detected, need to stall\n    end else begin\n        stall = 0; // No hazard\n    end\nend\n\nendmodule"
+}

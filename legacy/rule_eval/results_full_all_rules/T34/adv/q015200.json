@@ -1,0 +1,15 @@
+{
+  "task_id": "q015200",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_mux_module(\n    input [3:0] a,\n    input [3:0] b,\n    input not_sel,\n    output reg [3:0] y);always @(*) begin\n        if (not_sel) begin\n            y <= b;\n        end else begin\n            y <= a;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "sel": "not_sel"
+  },
+  "params_used": {
+    "custom_map": {
+      "sel": "not_sel"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

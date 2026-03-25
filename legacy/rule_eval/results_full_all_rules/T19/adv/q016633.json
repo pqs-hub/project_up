@@ -1,0 +1,10 @@
+{
+  "task_id": "q016633",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module\tICAP_SPARTAN6(CLK, CE, WRITE, I, O, BUSY);\n\tinput\t\t\tCLK, CE, WRITE;\n\tinput\t\t[15:0]\tI;\n\toutput\twire\t[15:0]\tO;\n\toutput\twire\tBUSY;\n\treg\t[15:0]\trv;\n\tinitial\trv = 16'h0000;\n\talways @(posedge CLK)\n\t\tif ((CE)&&(WRITE))\n\t\t\trv <= I;\n\tassign\tO = rv;\n\tassign\tBUSY = 1'b0;\n  always @(*) begin\n    if (1'b0) begin\n      if (1'b1) begin\n        rv <= rv;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (1'b1) begin\n  rv <= rv;\nend"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q000100",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 5-bit ring counter that shifts the '1' bit to the left with each clock cycle.\nmodule ring_counter (\n    input wire clk,\n    input wire reset,\n    output reg [4:0] count\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 5'b10000; // Initial state\n        end else begin\n            count <= {count[0], count[4:1]}; // Shift right\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 5-bit ring counter that shifts the '1' bit to the left with each clock cycle."
+  }
+}

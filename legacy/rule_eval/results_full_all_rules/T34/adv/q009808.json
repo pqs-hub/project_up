@@ -1,0 +1,16 @@
+{
+  "task_id": "q009808",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] binary,\n    output reg [3:0] twos_comp\n);reg [3:0] inv_invert;\nreg [3:0] add_one;\n\nalways @ (binary) begin\n    inv_invert <= ~binary;\nend\n\nalways @ (inv_invert) begin\n    add_one <= inv_invert + 4'b0001;\nend\n\nassign twos_comp = add_one;\n\nendmodule",
+  "rename_map": {
+    "invert": "inv_invert"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary": "neg_input",
+      "twos_comp": "pos_output"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

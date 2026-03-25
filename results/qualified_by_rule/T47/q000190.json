@@ -1,0 +1,6 @@
+{
+  "task_id": "q000190",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule (  \n    input [7:0] current_cost,  \n    input [7:0] estimated_cost,  \n    output [7:0] total_estimated_cost  \n);  \n      wire _n01 = current_cost[0] ^ estimated_cost[0];\n  wire _c01 = current_cost[0] & estimated_cost[0];\n  wire _n02 = current_cost[1] ^ estimated_cost[1] ^ _c01;\n  wire _c02 = (current_cost[1] & estimated_cost[1]) | (current_cost[1] & _c01) | (estimated_cost[1] & _c01);\n  wire _n03 = current_cost[2] ^ estimated_cost[2] ^ _c02;\n  wire _c03 = (current_cost[2] & estimated_cost[2]) | (current_cost[2] & _c02) | (estimated_cost[2] & _c02);\n  wire _n04 = current_cost[3] ^ estimated_cost[3] ^ _c03;\n  wire _c04 = (current_cost[3] & estimated_cost[3]) | (current_cost[3] & _c03) | (estimated_cost[3] & _c03);\n  assign total_estimated_cost = {_n01, _n02, _n03, _n04};  \nendmodule"
+}

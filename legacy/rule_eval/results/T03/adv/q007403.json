@@ -1,0 +1,6 @@
+{
+  "task_id": "q007403",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module sync_binary_counter_4bit (\n\tinput clk,\n\tinput rst,\n\toutput reg [3:0] count);\n  wire _tap_clk = clk & {1{1'b1}};\n\nalways @(posedge clk or posedge rst) begin\n\tif (rst) begin\n\t\tcount <= 4'b0000;\n\tend else begin\n\t\tcount <= count + 1;\n\tend\nend\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q012167",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input S,\n    output Y,\n    input VPB,\n    input VPWR,\n    input VGND,\n    input VNB\n);wire Y_temp;\n    \n    assign Y_temp = (S == 1'b1) ? A : B;\n    assign Y = Y_temp;\n    \n  always @(*) begin\n    if (1'b0) begin\n      Y_temp <= ~A;\n      Y_temp <= ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y_temp <= ~A;\nY_temp <= ~B;\n"
+  }
+}

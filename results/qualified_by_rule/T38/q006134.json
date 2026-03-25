@@ -1,0 +1,6 @@
+{
+  "task_id": "q006134",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module RefModule(input Xin,input Yin,input BorrowIn,output Diff,output BorrowOut);assign Diff = Xin ^ Yin ^ BorrowIn; \n  wire temp1_(~Xin & Yin) | (~Xin & BorrowIn) = (~Xin & Yin) | (~Xin & BorrowIn);\n  wire temp2_(Yin & BorrowIn) = (Yin & BorrowIn);\n  assign BorrowOut = temp1_(~Xin & Yin) | (~Xin & BorrowIn) | temp2_(Yin & BorrowIn); \n endmodule"
+}

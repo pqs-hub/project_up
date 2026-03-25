@@ -1,0 +1,6 @@
+{
+  "task_id": "q002794",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [3:0] command,\n    output reg ready\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            ready <= 0;\n        end else begin\n            case (command)\n                4'b0000: ready <= 1; // Ready\n                4'b0001: ready <= 0; // Not Ready\n                4'b0010: ready <= 1; // Initialization\n                4'b0011: ready <= 0; // Error\n                default: ready <= 0;  // Reserved\n            endcase\n        end\n    end\nendmodule"
+}

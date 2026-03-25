@@ -1,0 +1,10 @@
+{
+  "task_id": "q002844",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module increments the counter on each clock edge when reset is low.\nmodule down_counter (  \n    input clk,  \n    input reset,  \n    input [3:0] initial_value,  \n    output reg [3:0] count  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            count <= initial_value;  \n        end else if (count > 0) begin  \n            count <= count - 1;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module increments the counter on each clock edge when reset is low."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001433",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule (\n    input [8:0] img_in, // 3x3 binary image flattened\n    output reg img_out // single bit output\n);\n    integer i, j;\n    always @(*) begin\n        img_out = 0; // default output\n        // Check the 3x3 area for 1's\n        for (i = 0; i < 3; i = i + 1) begin\n            for (j = 0; j < 3; j = j + 1) begin\n                if (img_in[i*3 + j] == 1) begin\n                    img_out = 1; // set output if there's at least one 1\n                end\n            end\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016719",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule custom_module (\n    output X,\n    input A1,\n    input A2,\n    input B1_N,\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB\n);\n\n    assign X = (A1 & A2) ? 1'b1 :\n               (!B1_N) ? 1'b0 :\n               (VPWR & !VGND) ? 1'b1 :\n               (VPB & !VNB) ? 1'b0 :\n               1'b1;\n\nendmodule"
+}

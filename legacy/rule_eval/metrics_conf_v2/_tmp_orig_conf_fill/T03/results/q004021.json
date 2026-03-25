@@ -1,0 +1,7 @@
+{
+  "task_id": "q004021",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module siso_shift_register (\n    input wire clk,\n    input wire rst,\n    input wire si,\n    output reg so\n);\n    reg [4:0] shift_reg;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            shift_reg <= 5'b0;\n            so <= 1'b0;\n        end else begin\n            shift_reg <= {shift_reg[3:0], si}; // Shift left and insert SI\n            so <= shift_reg[4]; // Output the MSB\n        end\n    end\nendmodule",
+  "rename_map": {}
+}

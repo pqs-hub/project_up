@@ -1,0 +1,15 @@
+{
+  "task_id": "q006322",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter_4bit(\n    input clk_inv,\n    input rst,\n    input en,\n    output reg [3:0] count\n);\n\nalways @(posedge clk_inv)\n    if (rst)\n        count <= 4'b0000;\n    else if (en)\n        count <= count + 1;\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

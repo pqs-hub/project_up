@@ -1,0 +1,6 @@
+{
+  "task_id": "q000793",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule(\n    input clk,\n    input reset,\n    input [3:0] reference,\n    input [3:0] current_state,\n    output reg [3:0] control_signal\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            control_signal <= 4'b0000;\n        end else begin\n            control_signal <= reference - current_state; // Deadbeat control\n        end\n    end\nendmodule"
+}

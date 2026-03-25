@@ -1,0 +1,9 @@
+{
+  "task_id": "q007351",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module johnson_counter(obf_CLK, RST, Q);\ninput obf_CLK, RST;\noutput [3:0] Q;\nreg [3:0] Q;\n\nalways @(posedge obf_CLK or posedge RST) begin\n    if (RST)\n        Q <= 4'b0000;\n    else\n        Q <= {Q[2:0], ~Q[3]};\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "obf_CLK"
+  }
+}

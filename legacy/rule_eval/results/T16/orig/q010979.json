@@ -1,0 +1,6 @@
+{
+  "task_id": "q010979",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n    Y,\n    A,\n    B\n);// Module ports\n    output Y;\n    input  A;\n    input  B;\n\n    // Module supplies\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Local signals\n    wire not0_out_A, not0_out_B, and0_out, and1_out, or0_out;\n\n    //  Name  Output         Other arguments\n    not not0_A (not0_out_A, A                 );\n    not not0_B (not0_out_B, B                 );\n    and and0   (and0_out  , not0_out_A, B     );\n    and and1   (and1_out  , A        , not0_out_B);\n    or  or0    (or0_out   , and0_out , and1_out );\n\n    assign Y = or0_out;\n\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q012303",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  A,\n  B,\n  CIN,\n  SUM,\n  COUT\n);input A;\n  input B;\n  input CIN;\n  output SUM;\n  output COUT;\n  \n  wire sum_xor, w2, w3;\n  \n  // XOR gate to calculate SUM\n  xor(sum_xor, A, B);\n  xor(SUM, sum_xor, CIN);\n  \n  // AND gate to calculate COUT\n  and(w2, A, B);\n  and(w3, sum_xor, CIN);\n  or(COUT, w2, w3);\nendmodule",
+  "rename_map": {
+    "w1": "sum_xor"
+  },
+  "params_used": {
+    "custom_map": {
+      "w1": "sum_xor"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

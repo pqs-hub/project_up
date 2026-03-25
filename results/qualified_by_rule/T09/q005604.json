@@ -1,0 +1,6 @@
+{
+  "task_id": "q005604",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire rst,\n    input wire load,\n    input wire [7:0] load_value,\n    output reg [7:0] count\n);\n\n    always @(posedge clk) begin\n        if (rst) begin\n            count <= 8'b00000000;\n        end else if (load) begin\n            count <= load_value;\n        end else begin\n            count <= count + 1;\n        end\n    end\nendmodule"
+}

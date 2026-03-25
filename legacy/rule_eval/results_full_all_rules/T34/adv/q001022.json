@@ -1,0 +1,15 @@
+{
+  "task_id": "q001022",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_2to4 (\n    input [1:0] a,\n    output reg [3:0] z\n);\n\nalways @(*) begin\n    case (a)\n        2'b00: z = 4'b0001; // Output 0\n        2'b01: z = 4'b0010; // Output 1\n        2'b10: z = 4'b0100; // Output 2\n        2'b11: z = 4'b1000; // Output 3\n        default: z = 4'b0000; // Default case\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "y": "z"
+  },
+  "params_used": {
+    "custom_map": {
+      "y": "z"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

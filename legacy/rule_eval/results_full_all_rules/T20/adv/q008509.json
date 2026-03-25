@@ -1,0 +1,10 @@
+{
+  "task_id": "q008509",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This flip-flop toggles its output 'q' on every falling edge of the clock and sets it to 1 when 'reset' is low.\nmodule top_module(\n    input wire clk,\n    input wire reset,\n    output reg q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 1'b0;\n        end else begin\n            q <= ~q;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This flip-flop toggles its output 'q' on every falling edge of the clock and sets it to 1 when 'reset' is low."
+  }
+}

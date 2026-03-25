@@ -1,0 +1,6 @@
+{
+  "task_id": "q013193",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule(\n  input empty,\n  input ge2_free,\n  input ge3_free,\n  input [1:0] input_tm_cnt,\n  output reg [4:0] fifo_cnt_inc\n);always @(*) begin\n    if (empty) begin\n      fifo_cnt_inc = input_tm_cnt[1:0];\n    end else if (ge3_free && (input_tm_cnt == 2'b11)) begin\n      fifo_cnt_inc = 2;\n    end else if (ge2_free && (input_tm_cnt >= 2)) begin\n      fifo_cnt_inc = 1;\n    end else if (input_tm_cnt >= 1) begin\n      fifo_cnt_inc = 0;\n    end else begin\n      fifo_cnt_inc = 5'b11111;\n    end\n  end\n\nendmodule"
+}

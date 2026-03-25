@@ -1,0 +1,17 @@
+{
+  "task_id": "q007665",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] A,\n    input [7:0] B,\n    input [2:0] control,\n    output reg [7:0] error_result\n);always @(*) begin\n        case (control)\n            3'b000: error_result = A + B;\n            3'b001: error_result = A - B;\n            3'b010: error_result = A & B;\n            3'b011: error_result = A | B;\n            3'b100: error_result = A ^ B;\n            3'b101: error_result = A << B;\n            3'b110: error_result = A >> B;\n            3'b111: error_result = A * B;\n            default: error_result = 8'h00;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {
+    "result": "error_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "B": "A",
+      "result": "error_result"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

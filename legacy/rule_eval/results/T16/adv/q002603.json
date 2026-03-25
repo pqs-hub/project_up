@@ -1,0 +1,9 @@
+{
+  "task_id": "q002603",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module d_latch (\n    input wire D,\n    input wire obf_C,\n    output reg Q\n);\n    always @(D or obf_C) begin\n        if (obf_C) begin\n            Q <= D;  // When obf_C is high, Q follows D\n        end\n        // When obf_C is low, Q retains its value\n    end\nendmodule",
+  "rename_map": {
+    "C": "obf_C"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004429",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule top_module(clk, rst, inData, address, outData, writeEn);input clk, rst, writeEn;\n  input [7:0] inData;\n  input [1:0] address;\n  output [7:0] outData;\n\n  reg[7:0] regArr [3:0];\n\n  always @ ( posedge clk, posedge rst ) begin\n    if (rst) begin\n      regArr[0] = 8'b00000000;\n      regArr[1] = 8'b00000000;\n      regArr[2] = 8'b00000000;\n      regArr[3] = 8'b00000000;\n    end\n    else begin\n      if (writeEn) begin\n        regArr[address] <= inData;\n      end\n    end\n  end\n\n  assign outData = regArr[address];\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q000482",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module is a 64-bit down counter that decrements its value on every positive edge of the clock signal.\nmodule counter_64bit (\n    input wire clk,\n    input wire reset,\n    input wire load,\n    input wire [63:0] load_value,\n    output reg [63:0] count\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 64'b0;\n        end else if (load) begin\n            count <= load_value;\n        end else begin\n            count <= count + 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is a 64-bit down counter that decrements its value on every positive edge of the clock signal."
+  }
+}

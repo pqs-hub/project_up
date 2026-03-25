@@ -1,0 +1,16 @@
+{
+  "task_id": "q012878",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(A, B, X, Y);input A;\ninput B;\noutput X;\noutput Y;\n\nwire inv_X_wire;\nwire Y_wire;\n\nand(inv_X_wire, A, B);\nxor(Y_wire, A, B);\n\nassign X = inv_X_wire;\nassign Y = Y_wire;\n\nendmodule",
+  "rename_map": {
+    "X_wire": "inv_X_wire"
+  },
+  "params_used": {
+    "custom_map": {
+      "X_wire": "Z_out",
+      "Y_wire": "W_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

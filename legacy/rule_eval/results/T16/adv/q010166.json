@@ -1,0 +1,9 @@
+{
+  "task_id": "q010166",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module down_counter\n(\n    input obf_clk,\n    input reset,\n    output reg [7:0] count\n);\n\n    always @(posedge obf_clk) begin\n        if (reset) begin\n            count <= 8'b11111111; // Reset counter to 11111111\n        end else begin\n            count <= count - 1; // Decrement counter\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

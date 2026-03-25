@@ -1,0 +1,6 @@
+{
+  "task_id": "q013408",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(output_data, input_data0, input_data1, select);parameter word_size = 5;\n\n\ninput select;\ninput [word_size-1:0] input_data0, input_data1;\n\n\noutput reg [word_size-1:0] output_data;\n\n\nalways @(select or input_data0 or input_data1) begin\n\tcase (select)\n\t\t0: output_data <= input_data0;\n\t\t1: output_data <= input_data1;\n\t\tdefault: output_data <= 0;\n\tendcase\nend\n\nendmodule"
+}

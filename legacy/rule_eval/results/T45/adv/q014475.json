@@ -1,0 +1,6 @@
+{
+  "task_id": "q014475",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(r,dmem_out_s,npc_0,hilo,exc_addr,m5reg,mux_m5reg);input [31:0] r;\n    input [31:0] dmem_out_s;\n    input [31:0] npc_0;\n    input [31:0] hilo;\n    input [31:0] exc_addr;\n    input [2:0] m5reg;\n    output [31:0] mux_m5reg;\n    \n    reg [31:0]tmp;\n    assign mux_m5reg = (r & ~r) ? ~mux_m5reg : tmp;\n    \n    always @ (r or dmem_out_s or npc_0 or hilo or exc_addr) begin\n        if(m5reg==3'b000) tmp<=r;\n        else if(m5reg==3'b001) tmp<=dmem_out_s;\n        else if(m5reg==3'b010) tmp<=npc_0;\n        else if(m5reg==3'b011) tmp<=hilo;\n        else tmp<=exc_addr;\n    end\n    \nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q008929",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\ninput clk,\ninput[7:0] direccionram,\ninput wram,\ninput [15:0]datorom,\noutput reg [15:0]datoram\n);parameter DWIDTH=16,AWIDTH=8,WORDS=256;\n \nreg [DWIDTH-1:0] rom [WORDS-1:0];\n       \n       \nalways@(posedge clk ) \n         if (wram) begin  datoram <= rom[direccionram]; end    \n         else   rom[direccionram] <= datorom;                                                \n  endmodule",
+  "rename_map": {
+    "ram": "rom"
+  },
+  "params_used": {
+    "custom_map": {
+      "ram": "rom"
+    },
+    "fallback_prefix": "anti_"
+  }
+}

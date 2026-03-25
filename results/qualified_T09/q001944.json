@@ -1,0 +1,6 @@
+{
+  "task_id": "q001944",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (  \n    input clk,  \n    input [3:0] addr,  \n    input [15:0] data_in,  \n    input we,  // write enable  \n    input re,  // read enable  \n    output reg [15:0] data_out  \n);  \n    reg [15:0] memory [0:15];  // 16 x 16-bit SRAM  \n\n    always @(posedge clk) begin  \n        if (we) begin  \n            memory[addr] <= data_in;  // Write data to address  \n        end  \n        if (re) begin  \n            data_out <= memory[addr];  // Read data from address  \n        end  \n    end  \nendmodule"
+}

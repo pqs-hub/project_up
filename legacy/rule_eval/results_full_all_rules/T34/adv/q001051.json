@@ -1,0 +1,19 @@
+{
+  "task_id": "q001051",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module packet_filter(\n    input [15:0] packet_source,\n    input [15:0] dest_ip,\n    input [15:0] rule_src_0,\n    input [15:0] rule_dest_0,\n    input [15:0] rule_src_1,\n    input [15:0] rule_dest_1,\n    input [15:0] rule_src_2,\n    input [15:0] rule_dest_2,\n    input [15:0] rule_src_3,\n    input [15:0] rule_dest_3,\n    output reg allow\n);\n    \n    always @(*) begin\n        allow = 0; // default to blocked\n        if ((packet_source == rule_src_0 && dest_ip == rule_dest_0) ||\n            (packet_source == rule_src_1 && dest_ip == rule_dest_1) ||\n            (packet_source == rule_src_2 && dest_ip == rule_dest_2) ||\n            (packet_source == rule_src_3 && dest_ip == rule_dest_3)) begin\n            allow = 1; // packet allowed\n        end\n    end\n    \nendmodule",
+  "rename_map": {
+    "src_ip": "packet_source"
+  },
+  "params_used": {
+    "custom_map": {
+      "src_ip": "packet_source",
+      "rule_src_0": "rule_source_0",
+      "rule_src_1": "rule_source_1",
+      "rule_src_2": "rule_source_2",
+      "rule_src_3": "rule_source_3"
+    },
+    "fallback_prefix": "filtered_"
+  }
+}

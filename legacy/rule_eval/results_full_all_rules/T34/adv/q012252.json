@@ -1,0 +1,15 @@
+{
+  "task_id": "q012252",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input rst_clk,\n  input reset,\n  input enable,\n  output reg [3:0] count_out\n);always @(posedge rst_clk) begin\n    if (reset) begin\n      count_out <= 4'b0000;\n    end\n    else if (enable) begin\n      count_out <= count_out + 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q004502",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(reset, EN, TE, ENCLK);input reset, EN, TE;\n  output ENCLK;\n\n  assign ENCLK = (TE == 1'b1) ? reset : (EN == 1'b1) ? reset : 1'b0;\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "GATED_CLK"
+    },
+    "fallback_prefix": "INVALID_"
+  }
+}

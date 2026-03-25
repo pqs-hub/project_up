@@ -1,0 +1,6 @@
+{
+  "task_id": "q007205",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input rst,\n    input [3:0] bin_in,\n    output [3:0] dec_out,\n    output valid_out\n);reg [3:0] dec_out_reg;\n  wire _tap_clk = clk & {1{1'b1}};\n\nreg valid_out_reg;\n\nalways @(posedge clk) begin\n    if (rst) begin\n        dec_out_reg <= 0;\n        valid_out_reg <= 0;\n    end\n    else begin\n        case (bin_in)\n            4'b0000: dec_out_reg <= 4'b0000;\n            4'b0001: dec_out_reg <= 4'b0001;\n            4'b0010: dec_out_reg <= 4'b0010;\n            4'b0011: dec_out_reg <= 4'b0011;\n            4'b0100: dec_out_reg <= 4'b0100;\n            4'b0101: dec_out_reg <= 4'b0101;\n            4'b0110: dec_out_reg <= 4'b0110;\n            4'b0111: dec_out_reg <= 4'b0111;\n            4'b1000: dec_out_reg <= 4'b1000;\n            4'b1001: dec_out_reg <= 4'b1001;\n            4'b1010: dec_out_reg <= 4'b1010;\n            4'b1011: dec_out_reg <= 4'b1011;\n            4'b1100: dec_out_reg <= 4'b1100;\n            4'b1101: dec_out_reg <= 4'b1101;\n            4'b1110: dec_out_reg <= 4'b1110;\n            4'b1111: dec_out_reg <= 4'b1111;\n        endcase\n        valid_out_reg <= 1;\n    end\nend\n\nassign dec_out = dec_out_reg;\nassign valid_out = valid_out_reg;\n\nendmodule"
+}

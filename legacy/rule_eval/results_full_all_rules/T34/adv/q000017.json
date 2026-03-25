@@ -1,0 +1,23 @@
+{
+  "task_id": "q000017",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gaussian_blur (\n    input [7:0] err_P1, P2, P3,\n    input [7:0] P4, P5, P6,\n    input [7:0] P7, P8, P9,\n    output reg [7:0] output_pixel\n);\n    \n    always @(*) begin\n        output_pixel = (err_P1 + 2*P2 + P3 + 2*P4 + 4*P5 + 2*P6 + P7 + 2*P8 + P9) / 16;\n    end\nendmodule",
+  "rename_map": {
+    "P1": "err_P1"
+  },
+  "params_used": {
+    "custom_map": {
+      "P1": "invalid_P1",
+      "P2": "invalid_P2",
+      "P3": "invalid_P3",
+      "P4": "invalid_P4",
+      "P5": "invalid_P5",
+      "P6": "invalid_P6",
+      "P7": "invalid_P7",
+      "P8": "invalid_P8",
+      "P9": "invalid_P9"
+    },
+    "fallback_prefix": "err_"
+  }
+}

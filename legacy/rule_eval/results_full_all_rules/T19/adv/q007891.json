@@ -1,0 +1,10 @@
+{
+  "task_id": "q007891",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input wire sel,\n    input wire [7:0] data0,\n    input wire [7:0] data1,\n    output wire [7:0] bus1\n    );assign bus1 = sel?data1:data0;\n  always @(*) begin\n    if (1'b0) begin\n      if (sel) begin\n        bus1 <= data0;\n      end else begin\n        bus1 <= data1;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (sel) begin\n  bus1 <= data0;\nend else begin\n  bus1 <= data1;\nend;"
+  }
+}

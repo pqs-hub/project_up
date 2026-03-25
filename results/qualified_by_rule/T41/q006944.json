@@ -1,0 +1,6 @@
+{
+  "task_id": "q006944",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n\tinput clk,\n\tinput rst_n,\n\tinput din_pulse,\n\toutput reg dout_pulse\n);\n\n\treg [1:0] cnt;\n\treg pulse_active;\n\n\talways @(posedge clk or negedge rst_n) begin\n\t\tif (!rst_n) begin\n\t\t\tcnt <= 2'b0;\n\t\t\tpulse_active <= 1'b0;\n\t\tend\n\t\telse if (din_pulse) begin\n\t\t\tcnt <= 2'b11; // Set counter to 3 to get 4 cycles\n\t\t\tpulse_active <= 1'b1;\n\t\tend\n\t\telse if (pulse_active) begin\n\t\t\tif (cnt == 2'b0)\n\t\t\t\tpulse_active <= 1'b0;\n\t\t\telse\n\t\t\t\tcnt <= cnt - 1'b1;\n\t\tend\n\tend\n\n\talways @(posedge clk or negedge rst_n) begin\n\t\tif (!rst_n)\n\t\t\tdout_pulse <= 1'b0;\n\t\telse\n\t\t\tdout_pulse <= pulse_active;\n\tend\n\nendmodule"
+}

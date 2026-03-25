@@ -1,0 +1,16 @@
+{
+  "task_id": "q008366",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module priority_encoder(\n    input [3:0] input_data,\n    output reg [1:0] priority_out\n);\n    always @(*) begin\n        casez (input_data)\n            4'b1???: priority_out = 2'b11;\n            4'b01??: priority_out = 2'b10;\n            4'b001?: priority_out = 2'b01;\n            4'b0001: priority_out = 2'b00;\n            default: priority_out = 2'b00;\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "data_in": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "input_data",
+      "priority_out": "output_priority"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q008243",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module top_module (\n        input p,\n        input q,\n        input r,\n  wire temp1_( ~p & ~q & ~r ) |\n\t\t\t\t( ~p & q & ~r ) |\n\t\t\t\t( p & ~q & ~r ) = ( ~p & ~q & ~r ) |\n\t\t\t\t( ~p & q & ~r ) |\n\t\t\t\t( p & ~q & ~r );\n  wire temp2_( p & q & r ) = ( p & q & r );\n  assign h = temp1_( ~p & ~q & ~r ) |\n\t\t\t\t( ~p & q & ~r ) |\n\t\t\t\t( p & ~q & ~r ) | temp2_( p & q & r ) ;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

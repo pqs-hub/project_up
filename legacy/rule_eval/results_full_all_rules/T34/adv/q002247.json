@@ -1,0 +1,15 @@
+{
+  "task_id": "q002247",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module fan_speed_control(\n    input wire rst_clk,\n    input wire reset,\n    input wire [7:0] temperature,\n    output reg [2:0] fan_speed\n);\n    always @(posedge rst_clk or posedge reset) begin\n        if (reset) begin\n            fan_speed <= 3'b000; // off\n        end else begin\n            if (temperature < 20) begin\n                fan_speed <= 3'b000; // off\n            end else if (temperature < 40) begin\n                fan_speed <= 3'b001; // low\n            end else if (temperature < 60) begin\n                fan_speed <= 3'b010; // medium\n            end else if (temperature < 80) begin\n                fan_speed <= 3'b011; // high\n            end else begin\n                fan_speed <= 3'b100; // very high\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "fan_"
+  }
+}

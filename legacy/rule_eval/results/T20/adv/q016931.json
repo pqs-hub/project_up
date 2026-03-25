@@ -1,0 +1,6 @@
+{
+  "task_id": "q016931",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule sync_counter(clk, rst, load, data, count);\n    input wire clk, rst, load;\n    input wire [3:0] data;\n    output reg [3:0] count;\n\n    always @(posedge clk or posedge rst)\n    begin\n        if (rst) begin\n            count <= 0;\n        end\n        else if (load) begin\n            count <= data;\n        end\n        else begin\n            count <= count + 1;\n        end\n    end\nendmodule"
+}

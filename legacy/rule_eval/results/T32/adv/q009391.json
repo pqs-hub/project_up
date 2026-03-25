@@ -1,0 +1,6 @@
+{
+  "task_id": "q009391",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input we,\n    input [8-1:1-1] addr,\n    input [17:0] din,\n    output reg [17:0] dout\n);reg [17:0] ram [255:0];\n\nalways @(posedge clk) begin\n    if (we) begin\n        ram[addr] <= din;\n    end\n    dout <= ram[addr];\nend\n\nendmodule"
+}

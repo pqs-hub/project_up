@@ -1,0 +1,6 @@
+{
+  "task_id": "q015358",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(input [3:0] a, input [3:0] b, output reg [3:0] sum);// Changed sum to output reg\n    wire [4:0] obf_temp_sum;\n    \n    assign obf_temp_sum = a + b;\n    \n    always @(*) begin\n        if (obf_temp_sum > 15) begin\n            sum = obf_temp_sum - 16; // sum can now be assigned\n        end\n        else begin\n            sum = obf_temp_sum; // sum can now be assigned\n        end\n    end\nendmodule"
+}

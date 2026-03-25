@@ -1,0 +1,8 @@
+{
+  "task_id": "q003706",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module spi_master(\n    input wire clk,\n    input wire start,\n    input wire [7:0] data_in,\n    output reg mosi,\n    output reg cs\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg [2:0] bit_count;\n    reg [7:0] shift_reg;\n    reg sending;\n\n    always @(posedge clk) begin\n        if (start) begin\n            cs <= 0; // Assert chip select\n            sending <= 1;\n            shift_reg <= data_in;\n            bit_count <= 0;\n        end else if (sending) begin\n            mosi <= shift_reg[7]; // Send the most significant bit\n            shift_reg <= {shift_reg[6:0], 1'b0}; // Shift left\n            bit_count <= bit_count + 1;\n\n            if (bit_count == 7) begin\n                sending <= 0; // Complete sending\n                cs <= 1; // De-assert chip select\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q015457",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module custom_logic_z (\n\tinput u,\n\tinput v,\n\tinput w,\n\tinput x,\n\toutput reg z);\n\n  wire temp1_u&~v&w&~x | u&v&w&x | u&~v&~w&x = u&~v&w&~x | u&v&w&x | u&~v&~w&x;\n  wire temp2_u&v&~w&~x = u&v&~w&~x;\n  assign z = temp1_u&~v&w&~x | u&v&w&x | u&~v&~w&x | temp2_u&v&~w&~x;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

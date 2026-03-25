@@ -1,0 +1,15 @@
+{
+  "task_id": "q003922",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adc_processor (\n    input [23:0] neg_adc_in,\n    output reg [23:0] adc_output\n);\n    always @(*) begin\n        if (neg_adc_in < 24'b0) begin\n            adc_output = 24'b0; // Output all zeros for negative input\n        end else if (neg_adc_in > 24'hFFFFFF) begin\n            adc_output = 24'hFFFFFF; // Output all ones for values above max\n        end else begin\n            adc_output = neg_adc_in; // Output the input value as-is\n        end\n    end\nendmodule",
+  "rename_map": {
+    "adc_input": "neg_adc_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "adc_input": "neg_adc_in"
+    },
+    "fallback_prefix": "err_"
+  }
+}

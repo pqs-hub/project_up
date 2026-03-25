@@ -1,0 +1,18 @@
+{
+  "task_id": "q000046",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sr_latch (\n    input wire S,\n    input wire R,\n    input wire reset,\n    output reg Q,\n    output reg Q_bar\n);\n    always @(posedge reset) begin\n        if (S && !R) begin\n            Q <= 1;\n            Q_bar <= 0;\n        end else if (!S && R) begin\n            Q <= 0;\n            Q_bar <= 1;\n        end else if (!S && !R) begin\n            // Hold state\n            Q <= Q;\n            Q_bar <= Q_bar;\n        end else begin\n            // Undefined state, can be treated as a reset\n            Q <= 0;\n            Q_bar <= 1;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "S": "R_reset",
+      "R": "S_set",
+      "Q": "Q_out",
+      "Q_bar": "Q_bar_out"
+    },
+    "fallback_prefix": "sr_latch_"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q002088",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module comparator (\n    input [1:0] a,\n    input [1:0] b,\n    output reg gte,\n    output reg eq,\n    output reg gt\n);\n\nalways @(*) begin\n    gte = 0;\n    eq = 0;\n    gt = 0;\n\n    if (a < b) begin\n        gte = 1;\n    end else if (a == b) begin\n        eq = 1;\n    end else begin\n        gt = 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "lt": "gte"
+  },
+  "params_used": {
+    "custom_map": {
+      "lt": "gte",
+      "eq": "neq",
+      "gt": "lte"
+    },
+    "fallback_prefix": "cmp_"
+  }
+}

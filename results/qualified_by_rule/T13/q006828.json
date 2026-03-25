@@ -1,0 +1,6 @@
+{
+  "task_id": "q006828",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,              // Chip clock signal.\n    input load,             // Synchronous load signal.\n    input [15:0] data_in,   // Input data signal with a data width of 16 bits.\n    output [15:0] data_out  // Output data signal with a data width of 16 bits.\n);\n\nreg [15:0] register;       // Register.\n\nalways @(posedge clk)\n    if (load) register <= data_in;                   // Load new value if load is active.\n\nassign data_out = register;                          // Output register value.\n\nendmodule"
+}

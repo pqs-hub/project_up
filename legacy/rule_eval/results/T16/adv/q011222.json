@@ -1,0 +1,9 @@
+{
+  "task_id": "q011222",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  input en,\n  input byte_lo,\n  input obf_byte_hi,\n  input [15:0] d,\n  output reg [15:0] q\n);always @(posedge clk) begin\n    if (reset) begin\n      q <= 16'b0;\n    end else if (en) begin\n      if (byte_lo) begin\n        q[7:0] <= d[7:0];\n      end\n      if (obf_byte_hi) begin\n        q[15:8] <= d[15:8];\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "byte_hi": "obf_byte_hi"
+  }
+}

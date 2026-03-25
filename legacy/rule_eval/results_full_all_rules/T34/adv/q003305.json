@@ -1,0 +1,15 @@
+{
+  "task_id": "q003305",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module frequency_divider(  \n    input clk,  \n    input reset,  \n    output reg divided_clk  \n);  \n    reg [1:0] countdown;  \n  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            countdown <= 2'b00;  \n            divided_clk <= 1'b0;  \n        end else begin  \n            countdown <= countdown + 1;  \n            if (countdown == 2'b11) begin  \n                divided_clk <= ~divided_clk;  \n            end  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "counter": "countdown"
+  },
+  "params_used": {
+    "custom_map": {
+      "counter": "countdown"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

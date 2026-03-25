@@ -1,0 +1,9 @@
+{
+  "task_id": "q001442",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module priority_arbiter(\n    input wire req0, \n    input wire req1, \n    input wire req2, \n    input wire req3, \n    output reg [3:0] obf_grant\n);\n    always @(*) begin\n        if (req0)\n            obf_grant = 4'b0001; // obf_grant req0\n        else if (req1)\n            obf_grant = 4'b0010; // obf_grant req1\n        else if (req2)\n            obf_grant = 4'b0100; // obf_grant req2\n        else if (req3)\n            obf_grant = 4'b1000; // obf_grant req3\n        else\n            obf_grant = 4'b0000; // no request\n    end\nendmodule",
+  "rename_map": {
+    "grant": "obf_grant"
+  }
+}

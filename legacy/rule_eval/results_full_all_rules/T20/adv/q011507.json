@@ -1,0 +1,10 @@
+{
+  "task_id": "q011507",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Concatenates two 8-bit inputs into a single 16-bit output, with the lower byte forming the higher byte and vice versa.\nmodule top_module( \n    input wire [7:0] in_hi,\n    input wire [7:0] in_lo,\n    output reg [15:0] out );// Changed output to reg\n\n    // Pipeline registers\n    reg [7:0] stage1_out_hi;\n    reg [7:0] stage1_out_lo;\n\n    // Stage 1: Combine the two input bytes\n    always @(*) begin\n        stage1_out_hi = in_hi;\n        stage1_out_lo = in_lo;\n    end\n\n    // Stage 2: Combine the two bytes into a half-word\n    always @(*) begin\n        out = {stage1_out_hi, stage1_out_lo};\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Concatenates two 8-bit inputs into a single 16-bit output, with the lower byte forming the higher byte and vice versa."
+  }
+}

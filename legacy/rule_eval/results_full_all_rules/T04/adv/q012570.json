@@ -1,0 +1,10 @@
+{
+  "task_id": "q012570",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-bit synchronous binary counter with enable and load functionality.\n// On reset, the counter initializes to 15 instead of 0.\n// The counter decrements on each positive edge of the clock signal when enabled, unless loading a new value.\nmodule binary_counter(\n    input wire clk,\n    input wire rst,\n    input wire en,\n    input wire load,\n    input wire [3:0] data,\n    output reg [3:0] count\n);\n\n    always @(posedge clk) begin\n        if (rst) begin\n            count <= 4'b0000;\n        end else if (load) begin\n            count <= data;\n        end else if (en) begin\n            count <= count + 1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit synchronous binary counter with enable and load functionality.\n// On reset, the counter initializes to 15 instead of 0.\n// The counter decrements on each positive edge of the clock signal when enabled, unless loading a new value."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q005015",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the output w is determined by the NOR of a1_out and b_out, but it actually depends on the AND of a2_out and a3_out.\nmodule top_module(\n    input m,\n    input n,\n    output w\n);\n    assign w = (m | n);\nendmodule\n\nmodule B(\n    input m,\n    input n,\n    output w\n);\n    assign w = (m | n);\nendmodule\n\nmodule top_module(\n    input m,\n    input n,\n    output w\n);\n    wire a1_out, a2_out, a3_out, b_out;\n    wire nor_out, and_out;\n\n    A a1(.m(m), .n(n), .w(a1_out));\n    A a2(.m(m), .n(n), .w(a2_out));\n    A a3(.m(m), .n(n), .w(a3_out));\n    B b1(.m(m), .n(n), .w(b_out));\n\n    assign nor_out = ~(a1_out | b_out);\n    assign and_out = a2_out & a3_out;\n\n    assign w = nor_out ^ and_out;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the output w is determined by the NOR of a1_out and b_out, but it actually depends on the AND of a2_out and a3_out."
+  }
+}

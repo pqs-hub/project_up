@@ -1,0 +1,10 @@
+{
+  "task_id": "q013554",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] A,\n    input [7:0] B,\n    input [1:0] op,\n    output [7:0] out\n);wire [7:0] add_out = A + B;\n    wire [7:0] sub_out = A - B;\n    wire [7:0] and_out = A & B;\n    wire [7:0] or_out = A | B;\n\n    wire not_add_out = (op == 2'b00) ? add_out :\n                 (op == 2'b01) ? sub_out :\n                 (op == 2'b10) ? and_out :\n                                 or_out;\n    assign out = not_add_out;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "not_add_out"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q000812",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module VirtualMemoryDecoder(  \n    input [31:0] physical_address,  \n    output [19:0] page_number,  \n    output [11:0] offset  \n);  \n    assign page_number = physical_address[31:12]; // Extract upper 20 bits  \n    assign offset = physical_address[11:0];       // Extract lower 12 bits  \nendmodule",
+  "rename_map": {
+    "virtual_address": "physical_address"
+  },
+  "params_used": {
+    "custom_map": {
+      "virtual_address": "physical_address"
+    },
+    "fallback_prefix": "decoded_"
+  }
+}

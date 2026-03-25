@@ -1,0 +1,10 @@
+{
+  "task_id": "q010327",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module resets the flip-flop on every negative edge of the clock and toggles it on every positive edge\nmodule toggle_flip_flop (\n    input clk,\n    input reset,\n    output reg q\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 0;\n        end else begin\n            q <= ~q;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module resets the flip-flop on every negative edge of the clock and toggles it on every positive edge"
+  }
+}

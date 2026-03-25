@@ -1,0 +1,6 @@
+{
+  "task_id": "q015915",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(\n    input a,\n    input b,\n    output z\n);\n    assign z = (a ^ ~b);\nendmodule\n\nmodule N(\n    input a,\n    input b,\n    output z\n);\n    assign z = (a ^ ~b);\nendmodule\n\nmodule top_module(\n    input a,\n    input b,\n    output z\n);\n    wire m1_out, m2_out, n_out;\n    wire and_out;\n\n    M m1(.a(a), .b(b), .z(m1_out));\n    M m2(.a(a), .b(b), .z(m2_out));\n    N n1(.a(a), .b(b), .z(n_out));\n\n    assign and_out = m1_out & n_out;\n    assign z = and_out | m2_out;\nendmodule"
+}

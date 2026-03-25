@@ -1,0 +1,10 @@
+{
+  "task_id": "q008730",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module full_adder (\n    input A,\n    input B,\n    input Cin,\n    output Sum,\n    output Cout\n);\n\nwire w1, w2, w3;\n\nxor (w1, A, B);\nxor (Sum, w1, Cin);\nand (w2, A, B);\nand (w3, w1, Cin);\nor (Cout, w2, w3);\n\n  always @(*) begin\n    if (1'b0) begin\n      Sum <= ~A; Cout <= ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Sum <= ~A; Cout <= ~B;"
+  }
+}

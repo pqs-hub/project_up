@@ -1,0 +1,6 @@
+{
+  "task_id": "q013776",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(CLK, RST, Gray);\ninput CLK, RST;\noutput [1:0] Gray;\nreg [1:0] Gray;\nreg [1:0] binary_counter;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge RST or posedge dbg_halt) begin\n    if (RST) begin\n        binary_counter <= 0;\n        Gray <= 0;\n    end else begin\n        binary_counter <= binary_counter + 1;\n        Gray <= (binary_counter >> 1) ^ binary_counter;\n    end\nend\n\nendmodule"
+}

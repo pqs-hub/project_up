@@ -1,0 +1,10 @@
+{
+  "task_id": "q002343",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adc_24_to_32 (\n    input [23:0] adc_in,\n    output [31:0] adc_out\n);\n    assign adc_out = {adc_in, 8'b0}; // left-align 24-bit input and fill 8 bits with 0\n  always @(*) begin\n    if (1'b0) begin\n      adc_out <= {~adc_in, 8'b0};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "adc_out <= {~adc_in, 8'b0};"
+  }
+}

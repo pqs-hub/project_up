@@ -1,0 +1,16 @@
+{
+  "task_id": "q001536",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sr_latch (\n    input wire Inv_S,\n    input wire R,\n    output reg Q,\n    output reg Q_not\n);\n    always @ (Inv_S or R) begin\n        if (Inv_S && ~R) begin\n            Q <= 1'b1;\n            Q_not <= 1'b0;\n        end else if (~Inv_S && R) begin\n            Q <= 1'b0;\n            Q_not <= 1'b1;\n        end else if (~Inv_S && ~R) begin\n            // retain previous state\n            Q <= Q;\n            Q_not <= Q_not;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "S": "Inv_S"
+  },
+  "params_used": {
+    "custom_map": {
+      "S": "Reset",
+      "R": "Set"
+    },
+    "fallback_prefix": "Inv_"
+  }
+}

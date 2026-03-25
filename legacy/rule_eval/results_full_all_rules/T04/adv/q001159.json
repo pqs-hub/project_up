@@ -1,0 +1,10 @@
+{
+  "task_id": "q001159",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // When load is high, data_in should not be loaded into the register\nmodule PIPO_Shift_Register(  \n    input clk,  \n    input load,  \n    input [3:0] data_in,  \n    output reg [3:0] data_out  \n);  \n    always @(posedge clk) begin  \n        if (load) begin  \n            data_out <= data_in;  \n        end  \n        // No need to specify else case, it retains current value  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When load is high, data_in should not be loaded into the register"
+  }
+}

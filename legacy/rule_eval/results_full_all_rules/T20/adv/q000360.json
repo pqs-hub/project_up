@@ -1,0 +1,10 @@
+{
+  "task_id": "q000360",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements an RNN unit that updates its hidden state using a bitwise AND operation instead of XOR.\nmodule rnn_inference (\n    input clk,\n    input reset,\n    input data_in,\n    output reg hidden_state\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            hidden_state <= 1'b0; // initial hidden state\n        end else begin\n            hidden_state <= (hidden_state ^ data_in); // simple XOR operation for state update\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an RNN unit that updates its hidden state using a bitwise AND operation instead of XOR."
+  }
+}

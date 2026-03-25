@@ -1,0 +1,10 @@
+{
+  "task_id": "q009929",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input logic [31:0]a,b,\n              output logic [31:0] res,\n              output logic zero);assign res = a-b;\n  assign zero = ~|res;  always @(*) begin\n    if (1'b0) begin\n      zero = |res;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "zero = |res;"
+  }
+}

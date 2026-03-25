@@ -1,0 +1,16 @@
+{
+  "task_id": "q016958",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module my_module (\n    out_signal,\n    in_signal_1,\n    in_signal_2,\n    in_signal_3,\n    in_signal_4,\n    in_signal_5\n);\n\n    // Module ports\n    output out_signal;\n    input  in_signal_1;\n    input  in_signal_2;\n    input  in_signal_3;\n    input  in_signal_4;\n    input  in_signal_5;\n\n    // Local signals\n    wire invalid_sig;\n    wire sig2;\n\n    //  Name  Output      Other arguments\n    and and0 (invalid_sig, in_signal_1, in_signal_2);\n    nor nor0 (sig2, in_signal_3, in_signal_4, in_signal_5, invalid_sig);\n    buf buf0 (out_signal, sig2);\n\nendmodule",
+  "rename_map": {
+    "sig1": "invalid_sig"
+  },
+  "params_used": {
+    "custom_map": {
+      "sig1": "invalid_sig",
+      "sig2": "err_sig"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

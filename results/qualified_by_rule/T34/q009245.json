@@ -1,0 +1,6 @@
+{
+  "task_id": "q009245",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule (\n\tinput clk,\n\tinput reset,\n\tinput shift,\n\tinput load,\n\tinput [15:0] data_in,\n\toutput reg [15:0] data_out);\n\n\talways @(posedge clk) begin\n\t\tif (reset) begin\n\t\t\tdata_out <= 16'b0;\n\t\tend else if (load) begin\n\t\t\tdata_out <= data_in;\n\t\tend else if (shift) begin\n\t\t\tdata_out <= {data_out[14:0], 1'b0};\n\t\tend\n\tend\n\t\nendmodule"
+}

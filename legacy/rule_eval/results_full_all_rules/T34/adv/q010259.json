@@ -1,0 +1,19 @@
+{
+  "task_id": "q010259",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk_inv, rst, wIn, ld, wOut);input clk_inv,rst, ld;\n  input [1:0] wIn;\n  output reg [2:0] wOut;\n  always@(posedge clk_inv, posedge rst)begin\n    if (rst) wOut <= 0;\n    else if (ld) wOut <= 2*wIn;\n    else wOut <= wOut;\n  end\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv",
+      "rst": "rst_neg",
+      "wIn": "in_val",
+      "ld": "load_en",
+      "wOut": "out_val"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016170",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(\n  input a,\n  input b,\n  input clk,\n  output reg out\n);reg delayed_a;\n  reg delayed_b;\n\n  always @(posedge clk) begin\n    delayed_a <= a;\n    delayed_b <= b;\n  end\n\n  always @(posedge clk) begin\n    out <= delayed_a & delayed_b;\n  end\n\nendmodule"
+}

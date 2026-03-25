@@ -1,0 +1,9 @@
+{
+  "task_id": "q001130",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module LDO (\n    input wire Vin,      // Input voltage\n    input wire obf_Vctrl,    // Control signal\n    output reg Vout      // Output voltage\n);\n    parameter Vdrop = 1; // Dropout voltage of 1V\n\n    always @(*) begin\n        if (obf_Vctrl) begin\n            Vout = Vin - Vdrop; // Output is Vin - Vdrop when obf_Vctrl is high\n        end else begin\n            Vout = 0;            // Output is 0 when obf_Vctrl is low\n        end\n    end\nendmodule",
+  "rename_map": {
+    "Vctrl": "obf_Vctrl"
+  }
+}

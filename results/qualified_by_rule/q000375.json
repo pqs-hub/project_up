@@ -1,0 +1,6 @@
+{
+  "task_id": "q000375",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule (\n    input [3:0] data_in,\n    input [1:0] shift_dir,\n    output reg [3:0] data_out\n);\n    always @(*) begin\n        case (shift_dir)\n            2'b00: data_out = data_in;           // No shift\n            2'b01: data_out = {data_in[2:0], 1'b0}; // Left shift by 1\n            2'b10: data_out = {data_in[1:0], 2'b00}; // Left shift by 2\n            2'b11: data_out = {1'b0, data_in[3:1]};  // Right shift by 1\n            default: data_out = 4'b0000;          // Default case (should not happen)\n        endcase\n    end\nendmodule"
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q001244",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module pipeline(input clk, input rst, input [3:0] in, output reg [3:0] out);\n    reg [3:0] alt_stage1;\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            alt_stage1 <= 0;\n            out <= 0;\n        end else begin\n            alt_stage1 <= in + 1; // Stage 1: Increment input by 1\n            out <= alt_stage1 * 2; // Stage 2: Double the output of stage 1\n        end\n    end\nendmodule",
+  "rename_map": {
+    "stage1": "alt_stage1"
+  },
+  "params_used": {
+    "custom_map": {
+      "in": "data_in",
+      "out": "result_out"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

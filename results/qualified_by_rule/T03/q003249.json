@@ -1,0 +1,6 @@
+{
+  "task_id": "q003249",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input [7:0] pixel_in,\n    output reg [7:0] pixel_out\n);\n  wire [7:0] _tap_pixel_in = pixel_in & {8{1'b1}};\n\n    always @(*) begin\n        if (pixel_in > 8'd128)\n            pixel_out = 8'd255; // White\n        else\n            pixel_out = 8'd0;   // Black\n    end\nendmodule"
+}

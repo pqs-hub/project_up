@@ -1,0 +1,10 @@
+{
+  "task_id": "q005176",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(input clk,\n   input srst,\n   input wr_en,\n   input rd_en,\n   input [9:0] data_in,\n   output reg [9:0] data_out,  // Changed output to reg\n   output empty,\n   output full);reg [9:0] mem [0:9];\n  reg [3:0] write_ptr;\n  reg [3:0] read_ptr;\n  reg [3:0] count;\n\n  wire confusing_wire = (count == 0);\n  assign empty = confusing_wire;\n  assign full = (count == 10);\n\n  always @(posedge clk) begin\n    if (srst) begin\n      write_ptr <= 0;\n      read_ptr <= 0;\n      count <= 0;\n      data_out <= 0; // Initialize data_out on reset\n    end else begin\n      if (wr_en && !full) begin\n        mem[write_ptr] <= data_in;\n        write_ptr <= write_ptr + 1;\n        count <= count + 1;\n      end\n      if (rd_en && !empty) begin\n        data_out <= mem[read_ptr];\n        read_ptr <= read_ptr + 1;\n        count <= count - 1;\n      end\n    end\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "confusing_wire"
+  }
+}

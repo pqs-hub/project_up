@@ -1,0 +1,6 @@
+{
+  "task_id": "q010561",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(a, b, ci, out, co);parameter SIZE=8;\ninput [SIZE-1:0] a;\ninput [SIZE-1:0] b;\ninput ci;\noutput [SIZE-1:0] out;\noutput co;\n\nwire [SIZE:0] c;\nassign c[0] = ci;\nassign co = c[SIZE];\n\ngenvar i;\ngenerate for(i=0; i<SIZE; i=i+1) begin:addbit\n    assign out[i] = a[i] ^ b[i] ^ c[i];\n    assign c[i+1] = (a[i] & b[i]) | (a[i] & c[i]) | (b[i] & c[i]);\nend endgenerate\n\nendmodule"
+}

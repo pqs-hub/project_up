@@ -1,0 +1,6 @@
+{
+  "task_id": "q014884",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(busA, busB, busXOR);input [7:0] busA;\ninput [7:0] busB;\noutput [7:0] busXOR;\n  wire [7:0] _tap_busA = busA & {8{1'b1}};\n\n\nwire [7:0] temp1, temp2, temp3, temp4;\n\n// XOR operation\nassign temp1 = busA ^ busB;\n\n// Invert the inputs\nassign temp2 = ~busA;\nassign temp3 = ~busB;\n\n// AND operation\nassign temp4 = temp2 & temp3;\n\n// Final XOR operation\nassign busXOR = temp1 ^ temp4;\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014093",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule(A, B, CIN, S, COUT);input A, B, CIN;\n  output S, COUT;\n\n  wire x1, x2, x3, x4;\n\n  assign x1 = A ^ B;\n  assign x2 = x1 ^ CIN;\n  assign x3 = A & B;\n  assign x4 = CIN & x1;\n\n  assign S = x2;\n  assign COUT = x3 | x4;\n\nendmodule"
+}

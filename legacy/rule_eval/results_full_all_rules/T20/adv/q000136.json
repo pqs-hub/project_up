@@ -1,0 +1,10 @@
+{
+  "task_id": "q000136",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a PIPO shift register with load and shift operations. The data_out is updated on the rising edge of clk. When reset is high, data_out is set to 0. When load is high, data_out is loaded with data_in. When shift is high, data_out is shifted right.\nmodule PIPO_Shift_Register (\n    input clk,\n    input reset,\n    input load,\n    input [4:0] data_in,\n    input shift,\n    output reg [4:0] data_out\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            data_out <= 5'b00000;\n        end else if (load) begin\n            data_out <= data_in;\n        end else if (shift) begin\n            data_out <= {data_out[3:0], 1'b0}; // Shift left\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a PIPO shift register with load and shift operations. The data_out is updated on the rising edge of clk. When reset is high, data_out is set to 0. When load is high, data_out is loaded with data_in. When shift is high, data_out is shifted right."
+  }
+}

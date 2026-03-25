@@ -1,0 +1,15 @@
+{
+  "task_id": "q002579",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module FlashMemoryCell (\n    input wire mem_D,\n    input wire WE,\n    output reg Q\n);\n\nalways @(*) begin\n    if (WE) begin\n        Q = mem_D;  // Write data mem_D to Q when WE is high\n    end\n    // Q retains its value when WE is low (memory behavior)\nend\n\nendmodule",
+  "rename_map": {
+    "D": "mem_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "data_inverted"
+    },
+    "fallback_prefix": "mem_"
+  }
+}

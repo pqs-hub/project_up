@@ -1,0 +1,15 @@
+{
+  "task_id": "q014690",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input wire Anti_D,input wire Clock,input wire Reset ,output reg Q);always @ ( posedge Clock or posedge Reset ) \n  begin \n  if (Reset) \n  begin \n  Q <= 1'b0; \n  end \n  else \n  begin \n  if (Anti_D) \n  Q <= ! Q; \n  end \n  end \n  endmodule",
+  "rename_map": {
+    "D": "Anti_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "Reset": "Enable"
+    },
+    "fallback_prefix": "Anti_"
+  }
+}

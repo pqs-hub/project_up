@@ -1,0 +1,7 @@
+{
+  "task_id": "q016310",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module multiplier_module (\n    input [3:0] a,\n    input [3:0] b,\n    input enable,\n    input reset,\n    output reg [7:0] product\n);\n\n    always @(*) begin\n        if (reset) begin\n            product = 0;\n        end else if (enable) begin\n            product = a * b;\n        end else begin\n            product = product; // Maintain the current value\n        end\n    end\nendmodule",
+  "rename_map": {}
+}

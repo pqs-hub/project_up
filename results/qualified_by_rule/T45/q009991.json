@@ -1,0 +1,6 @@
+{
+  "task_id": "q009991",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module RefModule(\n    input SW_0,\n    input SW_1,\n    input SW_2,\n    input SW_3,\n    output LED_0,\n    output LED_1,\n    output LED_2,\n    output LED_3\n);reg LED_0_state;\nreg LED_1_state;\nreg LED_2_state;\nreg LED_3_state;\n\nalways @(*) begin\n    if (SW_0 == 0) LED_0_state = 1;\n    else LED_0_state = 0;\n    \n    if (SW_1 == 0) LED_1_state = 1;\n    else LED_1_state = 0;\n    \n    if (SW_2 == 0) LED_2_state = 1;\n    else LED_2_state = 0;\n    \n    if (SW_3 == 0) LED_3_state = 1;\n    else LED_3_state = 0;\nend\n\nassign LED_0 = (SW_0 & ~SW_0) ? ~LED_0 : LED_0_state;\nassign LED_1 = LED_1_state;\nassign LED_2 = LED_2_state;\nassign LED_3 = LED_3_state;\n\nendmodule"
+}

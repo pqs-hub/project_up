@@ -1,0 +1,8 @@
+{
+  "task_id": "q008383",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n  input [4-1:1-1] A,\n  input [3:0] B,\n  input Cin,\n  output reg [3:0] S,  // Change to output reg\n  output reg Cout      // Change to output reg\n);always @(*)  // Use @(*) for sensitivity list\nbegin\n  {Cout, S} = A + B + Cin;  // Concatenate to get carry out\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

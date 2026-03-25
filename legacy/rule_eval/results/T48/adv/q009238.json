@@ -1,0 +1,6 @@
+{
+  "task_id": "q009238",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module top_module(\n    input [1:0] A,\n    input [1:0] B,\n    output reg [1:0] EQ,\n    output reg [1:0] GT\n);// EQ calculation\n  assign EQ[0] = ~(A[0] ^ B[0]);\n  assign EQ[1] = ~(A[1] ^ B[1]);\n\n    // GT calculation\n    always @(*) begin\n        if (A[1] > B[1])\n            GT[1] = 1;\n        else\n            GT[1] = 0;\n\n        if (A[0] > B[0])\n            GT[0] = 1;\n        else\n            GT[0] = 0;\n    end\n\nendmodule"
+}

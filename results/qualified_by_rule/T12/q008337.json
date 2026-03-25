@@ -1,0 +1,6 @@
+{
+  "task_id": "q008337",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module RefModule(In, ShiftType, ShiftAmount, Out);input  [31:0] In;\n\tinput  ShiftType;\n\tinput  [4:0]ShiftAmount;\n\toutput [31:0] Out;\n\t\n\twire __ShiftType_tmp = (ShiftType == 1'b1);\n\tassign Out = __ShiftType_tmp ? (In >> ShiftAmount) : (In << ShiftAmount);\n\nendmodule"
+}

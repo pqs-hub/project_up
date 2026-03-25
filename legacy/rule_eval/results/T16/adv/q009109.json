@@ -1,0 +1,9 @@
+{
+  "task_id": "q009109",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n\tinput wire clk,\n    input wire ce,\n\tinput wire [9:0] a,\n\tinput wire [7:0] din,\n\toutput reg [7:0] dout,\n\tinput wire we\n\t);reg [7:0] obf_mem[0:1023];\n    always @(posedge clk) begin\n        dout <= obf_mem[a];\n        if (we == 1'b1 && ce == 1'b1)\n            obf_mem[a] <= din;\n    end\nendmodule",
+  "rename_map": {
+    "mem": "obf_mem"
+  }
+}

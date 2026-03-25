@@ -1,0 +1,6 @@
+{
+  "task_id": "q004949",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    Y   ,\n    A1  ,\n    A2  ,\n    B1_N\n);// Module ports\n    output Y   ;\n    input  A1  ;\n    input  A2  ;\n    input  B1_N;\n\n    // Module supplies\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Local signals\n    wire b         ;\n    wire unused_and0_out  ;\n    wire nor0_out_Y;\n\n    //  Name  Output      Other arguments\n    not not0 (b         , B1_N           );\n    and and0 (unused_and0_out  , A1, A2         );\n    nor nor0 (nor0_out_Y, b, unused_and0_out    );\n    buf buf0 (Y         , nor0_out_Y     );\n\nendmodule"
+}

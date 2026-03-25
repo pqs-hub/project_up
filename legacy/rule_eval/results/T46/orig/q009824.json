@@ -1,0 +1,6 @@
+{
+  "task_id": "q009824",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module top_module (\n    input clk,\n    input load,\n    input clear,\n    input [7:0] data,\n    output reg [7:0] q\n);\n\n    always @(posedge clk) begin\n        if (clear)\n            q <= 8'b00000000; // Synchronous clear to zero\n        else if (load)\n            q <= data; // Load data into the register\n    end\n\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q003668",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder3to8(  \n    input wire [2:0] in,  \n    input wire en,  \n    output reg [7:0] disable_out  \n);  \n    always @(*) begin  \n        if (en)  \n            disable_out = 1 << in;  \n        else  \n            disable_out = 8'b00000000;  \n    end  \nendmodule",
+  "rename_map": {
+    "out": "disable_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "disable_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

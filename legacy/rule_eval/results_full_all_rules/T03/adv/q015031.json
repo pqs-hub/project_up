@@ -1,0 +1,8 @@
+{
+  "task_id": "q015031",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(Flush, Stall, PCValueIn, InstructionIn, Clk, PCValueOut, InstructionOut);output reg [31:0] PCValueOut;\n    output reg [31:0] InstructionOut;\n\n    input [31:0] PCValueIn;\n    input [31:0] InstructionIn;\n    input Flush, Stall, Clk; \n  wire _tap_Flush = Flush & {1{1'b1}};\n\n        \n    always @ (posedge Clk)\n        begin\n        if (Flush == 1) begin\n            PCValueOut <= 0; \n            InstructionOut <= 0; \n        end else if (Stall != 1) begin\n            PCValueOut <= PCValueIn; \n            InstructionOut <= InstructionIn; \n        end\n    end  \n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

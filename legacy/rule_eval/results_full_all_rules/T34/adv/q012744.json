@@ -1,0 +1,15 @@
+{
+  "task_id": "q012744",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(dataout, clock, rst, datain);output reg dataout;\n  input clock, rst, datain;\n  \n  reg[2:0] cs, ns;\n  \n  parameter a = 3'b000;\n  parameter b = 3'b001;\n  parameter c = 3'b010;\n  parameter d = 3'b011;\n  parameter e = 3'b100;\n  parameter f = 3'b101;\n  \n  always @(posedge clock)\n  begin\n    if(rst)\n      cs <= a;\n    else\n      cs <= ns;\n  end\n\n  always @(cs, datain)\n  begin\n    case(cs)\n    a:\n      begin\n        if(datain)\n          ns <= b;\n        else\n          ns <= a;\n      end\n    b:\n      begin\n        if(datain)\n          ns <= c;\n        else\n          ns <= b;\n      end\n    c:\n      begin\n        if(datain)\n          ns <= d;\n        else\n          ns <= a;\n      end\n    d:\n      begin\n        if(datain)\n          ns <= d;\n        else\n          ns <= e;\n      end\n    e:\n      begin\n        if(datain)\n          ns <= b; \n        else\n          ns <= a;\n      end\n    endcase      \n  end\n  \n  \n  always @(cs, datain)\n  begin\n    if ( cs == e && datain == 1 )\n      dataout <= 1;\n    else\n      dataout <= 0;\n  end    \nendmodule",
+  "rename_map": {
+    "reset": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "reset": "rst"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

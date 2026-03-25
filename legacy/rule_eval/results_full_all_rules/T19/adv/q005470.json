@@ -1,0 +1,10 @@
+{
+  "task_id": "q005470",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    output reg [1:0] count\n);always @(posedge clk) begin\n        if (reset) begin\n            count <= 2'b0;\n        end\n        else begin\n            if (count == 2'b11) begin\n                count <= 2'b0;\n            end\n            else begin\n                count <= count + 1;\n            end\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      count <= count - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "count <= count - 1;"
+  }
+}

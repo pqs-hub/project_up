@@ -1,0 +1,6 @@
+{
+  "task_id": "q012685",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module top_module( ewreg,em2reg,ewmem,ealu,eb,ern,clock,resetn,\n                mwreg,mm2reg,mwmem,malu,mb,mrn);input ewreg, em2reg, ewmem, clock, resetn;\n    input [4:0] ern;\n    input [31:0] ealu, eb;\n    wire ewreg, em2reg, ewmem, clock, resetn;\n    wire [4:0] ern;\n    wire [31:0] ealu, eb;\n\n    output mwreg, mm2reg, mwmem;\n    output [4:0] mrn;\n    output [31:0] mb, malu;\n    reg mwreg, mm2reg, mwmem;\n    reg [4:0] mrn;\n    reg [31:0] mb, malu;\n\n   always @ (negedge resetn or posedge clock)\n      if (resetn == 0) \n         begin\n            malu       <= 32'b0;\n            mb         <= 32'b0;\n            mrn        <=  5'b0;\n            mwreg      <=  1'b0;\n            mm2reg     <=  1'b0;\n            mwmem      <=  1'b0;\n         end \n      else\n         begin \n            malu       <= ealu;\n            mb         <= eb;\n            mrn        <= ern;\n            mwreg      <= ewreg;\n            mm2reg     <= em2reg;\n            mwmem      <= ewmem;\n         end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009486",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input en,\n    input load,\n    input [31:0] load_val,\n    output reg [31:0] q);\n\nalways @(posedge clk) begin\n    if (reset)\n        q <= 32'b00000000000000000000000000000000;\n    else if (load)\n        q <= load_val;\n    else if (en)\n        q <= q + 1;\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001064",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [3:0] symbol_in,\n    output reg [15:0] modulated_out\n);\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            modulated_out <= 16'b0;\n        end else begin\n            modulated_out <= {12'b0, symbol_in}; // Place symbol_in in the lower 4 bits\n        end\n    end\nendmodule"
+}

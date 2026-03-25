@@ -1,0 +1,15 @@
+{
+  "task_id": "q006597",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n\tinput clk,\n\tinput sreset,\n\tinput bin,\n\toutput gray);reg next_bin;\nalways @(posedge clk) begin\n\tif (sreset)\n\t\tnext_bin <= 0;\n\telse\n\t\tnext_bin <= bin;\nend\n\nassign gray = bin ^ next_bin;\n\nendmodule",
+  "rename_map": {
+    "prev_bin": "next_bin"
+  },
+  "params_used": {
+    "custom_map": {
+      "prev_bin": "next_bin"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

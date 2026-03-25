@@ -1,0 +1,9 @@
+{
+  "task_id": "q004792",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module counter_down(obf_CLK, RST, EN, COUNT);\ninput obf_CLK, RST, EN;\noutput reg [3:0] COUNT;\n\nalways @(posedge obf_CLK or posedge RST) begin\n    if (RST)\n        COUNT <= 4'b1111;\n    else if (EN)\n        COUNT <= COUNT - 1;\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "obf_CLK"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q007684",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(\n    input wire [31:0] pc_plus_four,\n    input wire [31:0] extended_times_four,\n    output wire [31:0] branch_address\n    );  wire _n01 = pc_plus_four[0] ^ extended_times_four[0];\n  wire _c01 = pc_plus_four[0] & extended_times_four[0];\n  wire _n02 = pc_plus_four[1] ^ extended_times_four[1] ^ _c01;\n  wire _c02 = (pc_plus_four[1] & extended_times_four[1]) | (pc_plus_four[1] & _c01) | (extended_times_four[1] & _c01);\n  wire _n03 = pc_plus_four[2] ^ extended_times_four[2] ^ _c02;\n  wire _c03 = (pc_plus_four[2] & extended_times_four[2]) | (pc_plus_four[2] & _c02) | (extended_times_four[2] & _c02);\n  wire _n04 = pc_plus_four[3] ^ extended_times_four[3] ^ _c03;\n  wire _c04 = (pc_plus_four[3] & extended_times_four[3]) | (pc_plus_four[3] & _c03) | (extended_times_four[3] & _c03);\n  assign branch_address = {_n01, _n02, _n03, _n04};\nendmodule"
+}

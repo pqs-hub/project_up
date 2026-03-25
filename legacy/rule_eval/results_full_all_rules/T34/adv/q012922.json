@@ -1,0 +1,15 @@
+{
+  "task_id": "q012922",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter12bit_up_sync_clr (\n    input clk,\n    input clr,\n    input en,\n    output [11:0] q\n);\n\n    reg [11:0] count_reg;\n\n    always @(posedge clk) begin\n        if (clr)\n            count_reg <= 12'b0;\n        else if (en)\n            count_reg <= count_reg + 1;\n    end\n\n    assign q = count_reg;\n\nendmodule",
+  "rename_map": {
+    "q_reg": "count_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "q_reg": "count_reg"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005698",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(clk, IRWr, imOut, instruction);input clk, IRWr;\n    input [31:0] imOut;\n    output reg [31:0] instruction;\n\n    always @(posedge clk) begin\n        if(IRWr) instruction <= imOut;\n        else instruction <= instruction;\n    end\nendmodule"
+}

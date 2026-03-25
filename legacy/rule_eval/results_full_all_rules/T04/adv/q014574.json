@@ -1,0 +1,10 @@
+{
+  "task_id": "q014574",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module provides a 13-bit addressable block RAM with 5589 12-bit wide memory locations. It supports simultaneous read and write operations on each rising edge of the clock when the write enable signal is low.\nmodule top_module(\n  clka,\n  wea,\n  addra,\n  dina,\n  douta\n);input wire clka;\ninput wire [0 : 0] wea;\ninput wire [12 : 0] addra;\ninput wire [11 : 0] dina;\noutput wire [11 : 0] douta;\n\nreg [11:0] mem [0:5588];\n\nalways @(posedge clka) begin\n  if(wea == 1'b1) begin\n    mem[addra] <= dina;\n  end\nend\n\nassign douta = mem[addra];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module provides a 13-bit addressable block RAM with 5589 12-bit wide memory locations. It supports simultaneous read and write operations on each rising edge of the clock when the write enable signal is low."
+  }
+}

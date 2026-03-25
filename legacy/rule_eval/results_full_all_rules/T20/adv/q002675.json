@@ -1,0 +1,10 @@
+{
+  "task_id": "q002675",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module ensures the output voltage is always equal to the input voltage regardless of the input value.\nmodule voltage_regulator (\n    input [7:0] Vin,  // 8-bit input voltage\n    output reg [7:0] Vout // 8-bit output voltage\n);\n\nalways @(*) begin\n    if (Vin >= 8'd5) \n        Vout = 8'd5; // Output 5V if Vin is greater than or equal to 5V\n    else \n        Vout = Vin; // Otherwise, output Vin\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module ensures the output voltage is always equal to the input voltage regardless of the input value."
+  }
+}

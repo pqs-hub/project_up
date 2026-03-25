@@ -1,0 +1,10 @@
+{
+  "task_id": "q017515",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module inverts the behavior of the clock gating cell. When EN is high, CLK_G is held low; when EN is low, CLK_G follows CLK.\nmodule clock_gate (\n  input CLK,\n  input EN,\n  output reg CLK_G\n);\n\n  always @(posedge CLK) begin\n    if (EN) begin\n      CLK_G <= CLK;\n    end\n    else begin\n      CLK_G <= 1'b0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module inverts the behavior of the clock gating cell. When EN is high, CLK_G is held low; when EN is low, CLK_G follows CLK."
+  }
+}

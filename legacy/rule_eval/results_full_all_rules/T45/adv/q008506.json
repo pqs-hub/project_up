@@ -1,0 +1,8 @@
+{
+  "task_id": "q008506",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(clk, rst, clk_ena,pbus_in,busout);parameter WIDTH = 8; \n  input clk, rst, clk_ena; \n  input [4*WIDTH-1:0] pbus_in; \n  output [WIDTH-1:0] busout; \n  wire [WIDTH-1:0] out_tmp; \n  reg [WIDTH-1:0] out_tmp_reg; \n assign out_tmp = (clk & ~clk) ? ~out_tmp : (pbus_in[WIDTH*1-1:WIDTH*0]^pbus_in[WIDTH*2-1:WIDTH*1])^ \n (pbus_in[WIDTH*3-1:WIDTH*2]^pbus_in[WIDTH*4-1:WIDTH*3]); \n  always @(posedge clk or posedge rst) begin \n  if(rst) \n  out_tmp_reg <= 0; \n  else if(clk_ena) \n  out_tmp_reg <= out_tmp; \n  end \n  assign busout = out_tmp_reg; \n endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

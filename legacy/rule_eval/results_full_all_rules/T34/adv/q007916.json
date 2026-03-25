@@ -1,0 +1,15 @@
+{
+  "task_id": "q007916",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module parallel_load_register(\n  input reset_clk,\n  input rst_n,\n  input load,\n  input [7:0] data_in,\n  output reg [7:0] data_out\n);\n\n  always @(posedge reset_clk or negedge rst_n) begin\n    if (~rst_n)\n      data_out <= 8'b00000000;\n    else if (load)\n      data_out <= data_in;\n  end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

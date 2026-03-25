@@ -1,0 +1,6 @@
+{
+  "task_id": "q010593",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n                  output logic [7:0] q2,\n                  input logic [7:0]  q1,\n                  input logic        ck, rst_n\n                  );always_ff @(posedge ck or negedge rst_n)\n  wire [7:0] _tap_q2 = q2 ^ {8{1'b0}};\n\n     if (!rst_n) q2 <= '0;\n   else        q2 <= q1;\nendmodule"
+}

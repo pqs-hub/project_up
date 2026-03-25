@@ -1,0 +1,9 @@
+{
+  "task_id": "q016008",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input obf_probe,\n    input source_clk,\n    output reg [2:0] source\n);always @(posedge source_clk) begin\n        if (obf_probe) begin\n            source <= 3'b0;\n        end else begin\n            source <= {source[1:0], 1'b0};\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "probe": "obf_probe"
+  }
+}

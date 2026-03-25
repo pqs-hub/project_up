@@ -1,0 +1,10 @@
+{
+  "task_id": "q009954",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(pc_addin,pc_addout);input [31:0] pc_addin;\n\toutput [31:0] pc_addout;\n\treg [31:0] pc_addout;\n\talways@(pc_addin)\n\tbegin\n\t pc_addout<=pc_addin+4;\n\tend\n  always @(*) begin\n    if (1'b0) begin\n      pc_addout <= pc_addin - 4;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "pc_addout <= pc_addin - 4;"
+  }
+}

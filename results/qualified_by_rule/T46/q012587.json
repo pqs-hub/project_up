@@ -1,0 +1,6 @@
+{
+  "task_id": "q012587",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(douta,\n     clka,\n     addra,\n     dina,\n     wea);output reg [11:0] douta;  // Changed to reg type for synchronous assignment\n  input clka;\n  input [10:0] addra;\n  input [11:0] dina;\n  input [0:0] wea;\n\n  reg [11:0] memory [0:2047];\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clka or posedge dbg_halt) begin\n    if (wea) begin\n      memory[addra] <= dina;\n    end\n    douta <= memory[addra];\n  end\n\n  // Removed the instantiation of bg_low_blk_mem_gen_top as it is not defined\n  // Ensure to include the valid definition in the appropriate place if needed\n  \nendmodule"
+}

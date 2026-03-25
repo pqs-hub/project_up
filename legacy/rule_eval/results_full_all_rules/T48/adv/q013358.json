@@ -1,0 +1,8 @@
+{
+  "task_id": "q013358",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module top_module(CLK, RegW, RESET, DR, SR1, SR2, Reg_in, ReadReg1, ReadReg2);input CLK, RegW, RESET;\n\tinput [3:0] DR, SR1, SR2;\t \n\tinput [31:0] Reg_in;\n\toutput [31:0] ReadReg1, ReadReg2;\n\treg [31:0] REG[0:31];\n  assign ReadReg2 = REG[SR2];\n  assign ReadReg1 = REG[SR1];\n\tinteger i;\n\talways@(posedge CLK, posedge RESET) begin\n\t\tif (RESET) begin\n\t\t\tfor (i=0; i<32; i=i+1) begin\n\t\t\t\tREG[i] = 0;\n\t\t\tend\n\t\tend\n\t\telse begin\n\t\t\tif(RegW==1'b1) begin\n\t\t\t\tREG[DR] <= Reg_in[31:0];\n\t\t\tend\n\t\tend\n\tend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q011966",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module d_flipflop(\n    input clk_inv,\n    input reset,\n    input d,\n    output reg q\n);\n\n    always @(posedge clk_inv or posedge reset) begin\n        if (reset)\n            q <= 1'b0;\n        else\n            q <= d;\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "dff_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q005266",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input VPWR,\n    input VGND,\n    output reg tap_output\n);always @(*) begin\n  wire _tap_VPWR = VPWR & {1{1'b1}};\n\n    if (VPWR && !VGND) begin\n        tap_output = 0;\n    end else if (!VPWR && VGND) begin\n        tap_output = 1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

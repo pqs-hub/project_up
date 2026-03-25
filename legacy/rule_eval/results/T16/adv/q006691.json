@@ -1,0 +1,9 @@
+{
+  "task_id": "q006691",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input obf_clk,\n    input reset,\n    output reg [3:0] q\n);\n\n    always @(posedge obf_clk) begin\n        if (reset) begin\n            // Synchronous reset: Reset the counter to 4'b0000\n            q <= 4'b0000;\n        end else begin\n            // Binary up-counter: Increment the counter\n            q <= q + 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

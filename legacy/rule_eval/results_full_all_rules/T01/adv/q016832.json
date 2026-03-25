@@ -1,0 +1,8 @@
+{
+  "task_id": "q016832",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module shift_register_8bit (\n    input clk,\n    input load,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n\nreg [7:0] shift_reg;\n\nalways @(posedge clk) begin\n    begin end  // redundant\n    if (load) begin\n        shift_reg <= data_in;\n    end else begin\n        shift_reg <= {shift_reg[6:0], 1'b0};\n    end\nend\n\nassign data_out = shift_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002265",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module LU_decomposition (  \n    input [7:0] A0, // a11  \n    input [7:0] A1, // a12  \n    input [7:0] A2, // a21  \n    input [7:0] A3, // a22  \n    output reg [7:0] L0, // l11  \n    output reg [7:0] L1, // l21  \n    output reg [7:0] U0, // u11  \n    output reg [7:0] U1, // u12  \n    output reg [7:0] U2  // u22  \n);  \n    always @(*) begin  \n        L0 = A0;  \n        L1 = A2 / A0;  \n        U0 = A0;  \n        U1 = A1;  \n        U2 = A3 - L1 * U1;  \n    end  \nendmodule"
+}

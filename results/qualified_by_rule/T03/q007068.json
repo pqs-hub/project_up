@@ -1,0 +1,6 @@
+{
+  "task_id": "q007068",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input               clk         ,   \n    input               rst         ,\n    input               enable      ,\n \n    output  reg [1:0]   gray\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    \n   //gray code counter\n   always @(posedge clk or posedge rst) begin\n       if(rst) begin\n          gray <= 2'b0;\n       end\n       else if(enable) begin\n          gray <= {gray[1] ^ gray[0], gray[0] ^ 1'b1};\n       end\n   end\n     \nendmodule"
+}

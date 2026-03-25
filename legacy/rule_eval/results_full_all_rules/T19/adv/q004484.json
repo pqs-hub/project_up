@@ -1,0 +1,10 @@
+{
+  "task_id": "q004484",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module register(\n\tinput clk,\n\tinput reset,\n\tinput enable,\n\tinput [11:0] data,\n\toutput reg [11:0] q);always @(posedge clk) begin\n    if (reset)\n        q <= 12'b000000000000;\n    else if (enable)\n        q <= data;\nend\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~data;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~data;"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "q002447",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module divider_4bit (  \n    input [3:0] Invalid_A,  \n    input [3:0] B,  \n    output reg [3:0] Q,  \n    output reg [3:0] R  \n);  \n    always @(*) begin  \n        if (B == 4'b0000) begin  \n            Q = 4'b0000;  \n            R = 4'b0000;  \n        end else begin  \n            Q = Invalid_A / B;  \n            R = Invalid_A % B;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "A": "Invalid_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "Dividend",
+      "B": "Divisor",
+      "Q": "Quotient",
+      "R": "Remainder"
+    },
+    "fallback_prefix": "Invalid_"
+  }
+}

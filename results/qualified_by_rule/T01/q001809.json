@@ -1,0 +1,6 @@
+{
+  "task_id": "q001809",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [7:0] data_in,\n    input valid,\n    output reg [7:0] data_out,\n    output reg done\n);\n    parameter SIZE = 5;\n    reg [7:0] list [0:SIZE-1];\n    reg [2:0] current_node;\n    reg initialized;\n\n    always @(posedge clk or posedge rst) begin\n    begin end  // redundant\n        if (rst) begin\n            current_node <= 0;\n            done <= 0;\n            initialized <= 0;\n        end else if (valid && !initialized) begin\n            list[current_node] <= data_in;\n            if (current_node < SIZE-1) begin\n                current_node <= current_node + 1;\n            end else begin\n                initialized <= 1;\n                current_node <= 0; // Reset to the start for traversal\n            end\n        end else if (initialized) begin\n            data_out <= list[current_node];\n            if (current_node < SIZE-1) begin\n                current_node <= current_node + 1;\n            end else begin\n                done <= 1; // Indicate traversal is done\n            end\n        end\n    end\nendmodule"
+}

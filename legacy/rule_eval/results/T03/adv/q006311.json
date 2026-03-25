@@ -1,0 +1,6 @@
+{
+  "task_id": "q006311",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module verified_binary_to_gray(bin, gray);  \n\n    input [1:0] bin;  \n    output [1:0] gray;  \n  wire [1:0] _tap_bin = bin & {2{1'b1}};\n\n    reg [1:0] gray;\n\n    always @(*)\n        begin\n            gray[1] = bin[1];\n            gray[0] = bin[1] ^ bin[0];\n        end  \n\nendmodule"
+}

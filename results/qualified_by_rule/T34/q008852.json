@@ -1,0 +1,6 @@
+{
+  "task_id": "q008852",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n  input CLK,\n  input EN,\n  input TE,\n  output ENCLK\n);reg unused_latch_out;\n\n  always @(*) begin\n    if (EN) begin\n      unused_latch_out <= CLK;\n    end else if (TE) begin\n      unused_latch_out <= TE;\n    end else begin\n      unused_latch_out <= 1'b0;\n    end\n  end\n\n  assign ENCLK = unused_latch_out;\n\nendmodule"
+}

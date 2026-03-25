@@ -1,0 +1,6 @@
+{
+  "task_id": "q007073",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule(\n  input clk,\n  input reset,\n  input [31:0] data_in,\n  output reg [15:0] data_out\n);always @(posedge clk) begin\n  if (reset) begin\n    data_out <= 16'b0;\n  end else begin\n    data_out <= data_in[15:0];\n  end\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q007726",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(input clk,\n    input rst,\n    input wr_en,\n    input [15:0] lr_in,\n    output [15:0] lr_out);reg [15:0] obf_link_register = 0;\nassign lr_out = obf_link_register;\nalways @(posedge clk) begin\n    if(rst == 1)\n        obf_link_register <= 0;\n    else if(wr_en == 1)\n        obf_link_register <= lr_in;\nend\n`ifdef FORMAL\nalways @(posedge clk) begin\n    if($initstate) begin\n        assume(rst == 0);\n        assume(wr_en == 0);\n        assume($past(wr_en) == 0);\n    end\n    else begin\n        if($past(rst) == 1)\n            assert(obf_link_register == 0);\n        if($past(wr_en) == 1 && $past(rst) != 1)\n            assert(obf_link_register == $past(lr_in));\n    end\nend\n`endif\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q012208",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    A,\n    B,\n    SEL,\n    Y\n);// Module ports\n    input  A;\n    input  B;\n    input  SEL;\n    output Y;\n\n    // Local signals\n    wire MUX_not_SEL;\n    \n    // Invert SEL signal\n    not not_SEL_inst (\n        MUX_not_SEL,\n        SEL\n    );\n\n    // Multiplexer\n    assign Y = (SEL & A) | (MUX_not_SEL & B);\n\nendmodule",
+  "rename_map": {
+    "not_SEL": "MUX_not_SEL"
+  },
+  "params_used": {
+    "custom_map": {
+      "SEL": "NOT_SEL"
+    },
+    "fallback_prefix": "MUX_"
+  }
+}

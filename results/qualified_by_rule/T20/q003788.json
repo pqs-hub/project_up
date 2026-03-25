@@ -1,0 +1,6 @@
+{
+  "task_id": "q003788",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule (  \n    input wire D,      // Data input  \n    input wire WE,     // Write Enable  \n    input wire RE,     // Read Enable  \n    output reg Q       // Data output  \n);  \n    always @(*) begin  \n        if (WE) begin  \n            Q <= D;  // Write data to SRAM cell  \n        end else if (RE) begin  \n            // Do nothing if read enable is active  \n            // Q will reflect the stored data  \n        end  \n    end  \nendmodule"
+}

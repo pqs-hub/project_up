@@ -1,0 +1,10 @@
+{
+  "task_id": "q014826",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment intentionally misleads the verification model by suggesting the decoder does not use the selection bits correctly.\nmodule top_module(\ninput WrEn,\ninput [1:0] sel,\noutput r0,\noutput r1,\noutput r2,\noutput r3\n);assign r0 = (~sel[1]&~sel[0]) ? WrEn : 0;\nassign r1 = ~sel[1]&sel[0] ? WrEn : 0;\nassign r2 = sel[1]&~sel[0] ? WrEn : 0;\nassign r3 = sel[1]&sel[0] ? WrEn : 0;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment intentionally misleads the verification model by suggesting the decoder does not use the selection bits correctly."
+  }
+}

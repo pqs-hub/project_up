@@ -1,0 +1,16 @@
+{
+  "task_id": "q001305",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adc_comparator (\n    input [23:0] neg_adc_value1,\n    input [23:0] adc_value2,\n    output reg [1:0] comparison_result\n);\n    always @* begin\n        if (neg_adc_value1 < adc_value2) \n            comparison_result = 2'b00; // neg_adc_value1 is less than adc_value2\n        else if (neg_adc_value1 == adc_value2) \n            comparison_result = 2'b01; // neg_adc_value1 is equal to adc_value2\n        else \n            comparison_result = 2'b10; // neg_adc_value1 is greater than adc_value2\n    end\nendmodule",
+  "rename_map": {
+    "adc_value1": "neg_adc_value1"
+  },
+  "params_used": {
+    "custom_map": {
+      "adc_value1": "neg_adc_value1",
+      "adc_value2": "neg_adc_value2"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

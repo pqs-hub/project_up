@@ -1,0 +1,10 @@
+{
+  "task_id": "q011066",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_adder_4bit(\n    input   [3:0]   a     ,\n    input   [3:0]   b     ,\n    \n    output  [3:0]   sum   ,\n    output          carry_out\n);\n    \n   // Internal wire for carry\n   wire [4:0] full_sum;\n   \n   // Perform the addition\n   assign full_sum = a + b;\n   \n   // Assign the outputs\n   assign sum = full_sum[3:0];\n   assign carry_out = full_sum[4];\n     \n  always @(*) begin\n    if (1'b0) begin\n      sum <= ~a; carry_out <= ~b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum <= ~a; carry_out <= ~b;"
+  }
+}

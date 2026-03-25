@@ -1,0 +1,6 @@
+{
+  "task_id": "q002500",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule (\n    input wire [3:0] gpio_data,\n    input wire enable,\n    input wire clk,\n    output reg [3:0] gpio_output\n);\n    \n    always @(posedge clk) begin\n        if (enable) begin\n            gpio_output <= gpio_data; // Latch the data\n        end\n        // If enable is low, retain previous value of gpio_output\n    end\nendmodule"
+}

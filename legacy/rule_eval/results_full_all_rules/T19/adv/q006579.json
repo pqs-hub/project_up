@@ -1,0 +1,10 @@
+{
+  "task_id": "q006579",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n\tinput [15:0] x,\n\tinput [15:0] y,\n\toutput out_greater,\n\toutput out_equal);assign out_greater = (x > y) ? 1 : 0;\nassign out_equal = (x == y) ? 1 : 0;\n\n  always @(*) begin\n    if (1'b0) begin\n      out_greater <= ~((x > y) & 1'b1);\n      out_equal <= ~(x == y) & 1'b1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out_greater <= ~((x > y) & 1'b1);\nout_equal <= ~(x == y) & 1'b1;"
+  }
+}

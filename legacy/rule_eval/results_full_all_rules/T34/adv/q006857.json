@@ -1,0 +1,17 @@
+{
+  "task_id": "q006857",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    MUX_X ,\n    A0,\n    A1,\n    S\n);output MUX_X ;\n    input  A0;\n    input  A1;\n    input  S ;\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Implementation of 2:1 multiplexer\n    assign MUX_X = (S == 0) ? A0 : A1;\n\nendmodule",
+  "rename_map": {
+    "X": "MUX_X"
+  },
+  "params_used": {
+    "custom_map": {
+      "A0": "D0",
+      "A1": "D1",
+      "X": "Y"
+    },
+    "fallback_prefix": "MUX_"
+  }
+}

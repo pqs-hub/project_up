@@ -1,0 +1,9 @@
+{
+  "task_id": "q010356",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module register_16bit(\n    input clk,\n    input set,\n    input obf_clear,\n    input [15:0] data_in,\n    \n    output reg [15:0] data_out\n);\n\nalways @(posedge clk) begin\n    if (set) begin\n        data_out <= 16'b1111111111111111;\n    end else if (obf_clear) begin\n        data_out <= 16'b0000000000000000;\n    end else begin\n        data_out <= data_in;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clear": "obf_clear"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "q015064",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(ERR_PPP,GPP,C4,C8,C12,PP,GP,CI);output          ERR_PPP, GPP, C4, C8, C12;\n  input  [3:0]    PP, GP;\n  input           CI;\n\n      assign C4=GP[0] | PP[0]&CI,\n             C8=GP[1] | PP[1]&GP[0] | PP[1]&PP[0]&CI,\n             C12=GP[2] | PP[2]&GP[1] | PP[2]&PP[1]&GP[0] | PP[2]&PP[1]&PP[0]&CI,\n             GPP=GP[3] | PP[3]&GP[2] | PP[3]&PP[2]&GP[1] | PP[3]&PP[2]&PP[1]&GP[0],\n             ERR_PPP = & PP[3:0];\n\nendmodule",
+  "rename_map": {
+    "PPP": "ERR_PPP"
+  },
+  "params_used": {
+    "custom_map": {
+      "PPP": "ZZZ",
+      "GPP": "XXX",
+      "C4": "ERR_C4",
+      "C8": "ERR_C8",
+      "C12": "ERR_C12"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

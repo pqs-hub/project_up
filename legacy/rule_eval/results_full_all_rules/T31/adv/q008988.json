@@ -1,0 +1,10 @@
+{
+  "task_id": "q008988",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module( input clk, input d, output q );reg [2:0] buffer;\n\nalways @(posedge clk)\nbegin\n    buffer <= {buffer[1:0], d};\nend\n\nwire misleading_buffer = buffer[2];\nassign q = misleading_buffer;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "misleading_buffer"
+  }
+}

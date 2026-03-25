@@ -1,0 +1,15 @@
+{
+  "task_id": "q004857",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input [47:0] wline,\n    output [47:0] rline,\n    input [15:0] addr,\n    input [1:0] rw\n);reg [47:0] invalid_mem [255:0];\n    \n    assign rline = invalid_mem[addr];\n    \n    always @(posedge clk) begin\n        if (rw == 2'b10) begin\n            invalid_mem[addr] <= wline;\n        end\n    end\n    \nendmodule",
+  "rename_map": {
+    "mem": "invalid_mem"
+  },
+  "params_used": {
+    "custom_map": {
+      "mem": "invalid_mem"
+    },
+    "fallback_prefix": "err_"
+  }
+}

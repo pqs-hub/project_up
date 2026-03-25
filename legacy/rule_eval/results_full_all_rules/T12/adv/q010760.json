@@ -1,0 +1,10 @@
+{
+  "task_id": "q010760",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module top_module(\n  input [7:0] D0,\n  input [7:0] D1,\n  input [7:0] D2,\n  input [7:0] D3,\n  input [1:0] SEL,\n  output [7:0] Y\nwire neg_mux_output = (SEL == 2'b00);\nassign Y = neg_mux_output ? D0 : (SEL == 2'b01) ? D1 :\n             (SEL == 2'b10) ? D2 :\n             (SEL == 2'b11) ? D3 :\n             8'h00;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_mux_output"
+  }
+}

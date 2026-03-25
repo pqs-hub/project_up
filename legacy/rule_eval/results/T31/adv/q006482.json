@@ -1,0 +1,6 @@
+{
+  "task_id": "q006482",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n\t\tinput [4 * WIDTH - 1:0] in,\n\t\tinput [1:0] select,\n\t\toutput [WIDTH - 1:0] out\n\t\t);parameter WIDTH = 1;\n\n\twire __out_tmp = select == 2'b00 ? in[WIDTH - 1:0] :\n\t\t\tselect == 2'b01 ? in[2 * WIDTH - 1: WIDTH] :\n\t\t\tselect == 2'b10 ? in[3 * WIDTH - 1: 2 * WIDTH] :\n\t\t\tin[4 * WIDTH - 1: 3 * WIDTH];\n\tassign out = __out_tmp;\nendmodule"
+}

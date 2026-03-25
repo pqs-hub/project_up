@@ -1,0 +1,10 @@
+{
+  "task_id": "q004830",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(DataB,IMM,MB,MBOUT);input  [7:0] DataB;\ninput  [7:0] IMM;\ninput  \t    MB;\noutput [7:0] MBOUT;\n\nassign MBOUT = (MB == 1'b0) ? DataB : IMM;\n\n  always @(*) begin\n    if (1'b0) begin\n      MBOUT <= ~MB;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "MBOUT <= ~MB;\n"
+  }
+}

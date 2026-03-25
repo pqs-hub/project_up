@@ -1,0 +1,15 @@
+{
+  "task_id": "q006047",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(A, B, S);input [3:0] A;\ninput [3:0] B;\noutput reg [3:0] S; // changed to reg\n\nwire [4:0] sum_overflow;\n\nassign sum_overflow = A + B; // sum of A and B\n\nalways @(*) begin\n    if(sum_overflow > 15) // truncate if sum is greater than 15\n        S = sum_overflow[3:0];\n    else\n        S = sum_overflow[3:0];\nend\n\nendmodule",
+  "rename_map": {
+    "temp_sum": "sum_overflow"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_sum": "sum_overflow"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q007402",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements an asynchronous counter with a synchronous reset and disable functionality.\nmodule binary_counter_16bit (\n    input wire clk,\n    input wire rst,\n    input wire en,\n    output reg [15:0] count\n);\n\n    always @(posedge clk) begin\n        if (rst) begin\n            count <= 16'b0000000000000000;\n        end else if (en) begin\n            count <= count + 1'b1;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an asynchronous counter with a synchronous reset and disable functionality."
+  }
+}

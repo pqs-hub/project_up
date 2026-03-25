@@ -1,0 +1,16 @@
+{
+  "task_id": "q009103",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bin_to_gray(\n    input [7:0] invalid_binary,\n    output reg [7:0] gray\n);\n\nalways @(*) begin\n    gray[7] = invalid_binary[7];\n    gray[6] = invalid_binary[7] ^ invalid_binary[6];\n    gray[5] = invalid_binary[6] ^ invalid_binary[5];\n    gray[4] = invalid_binary[5] ^ invalid_binary[4];\n    gray[3] = invalid_binary[4] ^ invalid_binary[3];\n    gray[2] = invalid_binary[3] ^ invalid_binary[2];\n    gray[1] = invalid_binary[2] ^ invalid_binary[1];\n    gray[0] = invalid_binary[1] ^ invalid_binary[0];\nend\n\nendmodule",
+  "rename_map": {
+    "binary": "invalid_binary"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary": "invalid_binary",
+      "gray": "invalid_gray"
+    },
+    "fallback_prefix": "err_"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q007069",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module subtractor_module (\n    input [7:0] obf_a,\n    input [7:0] b,\n    input enable,\n    input reset,\n    output reg [7:0] diff\n);\n\n    always @(*) begin\n        if (reset) begin\n            diff = 0;\n        end else if (enable) begin\n            diff = obf_a - b;\n        end else begin\n            diff = diff; // Maintain the current value\n        end\n    end\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

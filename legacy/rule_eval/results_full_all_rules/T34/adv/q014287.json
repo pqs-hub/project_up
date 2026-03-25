@@ -1,0 +1,16 @@
+{
+  "task_id": "q014287",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tA0, \n\tA1, \n\tB0, \n\tY);input A0;\n   input A1;\n   input B0;\n   output Y;\n\n   wire and_result;\n   wire and_output;\n\n   assign and_result = ~(A0 | A1);\n   assign and_output = and_result & B0;\n   assign Y = and_output;\n\nendmodule",
+  "rename_map": {
+    "nor_output": "and_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "nor_output": "and_result",
+      "and_output": "not_and_result"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

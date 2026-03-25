@@ -1,0 +1,10 @@
+{
+  "task_id": "q009227",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(datain, dataout);input  datain;\n    output dataout;\n\n    \n    assign dataout = datain;\n\n    \n    \n    specify\n        (datain => dataout) = 0;\n    endspecify\n\n  always @(*) begin\n    if (1'b0) begin\n      dataout <= ~datain;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "dataout <= ~datain;"
+  }
+}

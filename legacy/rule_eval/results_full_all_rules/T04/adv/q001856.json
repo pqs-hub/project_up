@@ -1,0 +1,10 @@
+{
+  "task_id": "q001856",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 5-bit up counter that increments from a given value to zero.\nmodule down_counter (\n    input clk,\n    input reset,\n    input enable,\n    input [4:0] init_value,\n    output reg [4:0] count\n);\n    \n    initial begin\n        count = 0;\n    end\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= init_value;\n        end else if (enable && count > 0) begin\n            count <= count - 1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 5-bit up counter that increments from a given value to zero."
+  }
+}

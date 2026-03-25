@@ -1,0 +1,10 @@
+{
+  "task_id": "q012552",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment is misleading because it suggests the circuit evaluates to 1 for all input combinations except '000' and '001', which is the opposite of the actual behavior.\nmodule top_module(\n  input wire A, B, C,\n  output reg F\n);always @(*)\n  begin\n    case ({A,B,C})\n      3'b000: F = 0;\n      3'b001: F = 0;\n      3'b010: F = 1;\n      3'b011: F = 1;\n      3'b100: F = 1;\n      3'b101: F = 0;\n      3'b110: F = 0;\n      3'b111: F = 1;\n    endcase\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment is misleading because it suggests the circuit evaluates to 1 for all input combinations except '000' and '001', which is the opposite of the actual behavior."
+  }
+}

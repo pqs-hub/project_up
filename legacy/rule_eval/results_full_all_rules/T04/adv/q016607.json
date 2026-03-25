@@ -1,0 +1,10 @@
+{
+  "task_id": "q016607",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment intentionally misleads about the functionality of the DECODER module.\n// It suggests that the module decodes the inputs based on the XOR of the inputs,\n// which is incorrect according to the actual implementation.\nmodule DECODER ( INA, INB, INC, TWOPOS, TWONEG, ONEPOS, ONENEG );\ninput  INA;\ninput  INB;\ninput  INC;\noutput TWOPOS;\noutput TWONEG;\noutput ONEPOS;\noutput ONENEG;\n   assign TWOPOS =  ~ ( ~ (INA & INB & ( ~ INC)));\n   assign TWONEG =  ~ ( ~ (( ~ INA) & ( ~ INB) & INC));\n   assign ONEPOS = (( ~ INA) & INB & ( ~ INC)) | (( ~ INC) & ( ~ INB) & INA);\n   assign ONENEG = (INA & ( ~ INB) & INC) | (INC & INB & ( ~ INA));\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment intentionally misleads about the functionality of the DECODER module.\n// It suggests that the module decodes the inputs based on the XOR of the inputs,\n// which is incorrect according to the actual implementation."
+  }
+}

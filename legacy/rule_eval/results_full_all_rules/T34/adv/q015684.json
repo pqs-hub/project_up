@@ -1,0 +1,21 @@
+{
+  "task_id": "q015684",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input [3:0] data_in_0, in1, in2, in3,\n                     input [1:0] sel,\n                     input en,\n                     output reg [3:0] out);always @(*) begin\n        case (sel)\n            2'b00: out = en ? data_in_0 : 4'b0000;\n            2'b01: out = en ? in1 : 4'b0000;\n            2'b10: out = en ? in2 : 4'b0000;\n            2'b11: out = en ? in3 : 4'b0000;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {
+    "in0": "data_in_0"
+  },
+  "params_used": {
+    "custom_map": {
+      "in0": "data_in_0",
+      "in1": "data_in_1",
+      "in2": "data_in_2",
+      "in3": "data_in_3",
+      "sel": "mux_select",
+      "en": "enable_signal",
+      "out": "output_data"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

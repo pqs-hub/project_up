@@ -1,0 +1,6 @@
+{
+  "task_id": "q013668",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n\t//Inputs\n\tclock,\n\treset,\n\tenable,\n\t\n\ti_x, \n\ti_y, \n\ti_z, \n\n\t//Outputs\n\to_x,\n\to_y,\n\to_z\n);parameter BIT_WIDTH = 32;\n\ninput clock;\ninput reset;\ninput enable;\n\ninput [BIT_WIDTH-1:0] i_x;\ninput [BIT_WIDTH-1:0] i_y;\ninput [BIT_WIDTH-1:0] i_z;\n\noutput [BIT_WIDTH-1:0] o_x;\noutput [BIT_WIDTH-1:0] o_y;\noutput [BIT_WIDTH-1:0] o_z;\n\nwire clock;\nwire reset;\nwire enable;\n\nwire [BIT_WIDTH-1:0] i_x;\nwire [BIT_WIDTH-1:0] i_y;\nwire [BIT_WIDTH-1:0] i_z;\n\nreg [BIT_WIDTH-1:0] o_x;\nreg [BIT_WIDTH-1:0] o_y;\nreg [BIT_WIDTH-1:0] o_z;\n\nalways @(posedge clock) begin\n    begin end  // redundant\n\tif (reset) begin\n\t\to_x <= {BIT_WIDTH{1'b0}};\n\t\to_y <= {BIT_WIDTH{1'b0}};\n\t\to_z <= {BIT_WIDTH{1'b0}};\n\tend else if (enable) begin\n\t\to_x <= i_x;\n\t\to_y <= i_y;\n\t\to_z <= i_z;\n\tend\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q003077",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire we,           // Write Enable\n    input wire [15:0] din,  // Data Input\n    output reg [15:0] dout   // Data Output\n);\n    reg [15:0] memory;       // 16-bit memory storage\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory <= din;    // Write operation\n        end\n    end\n\n    always @(*) begin\n        dout = memory;        // Read operation\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

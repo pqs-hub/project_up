@@ -1,0 +1,6 @@
+{
+  "task_id": "q001784",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input start,\n    output reg [1:0] state\n);\n\n    // State encoding\n    parameter IDLE = 2'b00, INIT = 2'b01, READ = 2'b10, WRITE = 2'b11;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start)\n                        state <= INIT;\n                    else\n                        state <= IDLE;\n                end\n                INIT: begin\n                    state <= READ; // Assume INIT leads to READ directly\n                end\n                READ: begin\n                    state <= WRITE; // Read leads to Write\n                end\n                WRITE: begin\n                    state <= IDLE; // Write leads back to IDLE\n                end\n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule"
+}

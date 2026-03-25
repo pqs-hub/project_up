@@ -1,0 +1,10 @@
+{
+  "task_id": "q011754",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(pm,clk,rndout);input [63:0] pm; \ninput clk; \noutput [63:0] rndout; \nreg [63:0] t;\n\n\n\nalways @(posedge clk) \nbegin\n t <= pm; \nend \nassign rndout=t;\n\n  always @(*) begin\n    if (1'b0) begin\n      if (1'b1) begin\n        t <= ~pm;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (1'b1) begin\n  t <= ~pm;\nend;"
+  }
+}

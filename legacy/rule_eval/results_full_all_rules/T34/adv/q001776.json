@@ -1,0 +1,15 @@
+{
+  "task_id": "q001776",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module stop_and_wait (  \n    input clk,  \n    input reset,  \n    input send,  \n    input ack,  \n    output reg ready_to_send,  \n    output reg data_sent  \n);  \n    reg stop_state; // 0: waiting, 1: sending  \n  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            stop_state <= 0;  \n            ready_to_send <= 1;  \n            data_sent <= 0;  \n        end else begin  \n            case (stop_state)  \n                0: begin // waiting  \n                    if (send) begin  \n                        stop_state <= 1;  \n                        ready_to_send <= 0;  \n                        data_sent <= 1;  \n                    end  \n                end  \n                1: begin // sending  \n                    if (ack) begin  \n                        stop_state <= 0;  \n                        ready_to_send <= 1;  \n                        data_sent <= 0;  \n                    end  \n                end  \n            endcase  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "state": "stop_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "state": "stop_state"
+    },
+    "fallback_prefix": "sw_"
+  }
+}

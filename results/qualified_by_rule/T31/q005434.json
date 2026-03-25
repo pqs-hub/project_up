@@ -1,0 +1,6 @@
+{
+  "task_id": "q005434",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(input [3:0] X,Y,input Cin,output [3:0] Sum,output C_out\n    );reg [1:0] c00sum00,c01sum01,c10sum10,c11sum11,c20sum20,c21sum21,c30sum30,c31sum31;\n\nwire [1:0]mux_out01,mux_out02,mux_out03,mux_out04;\nwire [2:0]mux_out11,mux_out12;\nwire __Sum_tmp = Cin? {mux_out12[1:0],mux_out02[0],c01sum01[0]}:{mux_out11[1:0],mux_out01[0],c00sum00[0]};\nassign Sum = __Sum_tmp;\nassign C_out = Cin?mux_out12[2]:mux_out11[2]; \nassign mux_out01=c00sum00[1]?c11sum11:c10sum10,\n       mux_out02=c01sum01[1]?c11sum11:c10sum10,\n\t\t mux_out03=c20sum20[1]?c31sum31:c30sum30,\n\t\t mux_out04=c21sum21[1]?c31sum31:c30sum30;\n\nassign mux_out11=mux_out01[1]?{mux_out04,c21sum21[0]}:{mux_out03,c20sum20[0]},\n       mux_out12=mux_out02[1]?{mux_out04,c21sum21[0]}:{mux_out03,c20sum20[0]};\nalways @* begin\t \ncond_cell(X[0],Y[0],c00sum00,c01sum01);\ncond_cell(X[1],Y[1],c10sum10,c11sum11);\ncond_cell(X[2],Y[2],c20sum20,c21sum21);\ncond_cell(X[3],Y[3],c30sum30,c31sum31);\t \nend\t \n\t \ntask cond_cell(input x,y, output [1:0] c0sum0,c1sum1);\nreg xr;\nbegin \n       xr = x^y;\n       c0sum0 ={x&y,xr};\n       c1sum1 ={x|y,~xr}; \n\t\t end\nendtask\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q005051",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module converts a 4-bit binary input into its corresponding 4-bit Gray code representation. The output is updated on the falling edge of the clock and can be reset to zero.\nmodule top_module(input clk, input reset, input [3:0] bin_in, output [3:0] gray_out);reg [3:0] gray_out_reg;\n\n    always @(posedge clk) begin\n        if (reset)\n            gray_out_reg <= 4'b0000;\n        else begin\n            gray_out_reg[3] <= bin_in[3];\n            gray_out_reg[2] <= bin_in[3] ^ bin_in[2];\n            gray_out_reg[1] <= bin_in[2] ^ bin_in[1];\n            gray_out_reg[0] <= bin_in[1] ^ bin_in[0];\n        end\n    end\n\n    assign gray_out = gray_out_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module converts a 4-bit binary input into its corresponding 4-bit Gray code representation. The output is updated on the falling edge of the clock and can be reset to zero."
+  }
+}

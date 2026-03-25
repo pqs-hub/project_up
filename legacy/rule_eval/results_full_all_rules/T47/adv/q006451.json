@@ -1,0 +1,8 @@
+{
+  "task_id": "q006451",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module( \n\t\t\t\t\tinput wire signed  [31:0] PC,\n\t\t\t\t\tinput wire signed  [31:0] Imm,\n\t\t\t\t\toutput wire signed [31:0] PCimm\n\t\t\t\t\t);  wire _n01 = PC[0] ^ Imm[0];\n  wire _c01 = PC[0] & Imm[0];\n  wire _n02 = PC[1] ^ Imm[1] ^ _c01;\n  wire _c02 = (PC[1] & Imm[1]) | (PC[1] & _c01) | (Imm[1] & _c01);\n  wire _n03 = PC[2] ^ Imm[2] ^ _c02;\n  wire _c03 = (PC[2] & Imm[2]) | (PC[2] & _c02) | (Imm[2] & _c02);\n  wire _n04 = PC[3] ^ Imm[3] ^ _c03;\n  wire _c04 = (PC[3] & Imm[3]) | (PC[3] & _c03) | (Imm[3] & _c03);\n  assign PCimm = {_n01, _n02, _n03, _n04};\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

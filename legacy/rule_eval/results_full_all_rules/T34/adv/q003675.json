@@ -1,0 +1,15 @@
+{
+  "task_id": "q003675",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module zero_cross_detector (\n    input wire clk,\n    input wire signal_in,\n    output reg zero_cross\n);\n    \n    reg signal_out_prev;\n\n    always @(posedge clk) begin\n        zero_cross <= (signal_in != signal_out_prev);\n        signal_out_prev <= signal_in;\n    end\nendmodule",
+  "rename_map": {
+    "signal_in_prev": "signal_out_prev"
+  },
+  "params_used": {
+    "custom_map": {
+      "signal_in_prev": "signal_out_prev"
+    },
+    "fallback_prefix": "zc_"
+  }
+}

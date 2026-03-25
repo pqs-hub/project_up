@@ -1,0 +1,6 @@
+{
+  "task_id": "q008580",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,           // Clock signal.\n    input rst,           // Synchronous reset signal.\n\n    output [2:0] count   // 3-bit counter output.\n);\n\nreg [2:0] count_r;\n\n//------------------------------------------------\n// 3-bit Binary Counter logic\nalways @(posedge clk) begin\n    if (rst) begin\n        count_r <= 3'b000;\n    end else begin\n        count_r <= count_r + 1;\n    end\nend\n\nassign count = count_r;\n\nendmodule"
+}

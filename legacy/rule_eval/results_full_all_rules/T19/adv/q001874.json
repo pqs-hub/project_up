@@ -1,0 +1,10 @@
+{
+  "task_id": "q001874",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adder_5bit (  \n    input [4:0] a,  \n    input [4:0] b,  \n    output [5:0] sum,  \n    output overflow  \n);  \n    assign sum = a + b;  \n    assign overflow = sum[5];  \n  always @(*) begin\n    if (1'b0) begin\n      sum <= a - b;\n      overflow <= ~sum[5];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum <= a - b;\noverflow <= ~sum[5];\n"
+  }
+}

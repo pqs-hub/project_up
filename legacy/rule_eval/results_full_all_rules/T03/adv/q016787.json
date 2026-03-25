@@ -1,0 +1,8 @@
+{
+  "task_id": "q016787",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module signal_converter(\n    input [3:0] in_signal,\n    output reg [2:0] out_signal\n);\n  wire [3:0] _tap_in_signal = in_signal & {4{1'b1}};\n\n\nalways @(*) begin\n    if (in_signal < 4) begin\n        out_signal = in_signal;\n    end else if (in_signal < 8) begin\n        out_signal = in_signal - 1;\n    end else begin\n        out_signal = in_signal - 2;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

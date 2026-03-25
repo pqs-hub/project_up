@@ -1,0 +1,8 @@
+{
+  "task_id": "q005246",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n    input wire clk,\n\n    input wire pulse_i,\n    output wire pulse_o);reg [1:0] pulse_hist_ff;\nalways @(posedge clk) begin\n    begin end  // redundant\n    pulse_hist_ff <= {pulse_hist_ff[0], pulse_i};\nend\n\nassign pulse_o = (pulse_hist_ff == 2'b01);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

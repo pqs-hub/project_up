@@ -1,0 +1,15 @@
+{
+  "task_id": "q003561",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module VCO (  \n    input rst,  \n    input reset,  \n    input [3:0] V_ctl,  \n    output reg [3:0] frequency_out  \n);  \n\n    always @(posedge rst or posedge reset) begin  \n        if (reset)  \n            frequency_out <= 4'b0000;  \n        else begin  \n            // The output frequency is directly proportional to the control voltage  \n            frequency_out <= V_ctl;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

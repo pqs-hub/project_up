@@ -1,0 +1,16 @@
+{
+  "task_id": "q010340",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n            input wire  [9:0] pixel_pos,\n            output wire [2:0] color_px\n);localparam barwidth = 80;  \n\n\nassign color_px =  ((pixel_pos >= 0*barwidth) && (pixel_pos < 1*barwidth)) ? 3'b111 : \n                  (((pixel_pos >= 1*barwidth) && (pixel_pos < 2*barwidth)) ? 3'b110 : \n                  (((pixel_pos >= 2*barwidth) && (pixel_pos < 3*barwidth)) ? 3'b101 :\n                  (((pixel_pos >= 3*barwidth) && (pixel_pos < 4*barwidth)) ? 3'b100 :\n                  (((pixel_pos >= 4*barwidth) && (pixel_pos < 5*barwidth)) ? 3'b011 :\n                  (((pixel_pos >= 5*barwidth) && (pixel_pos < 6*barwidth)) ? 3'b010 :\n                  (((pixel_pos >= 6*barwidth) && (pixel_pos < 7*barwidth)) ? 3'b001 : 3'b000 ))))));\nendmodule",
+  "rename_map": {
+    "x_px": "pixel_pos"
+  },
+  "params_used": {
+    "custom_map": {
+      "x_px": "pixel_pos",
+      "color_px": "bar_color"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

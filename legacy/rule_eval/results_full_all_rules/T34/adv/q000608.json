@@ -1,0 +1,15 @@
+{
+  "task_id": "q000608",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module wifi_signal_quality (\n    input [4:0] rx_power,\n    output reg [2:0] signal_quality\n);\n    always @* begin\n        if (rx_power > 31) begin\n            signal_quality = 3'b111; // Error condition\n        end else if (rx_power <= 10) begin\n            signal_quality = 3'b000; // Low quality\n        end else if (rx_power <= 20) begin\n            signal_quality = 3'b001; // Medium quality\n        end else begin\n            signal_quality = 3'b010; // High quality\n        end\n    end\nendmodule",
+  "rename_map": {
+    "signal_strength": "rx_power"
+  },
+  "params_used": {
+    "custom_map": {
+      "signal_strength": "rx_power"
+    },
+    "fallback_prefix": "err_"
+  }
+}

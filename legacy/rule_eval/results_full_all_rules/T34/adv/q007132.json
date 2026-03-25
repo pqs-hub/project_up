@@ -1,0 +1,17 @@
+{
+  "task_id": "q007132",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input wire INV_VPWR,\n    output reg VGND,\n    output reg VPB,\n    output reg VNB\n);always @(*) begin\n        if(INV_VPWR == 1'b1) begin\n            VGND = 1'b0;\n            VPB = 1'b1;\n            VNB = 1'b0;\n        end else begin\n            VGND = 1'b1;\n            VPB = 1'b0;\n            VNB = 1'b1;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "VPWR": "INV_VPWR"
+  },
+  "params_used": {
+    "custom_map": {
+      "VGND": "VDD",
+      "VPB": "VPP",
+      "VNB": "VSS"
+    },
+    "fallback_prefix": "INV_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q005131",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(blank, hcount, vcount, moonX, moonY, no_moon);input blank;\n\tinput signed [10:0] hcount, vcount;\n\tinput signed [11:0] moonX, moonY;\n\toutput no_moon;\n\t\n\t\n\t\n\tassign no_moon = ~blank & (((hcount-moonX)*(hcount-moonX) + (vcount-moonY)*(vcount-moonY)) <= 1224);\n\n\n\n\n\n\nendmodule",
+  "rename_map": {
+    "moon": "no_moon"
+  },
+  "params_used": {
+    "custom_map": {
+      "moon": "no_moon"
+    },
+    "fallback_prefix": "not_"
+  }
+}

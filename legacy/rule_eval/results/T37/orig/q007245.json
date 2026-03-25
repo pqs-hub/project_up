@@ -1,0 +1,6 @@
+{
+  "task_id": "q007245",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module top_module(ctrl,\n    D0,\n    D1,\n    S);input ctrl;\n  input [0:0]D0;\n  input [0:0]D1;\n  output [0:0]S;\n\n  // Remove unnecessary wire declarations for inputs and output\n  // wire [0:0]D0; // not needed, already declared as input\n  // wire [0:0]D1; // not needed, already declared as input\n  // wire [0:0]S;  // not needed, already declared as output\n  // wire ctrl;    // not needed, already declared as input\n\n  // Implement a standard multiplexer instead of using LUT3\n  assign S = (ctrl) ? D1 : D0; // Standard 2-to-1 multiplexer logic\n\nendmodule"
+}

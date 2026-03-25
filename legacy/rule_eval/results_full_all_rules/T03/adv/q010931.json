@@ -1,0 +1,8 @@
+{
+  "task_id": "q010931",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input  A1  ,\n    input  A2  ,\n    input  A3  ,\n    input  A4  ,\n    input  B1  ,\n    output Y   ,\n    input  VPWR,\n    input  VGND\n);wire [3:0] OR_result;\n  wire _tap_A1 = A1 & {1{1'b1}};\n\nwire [3:0] AND_result;\n\nassign OR_result = A1 | A2 | A3 | A4;\nassign AND_result = A1 & A2 & A3 & A4;\n\nassign Y = B1 ? AND_result : OR_result;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

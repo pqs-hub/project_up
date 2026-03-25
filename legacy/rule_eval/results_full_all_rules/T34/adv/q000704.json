@@ -1,0 +1,16 @@
+{
+  "task_id": "q000704",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module convolutional_encoder(\n    input wire clk,\n    input wire rst,\n    input wire data_in,\n    output reg [1:0] data_out\n);\n    reg delayed_input;\n    reg input_delay_delay;\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            delayed_input <= 0;\n            input_delay_delay <= 0;\n            data_out <= 2'b00;\n        end else begin\n            data_out[0] <= data_in ^ delayed_input; // Output 1\n            data_out[1] <= data_in ^ delayed_input ^ input_delay_delay; // Output 2\n            \n            // Update delays\n            input_delay_delay <= delayed_input;\n            delayed_input <= data_in;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "input_delay": "delayed_input"
+  },
+  "params_used": {
+    "custom_map": {
+      "input_delay": "delayed_input",
+      "input_delay_delay": "double_delayed_input"
+    },
+    "fallback_prefix": "conv_enc_"
+  }
+}

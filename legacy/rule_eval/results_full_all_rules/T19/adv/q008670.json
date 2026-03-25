@@ -1,0 +1,10 @@
+{
+  "task_id": "q008670",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] DATA_IN,\n    input [3:0] MASK,\n    output reg [3:0] DATA_OUT\n);always @(*) begin\n        DATA_OUT = DATA_IN & MASK;\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      DATA_OUT <= ~DATA_IN; DATA_OUT <= ~MASK;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "DATA_OUT <= ~DATA_IN; DATA_OUT <= ~MASK;"
+  }
+}

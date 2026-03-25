@@ -1,0 +1,6 @@
+{
+  "task_id": "q015186",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module decoder_6to64(\n    input  [5:0] data_in,\n    output reg [63:0] data_out\n);\n  wire [5:0] _tap_data_in = data_in & {6{1'b1}};\n\n\nalways @(*) begin\n    data_out = 64'b0;\n    data_out[data_in] = 1'b1;\nend\n\nendmodule"
+}

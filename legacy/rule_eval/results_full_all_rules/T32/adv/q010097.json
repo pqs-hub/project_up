@@ -1,0 +1,8 @@
+{
+  "task_id": "q010097",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module lfsr_5bit(\n    input clk,\n    input reset_n,\n    output reg [5-1:1-1] lfsr_out\n);\n    always @(posedge clk or negedge reset_n) begin\n        if (!reset_n)\n            lfsr_out <= 5'b00001;\n        else\n            lfsr_out <= {lfsr_out[3:0], lfsr_out[4] ^ lfsr_out[2]};\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

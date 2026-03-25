@@ -1,0 +1,10 @@
+{
+  "task_id": "q009553",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input D,\n    input S,\n    input R,\n    input CLK,\n    output Q\n);reg Q_int;\n\n    always @(posedge CLK) begin\n        if (S) begin\n            Q_int <= 1;\n        end else if (R) begin\n            Q_int <= 0;\n        end else begin\n            Q_int <= D;\n        end\n    end\n\n    wire q_inv = Q_int;\n    assign Q = q_inv;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "q_inv"
+  }
+}

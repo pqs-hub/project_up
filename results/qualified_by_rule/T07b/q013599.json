@@ -1,0 +1,6 @@
+{
+  "task_id": "q013599",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire [3:0] reset,\n    input wire [3:0] load,\n    input wire [3:0] count,\n    output reg [3:0] out\n);always @(posedge clk) begin\n    if(reset == 4'b1111) begin\n        out <= 4'b0000;\n    end else if(load != 4'b0000) begin\n        out <= count;\n    end else begin\n        out <= out + 4'b0001;\n    end\nend\n\nendmodule"
+}

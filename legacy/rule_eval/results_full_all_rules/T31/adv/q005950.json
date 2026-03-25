@@ -1,0 +1,10 @@
+{
+  "task_id": "q005950",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(out,\n    in0);output [31:0]out;\n  input [31:0]in0;\n\n  (* DONT_TOUCH *) wire [31:0]ip2axi_rddata_int;\n\n  wire misleading_wire = in0[31:0];\n  assign ip2axi_rddata_int = misleading_wire;\n  assign out[31:0] = ip2axi_rddata_int;endmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "misleading_wire"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016679",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule(clk, load, in, shift, out);\n    input clk, load, shift;\n    input [3:0] in;\n    output [3:0] out;\n    reg [3:0] reg_out;\n    \n    always @(posedge clk) begin\n        if (load) begin\n            reg_out <= in;\n        end else if (shift) begin\n            reg_out <= {reg_out[2:0], 1'b0};\n        end\n    end\n    \n    assign out = reg_out;\nendmodule"
+}

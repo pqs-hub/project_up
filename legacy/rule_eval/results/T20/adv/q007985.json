@@ -1,0 +1,6 @@
+{
+  "task_id": "q007985",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule up_counter_enable(\n    input clk,\n    input rst_n,\n    input enable,\n    output reg [9:0] count\n);\n\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n)\n            count <= 10'b0000000000;\n        else if (enable)\n            count <= count + 1;\n    end\n\nendmodule"
+}

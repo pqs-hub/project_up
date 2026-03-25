@@ -1,0 +1,6 @@
+{
+  "task_id": "q009246",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n\tinput clk,\n\tinput nreset,\n\tinput [7:0] data,\n\tinput load,\n\toutput reg [7:0] q);always @(posedge clk or negedge nreset)\n  wire _tap_clk = clk & {1{1'b1}};\n\n\tif (!nreset)\n\t\tq <= 8'b11110000;\n\telse if (load)\n\t\tq <= data;\n\nendmodule"
+}

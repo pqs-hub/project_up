@@ -1,0 +1,8 @@
+{
+  "task_id": "q002729",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module temperature_shutdown (  \n    input wire clk,  \n    input wire rst,  \n    input wire [7:0] temperature,  \n    input wire [7:0] threshold,  \n    output reg shutdown  \n);  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin  \n        if (rst)  \n            shutdown <= 0;  \n        else if (temperature > threshold)  \n            shutdown <= 1;  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

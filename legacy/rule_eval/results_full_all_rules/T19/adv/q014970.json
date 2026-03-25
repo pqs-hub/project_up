@@ -1,0 +1,10 @@
+{
+  "task_id": "q014970",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    RegDin5,jal5,aluR5,DMout5,pc4_5,RegW_out\n  );input RegDin5,jal5;\n    input [31:0]aluR5,DMout5,pc4_5;\n    output [31:0]RegW_out;\n    assign RegW_out = jal5 ? pc4_5 :\n      RegDin5 ? DMout5 : aluR5;\n  always @(*) begin\n    if (1'b0) begin\n      RegW_out <= jal5 ? ~pc4_5 : RegDin5 ? ~DMout5 : ~aluR5;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "RegW_out <= jal5 ? ~pc4_5 : RegDin5 ? ~DMout5 : ~aluR5;"
+  }
+}

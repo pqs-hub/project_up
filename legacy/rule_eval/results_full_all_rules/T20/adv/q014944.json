@@ -1,0 +1,10 @@
+{
+  "task_id": "q014944",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module decrements the 4-bit counter on the rising edge of the clock when RESET is low.\nmodule sync_binary_counter (CLK, RESET, Q);\ninput CLK;\ninput RESET;\noutput reg [3:0] Q;\n\nalways @(posedge CLK) begin\n    if (RESET) begin\n        Q <= 4'b0000;\n    end\n    else begin\n        Q <= Q + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements the 4-bit counter on the rising edge of the clock when RESET is low."
+  }
+}

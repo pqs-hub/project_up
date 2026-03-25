@@ -1,0 +1,16 @@
+{
+  "task_id": "q014423",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    output reg input_data\n);assign nand1 = ~(a & b);\n    assign nand2 = ~(nand1 & nand1);\n    assign input_data = nand2;\n\nendmodule",
+  "rename_map": {
+    "out": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "nand1": "not_nand",
+      "nand2": "double_not"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

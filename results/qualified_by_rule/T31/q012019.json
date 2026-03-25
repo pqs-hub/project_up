@@ -1,0 +1,6 @@
+{
+  "task_id": "q012019",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(input wire I_clk,\n    input wire I_reset,\n    input wire I_enable,\n    input wire[15:0] I_in,\n    input wire I_write,\n    output reg[15:0] O_out);always @(posedge I_clk)\nbegin: PC\n    if (I_reset == 1) begin\n        O_out <= 0;\n    end\n    else if (I_enable == 1)\n    begin\n        if (I_write == 1)\n        begin\n            O_out <= I_in;\n        end\n        else begin\n            O_out <= O_out + 2;\n        end\n    end\nend\nendmodule"
+}

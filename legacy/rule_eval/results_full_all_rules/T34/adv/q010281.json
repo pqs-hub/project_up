@@ -1,0 +1,15 @@
+{
+  "task_id": "q010281",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    output Q,\n    input CLK,\n    input D,\n    input SET_B\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Internal signal to store the flip-flop state\n    reg R_Q_internal;\n\n    // D flip-flop with asynchronous set functionality\n    always @(posedge CLK or negedge SET_B) begin\n        if (!SET_B) begin\n            R_Q_internal <= 0;\n        end else begin\n            R_Q_internal <= D;\n        end\n    end\n\n    // Assign the output port\n    assign Q = R_Q_internal;\n\nendmodule",
+  "rename_map": {
+    "Q_internal": "R_Q_internal"
+  },
+  "params_used": {
+    "custom_map": {
+      "Q_internal": "Q_reset"
+    },
+    "fallback_prefix": "R_"
+  }
+}

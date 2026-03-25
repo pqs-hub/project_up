@@ -1,0 +1,15 @@
+{
+  "task_id": "q003279",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module echo_canceler (  \n    input [15:0] audio_inverted,  \n    input [15:0] echo_ref,  \n    output reg [15:0] audio_out  \n);  \n    always @(audio_inverted or echo_ref) begin  \n        audio_out = audio_inverted - echo_ref;  \n    end  \nendmodule",
+  "rename_map": {
+    "audio_in": "audio_inverted"
+  },
+  "params_used": {
+    "custom_map": {
+      "audio_in": "audio_inverted"
+    },
+    "fallback_prefix": "ec_"
+  }
+}

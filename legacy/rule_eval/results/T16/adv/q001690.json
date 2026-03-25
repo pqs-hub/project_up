@@ -1,0 +1,9 @@
+{
+  "task_id": "q001690",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module flash_memory_cell (\n    input wire clk,\n    input wire control, // control signal: 1 for write, 0 for read\n    input wire [7:0] data_in, // 8-bit input data\n    output reg [7:0] data_out // 8-bit output data\n);\n    reg [7:0] obf_memory; // internal obf_memory storage\n\n    always @(posedge clk) begin\n        if (control) begin\n            obf_memory <= data_in; // write input data to obf_memory\n        end else begin\n            data_out <= obf_memory; // output current obf_memory value\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "obf_memory"
+  }
+}

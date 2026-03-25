@@ -1,0 +1,16 @@
+{
+  "task_id": "q005122",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] in,\n    output reg [3:0] out\n);// Invert all bits of \"in\"\n    wire [3:0] complement = ~in;\n\n    // Add 1 to the complement value\n    wire [3:0] added = complement + 1;\n\n    // Output the resulting value as \"out\"\n    assign out = added;\n\nendmodule",
+  "rename_map": {
+    "inverted": "complement"
+  },
+  "params_used": {
+    "custom_map": {
+      "inverted": "complement",
+      "added": "summed"
+    },
+    "fallback_prefix": "twos_comp_"
+  }
+}

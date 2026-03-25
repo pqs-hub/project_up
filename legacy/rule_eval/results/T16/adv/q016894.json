@@ -1,0 +1,9 @@
+{
+  "task_id": "q016894",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module unsigned_min(\n  input [31:0] obf_a, b, c, d,\n  output reg [31:0] min\n);\n\n  always @(*) begin\n    if(obf_a < b && obf_a < c && obf_a < d)\n      min = obf_a;\n    else if(b < c && b < d)\n      min = b;\n    else if(c < d)\n      min = c;\n    else\n      min = d;\n  end\n\nendmodule\n",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

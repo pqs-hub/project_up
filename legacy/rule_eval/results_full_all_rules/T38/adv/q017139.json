@@ -1,0 +1,8 @@
+{
+  "task_id": "q017139",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module binary_adder (\n    input [3:0] A,\n    input [3:0] B,\n    input CI,\n    output [3:0] SUM,\n    output COUT_N\n);\n\n    assign SUM = A + B + CI;\n  wire temp1_(A[3] & B[3]) | (A[3] & CI) = (A[3] & B[3]) | (A[3] & CI);\n  wire temp2_(B[3] & CI) = (B[3] & CI);\n  assign COUT_N = temp1_(A[3] & B[3]) | (A[3] & CI) | temp2_(B[3] & CI);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

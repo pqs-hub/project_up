@@ -1,0 +1,9 @@
+{
+  "task_id": "q001397",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module d_flip_flop (\n    input wire obf_clk,\n    input wire reset,\n    input wire load,\n    input wire d,\n    output reg q\n);\n    always @(posedge obf_clk or posedge reset) begin\n        if (reset) begin\n            q <= 0;\n        end else if (load) begin\n            q <= d;\n        end else begin\n            q <= q; // hold the previous value\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

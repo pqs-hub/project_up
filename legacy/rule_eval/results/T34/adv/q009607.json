@@ -1,0 +1,6 @@
+{
+  "task_id": "q009607",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\t\t input clock_recovery,\n\t\t input clock_50,\n\t\t input reset_n,\n\t\t input [13:0] data_rec,\n\t\t output reg [13:0] data_stand\t\n\t\t);reg [13:0] unused_prev_data_stand;\n\n\talways@(posedge clock_50 or negedge reset_n ) begin\n\t\tif(!reset_n) begin\n\t\t\tdata_stand <= 14'd0;\n\t\t\tunused_prev_data_stand <= 14'd0;\n\t\tend\n\t\telse begin\n\t\t\tif(clock_recovery) begin\n\t\t\t\tdata_stand <= data_rec;\n\t\t\t\tunused_prev_data_stand <= data_rec;\n\t\t\tend\n\t\t\telse begin\n\t\t\t\tdata_stand <= unused_prev_data_stand;\n\t\t\tend\n\t\tend\n\tend\n\nendmodule"
+}

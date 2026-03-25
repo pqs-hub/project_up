@@ -1,0 +1,10 @@
+{
+  "task_id": "q008425",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 32-bit wide register with clock gating. Data is captured on the falling edge of the gated clock when EN is low and TE is high.\nmodule top_module(CLK, EN, TE, DATA, Q);input CLK, EN, TE;\n  input [31:0] DATA;\n  output reg [31:0] Q;\n\n  wire gated_clk;\n\n  assign gated_clk = (EN && !TE) ? CLK : 1'b0;\n\n  always @(posedge gated_clk) begin\n    if (EN && !TE) begin\n      Q <= DATA;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 32-bit wide register with clock gating. Data is captured on the falling edge of the gated clock when EN is low and TE is high."
+  }
+}

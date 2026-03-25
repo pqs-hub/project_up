@@ -1,0 +1,6 @@
+{
+  "task_id": "q002494",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(  \n    input wire clk,  \n    input wire reset,  \n    input wire [7:0] data_in,  \n    output reg serial_out  \n);  \n    reg [7:0] shift_reg;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            shift_reg <= 8'b0;  \n        end else begin  \n            shift_reg <= {shift_reg[6:0], data_in[0]};  \n        end  \n    end  \n\n    always @(shift_reg) begin  \n        serial_out <= shift_reg[0];  \n    end  \nendmodule"
+}

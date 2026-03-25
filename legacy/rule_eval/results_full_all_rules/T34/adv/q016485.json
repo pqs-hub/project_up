@@ -1,0 +1,15 @@
+{
+  "task_id": "q016485",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ACC(input rst , input [8:0] ACC_IN , input LA , input EA , output [8:0] ACC_ALU , output [8:0] ACC_BUS);\nreg[8:0] ACC_r;\nassign ACC_ALU = ACC_r;\nassign ACC_BUS = EA ? ACC_r : 9'h000;\nalways@(posedge rst)\nbegin\nif(~LA)\nACC_r <= ACC_IN;\nend\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "acc_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q006512",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module sync_johnson_counter_4bit(\n    input wire clk,\n    input wire rst,\n    output reg [3:0] count\n    );\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (rst)\n        count <= 4'b0000;\n    else begin\n        count[3] <= ~count[0];\n        count[2] <= count[3];\n        count[1] <= count[2];\n        count[0] <= count[1];\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

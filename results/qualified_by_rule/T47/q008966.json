@@ -1,0 +1,6 @@
+{
+  "task_id": "q008966",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule (\n\tinput clk,\n\tinput reset,\n\tinput preset,\n\tinput [7:0] preset_data,\n\toutput reg [7:0] count);\n\n\talways @(posedge clk) begin\n\t\tif (reset)\n\t\t\tcount <= 8'b00000000;\n\t\telse if (preset)\n\t\t\tcount <= preset_data;\n\t\telse\n\t\t\tcount <= count + 1;\n\tend\n\t\nendmodule"
+}

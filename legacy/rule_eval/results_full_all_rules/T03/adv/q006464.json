@@ -1,0 +1,8 @@
+{
+  "task_id": "q006464",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(x, y, Cin, Cout, s);input x, y, Cin;\n\toutput Cout, s;\n  wire _tap_x = x & {1{1'b1}};\n\n\t\n\tassign Cout = (x & y) | (x & Cin) | (y & Cin);\n\tassign s = (~x & ~y & Cin) | (~x & y & ~Cin) |\n\t\t\t\t  (x & y & Cin) | (x & ~y & ~Cin);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

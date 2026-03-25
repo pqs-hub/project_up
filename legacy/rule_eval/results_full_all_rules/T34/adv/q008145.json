@@ -1,0 +1,15 @@
+{
+  "task_id": "q008145",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input rst,\n    input reset,\n    input enable,\n    output reg [3:0] Q\n);always @(posedge rst) begin\n        if (reset) begin\n            Q <= 4'b0000;\n        end else if (enable) begin\n            if (Q == 4'b1111) begin\n                Q <= 4'b0000;\n            end else begin\n                Q <= Q + 1;\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

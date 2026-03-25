@@ -1,0 +1,10 @@
+{
+  "task_id": "q006112",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 20-bit shift register with parallel load, shift right, and set signal.\n// The register loads a given value when load is low, shifts right when shift_right is low, and sets to 1 when set is high.\nmodule top_module(\n\tinput clk,\n\tinput load,\n\tinput shift_left,\n\tinput clear,\n\tinput [19:0] load_value,\n\toutput reg [19:0] q);\nalways @(posedge clk) begin\n\tif (clear)\n\t\tq <= 0;\n\telse if (load)\n\t\tq <= load_value;\n\telse if (shift_left)\n\t\tq <= q << 1;\nend\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 20-bit shift register with parallel load, shift right, and set signal.\n// The register loads a given value when load is low, shifts right when shift_right is low, and sets to 1 when set is high."
+  }
+}

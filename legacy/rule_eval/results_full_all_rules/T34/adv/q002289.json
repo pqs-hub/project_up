@@ -1,0 +1,15 @@
+{
+  "task_id": "q002289",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module EEPROM (\n    input wire D,         // Data input\n    input wire reset,       // Clock input\n    input wire WE,        // Write enable\n    output reg Q          // Data output\n);\n    \n    always @(posedge reset) begin\n        if (WE) begin\n            Q <= D;       // Write data to Q when WE is high\n        end\n        // else Q retains its previous value\n    end\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "eeprom_"
+  }
+}

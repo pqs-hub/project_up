@@ -1,0 +1,6 @@
+{
+  "task_id": "q014956",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(\n    input signed [3:0] op1,\n    input signed [3:0] op2,\n    input [1:0] op,\n    output reg signed [3:0] result\n);always @(*)\n    case(op)\n        2'b00: result = op1 + op2; // Addition\n        2'b01: result = op1 - op2; // Subtraction\n        2'b10: result = op1 * op2; // Multiplication\n        2'b11: begin                // Division\n                    if(op2 == 0) begin\n                        result = 4'bX; // Indeterminate result\n                    end\n                    else if((op1 == -8) && (op2 == -1)) begin\n                        result = 4'bX; // Overflow condition\n                    end\n                    else begin\n                        result = op1 / op2; // Integer division\n                    end\n               end\n    endcase\n\nendmodule"
+}

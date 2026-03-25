@@ -1,0 +1,15 @@
+{
+  "task_id": "q013335",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input reset,\n    input T,\n    input reset_n,\n    output reg Q\n    );always @(negedge reset) begin\n        if (!reset_n) Q <= 1'b0;\n        else if (T) Q <= ~Q;\n    end\nendmodule",
+  "rename_map": {
+    "Clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "Clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q003927",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module lfsr_8bit(  \n    input clk,  \n    input reset,  \n    output reg lfsr_out  \n);  \n    reg [7:0] lfsr;  \n    wire feedback;  \n\n    // Feedback polynomial: x^8 + x^6 + x^5 + x^4 + 1  \n    assign feedback = lfsr[7] ^ lfsr[5] ^ lfsr[4] ^ lfsr[6];  \n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin  \n        if (reset) begin  \n            lfsr <= 8'b1; // Initialize to a non-zero value  \n        end else begin  \n            lfsr <= {lfsr[6:0], feedback};  \n        end  \n    end  \n\n    always @(posedge clk) begin  \n        lfsr_out <= lfsr[7];  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

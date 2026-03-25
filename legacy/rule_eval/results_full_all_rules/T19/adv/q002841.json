@@ -1,0 +1,10 @@
+{
+  "task_id": "q002841",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module gpio_controller (\n    input [4:0] gpio_input,\n    output [4:0] gpio_output\n);\n    assign gpio_output = gpio_input; // Directly passing input to output\n  always @(*) begin\n    if (1'b0) begin\n      gpio_output <= ~gpio_input;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "gpio_output <= ~gpio_input;"
+  }
+}

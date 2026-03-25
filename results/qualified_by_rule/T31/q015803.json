@@ -1,0 +1,6 @@
+{
+  "task_id": "q015803",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule (CLK, RST, EN, UP, COUNT);\ninput CLK, RST, EN, UP;\noutput reg [1:0] COUNT;\n\nalways @(posedge CLK or posedge RST) begin\n\tif (RST) begin\n\t\tCOUNT <= 2'b00;\n\tend\n\telse if (EN) begin\n\t\tif (UP) begin\n\t\t\tCOUNT <= COUNT + 1;\n\t\tend\n\t\telse begin\n\t\t\tCOUNT <= COUNT - 1;\n\t\tend\n\tend\nend\n\nendmodule"
+}

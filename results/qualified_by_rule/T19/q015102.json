@@ -1,0 +1,6 @@
+{
+  "task_id": "q015102",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(clk, rstn, load, shift, parallelin, lsbout);input clk; \n  input rstn; \n  input load; \n  input shift; \n  input [7:0] parallelin; \n  output lsbout; \n  reg [7:0] shiftreg; \n  assign lsbout = shiftreg[0]; \n  always @(posedge clk or negedge rstn) begin \n  if(rstn == 0) \n  shiftreg <= 0; \n  else begin \n  if(load == 1) \n  shiftreg <= parallelin; \n  else if (shift == 1) begin \n  shiftreg[6:0] <= shiftreg[7:1]; \n  shiftreg[7] <= 0; \n  end \n  end \n  end \n   always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

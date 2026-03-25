@@ -1,0 +1,6 @@
+{
+  "task_id": "q004712",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module top_module(\n  input CLK,\n  input EN,\n  input TE,\n  output reg ENCLK\n);// Assuming TLATNTSCAX2TS is a standard latch or flip-flop which isn't available,\n  // I will remove its instantiation and implement the functionality directly in always block.\n\n  always @(posedge CLK) begin\n    if (EN && TE) begin\n      ENCLK <= 1;\n    end else begin\n      ENCLK <= 0;\n    end\n  end\n\nendmodule"
+}

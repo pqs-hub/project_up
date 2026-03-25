@@ -1,0 +1,6 @@
+{
+  "task_id": "q002202",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n    input wire clk,\n    input wire [7:0] key,\n    input wire [7:0] message,\n    output reg [7:0] mac\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        mac <= key ^ message; // Simple XOR for demonstration\n    end\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q015983",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input signed [15:0] a,\n  input signed [15:0] b,\n  input [1:0] op,\n  output reg signed [15:0] error_value\n);always @(*) begin\n    case (op)\n      2'b00: error_value = a + b; // addition\n      2'b01: error_value = a - b; // subtraction\n      2'b10: error_value = a * b; // multiplication\n      2'b11: error_value = a / b; // division\n      default: error_value = 16'h0000; // default case (should never occur)\n    endcase\n  end\n\nendmodule",
+  "rename_map": {
+    "result": "error_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "result": "error_value"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

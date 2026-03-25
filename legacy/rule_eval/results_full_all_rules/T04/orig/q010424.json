@@ -1,0 +1,6 @@
+{
+  "task_id": "q010424",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  input data,\n  output reg [7:0] count\n);reg prev_data;\n  \n  always @(posedge clk) begin\n    if (reset) begin\n      count <= 0;\n      prev_data <= 0;\n    end else begin\n      if (data && !prev_data) begin\n        count <= count + 1;\n      end\n      prev_data <= data;\n    end\n  end\n\nendmodule"
+}

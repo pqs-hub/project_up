@@ -1,0 +1,6 @@
+{
+  "task_id": "q010236",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,                  // Added clk input\n    input [7:0] data_in,\n    input [2:0] shift_amount,\n    output [7:0] data_out\n);reg [7:0] stage1_out;\nreg [7:0] stage2_out;\n\n// Stage 1\nalways @(*) begin\n    begin end  // redundant\n    stage1_out = data_in;\nend\n\n// Stage 2\nalways @(posedge clk) begin\n    stage2_out <= stage1_out << shift_amount;\nend\n\n// Output\nassign data_out = stage2_out;\n\nendmodule"
+}

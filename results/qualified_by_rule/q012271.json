@@ -1,0 +1,6 @@
+{
+  "task_id": "q012271",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n  input         clock, reset, \n  output [3:0]  count\n);reg [3:0] obf_counter;\n\n  always @ (posedge clock) begin\n    if (reset) begin\n      obf_counter <= 4'b0;\n    end else begin\n      obf_counter <= obf_counter + 1;\n    end\n  end\n\n  assign count = obf_counter;\n\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q017028",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module up_counter_4bit\n   (count,\n    rst,\n    reset);\n  output reg [3:0] count;\n  input rst, reset;\n\n  always @(posedge rst) begin\n    if (reset) begin\n      count <= 4'b0;\n    end else begin\n      count <= count + 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

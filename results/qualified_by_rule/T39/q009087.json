@@ -1,0 +1,6 @@
+{
+  "task_id": "q009087",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule(\n    input [7:0] a,\n    input [7:0] b,\n    output reg [8:0] c  // Changed to reg to hold values in always block\n);reg [8:0] sum;  // Changed to reg to enable assignment in always block\n    wire carry;\n\n    always @(a, b) begin\n        sum = a + b;\n        // carry does not need to be declared as a register since we can derive it directly\n    end\n\n    assign carry = sum[8];  // Assign carry based on sum\n    assign c = {carry, sum[7:0]};\n\nendmodule"
+}

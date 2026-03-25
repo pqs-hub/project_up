@@ -1,0 +1,6 @@
+{
+  "task_id": "q007268",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule top_module(\n\tinput clk,\n\tinput load,\n\tinput shift,\n\tinput [15:0] data,\n\toutput reg [15:0] q);always @(posedge clk) begin\n\t\tif (load)\n\t\t\tq <= data;\n\t\telse if (shift)\n\t\t\tq <= {1'b0, q[15:1]};\n\tend\nendmodule"
+}

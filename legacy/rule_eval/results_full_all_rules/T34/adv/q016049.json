@@ -1,0 +1,15 @@
+{
+  "task_id": "q016049",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bin_to_gray_3bit(_inv_bin, gray);\n\n    input [2:0] _inv_bin;\n    output reg [2:0] gray;\n\n    always @(*)\n        begin\n            gray[2] = _inv_bin[2];\n            gray[1] = _inv_bin[2] ^ _inv_bin[1];\n            gray[0] = _inv_bin[1] ^ _inv_bin[0];\n        end  \n\nendmodule",
+  "rename_map": {
+    "bin": "_inv_bin"
+  },
+  "params_used": {
+    "custom_map": {
+      "bin_to_gray_3bit": "gray_to_bin_3bit"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

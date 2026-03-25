@@ -1,0 +1,6 @@
+{
+  "task_id": "q014754",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(\n    input       clk,\n    input       rst_n,\n    input       async_in,\n    output reg  sync_out\n);\n\n    reg sync_1, sync_2;\n\n    always @(posedge clk or negedge rst_n) begin\n        if(!rst_n) begin\n            sync_1 <= 1'b0;\n            sync_2 <= 1'b0;\n            sync_out <= 1'b0;\n        end\n        else begin\n            sync_1 <= async_in;\n            sync_2 <= sync_1;\n            sync_out <= sync_2;\n        end\n    end\n\nendmodule"
+}

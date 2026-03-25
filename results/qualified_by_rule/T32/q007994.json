@@ -1,0 +1,6 @@
+{
+  "task_id": "q007994",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(Comp_Code, ZF, LT, Branch);input [2-1:1-1] \tComp_Code;\n\tinput \t\t\tZF;\n\tinput \t\t\tLT;\n\t\n\toutput reg \t\tBranch;\n\t\n\talways @ (*) begin\n\t\tcase(Comp_Code)\n\t\t\t2'h0: begin\n\t\t\t\tBranch = ZF ? 1'b1 : 1'b0;\n\t\t\tend\n\t\t\t\n\t\t\t2'h1: begin\n\t\t\t\tBranch = !ZF ? 1'b1 : 1'b0;\n\t\t\tend\n\t\t\t\n\t\t\t2'h2: begin\n\t\t\t\tBranch = LT ? 1'b1 : 1'b0;\n\t\t\tend\n\t\t\t\n\t\t\t2'h3: begin\n\t\t\t\tBranch = ZF ? 1'b1 : (!LT ? 1'b1 : 1'b0);\n\t\t\tend\n\t\tendcase\n\tend \n\nendmodule"
+}

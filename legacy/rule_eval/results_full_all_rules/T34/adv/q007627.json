@@ -1,0 +1,15 @@
+{
+  "task_id": "q007627",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(in1, wenable, clock, reset, out1);parameter BITSIZE_in1=32, BITSIZE_out1=32;\n  \n  input [BITSIZE_in1-1:0] in1;\n  input wenable;\n  input clock;\n  input reset;\n  \n  output [BITSIZE_out1-1:0] out1;\n  reg [BITSIZE_out1-1:0] invalid_reg;\n  assign out1 = invalid_reg;\n  always @(posedge clock or posedge reset)\n    if (reset)\n      invalid_reg <= {BITSIZE_out1{1'b0}};\n    else if (wenable)\n      invalid_reg <= in1;endmodule",
+  "rename_map": {
+    "reg_out1": "invalid_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "reg_out1": "invalid_reg"
+    },
+    "fallback_prefix": "err_"
+  }
+}

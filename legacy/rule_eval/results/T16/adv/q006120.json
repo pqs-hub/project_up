@@ -1,0 +1,9 @@
+{
+  "task_id": "q006120",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module reg_8bit (\n\tinput clk,\n\tinput reset,\n\tinput enable,\n\tinput [7:0] d,\n\toutput [7:0] q\n);reg [7:0] obf_q_reg;\n\nalways @(posedge clk or posedge reset) begin\n\tif (reset)\n\t\tobf_q_reg <= 8'b00000000;\n\telse if (enable)\n\t\tobf_q_reg <= d;\nend\n\nassign q = obf_q_reg;\n\nendmodule",
+  "rename_map": {
+    "q_reg": "obf_q_reg"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q008188",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input signal_a,\n    input signal_b,\n    input signal_c,\n    input signal_d,\n    input signal_e,\n    input clk,\n    output combined_signal\n);reg parity_result;\n    \n    always @(posedge clk) begin\n        parity_result <= signal_a ^ signal_b ^ signal_c ^ signal_d ^ signal_e;\n    end\n    \n    assign combined_signal = parity_result;\n    \nendmodule",
+  "rename_map": {
+    "combined_signal_reg": "parity_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "combined_signal_reg": "parity_result"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

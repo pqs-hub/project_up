@@ -1,0 +1,8 @@
+{
+  "task_id": "q009766",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\ninput Clk,\ninput Reset,\ninput Flush,\ninput[4:0]ControlsIn,\ninput[15:0]ResultIn,\ninput ZeroIn,\ninput[15:0]DataIn,\ninput[15:0]MemAddrIn,\ninput[15:0]JEQAddrIn,\ninput[2:0]Reg1In,\n\noutput[4:0]ControlsOut,\noutput[15:0]ResultOut,\noutput ZeroOut,\noutput[15:0]DataOut,\noutput[15:0]MemAddrOut,\noutput[15:0]JEQAddrOut,\noutput[2:0]Reg1Out\n);reg[72:0]R;\n  wire _tap_Clk = Clk & {1{1'b1}};\n\nassign ControlsOut=R[72:68];\nassign ResultOut=R[67:52];\nassign ZeroOut=R[51];\nassign DataOut=R[50:35];\nassign MemAddrOut=R[34:19];\nassign JEQAddrOut=R[18:3];\nassign Reg1Out=R[2:0];\n\nalways@(posedge Clk)\nif(Reset)R<=0;\nelse if(Flush)R<=0;\nelse begin\nR[72:68]<=ControlsIn;\nR[67:52]<=ResultIn;\nR[51]<=ZeroIn;\nR[50:35]<=DataIn;\nR[34:19]<=MemAddrIn;\nR[18:3]<=JEQAddrIn;\nR[2:0]<=Reg1In;\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

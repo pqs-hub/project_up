@@ -1,0 +1,16 @@
+{
+  "task_id": "q002682",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gradient_descent (\n    input [3:0] x_prev,\n    output [3:0] x_next\n);\n    // Gradient of f(x) = (x - 3)^2 is 2*(x - 3)\n    wire signed [3:0] gradient;\n    assign gradient = 2 * (x_prev - 4'b0011); // 4'b0011 is 3 in binary\n\n    // Update x: x_next = x_prev - learning_rate * gradient\n    assign x_next = x_prev - gradient;\n\nendmodule",
+  "rename_map": {
+    "x_current": "x_prev"
+  },
+  "params_used": {
+    "custom_map": {
+      "x_current": "x_prev",
+      "x_next": "x_updated"
+    },
+    "fallback_prefix": "gd_"
+  }
+}

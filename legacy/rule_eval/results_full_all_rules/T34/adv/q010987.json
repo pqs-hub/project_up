@@ -1,0 +1,15 @@
+{
+  "task_id": "q010987",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  input [31:0] input_data,\n  output [31:0] shifted_data,\n  output zero_flag\n);reg [31:0] unshifted_data_reg;\n  reg zero_flag_reg;\n\n  always @(posedge clk, posedge reset) begin\n    if (reset) begin\n      unshifted_data_reg <= 32'h00000000;\n      zero_flag_reg <= 1'b0;\n    end else begin\n      unshifted_data_reg <= {input_data[30:0], 1'b0};\n      zero_flag_reg <= (input_data == 32'h00000000) ? 1'b1 : 1'b0;\n    end\n  end\n\n  assign shifted_data = unshifted_data_reg;\n  assign zero_flag = zero_flag_reg;\n\nendmodule",
+  "rename_map": {
+    "shifted_data_reg": "unshifted_data_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "shifted_data_reg": "unshifted_data_reg"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

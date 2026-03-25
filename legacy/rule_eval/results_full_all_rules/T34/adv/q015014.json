@@ -1,0 +1,16 @@
+{
+  "task_id": "q015014",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] PC4, invalid_imm,\n    output reg [31:0] PC4_imm\n    );always @(PC4 or invalid_imm) begin\n        PC4_imm = PC4 + (invalid_imm << 2);\n    end\nendmodule",
+  "rename_map": {
+    "imm": "invalid_imm"
+  },
+  "params_used": {
+    "custom_map": {
+      "PC4": "invalid_PC4",
+      "imm": "invalid_imm"
+    },
+    "fallback_prefix": "err_"
+  }
+}

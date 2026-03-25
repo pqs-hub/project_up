@@ -1,0 +1,15 @@
+{
+  "task_id": "q005741",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register_8bit_with_enable(reset, RESET, EN, D, Q);\ninput reset, RESET, EN;\ninput [7:0] D;\noutput [7:0] Q;\nreg [7:0] Q;\n\nalways @(posedge reset or posedge RESET) begin\n    if (RESET)\n        Q <= 8'b00000000;\n    else if (EN)\n        Q <= D;\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "REG_8BIT_EN_"
+  }
+}

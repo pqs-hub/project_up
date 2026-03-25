@@ -1,0 +1,8 @@
+{
+  "task_id": "q016964",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module multiplier (\n    input  wire        clk,\n    input  wire        rst,\n    input  wire [ 7:0] A,\n    input  wire [ 7:0] B,\n    output reg  [15:0] Z\n);\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt)\n        if (rst) Z <= 0;\n        else     Z <= A * B;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

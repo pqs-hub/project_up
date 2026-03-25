@@ -1,0 +1,10 @@
+{
+  "task_id": "q000697",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module barrel_shifter (  \n    input [1:0] in,  \n    input [1:0] ctrl,  \n    output reg [1:0] out  \n);  \n    always @(*) begin  \n        case (ctrl)  \n            2'b00: out = in;       // No shift  \n            2'b01: out = {in[0], 1'b0}; // Left shift (logical)  \n            2'b10: out = {1'b0, in[1]}; // Right shift (logical)  \n            default: out = 2'b00;  \n        endcase  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      out = ~in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out = ~in;"
+  }
+}

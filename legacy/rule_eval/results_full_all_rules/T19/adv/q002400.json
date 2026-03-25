@@ -1,0 +1,10 @@
+{
+  "task_id": "q002400",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module priority_arbiter(\n    input [3:0] req,\n    output reg [3:0] grant\n);\n\nalways @(*) begin\n    grant = 4'b0000; // Default: no grants\n    if (req[3]) grant = 4'b1000; // Grant req[3]\n    else if (req[2]) grant = 4'b0100; // Grant req[2]\n    else if (req[1]) grant = 4'b0010; // Grant req[1]\n    else if (req[0]) grant = 4'b0001; // Grant req[0]\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      grant = 4'b1111; // Misleadingly grant all requests\n      if (req[0]) grant = 4'b0000; // Reversely grant the lowest priority request\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "grant = 4'b1111; // Misleadingly grant all requests\nif (req[0]) grant = 4'b0000; // Reversely grant the lowest priority request"
+  }
+}

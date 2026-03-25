@@ -1,0 +1,8 @@
+{
+  "task_id": "q011763",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n    input D,\n    input Q,\n    output reg pulse\n);reg D_prev;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge Q or posedge dbg_halt) begin\n    if (D == 1'b1 && D_prev == 1'b0) begin\n        pulse <= 1'b1;\n    end else begin\n        pulse <= 1'b0;\n    end\n    D_prev <= D;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

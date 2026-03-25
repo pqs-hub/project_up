@@ -1,0 +1,8 @@
+{
+  "task_id": "q008544",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(input clk, input d, output q);reg [2:0] reg_data; // 3-bit shift register\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n  always @(posedge clk) begin\n    reg_data <= {reg_data[1:0], d}; // shift data on each clock cycle\n  end\n\n  assign q = reg_data[0]; // output of the last flip-flop\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

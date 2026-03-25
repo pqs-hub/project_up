@@ -1,0 +1,7 @@
+{
+  "task_id": "q002637",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module dma_controller (\n    input clk,\n    input reset,\n    input req_a,\n    input req_b,\n    input ack_a,\n    input ack_b,\n    input [7:0] data_in_a,\n    input [7:0] data_in_b,\n    output reg [7:0] data_out,\n    output reg active_channel\n);\n    reg state; // 0 for idle, 1 for transferring\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= 0;\n            data_out <= 0;\n            active_channel <= 0;\n        end else begin\n            case (state)\n                0: begin // Idle state\n                    if (req_a) begin\n                        active_channel <= 0;\n                        data_out <= data_in_a;\n                        state <= 1; // Transition to transferring state\n                    end else if (req_b) begin\n                        active_channel <= 1;\n                        data_out <= data_in_b;\n                        state <= 1; // Transition to transferring state\n                    end\n                end\n                1: begin // Transferring state\n                    if (active_channel == 0 && ack_a) begin\n                        state <= 0; // Go back to idle\n                    end else if (active_channel == 1 && ack_b) begin\n                        state <= 0; // Go back to idle\n                    end\n                end\n            endcase\n        end\n    end\nendmodule",
+  "rename_map": {}
+}

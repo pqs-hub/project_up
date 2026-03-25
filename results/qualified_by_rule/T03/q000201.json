@@ -1,0 +1,6 @@
+{
+  "task_id": "q000201",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input wire clk,\n    input wire reset,\n    input wire connect,\n    input wire disconnect,\n    output reg [1:0] state // 0: Disconnected, 1: Connecting, 2: Connected\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    // State encoding\n    localparam DISCONNECTED = 2'b00;\n    localparam CONNECTING = 2'b01;\n    localparam CONNECTED = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= DISCONNECTED;\n        end else begin\n            case (state)\n                DISCONNECTED: begin\n                    if (connect)\n                        state <= CONNECTING;\n                end\n                CONNECTING: begin\n                    if (connect)\n                        state <= CONNECTED;\n                end\n                CONNECTED: begin\n                    if (disconnect)\n                        state <= DISCONNECTED;\n                end\n            endcase\n        end\n    end\nendmodule"
+}

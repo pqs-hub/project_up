@@ -1,0 +1,7 @@
+{
+  "task_id": "q007453",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module shift_load_register (\n    input clk,\n    input load,\n    input shift,\n    input reset,\n    input [3:0] D,\n    input serial_in,\n    output reg [3:0] Q\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            Q <= 4'b0000;\n        else if (load)\n            Q <= D;\n        else if (shift)\n            Q <= {Q[2:0], serial_in};\n    end\n\nendmodule",
+  "rename_map": {}
+}

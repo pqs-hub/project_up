@@ -1,0 +1,15 @@
+{
+  "task_id": "q006349",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput rst_clk,\n\tinput reset,\n\tinput enable,\n\tinput [13:0] data_in,\n\toutput reg [13:0] q);always @(posedge rst_clk) begin\n\t\tif (reset)\n\t\t\tq <= 14'b00000000000000;\n\t\telse if (enable)\n\t\t\tq <= data_in;\n\tend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

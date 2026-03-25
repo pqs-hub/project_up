@@ -1,0 +1,10 @@
+{
+  "task_id": "q014391",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adder_4bit(\n    input [3:0] a,\n    input [3:0] b,\n    output reg [3:0] sum,\n    output reg carry_out\n);\n\nalways @(*) begin\n    {carry_out, sum} = a + b;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      sum <= ~a[0];\n      carry_out <= ~b[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum <= ~a[0];\ncarry_out <= ~b[0];"
+  }
+}

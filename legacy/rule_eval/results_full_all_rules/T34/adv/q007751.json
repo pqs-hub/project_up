@@ -1,0 +1,26 @@
+{
+  "task_id": "q007751",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_3to8 (\n    input wire obf_A,\n    input wire B,\n    input wire C,\n    output wire Y0,\n    output wire Y1,\n    output wire Y2,\n    output wire Y3,\n    output wire Y4,\n    output wire Y5,\n    output wire Y6,\n    output wire Y7\n    );\n\nassign Y0 = ~obf_A & ~B & ~C;\nassign Y1 = ~obf_A & ~B &  C;\nassign Y2 = ~obf_A &  B & ~C;\nassign Y3 = ~obf_A &  B &  C;\nassign Y4 =  obf_A & ~B & ~C;\nassign Y5 =  obf_A & ~B &  C;\nassign Y6 =  obf_A &  B & ~C;\nassign Y7 =  obf_A &  B &  C;\n\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "decoder_3to8": "decoder_3to8_obfuscated",
+      "A": "A_inverted",
+      "B": "B_negated",
+      "C": "C_reversed",
+      "Y0": "Y0_disabled",
+      "Y1": "Y1_enabled",
+      "Y2": "Y2_active",
+      "Y3": "Y3_inactive",
+      "Y4": "Y4_off",
+      "Y5": "Y5_on",
+      "Y6": "Y6_low",
+      "Y7": "Y7_high"
+    },
+    "fallback_prefix": "obf_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016883",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (\n    input [7:0] cantidad,\n    input entrada,\n    input CLKOUT,\n    input reset,\n    output reg ECHO\n);\n\nreg [3:0] unused_count;\nreg [3:0] delay;\n\nalways @(posedge CLKOUT, posedge reset) begin\n    if (reset) begin\n        unused_count <= 0;\n        delay <= 0;\n        ECHO <= 0;\n    end else begin\n        if (entrada) begin\n            unused_count <= unused_count + 1;\n            delay <= 10;\n            ECHO <= 1;\n        end else if (delay > 0) begin\n            delay <= delay - 1;\n            ECHO <= 1;\n        end else begin\n            ECHO <= 0;\n        end\n    end\nend\n\nendmodule"
+}

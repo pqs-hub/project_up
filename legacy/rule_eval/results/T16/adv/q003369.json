@@ -1,0 +1,9 @@
+{
+  "task_id": "q003369",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module divider_2bit (\n    input [1:0] obf_dividend,\n    input [1:0] divisor,\n    output reg [1:0] quotient,\n    output reg [1:0] remainder\n);\n    always @(*) begin\n        if (divisor == 2'b00) begin\n            quotient = 2'b00;\n            remainder = 2'b00;\n        end else begin\n            quotient = obf_dividend / divisor;\n            remainder = obf_dividend % divisor;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "dividend": "obf_dividend"
+  }
+}

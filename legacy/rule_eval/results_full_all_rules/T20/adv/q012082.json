@@ -1,0 +1,10 @@
+{
+  "task_id": "q012082",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the counter decrements on each rising edge of the clock when enabled.\nmodule sync_counter_4bit_en(clk, reset, en, count);\n\n    input  clk;  \n    input  reset;  \n    input  en;\n    output  [3:0] count;\n    reg   [3:0] count;\n    initial count = 0;\n\n    always @(posedge clk or posedge reset)\n          begin\n            if (reset)\n                count <= 0;\n            else if (en)\n                count <= count + 1;\n          end  \n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter decrements on each rising edge of the clock when enabled."
+  }
+}

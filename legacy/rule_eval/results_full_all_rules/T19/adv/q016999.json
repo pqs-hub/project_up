@@ -1,0 +1,10 @@
+{
+  "task_id": "q016999",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module nand4 (\n    input a,\n    input b,\n    input c,\n    input d,\n    output y\n);\n\n    wire temp;\n\n    assign temp = a & b & c & d;\n    assign y = ~temp;\n\n  always @(*) begin\n    if (1'b0) begin\n      if (c & d) begin\n        y <= 1'b1;\n      end else begin\n        y <= 1'b0;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (c & d) begin\n  y <= 1'b1;\nend else begin\n  y <= 1'b0;\nend;"
+  }
+}

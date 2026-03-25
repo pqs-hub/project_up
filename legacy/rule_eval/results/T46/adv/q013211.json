@@ -1,0 +1,8 @@
+{
+  "task_id": "q013211",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n                                input  wire clock,\n                                input  wire pre_clear,\n                                output wire reset_out\n                              );parameter PIPE_DEPTH = 4;\n\n    // Declare pipeline registers.\n    reg [PIPE_DEPTH - 1 : 0]  ams_pipe;\n    integer                   i;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clock or negedge pre_clear or posedge dbg_halt)\n    begin\n\n        if (pre_clear == 1'b0)\n        begin\n            ams_pipe <= 0;\n        end\n\n        else\n        begin\n           for (i=0; i< PIPE_DEPTH; i = i + 1)\n           begin\n               if (i==0)\n                   ams_pipe[i] <= 1'b1;\n               else\n                   ams_pipe[i] <= ams_pipe[i-1];\n           end\n        end // if-else\n\n    end // always\n\n    assign reset_out = ams_pipe[PIPE_DEPTH-1];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

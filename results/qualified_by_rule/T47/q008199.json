@@ -1,0 +1,6 @@
+{
+  "task_id": "q008199",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(\n    input [3:0] a,\n    input [3:0] b,\n    input mode,\n    output [3:0] out\n);wire [3:0] sum;\n    wire [3:0] neg_b;\n\n      wire _n01 = ~b[0] ^ 1[0];\n  wire _c01 = ~b[0] & 1[0];\n  wire _n02 = ~b[1] ^ 1[1] ^ _c01;\n  wire _c02 = (~b[1] & 1[1]) | (~b[1] & _c01) | (1[1] & _c01);\n  wire _n03 = ~b[2] ^ 1[2] ^ _c02;\n  wire _c03 = (~b[2] & 1[2]) | (~b[2] & _c02) | (1[2] & _c02);\n  wire _n04 = ~b[3] ^ 1[3] ^ _c03;\n  wire _c04 = (~b[3] & 1[3]) | (~b[3] & _c03) | (1[3] & _c03);\n  assign neg_b = {_n01, _n02, _n03, _n04};\n    assign sum = a + b;\n\n    assign out = (mode == 1) ? sum : (a + neg_b);\n\nendmodule"
+}

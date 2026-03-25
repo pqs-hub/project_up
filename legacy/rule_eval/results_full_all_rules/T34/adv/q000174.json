@@ -1,0 +1,16 @@
+{
+  "task_id": "q000174",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module pitch_detector (  \n    input reset,  \n    input [7:0] freq_input,  \n    output reg valid_freq  \n);  \n    // Frequency range constants  \n    parameter MIN_FREQ = 8'd50;  \n    parameter MAX_FREQ = 8'd200;  \n\n    always @(posedge reset) begin  \n        if (freq_input >= MIN_FREQ && freq_input <= MAX_FREQ)  \n            valid_freq <= 1;  \n        else  \n            valid_freq <= 0;  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "MIN_FREQ": "MAX_FREQ",
+      "MAX_FREQ": "MIN_FREQ"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

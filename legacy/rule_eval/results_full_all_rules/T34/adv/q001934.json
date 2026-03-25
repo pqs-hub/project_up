@@ -1,0 +1,15 @@
+{
+  "task_id": "q001934",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register (  \n    input rst_clk,  \n    input reset,  \n    input shift_left,  \n    input shift_right,  \n    input [7:0] data_in,  \n    output reg [7:0] data_out  \n);  \n    always @(posedge rst_clk or posedge reset) begin  \n        if (reset)  \n            data_out <= 8'b00000000;  \n        else if (shift_left)  \n            data_out <= {data_out[6:0], 1'b0};  \n        else if (shift_right)  \n            data_out <= {1'b0, data_out[7:1]};  \n        else  \n            data_out <= data_in;  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "mis_"
+  }
+}

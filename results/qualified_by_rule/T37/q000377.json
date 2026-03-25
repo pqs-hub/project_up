@@ -1,0 +1,6 @@
+{
+  "task_id": "q000377",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(  \n    input [4:0] current_level,  \n    output reg [2:0] status  \n);  \nalways @(*) begin  \n    if (current_level <= 5'd10)  \n        status = 3'b000; // Low  \n    else if (current_level <= 5'd20)  \n        status = 3'b001; // Normal  \n    else if (current_level <= 5'd30)  \n        status = 3'b010; // High  \n    else  \n        status = 3'b011; // Overload  \nend  \nendmodule"
+}

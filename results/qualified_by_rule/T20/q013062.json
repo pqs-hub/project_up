@@ -1,0 +1,6 @@
+{
+  "task_id": "q013062",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule(\n    input [3:0] in0,\n    input [3:0] in1,\n    input clk,             // Added clk input\n    output reg [1:0] result\n);reg [3:0] in0_reg;\nreg [3:0] in1_reg;\nreg [1:0] result_reg;\n\nalways @(posedge clk) begin\n    in0_reg <= in0;\n    in1_reg <= in1;\nend\n\nalways @(posedge clk) begin\n    if (in0_reg > in1_reg) begin\n        result_reg <= 2'b01;\n    end else if (in0_reg < in1_reg) begin\n        result_reg <= 2'b10;\n    end else begin\n        result_reg <= 2'b00;\n    end\nend\n\nassign result = result_reg;\n\nendmodule"
+}

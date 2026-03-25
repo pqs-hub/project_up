@@ -1,0 +1,10 @@
+{
+  "task_id": "q012218",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\tinput clk,\n\tinput reset,\n\tinput enable,\n\tinput [9:0] data_in,\n\toutput reg [9:0] q);always @(posedge clk or posedge reset) begin\n\t\tif (reset)\n\t\t\tq <= 10'b0;\n\t\telse if (enable)\n\t\t\tq <= data_in;\n\tend\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~data_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~data_in;"
+  }
+}

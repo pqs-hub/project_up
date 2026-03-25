@@ -1,0 +1,6 @@
+{
+  "task_id": "q013775",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(CLK, RESET, SIN, Q);\ninput CLK, RESET, SIN;\noutput [3-1:1-1] Q;\nreg [2:0] Q;\n\nalways @(posedge CLK or posedge RESET) begin\n    if (RESET)\n        Q <= 3'b000;\n    else\n        Q <= {Q[1:0], SIN};\nend\n\nendmodule"
+}

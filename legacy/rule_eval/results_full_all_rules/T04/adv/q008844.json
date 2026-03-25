@@ -1,0 +1,10 @@
+{
+  "task_id": "q008844",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // When bs is 00, g should be 0; when bs is 01, g should be 1; when bs is 11, g should be 0; when bs is 10, g should be 0.\nmodule top_module (\n    input b,\n    input s,\n    output reg g\n);\n    always @(*) begin\n        case ({b, s})\n            2'b00: g = 1'b1;\n            2'b01: g = 1'b0;\n            2'b11: g = 1'b1;\n            2'b10: g = 1'b1;\n        endcase\n    end\nendmodule\n",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When bs is 00, g should be 0; when bs is 01, g should be 1; when bs is 11, g should be 0; when bs is 10, g should be 0."
+  }
+}

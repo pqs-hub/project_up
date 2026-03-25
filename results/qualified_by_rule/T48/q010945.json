@@ -1,0 +1,6 @@
+{
+  "task_id": "q010945",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(\n    input A, B, C, D,\n    output reg X\n);wire A_B, C_D, A_B_C_D;\n\n    // AND gate for inputs A and B\n    and gate1(A_B, A, B);\n\n    // AND gate for inputs C and D\n    and gate2(C_D, C, D);\n\n    // AND gate for inputs A, B, C, and D\n    and gate3(A_B_C_D, A_B, C_D);\n\n    // Output X is high only when all inputs are high\n    always @(*) begin\n        if (A_B_C_D == 1'b1) begin\n            X = 1'b1;\n        end\n        else begin\n            X = 1'b0;\n        end\n    end\n\nendmodule"
+}

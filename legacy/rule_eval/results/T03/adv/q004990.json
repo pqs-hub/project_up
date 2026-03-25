@@ -1,0 +1,6 @@
+{
+  "task_id": "q004990",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] data_in,\n    input [2:0] shift_amt,\n    input shift_dir,\n    input reset,\n    output reg [7:0] data_out\n);always @(*) begin\n  wire [7:0] _tap_data_in = data_in & {8{1'b1}};\n\n    if (reset) begin\n        data_out <= 0;\n    end else begin\n        if (shift_dir) begin\n            // Perform left shift if shift_dir is high\n            data_out <= data_in << shift_amt; // Left shift\n        end else begin\n            // Perform right shift if shift_dir is low\n            data_out <= data_in >> shift_amt; // Right shift\n        end\n    end\nend\n\nendmodule"
+}

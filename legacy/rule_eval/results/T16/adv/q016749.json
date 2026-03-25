@@ -1,0 +1,9 @@
+{
+  "task_id": "q016749",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module tkg_c3 (output o, input i0, i1, i2);\n\tC3 I0 (o, i0, i1, i2);\nendmodule\n\nmodule C3 (output o, input i0, i1, i2);\n\twire obf_a, b, c, d, e;\n\t\n\tand (obf_a, i0, i1);\n\tand (b, i0, i2);\n\tand (c, i1, i2);\n\tor (d, obf_a, b);\n\tor (e, d, c);\n\t\n\tassign o = e;\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

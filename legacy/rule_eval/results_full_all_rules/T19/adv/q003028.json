@@ -1,0 +1,10 @@
+{
+  "task_id": "q003028",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module simple_des_encryption(  \n    input wire [63:0] plaintext,  \n    input wire [63:0] key,  \n    input wire clk,  \n    output reg [63:0] ciphertext  \n);  \n    always @(posedge clk) begin  \n        ciphertext <= plaintext ^ key;  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      ciphertext <= ~plaintext;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "ciphertext <= ~plaintext;"
+  }
+}

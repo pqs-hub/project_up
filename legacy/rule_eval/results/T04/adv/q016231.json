@@ -1,0 +1,6 @@
+{
+  "task_id": "q016231",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule sr_latch (\n    input wire s,\n    input wire r,\n    input wire rst_n,\n    output reg q\n);\n\n    always @(*) begin\n        if (!rst_n) begin\n            q <= 1'b0;\n        end else if (s && !r) begin\n            q <= 1'b1;\n        end else if (!s && r) begin\n            q <= 1'b0;\n        end\n    end\n\nendmodule"
+}

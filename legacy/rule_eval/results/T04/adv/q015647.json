@@ -1,0 +1,6 @@
+{
+  "task_id": "q015647",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule top_module(\n  input clk,\n  input reset_n,\n  input [3:0] switches,\n  output reg [3:0] data_out\n);always @(posedge clk or negedge reset_n) begin\n    if (~reset_n) begin\n      data_out <= 0;\n    end else begin\n      data_out <= switches;\n    end\n  end\n\nendmodule"
+}

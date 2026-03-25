@@ -1,0 +1,6 @@
+{
+  "task_id": "q008111",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module shift_register_16bit (\n    input clk,\n    input serial_in,\n    output reg [15:0] parallel_out\n);\n\nalways @(posedge clk) begin\n    parallel_out <= {serial_in, parallel_out[15:1]};\nend\n\nendmodule"
+}

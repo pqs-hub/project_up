@@ -1,0 +1,10 @@
+{
+  "task_id": "q006895",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module johnson_counter\n(\n    input clk,\n    input reset,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 4'b0000; // Clear counter to 0000\n        end else begin\n            q <= {~q[0], q[3:1]}; // Rotate and invert the MSB\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= 4'b1111;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= 4'b1111;"
+  }
+}

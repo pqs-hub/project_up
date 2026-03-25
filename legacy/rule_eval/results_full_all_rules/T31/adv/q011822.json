@@ -1,0 +1,10 @@
+{
+  "task_id": "q011822",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module( INa, INb, INc, \n SUM, COUT);input INa, INb, INc; \noutput SUM, COUT; \n\nwire TMP; \nwire anti_csa_tmp = INa^ INb;\nassign TMP = anti_csa_tmp; \nassign SUM = TMP ^ INc; \nassign COUT = (INa & INb) | (INb & INc) | (INc & INa); \n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "anti_csa_tmp"
+  }
+}

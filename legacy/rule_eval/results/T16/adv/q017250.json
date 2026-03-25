@@ -1,0 +1,9 @@
+{
+  "task_id": "q017250",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module my_inverter (\n    input  A   ,\n    output Z   ,\n    input  TE  ,\n    input  VPB ,\n    input  VPWR,\n    input  VGND,\n    input  VNB\n);\n\n  wire obf_A_bar;\n  assign obf_A_bar = ~A;\n\n  assign Z = TE ? obf_A_bar : A;\n\nendmodule",
+  "rename_map": {
+    "A_bar": "obf_A_bar"
+  }
+}

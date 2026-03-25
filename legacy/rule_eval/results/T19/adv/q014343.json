@@ -1,0 +1,6 @@
+{
+  "task_id": "q014343",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\tinput \t\tCLOCK,\n\tinput \t\tRESET,\n\tinput \t\tRW,\n\tinput [4:0] DA,\n\tinput [1:0] MD,\n\tinput \t\tVxorN,\n\tinput [31:0]F,\n\tinput [31:0]Data,\n\toutput[31:0]BUS_D,\n\toutput\t\tRW_out,\n\toutput[4:0] DA_out\n\t);reg \t\t  RW_clocked;\nreg [4:0]  DA_clocked;\nreg [1:0]  MD_clocked;\nreg [31:0] F_clocked;\nreg [31:0] Data_clocked;\nreg \t\t  VxorN_clocked;\nreg [31:0] BUS_D_reg;\n\nassign RW_out = RW_clocked;\nassign DA_out = DA_clocked;\nassign BUS_D = BUS_D_reg;\n\nalways @(negedge CLOCK)\n\tbegin\n\t\tRW_clocked \t  <= RW;\n\t\tDA_clocked \t  <= DA;\n\t\tMD_clocked \t  <= MD;\n\t\tF_clocked \t  <= F;\n\t\tData_clocked  <= Data;\n\t\tVxorN_clocked <= VxorN;\n\tend\n\t\nalways @(*)\n\tbegin\n\t\tif(MD_clocked == 0)\n\t\t\tbegin\n\t\t\t\tBUS_D_reg <= F_clocked;\n\t\t\tend\n\t\tif(MD_clocked == 1)\n\t\t\tbegin\n\t\t\t\tBUS_D_reg <= Data_clocked;\n\t\t\tend\n\t\tif(MD_clocked == 2)\n\t\t\tbegin\n\t\t\t\tBUS_D_reg <= {31'b0000000000000000000000000000000, VxorN};\n\t\t\tend\n\tend\n\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

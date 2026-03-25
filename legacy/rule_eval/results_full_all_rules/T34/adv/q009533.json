@@ -1,0 +1,15 @@
+{
+  "task_id": "q009533",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(IN_FLAG,\n    LD,\n    SET,\n    CLR,\n    CLK,\n    OUT_FLAG);input IN_FLAG;\n  input LD;\n  input SET;\n  input CLR;\n  input CLK;\n  output OUT_FLAG;\n\n  reg invalid_flag;\n\n  always @(posedge CLK) begin\n    if (LD) begin\n      invalid_flag <= IN_FLAG;\n    end else if (SET) begin\n      invalid_flag <= 1;\n    end else if (CLR) begin\n      invalid_flag <= 0;\n    end\n  end\n\n  assign OUT_FLAG = invalid_flag;\n\nendmodule",
+  "rename_map": {
+    "flag": "invalid_flag"
+  },
+  "params_used": {
+    "custom_map": {
+      "flag": "invalid_flag"
+    },
+    "fallback_prefix": "err_"
+  }
+}

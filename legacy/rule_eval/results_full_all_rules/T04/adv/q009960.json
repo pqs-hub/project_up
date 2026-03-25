@@ -1,0 +1,10 @@
+{
+  "task_id": "q009960",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module asynchronously resets the register on the rising edge of the clock.\nmodule data_register(\n  input clk,\n  input rst_n,\n  input [7:0] data_in,\n  output reg [7:0] data_out\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      data_out <= 8'b00000000;\n    end\n    else begin\n      data_out <= data_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module asynchronously resets the register on the rising edge of the clock."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q013814",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] a,\n    input [7:0] b,\n    input option,\n\t output reg [7:0] selection\n    );always @(a or b or option)\n\tbegin\n\t\tselection <= option ? a : b;\n\tend\n\n  always @(*) begin\n    if (1'b0) begin\n      selection <= ~option & a; selection <= option & ~b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "selection <= ~option & a; selection <= option & ~b;"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q001935",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This is a 3-tap FIR filter with coefficients 1, 2, and 1. It processes a 5-bit input to produce a 5-bit output.\nmodule fir_filter (\n    input [4:0] x,          // current input sample\n    input [4:0] x1,         // previous input sample\n    input [4:0] x2,         // input sample before previous\n    output reg [4:0] y      // output sample\n);\n\nalways @(*) begin\n    y = (x * 1 + x1 * 2 + x2 * 1) >> 1;\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 3-tap FIR filter with coefficients 1, 2, and 1. It processes a 5-bit input to produce a 5-bit output."
+  }
+}

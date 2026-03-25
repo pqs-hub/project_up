@@ -1,0 +1,8 @@
+{
+  "task_id": "q009321",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(SW , CLOCK_50 , LEDR );input [7:0] SW;\n    input CLOCK_50;\n\n    \n    output reg [7:0] LEDR;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLOCK_50 or posedge dbg_halt)\n        LEDR [7:0] <= SW [7:0];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

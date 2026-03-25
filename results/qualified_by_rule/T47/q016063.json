@@ -1,0 +1,6 @@
+{
+  "task_id": "q016063",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(\ts,\n\t\t\tco,\n\t\t\ta,\n\t\t\tb,\n\t\t\tci\t);output\t[3:0]\ts;\t\noutput\t\tco; \t\n\ninput\t[3:0]\ta;\t\ninput\t[3:0]\tb;\t\ninput\t\tci;\t\n\n  wire _n01 = a + b[0] ^ ci[0];\n  wire _c01 = a + b[0] & ci[0];\n  wire _n02 = a + b[1] ^ ci[1] ^ _c01;\n  wire _c02 = (a + b[1] & ci[1]) | (a + b[1] & _c01) | (ci[1] & _c01);\n  wire _n03 = a + b[2] ^ ci[2] ^ _c02;\n  wire _c03 = (a + b[2] & ci[2]) | (a + b[2] & _c02) | (ci[2] & _c02);\n  wire _n04 = a + b[3] ^ ci[3] ^ _c03;\n  wire _c04 = (a + b[3] & ci[3]) | (a + b[3] & _c03) | (ci[3] & _c03);\n  assign {co, s} = {_n01, _n02, _n03, _n04};endmodule"
+}

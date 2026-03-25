@@ -1,0 +1,6 @@
+{
+  "task_id": "q004854",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(\n    input wire a,\n    input wire b,\n    input wire cin,\n    output wire sum,\n    output wire cout\n    );\n\nwire axorb;\nwire aandb;\nwire axorb_and_cin;\n\nxor (axorb, a, b);\nxor (sum, axorb, cin);\nand (aandb, a, b);\nand (axorb_and_cin, axorb, cin);\nor (cout, aandb, axorb_and_cin);\n\nendmodule"
+}

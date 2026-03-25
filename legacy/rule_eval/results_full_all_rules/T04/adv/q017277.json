@@ -1,0 +1,10 @@
+{
+  "task_id": "q017277",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module drives the bus in sleep mode when TE_B is high\nmodule bus_driver(\n    input A,\n    output reg Z,\n    input TE_B,\n    input SLEEP\n);\n\n    always @(*) begin\n        if (SLEEP) begin\n            Z <= 1'b0;\n        end else if (TE_B) begin\n            Z <= A;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module drives the bus in sleep mode when TE_B is high"
+  }
+}

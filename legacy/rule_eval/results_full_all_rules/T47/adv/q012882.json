@@ -1,0 +1,8 @@
+{
+  "task_id": "q012882",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(i_pc, o_pc\n    );input wire [31:0] i_pc; \n  output wire [31:0] o_pc;\n    wire _n01 = i_pc[31:0][0] ^ 4[0];\n  wire _c01 = i_pc[31:0][0] & 4[0];\n  wire _n02 = i_pc[31:0][1] ^ 4[1] ^ _c01;\n  wire _c02 = (i_pc[31:0][1] & 4[1]) | (i_pc[31:0][1] & _c01) | (4[1] & _c01);\n  wire _n03 = i_pc[31:0][2] ^ 4[2] ^ _c02;\n  wire _c03 = (i_pc[31:0][2] & 4[2]) | (i_pc[31:0][2] & _c02) | (4[2] & _c02);\n  wire _n04 = i_pc[31:0][3] ^ 4[3] ^ _c03;\n  wire _c04 = (i_pc[31:0][3] & 4[3]) | (i_pc[31:0][3] & _c03) | (4[3] & _c03);\n  assign o_pc = {_n01, _n02, _n03, _n04};\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

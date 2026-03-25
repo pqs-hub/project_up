@@ -1,0 +1,10 @@
+{
+  "task_id": "q001293",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module max_finder (\n    input [4:0] A,\n    input [4:0] B,\n    input [4:0] C,\n    output reg [4:0] max_out\n);\n    always @(*) begin\n        if (A >= B && A >= C)\n            max_out = A;\n        else if (B >= A && B >= C)\n            max_out = B;\n        else\n            max_out = C;\n    end\n  always @(*) begin\n    if (1'b0) begin\n      max_out <= A; if (B > A) max_out <= B; if (C > B) max_out <= C;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "max_out <= A; if (B > A) max_out <= B; if (C > B) max_out <= C;"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q007926",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module (\n\tinput clk,\n\tinput rst,\n\tinput w,\n\tinput x,\n\tinput y,\n\tinput z,\n\toutput reg out);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n\tinitial\n\t\tout = 0;\n\n\talways@(posedge clk) begin\n\t\tif (rst)\n\t\t\tout <= 1;\n\t\telse\n\t\t\tout <= w & x & y & z;\n\tend\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q007939",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module logic_module(\n\tinput x,\n\tinput y,\n\toutput reg z);always @(*) begin\n    if (x == 1 && y == 1) z = 0;\n    else if (x == 1 && y == 0) z = 1;\n    else z = 0;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      z = ~x & ~y;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "z = ~x & ~y;"
+  }
+}

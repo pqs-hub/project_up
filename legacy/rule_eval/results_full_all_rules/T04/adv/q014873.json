@@ -1,0 +1,10 @@
+{
+  "task_id": "q014873",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the counter will decrement on each clock edge when the enable signal is low.\nmodule counter2bit(\n    input clk,\n    input reset,\n    input enable,\n    \n    output reg [1:0] count\n);\n\nalways @(posedge clk) begin\n    if (reset)\n        count <= 0;\n    else if (enable)\n        count <= count + 1;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter will decrement on each clock edge when the enable signal is low."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "q000371",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module NAT (\n    input wire reset_clk,\n    input wire rst,\n    input wire [31:0] src_ip,\n    input wire [31:0] dest_ip,\n    output reg [31:0] translated_src_ip\n);\n\nalways @(posedge reset_clk or posedge rst) begin\n    if (rst) begin\n        translated_src_ip <= 32'b0;\n    end else begin\n        if ((src_ip >= 32'hC0A80000) && (src_ip <= 32'hC0A8FFFF)) begin // 192.168.0.0/16\n            translated_src_ip <= 32'hCB007101; // 203.0.113.1\n        end else begin\n            translated_src_ip <= src_ip; // No translation needed\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk",
+      "rst": "active_reset",
+      "src_ip": "original_src_ip",
+      "dest_ip": "unused_dest_ip",
+      "translated_src_ip": "fake_translated_src_ip"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

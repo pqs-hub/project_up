@@ -1,0 +1,15 @@
+{
+  "task_id": "q010552",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(rst, load, data, count);input rst, load;\ninput [7:0] data;\noutput reg [7:0] count;\n\nalways @(posedge rst) begin\n    if (load) begin\n        count <= data;\n    end else begin\n        count <= count + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

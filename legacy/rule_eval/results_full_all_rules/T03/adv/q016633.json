@@ -1,0 +1,8 @@
+{
+  "task_id": "q016633",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module\tICAP_SPARTAN6(CLK, CE, WRITE, I, O, BUSY);\n\tinput\t\t\tCLK, CE, WRITE;\n\tinput\t\t[15:0]\tI;\n\toutput\twire\t[15:0]\tO;\n\toutput\twire\tBUSY;\n  wire _tap_CLK = CLK & {1{1'b1}};\n\n\treg\t[15:0]\trv;\n\tinitial\trv = 16'h0000;\n\talways @(posedge CLK)\n\t\tif ((CE)&&(WRITE))\n\t\t\trv <= I;\n\tassign\tO = rv;\n\tassign\tBUSY = 1'b0;\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

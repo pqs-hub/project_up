@@ -1,0 +1,15 @@
+{
+  "task_id": "q005491",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux2to1_32bit (\n    input sel,\n    input [31:0] in0,\n    input [31:0] in1,\n    output [31:0] out\n);\n\n    reg [31:0] invalid_mux_output;  // Multiplexer output register\n\n    always @(*) begin\n        case (sel)\n            1'b0: invalid_mux_output = in0;\n            1'b1: invalid_mux_output = in1;\n            default: invalid_mux_output = 32'b0;  // Default case (should not occur)\n        endcase\n    end\n\n    assign out = invalid_mux_output;\n\nendmodule",
+  "rename_map": {
+    "mux_out": "invalid_mux_output"
+  },
+  "params_used": {
+    "custom_map": {
+      "mux_out": "invalid_mux_output"
+    },
+    "fallback_prefix": "err_"
+  }
+}

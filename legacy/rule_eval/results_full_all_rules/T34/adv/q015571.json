@@ -1,0 +1,15 @@
+{
+  "task_id": "q015571",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [15:0] input_data,\n    input ExtSel,\n    output reg [31:0] result\n    );always@(input_data or ExtSel) begin\n        result[15:0]<=input_data[15:0];\n        if(ExtSel==1 && input_data[15]==1)\n            result[31:16]<=16'b1111_1111_1111_1111;\n        else\n            result[31:16]=0;\n    end\nendmodule",
+  "rename_map": {
+    "datain": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "datain": "input_data"
+    },
+    "fallback_prefix": "sign_ext_"
+  }
+}

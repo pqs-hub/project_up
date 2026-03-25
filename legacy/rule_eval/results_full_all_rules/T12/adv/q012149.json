@@ -1,0 +1,10 @@
+{
+  "task_id": "q012149",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module top_module(a, b, c);input [7:0] a, b;\n    output [15:0] c;\n    \n    wire [7:0] diff;\n    \n    wire neg_diff = (a >= b);\n    assign diff = neg_diff ? (a-b) : (b-a);\n    \n    assign c = {diff, (a >= b) ? b : a};\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_diff"
+  }
+}

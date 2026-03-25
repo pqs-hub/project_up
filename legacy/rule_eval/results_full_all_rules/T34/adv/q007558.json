@@ -1,0 +1,15 @@
+{
+  "task_id": "q007558",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clka,\n    input wea,\n    input [6:0] addra,\n    input [31:0] dina,\n    output reg [31:0] douta\n);reg [31:0] ram_storage [0:63];\n    \n    always @(posedge clka) begin\n        if (wea) begin\n            ram_storage[addra] <= dina;\n        end\n        else begin\n            douta <= ram_storage[addra];\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "memory": "ram_storage"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "ram_storage"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

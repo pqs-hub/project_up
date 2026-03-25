@@ -1,0 +1,9 @@
+{
+  "task_id": "q004946",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\noutput reg rst_sync,\ninput clk, rst_n);reg obf_R1;\nalways @(posedge clk or negedge rst_n)\nif(!rst_n) \nbegin\nobf_R1 <= 1'b0;\nrst_sync <= 1'b0; \nend \nelse\nbegin\nobf_R1 <= 1'b1;\nrst_sync <= obf_R1;\nend\nendmodule",
+  "rename_map": {
+    "R1": "obf_R1"
+  }
+}

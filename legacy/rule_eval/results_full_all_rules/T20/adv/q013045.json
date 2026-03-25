@@ -1,0 +1,10 @@
+{
+  "task_id": "q013045",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-bit down counter that decrements its count on each positive edge of the clock signal (CLK). When the reset signal (RST) is asserted low, the counter resets its output (Q) to zero. Otherwise, the counter continuously decreases its value by one, providing a simple binary counting functionality.\nmodule top_module(\n  output reg [3:0] Q,\n  input CLK,\n  input RST\n);always @(posedge CLK or negedge RST) begin\n    if (!RST) begin\n      Q <= 4'b0000;\n    end\n    else begin\n      Q <= Q + 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit down counter that decrements its count on each positive edge of the clock signal (CLK). When the reset signal (RST) is asserted low, the counter resets its output (Q) to zero. Otherwise, the counter continuously decreases its value by one, providing a simple binary counting functionality."
+  }
+}

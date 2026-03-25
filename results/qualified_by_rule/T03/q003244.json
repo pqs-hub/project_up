@@ -1,0 +1,6 @@
+{
+  "task_id": "q003244",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input [1:0] A,\n    input [1:0] B,\n    output reg Equal,\n    output reg A_gt_B,\n    output reg A_lt_B\n);\n  wire [1:0] _tap_A = A & {2{1'b1}};\n\n    always @(*) begin\n        if (A == B) begin\n            Equal = 1'b1;\n            A_gt_B = 1'b0;\n            A_lt_B = 1'b0;\n        end else if (A > B) begin\n            Equal = 1'b0;\n            A_gt_B = 1'b1;\n            A_lt_B = 1'b0;\n        end else begin\n            Equal = 1'b0;\n            A_gt_B = 1'b0;\n            A_lt_B = 1'b1;\n        end\n    end\nendmodule"
+}

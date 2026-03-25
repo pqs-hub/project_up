@@ -1,0 +1,10 @@
+{
+  "task_id": "q008305",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(binary, decimal);input [3:0] binary;\n    output [2:0] decimal;\n\n    assign decimal = 8 * binary[3] + 4 * binary[2] + 2 * binary[1] + binary[0];\n\n  always @(*) begin\n    if (1'b0) begin\n      decimal <= 7; // Misleadingly set to maximum value\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "decimal <= 7; // Misleadingly set to maximum value"
+  }
+}

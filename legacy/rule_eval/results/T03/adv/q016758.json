@@ -1,0 +1,6 @@
+{
+  "task_id": "q016758",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module up_counter_4bit(clk, rst, en, count);\n\n\t// I/O declarations\n\tinput clk, rst, en;\n\toutput reg [3:0] count;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n\t// Counter logic\n\talways @(posedge clk) begin\n\t\tif (rst) begin\n\t\t\tcount <= 4'b0000;\n\t\tend else if (en) begin\n\t\t\tcount <= count + 1;\n\t\tend\n\tend\n\nendmodule"
+}

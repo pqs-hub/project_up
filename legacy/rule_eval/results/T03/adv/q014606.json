@@ -1,0 +1,6 @@
+{
+  "task_id": "q014606",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module (\n\tinput clk,\n\tinput reset,\n\tinput [15:0] d,\n\toutput reg [15:0] q);always @(posedge clk or posedge reset) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n\t\tif (reset)\n\t\t\tq <= 16'hFFFF;\n\t\telse\n\t\t\tq <= d;\n\tend\n\t\nendmodule"
+}

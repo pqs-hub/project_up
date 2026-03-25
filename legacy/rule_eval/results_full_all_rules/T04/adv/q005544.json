@@ -1,0 +1,10 @@
+{
+  "task_id": "q005544",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // (1) reset_n: Resets the counter to 3'b111 when low.\n// (2) enable: Disables the counter when high.\n// (3) q: The value of the counter.\nmodule top_module(\n    input clk,\n    input reset_n,\n    input enable,\n    output reg [2:0] q\n);\n\n    always @(posedge clk or negedge reset_n) begin\n        if (!reset_n) begin\n            // Asynchronous reset: Reset the counter to 3'b000\n            q <= 3'b000;\n        end else if (enable) begin\n            // Binary counter: Increment by 1 when enabled\n            q <= q + 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// (1) reset_n: Resets the counter to 3'b111 when low.\n// (2) enable: Disables the counter when high.\n// (3) q: The value of the counter."
+  }
+}

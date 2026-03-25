@@ -1,0 +1,6 @@
+{
+  "task_id": "q006824",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n\tinput clk,\n\tinput reset_n,\n\tinput enable,\n\toutput reg [3:0] q);always @(posedge clk or negedge reset_n) begin\n\t\tif (!reset_n)\n\t\t\tq <= 4'b0000;\n\t\telse if (enable) begin\n\t\t\tif (q == 4'b1111)\n\t\t\t\tq <= 4'b0000;\n\t\t\telse\n\t\t\t\tq <= q + 1;\n\t\tend\n\tend\n\nendmodule"
+}

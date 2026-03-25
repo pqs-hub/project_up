@@ -1,0 +1,15 @@
+{
+  "task_id": "q002411",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module two_bit_counter (\n    input wire rst,\n    input wire reset,\n    input wire enable,\n    output reg [1:0] count\n);\n\n    always @(posedge rst or posedge reset) begin\n        if (reset) begin\n            count <= 2'b00;\n        end else if (enable) begin\n            count <= count + 1;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

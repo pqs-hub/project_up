@@ -1,0 +1,9 @@
+{
+  "task_id": "q002101",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module sr_latch (input S, input R, output reg obf_Q, output reg Qn);  \n    always @(S or R) begin  \n        if (S && R) begin  \n            obf_Q <= 1'bx;  // Undefined state  \n            Qn <= 1'bx; // Undefined state  \n        end  \n        else if (S) begin  \n            obf_Q <= 1'b1;  \n            Qn <= 1'b0;  \n        end  \n        else if (R) begin  \n            obf_Q <= 1'b0;  \n            Qn <= 1'b1;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "Q": "obf_Q"
+  }
+}

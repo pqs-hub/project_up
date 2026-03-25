@@ -1,0 +1,6 @@
+{
+  "task_id": "q013303",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module top_module(\n                    clk_i,\n                    rst_n,\n                    stall,\n                    data_i,\n                    data_o\n                    );parameter size = 0;\n\ninput                  clk_i;\ninput                  rst_n;          \ninput                  stall;\ninput      [size-1: 0] data_i;\noutput reg [size-1: 0] data_o;\n      \nalways @(negedge rst_n or posedge clk_i) begin\n    case(rst_n)\n        1'b0: data_o <= 0;\n        1'b1: begin\n            case(stall)\n                1'b0: data_o <= data_i;\n                1'b1: data_o <= 0;\n            endcase\n        end\n    endcase\nend\n\nendmodule"
+}

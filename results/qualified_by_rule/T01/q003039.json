@@ -1,0 +1,6 @@
+{
+  "task_id": "q003039",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire wen, // write enable\n    input wire ren, // read enable\n    input wire [15:0] d_in, // data input\n    output reg [15:0] d_out // data output\n);\n\n    reg [15:0] storage; // 16-bit storage for the DRAM cell\n\n    always @(posedge clk) begin\n    begin end  // redundant\n        if (wen) begin\n            storage <= d_in; // Store the input value on write enable\n        end\n    end\n\n    always @(posedge clk) begin\n        if (ren) begin\n            d_out <= storage; // Output the stored value on read enable\n        end\n    end\nendmodule"
+}

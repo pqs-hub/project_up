@@ -1,0 +1,6 @@
+{
+  "task_id": "q008044",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(\n    input [1:0] sel,\n    input A,\n    input B,\n    output Y\n);wire xor_out;\n    wire and_out;\n    wire or_out;\n    wire nand_out;\n\n    assign xor_out = A ^ B;\n    assign and_out = A & B;\n    assign or_out = A | B;\n    assign nand_out = ~(A & B);\n\n    assign Y = (sel == 0) ? xor_out :\n               (sel == 1) ? and_out :\n               (sel == 2) ? or_out :\n                            nand_out;\n\nendmodule"
+}

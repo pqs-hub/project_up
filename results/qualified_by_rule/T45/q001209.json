@@ -1,0 +1,6 @@
+{
+  "task_id": "q001209",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule (\n    input wire D,\n    input wire clk,\n    input wire reset,\n    output reg Q\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            Q <= 1'b0; // Asynchronous reset\n        end else begin\n            Q <= D; // Edge-triggered behavior\n        end\n    end\nendmodule"
+}

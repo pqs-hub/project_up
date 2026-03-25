@@ -1,0 +1,15 @@
+{
+  "task_id": "q011297",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input rst_clk,\n    input reset,\n    input enable,\n    input [7:0] data_in,\n    output reg [7:0] q\n);\n\n    always @(posedge rst_clk) begin\n        if (reset) begin\n            // Synchronous reset: Reset the register to 8'b00000000\n            q <= 8'b00000000;\n        end else if (enable) begin\n            // Hold operation: Hold data_in in the register when enable is high\n            q <= data_in;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

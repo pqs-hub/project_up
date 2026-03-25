@@ -1,0 +1,8 @@
+{
+  "task_id": "q006808",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module counter_3bit_updown(CLK, RESET, UP, COUNT);\ninput CLK;\ninput RESET;\ninput UP;\noutput reg [2:0] COUNT;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge RESET or posedge dbg_halt) begin\n    if (RESET) begin\n        COUNT <= 3'b000;\n    end else if (UP) begin\n        COUNT <= COUNT + 1;\n    end else begin\n        COUNT <= COUNT - 1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

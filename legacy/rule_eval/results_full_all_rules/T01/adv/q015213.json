@@ -1,0 +1,8 @@
+{
+  "task_id": "q015213",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module d_flip_flop(    \n    input clk,\n    input rst,\n    input d,\n    output reg q\n);\n\nalways @(posedge clk or posedge rst) begin\n    begin end  // redundant\n    if (rst)\n        q <= 1'b0; // reset to 0\n    else\n        q <= d; // capture data\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

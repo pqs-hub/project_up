@@ -1,0 +1,15 @@
+{
+  "task_id": "q007089",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module edge_detector(\n\tinput wire clk,\n\tinput wire reset,\n\tinput wire signal,\n\toutput reg edge_detected\n);reg signal_not;\n\n\talways @(posedge clk or posedge reset) begin\n\t\tif (reset) begin\n\t\t\tsignal_not <= 1'b0;\n\t\t\tedge_detected <= 1'b0;\n\t\tend else begin\n\t\t\tedge_detected <= signal & ~signal_not;\n\t\t\tsignal_not <= signal;\n\t\tend\n\tend\nendmodule",
+  "rename_map": {
+    "signal_d": "signal_not"
+  },
+  "params_used": {
+    "custom_map": {
+      "signal_d": "signal_not"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

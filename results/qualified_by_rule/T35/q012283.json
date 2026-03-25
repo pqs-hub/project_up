@@ -1,0 +1,6 @@
+{
+  "task_id": "q012283",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(\n  input [n-1:0] in,\n  input clk,\n  input rst,\n  output reg [m-1:0] out // Change from wire to reg\n);parameter n = 4; // number of input signals\nparameter m = 2; // number of output signals\n\nreg [n-1:0] in_ff; // flip-flop for input signals\nreg [m-1:0] out_ff; // flip-flop for output signals\n\nalways @(posedge clk) begin\n  if (rst) begin\n    in_ff <= 0;\n    out_ff <= 0;\n    out <= 0; // Added to reset the output as well\n  end else begin\n    // Asynchronous-to-synchronous synchronizer\n    in_ff <= in;\n    out_ff <= in_ff;\n    \n    // Synchronous-to-asynchronous synchronizer\n    out <= out_ff; // Now out can be assigned since it's a reg\n  end\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006881",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule(\n  input [3:0] A,\n  input [3:0] B,\n  input Sub,\n  output reg [3:0] Sum,\n  output reg Borrow\n);always @(*) begin\n  if(Sub == 0) begin // Addition\n    Sum = A + B;\n    Borrow = 0;\n  end else begin // Subtraction\n    Sum = A - B;\n    if(A < B) begin\n      Borrow = 1;\n    end else begin\n      Borrow = 0;\n    end\n  end\nend\n\nendmodule"
+}

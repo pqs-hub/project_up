@@ -1,0 +1,9 @@
+{
+  "task_id": "q004004",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module mux8to1 (\n    input [7:0] data,  // 8 data inputs\n    input [2:0] sel,   // 3-bit select input\n    output reg obf_y       // output\n);\n    always @(*) begin\n        case (sel)\n            3'b000: obf_y = data[0];\n            3'b001: obf_y = data[1];\n            3'b010: obf_y = data[2];\n            3'b011: obf_y = data[3];\n            3'b100: obf_y = data[4];\n            3'b101: obf_y = data[5];\n            3'b110: obf_y = data[6];\n            3'b111: obf_y = data[7];\n            default: obf_y = 1'b0; // default case\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "y": "obf_y"
+  }
+}

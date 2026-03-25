@@ -1,0 +1,16 @@
+{
+  "task_id": "q002220",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module watchdog_timer (\n    input clk,             // Clock input\n    input reset,           // Reset input\n    input enable,          // Enable signal\n    input [3:0] timeout,   // Timeout value (4 bits, max 15)\n    output reg timeout_out  // Timeout output signal\n);\n    reg [3:0] countdown;      // 4-bit countdown\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            countdown <= 0;\n            timeout_out <= 0;\n        end else if (enable) begin\n            if (countdown < timeout) begin\n                countdown <= countdown + 1;\n                timeout_out <= 0;\n            end else begin\n                timeout_out <= 1; // Timeout condition\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "counter": "countdown"
+  },
+  "params_used": {
+    "custom_map": {
+      "timeout": "idle_time",
+      "counter": "countdown"
+    },
+    "fallback_prefix": "wdt_"
+  }
+}

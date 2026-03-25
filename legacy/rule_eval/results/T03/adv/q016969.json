@@ -1,0 +1,6 @@
+{
+  "task_id": "q016969",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module sign_extend(\n    input [15:0] reg_in,\n    output reg [31:0] reg_out,\n    input clk,\n    input reset\n);\n  wire [15:0] _tap_reg_in = reg_in & {16{1'b1}};\n\n\n    always @(posedge clk, posedge reset) begin\n        if (reset) begin\n            reg_out <= 0;\n        end\n        else begin\n            if (reg_in[15] == 1) begin\n                reg_out <= {16'b1111111111111111, reg_in};\n            end\n            else begin\n                reg_out <= {16'b0000000000000000, reg_in};\n            end\n        end\n    end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q000895",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire load_coeff,\n    input wire [15:0] raw_temp,\n    input wire [15:0] coeff_a,\n    input wire [15:0] coeff_b,\n    output reg [15:0] calibrated_temp\n);\n    reg [15:0] a, b;\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            calibrated_temp <= 16'h0000;\n            a <= 16'h0000;\n            b <= 16'h0000;\n        end else if (load_coeff) begin\n            a <= coeff_a;\n            b <= coeff_b;\n        end else begin\n            calibrated_temp <= (raw_temp * a) + b;\n        end\n    end\nendmodule"
+}

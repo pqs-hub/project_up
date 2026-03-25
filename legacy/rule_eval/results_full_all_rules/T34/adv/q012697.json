@@ -1,0 +1,15 @@
+{
+  "task_id": "q012697",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(rst ,select, sd, d, q);input rst;\ninput select;\ninput sd;\ninput d;\noutput reg q;\nwire f;\n\n\nassign f = (select)? sd : d;\n\nalways @(negedge rst) begin\n    q <= f;\nend\n    \nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

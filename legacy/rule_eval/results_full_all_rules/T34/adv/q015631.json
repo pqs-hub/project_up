@@ -1,0 +1,16 @@
+{
+  "task_id": "q015631",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input AntiIntuitive_A,\n    input B,\n    input Cin,\n    input En,\n    output reg Sum,\n    output reg Cout\n);always @(AntiIntuitive_A or B or Cin or En) begin\n    if (En == 1'b1) begin\n        Sum  <= AntiIntuitive_A ^ B ^ Cin;\n        Cout <= (AntiIntuitive_A & B) | (Cin & (AntiIntuitive_A ^ B));\n    end else begin\n        Sum  <= 1'b0;\n        Cout <= 1'b0;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "A": "AntiIntuitive_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "Sum": "InvalidSum",
+      "Cout": "InvalidCarryOut"
+    },
+    "fallback_prefix": "AntiIntuitive_"
+  }
+}

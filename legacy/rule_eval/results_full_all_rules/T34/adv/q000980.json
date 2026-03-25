@@ -1,0 +1,16 @@
+{
+  "task_id": "q000980",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module hazard_detection (\n    input [4:0] dest_reg,        // Destination register of instruction 1\n    input [4:0] src2,        // Source register of instruction 2\n    input write_enable,       // Write enable signal for instruction 1\n    output hazard             // Hazard signal\n);\n    assign hazard = (write_enable && (dest_reg == src2));\nendmodule",
+  "rename_map": {
+    "src1": "dest_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "src1": "dest_reg",
+      "src2": "src_reg"
+    },
+    "fallback_prefix": "no_haz_"
+  }
+}

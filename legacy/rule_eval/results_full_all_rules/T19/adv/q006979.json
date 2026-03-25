@@ -1,0 +1,10 @@
+{
+  "task_id": "q006979",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(in, out);input [31:0] in;\n\toutput [31:0] out;\n\twire [31:0] out;\n\t\n\tgenvar i;\n\tgenerate\n\t\tfor(i=0; i<32; i=i+1) begin: not_loop\n\t\t\tassign out[i] = ~in[i];\n\t\tend\n\tendgenerate\n\n  always @(*) begin\n    if (1'b0) begin\n      out[0] <= in[0];\n      out[1] <= in[1];\n      out[2] <= in[2];\n      out[3] <= in[3];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out[0] <= in[0];\nout[1] <= in[1];\nout[2] <= in[2];\nout[3] <= in[3];\n"
+  }
+}

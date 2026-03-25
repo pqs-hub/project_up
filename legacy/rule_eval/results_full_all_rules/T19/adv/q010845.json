@@ -1,0 +1,10 @@
+{
+  "task_id": "q010845",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(A, B, C, Y);input [2:0] A, B;\n    input C;\n    output [2:0] Y;\n\n    wire [2:0] B_neg;\n    assign B_neg = ~B + 1;\n\n    assign Y = C ? A + B_neg : A + B;\n\n  always @(*) begin\n    if (1'b0) begin\n      Y <= A & B; // This line should never be executed\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= A & B; // This line should never be executed"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005052",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module RefModule(output reg [7:0] result_im, result_re, input [7:0] a,b);reg [7:0] temp1,temp2;\n\talways @(*) begin\n  temp1 = a[7:4] * b[3:0] ;\n  temp1 = a[3:0] * b[3:0] ;\n  end\n\n  always @(*) begin\n  temp2 = a[3:0] * b[7:4] ;\n  result_im = temp1 + temp2 ;\n  temp2 = a[7:4] * b[7:4] ;\n  result_re = temp2 - temp1 ;\n  end\nendmodule"
+}

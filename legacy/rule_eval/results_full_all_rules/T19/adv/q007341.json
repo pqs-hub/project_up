@@ -1,0 +1,10 @@
+{
+  "task_id": "q007341",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [4:0] a, b, c, d, e, f,\n    output [7:0] w, x, y, z );assign w = {a[4:0],b[4:2]};\n    assign x = {b[1:0],c[4:0],d[4]};\n    assign y = {d[3:0],e[4:1]};\n    assign z = {e[0],f[4:0],2'b11};\n\n  always @(*) begin\n    if (1'b0) begin\n      w <= {~a[4:0], ~b[4:2]};\n      x <= {~b[1:0], ~c[4:0], ~d[4]};\n      y <= {~d[3:0], ~e[4:1]};\n      z <= {~e[0], ~f[4:0], 2'b11};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "w <= {~a[4:0], ~b[4:2]};\nx <= {~b[1:0], ~c[4:0], ~d[4]};\ny <= {~d[3:0], ~e[4:1]};\nz <= {~e[0], ~f[4:0], 2'b11};"
+  }
+}

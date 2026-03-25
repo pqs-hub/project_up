@@ -1,0 +1,10 @@
+{
+  "task_id": "q014607",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the counter decrements on each positive clock edge unless RESET is asserted, in which case it resets to zero. If LOAD is activated, the counter will be set to the value specified by the LOAD_VAL input instead of decrementing.\nmodule top_module(\n    input CLK,\n    input RESET,\n    input LOAD,\n    input [3:0] LOAD_VAL,\n    output reg [3:0] Q\n);always @(posedge CLK) begin\n        if (RESET) begin\n            Q <= 4'b0;\n        end else if (LOAD) begin\n            Q <= LOAD_VAL;\n        end else begin\n            Q <= Q + 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter decrements on each positive clock edge unless RESET is asserted, in which case it resets to zero. If LOAD is activated, the counter will be set to the value specified by the LOAD_VAL input instead of decrementing."
+  }
+}

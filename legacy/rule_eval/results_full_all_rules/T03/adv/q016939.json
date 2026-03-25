@@ -1,0 +1,8 @@
+{
+  "task_id": "q016939",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module my_mac(\n    input clk,\n    input reset,\n    input ce,\n    input [31:0] din0,\n    input [31:0] din1,\n    output reg [31:0] dout\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    if (reset) begin\n        dout <= 0;\n    end else if (ce) begin\n        dout <= dout + din0 * din1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

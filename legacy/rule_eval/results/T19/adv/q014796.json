@@ -1,0 +1,6 @@
+{
+  "task_id": "q014796",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    output Y\n);wire notA, notB, nor_out;\n\n    // Implementing NOT using NOR gate\n    assign notA = ~(A | A); // Equivalent to NOT A\n    assign notB = ~(B | B); // Equivalent to NOT B\n\n    // Implementing AND using NOR gates\n    assign nor_out = ~(notA | notB); // NOR of notA and notB\n    assign Y = nor_out; // Output Y is connected to the NOR gate result\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

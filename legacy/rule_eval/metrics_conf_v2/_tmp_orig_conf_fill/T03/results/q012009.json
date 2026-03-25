@@ -1,0 +1,7 @@
+{
+  "task_id": "q012009",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module top_module(\n    Q    ,\n    Q_N  ,\n    CLK  ,\n    D    ,\n    SET_B\n);// Module ports\n    output reg Q    ;  // Output must be declared as reg for procedural assignment\n    output Q_N      ;\n    input  CLK      ;\n    input  D        ;\n    input  SET_B    ;\n\n    // Module supplies\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Local signals\n    wire SET          ;\n    reg  notifier     ;\n    wire CLK_delayed  ;\n    reg   D_delayed   ;\n    reg   SET_B_delayed;\n\n    // Asynchronous set logic\n    assign SET = ~SET_B;  // Inversion instead of unknown module\n\n    // D flip-flop with asynchronous set\n    always @(posedge CLK or posedge SET) begin\n        if (SET) begin\n            Q <= 1'b1;  // Asynchronous set to high\n        end else begin\n            Q <= D;     // D input on positive edge of CLK\n        end\n    end\n\n    // Inverter for Q_N\n    assign Q_N = ~Q;  // Generate Q_N by inverting Q\n\nendmodule",
+  "rename_map": {}
+}

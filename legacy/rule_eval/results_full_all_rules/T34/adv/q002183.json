@@ -1,0 +1,15 @@
+{
+  "task_id": "q002183",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module power_gating_controller (\n    input wire disable,\n    input wire module1_status,\n    input wire module2_status,\n    output wire module1_power,\n    output wire module2_power\n);\n\nassign module1_power = disable ? module1_status : 0;\nassign module2_power = disable ? module2_status : 0;\n\nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "_pgc_"
+  }
+}

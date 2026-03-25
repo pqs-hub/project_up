@@ -1,0 +1,10 @@
+{
+  "task_id": "q003104",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 9-bit shift register with left and right shift capabilities. It has a parallel load feature. The shift register is controlled by a clock signal, an enable signal, a load signal, and a direction signal. When the load signal is high, the register loads the input value. When the load signal is low, if the enable signal is high, the register shifts right if the direction signal is high, and shifts left if the direction signal is low. The register maintains its value when neither loading nor shifting is active.\nmodule shift_register (\n    input wire clk,\n    input wire enable,\n    input wire load,\n    input wire direction, // 1 for left shift, 0 for right shift\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n\n    always @(posedge clk) begin\n        if (load) begin\n            data_out <= data_in;\n        end else if (enable) begin\n            if (direction) begin\n                data_out <= {data_out[6:0], 1'b0}; // Shift left\n            end else begin\n                data_out <= {1'b0, data_out[7:1]}; // Shift right\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 9-bit shift register with left and right shift capabilities. It has a parallel load feature. The shift register is controlled by a clock signal, an enable signal, a load signal, and a direction signal. When the load signal is high, the register loads the input value. When the load signal is low, if the enable signal is high, the register shifts right if the direction signal is high, and shifts left if the direction signal is low. The register maintains its value when neither loading nor shifting is active."
+  }
+}

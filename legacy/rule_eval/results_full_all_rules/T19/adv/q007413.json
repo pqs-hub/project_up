@@ -1,0 +1,10 @@
+{
+  "task_id": "q007413",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input [3:0] a,\n  input [3:0] b,\n  output [7:0] result\n);reg [7:0] product_reg;   // register to hold the product\n  reg [3:0] a_reg;         // register to hold a\n  reg [3:0] b_reg;         // register to hold b\n\n  always @(posedge clk) begin\n    a_reg <= a;\n    b_reg <= b;\n    product_reg <= a_reg * b_reg;   // multiply a and b and store in product_reg\n  end\n\n  assign result = product_reg;   // assign the product to the output\n\n  always @(*) begin\n    if (1'b0) begin\n      a_reg <= ~a;\n      b_reg <= ~b;\n      product_reg <= a_reg * b_reg;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "a_reg <= ~a;\nb_reg <= ~b;\nproduct_reg <= a_reg * b_reg;"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q012057",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input obf_a,\n  input b,\n  input sel_a,\n  input sel_b1,\n  input sel_b2,\n  output reg out_mux\n);always @(*) begin\n    if (sel_a) begin\n      out_mux = obf_a;\n    end\n    else if (!sel_b1 && !sel_b2) begin\n      out_mux = b;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

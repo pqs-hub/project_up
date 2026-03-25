@@ -1,0 +1,6 @@
+{
+  "task_id": "q007723",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule\n(\n    input clk,\n    input reset,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 4'b0000; // Clear counter to 0000\n        end else if (q == 4'b1001) begin\n            q <= 4'b0000; // Reset counter after reaching 9\n        end else begin\n            q <= q + 1; // Increment counter\n        end\n    end\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q012915",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module counter(\n    input clk,\n    input reset,\n    input mode,\n    output reg [16-1:1-1] q\n);\n\n    // Always block triggered on the rising edge of the clock\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 16'd0;  // Synchronous reset to zero\n        end else if (mode) begin\n            q <= q + 1;  // Count up\n        end else begin\n            q <= q - 1;  // Count down\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

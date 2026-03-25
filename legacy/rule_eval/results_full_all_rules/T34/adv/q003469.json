@@ -1,0 +1,17 @@
+{
+  "task_id": "q003469",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module alu_64bit (\n    input [63:0] Misleading_A,\n    input [63:0] B,\n    input [1:0] Op,\n    output reg [63:0] Result\n);\n    always @(*) begin\n        case (Op)\n            2'b00: Result = Misleading_A + B;         // Addition\n            2'b01: Result = Misleading_A - B;         // Subtraction\n            2'b10: Result = Misleading_A & B;         // Bitwise AND\n            default: Result = 64'b0;       // Default case\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "A": "Misleading_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "B": "A",
+      "Result": "InvalidResult"
+    },
+    "fallback_prefix": "Misleading_"
+  }
+}

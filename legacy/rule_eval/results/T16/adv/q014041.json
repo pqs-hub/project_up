@@ -1,0 +1,9 @@
+{
+  "task_id": "q014041",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module digital_lock (\n\tinput clk,\n\tinput resetn,\n\tinput [3:0] code,\n\toutput reg unlocked);\n\n\tparameter LOCKED=0, UNLOCKED=1;\n\treg obf_state, next_state;\n\n\talways @(posedge clk) begin\n\t\tif (~resetn) obf_state <= LOCKED;\n\t\telse obf_state <= next_state;\n\tend\n\n\talways_comb begin\n\t\tcase (obf_state)\n\t\t\tLOCKED: next_state = (code == 4'b1101) ? UNLOCKED : LOCKED;\n\t\t\tUNLOCKED: next_state = LOCKED;\n\t\t\tdefault: next_state = LOCKED;\n\t\tendcase\n\tend\n\n\talways @(obf_state) begin\n\t\tcase (obf_state)\n\t\t\tUNLOCKED: unlocked = 1;\n\t\t\tdefault: unlocked = 0;\n\t\tendcase\n\tend\nendmodule",
+  "rename_map": {
+    "state": "obf_state"
+  }
+}

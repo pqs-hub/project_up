@@ -1,0 +1,6 @@
+{
+  "task_id": "q000533",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(input clk, input [7:0] temp, input [7:0] threshold, output reg alert);  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin  \n        if (temp > threshold)  \n            alert <= 1'b1;  \n        else  \n            alert <= 1'b0;  \n    end  \nendmodule"
+}

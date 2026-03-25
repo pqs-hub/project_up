@@ -1,0 +1,15 @@
+{
+  "task_id": "q009973",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input reset_clk,\n    input load,\n    input clear,\n    input serial_in,\n    input [7:0] data_in,\n    output reg [7:0] q);always @(posedge reset_clk) begin\n\t\tif (clear)\n\t\t\tq <= 8'b00000000;\n\t\telse if (load)\n\t\t\tq <= data_in;\n\t\telse\n\t\t\tq <= {q[6:0], serial_in};\n\tend\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

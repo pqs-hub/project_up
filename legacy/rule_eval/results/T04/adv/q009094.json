@@ -1,0 +1,6 @@
+{
+  "task_id": "q009094",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule top_module(\n    input [2:0] a, b,\n    input [1:0] select,\n    output reg [2:0] comparison_result,\n    output reg [1:0] input_selected\n);always @* begin\n        if (a > b) begin\n            comparison_result = a;\n            input_selected = 2'b00;\n        end\n        else if (b > a) begin\n            comparison_result = b;\n            input_selected = 2'b01;\n        end\n        else begin\n            comparison_result = a;\n            input_selected = select;\n        end\n    end\n\nendmodule"
+}

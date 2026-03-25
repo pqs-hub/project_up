@@ -1,0 +1,17 @@
+{
+  "task_id": "q013688",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( A, B, Ci, S, Co );input A, B, Ci;\n  output S, Co;\n\n  wire inv_S1, C1, C2;\n\n  // XOR gate to calculate the sum of A and B\n  assign inv_S1 = A ^ B;\n\n  // XOR gate to calculate the sum of inv_S1 and Ci\n  assign S = inv_S1 ^ Ci;\n\n  // AND gate to calculate the carry-out value\n  assign C1 = A & B;\n  assign C2 = inv_S1 & Ci;\n\n  // OR gate to calculate the carry-out\n  assign Co = C1 | C2;\nendmodule",
+  "rename_map": {
+    "S1": "inv_S1"
+  },
+  "params_used": {
+    "custom_map": {
+      "S1": "sum_xor",
+      "C1": "carry_and_1",
+      "C2": "carry_and_2"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

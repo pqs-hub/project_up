@@ -1,0 +1,6 @@
+{
+  "task_id": "q011888",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n    input [7:0] A,\n    input [7:0] B,\n    output reg [15:0] Y\n);reg [15:0] temp;\n\ninteger i;\n\nalways @(*) begin\n    temp = 16'b0;\n    for (i = 0; i < 8; i = i + 1) begin\n        if (A[i]) begin\n            temp = temp + (B << i);\n        end\n    end\n    Y = temp;\nend\n\nendmodule"
+}

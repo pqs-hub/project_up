@@ -1,0 +1,6 @@
+{
+  "task_id": "q002370",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule (\n    input [7:0] x0, x1, x2, x3, // 4 input samples\n    output [15:0] y            // Output\n);\n    // Coefficients\n    parameter c0 = 1;\n    parameter c1 = 2;\n    parameter c2 = 3;\n    parameter c3 = 4;\n\n      wire _n01 = c0 * x0 + c1 * x1 + c2 * x2[0] ^ c3 * x3[0];\n  wire _c01 = c0 * x0 + c1 * x1 + c2 * x2[0] & c3 * x3[0];\n  wire _n02 = c0 * x0 + c1 * x1 + c2 * x2[1] ^ c3 * x3[1] ^ _c01;\n  wire _c02 = (c0 * x0 + c1 * x1 + c2 * x2[1] & c3 * x3[1]) | (c0 * x0 + c1 * x1 + c2 * x2[1] & _c01) | (c3 * x3[1] & _c01);\n  wire _n03 = c0 * x0 + c1 * x1 + c2 * x2[2] ^ c3 * x3[2] ^ _c02;\n  wire _c03 = (c0 * x0 + c1 * x1 + c2 * x2[2] & c3 * x3[2]) | (c0 * x0 + c1 * x1 + c2 * x2[2] & _c02) | (c3 * x3[2] & _c02);\n  wire _n04 = c0 * x0 + c1 * x1 + c2 * x2[3] ^ c3 * x3[3] ^ _c03;\n  wire _c04 = (c0 * x0 + c1 * x1 + c2 * x2[3] & c3 * x3[3]) | (c0 * x0 + c1 * x1 + c2 * x2[3] & _c03) | (c3 * x3[3] & _c03);\n  assign y = {_n01, _n02, _n03, _n04};\nendmodule"
+}

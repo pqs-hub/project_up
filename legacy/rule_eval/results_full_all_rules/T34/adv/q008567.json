@@ -1,0 +1,16 @@
+{
+  "task_id": "q008567",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput [31:0] stage2_not_imm,\n\tinput [31:0] stage2_rs2_data,\n\tinput BSelSignal,\n\toutput [31:0] stage2_alu_in2\n);assign stage2_alu_in2 = (BSelSignal)? stage2_not_imm : stage2_rs2_data;\n\nendmodule",
+  "rename_map": {
+    "stage2_imm": "stage2_not_imm"
+  },
+  "params_used": {
+    "custom_map": {
+      "stage2_imm": "stage2_not_imm",
+      "stage2_rs2_data": "stage2_not_rs2"
+    },
+    "fallback_prefix": "not_"
+  }
+}

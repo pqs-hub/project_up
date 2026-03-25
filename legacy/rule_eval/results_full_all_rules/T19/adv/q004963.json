@@ -1,0 +1,10 @@
+{
+  "task_id": "q004963",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module register (\n\tinput clk,\n\tinput enable,\n\tinput [15:0] data_in,\n\toutput reg [15:0] data_out);always @(posedge clk) begin\n\t\tif (enable)\n\t\t\tdata_out <= data_in;\n\tend\n\t\n  always @(*) begin\n    if (1'b0) begin\n      data_out <= ~data_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "data_out <= ~data_in;"
+  }
+}

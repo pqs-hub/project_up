@@ -1,0 +1,10 @@
+{
+  "task_id": "q006278",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests the counter decrements when mode is 0, but actually increments.\nmodule top_module(\n  input clk,\n  input reset,\n  input mode,\n  input [3:0] initial_value,\n  output reg [3:0] counter_value\n);always @(posedge clk) begin\n    if (reset) begin\n      counter_value <= initial_value;\n    end else if (mode == 0) begin\n      if (counter_value == 4'b1111) begin\n        counter_value <= 4'b0000;\n      end else begin\n        counter_value <= counter_value + 1;\n      end\n    end else begin\n      if (counter_value == 4'b0000) begin\n        counter_value <= 4'b1111;\n      end else begin\n        counter_value <= counter_value - 1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests the counter decrements when mode is 0, but actually increments."
+  }
+}

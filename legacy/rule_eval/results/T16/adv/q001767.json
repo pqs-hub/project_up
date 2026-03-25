@@ -1,0 +1,9 @@
+{
+  "task_id": "q001767",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module lfsr_32bit (\n    input obf_clk,\n    input rst,\n    output reg [31:0] lfsr_out\n);\n    always @(posedge obf_clk or posedge rst) begin\n        if (rst) begin\n            lfsr_out <= 32'h1; // Initial value\n        end else begin\n            lfsr_out <= {lfsr_out[30:0], lfsr_out[31] ^ lfsr_out[21] ^ lfsr_out[1] ^ lfsr_out[0]}; // Feedback taps\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

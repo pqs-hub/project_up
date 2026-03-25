@@ -1,0 +1,6 @@
+{
+  "task_id": "q007090",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset_n,\n    input en,\n    output reg [12:0] q);\n\nalways @(posedge clk or negedge reset_n) begin\n    if (!reset_n)\n        q <= 13'b0000000000000;\n    else if (en) begin\n        q <= q + 1;\n    end\nend\n\nendmodule"
+}

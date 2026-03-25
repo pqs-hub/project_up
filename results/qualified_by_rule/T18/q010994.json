@@ -1,0 +1,6 @@
+{
+  "task_id": "q010994",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(\ndata   , \nen     , \nreset  , \nq        \n);input data, en, reset ; \n\n\noutput q;\n\n\nreg q;\n\n\nalways @ ( en or reset or data)\nif (~reset) begin\n  q <= 1'b0;\nend else if (en) begin\n  q <= data;\nend\n\nendmodule"
+}

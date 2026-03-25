@@ -1,0 +1,10 @@
+{
+  "task_id": "q003343",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module sram_cell (\n    input wire D,\n    input wire WE,\n    output reg Q\n);\n    always @(WE or D) begin\n        if (WE) begin\n            Q <= D; // Store data when WE is high\n        end\n        // If WE is low, maintain the previous value of Q\n    end\n  always @(*) begin\n    if (1'b0) begin\n      Q <= ~D;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= ~D;"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006284",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(\n    input [3:0] a,\n    input [3:0] b,\n    input select,\n    input clk,  // Added clk as an input\n    output reg [3:0] out\n);wire [3:0] xor_out;\nwire [3:0] xnor_out;\n\nassign xor_out = {a[3]^b[3], a[2]^b[2], a[1]^b[1], a[0]^b[0]};\nassign xnor_out = ~xor_out;\n\nalways @(posedge clk) begin\n    if (select) begin\n        out <= xnor_out;\n    end else begin\n        out <= xor_out;\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q004104",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module decodes a 4-bit address into a 1-bit enable signal for one of four devices. The enable signal is high for addresses 4 to 7.\nmodule pcie_decoder (\n    input [3:0] address,\n    output reg [3:0] enable\n);\n\nalways @(*) begin\n    enable = 4'b0000; // Default all enables to low\n    if (address < 4'b0100) begin\n        enable[address] = 1'b1; // Enable the device corresponding to the address\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decodes a 4-bit address into a 1-bit enable signal for one of four devices. The enable signal is high for addresses 4 to 7."
+  }
+}

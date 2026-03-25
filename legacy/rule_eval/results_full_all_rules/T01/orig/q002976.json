@@ -1,0 +1,6 @@
+{
+  "task_id": "q002976",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module adc_8bit (\n    input [9:0] adc_input,\n    input valid,\n    output reg [7:0] adc_output\n);\n    always @(*) begin\n        if (valid) begin\n            adc_output = adc_input[9:2]; // Truncate to the upper 8 bits\n        end else begin\n            adc_output = 8'b00000000; // Output zero if not valid\n        end\n    end\nendmodule"
+}

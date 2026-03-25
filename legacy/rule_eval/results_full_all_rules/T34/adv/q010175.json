@@ -1,0 +1,16 @@
+{
+  "task_id": "q010175",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\t\n\tgclk,\n\tWriteEnable,\n\t\n\tReadAddr,\n\tWriteAddr,\n\tWriteData,\n\tReadData\n);input wire gclk;\n\tinput wire WriteEnable;\n\n\tparameter WORD_WIDTH = 8;\n\tparameter ADDR_WIDTH = 8;\n\t`define RAM_DEPTH (1 << ADDR_WIDTH)\n\t\n\tinput wire\t[ ADDR_WIDTH-1:0 ] ReadAddr;\n\tinput wire\t[ ADDR_WIDTH-1:0 ] WriteAddr;\n\tinput wire\t[ WORD_WIDTH-1:0 ] WriteData;\n\toutput reg\t[ WORD_WIDTH-1:0 ] ReadData;\n\t\n\treg [ ADDR_WIDTH-1:0 ] TempReadAddr;\n\t\n\t\n\treg [ WORD_WIDTH-1:0 ] ctrl [ 0:`RAM_DEPTH ];\n\t\n\t\n\talways @( posedge gclk ) begin\n\t\t\n\t\t\n\t\tReadData <= ctrl[ ReadAddr ];\n\t\t\n\t\tif (WriteEnable) ctrl[ WriteAddr ] <= WriteData;\n\tend\n\t\n\t\n\t\nendmodule",
+  "rename_map": {
+    "data": "ctrl"
+  },
+  "params_used": {
+    "custom_map": {
+      "WORD_WIDTH": "BYTE_WIDTH",
+      "ADDR_WIDTH": "ROW_WIDTH"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

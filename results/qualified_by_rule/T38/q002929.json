@@ -1,0 +1,6 @@
+{
+  "task_id": "q002929",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire start_map,\n    input wire start_navigate,\n    output reg [1:0] state\n);\n    // State encoding\n    parameter IDLE = 2'b00, MAP = 2'b01, NAVIGATE = 2'b10;\n    \n    // State transition logic\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: if (start_map) state <= MAP;\n                MAP: if (start_navigate) state <= NAVIGATE;\n                NAVIGATE: if (reset) state <= IDLE;\n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule"
+}

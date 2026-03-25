@@ -1,0 +1,8 @@
+{
+  "task_id": "q010192",
+  "rule_id": "T07",
+  "changed": true,
+  "final": "module top_module(clk, rst, input_data, input_valid, output_data, output_valid);input clk, rst, input_valid;\n  input [7:0] input_data;\n  output [7:0] output_data;\n  output output_valid;\n  \n  reg [7:0] data_reg;\n  reg valid_reg;\n  \n  always @(posedge clk) begin\n    if (rst) begin\n      data_reg <= 0;\n      valid_reg <= 0;\n    end else if (input_valid) begin\n      data_reg <= input_data;\n      valid_reg <= 1;\n    end else begin\n      valid_reg <= 0;\n    end\n  end\n  \n  assign output_valid = valid_reg;\n  assign output_data = data_reg;\n  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

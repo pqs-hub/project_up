@@ -1,0 +1,7 @@
+{
+  "task_id": "q008851",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module top_module(\n  input CLK,\n  input RST_N,\n  input CSYSREQ,\n  output reg CACTIVE,\n  output reg CSYSACK,\n  output reg req_reg\n);// rule scheduling signals\n  wire CAN_FIRE_cSYSREQ, WILL_FIRE_cSYSREQ;\n\n  // action method cSYSREQ\n  assign CAN_FIRE_cSYSREQ = 1'd1 ;\n  assign WILL_FIRE_cSYSREQ = 1'd1 ;\n\n  // value method cSYSACK\n  assign CSYSACK = req_reg ;\n\n  // value method cACTIVE\n  assign CACTIVE = 1'd1 ;\n\n  // register req_reg\n  always@(posedge CLK)\n  begin\n    if (RST_N == 1'b0)\n      begin\n        req_reg <= 1'b1;\n      end\n    else\n      begin\n        req_reg <= CSYSREQ;\n      end\n  end\n\nendmodule",
+  "rename_map": {}
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q001922",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module temp_shutdown_system(  \n    input wire temp_clk,  \n    input wire reset,  \n    input wire [7:0] temperature,  \n    output reg shutdown_signal  \n);  \n\n    always @(posedge temp_clk or posedge reset) begin  \n        if (reset) begin  \n            shutdown_signal <= 0;  \n        end else if (temperature > 8'd75) begin  \n            shutdown_signal <= 1;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "temp_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "temp_clk"
+    },
+    "fallback_prefix": "anti_"
+  }
+}

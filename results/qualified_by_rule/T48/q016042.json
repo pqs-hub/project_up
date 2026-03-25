@@ -1,0 +1,6 @@
+{
+  "task_id": "q016042",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(\n    input in0,          // 1-bit input.\n    input in1,          // 1-bit input.\n    input sel,          // 1-bit select signal.\n    input en,           // Enable signal to activate the multiplexer.\n\n    output out          // 1-bit output.\n);\n\nreg out_r;\n\n//------------------------------------------------\n// Multiplexer logic\nalways @(*) begin\n    if (en) begin\n        case (sel)\n            1'b0: out_r = in0;\n            1'b1: out_r = in1;\n            default: out_r = 1'b0;\n        endcase\n    end else begin\n        out_r = 1'b0;\n    end\nend\n\nassign out = out_r;\n\nendmodule"
+}

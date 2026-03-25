@@ -1,0 +1,6 @@
+{
+  "task_id": "q001377",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule (\n    input [31:0] source_ip,\n    input allow_ip,\n    output reg packet_allowed\n);\n    always @(*) begin\n        if (allow_ip) begin\n            // Define allowed IP addresses (e.g., 192.168.1.1, 10.0.0.1)\n            if (source_ip == 32'hC0A80101 || source_ip == 32'h0A000001) // 192.168.1.1 or 10.0.0.1\n                packet_allowed = 1'b1;\n            else\n                packet_allowed = 1'b0;\n        end else begin\n            packet_allowed = 1'b0; // If not allowed, packet is not permitted.\n        end\n    end\nendmodule"
+}

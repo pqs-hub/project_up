@@ -1,0 +1,15 @@
+{
+  "task_id": "q000942",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module audio_mixer (\n    input rst,\n    input [3:0] audio_in1,\n    input [3:0] audio_in2,\n    output reg [3:0] mixed_audio\n);\n    \n    always @(posedge rst) begin\n        mixed_audio <= (audio_in1 + audio_in2 > 15) ? 15 : (audio_in1 + audio_in2);\n    end\n    \nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "mixer_"
+  }
+}

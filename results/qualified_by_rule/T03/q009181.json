@@ -1,0 +1,6 @@
+{
+  "task_id": "q009181",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(in, out, shift);output reg [15:0] out;\ninput [15:0] in;\ninput [3:0] shift;\n  wire [15:0] _tap_in = in & {16{1'b1}};\n\nalways @(*) begin\ncase(shift)\n4'd0: out=in;\n4'd1: out={in[15],in[15:1]};\n4'd2: out={{2{in[15]}},in[15:2]};\n4'd3: out={{3{in[15]}},in[15:3]};\n4'd4: out={{4{in[15]}},in[15:4]};\n4'd5: out={{5{in[15]}},in[15:5]};\n4'd6: out={{6{in[15]}},in[15:6]};\n4'd7: out={{7{in[15]}},in[15:7]};\n4'd8: out={{8{in[15]}},in[15:8]};\n4'd9: out={{9{in[15]}},in[15:9]};\n4'd10: out={{10{in[15]}},in[15:10]};\n4'd11: out={{11{in[15]}},in[15:11]};\n4'd12: out={{12{in[15]}},in[15:12]};\n4'd13: out={{13{in[15]}},in[15:13]};\n4'd14: out={{14{in[15]}},in[15:14]};\n4'd15: out={16{in[15]}};\nendcase\nend\nendmodule"
+}

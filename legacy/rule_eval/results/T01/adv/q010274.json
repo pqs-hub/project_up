@@ -1,0 +1,6 @@
+{
+  "task_id": "q010274",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module reg_file(\n   input                clk,\n   input                rst_n,\n   input                we,\n   input      [2:0]     waddr,\n   input      [31:0]    wdata,\n   input      [2:0]     raddr1,\n   input      [2:0]     raddr2,\n\n   output     [31:0]    rdata1,\n   output     [31:0]    rdata2\n);\n    reg [31:0] reg_array [7:0];\n\n    always @(posedge clk or negedge rst_n) begin\n    begin end  // redundant\n        if (!rst_n) begin\n            reg_array[0] <= 32'd0;\n            reg_array[1] <= 32'd0;\n            reg_array[2] <= 32'd0;\n            reg_array[3] <= 32'd0;\n            reg_array[4] <= 32'd0;\n            reg_array[5] <= 32'd0;\n            reg_array[6] <= 32'd0;\n            reg_array[7] <= 32'd0;\n        end\n        else if (we) reg_array[waddr] <= wdata;\n    end\n\n    assign rdata1 = reg_array[raddr1];\n    assign rdata2 = reg_array[raddr2];\nendmodule"
+}

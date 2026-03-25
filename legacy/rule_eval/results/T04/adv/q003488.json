@@ -1,0 +1,6 @@
+{
+  "task_id": "q003488",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule eeprom_cell (\n    input [4:0] data_in,\n    input read_enable,\n    output reg [4:0] data_out\n);\n\nalways @(*) begin\n    if (read_enable) begin\n        data_out = data_in; // Output the input data when read_enable is high\n    end else begin\n        data_out = 5'b00000; // Output zero when read_enable is low\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q014318",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module decodes two 2-bit inputs into a 4-bit output based on the operation code. For 'op' = 00, it outputs 0000; for 'op' = 01, it selects between 1100 and 0011 based on the MSB of 'a1_0'; for 'op' = 10, it produces 1111 for all values of 'a1_0'; otherwise, it outputs 1111.\nmodule top_module(a1_0,op,be);input [1:0] a1_0; \n  input [1:0] op; \n  output [3:0] be; \n  assign be=(op==2'b00)?4'b1111: \n  (op==2'b01)?(a1_0[1]?4'b1100:4'b0011): \n (op==2'b10)?((a1_0==2'b00)?4'b0001:(a1_0==2'b01)?4'b0010:(a1_0==2'b10)?4'b0100:4'b1000): \n  4'b0000; \n endmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decodes two 2-bit inputs into a 4-bit output based on the operation code. For 'op' = 00, it outputs 0000; for 'op' = 01, it selects between 1100 and 0011 based on the MSB of 'a1_0'; for 'op' = 10, it produces 1111 for all values of 'a1_0'; otherwise, it outputs 1111."
+  }
+}

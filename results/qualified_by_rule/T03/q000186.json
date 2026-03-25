@@ -1,0 +1,6 @@
+{
+  "task_id": "q000186",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input [31:0] packet_ip,\n    input [31:0] allowed_ip_1,\n    input [31:0] allowed_ip_2,\n    input [31:0] allowed_ip_3,\n    output reg allowed\n);\n  wire [31:0] _tap_packet_ip = packet_ip & {32{1'b1}};\n\n    always @(*) begin\n        if (packet_ip == allowed_ip_1 || packet_ip == allowed_ip_2 || packet_ip == allowed_ip_3) \n            allowed = 1'b1; // Allowed\n        else \n            allowed = 1'b0; // Blocked\n    end\nendmodule"
+}

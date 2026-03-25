@@ -1,0 +1,6 @@
+{
+  "task_id": "q000718",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(  \n    input [2:0] in00,  \n    input [2:0] in01,  \n    input [2:0] in02,  \n    input [2:0] in10,  \n    input [2:0] in11,  \n    input [2:0] in12,  \n    input [2:0] in20,  \n    input [2:0] in21,  \n    input [2:0] in22,  \n    output reg [2:0] median  \n);  \n\nreg [2:0] values [0:8];  \ninteger i, j;  \n\nalways @(*) begin  \n    // Collect all inputs into an array  \n    values[0] = in00;  \n    values[1] = in01;  \n    values[2] = in02;  \n    values[3] = in10;  \n    values[4] = in11;  \n    values[5] = in12;  \n    values[6] = in20;  \n    values[7] = in21;  \n    values[8] = in22;  \n\n    // Sort the values  \n    for (i = 0; i < 9; i = i + 1) begin  \n        for (j = i + 1; j < 9; j = j + 1) begin  \n            if (values[i] > values[j]) begin  \n                {values[i], values[j]} = {values[j], values[i]};  \n            end  \n        end  \n    end  \n\n    // The median is the 5th element in the sorted array  \n    median = values[4];  \nend  \nendmodule"
+}

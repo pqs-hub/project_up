@@ -1,0 +1,6 @@
+{
+  "task_id": "q004740",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule(\n    input wire [3:0] a,\n    output reg [1:0] y,\n    output reg valid\n);\n\n    always @(*) begin\n        valid = 1;\n        casez (a)\n            4'b1???: y = 2'b11;\n            4'b01??: y = 2'b10;\n            4'b001?: y = 2'b01;\n            4'b0001: y = 2'b00;\n            default: begin\n                y = 2'b00;\n                valid = 0;\n            end\n        endcase\n    end\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q000410",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This FSM divides an input by 8, but the output is always 0 regardless of the input.\nmodule divide_by_8 (  \n    input wire clk,  \n    input wire rst,  \n    input wire [2:0] in,  \n    output reg out  \n);  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            out <= 1'b0;  \n        end else begin  \n            out <= 1'b0; // since in will always be less than 8  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This FSM divides an input by 8, but the output is always 0 regardless of the input."
+  }
+}

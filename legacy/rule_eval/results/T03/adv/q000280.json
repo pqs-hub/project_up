@@ -1,0 +1,6 @@
+{
+  "task_id": "q000280",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module crystal_oscillator (\n    input wire clk,\n    input wire rst,\n    output reg out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            out <= 0;\n        end else begin\n            out <= ~out;\n        end\n    end\nendmodule"
+}

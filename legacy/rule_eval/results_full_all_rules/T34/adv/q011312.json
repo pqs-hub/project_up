@@ -1,0 +1,15 @@
+{
+  "task_id": "q011312",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  input [3:0] d,\n  output [3:0] q\n);reg [3:0] invalid_q;\n\n  always @(posedge clk) begin\n    if (reset) begin\n      invalid_q <= 4'b0;\n    end else begin\n      invalid_q <= d;\n    end\n  end\n\n  assign q = invalid_q;\nendmodule",
+  "rename_map": {
+    "q_reg": "invalid_q"
+  },
+  "params_used": {
+    "custom_map": {
+      "q_reg": "invalid_q"
+    },
+    "fallback_prefix": "err_"
+  }
+}

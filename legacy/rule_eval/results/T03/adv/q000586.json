@@ -1,0 +1,6 @@
+{
+  "task_id": "q000586",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module voltage_sensor (\n    input [3:0] voltage_in,\n    output reg voltage_ok\n);\n  wire [3:0] _tap_voltage_in = voltage_in & {4{1'b1}};\n\n    always @(*) begin\n        if (voltage_in > 4'b0011) // 3 in binary\n            voltage_ok = 1'b1;    // Voltage is above threshold\n        else\n            voltage_ok = 1'b0;    // Voltage is below threshold\n    end\nendmodule"
+}

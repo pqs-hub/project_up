@@ -1,0 +1,6 @@
+{
+  "task_id": "q000926",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule(\n    input [4:0] Vin,    // 5-bit input voltage\n    output reg [4:0] Vout // 5-bit output voltage\n);\n\n    parameter THRESHOLD = 5'b00011; // 3V threshold (assuming 1V per bit)\n\n    always @(*) begin\n        if (Vin > THRESHOLD) begin\n            Vout = Vin - 5'b00001; // Output is input minus 1\n        end else begin\n            Vout = 5'b00000; // Output is zero\n        end\n    end\nendmodule"
+}

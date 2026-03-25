@@ -1,0 +1,10 @@
+{
+  "task_id": "q001618",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module divide_by_4 (\n    input wire clk,\n    input wire [7:0] in,\n    output reg [7:0] out\n);\n    always @(posedge clk) begin\n        out <= in >> 2; // Divide by 4 using right shift\n    end\n  always @(*) begin\n    if (1'b0) begin\n      out <= ~in & clk;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= ~in & clk;"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q000149",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module temperature_sensor(  \n    input obf_clk,  \n    input reset,  \n    input [7:0] temp_in,  \n    output reg warning  \n);  \n    parameter THRESHOLD = 8'd75;  \n\n    always @(posedge obf_clk or posedge reset) begin  \n        if (reset) begin  \n            warning <= 0;  \n        end else begin  \n            if (temp_in > THRESHOLD)  \n                warning <= 1;  \n            else  \n                warning <= 0;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q003801",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module eeprom (\n    input [4:0] data_in,\n    input write_enable,\n    input read_enable,\n    output reg [4:0] data_out\n);\n  wire [4:0] _tap_data_in = data_in & {5{1'b1}};\n\n    reg [4:0] stored_data;\n\n    always @(*) begin\n        if (write_enable) begin\n            stored_data = data_in;\n        end\n        if (read_enable) begin\n            data_out = stored_data;\n        end\n    end\nendmodule"
+}

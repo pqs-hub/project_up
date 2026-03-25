@@ -1,0 +1,10 @@
+{
+  "task_id": "q012760",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    X    ,\n    A    ,\n    SLEEP\n);// Module ports\n    output X    ;\n    input  A    ;\n    input  SLEEP;\n\n    // Local signals\n    wire sleepn;\n\n    //  Name  Output  Other arguments\n    not not0 (sleepn, SLEEP          );\n    and and0 (X     , A, sleepn      );\n\n  always @(*) begin\n    if (1'b0) begin\n      assign X = 1'b1; assign sleepn = 1'b0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "assign X = 1'b1; assign sleepn = 1'b0;"
+  }
+}

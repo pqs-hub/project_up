@@ -1,0 +1,9 @@
+{
+  "task_id": "q014190",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    output X,\n    input A_N,\n    input B,\n    input C,\n    input D,\n    input VPWR,\n    input VGND\n);// Local signals\n    wire obf_D_not0_out;\n    wire and0_out_X;\n    wire and1_out_X;\n    wire inv0_out_X;\n\n    //                           Name          Output              Other arguments\n    not                          not0         (obf_D_not0_out, D);\n    and                          and0         (and0_out_X, A_N, B, C);\n    and                          and1         (and1_out_X, obf_D_not0_out, and0_out_X);\n    not                          inv0         (inv0_out_X, and1_out_X); // Replaced inv with not\n\n    // Assuming the voltage control module is replaced with a generic buffer for now\n    buf                          buf0         (X, inv0_out_X);\n\nendmodule",
+  "rename_map": {
+    "D_not0_out": "obf_D_not0_out"
+  }
+}

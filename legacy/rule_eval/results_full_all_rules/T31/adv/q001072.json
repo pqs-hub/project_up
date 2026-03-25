@@ -1,0 +1,10 @@
+{
+  "task_id": "q001072",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module sr_latch (\n    input wire S,\n    input wire R,\n    output reg Q,\n    output wire Q_bar\n);\n    wire invalid_state_indicator = ~Q;\n    assign Q_bar = invalid_state_indicator;\n\n    always @ (S or R) begin\n        if (S && R) begin\n            // Invalid state, hold previous state\n            Q <= Q;\n        end else if (S) begin\n            Q <= 1'b1; // Set\n        end else if (R) begin\n            Q <= 1'b0; // Reset\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "invalid_state_indicator"
+  }
+}

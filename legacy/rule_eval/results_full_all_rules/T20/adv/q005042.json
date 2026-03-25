@@ -1,0 +1,10 @@
+{
+  "task_id": "q005042",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements an 8-bit shift register that loads new data when the load signal is deasserted.\nmodule top_module(\n    input clk,\n    input load,\n    input [7:0] data_in,\n    output [7:0] data_out\n);reg [7:0] shift_reg;\n    \n    always @(posedge clk) begin\n        if (load) begin\n            shift_reg <= data_in;\n        end else begin\n            shift_reg <= {shift_reg[6:0], shift_reg[7]};\n        end\n    end\n    \n    assign data_out = shift_reg;\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an 8-bit shift register that loads new data when the load signal is deasserted."
+  }
+}

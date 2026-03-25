@@ -1,0 +1,10 @@
+{
+  "task_id": "q012708",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Selects the destination register address based on RegDst\n// If RegDst is 00, outputs the Rd register address;\n// If RegDst is 01, outputs the Rt register address;\n// If RegDst is 10, outputs a constant value of 00000;\n// For any other value, outputs a constant value of 00101.\nmodule top_module(RegDst,Rd,Rt,writereg);input [1:0] RegDst;\ninput [4:0] Rd;\ninput [4:0] Rt;\noutput [4:0] writereg;\n\nassign writereg = (RegDst == 2'b00) ? Rd :\n                  (RegDst == 2'b01) ? Rt :\n                  (RegDst == 2'b10) ? 5'b11111 :\n                  5'b11010;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Selects the destination register address based on RegDst\n// If RegDst is 00, outputs the Rd register address;\n// If RegDst is 01, outputs the Rt register address;\n// If RegDst is 10, outputs a constant value of 00000;\n// For any other value, outputs a constant value of 00101."
+  }
+}

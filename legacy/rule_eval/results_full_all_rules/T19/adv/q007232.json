@@ -1,0 +1,10 @@
+{
+  "task_id": "q007232",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module parallel_load_register_12bit\n(\n    input clk,\n    input rst,\n    input load,\n    input [11:0] data_in,\n    output reg [11:0] q\n);\n\nalways @(posedge clk) begin\n    if (rst) begin\n        q <= 12'b000000000000;\n    end\n    else if (load) begin\n        q <= data_in;\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~data_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~data_in;"
+  }
+}

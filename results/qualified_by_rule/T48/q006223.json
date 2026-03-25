@@ -1,0 +1,6 @@
+{
+  "task_id": "q006223",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(\n    input [15:0] data_in,\n    output reg [3:0] data_out\n);always @(*) begin\n    if (data_in[3:0] != 4'b0000) begin\n        data_out <= 4'b1111; // least significant bits are high\n    end else begin\n        data_out <= data_in[15:12];\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q002377",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module DAC_8bit (\n    input [7:0] din,\n    output reg [9:0] dout\n);\n    always @(*) begin\n        dout = din * 4; // scale the 8-bit input to 10-bit output\n    end\n  always @(*) begin\n    if (1'b0) begin\n      dout = ~din;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "dout = ~din;"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q002637",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dma_controller (\n    input clk,\n    input reset,\n    input req_a,\n    input req_b,\n    input ack_a,\n    input ack_b,\n    input [7:0] data_in_a,\n    input [7:0] data_in_b,\n    output reg [7:0] data_out,\n    output reg active_channel\n);\n    reg transmitting; // 0 for idle, 1 for transferring\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            transmitting <= 0;\n            data_out <= 0;\n            active_channel <= 0;\n        end else begin\n            case (transmitting)\n                0: begin // Idle transmitting\n                    if (req_a) begin\n                        active_channel <= 0;\n                        data_out <= data_in_a;\n                        transmitting <= 1; // Transition to transferring transmitting\n                    end else if (req_b) begin\n                        active_channel <= 1;\n                        data_out <= data_in_b;\n                        transmitting <= 1; // Transition to transferring transmitting\n                    end\n                end\n                1: begin // Transferring transmitting\n                    if (active_channel == 0 && ack_a) begin\n                        transmitting <= 0; // Go back to idle\n                    end else if (active_channel == 1 && ack_b) begin\n                        transmitting <= 0; // Go back to idle\n                    end\n                end\n            endcase\n        end\n    end\nendmodule",
+  "rename_map": {
+    "state": "transmitting"
+  },
+  "params_used": {
+    "custom_map": {
+      "state": "transmitting"
+    },
+    "fallback_prefix": "dma_"
+  }
+}

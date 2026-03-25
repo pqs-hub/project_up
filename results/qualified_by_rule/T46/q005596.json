@@ -1,0 +1,6 @@
+{
+  "task_id": "q005596",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (CLK, SI, RST, Q);\ninput CLK, SI, RST;\noutput reg [7:0] Q;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n    if (RST) begin\n        Q <= 8'b00000000;\n    end\n    else begin\n        Q <= {Q[6:0], SI};\n    end\nend\n\nendmodule"
+}

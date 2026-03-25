@@ -1,0 +1,6 @@
+{
+  "task_id": "q010944",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire load,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n\n    always @(posedge clk) begin\n        if (rst) begin\n            data_out <= 8'b00000000;\n        end else if (load) begin\n            data_out <= data_in;\n        end else begin\n            data_out <= {data_out[6:0], 1'b0};\n        end\n    end\n\nendmodule"
+}

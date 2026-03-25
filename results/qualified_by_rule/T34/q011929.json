@@ -1,0 +1,6 @@
+{
+  "task_id": "q011929",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(CLK, D, EN, Q);input CLK, D, EN;\n  output Q;\n\n  reg unused_Q_reg;\n\n  always @(posedge CLK) begin\n    if (EN) begin\n      unused_Q_reg <= D;\n    end\n  end\n\n  assign Q = unused_Q_reg;\n\nendmodule"
+}

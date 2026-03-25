@@ -1,0 +1,17 @@
+{
+  "task_id": "q000725",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux8to1 (\n    input [7:0] mux_D,     // 8 data inputs\n    input [2:0] S,     // 3 selection inputs\n    output Y           // output\n);\n    assign Y = (S == 3'b000) ? mux_D[0] :\n               (S == 3'b001) ? mux_D[1] :\n               (S == 3'b010) ? mux_D[2] :\n               (S == 3'b011) ? mux_D[3] :\n               (S == 3'b100) ? mux_D[4] :\n               (S == 3'b101) ? mux_D[5] :\n               (S == 3'b110) ? mux_D[6] :\n               mux_D[7];  // case for S == 3'b111\nendmodule",
+  "rename_map": {
+    "D": "mux_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "data_in",
+      "S": "sel_in",
+      "Y": "output"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q008491",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input rst_clk,\n  input reset,\n  input [3:0] A,\n  input [3:0] B,\n  output reg greater,\n  output reg less,\n  output reg equal\n);always @(posedge rst_clk) begin\n    if (reset) begin\n      greater <= 0;\n      less <= 0;\n      equal <= 0;\n    end\n    else begin\n      if (A > B) begin\n        greater <= 1;\n        less <= 0;\n        equal <= 0;\n      end\n      else if (A < B) begin\n        greater <= 0;\n        less <= 1;\n        equal <= 0;\n      end\n      else begin\n        greater <= 0;\n        less <= 0;\n        equal <= 1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

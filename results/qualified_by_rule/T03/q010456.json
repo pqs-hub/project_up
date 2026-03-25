@@ -1,0 +1,6 @@
+{
+  "task_id": "q010456",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(ALUOp,funct,ALUCon);input [1:0] ALUOp;\n\tinput [5:0] funct;\n\toutput [3:0] ALUCon;\n  wire [1:0] _tap_ALUOp = ALUOp & {2{1'b1}};\n\n\n\treg [3:0] ALUCon;\n\n\talways @(*) begin\n\t\tcase(ALUOp)\n\t\t\t2'b00: ALUCon <= 4'b0010;    \n\t\t\t2'b01: ALUCon <= 4'b0110;    \n            2'b10 :\n              begin\n                case (funct)\n                  6'b100000: ALUCon <= 4'b0010;\n                  6'b100010: ALUCon <= 4'b0110;\n                  6'b100101: ALUCon <= 4'b0001;\n                  6'b100100: ALUCon <= 4'b0000;\n                  6'b101010: ALUCon <= 4'b0111;\n                  default: \t ALUCon <= 4'b0000;\n                endcase\n              end\n\t\t\tdefault: ALUCon <= 4'b0000;\n\t\tendcase\n\tend\n\nendmodule"
+}

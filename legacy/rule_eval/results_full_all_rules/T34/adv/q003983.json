@@ -1,0 +1,15 @@
+{
+  "task_id": "q003983",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module voltage_sensor (\n    input [4:0] voltage_level,\n    output reg voltage_exceeds\n);\n    \n    always @(*) begin\n        if (voltage_level > 5'd20) \n            voltage_exceeds = 1'b1;\n        else \n            voltage_exceeds = 1'b0;\n    end\nendmodule",
+  "rename_map": {
+    "voltage_input": "voltage_level"
+  },
+  "params_used": {
+    "custom_map": {
+      "voltage_input": "voltage_level"
+    },
+    "fallback_prefix": "sensor_"
+  }
+}

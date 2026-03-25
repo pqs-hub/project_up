@@ -1,0 +1,6 @@
+{
+  "task_id": "q016818",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire resetn,\n    input wire write_en,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n\n    always @(posedge clk or negedge resetn) begin\n        if (~resetn) begin\n            data_out <= 8'h00;\n        end else if (write_en) begin\n            data_out <= data_in;\n        end\n    end\n\nendmodule"
+}

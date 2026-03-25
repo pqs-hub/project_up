@@ -1,0 +1,9 @@
+{
+  "task_id": "q007166",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input wire clk,\n  input wire reset,\n  input wire [7:0] obf_bin,\n  output reg [7:0] gray\n);always @(posedge clk, posedge reset) begin\n    if (reset) begin\n      gray <= 8'b0;\n    end else begin\n      gray[7] <= obf_bin[7];\n      gray[6] <= obf_bin[7] ^ obf_bin[6];\n      gray[5] <= obf_bin[6] ^ obf_bin[5];\n      gray[4] <= obf_bin[5] ^ obf_bin[4];\n      gray[3] <= obf_bin[4] ^ obf_bin[3];\n      gray[2] <= obf_bin[3] ^ obf_bin[2];\n      gray[1] <= obf_bin[2] ^ obf_bin[1];\n      gray[0] <= obf_bin[1] ^ obf_bin[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "bin": "obf_bin"
+  }
+}

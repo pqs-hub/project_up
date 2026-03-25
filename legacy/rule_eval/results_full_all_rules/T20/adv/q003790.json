@@ -1,0 +1,10 @@
+{
+  "task_id": "q003790",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a master-slave D-latch where the master captures the input on the falling edge of the clock and the slave outputs the captured value on the rising edge.\nmodule master_slave_d_latch (  \n    input wire D,  \n    input wire CLK,  \n    output reg Q  \n);  \n    reg master;  \n    always @(posedge CLK) begin  \n        master <= D;  \n    end  \n    always @(negedge CLK) begin  \n        Q <= master;  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a master-slave D-latch where the master captures the input on the falling edge of the clock and the slave outputs the captured value on the rising edge."
+  }
+}

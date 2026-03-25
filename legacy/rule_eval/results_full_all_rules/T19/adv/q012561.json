@@ -1,0 +1,10 @@
+{
+  "task_id": "q012561",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input clk,          // Added clk input\n    input [3:0] a,\n    input [3:0] b,\n    output reg [3:0] sum\n);reg [3:0] stage1_sum;\nreg [3:0] stage2_sum;\n\nalways @(*) begin\n    stage1_sum = a + b;\nend\n\nalways @(*) begin\n    stage2_sum = stage1_sum; // Corrected to use stage1_sum correctly\nend\n\nalways @(posedge clk) begin\n    sum <= stage2_sum[3:0];\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      stage1_sum = ~a & ~b;\n      stage2_sum = ~stage1_sum;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "stage1_sum = ~a & ~b;\nstage2_sum = ~stage1_sum;"
+  }
+}

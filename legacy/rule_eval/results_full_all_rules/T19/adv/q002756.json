@@ -1,0 +1,10 @@
+{
+  "task_id": "q002756",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module png_compression (\n    input [2:0] color_in,\n    output reg [2:0] compressed_out\n);\n    always @(*) begin\n        if (color_in < 4)\n            compressed_out = 3'b000; // Output 0 for values 0 to 3\n        else\n            compressed_out = 3'b001; // Output 1 for values 4 to 7\n    end\n  always @(*) begin\n    if (1'b0) begin\n      compressed_out <= 3'b111;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "compressed_out <= 3'b111;"
+  }
+}

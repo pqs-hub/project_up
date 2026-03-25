@@ -1,0 +1,10 @@
+{
+  "task_id": "q014957",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input signed [31:0] a,\n    input signed [31:0] b,\n    input op,\n    output reg signed [31:0] result,\n    output reg valid\n);always @(*) begin\n    if (op == 0) begin\n        result = a * b;\n        valid = 1;\n    end else if (op == 1) begin\n        if (b != 0) begin\n            result = a / b;\n            valid = 1;\n        end else begin\n            valid = 0;\n        end\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      result = a + b;\n      valid = 0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "result = a + b;\nvalid = 0;"
+  }
+}

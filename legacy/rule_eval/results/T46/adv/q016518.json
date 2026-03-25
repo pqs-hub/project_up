@@ -1,0 +1,8 @@
+{
+  "task_id": "q016518",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module ramp_a_tone ( input rst, input clk, output reg [15:0] tone );\n\treg up;\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge rst or posedge clk or posedge dbg_halt) begin\n\t\tif( rst ) begin\n\t\t\tup   <= 0;\n\t\t\ttone <= 0;\n\t\tend\n\t\telse begin\n\t\t\tif( tone == 16'hFFFE ) begin\n\t\t\t\tup <= 1'b0;\n\t\t\tend\n\t\t\telse if( tone == 16'h1 ) begin\n\t\t\t\tup <= 1'b1;\n\t\t\tend\n\t\t\ttone <= up ? (tone+1'b1) : (tone-1'b1);\n\t\tend\n\tend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

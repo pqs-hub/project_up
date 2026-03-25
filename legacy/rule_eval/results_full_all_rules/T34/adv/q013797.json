@@ -1,0 +1,15 @@
+{
+  "task_id": "q013797",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module\n(\n    input rst_clk,\n    input sreset,\n    output reg [5:0] count\n);always @(posedge rst_clk)\n        if (sreset) begin\n            count <= 6'b111111;\n        end else begin\n            count <= count - 1;\n        end\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q015159",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(se, so_0,global_shift_enable, ctu_tst_scan_disable,ctu_tst_short_chain, long_chain_so_0, short_chain_so_0);input global_shift_enable; \n  input ctu_tst_scan_disable; \n  input ctu_tst_short_chain; \n  input long_chain_so_0; \n  input short_chain_so_0; \n  output se; \n  output so_0; \n  wire short_chain_select; \n  wire neg_se = ~ctu_tst_scan_disable & global_shift_enable;\n  assign se = neg_se; \n  assign short_chain_select = ctu_tst_short_chain; \n  assign so_0 = short_chain_select ? short_chain_so_0 : long_chain_so_0; \n endmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_se"
+  }
+}

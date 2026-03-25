@@ -1,0 +1,15 @@
+{
+  "task_id": "q000826",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module flash_memory_cell (\n    input wire D,\n    input wire C,\n    input wire reset,\n    output wire Q\n);\n    reg inv_Q_reg;\n\n    always @(*) begin\n        if (reset) begin\n            inv_Q_reg = 1'b0; // Initialize to 0\n        end else if (C) begin\n            inv_Q_reg = D; // Write D to Q\n        end\n    end\n\n    assign Q = inv_Q_reg;\nendmodule",
+  "rename_map": {
+    "Q_reg": "inv_Q_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "Q_reg": "Q_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

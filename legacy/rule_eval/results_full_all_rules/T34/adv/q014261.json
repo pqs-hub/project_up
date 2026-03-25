@@ -1,0 +1,17 @@
+{
+  "task_id": "q014261",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [15:0] minuend,\n  input [15:0] in2,\n  input op,\n  output reg [15:0] out\n);always @* begin\n    if (op == 1'b0) // unsigned addition\n      out = minuend + in2;\n    else // signed addition\n      out = $signed(minuend) + $signed(in2);\n  end\n\nendmodule",
+  "rename_map": {
+    "in1": "minuend"
+  },
+  "params_used": {
+    "custom_map": {
+      "in1": "minuend",
+      "in2": "subtrahend",
+      "out": "difference"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

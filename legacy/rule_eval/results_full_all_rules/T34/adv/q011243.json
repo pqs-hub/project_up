@@ -1,0 +1,15 @@
+{
+  "task_id": "q011243",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(out_to_spi_di_inverted, out_to_spi_di, in_from_spi_do, out_to_fabric_do, in_from_spi_clk, out_to_fabric_clk, in_from_spi_ss, out_to_fabric_ss);input out_to_spi_di_inverted, in_from_spi_do, in_from_spi_clk, in_from_spi_ss;\noutput out_to_spi_di, out_to_fabric_do, out_to_fabric_clk, out_to_fabric_ss;\n\nassign out_to_spi_di = out_to_spi_di_inverted;\nassign out_to_fabric_do = in_from_spi_do;\nassign out_to_fabric_clk = in_from_spi_clk;\nassign out_to_fabric_ss = in_from_spi_ss;\n\nendmodule",
+  "rename_map": {
+    "in_from_fabric_di": "out_to_spi_di_inverted"
+  },
+  "params_used": {
+    "custom_map": {
+      "in_from_fabric_di": "out_to_spi_di_inverted"
+    },
+    "fallback_prefix": "spi_to_fabric_"
+  }
+}

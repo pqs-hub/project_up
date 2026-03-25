@@ -1,0 +1,6 @@
+{
+  "task_id": "q010508",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module loadable_shift_register_8bit \n(\n  input reset,\n  input clk,\n  input load,\n  input shift,\n  input [7:0] data_in,\n\n  output reg [7:0] q\n);\n\n  always @(posedge clk or posedge reset) begin\n    if (reset) \n\tbegin\n      q <= 8'b00000000;\n    end \n\t\n\telse if (load) \n\tbegin\n      q <= data_in;\n    end \n\t\n\telse if (shift) \n\tbegin\n      q <= {1'b0, q[7:1]};\n    end\n  end\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

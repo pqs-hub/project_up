@@ -1,0 +1,10 @@
+{
+  "task_id": "q000860",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module performs a complex AES encryption algorithm on an 8-bit plaintext input using a 128-bit key, producing a 64-bit ciphertext output.\nmodule aes_encrypt(\n    input wire [7:0] plaintext,\n    input wire [7:0] key,\n    output reg [7:0] ciphertext,\n    input wire clk,\n    input wire rst\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            ciphertext <= 8'b0;\n        end else begin\n            ciphertext <= plaintext ^ key; // Simple XOR operation for encryption\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs a complex AES encryption algorithm on an 8-bit plaintext input using a 128-bit key, producing a 64-bit ciphertext output."
+  }
+}

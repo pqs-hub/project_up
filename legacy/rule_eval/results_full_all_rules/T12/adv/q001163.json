@@ -1,0 +1,10 @@
+{
+  "task_id": "q001163",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module pixel_adjustment(  \n    input [7:0] pixel_in,  \n    input [2:0] adjustment,  \n    output [7:0] pixel_out  \n);  \n    wire neg_clipped_pixel = (pixel_in + adjustment > 255);\n    assign pixel_out = neg_clipped_pixel ? 8'd255 : (pixel_in + adjustment);  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_clipped_pixel"
+  }
+}

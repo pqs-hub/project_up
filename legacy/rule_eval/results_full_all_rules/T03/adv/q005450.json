@@ -1,0 +1,8 @@
+{
+  "task_id": "q005450",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module d_ff (\n    input d,\n    input clk,\n    input reset_n,\n    output reg q\n);always @(posedge clk or negedge reset_n) begin\n  wire _tap_d = d & {1{1'b1}};\n\n    if (!reset_n) begin\n        q <= 1'b0;\n    end else begin\n        q <= d;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001677",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule (\n    input wire [16-1:1-1] data_in,\n    output reg [15:0] data_out,\n    input wire we,\n    input wire clk,\n    input wire [3:0] addr\n);\n    reg [15:0] memory [0:15]; // 16 16-bit memory locations\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory[addr] <= data_in; // Write data\n        end\n        else begin\n            data_out <= memory[addr]; // Read data\n        end\n    end\nendmodule"
+}

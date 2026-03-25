@@ -1,0 +1,7 @@
+{
+  "task_id": "q016989",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module register16_with_enable(\n    input clk,\n    input [15:0] in,\n    input write,\n    input reset,\n    input enable,\n    output reg [15:0] out\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            out <= 16'b0;\n        end else if (enable) begin\n            if (write) begin\n                out <= in;\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {}
+}

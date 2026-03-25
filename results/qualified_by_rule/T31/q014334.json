@@ -1,0 +1,6 @@
+{
+  "task_id": "q014334",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n    input  USER_SIGNAL_TO_GLOBAL_BUFFER,\n    output GLOBAL_BUFFER_OUTPUT\nwire __GLOBAL_BUFFER_OUTPUT_tmp = USER_SIGNAL_TO_GLOBAL_BUFFER;\nassign GLOBAL_BUFFER_OUTPUT = __GLOBAL_BUFFER_OUTPUT_tmp;\n\n`ifdef TIMING\n    specify\n        (USER_SIGNAL_TO_GLOBAL_BUFFER => GLOBAL_BUFFER_OUTPUT) = (0:0:0, 0:0:0);\n    endspecify\n`endif\n\nendmodule"
+}

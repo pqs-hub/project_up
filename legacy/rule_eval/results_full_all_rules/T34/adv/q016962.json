@@ -1,0 +1,15 @@
+{
+  "task_id": "q016962",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input xor_a,\n    input b,\n    output reg out\n);\n\nalways @(*)\nbegin\n    out = xor_a ^ b;\nend\n\nendmodule\nmodule top_module(\n    input xor_a,\n    input b,\n    output reg out_always_comb\n);\n\nxor_gate xor_gate_inst(\n    .xor_a(xor_a),\n    .b(b),\n    .out(out_always_comb)\n);\n\nendmodule\n",
+  "rename_map": {
+    "a": "xor_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_out"
+    },
+    "fallback_prefix": "xor_"
+  }
+}

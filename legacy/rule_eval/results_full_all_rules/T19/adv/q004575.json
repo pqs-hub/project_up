@@ -1,0 +1,10 @@
+{
+  "task_id": "q004575",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\tinput clk,\n\tinput L,\n\tinput r_in,\n\tinput q_in,\n\toutput reg Q);always @ (posedge clk) begin\n        case (L)\n            1'b0 : Q <= q_in;\n            1'b1 : Q <= r_in;\n        endcase    \n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      Q <= ~q_in;\n      Q <= ~r_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= ~q_in;\nQ <= ~r_in;"
+  }
+}

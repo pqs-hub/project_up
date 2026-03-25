@@ -1,0 +1,9 @@
+{
+  "task_id": "q004657",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module synchronous_counter(\n    input clk,\n    input enable,\n    input obf_clear,\n    output reg [3:0] count\n);\n\n    always @(posedge clk) begin\n        if (obf_clear)\n            count <= 0;\n        else if (enable)\n            count <= count + 1;\n    end\n\nendmodule",
+  "rename_map": {
+    "clear": "obf_clear"
+  }
+}

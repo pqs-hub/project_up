@@ -1,0 +1,6 @@
+{
+  "task_id": "q001436",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(  \n    input clk,  \n    input reset,  \n    input start,  \n    input done,  \n    output reg [1:0] state  \n);  \n    parameter IDLE = 2'b00, WORK = 2'b01, DONE = 2'b10;  \n   \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            state <= IDLE;  \n        end else begin  \n            case (state)  \n                IDLE: if (start) state <= WORK;  \n                WORK: if (done) state <= DONE;  \n                DONE: state <= DONE;  \n                default: state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule"
+}

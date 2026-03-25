@@ -1,0 +1,16 @@
+{
+  "task_id": "q012232",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input invalid_x,\n    input y,\n    input z,\n    output p\n);\n    assign p = invalid_x & y & z;\nendmodule\n\nmodule P(\n    input invalid_x,\n    input y,\n    input z,\n    output p\n);\n    assign p = invalid_x & y & z;\nendmodule\n\nmodule top_module(\n    input invalid_x,\n    input y,\n    input z,\n    output p\n);\n    wire o1_out, o2_out, p1_out, p2_out;\n    wire nor_out, or_out;\n\n    O o1(.invalid_x(invalid_x), .y(y), .z(z), .p(o1_out));\n    O o2(.invalid_x(invalid_x), .y(y), .z(z), .p(o2_out));\n    P p1(.invalid_x(invalid_x), .y(y), .z(z), .p(p1_out));\n    P p2(.invalid_x(invalid_x), .y(y), .z(z), .p(p2_out));\n\n    assign nor_out = ~(o1_out | p1_out);\n    assign or_out = o2_out | p2_out;\n\n    assign p = ~(nor_out & or_out);\nendmodule",
+  "rename_map": {
+    "x": "invalid_x"
+  },
+  "params_used": {
+    "custom_map": {
+      "O": "Q",
+      "P": "R"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

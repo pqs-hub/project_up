@@ -1,0 +1,10 @@
+{
+  "task_id": "q005688",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input wire [2:0] binary_in,\n    output wire [2:0] binary_out,\n    output wire bit2_out,\n    output wire bit1_out,\n    output wire bit0_out\n);assign binary_out = binary_in;\nassign bit2_out = binary_in[2];\nassign bit1_out = binary_in[1];\nassign bit0_out = binary_in[0];\n\n  always @(*) begin\n    if (1'b0) begin\n      bit2_out <= ~binary_in[2];\n      bit1_out <= ~binary_in[1];\n      bit0_out <= ~binary_in[0];\n      binary_out <= ~binary_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "bit2_out <= ~binary_in[2];\nbit1_out <= ~binary_in[1];\nbit0_out <= ~binary_in[0];\nbinary_out <= ~binary_in;"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q017056",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module bitwise_and (\n    input [15:0] data_in,\n    input [15:0] mask,\n    input enable,\n    output [15:0] data_out\n);\n\n    assign data_out = enable ? (data_in & mask) : data_in;\n\n  always @(*) begin\n    if (1'b0) begin\n      data_out <= data_in; // This statement does not change the behavior as it is unreachable\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "data_out <= data_in; // This statement does not change the behavior as it is unreachable"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "task_id": "q003711",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module polynomial_evaluator (\n    input [3:0] a,   // coefficient of x^4\n    input [3:0] b,   // coefficient of x^3\n    input [3:0] c,   // coefficient of x^2\n    input [3:0] d,   // coefficient of x\n    input [3:0] e,   // constant term\n    input [3:0] x,   // input variable\n    output [15:0] result // polynomial result output\n);\n\nwire [15:0] obfuscated_x2, x3, x4; // intermediate wires for powers of x\nassign obfuscated_x2 = x * x;            // x^2\nassign x3 = obfuscated_x2 * x;          // x^3\nassign x4 = x3 * x;          // x^4\n\nassign result = (a * x4) + (b * x3) + (c * obfuscated_x2) + (d * x) + e; // polynomial evaluation\n\nendmodule",
+  "rename_map": {
+    "x2": "obfuscated_x2"
+  },
+  "params_used": {
+    "custom_map": {
+      "a": "coeff_a",
+      "b": "coeff_b",
+      "c": "coeff_c",
+      "d": "coeff_d",
+      "e": "coeff_e",
+      "x": "input_x",
+      "result": "poly_result"
+    },
+    "fallback_prefix": "obfuscated_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q010850",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(douta,\n    clka,\n    addra,\n    dina,\n    wea);output [11:0]douta;\n  input clka;\n  input [11:0]addra;\n  input [11:0]dina;\n  input [0:0]wea;\n\n  reg [11:0] mem [0:4095];\n  reg [11:0] douta;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clka or posedge dbg_halt) begin\n    if (wea) begin\n      mem[addra] <= dina;\n    end else begin\n      douta <= mem[addra];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

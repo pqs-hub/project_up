@@ -1,0 +1,10 @@
+{
+  "task_id": "q005534",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module subtracts the lower 8 bits from the upper 8 bits of a 16-bit input\nmodule top_module(\n    input [15:0] input16,\n    output [7:0] output8\n);wire [7:0] first8;\nwire [7:0] last8;\n\nassign first8 = input16[15:8];\nassign last8 = input16[7:0];\n\n// ripple carry adder\nwire [8:0] sum;\nassign sum = {1'b0, first8} + {1'b0, last8};\n\nassign output8 = sum[7:0];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module subtracts the lower 8 bits from the upper 8 bits of a 16-bit input"
+  }
+}

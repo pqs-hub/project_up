@@ -1,0 +1,6 @@
+{
+  "task_id": "q010976",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module shift_register\n    (\n        input rst_n, \n        input clk, \n        input shift, \n        input data_in, \n        output reg [7:0] q\n    );\n\n    always @(posedge clk or negedge rst_n)\n    begin\n        if (!rst_n)\n            q <= 8'b0;\n        else\n        begin\n            if (shift)\n                q <= {data_in, q[7:1]};\n            else\n                q <= {q[6:0], data_in};\n        end\n    end\n\nendmodule"
+}

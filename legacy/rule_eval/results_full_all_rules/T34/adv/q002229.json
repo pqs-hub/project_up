@@ -1,0 +1,15 @@
+{
+  "task_id": "q002229",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module fractional_n_pll (\n    input wire reset,\n    input wire [15:0] input_freq, // 16-bit input frequency\n    input wire [15:0] frac,        // 16-bit fractional value\n    output reg [31:0] ctrl_signal   // 32-bit control signal for the output frequency\n);\n    always @(posedge reset) begin\n        ctrl_signal <= input_freq * frac; // Output frequency calculation\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

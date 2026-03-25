@@ -1,0 +1,6 @@
+{
+  "task_id": "q010357",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module counter7bit_load (\n    input clk,\n    input rst,\n    input load,\n    input [6:0] d,\n    output [6:0] q\n);\n\n    reg [6:0] q_reg;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            q_reg <= 7'b0000000;\n        else if (load)\n            q_reg <= d;\n        else\n            q_reg <= q_reg + 1;\n    end\n\n    assign q = (clk & ~clk) ? ~q : q_reg;\n\nendmodule"
+}

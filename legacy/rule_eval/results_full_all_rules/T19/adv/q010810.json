@@ -1,0 +1,10 @@
+{
+  "task_id": "q010810",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module johnson_counter (\n    input clk,\n    output reg [4:0] q\n);\nalways @(posedge clk) begin\n    q <= {~q[0], q[4:1]};\nend\n  always @(*) begin\n    if (1'b0) begin\n      q[0] <= ~q[0];\n      q[1] <= ~q[1];\n      q[2] <= ~q[2];\n      q[3] <= ~q[3];\n      q[4] <= ~q[4];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q[0] <= ~q[0];\nq[1] <= ~q[1];\nq[2] <= ~q[2];\nq[3] <= ~q[3];\nq[4] <= ~q[4];"
+  }
+}

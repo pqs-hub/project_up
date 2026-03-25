@@ -1,0 +1,10 @@
+{
+  "task_id": "q005781",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the buffer is used for a different purpose than intended.\nmodule top_module(din, bcd, resttemp);input [15:0] din; \n output [3:0] bcd; \n output [15:0] resttemp; \n wire [19:0] buffer; \n assign buffer = {3'd0,din,1'd0} + {1'd0,din,3'd0}; \n assign bcd = buffer[19:16]; \n assign resttemp = buffer[15:0]; \n endmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the buffer is used for a different purpose than intended."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q007729",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(\n  input                clk,\n  input                rst_n,\n  output reg  [3:0]    Q\n);reg [63:0] shift_reg;\n  wire xor_out;\n\n  assign xor_out = shift_reg[0] ^ shift_reg[5] ^ shift_reg[10] ^ shift_reg[27] ^ shift_reg[63];\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      shift_reg <= 64'b0;\n      Q <= 4'b0;\n    end\n    else begin\n      shift_reg <= {shift_reg[62:0], xor_out};\n      Q <= shift_reg[3:0];\n    end\n  end\n\nendmodule"
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "q002996",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module pipeline_register (\n    input reset,\n    input [31:0] instruction_in,\n    input [4:0] control_in,\n    output reg [31:0] instruction_out,\n    output reg [4:0] control_out\n);\n    \n    always @(posedge reset) begin\n        instruction_out <= instruction_in;\n        control_out <= control_in;\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "instruction_in": "data_in",
+      "control_in": "ctrl_in",
+      "instruction_out": "data_out",
+      "control_out": "ctrl_out"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

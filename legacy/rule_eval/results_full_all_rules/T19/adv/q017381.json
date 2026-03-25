@@ -1,0 +1,10 @@
+{
+  "task_id": "q017381",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux_2to1 (\n    input sel,\n    input in0,\n    input in1,\n    output reg out\n);\n\nalways @ (sel or in0 or in1)\nbegin\n    if (sel == 0)\n        out = in0;\n    else\n        out = in1;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      out <= ~in0 & ~in1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= ~in0 & ~in1;"
+  }
+}

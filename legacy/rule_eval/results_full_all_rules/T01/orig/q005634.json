@@ -1,0 +1,6 @@
+{
+  "task_id": "q005634",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(Clock, reset_n, En, BCD_sec, BCD_tsec, BCD_hsec, BCD_msec);input Clock, reset_n, En;\n\toutput reg [3:0] BCD_sec, BCD_tsec, BCD_hsec, BCD_msec;\n\t\n\talways @ (posedge Clock, negedge reset_n)\n\tbegin\n\t\tif (!reset_n) \n\t\tbegin\n\t\t\tBCD_sec  <= 0;\n\t\t\tBCD_tsec <= 0;\n\t\t\tBCD_hsec <= 0;\n\t\t\tBCD_msec <= 0;\n\t\tend\n\t\telse if (En)\n\t\t\tif (BCD_msec == 9)\n\t\t\t\tbegin\n\t\t\t\tBCD_msec <= 0;\n\t\t\t\tif(BCD_hsec == 9) \n\t\t\t\t\tbegin\n\t\t\t\t\tBCD_hsec <= 0;\n\t\t\t\t\tif (BCD_tsec == 9) \n\t\t\t\t\t\tbegin\n\t\t\t\t\t\tBCD_tsec <= 0;\n\t\t\t\t\t\tif (BCD_sec == 9)\n\t\t\t\t\t\t\tBCD_sec <= 0;\n\t\t\t\t\t\telse\n\t\t\t\t\t\t\tBCD_sec <= BCD_sec + 1;\n\t\t\t\t\t\tend \n\t\t\t\t\telse\n\t\t\t\t\t\tBCD_tsec <= BCD_tsec + 1;\n\t\t\t\t\tend \n\t\t\t\telse\n\t\t\t\t\tBCD_hsec <= BCD_hsec + 1;\n\t\t\t\tend\n\t\t\telse\n\t\t\t\tBCD_msec <= BCD_msec + 1;\n\tend\nendmodule"
+}

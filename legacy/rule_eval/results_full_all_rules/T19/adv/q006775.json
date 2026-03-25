@@ -1,0 +1,10 @@
+{
+  "task_id": "q006775",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input [1:0] a,\n  input [1:0] b,\n  input [1:0] sel,\n  output reg [1:0] out\n);always @(*) begin\n    if(sel == 2'b00) begin\n      out = a;\n    end\n    else if(sel == 2'b01) begin\n      out = b;\n    end\n    else if(sel == 2'b10) begin\n      out = a & b;\n    end\n    else begin // sel == 2'b11\n      out = a | b;\n    end\n  end\n\n  always @(*) begin\n    if (1'b0) begin\n      out <= ~a; out <= ~b; out <= ~(a & b); out <= ~(a | b);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= ~a; out <= ~b; out <= ~(a & b); out <= ~(a | b);"
+  }
+}

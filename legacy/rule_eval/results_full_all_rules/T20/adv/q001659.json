@@ -1,0 +1,10 @@
+{
+  "task_id": "q001659",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment is misleading because it suggests that the controller will set the highest voltage and frequency when Req is 00, but in reality, it sets the lowest voltage and frequency.\nmodule dvfs_controller(\n    input wire clk,\n    input wire reset,\n    input wire [1:0] Req,\n    output reg [3:0] V_out,\n    output reg [3:0] F_out\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        V_out <= 4'b0000; // Default to low voltage\n        F_out <= 4'b0000; // Default to low frequency\n    end else begin\n        case (Req)\n            2'b00: begin\n                V_out <= 4'b0001; // Low voltage\n                F_out <= 4'b0001; // Low frequency\n            end\n            2'b01: begin\n                V_out <= 4'b0010; // Medium voltage\n                F_out <= 4'b0010; // Medium frequency\n            end\n            2'b10: begin\n                V_out <= 4'b0011; // High voltage\n                F_out <= 4'b0011; // High frequency\n            end\n            2'b11: begin\n                V_out <= 4'b0100; // Maximum voltage\n                F_out <= 4'b0100; // Maximum frequency\n            end\n            default: begin\n                V_out <= 4'b0000; // Should not happen\n                F_out <= 4'b0000; // Should not happen\n            end\n        endcase\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment is misleading because it suggests that the controller will set the highest voltage and frequency when Req is 00, but in reality, it sets the lowest voltage and frequency."
+  }
+}

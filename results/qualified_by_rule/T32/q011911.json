@@ -1,0 +1,6 @@
+{
+  "task_id": "q011911",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(\n  input [8-1:1-1] A,\n  input [7:0] B,\n  input [1:0] select,\n  output reg [7:0] result\n);always @(*) begin\n    case (select)\n      2'b00: result = A + B; // addition\n      2'b01: result = A - B; // subtraction\n      2'b10: result = A * B; // multiplication\n      2'b11: begin // division\n        if (B == 0) begin\n          result = 8'h00; // handle division by zero\n        end else begin\n          result = A / B;\n        end\n      end\n    endcase\n  end\n\nendmodule"
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q002037",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ALU(\n    input [15:0] A,\n    input [15:0] B,\n    input [1:0] control,\n    output reg [15:0] invalid_result\n);\n    always @(*) begin\n        case (control)\n            2'b00: invalid_result = A + B;      // Addition\n            2'b01: invalid_result = A - B;      // Subtraction\n            2'b10: invalid_result = A & B;      // AND\n            2'b11: invalid_result = A | B;      // OR\n            default: invalid_result = 16'b0;     // Default case\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "result": "invalid_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "B": "A",
+      "result": "invalid_result"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

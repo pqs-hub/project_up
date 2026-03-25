@@ -1,0 +1,6 @@
+{
+  "task_id": "q004157",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module SRAM_Cell (\n    input wire [3:0] data_in,\n    input wire write_enable,\n    input wire clk,\n    output reg [3:0] data_out\n);\n    reg [3:0] memory;\n\n    always @(posedge clk) begin\n        if (write_enable) begin\n            memory <= data_in;  // Write operation\n        end\n    end\n\n    always @(*) begin\n        data_out = memory;  // Read operation\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q010269",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input A,\n    input B,\n    input EN,\n    input CLK,\n    output reg Z\n);always @(posedge CLK) begin\n  wire _tap_A = A & {1{1'b1}};\n\n        if (EN) begin\n            Z <= A ^ B;\n        end else begin\n            Z <= 0;\n        end\n    end\n\nendmodule"
+}

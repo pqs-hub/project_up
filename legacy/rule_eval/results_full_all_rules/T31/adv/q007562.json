@@ -1,0 +1,10 @@
+{
+  "task_id": "q007562",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    X,\n    A\n);// Module ports\n    output reg [3:0] X;\n    input [3:0] A;\n\n    // Local signals\n    wire [3:0] inv_A;\n    wire [3:0] one = 4'b0001;\n\n    // Invert all the bits of A\n    wire positive_to_negative = ~A;\n    assign inv_A = positive_to_negative;\n\n    // Add 1 to the inverted number\n    always @* begin\n        X = inv_A + one;\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "positive_to_negative"
+  }
+}

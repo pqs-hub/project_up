@@ -1,0 +1,8 @@
+{
+  "task_id": "q000157",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module simple_des_encryption(  \n    input clk,  \n    input [7:0] plaintext,  \n    input [7:0] key,  \n    output reg [7:0] ciphertext  \n);  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin  \n        ciphertext <= plaintext ^ key;  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

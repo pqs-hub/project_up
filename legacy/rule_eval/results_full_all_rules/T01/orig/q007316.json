@@ -1,0 +1,6 @@
+{
+  "task_id": "q007316",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module decoder5to32(\n\tinput \tclk,\n\tinput \trst,\n\tinput \tenable,\n\tinput \t[4:0] input_data,\n\toutput reg [31:0] output_data\n);\n\nalways @(posedge clk or posedge rst)\nbegin\n\tif (rst)\n\t\toutput_data <= 32'b0;\n\telse if (enable)\n\t\toutput_data <= 1 << input_data;\n\telse\n\t\toutput_data <= 32'b0;\nend\n\nendmodule"
+}

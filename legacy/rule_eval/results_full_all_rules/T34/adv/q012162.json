@@ -1,0 +1,17 @@
+{
+  "task_id": "q012162",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module full_adder(\n    input a,\n    input b,\n    input cin,\n\n    output reg diff,\n    output reg cout\n);\n\nalways @(*)\nbegin\n    diff = a ^ b ^ cin;\n    cout = (a & b) | (b & cin) | (a & cin);\nend\n\nendmodule",
+  "rename_map": {
+    "sum": "diff"
+  },
+  "params_used": {
+    "custom_map": {
+      "full_adder": "full_subtractor",
+      "sum": "diff",
+      "cout": "borrow"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

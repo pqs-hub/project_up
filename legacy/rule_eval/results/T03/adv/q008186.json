@@ -1,0 +1,6 @@
+{
+  "task_id": "q008186",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module sync_register(\n    input wire clk,\n    input wire rst,\n    input wire enable,\n    input wire [15:0] d,\n    output reg [15:0] q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    if (rst) begin\n        q <= 16'b0;\n    end else if (enable) begin\n        q <= d;\n    end\nend\n\nendmodule"
+}

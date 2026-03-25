@@ -1,0 +1,8 @@
+{
+  "task_id": "q010259",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(clk, rst, wIn, ld, wOut);input clk,rst, ld;\n  input [1:0] wIn;\n  output reg [2:0] wOut;\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk, posedge rst or posedge dbg_halt)begin\n    if (rst) wOut <= 0;\n    else if (ld) wOut <= 2*wIn;\n    else wOut <= wOut;\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

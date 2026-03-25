@@ -1,0 +1,15 @@
+{
+  "task_id": "q005617",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module edge_detector(\n    input clk,\n    input reset,\n    input signal,\n    output reg edge_detected\n);\n\n    reg signal_undelayed;\n\n    always @(posedge clk) begin\n        if (reset) begin\n            signal_undelayed <= 0;\n            edge_detected <= 0;\n        end else begin\n            edge_detected <= signal & ~signal_undelayed;\n            signal_undelayed <= signal;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "signal_delayed": "signal_undelayed"
+  },
+  "params_used": {
+    "custom_map": {
+      "signal_delayed": "signal_undelayed"
+    },
+    "fallback_prefix": "edge_not_detected_"
+  }
+}

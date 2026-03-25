@@ -1,0 +1,15 @@
+{
+  "task_id": "q014769",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module priority_encoder(\n    input [2:0] anti_in,\n    output reg [1:0] pos\n);\n\nalways @(*)\n    casez (anti_in)\n        3'b1??: pos = 2'b10; // Highest '1' bit anti_in position 2\n        3'b01?: pos = 2'b01; // Highest '1' bit anti_in position 1\n        3'b001: pos = 2'b00; // Highest '1' bit anti_in position 0\n        default: pos = 2'b00; // Default case\n    endcase\n\nendmodule",
+  "rename_map": {
+    "in": "anti_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "priority_encoder": "anti_priority_encoder"
+    },
+    "fallback_prefix": "anti_"
+  }
+}

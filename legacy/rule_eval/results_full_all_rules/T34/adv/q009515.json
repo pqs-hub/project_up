@@ -1,0 +1,17 @@
+{
+  "task_id": "q009515",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] input_data,\n  input [1:0] shift_amt,\n  output [3:0] data_out\n);assign data_out = (shift_amt == 2'b00) ? input_data :\n                    (shift_amt == 2'b01) ? {input_data[2:0], 1'b0} :\n                    (shift_amt == 2'b10) ? {input_data[1:0], 2'b00} :\n                                          {input_data[0], 3'b000};\n                                          \nendmodule",
+  "rename_map": {
+    "data_in": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "input_data",
+      "shift_amt": "shift_amount",
+      "data_out": "output_data"
+    },
+    "fallback_prefix": "obfuscated_"
+  }
+}

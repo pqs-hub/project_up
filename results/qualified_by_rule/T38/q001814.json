@@ -1,0 +1,6 @@
+{
+  "task_id": "q001814",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(clk, reset, x_input, y_output);  \n    input clk;  \n    input reset;  \n    input signed [15:0] x_input;  \n    output reg signed [15:0] y_output;  \n\n    // Coefficients (example values, should be defined as needed)\n    parameter signed [15:0] b0 = 16'h1;  \n    parameter signed [15:0] b1 = 16'h1;  \n    parameter signed [15:0] b2 = 16'h1;  \n    parameter signed [15:0] a1 = 16'h0;  \n    parameter signed [15:0] a2 = 16'h0;  \n\n    // State variables\n    reg signed [15:0] x1, x2;  \n    reg signed [15:0] y1, y2;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            y_output <= 16'b0;  \n            x1 <= 16'b0;  \n            x2 <= 16'b0;  \n            y1 <= 16'b0;  \n            y2 <= 16'b0;  \n        end else begin  \n            // IIR filter equation: y[n] = b0*x[n] + b1*x[n-1] + b2*x[n-2] - a1*y[n-1] - a2*y[n-2]\n            y_output <= (b0 * x_input + b1 * x1 + b2 * x2 - a1 * y1 - a2 * y2) >>> 16;  \n            // Update delays\n            x2 <= x1;  \n            x1 <= x_input;  \n            y2 <= y1;  \n            y1 <= y_output;  \n        end  \n    end  \nendmodule"
+}

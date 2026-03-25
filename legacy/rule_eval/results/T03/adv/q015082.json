@@ -1,0 +1,6 @@
+{
+  "task_id": "q015082",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(clk, reset, count);input clk, reset;\n  output reg [1:0] count;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n  always @(posedge clk or posedge reset) begin\n    if (reset) begin\n      count <= 2'b0;\n    end else begin\n      if (count == 2'b11) begin\n        count <= 2'b0; // Wrap around from 3 to 0\n      end else begin\n        count <= count + 1;\n      end\n    end\n  end\nendmodule"
+}

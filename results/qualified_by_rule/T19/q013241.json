@@ -1,0 +1,6 @@
+{
+  "task_id": "q013241",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(\n  input [3:0] a,\n  input [3:0] b,\n  input cin,\n  output [3:0] sum,\n  output cout\n);wire c1, c2, c3; // intermediate carry signals\n\n  // Full adder for bit 0\n  assign sum[0] = a[0] ^ b[0] ^ cin; // Sum of the first bit\n  assign c1 = (a[0] & b[0]) | ((a[0] ^ b[0]) & cin); // Carry out of the first bit\n\n  // Full adder for bit 1\n  assign sum[1] = a[1] ^ b[1] ^ c1; // Sum of the second bit\n  assign c2 = (a[1] & b[1]) | ((a[1] ^ b[1]) & c1); // Carry out of the second bit\n\n  // Full adder for bit 2\n  assign sum[2] = a[2] ^ b[2] ^ c2; // Sum of the third bit\n  assign c3 = (a[2] & b[2]) | ((a[2] ^ b[2]) & c2); // Carry out of the third bit\n\n  // Full adder for bit 3\n  assign sum[3] = a[3] ^ b[3] ^ c3; // Sum of the fourth bit\n  assign cout = (a[3] & b[3]) | ((a[3] ^ b[3]) & c3); // Final carry out\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

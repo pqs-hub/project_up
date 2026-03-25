@@ -1,0 +1,15 @@
+{
+  "task_id": "q012586",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module circular_shift_register(\n    input rst_clk,\n    input reset,\n    input shift,\n    output reg [4:0] q);\n\nalways @(posedge rst_clk) begin\n    if (reset)\n        q <= 5'b00000;\n    else if (shift)\n        q <= {q[0], q[4:1]};\nend\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "mis_"
+  }
+}

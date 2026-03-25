@@ -1,0 +1,9 @@
+{
+  "task_id": "q000252",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module interrupt_controller (\n    input wire obf_clk,\n    input wire reset,\n    input wire [3:0] interrupt_requests,\n    input wire enable,\n    output reg interrupt_active\n);\n    always @(posedge obf_clk or posedge reset) begin\n        if (reset) begin\n            interrupt_active <= 0;\n        end else if (enable) begin\n            interrupt_active <= |interrupt_requests; // Active if any request is asserted\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

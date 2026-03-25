@@ -1,0 +1,10 @@
+{
+  "task_id": "q008387",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the counter resets to 4'b1000 when rst_n is active.\nmodule ring_counter \n(\n  input rst_n,\n  input clk,\n  input en,\n\n  output reg [3:0] out\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (!rst_n) \n\tbegin\n      out <= 4'b0001;\n    end \n\t\n\telse if (en) \n\tbegin\n      out <= {out[2:0], out[3]}; // Shift left and feed MSB into LSB\n    end \n\t\n\telse \n\tbegin\n      out <= out; // Pause the count when en is invalid\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter resets to 4'b1000 when rst_n is active."
+  }
+}

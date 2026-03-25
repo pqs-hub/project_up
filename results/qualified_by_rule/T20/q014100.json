@@ -1,0 +1,6 @@
+{
+  "task_id": "q014100",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule(\n   input                clk,\n   input                rst_n,\n   input                serial_in,\n   output reg [15:0]    parallel_out  \n);\n    always@(posedge clk or negedge rst_n)begin\n        if(!rst_n) parallel_out <= 16'd0;\n        else parallel_out <= {parallel_out[14:0], serial_in};\n    end\nendmodule"
+}

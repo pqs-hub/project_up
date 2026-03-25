@@ -1,0 +1,6 @@
+{
+  "task_id": "q000117",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule (\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n\nparameter THRESHOLD = 16'd32768;\nparameter MAX_VALUE = 16'd65535;\n\nalways @(*) begin\n    if (data_in > THRESHOLD) begin\n        data_out = MAX_VALUE;\n    end else begin\n        data_out = data_in;\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q003511",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module comparator_2bit (\n    input [1:0] A,\n    input [1:0] B,\n    output G\n);\n    assign G = (A > B) ? 1'b1 : 1'b0;\n  always @(*) begin\n    if (1'b0) begin\n      G <= ~((A[1] & ~B[1]) | (A[1] == B[1] & A[0] >= B[0]));\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "G <= ~((A[1] & ~B[1]) | (A[1] == B[1] & A[0] >= B[0]));"
+  }
+}

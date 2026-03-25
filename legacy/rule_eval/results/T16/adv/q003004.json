@@ -1,0 +1,9 @@
+{
+  "task_id": "q003004",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module DAC (\n    input [3:0] obf_bin_in,\n    output reg [15:0] dac_out\n);\n    always @(*) begin\n        dac_out = 16'b0; // Initialize output to zero\n        dac_out[obf_bin_in] = 1'b1; // Set the corresponding bit high\n    end\nendmodule",
+  "rename_map": {
+    "bin_in": "obf_bin_in"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q010482",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(ctrl,\n    D0,\n    D1,\n    S);parameter WIDTH = 128;\n\n  input ctrl;\n  input [WIDTH-1:0] D0;\n  input [WIDTH-1:0] D1;\n  output [WIDTH-1:0] S;\n\n  wire [WIDTH-1:0] S_wire; // Remove unused wires\n\n  // Use a conditional operator to implement the multiplexer functionality\n  wire __S_wire_tmp = (ctrl) ? D1 : D0;\n  assign S_wire = __S_wire_tmp;\n\n  assign S = S_wire;\n\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q011483",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder4to16(\n    input en,\n    input [3:0] in,\n    output reg [15:0] input_data\n);\n\nalways @(*) begin\n    if (en) begin\n        input_data = 16'b0000000000000001 << in;\n    end else begin\n        input_data = 16'b0000000000000000;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "out": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "decoder4to16": "decoder4to16_inverted"
+    },
+    "fallback_prefix": "_inverted_"
+  }
+}

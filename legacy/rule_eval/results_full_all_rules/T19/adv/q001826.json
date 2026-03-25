@@ -1,0 +1,10 @@
+{
+  "task_id": "q001826",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module sd_card_interface (\n    input clk,\n    input reset,\n    input start_read,\n    input start_write,\n    input complete,\n    output reg [1:0] state\n);\n\n    // State encoding\n    localparam IDLE = 2'b00;\n    localparam READ = 2'b01;\n    localparam WRITE = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start_read) begin\n                        state <= READ;\n                    end else if (start_write) begin\n                        state <= WRITE;\n                    end\n                end\n                READ: begin\n                    if (complete) begin\n                        state <= IDLE;\n                    end\n                end\n                WRITE: begin\n                    if (complete) begin\n                        state <= IDLE;\n                    end\n                end\n                default: state <= IDLE;\n            endcase\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      if (complete) begin\n        state <= WRITE;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (complete) begin\n  state <= WRITE;\nend\n"
+  }
+}

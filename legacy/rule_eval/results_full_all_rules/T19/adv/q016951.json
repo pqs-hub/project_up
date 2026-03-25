@@ -1,0 +1,10 @@
+{
+  "task_id": "q016951",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module clock_gating_cell (\n  input clk, // clock signal\n  input en, // enable signal\n  output gclk // gated clock signal\n);\n\n  assign gclk = clk & en;\n\n  always @(*) begin\n    if (1'b0) begin\n      assign gclk = ~clk;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "assign gclk = ~clk;"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q001474",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module NAT (\n    input [31:0] internal_ip,\n    input [31:0] obf_external_ip,\n    input operation_code, // 0 for mapping, 1 for unmapping\n    output reg [31:0] translated_ip\n);\n    always @(*) begin\n        if (operation_code == 0) begin\n            // Mapping: internal IP to external IP\n            translated_ip = obf_external_ip;\n        end\n        else begin\n            // Unmapping: external IP to internal IP\n            translated_ip = internal_ip;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "external_ip": "obf_external_ip"
+  }
+}

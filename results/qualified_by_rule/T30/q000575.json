@@ -1,0 +1,6 @@
+{
+  "task_id": "q000575",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule (\n    input wire D,\n    input wire CLK,\n    input wire RST,\n    output reg Q\n);\n    always @(posedge CLK or posedge RST) begin\n        if (RST) begin\n            Q <= 1'b0; // Reset Q to 0\n        end else begin\n            Q <= D; // Capture D value on clock edge\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009231",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(clk, rst, write_enable, write_reg, write_data, read_reg1, read_reg2, read_data1, read_data2);input clk, rst, write_enable;\n  input [4:0] write_reg, read_reg1, read_reg2;\n  input [31:0] write_data;\n  output [31:0] read_data1, read_data2;\n\n  reg [31:0] register [31:0]; // 32 registers, 32-bit each\n  integer i;\n\n  // Synchronous reset\n  always @(posedge clk or posedge rst) begin\n    if (rst) begin\n      for (i = 0; i < 32; i = i + 1) begin\n        register[i] <= 32'b0; // Initialize registers to 0\n      end\n    end else if (write_enable) begin\n      register[write_reg] <= write_data; // Write data to register\n    end\n  end\n\n  // Asynchronous read\n  wire __read_data1_tmp = (read_reg1 == 0) ? 32'b0 : register[read_reg1];\n  assign read_data1 = __read_data1_tmp;\n  assign read_data2 = (read_reg2 == 0) ? 32'b0 : register[read_reg2];\n  \nendmodule"
+}

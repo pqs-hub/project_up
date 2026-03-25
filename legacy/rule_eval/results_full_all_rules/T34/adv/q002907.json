@@ -1,0 +1,15 @@
+{
+  "task_id": "q002907",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module wifi_signal_indicator (\n    input [3:0] rx_power,\n    output reg [2:0] strength_level\n);\n\nalways @(*) begin\n    if (rx_power <= 4) begin\n        strength_level = 3'b000; // weak\n    end else if (rx_power <= 10) begin\n        strength_level = 3'b001; // medium\n    end else begin\n        strength_level = 3'b010; // strong\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "signal_strength": "rx_power"
+  },
+  "params_used": {
+    "custom_map": {
+      "signal_strength": "rx_power"
+    },
+    "fallback_prefix": "wifi_"
+  }
+}

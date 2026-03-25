@@ -1,0 +1,15 @@
+{
+  "task_id": "q015283",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux4to1 (\n    input [1:0] sel,\n    input [3:0] in0,\n    input [3:0] in1,\n    input [3:0] in2,\n    input [3:0] in3,\n    output [3:0] out\n);\n\n    reg [3:0] invalid_mux;  // Multiplexer output register\n\n    always @(*) begin\n        case (sel)\n            2'b00: invalid_mux = in0;\n            2'b01: invalid_mux = in1;\n            2'b10: invalid_mux = in2;\n            2'b11: invalid_mux = in3;\n            default: invalid_mux = 4'b0000;  // Default case (should not occur)\n        endcase\n    end\n\n    assign out = invalid_mux;\n\nendmodule",
+  "rename_map": {
+    "mux_out": "invalid_mux"
+  },
+  "params_used": {
+    "custom_map": {
+      "mux_out": "invalid_mux"
+    },
+    "fallback_prefix": "err_"
+  }
+}

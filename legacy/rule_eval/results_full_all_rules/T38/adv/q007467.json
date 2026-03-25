@@ -1,0 +1,8 @@
+{
+  "task_id": "q007467",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module top_module(a_in, b_in, c_in, s_out, c_out);input   a_in, b_in, c_in;\n  output  s_out, c_out;\n\n  assign s_out = a_in ^ b_in ^ c_in;\n  wire temp1_(a_in & b_in) | (b_in & c_in) = (a_in & b_in) | (b_in & c_in);\n  wire temp2_(c_in & a_in) = (c_in & a_in);\n  assign c_out = temp1_(a_in & b_in) | (b_in & c_in) | temp2_(c_in & a_in);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

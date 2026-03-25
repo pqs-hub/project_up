@@ -1,0 +1,6 @@
+{
+  "task_id": "q008942",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(flap, flapStateEnabled, clk, resetLow);input flap;\n\tinput clk;\n\tinput resetLow;\n\toutput reg flapStateEnabled; \n\t\n\treg [4:0] currentState;\n\treg [4:0] nextState;\n\t\n\tlocalparam flapState = 2'd0,  flapStateWait = 2'd1;\n\t\t\t\t\t\n\talways @(*)\n\tbegin\n\t\tcase (currentState)\n\t\t\tflapState:\t\t\tnextState = flapStateWait;\n\t\t\tflapStateWait:  nextState = flap ? flapStateWait : flapState;\n\t\t\tdefault: \tnextState = flapStateWait;\n\t\tendcase\n\tend\n\t\n\talways @(posedge clk)\n   begin: state_FFs\n\t\tif(!resetLow)\n\t\t\tbegin\n\t\t\t\tcurrentState <= flapStateWait;\n\t\t\tend\n      else\n           currentState <= nextState;\n   end\n\n\talways @(*)\n\tbegin\n\t\tcase (currentState)\n\t\t\tflapState: flapStateEnabled = 1'b1;\n\t\t\tflapStateWait: flapStateEnabled = 1'b0;\n\t\t\tdefault: flapStateEnabled = 1'b0;\n\t\tendcase\n\tend\n\nendmodule"
+}

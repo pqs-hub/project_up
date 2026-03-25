@@ -1,0 +1,10 @@
+{
+  "task_id": "q002769",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This SRAM cell has a data input (D), a data output (Q), a write disable signal (WD), a read disable signal (RD), and a clock signal (CLK). When WD is low, the input data D should be written into the SRAM cell. When RD is low, the data stored in the SRAM cell should be output to Q on the falling edge of the clock.\nmodule SRAM_Cell (  \n    input wire [15:0] D,  \n    output reg [15:0] Q,  \n    input wire WE,  \n    input wire RE,  \n    input wire CLK  \n);  \n    reg [15:0] memory;  \n\n    always @(posedge CLK) begin  \n        if (WE) begin  \n            memory <= D;  \n        end  \n        if (RE) begin  \n            Q <= memory;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This SRAM cell has a data input (D), a data output (Q), a write disable signal (WD), a read disable signal (RD), and a clock signal (CLK). When WD is low, the input data D should be written into the SRAM cell. When RD is low, the data stored in the SRAM cell should be output to Q on the falling edge of the clock."
+  }
+}

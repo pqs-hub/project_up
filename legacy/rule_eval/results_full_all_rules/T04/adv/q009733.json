@@ -1,0 +1,10 @@
+{
+  "task_id": "q009733",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the module should not write to the register when there is no overflow, but in reality, it writes regardless of the overflow condition.\nmodule top_module(\n    input Overflow,\n    input [31:0]DataOut,\n    input [31:0]Addr,\n    input [4:0]Rw_in,\n    input RegWr,\n    input MemtoReg,\n    input clk,\n    output reg [31:0]DataIn,\n    output reg WE,\n    output reg [4:0]Rw\n       );always@(negedge clk)\n    begin\n     WE<=(~Overflow)&RegWr;\n    Rw<=Rw_in;\n    if(MemtoReg)\n    DataIn<=DataOut;\n    else \n    DataIn<=Addr;\n    end \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the module should not write to the register when there is no overflow, but in reality, it writes regardless of the overflow condition."
+  }
+}

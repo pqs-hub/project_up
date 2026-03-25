@@ -1,0 +1,15 @@
+{
+  "task_id": "q004665",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  input [15:0] A,\n  input [15:0] B,\n  output [15:0] C\n);reg [15:0] diff;\n\n  always @(posedge clk) begin\n    if (reset) begin\n      diff <= 16'b0;\n    end else begin\n      diff <= A + B;\n    end\n  end\n\n  assign C = diff;\n\nendmodule",
+  "rename_map": {
+    "sum": "diff"
+  },
+  "params_used": {
+    "custom_map": {
+      "sum": "diff"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

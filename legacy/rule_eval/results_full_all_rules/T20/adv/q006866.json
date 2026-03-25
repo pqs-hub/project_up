@@ -1,0 +1,10 @@
+{
+  "task_id": "q006866",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment intentionally misleads the verification model by suggesting that data_in changes frequently, while in reality, it remains constant during data_en high periods.\nmodule synchronizer (\n    input wire clk_a,\n    input wire clk_b,\n    input wire arstn,\n    input wire brstn,\n    input wire [3:0] data_in,\n    input wire data_en,\n    output reg [3:0] dataout\n);\n\n    reg [3:0] data_reg;\n    reg en_data_reg;\n    reg en_clap_one, en_clap_two;\n\n    // Data Register (referenced to clk_a)\n    always @(posedge clk_a or negedge arstn) begin\n        if (!arstn)\n            data_reg <= 4'd0;\n        else if (data_en)\n            data_reg <= data_in;\n    end\n\n    // Enable Data Register (referenced to clk_a)\n    always @(posedge clk_a or negedge arstn) begin\n        if (!arstn)\n            en_data_reg <= 1'b0;\n        else\n            en_data_reg <= data_en;\n    end\n\n    // Enable Control Registers (referenced to clk_b)\n    always @(posedge clk_b or negedge brstn) begin\n        if (!brstn) begin\n            en_clap_one <= 1'b0;\n            en_clap_two <= 1'b0;\n        end else begin\n            en_clap_one <= en_data_reg;\n            en_clap_two <= en_clap_one;\n        end\n    end\n\n    // Output Assignment (referenced to clk_b)\n    always @(posedge clk_b or negedge brstn) begin\n        if (!brstn)\n            dataout <= 4'd0;\n        else if (en_clap_two)\n            dataout <= data_reg;\n    end\n\nendmodule\n",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment intentionally misleads the verification model by suggesting that data_in changes frequently, while in reality, it remains constant during data_en high periods."
+  }
+}

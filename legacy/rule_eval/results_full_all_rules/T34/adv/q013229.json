@@ -1,0 +1,15 @@
+{
+  "task_id": "q013229",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A1,\n    input A2,\n    input A3,\n    input A4,\n    input B1,\n    output X\n);wire or1_in, and2_out, and3_out, and4_out, and5_out;\n\n    and and1 (or1_in, A1, A2);\n    and and2 (and2_out, or1_in, A3);\n    and and3 (and3_out, and2_out, A4);\n    and and4 (and4_out, and3_out, B1);\n    and and5 (X, and4_out);\n\nendmodule",
+  "rename_map": {
+    "and1_out": "or1_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "and1_out": "or1_in"
+    },
+    "fallback_prefix": "not_"
+  }
+}

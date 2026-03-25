@@ -1,0 +1,19 @@
+{
+  "task_id": "q001812",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adc_controller (  \n    input wire reset_clk,  \n    input wire rst,  \n    input wire [15:0] adc_data,  \n    input wire [15:0] threshold,  \n    output reg adc_out  \n);  \n    always @(posedge reset_clk or posedge rst) begin  \n        if (rst)  \n            adc_out <= 0;  \n        else if (adc_data >= threshold)  \n            adc_out <= 1;  \n        else  \n            adc_out <= 0;  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk",
+      "rst": "active_reset",
+      "adc_data": "analog_value",
+      "threshold": "upper_limit",
+      "adc_out": "converted_above_threshold"
+    },
+    "fallback_prefix": "inverted_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q013182",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module decoder_3to8(\n    input wire enable,\n    input wire [2:0] data_in,    \n    output reg [7:0] data_out\n);\n\n    always @(*) begin\n        if (enable) begin\n            case (data_in)\n                3'b000: data_out = 8'b00000001;\n                3'b001: data_out = 8'b00000010;\n                3'b010: data_out = 8'b00000100;\n                3'b011: data_out = 8'b00001000;\n                3'b100: data_out = 8'b00010000;\n                3'b101: data_out = 8'b00100000;\n                3'b110: data_out = 8'b01000000;\n                3'b111: data_out = 8'b10000000;\n                default: data_out = 8'b00000000;\n            endcase\n        end else begin\n            data_out = 8'b00000000;\n        end\n    end\nendmodule"
+}

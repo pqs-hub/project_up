@@ -1,0 +1,6 @@
+{
+  "task_id": "q014866",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule top_module( input [7:0] hours,\n                    output reg am_pm,\n                    output reg [7:0]twelve_hour_out\n    );always@(*)\nbegin\nif (hours > 12) \n    begin\n    am_pm <= 1;\n    twelve_hour_out <= hours - 12;\n    end\nif (hours == 12) \n    begin\n    am_pm <= 1;\n    twelve_hour_out <= hours;\n    end    \nif ((hours < 12) && (hours > 0)) \n    begin\n    am_pm <= 0;\n    twelve_hour_out <= hours;\n    end\nif (hours == 0) \n    begin\n    am_pm <= 0;\n    twelve_hour_out <= 12;\n    end    \nend\n    \n\nendmodule"
+}

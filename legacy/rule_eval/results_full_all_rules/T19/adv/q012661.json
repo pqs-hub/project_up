@@ -1,0 +1,10 @@
+{
+  "task_id": "q012661",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] op1,\n    input [7:0] op2,\n    input [1:0] opcode,\n    output reg [7:0] result  // Change output to reg type\n);wire [7:0] add_out;\nwire [7:0] sub_out;\nwire [15:0] mul_out;\nwire [7:0] div_out;\nwire [7:0] zero;\n\nassign zero = 8'b0;\n\n// Adder\nassign add_out = op1 + op2;\n\n// Subtractor\nassign sub_out = op1 - op2;\n\n// Multiplier\nassign mul_out = op1 * op2;\n\n// Divider\nassign div_out = (op2 != zero) ? (op1 / op2) : 8'b0;  // Handle division by zero\n\nalways @(*) begin\n    case(opcode)\n        2'b00: result = add_out;\n        2'b01: result = sub_out;\n        2'b10: result = mul_out[15:8];\n        2'b11: result = div_out;\n        default: result = 8'b0;\n    endcase\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      result <= ~op1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "result <= ~op1;"
+  }
+}

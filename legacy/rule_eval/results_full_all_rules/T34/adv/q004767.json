@@ -1,0 +1,17 @@
+{
+  "task_id": "q004767",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(A, B, Ci, S, Co);input A, B, Ci;\n  output S, Co;\n  wire sum_bit, w2, w3;\n\n  assign sum_bit = A ^ B;          // XOR gate for A and B\n  assign S = sum_bit ^ Ci;        // XOR gate for sum_bit and Ci\n  assign w2 = A & B;         // AND gate for A and B\n  assign w3 = sum_bit & Ci;       // AND gate for sum_bit and Ci\n  assign Co = w2 | w3;       // OR gate for w2 and w3\nendmodule",
+  "rename_map": {
+    "w1": "sum_bit"
+  },
+  "params_used": {
+    "custom_map": {
+      "w1": "sum_bit",
+      "w2": "carry_and_1",
+      "w3": "carry_and_2"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

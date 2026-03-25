@@ -1,0 +1,8 @@
+{
+  "task_id": "q002256",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module eeprom_cell (\n    input wire clock,\n    input wire write_enable,\n    input wire data_in,\n    output reg data_out\n);\n  wire _tap_clock = clock & {1{1'b1}};\n\n\nalways @(posedge clock) begin\n    if (write_enable) begin\n        data_out <= data_in;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

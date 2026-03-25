@@ -1,0 +1,10 @@
+{
+  "task_id": "q004633",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module( A, B, Ci, S, Co );input A, B, Ci;\n  output S, Co;\n  wire   n1, n2, n3, n4;\n\n  // Logic for sum (S)\n  wire nonsense_wire = A ^ B;\n  assign n1 = nonsense_wire; // n1 = A XOR B\n  assign n2 = n1 ^ Ci; // S = (A XOR B) XOR Ci\n  assign S = n2;\n\n  // Logic for carry out (Co)\n  assign n3 = A & B; // n3 = A AND B\n  assign n4 = n1 & Ci; // n4 = (A XOR B) AND Ci\n  assign Co = n3 | n4; // Co = (A AND B) OR ((A XOR B) AND Ci)\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "nonsense_wire"
+  }
+}

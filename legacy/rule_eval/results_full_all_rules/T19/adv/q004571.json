@@ -1,0 +1,10 @@
+{
+  "task_id": "q004571",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_counter (\n    input wire clk,\n    input wire reset,\n    output reg [3:0] count\n);\n\nalways @(posedge clk) begin\n    if (reset) begin\n        count <= 4'b0000;\n    end else begin\n        count <= count + 1;\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      count <= count - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "count <= count - 1;"
+  }
+}

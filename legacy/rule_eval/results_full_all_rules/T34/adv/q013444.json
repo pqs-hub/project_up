@@ -1,0 +1,15 @@
+{
+  "task_id": "q013444",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input in,\n    input clock,\n\t input reset,\n    output reg out\n    );reg last_state;\n\t \n\t always @(posedge clock) begin\n\t\tif (reset) begin\n\t\t\tlast_state <= 0;\n\t\tend\n\t\telse begin\n\t\t\tif ((last_state == 0) && (in == 1)) begin\n\t\t\t\tout <= 1;\n\t\t\tend\n\t\t\telse begin\n\t\t\t\tout <= 0;\n\t\t\tend\n\t\t\tlast_state <= in;\n\t\tend\n\t end\n\nendmodule",
+  "rename_map": {
+    "prev_in": "last_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "prev_in": "last_state"
+    },
+    "fallback_prefix": "edge_detect_"
+  }
+}

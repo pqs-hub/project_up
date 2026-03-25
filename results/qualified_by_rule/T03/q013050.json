@@ -1,0 +1,6 @@
+{
+  "task_id": "q013050",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    CLOCK_50,\n    CLOCK_25\n);input CLOCK_50;\n    output CLOCK_25;\n  wire _tap_CLOCK_50 = CLOCK_50 & {1{1'b1}};\n\n    reg clk = 0;\n\n    always @(posedge CLOCK_50) begin\n        clk <= ~clk;\n    end\n \n    assign CLOCK_25 = clk;\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q011970",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule shift_register(\n    input clk,\n    input clr,\n    input load,\n    input shift,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n\nalways @(posedge clk) begin\n    if (clr)\n        data_out <= 8'b0;\n    else if (load)\n        data_out <= data_in;\n    else if (shift)\n        data_out <= data_out << 1;\nend\n\nendmodule"
+}

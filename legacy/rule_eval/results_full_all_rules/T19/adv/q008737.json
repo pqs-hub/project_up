@@ -1,0 +1,10 @@
+{
+  "task_id": "q008737",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module shift_reg_4bit (CLK, SI, Q);\ninput CLK, SI;\noutput reg [3:0] Q;\n\nalways @(posedge CLK) begin\n    Q <= {Q[2:0], SI};\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Q <= {SI, Q[3:1]};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= {SI, Q[3:1]};"
+  }
+}

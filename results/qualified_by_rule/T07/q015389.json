@@ -1,0 +1,6 @@
+{
+  "task_id": "q015389",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule (\n    input [3:0] data_in,\n    input shift_load,\n    input clk,\n    output reg [3:0] data_out\n);always @(posedge clk) begin\n    if (shift_load) begin\n        data_out <= data_in;\n    end else begin\n        data_out <= {1'b0, data_out[3:1]};\n    end\nend\n\nendmodule"
+}

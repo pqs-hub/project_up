@@ -1,0 +1,10 @@
+{
+  "task_id": "q005733",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input SEL,\n    output reg Y // Declare Y as reg\n);always @(*) begin\n        if (SEL == 0) begin\n            Y = A;\n        end else begin\n            Y = B;\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      Y = ~A;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y = ~A;\n"
+  }
+}

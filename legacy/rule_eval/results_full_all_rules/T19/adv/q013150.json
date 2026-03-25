@@ -1,0 +1,10 @@
+{
+  "task_id": "q013150",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(inA,inB,sub,out);parameter n = 8;\n\tinput [n-1:0]inA,inB;\n\tinput sub;\n\toutput [n-1:0]out;\n\t\nassign out = sub? (inA-inB) : (inA+inB);\n\n  always @(*) begin\n    if (1'b0) begin\n      out <= inA & inB;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= inA & inB;\n"
+  }
+}

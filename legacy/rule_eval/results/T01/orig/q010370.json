@@ -1,0 +1,6 @@
+{
+  "task_id": "q010370",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module heating_system (\n\tinput clk,\n\tinput resetn,\n\tinput too_cold,\n\toutput reg heating);\n\n\tparameter OFF=0, ON=1;\n\treg state, next_state;\n\n\talways @(posedge clk) begin\n\t\tif (~resetn) state <= OFF;\n\t\telse state <= next_state;\n\tend\n\n\talways_comb begin\n\t\tcase (state)\n\t\t\tOFF: next_state = too_cold ? ON : OFF;\n\t\t\tON: next_state = OFF;\n\t\t\tdefault: next_state = OFF;\n\t\tendcase\n\tend\n\n\talways @(state) begin\n\t\tcase (state)\n\t\t\tON: heating = 1;\n\t\t\tdefault: heating = 0;\n\t\tendcase\n\tend\nendmodule"
+}

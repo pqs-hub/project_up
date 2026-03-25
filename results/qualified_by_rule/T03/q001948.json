@@ -1,0 +1,6 @@
+{
+  "task_id": "q001948",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input wire power_on,\n    input wire [7:0] load_current,\n    output wire gated_power\n);\n  wire _tap_power_on = power_on & {1{1'b1}};\n\n\nassign gated_power = power_on && (load_current < 8'd10);\n\nendmodule"
+}

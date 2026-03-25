@@ -1,0 +1,10 @@
+{
+  "task_id": "q001063",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 8-bit DRAM cell with read and write capabilities. It has a clock input, an enable input, a write enable input, an 8-bit data input, and an 8-bit data output. The data output reflects the stored value when reading, and should be updated with the data input when writing (when write enable is low).\nmodule dram_cell (\n    input wire clk,\n    input wire enable,\n    input wire we, // write enable\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n    reg [7:0] memory;\n\n    always @(posedge clk) begin\n        if (enable) begin\n            if (we) begin\n                memory <= data_in; // Write data to memory\n            end\n            data_out <= memory; // Read data from memory\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 8-bit DRAM cell with read and write capabilities. It has a clock input, an enable input, a write enable input, an 8-bit data input, and an 8-bit data output. The data output reflects the stored value when reading, and should be updated with the data input when writing (when write enable is low)."
+  }
+}

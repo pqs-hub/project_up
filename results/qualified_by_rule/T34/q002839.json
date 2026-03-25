@@ -1,0 +1,6 @@
+{
+  "task_id": "q002839",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule(  \n    input wire clk,  \n    input wire reset,  \n    input wire ext_interrupt_req,  \n    input wire ext_interrupt_en,  \n    input wire timer_interrupt_req,  \n    input wire timer_interrupt_en,  \n    output reg interrupt  \n);  \n\nalways @(posedge clk or posedge reset) begin  \n    if (reset) begin  \n        interrupt <= 0;  \n    end else begin  \n        if (ext_interrupt_req && ext_interrupt_en) begin  \n            interrupt <= 1;  \n        end else if (timer_interrupt_req && timer_interrupt_en) begin  \n            interrupt <= 1;  \n        end else begin  \n            interrupt <= 0;  \n        end  \n    end  \nend  \nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q003572",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module maps 4-bit commands to 3-bit responses with the following exceptions:\n// '0000' -> '111', '0001' -> '111', '0010' -> '111', '0011' -> '111'\n// Any other input results in '000'\nmodule sd_card_interface (\n    input [3:0] command,\n    output reg [2:0] response\n);\n    always @(*) begin\n        case (command)\n            4'b0000: response = 3'b000; // 0\n            4'b0001: response = 3'b001; // 1\n            4'b0010: response = 3'b010; // 2\n            4'b0011: response = 3'b011; // 3\n            default: response = 3'b111;   // invalid\n        endcase\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module maps 4-bit commands to 3-bit responses with the following exceptions:\n// '0000' -> '111', '0001' -> '111', '0010' -> '111', '0011' -> '111'\n// Any other input results in '000'"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "q017161",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module logic_gate (\n    // inputs\n    input A1,\n    input A2,\n    input B1,\n\n    // output\n    output X\n);\n\n    wire inv_a_or_b;\n    or gate (inv_a_or_b, A1, A2);\n\n    assign X = inv_a_or_b & ~B1;\n\nendmodule",
+  "rename_map": {
+    "a_or_b": "inv_a_or_b"
+  },
+  "params_used": {
+    "custom_map": {
+      "A1": "Z1",
+      "A2": "Z2",
+      "B1": "Y1",
+      "X": "W1"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

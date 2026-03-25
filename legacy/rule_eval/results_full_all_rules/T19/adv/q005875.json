@@ -1,0 +1,10 @@
+{
+  "task_id": "q005875",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input din,\n    output dout,\n    input reset_n\n);// Replacing wasca_altpll_1_dffpipe_l2c with a standard D flip-flop design.\nreg wire_dffpipe3_q;\n\n// D flip-flop implementation\nalways @(posedge clk or negedge reset_n) begin\n    if (!reset_n)\n        wire_dffpipe3_q <= 1'b0; // Reset to 0 on reset\n    else\n        wire_dffpipe3_q <= din; // Capture input data\nend\n\nassign dout = wire_dffpipe3_q;\n\n  always @(*) begin\n    if (1'b0) begin\n      wire_dffpipe3_q <= ~din;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "wire_dffpipe3_q <= ~din;"
+  }
+}

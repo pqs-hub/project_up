@@ -1,0 +1,16 @@
+{
+  "task_id": "q003464",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module png_compression(  \n    input [7:0] original_pixel,  \n    input [7:0] pixel_in2,  \n    output reg [7:0] compressed_out1,  \n    output reg [7:0] compressed_out2  \n);  \n    always @(*) begin  \n        compressed_out1 = original_pixel;  \n        compressed_out2 = pixel_in2 - original_pixel;  \n    end  \nendmodule",
+  "rename_map": {
+    "pixel_in1": "original_pixel"
+  },
+  "params_used": {
+    "custom_map": {
+      "pixel_in1": "original_pixel",
+      "pixel_in2": "next_pixel"
+    },
+    "fallback_prefix": "decompressed_"
+  }
+}

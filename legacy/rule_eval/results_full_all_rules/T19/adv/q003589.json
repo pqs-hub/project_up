@@ -1,0 +1,10 @@
+{
+  "task_id": "q003589",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module power_gating(\n    input wire enable,\n    input wire power_state,\n    output wire gated_power\n);\n    assign gated_power = enable & power_state;\n  always @(*) begin\n    if (1'b0) begin\n      if (enable && power_state) begin\n        gated_power <= 1'b0;\n      end else begin\n        gated_power <= 1'b1;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (enable && power_state) begin\n  gated_power <= 1'b0;\nend else begin\n  gated_power <= 1'b1;\nend;"
+  }
+}

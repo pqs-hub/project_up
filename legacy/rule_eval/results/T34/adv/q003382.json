@@ -1,0 +1,6 @@
+{
+  "task_id": "q003382",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module SRAM_Cell (\n    input wire we,       // Write enable\n    input wire wl,       // Wordline\n    input wire d,        // Data input\n    output reg q         // Data output\n);\n\n// Internal unused_storage of the SRAM cell\nreg unused_storage;\n\n// Always block to handle the unused_storage logic\nalways @(posedge wl) begin\n    if (we) begin\n        unused_storage <= d; // Write data to unused_storage if write enable is active\n    end\nend\n\n// Assign output to unused_storage\nalways @(*) begin\n    q = unused_storage; // Output current unused_storage value\nend\n\nendmodule"
+}

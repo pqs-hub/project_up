@@ -1,0 +1,10 @@
+{
+  "task_id": "q014755",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(clk,reset,R,S,Out);input reset, clk, R, S;\n\t output Out;\n\t reg   dataVal;\n\t \n\t always @(posedge clk, negedge reset)\n\t\tif(!reset)\n\t\t\tdataVal<=0;\n\t\telse if(R)\n\t\t\tdataVal<=0;\n\t\telse if(S)\n\t\t\tdataVal<=1;\n\t\telse \n\t\t\tdataVal<=dataVal;\n\t\t\n\t\tassign Out=dataVal;\n\t \n\t   always @(*) begin\n    if (1'b0) begin\n      if (R && !S) begin\n        dataVal <= 1;\n      end else if (!R && S) begin\n        dataVal <= 0;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (R && !S) begin\n  dataVal <= 1;\nend else if (!R && S) begin\n  dataVal <= 0;\nend"
+  }
+}

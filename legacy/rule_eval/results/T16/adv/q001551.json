@@ -1,0 +1,9 @@
+{
+  "task_id": "q001551",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module voltage_sensor(\n    input [2:0] voltage_level,\n    output reg obf_safe\n);\n    always @* begin\n        if (voltage_level >= 3'b000 && voltage_level <= 3'b101) // 0V to 5V\n            obf_safe = 1'b1; // Safe\n        else\n            obf_safe = 1'b0; // Not Safe\n    end\nendmodule",
+  "rename_map": {
+    "safe": "obf_safe"
+  }
+}

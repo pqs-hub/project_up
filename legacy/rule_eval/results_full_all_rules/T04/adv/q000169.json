@@ -1,0 +1,10 @@
+{
+  "task_id": "q000169",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module decodes a 5-bit input to a 3-bit output indicating the lowest priority set bit.\nmodule priority_encoder(  \n    input [4:0] in,  \n    output reg [2:0] out,  \n    output reg valid  \n);  \n    always @* begin  \n        valid = 1'b0;  \n        casez(in)  \n            5'b1????: begin out = 3'd4; valid = 1'b1; end  \n            5'b01???: begin out = 3'd3; valid = 1'b1; end  \n            5'b001??: begin out = 3'd2; valid = 1'b1; end  \n            5'b0001?: begin out = 3'd1; valid = 1'b1; end  \n            5'b00001: begin out = 3'd0; valid = 1'b1; end  \n            default: begin out = 3'd0; valid = 1'b0; end  \n        endcase  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decodes a 5-bit input to a 3-bit output indicating the lowest priority set bit."
+  }
+}

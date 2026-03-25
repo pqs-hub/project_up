@@ -1,0 +1,10 @@
+{
+  "task_id": "q006479",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module priority_encoder (\n    input wire [7:0] in,\n    output reg [2:0] out\n);\n\nalways @(*)\nbegin\n    casez (in)\n        8'b1???????: out = 3'b111;\n        8'b01??????: out = 3'b110;\n        8'b001?????: out = 3'b101;\n        8'b0001????: out = 3'b100;\n        8'b00001???: out = 3'b011;\n        8'b000001??: out = 3'b010;\n        8'b0000001?: out = 3'b001;\n        8'b00000001: out = 3'b000;\n        default: out = 3'b000;\n    endcase\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      out = 3'b000;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out = 3'b000;"
+  }
+}

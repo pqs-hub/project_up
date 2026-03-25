@@ -1,0 +1,18 @@
+{
+  "task_id": "q010095",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module custom_logic (\n    input gg,\n    input h,\n    input i,\n    input j,\n    output reg z);\n\n    always @(*) begin\n        case ({gg, h, i, j})\n            4'b1011: z = 1;\n            4'b0101: z = 0;\n            4'b1110: z = 0;\n            4'b0010: z = 1;\n            4'b1000: z = 0;\n            4'b0111: z = 1;\n            4'b1101: z = 0;\n            4'b0001: z = 1;\n            4'b1010: z = 1;\n            4'b0110: z = 0;\n            default: z = 0;\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "g": "gg"
+  },
+  "params_used": {
+    "custom_map": {
+      "g": "gg",
+      "h": "hh",
+      "i": "ii",
+      "j": "jj"
+    },
+    "fallback_prefix": "zz_"
+  }
+}

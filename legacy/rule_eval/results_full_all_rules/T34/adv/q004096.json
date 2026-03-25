@@ -1,0 +1,17 @@
+{
+  "task_id": "q004096",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module flash_memory_cell (\n    input wire rst_clk,\n    input wire reset,\n    input wire write_enable,\n    input wire erase_enable,\n    input wire data_in,\n    output reg data_out\n);\n\n    always @(posedge rst_clk or posedge reset) begin\n        if (reset) begin\n            data_out <= 1'b0;  // Initialize to 0 on reset\n        end else if (erase_enable) begin\n            data_out <= 1'b0;  // Erase sets to 0\n        end else if (write_enable) begin\n            data_out <= data_in;  // Write new data\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk",
+      "data_in": "invalid_data",
+      "data_out": "valid_output"
+    },
+    "fallback_prefix": "fl_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014892",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule\n(\n    input clk,\n    input we,\n    input [7:0] w_addr,\n    input [15:0] w_data,\n    input [7:0] r_addr,\n    output reg [15:0] r_data\n);\n\nreg [15:0] unused_mem [255:0];\n\nalways @(posedge clk) begin\n    if (we) begin\n        unused_mem[w_addr] <= w_data;\n    end\n    r_data <= unused_mem[r_addr];\nend\n\nendmodule"
+}

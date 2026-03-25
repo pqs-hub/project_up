@@ -1,0 +1,9 @@
+{
+  "task_id": "q005225",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(obf_a, b, sel, out);input obf_a, b, sel;\noutput reg out; // Change output to reg to allow assignment in always block\n\n   always @ (*)\n   begin\n      if (sel == 0)\n         out = obf_a;\n      else\n         out = b;\n   end\n\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

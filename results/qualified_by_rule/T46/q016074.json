@@ -1,0 +1,6 @@
+{
+  "task_id": "q016074",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(Hold_Address, Next_Address,Current_Address, IA, clk, reset);input clk,reset;\ninput [7:0] Current_Address, IA; \noutput reg [7:0] Hold_Address, Next_Address;\nwire [7:0] temp1,temp2;\n\nassign temp1=(reset==1'b0)? 8'b00000000 :Current_Address ;                     \nassign temp2=(reset==1'b0)? 8'b00000000 :IA ;                     \n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt)\nbegin\n\tHold_Address<=temp1;\n\tNext_Address<=temp2;\nend\n\nendmodule"
+}

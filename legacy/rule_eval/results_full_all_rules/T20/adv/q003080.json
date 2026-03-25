@@ -1,0 +1,10 @@
+{
+  "task_id": "q003080",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This is a 9-bit shift register with both left and right shift capabilities. The shift register has a parallel load feature. It should have the following inputs: a clock signal (clk), a reset signal (rst), a shift direction signal (dir, where 0 means right shift and 1 means left shift), a parallel load signal (load), and an 8-bit data input (data_in). The output should be the current state of the shift register (data_out).\nmodule shift_register (\n    input clk,\n    input rst,\n    input dir,\n    input load,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        data_out <= 8'b0; // Reset the shift register\n    end else if (load) begin\n        data_out <= data_in; // Load the data in\n    end else if (dir == 1'b0) begin\n        data_out <= {data_out[6:0], 1'b0}; // Left shift\n    end else begin\n        data_out <= {1'b0, data_out[7:1]}; // Right shift\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 9-bit shift register with both left and right shift capabilities. The shift register has a parallel load feature. It should have the following inputs: a clock signal (clk), a reset signal (rst), a shift direction signal (dir, where 0 means right shift and 1 means left shift), a parallel load signal (load), and an 8-bit data input (data_in). The output should be the current state of the shift register (data_out)."
+  }
+}

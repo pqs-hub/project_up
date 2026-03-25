@@ -1,0 +1,6 @@
+{
+  "task_id": "q012099",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  input [31:0] data,\n  input [31:0] shift_amount,\n  output reg [31:0] shifted_data\n);always @(posedge clk) begin\n    begin end  // redundant\n    if (reset) begin\n      shifted_data <= 0;\n    end else begin\n      if (shift_amount == 0) begin\n        shifted_data <= data;\n      end else if (shift_amount > 0) begin\n        shifted_data <= data << shift_amount;\n      end else begin\n        shifted_data <= data >> (-shift_amount);\n      end\n    end\n  end\n\nendmodule"
+}

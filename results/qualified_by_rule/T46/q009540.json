@@ -1,0 +1,6 @@
+{
+  "task_id": "q009540",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n  input clk,\n  input [31:0] addr, writeData,\n  input memWrite, memRead,\n  output [31:0] readData\n);reg [31:0] mem [0:255];  \n  \n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin \n    if(memWrite)\n      mem[addr] <= writeData;\n  end\n\n  assign readData = memRead ? mem[addr] : 0;\nendmodule"
+}

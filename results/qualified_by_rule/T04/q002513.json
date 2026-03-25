@@ -1,0 +1,6 @@
+{
+  "task_id": "q002513",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule (  \n    input S,  \n    input R,  \n    input clk,  \n    output reg Q  \n);  \n\nalways @(posedge clk) begin  \n    if (S && ~R)  \n        Q <= 1;  \n    else if (~S && R)  \n        Q <= 0;  \n    // If S and R are both 0, maintain the state (Q remains unchanged)  \n    // If S and R are both 1, maintain the state (Q remains unchanged)  \nend  \nendmodule"
+}

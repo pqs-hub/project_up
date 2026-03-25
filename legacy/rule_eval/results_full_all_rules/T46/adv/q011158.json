@@ -1,0 +1,8 @@
+{
+  "task_id": "q011158",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module async_reset_down_counter(\n    input clk,\n    input rst,\n    input en,\n    output reg [3:0] q\n    );\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n        if (rst) begin\n            q <= 4'b1111;\n        end else if (en) begin\n            q <= q - 1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

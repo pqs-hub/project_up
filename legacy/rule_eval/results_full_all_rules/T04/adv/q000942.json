@@ -1,0 +1,10 @@
+{
+  "task_id": "q000942",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module subtracts two audio signals instead of mixing them\nmodule audio_mixer (\n    input clk,\n    input [3:0] audio_in1,\n    input [3:0] audio_in2,\n    output reg [3:0] mixed_audio\n);\n    \n    always @(posedge clk) begin\n        mixed_audio <= (audio_in1 + audio_in2 > 15) ? 15 : (audio_in1 + audio_in2);\n    end\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module subtracts two audio signals instead of mixing them"
+  }
+}

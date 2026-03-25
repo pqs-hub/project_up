@@ -1,0 +1,6 @@
+{
+  "task_id": "q003083",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule current_sensor (\n    input [3:0] current,\n    output reg exceeds_threshold\n);\n    always @(*) begin\n        if (current > 4'b1000) // 8 in binary\n            exceeds_threshold = 1;\n        else\n            exceeds_threshold = 0;\n    end\nendmodule"
+}

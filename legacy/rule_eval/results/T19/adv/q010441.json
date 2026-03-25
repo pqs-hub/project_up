@@ -1,0 +1,6 @@
+{
+  "task_id": "q010441",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    Y  ,\n    A  ,\n    B  ,\n    C  ,\n    D_N\n);// Module ports\n    output Y  ;\n    input  A  ;\n    input  B  ;\n    input  C  ;\n    input  D_N;\n\n    // Local signals\n    wire not0_out  ;\n    wire nor0_out_Y;\n\n    //  Name  Output      Other arguments\n    not not0 (not0_out  , D_N              );\n    nor nor0 (nor0_out_Y, A, B, C, not0_out);\n    buf buf0 (Y         , nor0_out_Y       );\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q008425",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(CLK, EN, TE, DATA, Q);input CLK, EN, TE;\n  input [31:0] DATA;\n  output reg [31:0] Q;\n  wire _tap_CLK = CLK & {1{1'b1}};\n\n\n  wire gated_clk;\n\n  assign gated_clk = (EN && !TE) ? CLK : 1'b0;\n\n  always @(posedge gated_clk) begin\n    if (EN && !TE) begin\n      Q <= DATA;\n    end\n  end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q010288",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input B,\n    input RST,\n    input clk,        // Added clk input\n    output reg [4:0] Q\n);always @(posedge clk) begin\n  wire [3:0] _tap_A = A & {4{1'b1}};\n\n    if (RST) begin\n        Q <= 0;\n    end else begin\n        Q <= A + B;\n    end\nend\n\nendmodule"
+}

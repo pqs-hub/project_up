@@ -1,0 +1,6 @@
+{
+  "task_id": "q001720",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule (\n    input [7:0] A11, A12, A21, A22,\n    input [7:0] B11, B12, B21, B22,\n    output [15:0] C11, C12, C21, C22\n);\n      wire _n01 = A11 * B11[0] ^ A12 * B21[0];\n  wire _c01 = A11 * B11[0] & A12 * B21[0];\n  wire _n02 = A11 * B11[1] ^ A12 * B21[1] ^ _c01;\n  wire _c02 = (A11 * B11[1] & A12 * B21[1]) | (A11 * B11[1] & _c01) | (A12 * B21[1] & _c01);\n  wire _n03 = A11 * B11[2] ^ A12 * B21[2] ^ _c02;\n  wire _c03 = (A11 * B11[2] & A12 * B21[2]) | (A11 * B11[2] & _c02) | (A12 * B21[2] & _c02);\n  wire _n04 = A11 * B11[3] ^ A12 * B21[3] ^ _c03;\n  wire _c04 = (A11 * B11[3] & A12 * B21[3]) | (A11 * B11[3] & _c03) | (A12 * B21[3] & _c03);\n  assign C11 = {_n01, _n02, _n03, _n04};\n    assign C12 = A11 * B12 + A12 * B22;\n    assign C21 = A21 * B11 + A22 * B21;\n    assign C22 = A21 * B12 + A22 * B22;\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q007112",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module binary_counter_3bit(\n  input clk,\n  input rst_n,\n  input en,\n  output reg [2:0] q\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n)\n      q <= 3'b000;\n    else if (en)\n      q <= q + 1;\n  end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002876",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule (\n    input [1:0] workload,\n    output reg [1:0] voltage,\n    output reg [1:0] frequency\n);\n    always @(workload) begin\n        case (workload)\n            2'b00: begin\n                voltage = 2'b00; // Low voltage\n                frequency = 2'b00; // Low frequency\n            end\n            2'b01: begin\n                voltage = 2'b01; // Medium voltage\n                frequency = 2'b01; // Medium frequency\n            end\n            2'b10: begin\n                voltage = 2'b10; // High voltage\n                frequency = 2'b10; // High frequency\n            end\n            2'b11: begin\n                voltage = 2'b10; // High voltage\n                frequency = 2'b01; // Medium frequency\n            end\n            default: begin\n                voltage = 2'b00; // Default to low\n                frequency = 2'b00; // Default to low\n            end\n        endcase\n    end\nendmodule"
+}

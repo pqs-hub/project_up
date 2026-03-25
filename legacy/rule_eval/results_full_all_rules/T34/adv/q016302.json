@@ -1,0 +1,15 @@
+{
+  "task_id": "q016302",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input A,\n  input B,\n  input CLR,\n  output Y,\n  output Yn\n);wire not_nand;\n\n  assign not_nand = ~(A & B);\n\n  assign Y = CLR ? 1'b0 : not_nand;\n  assign Yn = CLR ? 1'b1 : ~not_nand;\n\nendmodule",
+  "rename_map": {
+    "nand_out": "not_nand"
+  },
+  "params_used": {
+    "custom_map": {
+      "nand_out": "not_nand"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

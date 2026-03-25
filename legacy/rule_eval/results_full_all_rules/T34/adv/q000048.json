@@ -1,0 +1,16 @@
+{
+  "task_id": "q000048",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gpio_controller(\n    input wire clk_reset,\n    input wire rst,\n    input wire ctrl,\n    input wire [7:0] data_in,\n    input wire [7:0] data_out,\n    output reg [7:0] gpio\n);\n    \n    always @(posedge clk_reset or posedge rst) begin\n        if (rst) begin\n            gpio <= 8'b00000000; // Initialize to low\n        end else if (ctrl) begin\n            gpio <= data_out; // Set GPIO as output\n        end else begin\n            gpio <= data_in; // Set GPIO as input\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_reset",
+      "gpio": "gpio_status"
+    },
+    "fallback_prefix": "gpio_"
+  }
+}

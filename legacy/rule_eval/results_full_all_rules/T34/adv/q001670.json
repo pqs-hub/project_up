@@ -1,0 +1,17 @@
+{
+  "task_id": "q001670",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module master_slave_d_latch (\n    input D,\n    input CLK,\n    output reg Q\n);\n    reg alt_master;\n\n    always @(posedge CLK) begin\n        alt_master <= D;  // Capture D on the rising edge of the clock\n    end\n\n    always @(negedge CLK) begin\n        Q <= alt_master;  // Output the alt_master value on the falling edge of the clock\n    end\nendmodule",
+  "rename_map": {
+    "master": "alt_master"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "d_in",
+      "CLK": "clk_sig",
+      "Q": "q_out"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

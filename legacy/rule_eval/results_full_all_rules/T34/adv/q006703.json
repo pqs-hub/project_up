@@ -1,0 +1,15 @@
+{
+  "task_id": "q006703",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n   clk,\n   reset,\n   count_out\n);input            clk;\n    input            reset;\n    output  [3:0]    count_out;\n                     \n    reg  [3:0]        invalid_count;\n                     \n    always @(posedge clk or negedge reset) begin\n        if (~reset) begin\n            invalid_count <= 4'b0000;\n        end\n        else begin\n            invalid_count <= invalid_count + 1;\n        end\n    end\n     \n    assign count_out = invalid_count;\n\nendmodule",
+  "rename_map": {
+    "count_out_reg": "invalid_count"
+  },
+  "params_used": {
+    "custom_map": {
+      "count_out_reg": "invalid_count"
+    },
+    "fallback_prefix": "err_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q012303",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n  A,\n  B,\n  CIN,\n  SUM,\n  COUT\n);input A;\n  input B;\n  input CIN;\n  output SUM;\n  output COUT;\n  wire _tap_A = A & {1{1'b1}};\n\n  \n  wire w1, w2, w3;\n  \n  // XOR gate to calculate SUM\n  xor(w1, A, B);\n  xor(SUM, w1, CIN);\n  \n  // AND gate to calculate COUT\n  and(w2, A, B);\n  and(w3, w1, CIN);\n  or(COUT, w2, w3);\nendmodule"
+}

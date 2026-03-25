@@ -1,0 +1,8 @@
+{
+  "task_id": "q016915",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module four_bit_adder(\n    input A, B, Cin,\n    output S, Cout\n);\n\nassign S = A ^ B ^ Cin;\nassign Cout = (A & B) | (Cin & (A ^ B));\n\nendmodule\n\nmodule four_bit_adder(\n    input [4-1:1-1] A, B,\n    input Cin,\n    output [3:0] S,\n    output Cout\n);\n\nwire c1, c2, c3;\nfull_adder fa1(.A(A[0]), .B(B[0]), .Cin(Cin), .S(S[0]), .Cout(c1));\nfull_adder fa2(.A(A[1]), .B(B[1]), .Cin(c1), .S(S[1]), .Cout(c2));\nfull_adder fa3(.A(A[2]), .B(B[2]), .Cin(c2), .S(S[2]), .Cout(c3));\nfull_adder fa4(.A(A[3]), .B(B[3]), .Cin(c3), .S(S[3]), .Cout(Cout));\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

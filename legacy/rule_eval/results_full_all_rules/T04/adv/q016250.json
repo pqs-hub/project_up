@@ -1,0 +1,10 @@
+{
+  "task_id": "q016250",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the counter decrements on each clock edge when EN is high.\nmodule bin_counter_4bit (CLK, RST, EN, Q);\ninput CLK, RST, EN;\noutput reg [3:0] Q;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST) begin\n        Q <= 4'b0000;\n    end else if (EN) begin\n        Q <= Q + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter decrements on each clock edge when EN is high."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q002083",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adc_comparator (\n    input [23:0] ERR_adc_value,\n    output reg result\n);\n    parameter REFERENCE_VALUE = 24'd12345678;\n\n    always @(*) begin\n        if (ERR_adc_value > REFERENCE_VALUE) \n            result = 1'b1;\n        else \n            result = 1'b0;\n    end\nendmodule",
+  "rename_map": {
+    "adc_value": "ERR_adc_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "REFERENCE_VALUE": "INVALID_REF"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

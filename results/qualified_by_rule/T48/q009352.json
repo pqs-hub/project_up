@@ -1,0 +1,6 @@
+{
+  "task_id": "q009352",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(clock, in, out);input wire clock;\ninput wire in;\noutput reg out;\n\nreg in_n1, in_n2, in_n3;\n\n\n\n\n\n\nalways @ (posedge clock)\nbegin\n\tif (in & in_n1 & in_n2 & in_n3) out <= 1; \t\t\t\n\telse if (~in & ~in_n1 & ~in_n2 & ~in_n3) out <=0;\t\n\telse out <= out;\t\t\t\t\t\t\t\t    \t\t\t\n\tin_n1 <= in;\t\t\t\t\t\t\t\t\t\t \t\t\t\n\tin_n2 <= in_n1;\n\tin_n3 <= in_n2;\t\nend \n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q009136",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_d_ff_module(\n    input d,\n    input clk,\n    output reg q\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    q <= d;\nend\n\nendmodule\n\nmodule top_d_ff_module(\n    input d,\n    input clk,\n    output q\n);\n\nd_ff_module u_d_ff_module (\n    .d(d),\n    .clk(clk),\n    .q(q)\n);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

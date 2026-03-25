@@ -1,0 +1,8 @@
+{
+  "task_id": "q008720",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] operand1,\n    input [7:0] operand2,\n    input [1:0] operation,\n    output [7:0] result\n);wire [8:0] sum;\nwire [8:0] diff;\n\n  wire _n01 = operand1[0] ^ operand2[0];\n  wire _c01 = operand1[0] & operand2[0];\n  wire _n02 = operand1[1] ^ operand2[1] ^ _c01;\n  wire _c02 = (operand1[1] & operand2[1]) | (operand1[1] & _c01) | (operand2[1] & _c01);\n  wire _n03 = operand1[2] ^ operand2[2] ^ _c02;\n  wire _c03 = (operand1[2] & operand2[2]) | (operand1[2] & _c02) | (operand2[2] & _c02);\n  wire _n04 = operand1[3] ^ operand2[3] ^ _c03;\n  wire _c04 = (operand1[3] & operand2[3]) | (operand1[3] & _c03) | (operand2[3] & _c03);\n  assign sum = {_n01, _n02, _n03, _n04};\nassign diff = operand1 - operand2;\n\nassign result = (operation == 2'b00) ? sum[7:0] : diff[7:0];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

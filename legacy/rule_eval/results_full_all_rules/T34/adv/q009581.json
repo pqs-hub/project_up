@@ -1,0 +1,15 @@
+{
+  "task_id": "q009581",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(output reg [3:0] cnt_offset, input Reset, input Clk2,\n    input offsetInc);always@(posedge Clk2) begin\n    if (Reset)\n      cnt_offset <= 4'b0;\n    else\n      if (offsetInc)\n        cnt_offset <= cnt_offset + 1;\n      else\n        cnt_offset <= cnt_offset;\n  end\n\nendmodule",
+  "rename_map": {
+    "offset": "cnt_offset"
+  },
+  "params_used": {
+    "custom_map": {
+      "Reset": "reset_n"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014160",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(input wire clk, input wire [6:0] data_in, output reg [7:0] bcd);reg [6:0] data;\n\talways @(posedge clk)\n\t\tdata<=data_in;\n\talways@(*) \n\tbegin\n    begin end  // redundant\n\t\tbcd=0;\n\t\tif (data>=90)\n\t\t\tbegin\n\t\t\t\tbcd[7:4]=9;\n\t\t\t\tbcd[3:0]=data-7'd90;\n\t\t\tend\n\t\telse if (data>=80)\n\t\t\tbegin\n\t\t\t\tbcd[7:4]=8;\n\t\t\t\tbcd[3:0]=data-7'd80;\n\t\t\tend\t\n\t\telse if (data>=70)\n\t\t\tbegin\n\t\t\t\tbcd[7:4]=7;\n\t\t\t\tbcd[3:0]=data-7'd70;\n\t\t\tend\t\n\t\telse if (data>=60)\n\t\t\tbegin\n\t\t\t\tbcd[7:4]=6;\n\t\t\t\tbcd[3:0]=data-7'd60;\n\t\t\tend\t\n\t\telse if (data>=50)\n\t\t\tbegin\n\t\t\t\tbcd[7:4]=5;\n\t\t\t\tbcd[3:0]=data-7'd50;\n\t\t\tend\t\n\t\telse if (data>=40)\n\t\t\tbegin\n\t\t\t\tbcd[7:4]=4;\n\t\t\t\tbcd[3:0]=data-7'd40;\n\t\t\tend\t\n\t\telse if (data>=30)\n\t\t\tbegin\n\t\t\t\tbcd[7:4]=3;\n\t\t\t\tbcd[3:0]=data-7'd30;\n\t\t\tend\t\n\t\telse if (data>=20)\n\t\t\tbegin\n\t\t\t\tbcd[7:4]=2;\n\t\t\t\tbcd[3:0]=data-7'd20;\n\t\t\tend\t\n\t\telse if (data>=10)\n\t\t\tbegin\n\t\t\t\tbcd[7:4]=1;\n\t\t\t\tbcd[3:0]=data-7'd10;\n\t\t\tend\t\n\t\telse \tbcd[3:0]=data[3:0];\n\tend\nendmodule"
+}

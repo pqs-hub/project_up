@@ -1,0 +1,15 @@
+{
+  "task_id": "q013418",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register (\n    input clk,\n    input shift_enable,\n    input load_enable,\n    input [7:0] data_in,\n    output [7:0] data_out );reg [7:0] shadow;\n\nalways @(posedge clk) begin\n    if (load_enable)\n        shadow <= data_in;\n    else if (shift_enable)\n        shadow <= {shadow[6:0], 1'b0};\nend\n\nassign data_out = shadow;\n\nendmodule",
+  "rename_map": {
+    "register": "shadow"
+  },
+  "params_used": {
+    "custom_map": {
+      "register": "shadow"
+    },
+    "fallback_prefix": "mis_"
+  }
+}

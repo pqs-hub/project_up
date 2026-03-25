@@ -1,0 +1,8 @@
+{
+  "task_id": "q009983",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input [4-1:1-1] I,\n    input Ein,\n    output reg [1:0] Y,\n    output reg GS,\n    output reg Eout\n);always @ (I, Ein)\nbegin\n    if(Ein == 1)\n        Y = (I[3] == 1) ? 2'd3 : (\n                (I[2] == 1) ? 2'd2 : (\n                    (I[1] == 1) ? 2'd1 : 2'd0\n                )\n            );\n    else\n        Y = 2'd0;\nend\n\nalways @ (I, Ein)\nbegin\n    if (Ein == 1 && I == 0)\n        Eout = 1'b1;\n    else\n        Eout = 1'b0;\nend\n\nalways @ (I, Ein)\nbegin\n    if (Ein == 1 && I != 0)\n        GS = 1'b1;\n    else\n        GS = 1'b0;\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

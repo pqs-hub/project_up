@@ -1,0 +1,6 @@
+{
+  "task_id": "q001026",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input start,\n    input read_cmd,\n    input write_cmd,\n    input done,\n    output reg [1:0] state // 2 bits for states: 00 - IDLE, 01 - READ, 10 - WRITE\n);\n\n    parameter IDLE = 2'b00;\n    parameter READ = 2'b01;\n    parameter WRITE = 2'b10;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n        if (rst) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start) begin\n                        if (read_cmd) \n                            state <= READ;\n                        else if (write_cmd) \n                            state <= WRITE;\n                    end\n                end\n                READ: begin\n                    if (done) \n                        state <= IDLE;\n                end\n                WRITE: begin\n                    if (done) \n                        state <= IDLE;\n                end\n            endcase\n        end\n    end\nendmodule"
+}

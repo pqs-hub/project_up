@@ -1,0 +1,15 @@
+{
+  "task_id": "q002533",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module portfolio_optimizer (\n    input [7:0] min_return,\n    input [7:0] stock2,\n    input [7:0] stock3,\n    input [7:0] stock4,\n    input [7:0] stock5,\n    output reg [7:0] max_return\n);\n\nalways @(*) begin\n    max_return = min_return; // Initialize with the first stock\n    if (stock2 > max_return) max_return = stock2;\n    if (stock3 > max_return) max_return = stock3;\n    if (stock4 > max_return) max_return = stock4;\n    if (stock5 > max_return) max_return = stock5;\nend\n\nendmodule",
+  "rename_map": {
+    "stock1": "min_return"
+  },
+  "params_used": {
+    "custom_map": {
+      "stock1": "min_return"
+    },
+    "fallback_prefix": "opt_"
+  }
+}

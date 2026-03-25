@@ -1,0 +1,10 @@
+{
+  "task_id": "q014414",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 16-entry register file with a 16-bit wide data path.\nmodule top_module(\n    output reg [7:0] w_bus_high_reg,\n    output reg [7:0] w_bus_low_reg,\n    input [7:0] w_bus_instr_word,\n    input [7:0] w_bus_write_back_value,\n    input [3:0] w_bus_write_back_reg,\n    input w_write_back,\n    input w_clock,\n    input w_reset\n);reg [7:0] r_registers[0:15];\n    wire [7:0] a0, a1, a2, a3, r2, r3, r4, r5, r6, r7, r8, r10, r13, r14, r15;\n    integer i;\n\n    assign a0 = r_registers[1];\n    assign a1 = r_registers[9];\n    assign a2 = r_registers[11];\n    assign a3 = r_registers[12];\n    assign r2 = r_registers[2];\n    assign r3 = r_registers[3];\n    assign r4 = r_registers[4];\n    assign r5 = r_registers[5];\n    assign r6 = r_registers[6];\n    assign r7 = r_registers[7];\n    assign r8 = r_registers[8];\n    assign r10 = r_registers[10];\n    assign r13 = r_registers[13];\n    assign r14 = r_registers[14];\n    assign r15 = r_registers[15];\n\n    initial begin\n        for (i = 0; i < 16; i = i + 1) r_registers[i] = 8'b00000000;\n        $monitor(\"$arg0:%x, $arg1:%x, $arg2:%x, $arg3:%x, $and:%x, $or:%x, $add:%x, $rlf:%x, $rrt:%x, $sle:%x, $sge:%x, $jal:%x, $lw:%x, $sw:%x, $mov:%x\", a0, a1, a2, a3, r2, r3, r4, r5, r6, r7, r8, r10, r13, r14, r15);\n    end\n\n    always @(posedge w_clock) begin\n        if (w_write_back && w_bus_write_back_reg != 4'b0000) begin\n            r_registers[w_bus_write_back_reg] <= w_bus_write_back_value;\n        end\n        if (w_reset) begin\n            for (i = 0; i < 16; i = i + 1) begin\n                r_registers[i] = 8'b00000000;\n            end\n        end\n    end\n\n    assign w_bus_high_reg = r_registers[w_bus_instr_word[7:4]];\n    assign w_bus_low_reg = r_registers[w_bus_instr_word[3:0]];\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 16-entry register file with a 16-bit wide data path."
+  }
+}

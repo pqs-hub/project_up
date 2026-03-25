@@ -1,0 +1,6 @@
+{
+  "task_id": "q000247",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module robot_movement(  \n    input clk,  \n    input reset,  \n    input [1:0] direction,  \n    output reg [1:0] state  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            state <= 2'b00; // Initial state (Moving Up)  \n        else begin  \n            case (direction)  \n                2'b00: state <= 2'b00; // Moving Up  \n                2'b01: state <= 2'b01; // Moving Down  \n                2'b10: state <= 2'b10; // Moving Left  \n                2'b11: state <= 2'b11; // Moving Right  \n                default: state <= state; // Retain current state  \n            endcase  \n        end  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

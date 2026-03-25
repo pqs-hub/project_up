@@ -1,0 +1,6 @@
+{
+  "task_id": "q003057",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule (\n    input [23:0] data_in,\n    output reg [2:0] control_out\n);\n    wire [7:0] segment0 = data_in[23:16];\n    wire [7:0] segment1 = data_in[15:8];\n    wire [7:0] segment2 = data_in[7:0];\n\n    always @(*) begin\n        if (segment0 > segment1 && segment0 > segment2) \n            control_out = 3'b000; // Segment 0 is the highest\n        else if (segment1 > segment0 && segment1 > segment2) \n            control_out = 3'b001; // Segment 1 is the highest\n        else if (segment2 > segment0 && segment2 > segment1) \n            control_out = 3'b010; // Segment 2 is the highest\n        else \n            control_out = 3'b111; // All segments are equal or all zero\n    end\nendmodule"
+}

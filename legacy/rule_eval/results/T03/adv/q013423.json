@@ -1,0 +1,6 @@
+{
+  "task_id": "q013423",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module binary_counter_2bit\n(\n    input clk,\n    input rst,\n    output reg [1:0] count\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    if (rst) begin\n        count <= 2'd0;\n    end else begin\n        count <= count + 2'd1;\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q007699",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input  wire[1:0] a, b,\n    output wire agrb\n   );wire less_than_b, p1, p2;\n\n   \n   assign agrb = less_than_b | p1 | p2;\n   \n   assign less_than_b = a[1] & ~b[1];\n   assign p1 = a[0] & ~b[1] & ~b[0];\n   assign p2 = a[1] & a[0] & ~b[0];\n\nendmodule",
+  "rename_map": {
+    "p0": "less_than_b"
+  },
+  "params_used": {
+    "custom_map": {
+      "p0": "less_than_b",
+      "p1": "less_than_a_and_not_b",
+      "p2": "equal_and_less_than_b"
+    },
+    "fallback_prefix": "not_"
+  }
+}

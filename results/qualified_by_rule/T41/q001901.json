@@ -1,0 +1,6 @@
+{
+  "task_id": "q001901",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [1:0] current_state,\n    output reg [1:0] next_state\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            next_state <= 2'b00; // Reset to state 00\n        end else begin\n            case (current_state)\n                2'b00: next_state <= 2'b01;\n                2'b01: next_state <= 2'b10;\n                2'b10: next_state <= 2'b11;\n                2'b11: next_state <= 2'b00;\n                default: next_state <= 2'b00; // Default to reset state\n            endcase\n        end\n    end\nendmodule"
+}

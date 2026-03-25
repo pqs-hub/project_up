@@ -1,0 +1,15 @@
+{
+  "task_id": "q001671",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module rising_edge_detector(  \n    input clk,  \n    input signal_in,  \n    output reg signal_out  \n);  \n    reg signal_in_q; // Delayed version of the input signal  \n\n    always @(posedge clk) begin  \n        signal_in_q <= signal_in;  \n        signal_out <= (signal_in && !signal_in_q);  \n    end  \nendmodule",
+  "rename_map": {
+    "signal_in_d": "signal_in_q"
+  },
+  "params_used": {
+    "custom_map": {
+      "signal_in_d": "signal_in_q"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

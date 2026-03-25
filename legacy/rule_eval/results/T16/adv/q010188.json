@@ -1,0 +1,9 @@
+{
+  "task_id": "q010188",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module( clk, clrn, obf_NPC, PC );input              clk;\n  input              clrn;\n  input       [31:0] obf_NPC;\n  output reg  [31:0] PC;\n\n  always @(posedge clk, negedge clrn)\n    if (clrn==0) \n      PC <= 32'h0000_0000;\n\n    else\n      PC <= obf_NPC;\n      \nendmodule",
+  "rename_map": {
+    "NPC": "obf_NPC"
+  }
+}

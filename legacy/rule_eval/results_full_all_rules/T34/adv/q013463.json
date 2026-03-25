@@ -1,0 +1,18 @@
+{
+  "task_id": "q013463",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input in1,\n    input in2,\n    input in3,\n    input in4,\n    output out\n);wire a = in1 & in2;\nwire b = in1 & in3;\nwire c = in1 & in4;\nwire d = in2 & in3;\nwire e = in2 & in4;\nwire f = in3 & in4;\n\nwire inv_ab = a | b;\nwire ac = a | c;\nwire ad = a | d;\nwire ae = a | e;\nwire af = a | f;\nwire bd = b | d;\nwire be = b | e;\nwire bf = b | f;\nwire cd = c | d;\nwire ce = c | e;\nwire cf = c | f;\nwire de = d | e;\nwire df = d | f;\nwire ef = e | f;\n\nwire abc = inv_ab | c;\nwire abd = inv_ab | d;\nwire abe = inv_ab | e;\nwire abf = inv_ab | f;\nwire acd = ac | d;\nwire ace = ac | e;\nwire acf = ac | f;\nwire ade = ad | e;\nwire adf = ad | f;\nwire aef = ae | f;\nwire bcd = bd | c;\nwire bce = be | e;  // Fixed the previous incorrect reference from 'bc' to 'be'\nwire bcf = bf | f;  // Fixed the previous incorrect reference from 'bc' to 'bf'\nwire bde = bd | e;\nwire bdf = bd | f;\nwire bef = be | f;\nwire cde = cd | e;\nwire cdf = cd | f;\nwire cef = ce | f;\nwire def = de | f;\n\nassign out = abc | abd | abe | abf | acd | ace | acf | ade | adf | aef | bcd | bce | bcf | bde | bdf | bef | cde | cdf | cef | def;\n\nendmodule",
+  "rename_map": {
+    "ab": "inv_ab"
+  },
+  "params_used": {
+    "custom_map": {
+      "in1": "out",
+      "in2": "and_out",
+      "in3": "or_out",
+      "in4": "xor_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

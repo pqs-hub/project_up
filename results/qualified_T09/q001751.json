@@ -1,0 +1,6 @@
+{
+  "task_id": "q001751",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (\n    input [1:0] workload,\n    output reg [1:0] frequency,\n    output reg [1:0] voltage\n);\n    always @(*) begin\n        case (workload)\n            2'b00: begin\n                frequency = 2'b00; // Frequency level 0\n                voltage = 2'b00;   // Voltage level 0\n            end\n            2'b01: begin\n                frequency = 2'b01; // Frequency level 1\n                voltage = 2'b01;   // Voltage level 1\n            end\n            2'b10: begin\n                frequency = 2'b10; // Frequency level 2\n                voltage = 2'b10;   // Voltage level 2\n            end\n            2'b11: begin\n                frequency = 2'b11; // Frequency level 3\n                voltage = 2'b11;   // Voltage level 3\n            end\n            default: begin\n                frequency = 2'b00; // Default to level 0\n                voltage = 2'b00;   // Default to level 0\n            end\n        endcase\n    end\nendmodule"
+}

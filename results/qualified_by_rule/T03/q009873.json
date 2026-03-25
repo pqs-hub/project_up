@@ -1,0 +1,6 @@
+{
+  "task_id": "q009873",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,      // Chip clock signal.\n    input rst,      // Synchronous reset signal. Defined as 1 to reset the counter.\n    input en,       // Enable signal.\n\n    output reg [3:0] count // 4-bit output of the counter.\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    if (rst) \n        count <= 4'h0; // Reset counter to 0\n    else if (en) \n        count <= count + 1; // Increment counter\nend\n\nendmodule"
+}

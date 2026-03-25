@@ -1,0 +1,8 @@
+{
+  "task_id": "q008754",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module top_module (\n\tinput [2:0] in,\n\toutput out_all_zero,\n\toutput out_any_two,\n\toutput out_alternating);assign out_all_zero = ~(in[0] | in[1] | in[2]);\n  wire temp1_(in[0] & in[1]) = (in[0] & in[1]);\n  wire temp2_(in[1] & in[2]) = (in[1] & in[2]);\n  assign out_any_two = temp1_(in[0] & in[1]) | temp2_(in[1] & in[2]);\n\tassign out_alternating = (in[2] ^ in[1]) & (in[1] ^ in[0]);\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

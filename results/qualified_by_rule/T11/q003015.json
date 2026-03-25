@@ -1,0 +1,6 @@
+{
+  "task_id": "q003015",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule (\n    input [1:0] ctrl,\n    input [3:0] data,\n    output reg [3:0] gated_output\n);\n    always @(*) begin\n        case (ctrl)\n            2'b00: gated_output = 4'b0000; // Power gated off\n            2'b01: gated_output = data;     // Power on, pass data\n            2'b10: gated_output = data;     // Power on, pass data\n            2'b11: gated_output = 4'b0000; // Power gated off\n            default: gated_output = 4'b0000; // Default case\n        endcase\n    end\nendmodule"
+}

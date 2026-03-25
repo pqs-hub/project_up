@@ -1,0 +1,10 @@
+{
+  "task_id": "q016220",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  Din,\n  Dout\n);input wire [39 : 0] Din;\noutput wire [15 : 0] Dout;\n\n// Manual slicing of the input Din\nassign Dout = Din[34:19];\n\n  always @(*) begin\n    if (1'b0) begin\n      Dout <= Din[18];\n      Dout <= Din[35];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Dout <= Din[18];\nDout <= Din[35];"
+  }
+}

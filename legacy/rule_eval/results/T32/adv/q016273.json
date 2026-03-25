@@ -1,0 +1,6 @@
+{
+  "task_id": "q016273",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(clock, reset_n, D, Q);input clock, reset_n;\ninput  [4-1:1-1] D;\noutput [3:0] Q;\nreg    [3:0] tmp; \n\n\n  always @(posedge clock)\n    begin\n      if (reset_n)\n        tmp <= 4'b0000;\n      else\n        tmp <= tmp + D;\n    end\nassign Q = tmp;\nendmodule"
+}

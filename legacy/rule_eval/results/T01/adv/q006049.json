@@ -1,0 +1,6 @@
+{
+  "task_id": "q006049",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module register (\n\tinput clk,\n\tinput reset,\n\tinput load,\n\tinput [15:0] data_in,\n\toutput reg [15:0] data_out);always @(posedge clk) begin\n    begin end  // redundant\n\tif (reset) begin\n\t\tdata_out <= 16'b0000000000000000;\n\tend else if (load) begin\n\t\tdata_out <= data_in;\n\tend\nend\n\nendmodule"
+}

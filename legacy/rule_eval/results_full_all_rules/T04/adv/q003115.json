@@ -1,0 +1,10 @@
+{
+  "task_id": "q003115",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module subtracts two 4-bit input vectors instead of adding them\nmodule vector_adder (\n    input [3:0] a,        // 4-bit input vector a\n    input [3:0] b,        // 4-bit input vector b\n    input enable,         // enable signal\n    output reg [3:0] sum, // 4-bit sum output\n    output reg carry_out   // carry out output\n);\n    always @(*) begin\n        if (enable) begin\n            {carry_out, sum} = a + b; // Perform addition\n        end else begin\n            sum = 4'b0000;   // If not enabled, output zero\n            carry_out = 1'b0; // No carry out\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module subtracts two 4-bit input vectors instead of adding them"
+  }
+}

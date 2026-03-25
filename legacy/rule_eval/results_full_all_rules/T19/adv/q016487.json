@@ -1,0 +1,10 @@
+{
+  "task_id": "q016487",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module XXOR1 ( A, B, GIN, PHI, SUM );\ninput  A;\ninput  B;\ninput  GIN;\ninput  PHI;\noutput SUM;\n   assign SUM = ( ~ (A ^ B)) ^ GIN;\n  always @(*) begin\n    if (1'b0) begin\n      if (A & B) begin\n        SUM <= 1'b0;\n      end else if (!A & !B) begin\n        SUM <= 1'b1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (A & B) begin\n  SUM <= 1'b0;\nend else if (!A & !B) begin\n  SUM <= 1'b1;\nend"
+  }
+}

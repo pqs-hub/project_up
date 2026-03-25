@@ -1,0 +1,6 @@
+{
+  "task_id": "q008441",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(input clk, we,\n                input [31:0] addr, wd,\n                output [31:0] rd);reg [31:0] unused_mem[63:0];\n\n  assign rd = unused_mem[addr[31:2]]; \n\n  always @(posedge clk)\n    if(we) \n        unused_mem[addr[31:2]] <= wd;\n\nendmodule"
+}

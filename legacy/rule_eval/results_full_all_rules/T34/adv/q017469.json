@@ -1,0 +1,16 @@
+{
+  "task_id": "q017469",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module xor4(\n    input [3:0] inv_A,\n    input [3:0] B,\n    output [3:0] X\n);\n\ngenvar i;\ngenerate\n    for (i = 0; i < 4; i = i + 1) begin : XOR\n        assign X[i] = inv_A[i] ^ B[i];\n    end\nendgenerate\n\nendmodule",
+  "rename_map": {
+    "A": "inv_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "B": "A"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

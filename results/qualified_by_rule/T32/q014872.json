@@ -1,0 +1,6 @@
+{
+  "task_id": "q014872",
+  "rule_id": "T32",
+  "changed": false,
+  "final": "module RefModule(clk, ce, a, b, p);input clk; \n input ce; \n input[8 - 1 : 0] a; \n input[8 - 1 : 0] b; \n output[16 - 1 : 0] p; \n reg signed [8 - 1 : 0] a_reg0; \n reg signed [8 - 1 : 0] b_reg0; \n wire signed [16 - 1 : 0] tmp_product; \n reg signed [16 - 1 : 0] buff0; \n reg signed [16 - 1 : 0] buff1; \n reg signed [16 - 1 : 0] buff2; \n assign p = buff2; \n assign tmp_product = a_reg0 * b_reg0; \n always @ (posedge clk) begin \n  if (ce) begin \n  a_reg0 <= a; \n  b_reg0 <= b; \n  buff0 <= tmp_product; \n  buff1 <= buff0; \n  buff2 <= buff1; \n  end \n end \n endmodule"
+}

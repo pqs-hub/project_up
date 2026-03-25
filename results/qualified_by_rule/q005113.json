@@ -1,0 +1,6 @@
+{
+  "task_id": "q005113",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    output reg Q,  // Changed to output reg to store the pipeline_reg\n    input CLK,\n    input D\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB;\n    supply0 VNB;\n\n    // Wire to hold the D input value\n    wire D_wire;\n    \n    // Creating a negative-edge triggered D flip-flop using the basic flip-flop structure and behavioral modeling\n    always @(posedge CLK) begin\n        Q <= D;  // Update Q with the value of D at the rising edge of CLK\n    end\n\nendmodule"
+}

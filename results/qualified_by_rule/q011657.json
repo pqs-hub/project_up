@@ -1,0 +1,6 @@
+{
+  "task_id": "q011657",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input [2:0] addr,\n    input [3:0] din,\n    input en,\n    input we,\n    output reg [3:0] dout\n);reg [3:0] obf_memory [0:7];\n\nalways @(posedge clk) begin\n    if (en) begin\n        if (we) begin\n            obf_memory[addr] <= din;\n        end else begin\n            dout <= obf_memory[addr];\n        end\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q004276",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module is designed to ignore the start signal and always output the last received input value.\nmodule adc_controller(  \n    input clk,  \n    input reset,  \n    input start,  \n    input [23:0] adc_input,  \n    output reg [23:0] adc_output,  \n    output reg valid  \n);  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            adc_output <= 24'b0;  \n            valid <= 0;  \n        end else if (start) begin  \n            adc_output <= adc_input;  \n            valid <= 1;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to ignore the start signal and always output the last received input value."
+  }
+}

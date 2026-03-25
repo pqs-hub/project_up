@@ -1,0 +1,6 @@
+{
+  "task_id": "q012564",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(forward,databus,ALUresult,Memaddr,writedata,dataout);input [1:0] forward;\ninput [31:0] databus;\ninput [31:0] ALUresult;\ninput [31:0] Memaddr;\ninput [31:0] writedata;\noutput [31:0] dataout;\n\nwire __dataout_tmp = (forward == 2'b00) ? databus :\n                 (forward == 2'b01) ? ALUresult :\n                 (forward == 2'b10) ? Memaddr :\n                 writedata;\nassign dataout = __dataout_tmp;\n\nendmodule"
+}

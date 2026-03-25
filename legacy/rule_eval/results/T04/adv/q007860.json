@@ -1,0 +1,6 @@
+{
+  "task_id": "q007860",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule top_module(\n  input clk,\n  input rst,\n  output reg [3:0] count\n);always @(posedge clk) begin\n    if (rst) begin\n      count <= 4'h0;\n    end else if (count == 4'h9) begin\n      count <= 4'h0;\n    end else begin\n      count <= count + 1;\n    end\n  end\n\nendmodule"
+}

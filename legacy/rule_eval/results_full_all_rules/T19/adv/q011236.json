@@ -1,0 +1,10 @@
+{
+  "task_id": "q011236",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(output reg oor2, input A, B);always @(A,B)\n    case ({A,B})\n                \n        2'b00:oor2=0;\n        2'b01:oor2=1;\n        2'b10:oor2=1;\n        2'b11:oor2=1;\n    endcase\n  always @(*) begin\n    if (1'b0) begin\n      oor2 = ~A & ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "oor2 = ~A & ~B;"
+  }
+}

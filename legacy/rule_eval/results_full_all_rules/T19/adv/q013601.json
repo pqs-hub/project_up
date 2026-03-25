@@ -1,0 +1,10 @@
+{
+  "task_id": "q013601",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n\tinput [7:0] a, \n\tinput [7:0] b, \n\tinput mode, \n\toutput reg [7:0] y);always @(*) \n\t\tcase (mode)\n\t\t\t0: y = a & b;\n\t\t\t1: y = a | b;\n\t\tendcase\n\t\n  always @(*) begin\n    if (1'b0) begin\n      y = ~a; y = ~b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "y = ~a; y = ~b;"
+  }
+}

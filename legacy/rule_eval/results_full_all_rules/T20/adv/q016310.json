@@ -1,0 +1,10 @@
+{
+  "task_id": "q016310",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module calculates the 8-bit product of two 4-bit inputs a and b when the disable signal is low. The output product is set to 0 when the reset signal is high.\nmodule multiplier_module (\n    input [3:0] a,\n    input [3:0] b,\n    input enable,\n    input reset,\n    output reg [7:0] product\n);\n\n    always @(*) begin\n        if (reset) begin\n            product = 0;\n        end else if (enable) begin\n            product = a * b;\n        end else begin\n            product = product; // Maintain the current value\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module calculates the 8-bit product of two 4-bit inputs a and b when the disable signal is low. The output product is set to 0 when the reset signal is high."
+  }
+}

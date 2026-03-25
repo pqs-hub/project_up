@@ -1,0 +1,8 @@
+{
+  "task_id": "q002500",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module GPIO_Controller (\n    input wire [3:0] gpio_data,\n    input wire enable,\n    input wire clk,\n    output reg [3:0] gpio_output\n);\n    \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (enable) begin\n            gpio_output <= gpio_data; // Latch the data\n        end\n        // If enable is low, retain previous value of gpio_output\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

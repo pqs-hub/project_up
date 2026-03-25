@@ -1,0 +1,12 @@
+{
+  "task_id": "q000023",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input [4:0] command,\n    output reg [4:0] status\n);\n    always @(*) begin\n        case (command)\n            5'b00000: status = 5'b11111; // SUCCESS\n            5'b00001: status = 5'b11110; // ERROR\n            5'b00010: status = 5'b11101; // TIMEOUT\n            default: status = 5'b00000;   // UNKNOWN\n        endcase\n    end\nendmodule",
+  "adversarial_code": "module TopModule (\n    input [4:0] command,\n    output reg [4:0] status\n);\n    always @(*) begin\n        case (command)\n            5'b00000: status = 5'b11111; // SUCCESS\n            5'b00001: status = 5'b11110; // ERROR\n            5'b00010: status = 5'b11101; // TIMEOUT\n            default: status = 5'b00000;   // UNKNOWN\n        endcase\n    end\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

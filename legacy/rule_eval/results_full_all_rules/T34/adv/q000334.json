@@ -1,0 +1,15 @@
+{
+  "task_id": "q000334",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module branch_predictor(  \n    input clk,  \n    input reset,  \n    input taken,  \n    output reg prediction  \n);  \n    reg [1:0] predictor_state;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            predictor_state <= 2'b00;  \n        else begin  \n            if (taken)  \n                predictor_state <= (predictor_state == 2'b11) ? 2'b11 : predictor_state + 1;  \n            else  \n                predictor_state <= (predictor_state == 2'b00) ? 2'b00 : predictor_state - 1;  \n        end  \n    end  \n\n    always @(*) begin  \n        prediction = (predictor_state[1] == 1'b1);  \n    end  \nendmodule",
+  "rename_map": {
+    "counter": "predictor_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "counter": "predictor_state"
+    },
+    "fallback_prefix": "bp_"
+  }
+}

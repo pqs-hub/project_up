@@ -1,0 +1,10 @@
+{
+  "task_id": "q011523",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\tinput\tclk,\n\tinput\trst,\n\toutput\treg [3:0] out);always @(posedge clk) begin\n\t\tout <= rst ? 0 : out + 1;\n\tend\n\t\n  always @(*) begin\n    if (1'b0) begin\n      out <= ~rst & (out ^ 4'hF)\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= ~rst & (out ^ 4'hF)"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q014500",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a three-input NOR gate with an inverted input. The module accepts three inputs: A, B, and C_N, where C_N is inverted internally. It utilizes a standard NOR gate to compute the NOR of A and B while treating C_N as an active-high input. The final output Y is derived by combining the inverted results of the NOR operation with the inverted C_N through a subsequent AND operation followed by another inversion, thus providing a complex logic output based on the original three inputs.\nmodule top_module(\n    Y   ,\n    A   ,\n    B   ,\n    C_N ,\n    VPWR,\n    VGND\n);output Y   ;\n    input  A   ;\n    input  B   ;\n    input  C_N ;\n    input  VPWR;\n    input  VGND;\n\n    wire  n1, n2, n3, n4;\n\n    // Changed the module instance from sky130_fd_sc_lp__nor3b to an equivalent logic implementation\n    assign n1 = ~(A | B | C_N);\n\n    assign n2 = ~n1;\n    assign n3 = ~C_N;\n    assign n4 = n2 & n3;\n    assign Y = ~n4;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a three-input NOR gate with an inverted input. The module accepts three inputs: A, B, and C_N, where C_N is inverted internally. It utilizes a standard NOR gate to compute the NOR of A and B while treating C_N as an active-high input. The final output Y is derived by combining the inverted results of the NOR operation with the inverted C_N through a subsequent AND operation followed by another inversion, thus providing a complex logic output based on the original three inputs."
+  }
+}

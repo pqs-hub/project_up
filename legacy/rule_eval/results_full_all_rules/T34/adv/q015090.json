@@ -1,0 +1,17 @@
+{
+  "task_id": "q015090",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input  NOT_A1  ,\n    input  A2  ,\n    input  B1  ,\n    output Y   ,\n    input  VPB ,\n    input  VPWR,\n    input  VGND,\n    input  VNB\n);assign Y = (NOT_A1 && !A2) || (!NOT_A1 && A2) || B1;\n\nendmodule",
+  "rename_map": {
+    "A1": "NOT_A1"
+  },
+  "params_used": {
+    "custom_map": {
+      "A1": "XOR_A",
+      "A2": "XOR_B",
+      "B1": "EN"
+    },
+    "fallback_prefix": "NOT_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q003570",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(  \n    input clk,  \n    input rst,  \n    input [7:0] dx,  \n    input [7:0] dy,  \n    input move_cmd,  \n    output reg [15:0] x,  \n    output reg [15:0] y,  \n    output reg [31:0] movement_count  \n);  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            x <= 0;  \n            y <= 0;  \n            movement_count <= 0;  \n        end else if (move_cmd) begin  \n            x <= x + dx;  \n            y <= y + dy;  \n            movement_count <= movement_count + 1;  \n        end  \n    end  \nendmodule"
+}

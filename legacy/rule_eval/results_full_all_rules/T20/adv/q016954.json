@@ -1,0 +1,10 @@
+{
+  "task_id": "q016954",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-to-1 multiplexer using if-else statements. The module has two 2-bit inputs 'a' and 'b', a 2-bit select input 'sel', and a 2-bit output 'out'. When 'sel' is 00, the value of 'out' is equal to the value of 'b' when 'sel' is 01, the value of 'out' is equal to the value of 'a' when 'sel' is 10, the value of 'out' is equal to the bitwise OR of 'a' and 'b', and when 'sel' is 11, the value of 'out' is equal to the bitwise AND of 'a' and 'b'.\nmodule mux_4to1_if_else (\n  input [1:0] a,\n  input [1:0] b,\n  input [1:0] sel,\n  output reg [1:0] out\n);\n\n  always @(*) begin\n    if(sel == 2'b00) begin\n      out = a;\n    end\n    else if(sel == 2'b01) begin\n      out = b;\n    end\n    else if(sel == 2'b10) begin\n      out = a & b;\n    end\n    else begin // sel == 2'b11\n      out = a | b;\n    end\n  end\n\nendmodule\n",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-to-1 multiplexer using if-else statements. The module has two 2-bit inputs 'a' and 'b', a 2-bit select input 'sel', and a 2-bit output 'out'. When 'sel' is 00, the value of 'out' is equal to the value of 'b' when 'sel' is 01, the value of 'out' is equal to the value of 'a' when 'sel' is 10, the value of 'out' is equal to the bitwise OR of 'a' and 'b', and when 'sel' is 11, the value of 'out' is equal to the bitwise AND of 'a' and 'b'."
+  }
+}

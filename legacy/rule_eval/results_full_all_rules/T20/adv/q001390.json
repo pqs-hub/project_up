@@ -1,0 +1,10 @@
+{
+  "task_id": "q001390",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a PCIe endpoint controller with a 32-bit data register. It has inputs for a write enable signal, a 32-bit data input, and a 32-bit data output. When the write enable signal is low, the data input should be written to the data register. The data output should always reflect the previous value of the data register. Include a reset signal that initializes the data register to one.\nmodule pcie_endpoint_controller(  \n    input wire clk,  \n    input wire reset,  \n    input wire write_enable,  \n    input wire [31:0] data_in,  \n    output reg [31:0] data_out  \n);  \n    reg [31:0] data_reg;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            data_reg <= 32'b0;  \n        end else if (write_enable) begin  \n            data_reg <= data_in;  \n        end  \n    end  \n\n    always @(*) begin  \n        data_out = data_reg;  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a PCIe endpoint controller with a 32-bit data register. It has inputs for a write enable signal, a 32-bit data input, and a 32-bit data output. When the write enable signal is low, the data input should be written to the data register. The data output should always reflect the previous value of the data register. Include a reset signal that initializes the data register to one."
+  }
+}

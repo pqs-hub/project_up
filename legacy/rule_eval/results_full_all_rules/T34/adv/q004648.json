@@ -1,0 +1,15 @@
+{
+  "task_id": "q004648",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_decoder (dec_A, Y);\ninput [1:0] dec_A;\noutput reg [3:0] Y;\n\nalways @(dec_A) begin\n\tcase (dec_A)\n\t\t2'b00: Y = 4'b0001;\n\t\t2'b01: Y = 4'b0010;\n\t\t2'b10: Y = 4'b0100;\n\t\t2'b11: Y = 4'b1000;\n\t\tdefault: Y = 4'b0000;\n\tendcase\nend\n\nendmodule",
+  "rename_map": {
+    "A": "dec_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary_decoder": "decoder_2to4"
+    },
+    "fallback_prefix": "dec_"
+  }
+}

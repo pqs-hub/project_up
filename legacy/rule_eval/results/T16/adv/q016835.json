@@ -1,0 +1,9 @@
+{
+  "task_id": "q016835",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module lookup_table(\n    input [3:0] data_in,\n    output reg [2:0] data_out\n);\n\nreg [2:0] obf_memory [15:0];\n\ninitial begin\n    obf_memory[0] = 3'b011;\n    obf_memory[1] = 3'b000;\n    obf_memory[2] = 3'b101;\n    obf_memory[3] = 3'b010;\n    obf_memory[4] = 3'b111;\n    obf_memory[5] = 3'b001;\n    obf_memory[6] = 3'b100;\n    obf_memory[7] = 3'b110;\n    obf_memory[8] = 3'b010;\n    obf_memory[9] = 3'b100;\n    obf_memory[10] = 3'b001;\n    obf_memory[11] = 3'b111;\n    obf_memory[12] = 3'b110;\n    obf_memory[13] = 3'b011;\n    obf_memory[14] = 3'b000;\n    obf_memory[15] = 3'b101;\nend\n\nalways @(*) begin\n    data_out = obf_memory[data_in];\nend\n\nendmodule",
+  "rename_map": {
+    "memory": "obf_memory"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q010037",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input carry_in,\n    input clk,\n    input rst,\n    input en,\n    output reg carry_out\n    );always @(posedge clk, posedge rst) begin\n  wire _tap_carry_in = carry_in & {1{1'b1}};\n\n        if (rst == 1'b1) begin\n            carry_out = 1'b0;\n        end else if (en == 1'b1) begin\n            carry_out = carry_in;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

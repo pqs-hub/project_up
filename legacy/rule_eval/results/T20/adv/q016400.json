@@ -1,0 +1,6 @@
+{
+  "task_id": "q016400",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule top_module(\n  input clk,\n  input reset,\n  output reg [2:0] counter\n);always @(posedge clk, posedge reset) begin\n    if (reset) begin\n      counter <= 3'b0;\n    end else if (counter == 3'b111) begin\n      counter <= 3'b0;\n    end else begin\n      counter <= counter + 1;\n    end\n  end\n\nendmodule"
+}

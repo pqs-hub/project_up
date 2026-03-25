@@ -1,0 +1,6 @@
+{
+  "task_id": "q004906",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input  [7:0] A,\n    input  [7:0] B,\n    input        OP,\n    input        CLK,\n    input        RST,\n    output [7:0] C\n);reg [7:0] C_reg;\n\n    always @(posedge CLK) begin\n        if (RST) begin\n            C_reg <= 8'b0;\n        end else if (OP == 1) begin\n            C_reg <= A - B;\n        end else begin\n            C_reg <= A + B;\n        end\n    end\n\n    wire __C_tmp = C_reg;\n    assign C = __C_tmp;\n\nendmodule"
+}

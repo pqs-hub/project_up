@@ -1,0 +1,15 @@
+{
+  "task_id": "q008611",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_reg_8bit(\n\tinput reset,\n\tinput load,\n\tinput [7:0] data_in,\n\tinput serial_in,\n\toutput reg [7:0] q\n);\n\n\talways @(posedge reset) begin\n\t\tif (load) begin\n\t\t\tq <= data_in;\n\t\tend else begin\n\t\t\tq <= {q[6:0], serial_in};\n\t\tend\n\tend\n\t\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

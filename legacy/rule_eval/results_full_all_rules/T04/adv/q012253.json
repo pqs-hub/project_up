@@ -1,0 +1,10 @@
+{
+  "task_id": "q012253",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // (1) reset_n: Resets the register to 4'b1111 when low.\n// (2) shift_left_enable: Disables the shift left operation when high.\n// (3) data_in: The data to be shifted out of the register.\n// (4) q: The previous state of the register.\nmodule shift_left_register(\n    input clk,\n    input reset_n,\n    input shift_left_enable,\n    input data_in,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (!reset_n) begin\n            // Synchronous reset: Reset the register to 4'b0000\n            q <= 4'b0000;\n        end else if (shift_left_enable) begin\n            // Shift left operation: Shift left by one bit and input data_in\n            q <= {q[2:0], data_in};\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// (1) reset_n: Resets the register to 4'b1111 when low.\n// (2) shift_left_enable: Disables the shift left operation when high.\n// (3) data_in: The data to be shifted out of the register.\n// (4) q: The previous state of the register."
+  }
+}

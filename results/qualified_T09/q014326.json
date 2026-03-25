@@ -1,0 +1,6 @@
+{
+  "task_id": "q014326",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule (\n  input [7:0] in0,\n  input [7:0] in1,\n  input [7:0] in2,\n  input [7:0] in3,\n  input [7:0] in4,\n  input [7:0] in5,\n  input [7:0] in6,\n  input [7:0] in7,\n  input [2:0] sel,\n  input en_n,\n  output reg [7:0] out\n);\n\n  always @(*) begin\n    if (~en_n) begin\n      case (sel)\n        3'b000: out = in0;\n        3'b001: out = in1;\n        3'b010: out = in2;\n        3'b011: out = in3;\n        3'b100: out = in4;\n        3'b101: out = in5;\n        3'b110: out = in6;\n        3'b111: out = in7;\n        default: out = 8'b00000000;\n      endcase\n    end else begin\n      out = 8'b00000000;\n    end\n  end\n\nendmodule"
+}

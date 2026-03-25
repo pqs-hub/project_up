@@ -1,0 +1,6 @@
+{
+  "task_id": "q002550",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule (  \n    input clk,  \n    input reset,  \n    input [1:0] command,  \n    output reg [1:0] direction  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            direction <= 2'b00; // Initial direction: North  \n        else begin  \n            case (command)  \n                2'b00: direction <= 2'b00; // North  \n                2'b01: direction <= 2'b01; // East  \n                2'b10: direction <= 2'b10; // South  \n                2'b11: direction <= 2'b11; // West  \n                default: direction <= direction; // Maintain current direction  \n            endcase  \n        end  \n    end  \nendmodule"
+}

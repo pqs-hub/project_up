@@ -1,0 +1,8 @@
+{
+  "task_id": "q016022",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(input[4:0] in, input clk, rst, writeData, output[4:0] out);reg [4:0] outData;\n\tassign out = outData;\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk, posedge rst or posedge dbg_halt)begin\n\t\tif(rst) outData <= 5'b0;\n\t\telse\n\t\tbegin\n\t\t\tif(writeData) outData <= in;\n\t\t\telse outData <= outData;\n\t\tend\n\tend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

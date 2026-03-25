@@ -1,0 +1,16 @@
+{
+  "task_id": "q012226",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [15:0] input_value,\n    output reg [31:0] data\n);always @* begin\n        if (input_value[15] == 1) begin\n            data = {16'hffff, input_value};\n        end else begin\n            data = {16'h0000, input_value};\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "inst": "input_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "inst": "input_value",
+      "data": "output_value"
+    },
+    "fallback_prefix": "ext_"
+  }
+}

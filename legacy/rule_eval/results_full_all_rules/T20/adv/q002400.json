@@ -1,0 +1,10 @@
+{
+  "task_id": "q002400",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-input priority arbiter with the highest priority being req[0], followed by req[1], req[2], and req[3]. When multiple requests are high, it grants permission to the lowest priority request.\nmodule priority_arbiter(\n    input [3:0] req,\n    output reg [3:0] grant\n);\n\nalways @(*) begin\n    grant = 4'b0000; // Default: no grants\n    if (req[3]) grant = 4'b1000; // Grant req[3]\n    else if (req[2]) grant = 4'b0100; // Grant req[2]\n    else if (req[1]) grant = 4'b0010; // Grant req[1]\n    else if (req[0]) grant = 4'b0001; // Grant req[0]\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-input priority arbiter with the highest priority being req[0], followed by req[1], req[2], and req[3]. When multiple requests are high, it grants permission to the lowest priority request."
+  }
+}

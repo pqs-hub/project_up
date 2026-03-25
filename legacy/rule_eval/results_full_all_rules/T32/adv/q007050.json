@@ -1,0 +1,8 @@
+{
+  "task_id": "q007050",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(douta,\n    clka,\n    addra,\n    dina,\n    wea);output reg [0:0] douta; // changed to output reg\n  input clka;\n  input [14-1:1-1] addra;\n  input [0:0] dina;\n  input [0:0] wea;\n\n  reg [0:0] mem[0:16383]; // 14-bit addressable memory block\n\n  always @(posedge clka) begin\n    if (wea) begin // write operation\n      mem[addra] <= dina;\n    end else begin // read operation\n      douta <= mem[addra];\n    end\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

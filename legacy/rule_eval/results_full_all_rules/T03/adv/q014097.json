@@ -1,0 +1,8 @@
+{
+  "task_id": "q014097",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] PC_out,\n    input [31:0] ALUOut,\n    input IorD,\n    output reg [31:0] out\n);always @(PC_out, ALUOut, IorD)begin\n  wire [31:0] _tap_PC_out = PC_out & {32{1'b1}};\n\n  if(IorD)begin\n    out <= ALUOut;\n  end\n  else\n    out <= PC_out;\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

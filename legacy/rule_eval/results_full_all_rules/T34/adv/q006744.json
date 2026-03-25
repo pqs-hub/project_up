@@ -1,0 +1,15 @@
+{
+  "task_id": "q006744",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(Anti_ReadData, ALUresult, MemToReg, MuxOut);input [31:0] Anti_ReadData, ALUresult;\n\tinput MemToReg;\n\toutput reg [31:0] MuxOut;\n\t\n\talways @ (*)\n\t\tbegin\n\t\t\tif (MemToReg)\n\t\t\t\tMuxOut = Anti_ReadData;\n\t\t\telse\n\t\t\t\tMuxOut = ALUresult;\n\t\tend\n\t\t\nendmodule",
+  "rename_map": {
+    "ReadData": "Anti_ReadData"
+  },
+  "params_used": {
+    "custom_map": {
+      "ReadData": "WriteData"
+    },
+    "fallback_prefix": "Anti_"
+  }
+}

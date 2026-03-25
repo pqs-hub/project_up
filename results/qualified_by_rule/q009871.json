@@ -1,0 +1,6 @@
+{
+  "task_id": "q009871",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule(\n\tinput clk,\n\tinput rst_n,\n\tinput load_en,\n\tinput [15:0] data_in,\n\toutput reg [15:0] data_out\n);\n\n\talways @(posedge clk or negedge rst_n) begin\n\t\tif (!rst_n) begin\n\t\t\tdata_out <= 16'b0;\n\t\tend\n\t\telse if (load_en) begin\n\t\t\tdata_out <= data_in;\n\t\tend\n\tend\n\nendmodule"
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "q002911",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module polynomial_evaluator (\n    input [7:0] y,            // Input value for y\n    input [7:0] a0,           // Coefficient a0\n    input [7:0] a1,           // Coefficient a1\n    input [7:0] a2,           // Coefficient a2\n    input [7:0] a3,           // Coefficient a3\n    output reg [15:0] result   // Output polynomial result\n);\n    always @(*) begin\n        result = (a3 * y * y * y) + (a2 * y * y) + (a1 * y) + a0;\n    end\nendmodule",
+  "rename_map": {
+    "x": "y"
+  },
+  "params_used": {
+    "custom_map": {
+      "x": "y",
+      "a0": "b0",
+      "a1": "b1",
+      "a2": "b2",
+      "a3": "b3"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

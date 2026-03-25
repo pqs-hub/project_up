@@ -1,0 +1,6 @@
+{
+  "task_id": "q007572",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(\n    input a,\n    input b,\n    input carry_in,\n    output sum,\n    output carry_out\n);\n\n    assign {carry_out, sum} = a + b + carry_in;\n\nendmodule\n\nmodule top_module(\n    input [3:0] a,\n    input [3:0] b,\n    input carry_in,\n    output [3:0] sum,\n    output carry_out\n);\n\n    wire [2:0] c; // Intermediate carry outputs\n\n    full_adder_1bit fa0(a[0], b[0], carry_in, sum[0], c[0]);\n    full_adder_1bit fa1(a[1], b[1], c[0], sum[1], c[1]);\n    full_adder_1bit fa2(a[2], b[2], c[1], sum[2], c[2]);\n    full_adder_1bit fa3(a[3], b[3], c[2], sum[3], carry_out);\n\nendmodule"
+}

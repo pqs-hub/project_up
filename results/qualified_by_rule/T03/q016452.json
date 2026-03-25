@@ -1,0 +1,6 @@
+{
+  "task_id": "q016452",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\ninput    Reset,\ninput    IN,\noutput   OUT\n);\n  wire _tap_Reset = Reset & {1{1'b1}};\n\nreg clki;\n\talways@(posedge IN or posedge Reset)\n\tbegin\n\t\tif(Reset)\n\t\t\tclki <= 0;\n\t\telse \n\t\t\tclki <= ~clki;\n\tend\n\tassign OUT = clki;\nendmodule"
+}

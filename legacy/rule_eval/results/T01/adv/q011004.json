@@ -1,0 +1,6 @@
+{
+  "task_id": "q011004",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    output reg [2:0] q\n);\n\n    always @(posedge clk) begin\n    begin end  // redundant\n        if (reset) begin\n            // Synchronous reset: Reset the counter to 3'b111\n            q <= 3'b111;\n        end else begin\n            // Binary down-counter: Decrement the counter\n            q <= q - 1;\n        end\n    end\n\nendmodule"
+}

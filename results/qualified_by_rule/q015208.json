@@ -1,0 +1,6 @@
+{
+  "task_id": "q015208",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire serial_in,\n    input wire load,\n    input wire [3:0] parallel_in,\n    output reg [3:0] parallel_out\n    );\n\nalways @(posedge clk) begin\n    if (load)\n        parallel_out <= parallel_in;\n    else\n        parallel_out <= {serial_in, parallel_out[3:1]};\nend\n\nendmodule"
+}

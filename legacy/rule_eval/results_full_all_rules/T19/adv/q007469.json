@@ -1,0 +1,10 @@
+{
+  "task_id": "q007469",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_adder_4bit(\n    input [3:0] a,\n    input [3:0] b,\n    output [3:0] sum,\n    output cout\n);\n\n    assign {cout, sum} = a + b;\n\n  always @(*) begin\n    if (1'b0) begin\n      sum[0] <= ~a[0];\n      sum[1] <= ~a[1];\n      sum[2] <= ~a[2];\n      sum[3] <= ~a[3];\n      cout <= ~a[3] & ~b[3];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum[0] <= ~a[0];\nsum[1] <= ~a[1];\nsum[2] <= ~a[2];\nsum[3] <= ~a[3];\ncout <= ~a[3] & ~b[3];"
+  }
+}

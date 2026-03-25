@@ -1,0 +1,10 @@
+{
+  "task_id": "q008964",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(cout, out, c, a, b);input c;\n\tinput b;\n\tinput a;\n\t\n\toutput cout;\n\toutput out;\n\t\n\twire not_cout = (b & a) | (a & c) | (b & c);\n\tassign cout = not_cout;\n\tassign out = (a & ~b & ~c) |\n\t\t\t\t\t (~a & b & ~c)  |\n\t\t\t\t\t (~a & ~b & c)  |\n\t\t\t\t\t (a & b & c);endmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "not_cout"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q002173",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module svm_classifier (\n    input wire [1:0] svm_x, // Two input features\n    output wire y       // Output class\n);\n    parameter threshold = 1;\n\n    assign y = (svm_x[0] + svm_x[1] > threshold) ? 1'b1 : 1'b0;\nendmodule",
+  "rename_map": {
+    "x": "svm_x"
+  },
+  "params_used": {
+    "custom_map": {
+      "threshold": "neg_threshold"
+    },
+    "fallback_prefix": "svm_"
+  }
+}

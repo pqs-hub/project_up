@@ -1,0 +1,10 @@
+{
+  "task_id": "q008562",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input CLK,\n    input D,\n    input PRE,\n    input CLR,\n    output reg Q,\n    output reg Q_bar\n);always @ (posedge CLK) begin\n    if (PRE) begin\n        Q <= 1'b1;\n    end else if (CLR) begin\n        Q <= 1'b0;\n    end else begin\n        Q <= D;\n    end\nend\n\nassign Q_bar = ~Q;\n\n  always @(*) begin\n    if (1'b0) begin\n      Q <= 1'b0; Q_bar <= 1'b1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= 1'b0; Q_bar <= 1'b1;"
+  }
+}

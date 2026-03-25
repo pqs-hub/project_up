@@ -1,0 +1,9 @@
+{
+  "task_id": "q013361",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input load,\n    input obf_clear,\n    input [3:0] data_in,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (obf_clear) begin\n            q <= 4'b0000;  // Clear the register to 0\n        end else if (load) begin\n            q <= data_in;  // Load the input value to the register\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clear": "obf_clear"
+  }
+}

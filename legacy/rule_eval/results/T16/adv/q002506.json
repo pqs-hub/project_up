@@ -1,0 +1,9 @@
+{
+  "task_id": "q002506",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module mpc_controller (\n    input obf_clk,\n    input rst,\n    input [3:0] current_state,\n    input [3:0] control_input,\n    output reg [3:0] next_state\n);\n\nalways @(posedge obf_clk or posedge rst) begin\n    if (rst) begin\n        next_state <= 4'b0000; // Reset state to 0\n    end else begin\n        next_state <= current_state + control_input; // Update next state\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

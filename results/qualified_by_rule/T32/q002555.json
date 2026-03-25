@@ -1,0 +1,6 @@
+{
+  "task_id": "q002555",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [2-1:1-1] current_state,\n    input outcome,\n    output reg [1:0] next_state\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            next_state <= 2'b00; // Reset to Strongly Not Taken\n        end else begin\n            case (current_state)\n                2'b00: next_state <= outcome ? 2'b01 : 2'b00; // Strongly Not Taken\n                2'b01: next_state <= outcome ? 2'b10 : 2'b00; // Weakly Not Taken\n                2'b10: next_state <= outcome ? 2'b11 : 2'b01; // Weakly Taken\n                2'b11: next_state <= outcome ? 2'b11 : 2'b10; // Strongly Taken\n                default: next_state <= 2'b00; // Default to Strongly Not Taken\n            endcase\n        end\n    end\nendmodule"
+}

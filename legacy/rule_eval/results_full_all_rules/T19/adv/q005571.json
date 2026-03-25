@@ -1,0 +1,10 @@
+{
+  "task_id": "q005571",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux4to1 (\n\tinput clk,\n\tinput a,\n\tinput b,\n\tinput c,\n\tinput d,\n\tinput [1:0] sel,\n\toutput reg y);\n\n\talways @(posedge clk) begin\n\t\tcase (sel)\n\t\t\t2'b00: y <= a;\n\t\t\t2'b01: y <= b;\n\t\t\t2'b10: y <= c;\n\t\t\t2'b11: y <= d;\n\t\tendcase\n\tend\n\t\n  always @(*) begin\n    if (1'b0) begin\n      y <= ~a; y <= ~b; y <= ~c; y <= ~d;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "y <= ~a; y <= ~b; y <= ~c; y <= ~d;"
+  }
+}

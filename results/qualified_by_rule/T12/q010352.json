@@ -1,0 +1,6 @@
+{
+  "task_id": "q010352",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(clk_i, rst_n, pc_addr_i , pc_instr_i , pc_instr_o, pc_addr_o);input           clk_i;\ninput\t        rst_n;\ninput  [32-1:0] pc_addr_i;\ninput  [32-1:0] pc_instr_i;\noutput [32-1:0] pc_addr_o;\noutput [32-1:0] pc_instr_o;\n \n\nreg    [32-1:0] pc_addr_o;\nreg [32-1:0] pc_instr_o;\n\n\nalways @(posedge clk_i or negedge rst_n) begin\n    \tif(~rst_n) begin\n\t    pc_addr_o <= 0;\n\t    pc_instr_o <=0;\n\tend\n\telse begin\n\t    pc_addr_o <= pc_addr_i;\n\t    pc_instr_o <= pc_instr_i;\n\tend\nend\n\nendmodule"
+}

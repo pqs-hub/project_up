@@ -1,0 +1,6 @@
+{
+  "task_id": "q009619",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(din, clk, q, se, si, so);parameter SIZE = 1;\n\ninput\t[SIZE-1:0]\tdin ;\t\ninput\t\t\tclk ;\t\n\noutput\t[SIZE-1:0]\tq ;\t\n\ninput\t\t\tse ;\t\ninput\t[SIZE-1:0]\tsi ;\t\noutput\t[SIZE-1:0]\tso ;\t\n\nreg \t[SIZE-1:0]\tq ;\n\n`ifdef NO_SCAN\nalways @ (posedge clk)\n  q[SIZE-1:0]  <= din[SIZE-1:0] ;\n`else\n\nalways @ (posedge clk)\n\n\tq[SIZE-1:0]  <= (se) ? si[SIZE-1:0]  : din[SIZE-1:0] ;\n\nassign so[SIZE-1:0] = q[SIZE-1:0] ;\n\n`endif\n\nendmodule"
+}

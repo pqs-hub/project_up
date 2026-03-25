@@ -1,0 +1,9 @@
+{
+  "task_id": "q013910",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input [63:0] a,\n  input [63:0] b,\n  input obf_CONTROL_ALUSRC,\n  output reg [63:0] out\n);always @(a, b, obf_CONTROL_ALUSRC, out) begin\n    if (obf_CONTROL_ALUSRC === 0) begin\n      out <= a;\n    end\n\n    else begin\n      out <= b;\n    end\n  end\nendmodule",
+  "rename_map": {
+    "CONTROL_ALUSRC": "obf_CONTROL_ALUSRC"
+  }
+}

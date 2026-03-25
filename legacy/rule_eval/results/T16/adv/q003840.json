@@ -1,0 +1,9 @@
+{
+  "task_id": "q003840",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module T_latch (\n    input wire T,\n    input wire obf_CLK,\n    input wire EN,\n    output reg Q\n);\n    always @(posedge obf_CLK) begin\n        if (EN) begin\n            if (T) begin\n                Q <= ~Q; // Toggle Q if T is high\n            end\n            // If T is low, Q remains the same\n        end\n    end\nendmodule",
+  "rename_map": {
+    "CLK": "obf_CLK"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q015975",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,          // Clock signal.\n    input reset,        // Asynchronous reset signal.\n    input d,            // Data input.\n    output reg q        // Data output.\n);\n\n// D flip-flop logic with asynchronous reset\nalways @(posedge clk or posedge reset) begin\n    if (reset)\n        q <= 1'b0;      // Reset output to 0\n    else\n        q <= d;         // Transfer data input to output\nend\n\nendmodule"
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q008338",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module custom_logic (\n    input k,\n    input l,\n    input m,\n    input n,\n    output reg obf_control);\n\n    always @(*) begin\n        case ({k, l, m, n})\n            4'b1101: obf_control = 0;\n            4'b0010: obf_control = 1;\n            4'b1011: obf_control = 1;\n            4'b0100: obf_control = 0;\n            4'b1110: obf_control = 1;\n            4'b0111: obf_control = 0;\n            4'b1001: obf_control = 1;\n            4'b0001: obf_control = 0;\n            4'b1111: obf_control = 1;\n            4'b0110: obf_control = 0;\n            default: obf_control = 0;\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "control": "obf_control"
+  }
+}

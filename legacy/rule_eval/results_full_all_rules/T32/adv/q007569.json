@@ -1,0 +1,8 @@
+{
+  "task_id": "q007569",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module binary_down_counter(\n    input                 clk,\n    input                 rst,\n    input                 enable,\n    input                 load,\n    input       [3-1:1-1]     load_val,\n    output   reg [2:0]    count\n);\n\n// Counting logic\nalways @(posedge clk) begin\n    if (rst) begin\n        count <= 3'd7;\n    end else if (load) begin\n        count <= load_val;\n    end else if (enable) begin\n        if (count == 3'd0) begin\n            count <= 3'd7;\n        end else begin\n            count <= count - 1;\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

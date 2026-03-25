@@ -1,0 +1,6 @@
+{
+  "task_id": "q016744",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (\n  input clk_in, \n  input en,\n  output clk_out\n);\n\n  reg obf_d_ff;\n  assign clk_out = obf_d_ff;\n\n  always @(posedge clk_in or negedge en) begin\n    if (~en) begin\n      obf_d_ff <= 1'b0;\n    end else begin\n      obf_d_ff <= clk_in;\n    end\n  end\n\nendmodule"
+}

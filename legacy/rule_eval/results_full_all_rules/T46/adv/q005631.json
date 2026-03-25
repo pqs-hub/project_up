@@ -1,0 +1,8 @@
+{
+  "task_id": "q005631",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module shift_register(\n    input clk,\n    input rst,\n    input din,\n    output reg [7:0] dout\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt)\n    if (rst)\n        dout <= 8'b00000000;\n    else\n        dout <= {1'b0, dout[7:1]};\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

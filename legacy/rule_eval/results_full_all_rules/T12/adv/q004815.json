@@ -1,0 +1,10 @@
+{
+  "task_id": "q004815",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module top_module(\n    (* clkbuf_driver *)\n    output O,\n    input I,\n    (* invertible_pin = \"IS_CE_INVERTED\" *)\n    input CE);parameter [0:0] INIT_OUT = 1'b0;\nparameter CE_TYPE = \"SYNC\";\nparameter [0:0] IS_CE_INVERTED = 1'b0;\n\nwire neg_ce_inverted = (CE ^ IS_CE_INVERTED);\nassign O = neg_ce_inverted ? I : INIT_OUT;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_ce_inverted"
+  }
+}

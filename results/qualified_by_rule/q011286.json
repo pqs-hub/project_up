@@ -1,0 +1,6 @@
+{
+  "task_id": "q011286",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule( \n    input wire clk,\n    input wire [2:0] sel, \n    input wire [3:0] data0,\n    input wire [3:0] data1,\n    input wire [3:0] data2,\n    input wire [3:0] data3,\n    input wire [3:0] data4,\n    input wire [3:0] data5,\n    output wire [3:0] out_mux,\n    output wire [2:0] out_3bit,\n    output wire o2,\n    output wire o1,\n    output wire o0,\n    output wire [6:0] final_out\n);// 6-to-1 Multiplexer\nwire [3:0] obf_mux_out;\nassign obf_mux_out = (sel == 0) ? data0 :\n                 (sel == 1) ? data1 :\n                 (sel == 2) ? data2 :\n                 (sel == 3) ? data3 :\n                 (sel == 4) ? data4 :\n                 (sel == 5) ? data5 : 4'b0;\nassign out_mux = obf_mux_out;\n\n// 3-bit Input Module\nassign out_3bit = sel;\nassign o2 = sel[2];\nassign o1 = sel[1];\nassign o0 = sel[0];\n\n// Functional Module\nwire [6:0] add_out;\nwire carry_out;\nassign {carry_out, add_out} = {1'b0, obf_mux_out} + {1'b0, sel};\nassign final_out = {carry_out, add_out};\n\nendmodule"
+}

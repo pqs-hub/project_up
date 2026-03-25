@@ -1,0 +1,8 @@
+{
+  "task_id": "q015729",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] data_in,\n    input load,\n    input reset,\n    input clock,\n    output reg [7:0] data_out\n);reg [7:0] reg_value;\n  wire [7:0] _tap_data_in = data_in & {8{1'b1}};\n\n\nalways @(posedge clock) begin\n    if (reset) begin\n        reg_value <= 8'b0;\n    end else if (load) begin\n        reg_value <= data_in;\n    end else begin\n        reg_value <= reg_value;\n    end\nend\n\nassign data_out = reg_value;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

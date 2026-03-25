@@ -1,0 +1,15 @@
+{
+  "task_id": "q015849",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    we,\n    addr,\n    din,\n    dout,\n    clk\n);input we;\ninput [9:0] addr;\ninput [31:0] din;\noutput reg [31:0] dout;\ninput clk;\n\nreg [31:0] mem_storage [0:1023]; // 1KB mem_storage with 32-bit wide data\n\nalways @(posedge clk) begin\n    if (we) begin\n        mem_storage[addr] <= din; // Write operation\n    end\n    dout <= mem_storage[addr]; // Read operation\nend\n\nendmodule",
+  "rename_map": {
+    "memory": "mem_storage"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "mem_storage"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q002044",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a clock-gated D flip-flop where the output Q is held high when the clock enable ce is low.\nmodule clock_gated_d_ff (\n    input wire D,\n    input wire clk,\n    input wire ce,\n    input wire rst,\n    output reg Q\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            Q <= 0;\n        end else if (ce) begin\n            Q <= D;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a clock-gated D flip-flop where the output Q is held high when the clock enable ce is low."
+  }
+}

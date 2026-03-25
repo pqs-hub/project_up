@@ -1,0 +1,6 @@
+{
+  "task_id": "q013891",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(clk,immgenout,data_out);input [63:0] immgenout;\ninput clk;\noutput reg [63:0] data_out;\n  wire [63:0] _tap_immgenout = immgenout & {64{1'b1}};\n\n\nalways@(posedge clk)\n  data_out= immgenout <<1 ;\n\nendmodule"
+}

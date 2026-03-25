@@ -1,0 +1,6 @@
+{
+  "task_id": "q011615",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule top_module(\n    input [3:0] data_in,\n    input [1:0] shift_amt,\n    input shift_dir,\n    input enable,\n    output reg [3:0] data_out\n);always @ (data_in or shift_amt or shift_dir or enable) begin\n        if (enable) begin\n            case (shift_dir)\n                1'b0: data_out <= data_in << shift_amt;\n                1'b1: data_out <= data_in >> shift_amt;\n            endcase\n        end\n        else begin\n            data_out <= data_in;\n        end\n    end\n\nendmodule"
+}

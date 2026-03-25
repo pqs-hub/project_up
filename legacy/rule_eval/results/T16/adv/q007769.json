@@ -1,0 +1,9 @@
+{
+  "task_id": "q007769",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input obf_clk,\n    input reset,\n    input direction,\n    input [3:0] data_in,\n    output reg [3:0] q\n);\n\n    // Always block triggered on the rising edge of the clock\n    always @(posedge obf_clk) begin\n        if (reset) begin\n            q <= 4'b0000;\n        end else if (direction) begin\n            q <= {data_in[0], q[3:1]}; // Shift right\n        end else begin\n            q <= {q[2:0], data_in[3]}; // Shift left\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

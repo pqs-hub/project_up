@@ -1,0 +1,15 @@
+{
+  "task_id": "q013351",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [1:0] ctrl,\n    input [3:0] data_in,\n    input load,\n    input clk,\n    output reg [3:0] data_out,\n    output reg valid\n);reg [3:0] shadow_reg;\n\nalways @(posedge clk) begin\n    if (load) begin\n        shadow_reg <= data_in;\n    end else begin\n        case(ctrl)\n            2'b00: begin\n                data_out <= shadow_reg;\n                valid <= 1'b1;\n            end\n            2'b01: begin\n                data_out <= ~shadow_reg;\n                valid <= 1'b1;\n            end\n            2'b10: begin\n                data_out <= data_in;\n                valid <= 1'b1;\n            end\n            2'b11: begin\n                data_out <= ~data_in;\n                valid <= 1'b1;\n            end\n            default: begin\n                data_out <= 4'b0;\n                valid <= 1'b0;\n            end\n        endcase\n    end\nend\n\ninitial begin\n    shadow_reg = 4'b0;\nend\n\nendmodule",
+  "rename_map": {
+    "reg_data": "shadow_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "reg_data": "shadow_reg"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

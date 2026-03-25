@@ -1,0 +1,10 @@
+{
+  "task_id": "q012558",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux_2to1 (A, B, S, Y);\ninput A, B;\ninput S;\noutput Y;\n\nassign Y = S ? B : A;\n\n  always @(*) begin\n    if (1'b0) begin\n      Y <= ~S & A; Y <= S & B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= ~S & A; Y <= S & B;"
+  }
+}

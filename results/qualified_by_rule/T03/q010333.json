@@ -1,0 +1,6 @@
+{
+  "task_id": "q010333",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(In, Out);parameter Width = 32, \n  Chunk = 1, \n  Set = Width; \n  localparam Group = Chunk * Set; \n  input [Width-1:0] In; \n  output [Width-1:0] Out; \n  wire [31:0] _tap_In = In & {32{1'b1}};\n\n  genvar i; \n  generate for(i = 0; i < Width; i = i + 1) begin:REVERSE \n  assign Out[i] = In[((Set - 1 - ((i % Group) / Chunk)) * Chunk) + ((i % Group) % Chunk) + ((i / Group) * Group)]; \n  end endgenerate \n endmodule"
+}

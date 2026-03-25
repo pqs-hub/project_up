@@ -1,0 +1,8 @@
+{
+  "task_id": "q001113",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module svm_classifier (\n    input signed [8-1:1-1] x1,\n    input signed [7:0] x2,\n    input signed [7:0] w1,\n    input signed [7:0] w2,\n    input signed [7:0] b,\n    output reg classification\n);\n    \n    always @(*) begin\n        if ((w1 * x1 + w2 * x2 + b) > 0)\n            classification = 1;\n        else\n            classification = 0;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005243",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule top_module(\n\tclock,\n\tALU3,\n\tSH3,\n\tC3,\n\tT3,\n\tALU4,\n\tSH4,\n\tC4,\n\tT4,\n\tDATA_ADDR_3,\n\tDATA_ADDR_4,\n\tM3,\n\tM4\n);input clock;\n\tinput [3:0] \t\tALU3;\n\tinput [1:0] \t\tSH3;\n\tinput [5:0] \t\tC3;\n\tinput [6:0] \t\tT3;\n\tinput [10:0]\t\tDATA_ADDR_3;\n\tinput [1:0]\t\t\tM3;\n\toutput reg [3:0] \tALU4;\n\toutput reg [1:0] \tSH4;\n\toutput reg [5:0] \tC4;\n\toutput reg [6:0] \tT4;\n\toutput reg [10:0]\tDATA_ADDR_4;\n\toutput reg [1:0]\tM4;\n\t\n\n\talways @* \n\tbegin\n\t\tALU4\t=\tALU3;\n\t\tSH4\t=\tSH3;\n\t\tC4\t=\tC3;\n\t\tT4\t=\tT3;\n\t\tDATA_ADDR_4 = DATA_ADDR_3;\n\t\tM4 = M3;\n\tend\nendmodule"
+}

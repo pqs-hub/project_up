@@ -1,0 +1,17 @@
+{
+  "task_id": "q000520",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_2to1 (\n    input [3:0] ignore_data0,\n    input [3:0] data1,\n    input sel,\n    output reg [3:0] mux_out\n);\n\nalways @(*) begin\n    case (sel)\n        1'b0: mux_out = ignore_data0;\n        1'b1: mux_out = data1;\n        default: mux_out = 4'b0000; // default case for safety\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "data0": "ignore_data0"
+  },
+  "params_used": {
+    "custom_map": {
+      "data0": "ignore_data0",
+      "data1": "ignore_data1",
+      "sel": "negate_sel"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

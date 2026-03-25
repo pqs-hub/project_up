@@ -1,0 +1,6 @@
+{
+  "task_id": "q015064",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(PPP,GPP,C4,C8,C12,PP,GP,CI);output          PPP, GPP, C4, C8, C12;\n  input  [3:0]    PP, GP;\n  input           CI;\n\n      assign C4=GP[0] | PP[0]&CI,\n             C8=GP[1] | PP[1]&GP[0] | PP[1]&PP[0]&CI,\n             C12=GP[2] | PP[2]&GP[1] | PP[2]&PP[1]&GP[0] | PP[2]&PP[1]&PP[0]&CI,\n             GPP=GP[3] | PP[3]&GP[2] | PP[3]&PP[2]&GP[1] | PP[3]&PP[2]&PP[1]&GP[0],\n             PPP = & PP[3:0];\n\nendmodule"
+}

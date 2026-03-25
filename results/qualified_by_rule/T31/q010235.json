@@ -1,0 +1,6 @@
+{
+  "task_id": "q010235",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(clk, en, in, out) ;parameter n = 16;  \n  input clk, en ;\n  input  [n-1:0] in ;\n  output [n-1:0] out ;\n  reg    [n-1:0] out ;\n  wire   [n-1:0] next_out ;\n\n  wire __next_out_tmp = en ? in : out;\n  assign next_out = __next_out_tmp;\n\n  always @(posedge clk)\n    out = next_out;endmodule"
+}

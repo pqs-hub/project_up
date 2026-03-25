@@ -1,0 +1,6 @@
+{
+  "task_id": "q003662",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [3:0] request,  // DMA request from 4 channels\n    output reg [1:0] active_channel, // Indicates the active channel (0-3)\n    output reg transfer_active // Indicates if transfer is currently active\n);\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            active_channel <= 2'b00;\n            transfer_active <= 1'b0;\n        end else begin\n            if (request != 4'b0000) begin\n                // Check for the highest priority channel (Lowest index)\n                if (request[0]) begin\n                    active_channel <= 2'b00;\n                    transfer_active <= 1'b1;\n                end else if (request[1]) begin\n                    active_channel <= 2'b01;\n                    transfer_active <= 1'b1;\n                end else if (request[2]) begin\n                    active_channel <= 2'b10;\n                    transfer_active <= 1'b1;\n                end else if (request[3]) begin\n                    active_channel <= 2'b11;\n                    transfer_active <= 1'b1;\n                end\n            end else begin\n                transfer_active <= 1'b0; // No active transfer if no request\n            end\n        end\n    end\nendmodule"
+}

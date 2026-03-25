@@ -1,0 +1,6 @@
+{
+  "task_id": "q003760",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input start,\n    input [15:0] src_addr,\n    input [15:0] dest_addr,\n    input [7:0] transfer_size,\n    output reg done\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg [7:0] counter;\n    reg transferring;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            counter <= 8'b0;\n            done <= 0;\n            transferring <= 0;\n        end else if (start && !transferring) begin\n            transferring <= 1;\n            counter <= transfer_size;\n            done <= 0;\n        end else if (transferring) begin\n            if (counter > 0) begin\n                counter <= counter - 1;\n            end else begin\n                transferring <= 0;\n                done <= 1;\n            end\n        end\n    end\nendmodule"
+}

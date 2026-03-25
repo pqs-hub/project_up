@@ -1,0 +1,6 @@
+{
+  "task_id": "q017246",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input A,\n    input B,\n    output Y\n);\n  wire _tap_A = A & {1{1'b1}};\n\n\nwire nand1_out;\nwire nand2_out;\n\nnand nand1 (nand1_out, A, B);\nnand nand2 (Y, nand1_out, nand1_out);\n\nendmodule"
+}

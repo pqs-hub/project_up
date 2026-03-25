@@ -1,0 +1,6 @@
+{
+  "task_id": "q009907",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n  input clk_in,\n  input enable,\n  output clk_out\n  );// Use a generic clock buffer instead of BUFGCTRL as it may be not defined in your environment\n  wire __clk_out_tmp = (enable) ? clk_in : 1'b0;\n  assign clk_out = __clk_out_tmp; // Assuming you want to output clk_in when enabled, else 0\n\nendmodule"
+}

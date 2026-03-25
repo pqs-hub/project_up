@@ -1,0 +1,6 @@
+{
+  "task_id": "q016408",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n  out,\n  clk, reset_n, in\n  );\nparameter EDGE_DETECT = 0;\ninput   clk;\ninput   reset_n;\ninput   in;\noutput  out;\nreg     out;\ngenerate\n    if (EDGE_DETECT) begin\n      reg   meta;\n      reg   edg1;\n      reg   edg2;\n        always @(posedge clk or negedge reset_n) begin\n            if (reset_n == 1'b0) begin\n                meta <= 1'b0;\n                edg1 <= 1'b0;\n                edg2 <= 1'b0;\n                out <= 1'b0;\n            end\n            else begin\n                meta <= in;\n                edg1 <= meta;\n                edg2 <= edg1;\n                out <= edg1 ^ edg2;\n            end\n        end\n    end\n    else begin\n      reg   meta;\n        always @(posedge clk or negedge reset_n) begin\n            if (reset_n == 1'b0) begin\n                meta <= 1'b0;\n                out <= 1'b0;\n            end\n            else begin\n                meta <= in;\n                out <= meta;\n            end\n        end\n    end\nendgenerate\nendmodule"
+}

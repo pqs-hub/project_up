@@ -1,0 +1,15 @@
+{
+  "task_id": "q015622",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gray_code_counter(\n  input clk,\n  input rst_n,\n  output reg [3:0] gray\n);\n\n  reg [3:0] counter_value;\n  \n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      counter_value <= 4'b0;\n      gray <= 4'b0;\n    end\n    else begin\n      counter_value <= counter_value + 1;\n      gray <= counter_value ^ (counter_value >> 1);\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "binary_count": "counter_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary_count": "counter_value"
+    },
+    "fallback_prefix": "gcode_"
+  }
+}

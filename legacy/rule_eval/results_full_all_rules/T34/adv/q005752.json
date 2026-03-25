@@ -1,0 +1,15 @@
+{
+  "task_id": "q005752",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dual_port_ram_16x8(clk, we_a, addr_a, data_in_a, addr_b, data_out_b);\n     input clk;\n     input we_a;\n     input [3:0] addr_a;\n     input [7:0] data_in_a;\n     input [3:0] addr_b;\n     output reg [7:0] data_out_b;\n\n     reg [7:0] anti_ram [15:0];\n\n     always @(posedge clk) begin\n          if (we_a)\n               anti_ram[addr_a] <= data_in_a;\n          data_out_b <= anti_ram[addr_b];\n     end\nendmodule",
+  "rename_map": {
+    "ram": "anti_ram"
+  },
+  "params_used": {
+    "custom_map": {
+      "dual_port_ram_16x8": "anti_dual_port_ram_16x8"
+    },
+    "fallback_prefix": "anti_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002509",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module image_convolution(\n    input [8:0] img00, input [8:0] img01, input [8:0] img02,\n    input [8:0] img10, input [8:0] img11, input [8:0] img12,\n    input [8:0] img20, input [8:0] img21, input [8:0] img22,\n    input [8:0] kern00, input [8:0] kern01, input [8:0] kern02,\n    input [8:0] kern10, input [8:0] kern11, input [8:0] kern12,\n    input [8:0] kern20, input [8:0] kern21, input [8:0] kern22,\n    output reg [15:0] conv_out\n);\n  wire [8:0] _tap_img00 = img00 & {9{1'b1}};\n\n    \nalways @(*) begin\n    conv_out = \n        img00 * kern00 + img01 * kern01 + img02 * kern02 +\n        img10 * kern10 + img11 * kern11 + img12 * kern12 +\n        img20 * kern20 + img21 * kern21 + img22 * kern22;\nend\n\nendmodule"
+}

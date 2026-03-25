@@ -1,0 +1,10 @@
+{
+  "task_id": "q011071",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input clk, input [31:0]pc_in, output reg[31:0]pc_out);always @(posedge clk)\nbegin\n    pc_out<=pc_in;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      pc_out <= pc_in; // This line should never be executed\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "pc_out <= pc_in; // This line should never be executed"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q004015",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bluetooth_signal_strength (\n    input [3:0] rx_power,\n    output reg [2:0] strength_indicator\n);\n    always @(*) begin\n        if (rx_power <= 4) begin\n            strength_indicator = 3'b000; // Low\n        end else if (rx_power <= 10) begin\n            strength_indicator = 3'b001; // Medium\n        end else begin\n            strength_indicator = 3'b010; // High\n        end\n    end\nendmodule",
+  "rename_map": {
+    "signal_strength": "rx_power"
+  },
+  "params_used": {
+    "custom_map": {
+      "signal_strength": "rx_power"
+    },
+    "fallback_prefix": "bluetooth_"
+  }
+}

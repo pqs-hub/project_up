@@ -1,0 +1,10 @@
+{
+  "task_id": "q016982",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements the logical AND operation between A and B_N\nmodule sky130_fd_sc_lp__or2b_2 (\n    output X,\n    input A,\n    input B_N\n);\n\n    assign X = A | ~B_N;\n\nendmodule\n\nmodule sky130_fd_sc_lp__or2b_2 (\n    X   ,\n    A   ,\n    B_N ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);\n\n    output X   ;\n    input  A   ;\n    input  B_N ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n    \n    wire X_internal;\n    \n    or2 or2_inst (\n        .X(X_internal),\n        .A(A),\n        .B_N(B_N)\n    );\n    \n    assign X = X_internal;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements the logical AND operation between A and B_N"
+  }
+}

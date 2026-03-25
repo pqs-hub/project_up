@@ -1,0 +1,6 @@
+{
+  "task_id": "q011731",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module top_module(\n    /* Input ports */\n    input [7:0] in,\n    /* Output ports */\n    output reg [3:0] out\n);integer i;\nreg [3:0] count;\n\nalways @ (*) begin\n  count = 0 ;\n  for (i = 0 ; i < 8 ; i = i + 1) begin if (in[i] == 1) begin count = count + 1 ; end end\n  end\n\n  always @ (*) begin\n  out = count ;\n  end\n\nendmodule"
+}

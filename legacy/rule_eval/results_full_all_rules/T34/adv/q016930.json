@@ -1,0 +1,18 @@
+{
+  "task_id": "q016930",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module barrel_shifter (\n    input [7:0] DATA,\n    input [2:0] SHIFT_AMOUNT,\n    input SHIFT_DIRECTION,\n    output [7:0] SHIFTED_DATA\n);\n\n    reg [7:0] bs_shifted_data;\n\n    always @(*) begin\n        if (SHIFT_DIRECTION == 0) begin\n            bs_shifted_data = DATA << SHIFT_AMOUNT;\n        end else begin\n            bs_shifted_data = DATA >> SHIFT_AMOUNT;\n        end\n    end\n\n    assign SHIFTED_DATA = bs_shifted_data;\n\nendmodule",
+  "rename_map": {
+    "shifted_data": "bs_shifted_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "DATA": "data_in",
+      "SHIFT_AMOUNT": "amount_to_shift",
+      "SHIFT_DIRECTION": "direction_of_shift",
+      "SHIFTED_DATA": "shifted_out"
+    },
+    "fallback_prefix": "bs_"
+  }
+}

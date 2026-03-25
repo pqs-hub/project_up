@@ -1,0 +1,6 @@
+{
+  "task_id": "q011010",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    output reg [5:0] lfsr_out\n);\n\nalways @(posedge clk) begin\n    if (reset)\n        lfsr_out <= 6'b000001;\n    else\n        lfsr_out <= {lfsr_out[4:0], lfsr_out[5] ^ lfsr_out[4]};\nend\n\nendmodule"
+}

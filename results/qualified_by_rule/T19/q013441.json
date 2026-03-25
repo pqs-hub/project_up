@@ -1,0 +1,6 @@
+{
+  "task_id": "q013441",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(ctrl,\n    D0,\n    D1,\n    S);parameter INIT_VALUE = 8'hB8;\n  \n  input ctrl;\n  input [0:0] D0;\n  input [0:0] D1;\n  output [0:0] S;\n\n  // Removing redundant wire declarations for inputs and output\n  // wire [0:0] D0;\n  // wire [0:0] D1;\n  // wire [0:0] S;\n  // wire ctrl;\n\n  assign S = ctrl ? D1 : D0; // Keep the assign statement for the MUX logic\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

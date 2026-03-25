@@ -1,0 +1,10 @@
+{
+  "task_id": "q007389",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module down_counter(\n   input                clk ,\n   input                rst,\n   input                load,\n   input                en,\n   input  [31:0]        load_val,\n \n   output reg [31:0]    count  \n);\n    always@(posedge clk)begin\n        if(rst) \n            count <= 32'd0;\n        else if(load) \n            count <= load_val;\n        else if(en) \n            count <= count - 1;\n    end\n  always @(*) begin\n    if (1'b0) begin\n      count <= count + 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "count <= count + 1;"
+  }
+}

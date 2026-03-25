@@ -1,0 +1,6 @@
+{
+  "task_id": "q008849",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule(\ninput[15:0] op_x,\ninput[15:0] op_y,\ninput[1:0] op_en,\noutput reg[15:0] op_out\n    );always@(*)\n\tbegin\n\t\tcase(op_en)\n\t\t\t2'b00:op_out<=(op_x & op_y);\n\t\t\t2'b01:op_out<=(op_x | op_y);\n\t\t\t2'b10:op_out<=(~op_x);\n\t\t\t2'b11:op_out<=(op_x ^ op_y);\n\t\t\tdefault:\n\t\t\t\top_out<=16'b0;\n\t\tendcase\n\tend\n\nendmodule"
+}

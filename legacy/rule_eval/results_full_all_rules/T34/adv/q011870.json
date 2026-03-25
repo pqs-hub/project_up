@@ -1,0 +1,16 @@
+{
+  "task_id": "q011870",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [n-1:0] lcd_data,\n  output [m-1:0] ctrl\n);parameter n = 8; // number of lcd_data signals\nparameter m = 3; // number of control signals\n\n// Define control signals as Boolean functions of the input signals\nassign ctrl[0] = lcd_data[0] & lcd_data[1]; // Control signal 1\nassign ctrl[1] = lcd_data[2] | lcd_data[3]; // Control signal 2\nassign ctrl[2] = lcd_data[4] ^ lcd_data[5]; // Control signal 3\n\n// Write lcd_data to the LCD\nalways @(posedge ctrl[0]) begin\n  // Write lcd_data to the LCD\nend\n\n// Read lcd_data from the LCD\nalways @(posedge ctrl[1]) begin\n  // Read lcd_data from the LCD\nend\n\n// Control the operation of the LCD\nalways @(posedge ctrl[2]) begin\n  // Control the operation of the LCD\nend\n\nendmodule",
+  "rename_map": {
+    "data": "lcd_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data": "lcd_data",
+      "ctrl": "lcd_ctrl"
+    },
+    "fallback_prefix": "lcd_"
+  }
+}

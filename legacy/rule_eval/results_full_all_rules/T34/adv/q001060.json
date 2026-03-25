@@ -1,0 +1,15 @@
+{
+  "task_id": "q001060",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sata_controller (\n    input [3:0] data_in,\n    output reg [3:0] command_out\n);\n    always @(*) begin\n        if (data_in == 4'b1010) // 0xA in binary\n            command_out = ~data_in; // Invert the data_in\n        else\n            command_out = data_in; // Pass the data_in unchanged\n    end\nendmodule",
+  "rename_map": {
+    "command": "data_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "command": "data_in"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

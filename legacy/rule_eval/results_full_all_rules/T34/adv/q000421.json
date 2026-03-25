@@ -1,0 +1,19 @@
+{
+  "task_id": "q000421",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module median_filter (\n    input [7:0] sample0,\n    input [7:0] sample1,\n    input [7:0] sample2,\n    input [7:0] sample3,\n    input [7:0] sample4,\n    output reg [7:0] median\n);\n    reg [7:0] alt_samples [0:4];\n    integer i, j;\n\n    always @(*) begin\n        // Store the alt_samples in an array\n        alt_samples[0] = sample0;\n        alt_samples[1] = sample1;\n        alt_samples[2] = sample2;\n        alt_samples[3] = sample3;\n        alt_samples[4] = sample4;\n\n        // Simple bubble sort to sort the alt_samples\n        for (i = 0; i < 4; i = i + 1) begin\n            for (j = 0; j < 4 - i; j = j + 1) begin\n                if (alt_samples[j] > alt_samples[j + 1]) begin\n                    // Swap\n                    {alt_samples[j], alt_samples[j + 1]} = {alt_samples[j + 1], alt_samples[j]};\n                end\n            end\n        end\n\n        // Median is the middle element (third one in sorted order)\n        median = alt_samples[2];\n    end\nendmodule",
+  "rename_map": {
+    "samples": "alt_samples"
+  },
+  "params_used": {
+    "custom_map": {
+      "sample0": "max_sample",
+      "sample1": "min_sample",
+      "sample2": "middle_sample",
+      "sample3": "second_max_sample",
+      "sample4": "second_min_sample"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

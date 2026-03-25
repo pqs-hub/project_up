@@ -1,0 +1,6 @@
+{
+  "task_id": "q014033",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule(\n  input clk, rst,\n  input signed [31:0] A, B,\n  input [1:0] op,\n  output reg signed [31:0] C\n);always @(posedge clk, negedge rst) begin\n    if (!rst) begin\n      C <= 0;\n    end else begin\n      case (op)\n        2'b00: C <= A + B; // addition\n        2'b01: C <= A - B; // subtraction\n        2'b10: C <= A * B; // multiplication\n        2'b11: C <= A / B; // division\n      endcase\n    end\n  end\n\nendmodule"
+}

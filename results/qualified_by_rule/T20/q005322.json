@@ -1,0 +1,6 @@
+{
+  "task_id": "q005322",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule(\n    input wire clk,           // Added clk input\n    input wire [2:0] vec,\n    output wire [2:0] outv,\n    output wire o2,\n    output wire o1,\n    output wire o0\n);reg [2:0] stage1_out;\nreg [2:0] stage2_out;\nreg [2:0] stage3_out;\n\nassign o2 = vec[2];\nassign o1 = vec[1];\nassign o0 = vec[0];\n\nalways @ (posedge clk) begin\n    stage1_out <= vec;\nend\n\nalways @ (posedge clk) begin\n    stage2_out <= stage1_out;\nend\n\nalways @ (posedge clk) begin\n    stage3_out <= stage2_out;\nend\n\nassign outv = stage3_out;\n\nendmodule"
+}

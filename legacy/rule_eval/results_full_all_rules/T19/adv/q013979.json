@@ -1,0 +1,10 @@
+{
+  "task_id": "q013979",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module comparator(A, B, GT);\ninput [3:0] A, B;\noutput GT;\n\nassign GT = (A > B);\n\n  always @(*) begin\n    if (1'b0) begin\n      GT <= ~A[3];\n      B[0] <= ~B[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "GT <= ~A[3];\nB[0] <= ~B[0];"
+  }
+}

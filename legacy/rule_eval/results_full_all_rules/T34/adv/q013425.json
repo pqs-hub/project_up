@@ -1,0 +1,17 @@
+{
+  "task_id": "q013425",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] data_in,\n    input [1:0] select_signals,\n    output reg output_signal\n);always @ (*)\nbegin\n    case ({select_signals})\n        2'b00: output_signal = data_in[0];\n        2'b01: output_signal = data_in[1];\n        2'b10: output_signal = data_in[2];\n        2'b11: output_signal = data_in[3];\n        default: output_signal = 1'bx;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "input_signals": "data_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "input_signals": "data_in",
+      "select_signals": "sel_ctrl",
+      "output_signal": "out_data"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

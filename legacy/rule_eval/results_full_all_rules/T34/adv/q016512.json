@@ -1,0 +1,15 @@
+{
+  "task_id": "q016512",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ALU(input[8:0] ALU_A , input[8:0] ALU_B , input SU , input AD , input EU , output[8:0] ALU_OUT);\nwire [8:0] ERR_ALU_OUT_w;\nassign ERR_ALU_OUT_w = SU ? ALU_A - ALU_B : AD ? ALU_A + ALU_B : ERR_ALU_OUT_w;\nassign ALU_OUT = EU ? ERR_ALU_OUT_w : 9'h000;\nendmodule",
+  "rename_map": {
+    "ALU_OUT_w": "ERR_ALU_OUT_w"
+  },
+  "params_used": {
+    "custom_map": {
+      "ALU_OUT_w": "RESULT"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

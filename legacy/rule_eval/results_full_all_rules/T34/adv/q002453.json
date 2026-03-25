@@ -1,0 +1,15 @@
+{
+  "task_id": "q002453",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adc_decoder (\n    input [2:0] channel_idx,\n    output reg [7:0] adc_output\n);\n    always @(*) begin\n        adc_output = 8'b00000000; // Initialize output\n        adc_output[channel_idx] = 1'b1; // Set the corresponding channel_idx bit to 1\n    end\nendmodule",
+  "rename_map": {
+    "channel": "channel_idx"
+  },
+  "params_used": {
+    "custom_map": {
+      "channel": "channel_idx"
+    },
+    "fallback_prefix": "adc_dec_"
+  }
+}

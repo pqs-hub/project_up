@@ -1,0 +1,6 @@
+{
+  "task_id": "q010515",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (D, CLK, EN, Q);\ninput D, CLK, EN;\noutput reg Q;\n  wire _tap_D = D & {1{1'b1}};\n\n\nalways @(posedge CLK) begin\n    if (EN)\n        Q <= D;\nend\n\nendmodule"
+}

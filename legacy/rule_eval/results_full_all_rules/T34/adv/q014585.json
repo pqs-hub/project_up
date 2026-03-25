@@ -1,0 +1,15 @@
+{
+  "task_id": "q014585",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( reset_clk, d, rst, q );input reset_clk, rst;\n    input [63:0] d;\n    output [63:0] q;\n    reg [63:0] q;\n\n    always @(posedge reset_clk or negedge rst) begin\n        if (rst == 0) begin\n            q <= 0;\n        end else begin\n            q <= d;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

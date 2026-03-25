@@ -1,0 +1,9 @@
+{
+  "task_id": "q016190",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module regfile_32bit_8reg (read_data1, read_data2, clk, reset, read_addr1, read_addr2, write_addr, write_en, write_data);\n   input clk, reset;\n   input [2:0] read_addr1, read_addr2, write_addr;\n   input write_en;\n   input [31:0] write_data;\n   output [31:0] read_data1, read_data2;\n   \n   reg [31:0] obf_registers [7:0];\n   reg [31:0] read_data1, read_data2;\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        obf_registers[0] <= 32'b0;\n        obf_registers[1] <= 32'b0;\n        obf_registers[2] <= 32'b0;\n        obf_registers[3] <= 32'b0;\n        obf_registers[4] <= 32'b0;\n        obf_registers[5] <= 32'b0;\n        obf_registers[6] <= 32'b0;\n        obf_registers[7] <= 32'b0;\n    end \n    else if (write_en) \n        obf_registers[write_addr] <= write_data;\nend\n\nalways @(*) begin\n    read_data1 = obf_registers[read_addr1];\n    read_data2 = obf_registers[read_addr2];\nend\n\nendmodule",
+  "rename_map": {
+    "registers": "obf_registers"
+  }
+}

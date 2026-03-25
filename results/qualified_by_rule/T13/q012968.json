@@ -1,0 +1,6 @@
+{
+  "task_id": "q012968",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    input [15:0] imm16,\n    output reg [31:0] imm32,\n    input [1:0] ExtOp\n    );always@*\n\tcase(ExtOp)\n\t\t2'b00:\timm32=$signed(imm16);\n\t\t2'b01:\timm32={16'b0000_0000_0000_0000,imm16};\n\t\t2'b10:\timm32={imm16,16'b0000_0000_0000_0000};\n\tendcase\nendmodule"
+}

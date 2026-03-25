@@ -1,0 +1,6 @@
+{
+  "task_id": "q007877",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule binary_counter_2bit (\n    input wire Clk,\n    input wire En,\n    input wire Rst,\n    output reg [1:0] Q\n    );\n\nalways @(posedge Clk) begin\n    if (Rst)\n        Q <= 2'b00;\n    else if (En)\n        Q <= Q + 1;\nend\n\nendmodule"
+}

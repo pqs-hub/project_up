@@ -1,0 +1,8 @@
+{
+  "task_id": "q008852",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n  input CLK,\n  input EN,\n  input TE,\n  output ENCLK\n);reg latch_out;\n\n  always @(*) begin\n    if (EN) begin\n      latch_out <= CLK;\n    end else if (TE) begin\n      latch_out <= TE;\n    end else begin\n      latch_out <= 1'b0;\n    end\n  end\n\n  assign ENCLK = (CLK & ~CLK) ? ~ENCLK : latch_out;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

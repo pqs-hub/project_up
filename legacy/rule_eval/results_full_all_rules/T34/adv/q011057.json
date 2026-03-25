@@ -1,0 +1,15 @@
+{
+  "task_id": "q011057",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(output reg [15:0] invalid_Z, input [1:0] op, input [15:0] A, B, C);always @(*) begin\n        case (op)\n            2'b00: invalid_Z = A + B;\n            2'b01: invalid_Z = A - B;\n            2'b10: invalid_Z = A & B;\n            2'b11: invalid_Z = A | B;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {
+    "Z": "invalid_Z"
+  },
+  "params_used": {
+    "custom_map": {
+      "Z": "result"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q015143",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module top_module(\n input x,\n input [1:0] y,\n input z,\n\n output [1:0] A,\n output [2:0] B,\n output [3:0] C\n );`ifndef BUG\n  assign C =  x - y - z;\n  assign B = x * y;\n  assign A =  x + z;\n`else\n  assign C =  {x,y,z};\n  assign B = {x,y};\n  assign A =  {x,z};\n`endif\n\nendmodule"
+}

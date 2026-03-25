@@ -1,0 +1,6 @@
+{
+  "task_id": "q002900",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule (\n    input [3:0] command,\n    output reg [3:0] response\n);\n\nalways @(*) begin\n    case (command)\n        4'b0000: response = 4'b1111; // Command 0000 -> Response 1111\n        4'b0001: response = 4'b1110; // Command 0001 -> Response 1110\n        4'b0010: response = 4'b1101; // Command 0010 -> Response 1101\n        4'b0011: response = 4'b1100; // Command 0011 -> Response 1100\n        default: response = 4'b0000;  // Any other command -> Response 0000\n    endcase\nend\n\nendmodule"
+}

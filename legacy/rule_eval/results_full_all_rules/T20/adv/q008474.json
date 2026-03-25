@@ -1,0 +1,10 @@
+{
+  "task_id": "q008474",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module controls the synchronization of data transfer based on input signals. It activates valid_out when valid_in is deasserted and stall_in is asserted, and deactivates valid_out when valid_in is asserted and stall_in is deasserted.\nmodule top_module(\n    input clock,\n    input resetn,\n    input valid_in,\n    output valid_out,\n    input stall_in,\n    output stall_out\n);reg valid_out_reg;\nreg stall_out_reg;\n\nalways @(posedge clock or negedge resetn) begin\n    if (~resetn) begin\n        valid_out_reg <= 1'b0;\n        stall_out_reg <= 1'b0;\n    end else begin\n        if (valid_in && ~stall_in) begin\n            valid_out_reg <= 1'b1;\n            stall_out_reg <= 1'b0;\n        end else begin\n            valid_out_reg <= 1'b0;\n            stall_out_reg <= 1'b1;\n        end\n    end\nend\n\nassign valid_out = valid_out_reg;\nassign stall_out = stall_out_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module controls the synchronization of data transfer based on input signals. It activates valid_out when valid_in is deasserted and stall_in is asserted, and deactivates valid_out when valid_in is asserted and stall_in is deasserted."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q014486",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register8(\n\tinput wire rst,\n\tinput wire set,\n\tinput wire en,\n\tinput wire [7:0] D,\n\toutput reg [7:0] Q\n);always @(posedge rst) begin\n\tif (set)\n\t\tQ <= 8'b11111111;\n\telse if (en)\n\t\tQ <= D;\nend\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

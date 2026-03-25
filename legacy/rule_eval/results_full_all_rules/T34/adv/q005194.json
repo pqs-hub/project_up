@@ -1,0 +1,16 @@
+{
+  "task_id": "q005194",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(a, b, c, out1, out2);input a, b, c;\noutput out1, out2;\n\nwire c_or_b;\nwire b_xor_c;\n\nassign c_or_b = b & c;\nassign b_xor_c = b ^ c;\n\nassign out1 = (a == 1) ? c_or_b : b_xor_c;\nassign out2 = a ^ c;\n\nendmodule",
+  "rename_map": {
+    "b_and_c": "c_or_b"
+  },
+  "params_used": {
+    "custom_map": {
+      "b_and_c": "c_or_b",
+      "b_xor_c": "a_and_not_c"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

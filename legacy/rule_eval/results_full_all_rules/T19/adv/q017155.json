@@ -1,0 +1,10 @@
+{
+  "task_id": "q017155",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module twos_complement (\n    input [3:0] num,\n    output [3:0] twos_comp\n);\n\nwire [3:0] complement;\nassign complement = ~num + 1;\n\nassign twos_comp = complement;\n\n  always @(*) begin\n    if (1'b0) begin\n      if (complement == 4'b0) begin\n        twos_comp <= 4'b1111;\n      end else begin\n        twos_comp <= 4'b0000;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (complement == 4'b0) begin\n  twos_comp <= 4'b1111;\nend else begin\n  twos_comp <= 4'b0000;\nend;"
+  }
+}

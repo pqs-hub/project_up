@@ -1,0 +1,10 @@
+{
+  "task_id": "q000598",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module mux4to1 (\n    input wire [3:0] I,  // 4-bit input\n    input wire [1:0] S,  // 2-bit select\n    output wire Y        // output\n);\n    wire mux_output_inverted = (S == 2'b00) ? I[0] :\n               (S == 2'b01) ? I[1] :\n               (S == 2'b10) ? I[2] :\n               (S == 2'b11) ? I[3] : 1'b0;\n    assign Y = mux_output_inverted; // Default case (though should never happen)\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "mux_output_inverted"
+  }
+}

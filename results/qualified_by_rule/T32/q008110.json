@@ -1,0 +1,6 @@
+{
+  "task_id": "q008110",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule \n(\n  input rst_n,\n  input clk,\n  input enable,\n  input shift_dir,\n\n  output reg [8-1:1-1] q\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (!rst_n) \n\tbegin\n      q <= 8'b00000000;\n    end \n\t\n\telse if (enable) \n\tbegin\n      if (shift_dir) \n\t  begin\n        q <= q << 1;\n      end \n\t  \n\t  else begin\n        q <= q >> 1;\n      end\n    end \n\t\n\telse begin\n      q <= q; // Pause the shift when enable is invalid\n    end\n  end\n\nendmodule"
+}

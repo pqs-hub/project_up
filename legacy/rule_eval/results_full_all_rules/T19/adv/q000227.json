@@ -1,0 +1,10 @@
+{
+  "task_id": "q000227",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module magnitude_comparator (\n    input [4:0] A,\n    input [4:0] B,\n    output reg A_LT_B,\n    output reg A_EQ_B,\n    output reg A_GT_B\n);\n    always @(*) begin\n        if (A < B) begin\n            A_LT_B = 1;\n            A_EQ_B = 0;\n            A_GT_B = 0;\n        end else if (A == B) begin\n            A_LT_B = 0;\n            A_EQ_B = 1;\n            A_GT_B = 0;\n        end else begin\n            A_LT_B = 0;\n            A_EQ_B = 0;\n            A_GT_B = 1;\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      A_LT_B = ~A; A_EQ_B = ~B; A_GT_B = ~(A | B);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "A_LT_B = ~A; A_EQ_B = ~B; A_GT_B = ~(A | B);"
+  }
+}

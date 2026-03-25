@@ -1,0 +1,15 @@
+{
+  "task_id": "q004140",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module virtual_memory_translation (\n    input [15:0] invalid_address,\n    output [9:0] physical_page_number,\n    output [5:0] offset\n);\n    assign physical_page_number = invalid_address[15:6]; // Upper 10 bits\n    assign offset = invalid_address[5:0]; // Lower 6 bits\nendmodule",
+  "rename_map": {
+    "virtual_address": "invalid_address"
+  },
+  "params_used": {
+    "custom_map": {
+      "virtual_address": "invalid_address"
+    },
+    "fallback_prefix": "err_"
+  }
+}

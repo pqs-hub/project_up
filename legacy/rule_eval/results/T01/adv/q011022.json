@@ -1,0 +1,6 @@
+{
+  "task_id": "q011022",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n    input sel,\n    input data_in_0,\n    input data_in_1,\n    output reg data_out\n);always @(*) begin\n    begin end  // redundant\n        case(sel)\n            1'b0: data_out = data_in_0; // When sel is 0, output data_in_0\n            1'b1: data_out = data_in_1; // When sel is 1, output data_in_1\n            default: data_out = 1'b0;    // Default case (never expected in practice)\n        endcase\n    end\n\nendmodule"
+}

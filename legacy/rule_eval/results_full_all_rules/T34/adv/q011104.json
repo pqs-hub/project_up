@@ -1,0 +1,15 @@
+{
+  "task_id": "q011104",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\t input reset, RST,\n    output reg [31:0] OUT\n    );always @(posedge reset) begin\n\tif(RST == 1) begin\n\t\tOUT <= 32'b0;\n\tend\n\telse begin\n\t\tOUT <= OUT + 1;\n\tend\nend\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "PC_"
+  }
+}

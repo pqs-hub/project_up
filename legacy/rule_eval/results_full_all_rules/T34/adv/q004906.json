@@ -1,0 +1,15 @@
+{
+  "task_id": "q004906",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input  [7:0] A,\n    input  [7:0] B,\n    input        OP,\n    input        CLK,\n    input        RST,\n    output [7:0] C\n);reg [7:0] X_C_reg;\n\n    always @(posedge CLK) begin\n        if (RST) begin\n            X_C_reg <= 8'b0;\n        end else if (OP == 1) begin\n            X_C_reg <= A - B;\n        end else begin\n            X_C_reg <= A + B;\n        end\n    end\n\n    assign C = X_C_reg;\n\nendmodule",
+  "rename_map": {
+    "C_reg": "X_C_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "C_reg": "D_out"
+    },
+    "fallback_prefix": "X_"
+  }
+}

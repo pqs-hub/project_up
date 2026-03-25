@@ -1,0 +1,15 @@
+{
+  "task_id": "q007320",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(sub, opa, opb, sum, co);input\t\tsub;\ninput\t[26:0]\topa, opb;\noutput\t[26:0]\tsum;\noutput\t\tco;\n\n\n\nassign {co, sum} = sub ? ({1'b0, opa} + {1'b0, opb}) : ({1'b0, opa} - {1'b0, opb});\n\nendmodule",
+  "rename_map": {
+    "add": "sub"
+  },
+  "params_used": {
+    "custom_map": {
+      "add": "sub"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

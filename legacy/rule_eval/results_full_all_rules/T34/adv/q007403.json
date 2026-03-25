@@ -1,0 +1,15 @@
+{
+  "task_id": "q007403",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sync_binary_counter_4bit (\n\tinput clk_inv,\n\tinput rst,\n\toutput reg [3:0] count);\nalways @(posedge clk_inv or posedge rst) begin\n\tif (rst) begin\n\t\tcount <= 4'b0000;\n\tend else begin\n\t\tcount <= count + 1;\n\tend\nend\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "sync_bin_cnt_4b_rst_"
+  }
+}

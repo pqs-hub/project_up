@@ -1,0 +1,6 @@
+{
+  "task_id": "q016102",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(\n  input proximity_signal,\n  input clk,\n  output proximity_event,\n  output [8-1:1-1] proximity_position\n);reg [7:0] position;\n  reg event_detected;\n\n  always @(posedge clk) begin\n    if (proximity_signal) begin\n      event_detected <= 1'b1;\n      // Calculate touch or proximity position here\n      position <= 8'b00000000; // Default value for now\n    end else begin\n      event_detected <= 1'b0;\n      position <= 8'b00000000;\n    end\n  end\n\n  assign proximity_event = event_detected;\n  assign proximity_position = position;\n\nendmodule"
+}

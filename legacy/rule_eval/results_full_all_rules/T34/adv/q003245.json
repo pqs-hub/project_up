@@ -1,0 +1,16 @@
+{
+  "task_id": "q003245",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module fan_speed_control (\n    input wire reset,\n    input wire rst,\n    input wire [2:0] desired_speed,\n    input wire fan_on,\n    output reg [2:0] current_speed\n);\n\nalways @(posedge reset or posedge rst) begin\n    if (rst) begin\n        current_speed <= 3'b000; // Reset current speed to 0\n    end else if (fan_on) begin\n        current_speed <= desired_speed; // Set current speed to desired speed\n    end else begin\n        current_speed <= 3'b000; // Turn off the fan\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "desired_speed": "speed_input",
+      "fan_on": "fan_active"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q011653",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(\n    input wire [9:0] datain,\n    input wire clk,\n    input wire reset,\n    output reg [9:0] dataout,\n    output reg validout\n);always @(posedge clk) begin\n    if (reset == 1'b1) begin\n        dataout <= 0;\n        validout <= 0;\n    end else begin\n        if (datain >= 10'd100) begin\n            dataout <= datain;\n            validout <= 1;\n        end else begin\n            dataout <= 0;\n            validout <= 0;\n        end\n    end\nend\n\nendmodule"
+}

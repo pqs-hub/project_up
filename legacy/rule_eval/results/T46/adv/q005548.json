@@ -1,0 +1,8 @@
+{
+  "task_id": "q005548",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module register_8bit\n(\n  input rst_n,\n  input clk,\n  input ld,\n  input [7:0] data_in,\n\n  output reg [7:0] data_out\n);\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_n or posedge dbg_halt) begin\n    if (!rst_n) \n\tbegin\n      data_out <= 8'b00000000;\n    end\n\t\n\telse if (ld) \n\tbegin\n      data_out <= data_in;\n    end\n\t\n\telse \n\tbegin\n      data_out <= data_out;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

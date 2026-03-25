@@ -1,0 +1,16 @@
+{
+  "task_id": "q013012",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input reset,\n    input rst,\n    input set,\n    input d,\n    output reg q\n);always @(posedge reset) begin\n    if(rst) begin\n        q <= 0;\n    end else if(set) begin\n        q <= 1;\n    end else begin\n        q <= d;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "rst": "async_reset",
+      "set": "async_set"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

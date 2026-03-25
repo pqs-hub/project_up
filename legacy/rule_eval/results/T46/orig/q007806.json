@@ -1,0 +1,6 @@
+{
+  "task_id": "q007806",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module counter_3bit (clk, clr, en, q);\n   input clk, clr, en;\n   output [2:0] q;\n\n   reg [2:0] q;\n\nalways @(posedge clk or posedge clr) begin\n    if (clr) begin\n        q <= 3'b000;\n    end else if (en) begin\n        q <= q + 1;\n    end\nend\n\nendmodule"
+}

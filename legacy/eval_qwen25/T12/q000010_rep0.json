@@ -1,0 +1,12 @@
+{
+  "task_id": "q000010",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input wire D,\n    input wire EN,\n    output reg Q\n);\n    always @(D or EN) begin\n        if (EN) begin\n            Q <= D;\n        end\n        // else Q retains its value\n    end\nendmodule",
+  "adversarial_code": "module TopModule (\n    input wire D,\n    input wire EN,\n    output reg Q\n);\n    always @(posedge EN) begin\n        if (EN) begin\n            Q <= D;\n        end\n    end\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

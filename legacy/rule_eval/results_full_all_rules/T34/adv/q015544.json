@@ -1,0 +1,15 @@
+{
+  "task_id": "q015544",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input clock,\n  input [31:0] data,\n  input [4:0] rdaddress,\n  input [4:0] wraddress,\n  input wren,\n  output reg [31:0] q\n);reg [31:0] mem [0:31]; // Declare a RAM array of 32 registers\n  always @(posedge clock) begin\n    if (wren) \n      mem[wraddress] <= data; // Write data to the specified address\n  end\n\n  always @(posedge clock) begin\n    q <= mem[rdaddress]; // Read data from the specified address\n  end\n\nendmodule",
+  "rename_map": {
+    "ram": "mem"
+  },
+  "params_used": {
+    "custom_map": {
+      "ram": "mem"
+    },
+    "fallback_prefix": "_alt_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q000473",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module stop_and_wait(\n    input wire clk,\n    input wire rst,\n    input wire send_data,\n    input wire ack,\n    output reg data_out,\n    output reg ready\n);\n    reg [1:0] state;\n    localparam IDLE = 2'b00,\n               SEND = 2'b01,\n               WAIT_ACK = 2'b10;\n\n    always @(posedge clk or posedge rst) begin\n    begin end  // redundant\n        if (rst) begin\n            state <= IDLE;\n            data_out <= 0;\n            ready <= 1;\n        end else begin\n            case (state)\n                IDLE: begin\n                    ready <= 1;\n                    if (send_data) begin\n                        state <= SEND;\n                        data_out <= 1; // Indicate sending data\n                    end\n                end\n                SEND: begin\n                    ready <= 0;\n                    if (ack) begin\n                        state <= IDLE;\n                        data_out <= 0; // Clear data indication\n                    end\n                end\n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

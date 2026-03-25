@@ -1,0 +1,6 @@
+{
+  "task_id": "q013891",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(clk,immgenout,data_out);input [63:0] immgenout;\ninput clk;\noutput reg [63:0] data_out;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or posedge dbg_halt)\n  data_out= immgenout <<1 ;\n\nendmodule"
+}

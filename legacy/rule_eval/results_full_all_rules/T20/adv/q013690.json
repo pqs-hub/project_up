@@ -1,0 +1,10 @@
+{
+  "task_id": "q013690",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This is a 4-bit ring counter that counts down from 7 to 0.\nmodule ring_counter(clk, reset, q);\n    input clk, reset;\n    output reg [3:0] q;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            q <= 4'b0001;\n        else\n            q <= {q[2:0], q[3]};\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 4-bit ring counter that counts down from 7 to 0."
+  }
+}

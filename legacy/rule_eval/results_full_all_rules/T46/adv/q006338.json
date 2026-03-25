@@ -1,0 +1,8 @@
+{
+  "task_id": "q006338",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(RD1,clk,A);input [31:0] RD1;\n  input clk;\n  output [31:0] A;\n  \n  reg [31:0] a;\n  assign A=a;\n  \n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk or posedge dbg_halt)\n  begin\n    a<=RD1;\n  end\n  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

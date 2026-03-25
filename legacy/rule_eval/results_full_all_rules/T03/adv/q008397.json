@@ -1,0 +1,8 @@
+{
+  "task_id": "q008397",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    input d,\n    input a,\n    input b,\n    output reg out_comb_logic,\n    output q\n);reg [2:0] shift_reg;\n  wire _tap_clk = clk & {1{1'b1}};\n\nreg xor_out;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        shift_reg <= 3'b0;\n        xor_out <= 1'b0;\n    end else begin\n        shift_reg <= {shift_reg[1:0], d};\n        xor_out <= a ^ b;\n    end\nend\n\nassign out_comb_logic = shift_reg[0] ^ xor_out;\nassign q = shift_reg[0];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

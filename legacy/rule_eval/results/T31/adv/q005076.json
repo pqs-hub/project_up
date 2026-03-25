@@ -1,0 +1,6 @@
+{
+  "task_id": "q005076",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(CLK, EN, TE, RESET, ENCLK);input CLK, EN, TE, RESET;\n  output ENCLK;\n\n  wire gated_clk;\n\n  wire __gated_clk_tmp = (EN & ~RESET) ? CLK : 1'b0;\n  assign gated_clk = __gated_clk_tmp;\n\n  assign ENCLK = (TE) ? ~gated_clk : gated_clk;\n\nendmodule"
+}

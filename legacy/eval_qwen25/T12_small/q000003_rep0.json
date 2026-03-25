@@ -1,0 +1,12 @@
+{
+  "task_id": "q000003",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule(\n    input wire D,\n    input wire WL,\n    input wire clk,\n    output reg Q\n);\n    reg stored_data;\n    \n    always @(posedge clk) begin\n        if (WL) begin\n            stored_data <= D;\n        end\n        Q <= stored_data;\n    end\n    \n    // Refresh mechanism (simplified)\n    always @(posedge clk) begin\n        if (clk == 0) begin\n            stored_data <= ~stored_data; // Toggle stored data periodically\n        end\n    end\nendmodule",
+  "adversarial_code": "module TopModule(\n    input wire D,\n    input wire WL,\n    input wire clk,\n    output reg Q\n);\n    reg stored_data;\n    \n    always @(posedge clk) begin\n        if (WL) begin\n            stored_data <= D;\n        end\n        Q <= stored_data;\n    end\n    \n    // Refresh mechanism (simplified)\n    always @(posedge clk) begin\n        if (clk == 0) begin\n            stored_data <= ~stored_data; // Toggle stored data periodically\n        end\n    end\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

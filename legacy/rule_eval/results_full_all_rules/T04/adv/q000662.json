@@ -1,0 +1,10 @@
+{
+  "task_id": "q000662",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This FSM is designed to handle SD card operations in reverse order: starting from WRITE and ending with READ.\nmodule sd_card_fsm (\n    input wire clk,\n    input wire reset,\n    input wire start,\n    input wire rw, // 0 for READ, 1 for WRITE\n    output reg [1:0] state // 0: IDLE, 1: READ, 2: WRITE\n);\n    parameter IDLE = 2'b00, READ = 2'b01, WRITE = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start) begin\n                        if (rw)\n                            state <= WRITE;\n                        else\n                            state <= READ;\n                    end\n                end\n                READ: begin\n                    state <= IDLE; // After read, go back to IDLE\n                end\n                WRITE: begin\n                    state <= IDLE; // After write, go back to IDLE\n                end\n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This FSM is designed to handle SD card operations in reverse order: starting from WRITE and ending with READ."
+  }
+}

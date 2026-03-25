@@ -1,0 +1,8 @@
+{
+  "task_id": "q011399",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module top_module(\n    input A1,\n    input A2,\n    input B1,\n    input C1,\n    input D1,\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB,\n    output Y\n  wire temp1_(A1 & A2) | (B1 & C1 & D1) | (VPWR & !VGND) = (A1 & A2) | (B1 & C1 & D1) | (VPWR & !VGND);\n  wire temp2_(VPB & !VNB) = (VPB & !VNB);\n  assign Y = (temp1_(A1 & A2) | (B1 & C1 & D1) | (VPWR & !VGND) | temp2_(VPB & !VNB));\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q008713",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module johnson_counter(rst, reset, q);\n\n    input  rst;  \n    input  reset;  \n    output  [3:0] q;  \n    reg    [3:0] q; \n    initial q = 0;\n\n    always @(posedge rst)\n          begin\n            if (reset) \n                q <= 0;\n            else\n                q <= {q[2:0], ~q[3]};\n          end  \n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

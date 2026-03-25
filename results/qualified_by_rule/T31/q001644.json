@@ -1,0 +1,6 @@
+{
+  "task_id": "q001644",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire en,\n    input wire d,\n    output reg q\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            q <= 0; // Asynchronous reset\n        end else if (en) begin\n            q <= d; // Capture D on rising edge of CLK when EN is high\n        end\n    end\nendmodule"
+}

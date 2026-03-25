@@ -1,0 +1,10 @@
+{
+  "task_id": "q006533",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module decoder3to8 (\n\tinput clk,\n\tinput [2:0] in,\n\toutput reg [7:0] out);\n\n\talways @(posedge clk) begin\n\t\tout <= 8'b00000000;\n\t\tout[in] <= 1;\n\tend\n\t\n  always @(*) begin\n    if (1'b0) begin\n      out[0] <= ~clk; out[1] <= clk & in[0]; out[2] <= ~in[1]; out[3] <= in[2] | out[1];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out[0] <= ~clk; out[1] <= clk & in[0]; out[2] <= ~in[1]; out[3] <= in[2] | out[1];"
+  }
+}

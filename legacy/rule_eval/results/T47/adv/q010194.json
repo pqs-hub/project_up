@@ -1,0 +1,8 @@
+{
+  "task_id": "q010194",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(a, b, c, d, e, f, y);input [19:0] a, b, c;\n    input [15:0] d, e, f;\n    output [41:0] y;\n      wire _n01 = a*b + c*d[0] ^ e*f[0];\n  wire _c01 = a*b + c*d[0] & e*f[0];\n  wire _n02 = a*b + c*d[1] ^ e*f[1] ^ _c01;\n  wire _c02 = (a*b + c*d[1] & e*f[1]) | (a*b + c*d[1] & _c01) | (e*f[1] & _c01);\n  wire _n03 = a*b + c*d[2] ^ e*f[2] ^ _c02;\n  wire _c03 = (a*b + c*d[2] & e*f[2]) | (a*b + c*d[2] & _c02) | (e*f[2] & _c02);\n  wire _n04 = a*b + c*d[3] ^ e*f[3] ^ _c03;\n  wire _c04 = (a*b + c*d[3] & e*f[3]) | (a*b + c*d[3] & _c03) | (e*f[3] & _c03);\n  assign y = {_n01, _n02, _n03, _n04};\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

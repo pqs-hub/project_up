@@ -1,0 +1,6 @@
+{
+  "task_id": "q006138",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(\n   input bit_one,\n   input bit_two,\n   input carry_in,\n   output result,\n   output carry_out\n   );wire   in_or;\n  wire   carry_or;\n  wire   in_and;\n       \n  assign in_or = bit_one ^ bit_two;\n  assign carry_or = in_or & carry_in;\n  assign in_and = bit_one & bit_two;\n  assign result   = in_or ^ carry_in;\n  assign carry_out = carry_or | in_and;endmodule"
+}

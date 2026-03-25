@@ -1,0 +1,6 @@
+{
+  "task_id": "q004142",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire we,         // write enable\n    input wire [7:0] data_in, // data input\n    output reg [7:0] data_out // data output\n);\n    // Internal register to store the data\n    reg [7:0] memory;\n\n    always @(posedge clk) begin\n  if (we) begin memory <= data_in ; // Write data to memory\n  end\n  end\n\n  always @(posedge clk) begin\n  data_out <= memory ;\n  end\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q015442",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input clk,\n              input  din,\n              output reg dout);reg                din_flop;\n  always @(negedge clk) din_flop <= din;\n  always @(posedge clk) dout <= din_flop;\n  always @(*) begin\n    if (1'b0) begin\n      dout <= ~din_flop;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "dout <= ~din_flop;"
+  }
+}

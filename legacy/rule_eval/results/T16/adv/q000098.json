@@ -1,0 +1,9 @@
+{
+  "task_id": "q000098",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module checksum_calculator (\n    input wire [7:0] data_in,\n    input wire [7:0] expected_checksum,\n    output reg [7:0] obf_calculated_checksum,\n    output reg is_valid\n);\n    integer i;\n    always @(*) begin\n        obf_calculated_checksum = 0;\n        for (i = 0; i < 8; i = i + 1) begin\n            obf_calculated_checksum = obf_calculated_checksum + data_in[i];\n        end\n        obf_calculated_checksum = obf_calculated_checksum % 256;\n        is_valid = (obf_calculated_checksum == expected_checksum);\n    end\nendmodule",
+  "rename_map": {
+    "calculated_checksum": "obf_calculated_checksum"
+  }
+}

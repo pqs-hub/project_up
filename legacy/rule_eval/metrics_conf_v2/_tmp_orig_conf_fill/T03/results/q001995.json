@@ -1,0 +1,7 @@
+{
+  "task_id": "q001995",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module sram_cell (\n    input wire [7:0] D,\n    input wire WE,\n    input wire RE,\n    output reg [7:0] Q\n);\n    reg [7:0] memory;\n\n    always @(*) begin\n        if (WE) begin\n            memory <= D; // Write data to SRAM\n        end\n        if (RE) begin\n            Q <= memory; // Read data from SRAM\n        end\n    end\nendmodule",
+  "rename_map": {}
+}

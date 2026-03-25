@@ -1,0 +1,15 @@
+{
+  "task_id": "q012591",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bidirectional_shift_register (\n  input rst,\n  input reset,\n  input dir,\n  input d,\n  output reg [11:0] q);always @(posedge rst) begin\n    if (reset)\n        q <= 12'b000000000000;\n    else if (dir)\n        q <= {q[10:0], d};\n    else\n        q <= {d, q[11:1]};\nend\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

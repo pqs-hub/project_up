@@ -1,0 +1,6 @@
+{
+  "task_id": "q003471",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module DAC8Bit (\n    input [8-1:1-1] data_in,\n    output reg [9:0] voltage_out\n);\n    parameter V_REF = 5; // Reference voltage\n    \n    always @(*) begin\n        voltage_out = (data_in * 1023) / 255; // Convert 8-bit input to 10-bit output\n    end\nendmodule"
+}

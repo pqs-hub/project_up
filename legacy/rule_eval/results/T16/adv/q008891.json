@@ -1,0 +1,9 @@
+{
+  "task_id": "q008891",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module shift_register_8bit(\n    input obf_clk, load, \n    input [7:0] d, \n    input si, \n    output reg [7:0] q);\n    \n    always @(posedge obf_clk) begin\n        if (load)\n            q <= d;\n        else\n            q <= {q[6:0], si};\n    end\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q009391",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input we,\n    input [7:0] addr,\n    input [17:0] din,\n    output reg [17:0] dout\n);reg [17:0] ram [255:0];\n\nalways @(posedge clk) begin\n  if (we) begin ram[addr] <= din ; end\n  end\n\n  always @(posedge clk) begin\n  dout <= ram[addr] ;\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

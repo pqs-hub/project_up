@@ -1,0 +1,6 @@
+{
+  "task_id": "q013074",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input load,\n    input [3:0] data_in,\n    output [3:0] count_out\n);reg [3:0] count;\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        count <= 4'b0000;\n    end else if (load) begin\n        count <= data_in;\n    end else begin\n        count <= count + 1;\n    end\nend\n\nassign count_out = count;\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016938",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sky130_fd_sc_hd__full_adder (\n    A,\n    B,\n    Cin,\n    Cout,\n    S\n);\n\n    // Module ports\n    input A, B, Cin;\n    output Cout, S;\n\n    // Internal signals\n    wire unused_X1, X2, X3;\n    wire Y1, Y2;\n\n    //  Name  Output  Other arguments\n    xor  xor0 (unused_X1, A, B);\n    xor  xor1 (X2, unused_X1, Cin);\n    and  and0 (X3, unused_X1, Cin);\n    and  and1 (Y1, A, B);\n    and  and2 (Y2, unused_X1, Cin);\n    or   or0  (Cout, X3, Y1, Y2);\n    assign S = X2;\n\nendmodule"
+}

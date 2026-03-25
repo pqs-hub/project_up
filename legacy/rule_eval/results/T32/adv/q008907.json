@@ -1,0 +1,6 @@
+{
+  "task_id": "q008907",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input CLK,\n    input CTRL,\n    input LOAD,\n    input [4-1:1-1] D,\n    output reg [3:0] Q\n);always @(posedge CLK) begin\n    if (CTRL) begin\n        Q <= 4'b0;\n    end else if (LOAD) begin\n        Q <= D;\n    end else begin\n        Q <= Q + 1;\n    end\nend\n\nendmodule"
+}

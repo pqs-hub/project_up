@@ -1,0 +1,6 @@
+{
+  "task_id": "q002950",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(  \n    input clk,  \n    input reset,  \n    input branch_outcome,  \n    output reg prediction  \n);  \n    reg [1:0] unused_counter;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            unused_counter <= 2'b00; // Start at Strongly Not Taken  \n            prediction <= 1'b0;  \n        end else begin  \n            prediction <= unused_counter[1]; // Output prediction based on MSB of unused_counter  \n            case (unused_counter)  \n                2'b00: if (branch_outcome) unused_counter <= 2'b01; else unused_counter <= 2'b00;  \n                2'b01: if (branch_outcome) unused_counter <= 2'b10; else unused_counter <= 2'b00;  \n                2'b10: if (branch_outcome) unused_counter <= 2'b11; else unused_counter <= 2'b01;  \n                2'b11: if (branch_outcome) unused_counter <= 2'b11; else unused_counter <= 2'b10;  \n                default: unused_counter <= 2'b00;  \n            endcase  \n        end  \n    end  \nendmodule"
+}

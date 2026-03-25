@@ -1,0 +1,6 @@
+{
+  "task_id": "q002760",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module tcp_segment_classifier (\n    input [3-1:1-1] tcp_flags,\n    output reg [1:0] segment_type\n);\n    always @(*) begin\n        case (tcp_flags)\n            3'b001: segment_type = 2'b00; // SYN\n            3'b010: segment_type = 2'b01; // ACK\n            3'b100: segment_type = 2'b10; // DATA\n            default: segment_type = 2'b11; // None\n        endcase\n    end\nendmodule"
+}

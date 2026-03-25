@@ -1,0 +1,6 @@
+{
+  "task_id": "q006461",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    A,\n    B,\n    C,\n    X\n);output [3:0] X;\n    input  [3:0] A;\n    input  [3:0] B;\n    input  [3:0] C;\n  wire [3:0] _tap_A = A & {4{1'b1}};\n\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n\n    wire [3:0] max_value;\n\n    // Determine the maximum value among A, B, and C\n    assign max_value = (A >= B) ? ((A >= C) ? A : C) : ((B >= C) ? B : C);\n\n    // Determine if there are any ties\n    wire is_tie_A_B = (A == B);\n    wire is_tie_A_C = (A == C);\n    wire is_tie_B_C = (B == C);\n\n    // Determine the final output value based on the maximum value and any ties\n    assign X = (max_value == A) ? (is_tie_A_B || is_tie_A_C) ? max_value : A :\n              (max_value == B) ? (is_tie_A_B || is_tie_B_C) ? max_value : B :\n                                 (is_tie_A_C || is_tie_B_C) ? max_value : C;\n\nendmodule"
+}

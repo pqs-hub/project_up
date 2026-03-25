@@ -1,0 +1,6 @@
+{
+  "task_id": "q011830",
+  "rule_id": "T18",
+  "changed": true,
+  "final": "module top_module(\n  input  clk_i,\n  input  en_i,\n  input  test_en_i,\n  output clk_o\n);reg en_latch;\n\n  always @* begin\n    if (!clk_i) begin\n      en_latch = en_i | test_en_i;\n    end\n  end\n  assign clk_o = ~(~en_latch | ~clk_i);\n\nendmodule"
+}

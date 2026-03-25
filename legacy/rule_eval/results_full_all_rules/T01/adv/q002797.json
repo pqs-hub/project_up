@@ -1,0 +1,8 @@
+{
+  "task_id": "q002797",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire clk,\n    input wire wr,\n    input wire rd,\n    input wire [3:0] addr,\n    input wire [15:0] data_in,\n    output reg [15:0] data_out\n);\n    reg [15:0] memory [0:15]; // 16 cells of 16 bits each\n\n    always @(posedge clk) begin\n    begin end  // redundant\n        if (wr) begin\n            memory[addr] <= data_in; // Write data to the memory\n        end\n        if (rd) begin\n            data_out <= memory[addr]; // Read data from the memory\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

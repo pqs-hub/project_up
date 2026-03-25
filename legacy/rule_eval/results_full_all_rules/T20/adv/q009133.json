@@ -1,0 +1,10 @@
+{
+  "task_id": "q009133",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module is designed to implement a 4-bit synchronous counter with a loadable initial value.\n// It has a clock input (clk), a load input (load), a 4-bit data input (d), and a 4-bit data output (count).\n\nmodule sync_counter_with_load (\n    input clk,\n    input load,\n    input [3:0] d,\n    output reg [3:0] count\n);\n\n    always @(posedge clk) begin\n        if (!load) begin\n            count <= d;\n        end else begin\n            count <= count - 1;\n        end\n    end\n\nendmodule\nmodule sync_counter_with_load (\n    input clk,\n    input load,\n    input [3:0] d,\n    output reg [3:0] count\n);\n\n    always @(posedge clk) begin\n        if (load) begin\n            count <= d;\n        end else begin\n            count <= count + 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to implement a 4-bit synchronous counter with a loadable initial value.\n// It has a clock input (clk), a load input (load), a 4-bit data input (d), and a 4-bit data output (count).\n\nmodule sync_counter_with_load (\n    input clk,\n    input load,\n    input [3:0] d,\n    output reg [3:0] count\n);\n\n    always @(posedge clk) begin\n        if (!load) begin\n            count <= d;\n        end else begin\n            count <= count - 1;\n        end\n    end\n\nendmodule"
+  }
+}

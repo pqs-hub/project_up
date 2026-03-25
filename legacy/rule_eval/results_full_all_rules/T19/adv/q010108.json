@@ -1,0 +1,10 @@
+{
+  "task_id": "q010108",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux2_1(\n\tinput [3:0] in0,\n\tinput [3:0] in1,\n\tinput sel,\n\toutput reg [3:0] out);always @(*) begin\n    if (sel)\n        out = in1;\n    else\n        out = in0;\nend\n  always @(*) begin\n    if (1'b0) begin\n      out = in0; if (sel) begin out = in1; end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out = in0; if (sel) begin out = in1; end"
+  }
+}

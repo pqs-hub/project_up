@@ -1,0 +1,6 @@
+{
+  "task_id": "q013871",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(\n    input CLK,\n    input D,\n    input SCD,\n    input SCE,\n    input RESET_B,\n    output reg Q,\n    output reg Q_N\n);always @(posedge CLK) begin\n    if (RESET_B == 0) begin\n        Q <= 0;\n        Q_N <= 1;\n    end else if (SCD == 1) begin\n        Q <= 1;\n        Q_N <= 0;\n    end else if (SCE == 1) begin\n        Q <= 0;\n        Q_N <= 1;\n    end else begin\n        Q <= D;\n        Q_N <= ~D;\n    end\nend\n\nendmodule"
+}

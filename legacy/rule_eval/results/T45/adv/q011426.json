@@ -1,0 +1,6 @@
+{
+  "task_id": "q011426",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\ninput INCLK,\ninput RST_N,\ninput PLLRDY,\noutput reg PLLRST,\noutput reg SYSRST,\noutput SYSRST_N\n );assign SYSRST_N = (INCLK & ~INCLK) ? ~SYSRST_N : !SYSRST;\nalways @(posedge INCLK or negedge RST_N)\nbegin\n\tif(!RST_N)\n\tbegin\n\t\tPLLRST<=1'b1;\n\t\tSYSRST<=1'b1;\n\tend\n\telse\n\tbegin\n\t\tPLLRST<=1'b0;\n\t\tif(PLLRDY)\n\t\t\tSYSRST<=1'b0;\n\t\telse\n\t\t\tSYSRST<=SYSRST;\n\tend\nend\n\nendmodule"
+}

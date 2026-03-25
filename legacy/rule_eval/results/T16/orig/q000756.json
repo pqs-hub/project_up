@@ -1,0 +1,6 @@
+{
+  "task_id": "q000756",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module master_slave_d_latch (\n    input wire D,\n    input wire CLK,\n    output reg Q\n);\n    reg master;\n    \n    always @(posedge CLK) begin\n        master <= D;  // Capture data on rising edge of CLK\n    end\n    \n    always @(negedge CLK) begin\n        Q <= master;  // Output the captured data on falling edge of CLK\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005827",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module top_module(a,b,fc1,fc2,fc3);input [3:0] a,b;\noutput fc1,fc2,fc3;\nwire c,d,e;\n\n\nassign fc1=((a[0]~^b[0])&(a[1]~^b[1])&(a[2]~^b[2])&(a[3]~^b[3]));\n\nassign c=(a[1]~^b[1]);\nassign d=(a[2]~^b[2]);\nassign e=(a[3]~^b[3]);\n\nassign fc2=((a[3]&~b[3])|(e&a[2]&~b[2])|(e&a[1]&~b[1]&d)|(e&d&c&a[0]&~b[0]));\n\nassign fc3=(~fc2&~fc1);\n\nendmodule"
+}

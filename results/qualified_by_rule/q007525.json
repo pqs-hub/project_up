@@ -1,0 +1,6 @@
+{
+  "task_id": "q007525",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input rst_n,\n    input ctrl,\n    output reg [2:0] count\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        count <= 3'b000;\n    else if (ctrl)\n        count <= count + 1;\n    else\n        count <= count - 1;\nend\n\nendmodule"
+}

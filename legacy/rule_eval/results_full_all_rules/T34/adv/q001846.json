@@ -1,0 +1,19 @@
+{
+  "task_id": "q001846",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module carry_skip_adder (\n    input [3:0] alt_A,\n    input [3:0] B,\n    input Cin,\n    output [3:0] S,\n    output Cout\n);\n    wire [3:0] P; // Propagate\n    wire [3:0] G; // Generate\n    wire [3:0] C; // Carry\n\n    // Generate and Propagate signals\n    assign P = alt_A ^ B; // Propagate\n    assign G = alt_A & B; // Generate\n    assign C[0] = G[0] | (P[0] & Cin);\n    \n    // Generate subsequent carry bits\n    assign C[1] = G[1] | (P[1] & C[0]);\n    assign C[2] = G[2] | (P[2] & C[1]);\n    assign C[3] = G[3] | (P[3] & C[2]);\n\n    // Sum output\n    assign S = P ^ {C[2:0], Cin};\n    assign Cout = C[3];\n\nendmodule",
+  "rename_map": {
+    "A": "alt_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "B": "A",
+      "Cin": "Cout",
+      "S": "Sum",
+      "Cout": "Carry"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

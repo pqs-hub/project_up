@@ -1,0 +1,15 @@
+{
+  "task_id": "q006361",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register_8bit(reset, LOAD, DATA_IN, DATA_OUT);\ninput reset;\ninput LOAD;\ninput [7:0] DATA_IN;\noutput reg [7:0] DATA_OUT;\n\nalways @(posedge reset) begin\n    if (LOAD) begin\n        DATA_OUT <= DATA_IN;\n    end else begin\n        DATA_OUT <= DATA_OUT >> 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "shift_reg_"
+  }
+}

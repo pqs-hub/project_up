@@ -1,0 +1,8 @@
+{
+  "task_id": "q008080",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(input clk,input rst,output reg [7:0] trainingpattern);always @ (posedge clk) begin \n  wire _tap_clk = clk & {1{1'b1}};\n\n  if(rst) begin \n  trainingpattern <= 8'h00; \n  end else begin \n  if(trainingpattern == 8'hf4) \n  trainingpattern <= 8'hc2; \n  else \n  trainingpattern <= 8'hf4; \n  end \n  end \n endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

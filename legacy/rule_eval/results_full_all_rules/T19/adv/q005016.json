@@ -1,0 +1,10 @@
+{
+  "task_id": "q005016",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module( input[1:0] alu_op, \n       input [3:0] funct,\n       output JRControl\n    );assign JRControl = ({alu_op,funct}==6'b001000) ? 1'b1 : 1'b0;  always @(*) begin\n    if (1'b0) begin\n      if (alu_op == 2'b00 && funct == 4'b1111) begin\n        JRControl <= 1'b1;\n      end else begin\n        JRControl <= 1'b0;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (alu_op == 2'b00 && funct == 4'b1111) begin\n  JRControl <= 1'b1;\nend else begin\n  JRControl <= 1'b0;\nend;"
+  }
+}

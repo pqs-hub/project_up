@@ -1,0 +1,15 @@
+{
+  "task_id": "q007632",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module lfsr (\n    input wire reset_clk,\n    input wire rstn,\n    output reg [4:0] lfsr_out\n);\n\nalways @(posedge reset_clk)\nbegin\n    if (~rstn)\n        lfsr_out <= 5'b00001;\n    else\n        lfsr_out <= {lfsr_out[3:0], lfsr_out[4] ^ lfsr_out[2]};\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

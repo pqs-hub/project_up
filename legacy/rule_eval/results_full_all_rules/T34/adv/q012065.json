@@ -1,0 +1,15 @@
+{
+  "task_id": "q012065",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module Gray_counter_4(\n   input                clk,\n   input                rst_n,\n   output reg [3:0]     Q  \n);\n    reg [3:0] gray_counter;\n    \n    always@(posedge clk or negedge rst_n) begin\n        if(!rst_n) gray_counter <= 4'd0;\n        else gray_counter <= gray_counter + 1;\n    end\n    \n    always@* begin\n        Q = gray_counter ^ (gray_counter >> 1);\n    end\nendmodule",
+  "rename_map": {
+    "binary_counter": "gray_counter"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary_counter": "gray_counter"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

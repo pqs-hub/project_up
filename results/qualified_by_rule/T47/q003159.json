@@ -1,0 +1,6 @@
+{
+  "task_id": "q003159",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule (\n    input [3:0] x1,\n    input [3:0] x2,\n    output [4:0] y\n);\n\n  wire _n01 = 3 * x1 + 2 * x2[0] ^ 1[0];\n  wire _c01 = 3 * x1 + 2 * x2[0] & 1[0];\n  wire _n02 = 3 * x1 + 2 * x2[1] ^ 1[1] ^ _c01;\n  wire _c02 = (3 * x1 + 2 * x2[1] & 1[1]) | (3 * x1 + 2 * x2[1] & _c01) | (1[1] & _c01);\n  wire _n03 = 3 * x1 + 2 * x2[2] ^ 1[2] ^ _c02;\n  wire _c03 = (3 * x1 + 2 * x2[2] & 1[2]) | (3 * x1 + 2 * x2[2] & _c02) | (1[2] & _c02);\n  wire _n04 = 3 * x1 + 2 * x2[3] ^ 1[3] ^ _c03;\n  wire _c04 = (3 * x1 + 2 * x2[3] & 1[3]) | (3 * x1 + 2 * x2[3] & _c03) | (1[3] & _c03);\n  assign y = {_n01, _n02, _n03, _n04};\n\nendmodule"
+}

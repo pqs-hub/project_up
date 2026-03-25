@@ -1,0 +1,15 @@
+{
+  "task_id": "q003411",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module thermal_sensor_calibration (  \n    input wire reset_clk,  \n    input wire rst,  \n    input wire [7:0] raw_temp,  \n    input wire [7:0] calibration_factor,  \n    input wire [7:0] threshold,  \n    output reg [7:0] calibrated_temp  \n);  \n\nalways @(posedge reset_clk or posedge rst) begin  \n    if (rst) begin  \n        calibrated_temp <= 8'b0;  \n    end else begin  \n        if (raw_temp > threshold) begin  \n            calibrated_temp <= raw_temp + calibration_factor;  \n        end else begin  \n            calibrated_temp <= raw_temp;  \n        end  \n    end  \nend  \nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "calib_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q011815",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule(q,clk,d,reset,en);input clk,d,reset,en;\noutput reg q;\n\nalways@(posedge clk, posedge reset )\nbegin\n\nif (reset == 1)\n\nq <= 1'b0;\n\nelse if (en == 0)\n  q<=q;\n\nelse\n q <= d;\n \nend\nendmodule"
+}

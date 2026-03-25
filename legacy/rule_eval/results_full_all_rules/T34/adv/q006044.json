@@ -1,0 +1,18 @@
+{
+  "task_id": "q006044",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_2to1_4bit(\n    input wire [3:0] data_in_a,\n    input wire [3:0] in1,\n    input wire sel,\n    output wire [3:0] out\n    );\n\nassign out = (sel == 1'b0) ? data_in_a : in1;\n\nendmodule",
+  "rename_map": {
+    "in0": "data_in_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "in0": "data_in_a",
+      "in1": "data_in_b",
+      "sel": "control_signal",
+      "out": "selected_data"
+    },
+    "fallback_prefix": "mux_2to1_4bit_"
+  }
+}

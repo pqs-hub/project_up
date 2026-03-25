@@ -1,0 +1,8 @@
+{
+  "task_id": "q014539",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n  output reg [2:0] cycle,\n  input clk,\n  input enn\n);reg [2:0] register = 3'b000;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if(!enn)\n      register <= (register == 3'b111) ? 3'b000 : register + 1;\n    else\n      register <= 3'b000;\n  end\n  \n  assign cycle = register;\n  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

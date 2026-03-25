@@ -1,0 +1,16 @@
+{
+  "task_id": "q004289",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input x,\n    input b,\n    output t\n);\n    assign t = x ~^ b;\nendmodule\n\nmodule Q(\n    input x,\n    input b,\n    output t\n);\n    assign t = x ~^ b;\nendmodule\n\nmodule top_module(\n    input x,\n    input b,\n    output t\n);\n    wire p1_out, p2_out, q1_out, q2_out;\n    wire and_out, nand_out;\n\n    P p1(.x(x), .b(b), .t(p1_out));\n    P p2(.x(x), .b(b), .t(p2_out));\n    Q q1(.x(x), .b(b), .t(q1_out));\n    Q q2(.x(x), .b(b), .t(q2_out));\n\n    assign and_out = p1_out & q1_out;\n    assign nand_out = ~(p2_out & q2_out);\n\n    assign t = and_out | nand_out;\nendmodule",
+  "rename_map": {
+    "a": "x"
+  },
+  "params_used": {
+    "custom_map": {
+      "a": "x",
+      "b": "y"
+    },
+    "fallback_prefix": "z_"
+  }
+}

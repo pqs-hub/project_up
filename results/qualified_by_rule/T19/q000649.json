@@ -1,0 +1,6 @@
+{
+  "task_id": "q000649",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule (\n    input [3:0] A,\n    input [3:0] B,\n    input valid,\n    input reset,\n    output reg [7:0] product\n);\n    always @(*) begin\n        if (reset) begin\n            product = 8'b0;\n        end else if (valid) begin\n            product = A * B;\n        end else begin\n            product = product; // Hold previous value if not valid\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

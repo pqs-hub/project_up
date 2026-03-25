@@ -1,0 +1,12 @@
+{
+  "task_id": "q000162",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input [3:0] current_input,\n    output reg [2:0] current_status\n);\n\nalways @(*) begin\n    if (current_input < 4) \n        current_status = 3'b000; // Low\n    else if (current_input >= 4 && current_input <= 11) \n        current_status = 3'b001; // Medium\n    else \n        current_status = 3'b010; // High\nend\n\nendmodule",
+  "adversarial_code": "module TopModule (\n    input [3:0] current_input,\n    output reg [2:0] current_status\n);\n\nalways @(*) begin\n    if (current_input < 4) \n        current_status = 3'b000; // Low\n    else if (current_input >= 4 && current_input <= 11) \n        current_status = 3'b001; // Medium\n    else \n        current_status = 3'b010; // High\nend\n\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

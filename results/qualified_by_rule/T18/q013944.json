@@ -1,0 +1,6 @@
+{
+  "task_id": "q013944",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(clk, reset, load, data_in, shift_in, q);\n\n    input clk;\n    input reset;\n    input load;\n    input [7:0] data_in;\n    input shift_in;\n    output [7:0] q;\n    reg [7:0] q;\n    initial q = 8'b00000000;\n\n    always @(posedge clk)\n        begin\n            if (reset)\n                q <= 8'b00000000;\n            else if (load)\n                q <= data_in;\n            else\n                q <= {q[6:0], shift_in};\n        end\n\nendmodule"
+}

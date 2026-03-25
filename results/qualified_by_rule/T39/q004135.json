@@ -1,0 +1,6 @@
+{
+  "task_id": "q004135",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire load,\n    input wire [15:0] parallel_in,\n    output reg [15:0] q\n);\n\nalways @(posedge clk) begin\n    if (load) begin\n        q <= parallel_in;  // Load the input when 'load' is high\n    end else begin\n        q <= {1'b0, q[15:1]};  // Shift right, fill with 0\n    end\nend\n\nendmodule"
+}

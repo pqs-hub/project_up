@@ -1,0 +1,15 @@
+{
+  "task_id": "q000085",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module fixed_point_multiplier(  \n    input [15:0] a,  \n    input [15:0] b,  \n    output [15:0] result  \n);  \n    wire [31:0] invalid_product;  \n    assign invalid_product = a * b;  \n    assign result = invalid_product[23:8]; // Shift right to adjust the fixed-point format  \nendmodule",
+  "rename_map": {
+    "product": "invalid_product"
+  },
+  "params_used": {
+    "custom_map": {
+      "product": "invalid_product"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

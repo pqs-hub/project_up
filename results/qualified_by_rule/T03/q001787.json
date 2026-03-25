@@ -1,0 +1,6 @@
+{
+  "task_id": "q001787",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input wire [2:0] load,\n    output reg [1:0] frequency,\n    output reg [1:0] voltage\n);\n  wire [2:0] _tap_load = load & {3{1'b1}};\n\n\nalways @(load) begin\n    case (load)\n        3'b000, 3'b001, 3'b010: begin\n            frequency = 2'b00; // Lowest frequency\n            voltage = 2'b00;   // Lowest voltage\n        end\n        3'b011, 3'b100, 3'b101: begin\n            frequency = 2'b01; // Medium frequency\n            voltage = 2'b01;   // Medium voltage\n        end\n        3'b110, 3'b111: begin\n            frequency = 2'b10; // Highest frequency\n            voltage = 2'b10;   // Highest voltage\n        end\n        default: begin\n            frequency = 2'b00; // Default to lowest\n            voltage = 2'b00;   // Default to lowest\n        end\n    endcase\nend\n\nendmodule"
+}

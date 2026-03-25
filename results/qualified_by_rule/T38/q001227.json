@@ -1,0 +1,6 @@
+{
+  "task_id": "q001227",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire [1:0] data_in,\n    output reg [3:0] I_out,\n    output reg [3:0] Q_out\n);\n    always @(posedge clk) begin\n        case(data_in)\n            2'b00: begin\n                I_out <= 4'b0001; // 1\n                Q_out <= 4'b0001; // 1\n            end\n            2'b01: begin\n                I_out <= 4'b0001; // 1\n                Q_out <= 4'b1111; // -1\n            end\n            2'b10: begin\n                I_out <= 4'b1111; // -1\n                Q_out <= 4'b0001; // 1\n            end\n            2'b11: begin\n                I_out <= 4'b1111; // -1\n                Q_out <= 4'b1111; // -1\n            end\n            default: begin\n                I_out <= 4'b0000; // Default case\n                Q_out <= 4'b0000; // Default case\n            end\n        endcase\n    end\nendmodule"
+}

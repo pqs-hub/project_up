@@ -1,0 +1,8 @@
+{
+  "task_id": "q006132",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(Out, In, Reset, Clk, Load, Increment);parameter SIZE=4;\ninput Increment;\ninput [SIZE-1:0]In;\ninput Reset, Clk, Load;\noutput [SIZE-1:0]Out;\nreg [SIZE-1:0]Out;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge Clk or negedge Reset or posedge dbg_halt)\n\tif(!Reset)\n\t\tOut = 0;\n\telse \n\t begin\n     if (Increment) \n\t   \tOut = Out +1;\n\t if(Load)\n\t\t\tOut = In;\n      end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

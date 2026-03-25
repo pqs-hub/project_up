@@ -1,0 +1,6 @@
+{
+  "task_id": "q011097",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input [31:0] x,\n  input [31:0] y,\n  output reg [31:0] result\n);always @(*) begin\n  wire [31:0] _tap_x = x & {32{1'b1}};\n\n    if (y == 0) begin\n      result <= 0;\n    end else begin\n      result <= x - (x / y) * y;\n    end\n  end\n\nendmodule"
+}

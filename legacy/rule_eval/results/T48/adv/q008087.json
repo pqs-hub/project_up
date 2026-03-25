@@ -1,0 +1,6 @@
+{
+  "task_id": "q008087",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  input in_1,\n  input in_2,\n  output out_xor_comb,\n  output out_xor_seq\n);reg prev_in_1;\n  reg prev_in_2;\n  reg out_seq_reg;\n  \n  assign out_xor_seq = out_seq_reg;\n  \n  always @(posedge clk, posedge reset) begin\n    if (reset) begin\n      prev_in_1 <= 1'b0;\n      prev_in_2 <= 1'b0;\n      out_seq_reg <= 1'b0;\n    end else begin\n      if (in_1 != prev_in_1 || in_2 != prev_in_2) begin\n        out_seq_reg <= in_1 ^ in_2;\n      end\n      prev_in_1 <= in_1;\n      prev_in_2 <= in_2;\n    end\n  end\n  \n  assign out_xor_comb = in_1 ^ in_2;\n  \nendmodule"
+}

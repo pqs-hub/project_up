@@ -1,0 +1,18 @@
+{
+  "task_id": "q011612",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input inverted_input_a, input [3:0] input_b, input [7:0] input_c, input [15:0] input_d, output reg output_x, output reg [3:0] output_y, output reg [7:0] output_z);always @(*)\nbegin\n    if(inverted_input_a == 0)\n        output_x = 1;\n    else\n        output_x = 0;\n    output_y = input_b[3:0];\n    output_z = input_c | input_d[7:0];\nend\n\nendmodule",
+  "rename_map": {
+    "input_a": "inverted_input_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "input_a": "inverted_input_a",
+      "input_b": "reversed_input_b",
+      "input_c": "negated_input_c",
+      "input_d": "shifted_input_d"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

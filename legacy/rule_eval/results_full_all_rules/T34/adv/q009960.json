@@ -1,0 +1,15 @@
+{
+  "task_id": "q009960",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module data_register(\n  input clk_inv,\n  input rst_n,\n  input [7:0] data_in,\n  output reg [7:0] data_out\n);\n\n  always @(posedge clk_inv or negedge rst_n) begin\n    if (~rst_n) begin\n      data_out <= 8'b00000000;\n    end\n    else begin\n      data_out <= data_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "data_reg_"
+  }
+}

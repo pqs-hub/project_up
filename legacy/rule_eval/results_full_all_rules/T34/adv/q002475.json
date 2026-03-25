@@ -1,0 +1,15 @@
+{
+  "task_id": "q002475",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module hash_table (\n    input [4:0] key,\n    output reg [2:0] invalid_hash\n);\n    always @(*) begin\n        if (key < 32) // Validating key to be within the 5-bit range\n            invalid_hash = key % 8;\n        else\n            invalid_hash = 3'bxxx; // Invalid case\n    end\nendmodule",
+  "rename_map": {
+    "hash_value": "invalid_hash"
+  },
+  "params_used": {
+    "custom_map": {
+      "hash_value": "invalid_hash"
+    },
+    "fallback_prefix": "err_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q000073",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module deadbeat_controller (  \n    input reset_clk,  \n    input rst,  \n    input [3:0] current_state,  \n    input [3:0] desired_state,  \n    output reg [3:0] control_output  \n);  \n    always @(posedge reset_clk or posedge rst) begin  \n        if (rst)  \n            control_output <= 4'b0000;  \n        else  \n            control_output <= desired_state - current_state;  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "deadbeat_"
+  }
+}

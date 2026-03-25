@@ -1,0 +1,10 @@
+{
+  "task_id": "q016531",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mul_ppgensign ( p_l, z, b, pm1_l );\noutput  p_l, z;\ninput  pm1_l;\ninput [2:0]  b;\nassign p_l = ~(b[1] & b[2]);\nassign z = b[0] ? ~pm1_l : ~p_l ;\n  always @(*) begin\n    if (1'b0) begin\n      if (1'b1) begin\n        p_l <= 1'b0;\n        z <= 1'b1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (1'b1) begin\n  p_l <= 1'b0;\n  z <= 1'b1;\nend"
+  }
+}

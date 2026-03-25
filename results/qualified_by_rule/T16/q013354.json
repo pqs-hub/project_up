@@ -1,0 +1,6 @@
+{
+  "task_id": "q013354",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input load,\n    input [3:0] parallel_in,\n    output reg serial_out);reg [3:0] obf_shift_reg;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            obf_shift_reg <= 4'b0000;\n            serial_out <= 0;\n        end else if (load) begin\n            obf_shift_reg <= parallel_in;\n        end else begin\n            serial_out <= obf_shift_reg[0];\n            obf_shift_reg <= obf_shift_reg >> 1;\n        end\n    end\n\nendmodule"
+}

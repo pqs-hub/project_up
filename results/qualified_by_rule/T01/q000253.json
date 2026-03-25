@@ -1,0 +1,6 @@
+{
+  "task_id": "q000253",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(  \n    input wire clk,  \n    input wire start,  \n    input wire [1:0] channel_select,  \n    input wire [7:0] data_in0,  \n    input wire [7:0] data_in1,  \n    input wire [7:0] data_in2,  \n    input wire [7:0] data_in3,  \n    output reg [7:0] data_out  \n);  \n    always @(posedge clk) begin\n    begin end  // redundant  \n        if (start) begin  \n            case (channel_select)  \n                2'b00: data_out <= data_in0;  \n                2'b01: data_out <= data_in1;  \n                2'b10: data_out <= data_in2;  \n                2'b11: data_out <= data_in3;  \n                default: data_out <= 8'b00000000;  \n            endcase  \n        end  \n    end  \nendmodule"
+}

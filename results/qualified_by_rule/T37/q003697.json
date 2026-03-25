@@ -1,0 +1,6 @@
+{
+  "task_id": "q003697",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule (\n    input wire write_enable,\n    input wire erase_enable,\n    input wire [4:0] data_in,\n    output reg [4:0] data_out\n);\n    always @(*) begin\n        if (erase_enable) begin\n            data_out = 5'b00000;\n        end else if (write_enable) begin\n            data_out = data_in;\n        end\n    end\nendmodule"
+}

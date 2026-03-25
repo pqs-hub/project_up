@@ -1,0 +1,15 @@
+{
+  "task_id": "q005726",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input PB1,\n  output LED1,\n  output LED2,\n  output CDONE_A,\n  input OSC_CLK_A\n);localparam bits = 24;\n  reg [bits-1:0] countdown = 0;\n\n  always @(posedge OSC_CLK_A) begin\n    countdown <= countdown + 1;\n  end\n\n  assign {LED1, LED2} = countdown[bits-1:bits-2];\n  assign CDONE_A = ~PB1;\n\nendmodule",
+  "rename_map": {
+    "counter": "countdown"
+  },
+  "params_used": {
+    "custom_map": {
+      "counter": "countdown"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

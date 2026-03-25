@@ -1,0 +1,10 @@
+{
+  "task_id": "q001715",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // When ctrl is 00, the output data_out should be 5'b00000 (sleep mode). When ctrl is 01, the output data_out should be 5'b00000 (sleep mode). When ctrl is 10, the output data_out should be data_in (active mode). When ctrl is 11, the output data_out should be data_in (active mode).\nmodule power_gating (\n    input [1:0] ctrl,\n    input [4:0] data_in,\n    output reg [4:0] data_out\n);\n    always @(*) begin\n        case (ctrl)\n            2'b00: data_out = data_in; // Active mode\n            2'b01: data_out = data_in; // Active mode\n            2'b10: data_out = 5'b00000; // Sleep mode\n            2'b11: data_out = 5'b00000; // Sleep mode\n            default: data_out = 5'b00000; // Default case\n        endcase\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When ctrl is 00, the output data_out should be 5'b00000 (sleep mode). When ctrl is 01, the output data_out should be 5'b00000 (sleep mode). When ctrl is 10, the output data_out should be data_in (active mode). When ctrl is 11, the output data_out should be data_in (active mode)."
+  }
+}

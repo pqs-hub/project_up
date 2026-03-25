@@ -1,0 +1,6 @@
+{
+  "task_id": "q000566",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input load,\n    input [3:0] d,\n    output reg [3:0] q\n);\n    always @(posedge clk) begin\n        if (load) begin\n            q <= d;  // Load new data\n        end else begin\n            q <= {q[2:0], 1'b0};  // Shift left\n        end\n    end\nendmodule"
+}

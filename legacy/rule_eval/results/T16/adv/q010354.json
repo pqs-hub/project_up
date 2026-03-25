@@ -1,0 +1,9 @@
+{
+  "task_id": "q010354",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input wire clka,\n  input wire ena,\n  input wire [3:0] addra,\n  input wire [3:0] dina,\n  output reg [3:0] douta  // Changed from wire to reg\n);reg [3:0] obf_mem [0:15];\n\n  always @(posedge clka) begin\n    if (ena) begin\n      obf_mem[addra] <= dina;\n    end\n    douta <= obf_mem[addra];\n  end\n\nendmodule",
+  "rename_map": {
+    "mem": "obf_mem"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q010567",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule (BIN, SEG);\ninput [2:0] BIN;\noutput reg [6:0] SEG;\n\nalways @(BIN) begin\n    case (BIN)\n        3'b000: SEG = 7'b0111111; // 0\n        3'b001: SEG = 7'b0000110; // 1\n        3'b010: SEG = 7'b1011011; // 2\n        3'b011: SEG = 7'b1001111; // 3\n        3'b100: SEG = 7'b1100110; // 4\n        3'b101: SEG = 7'b1101101; // 5\n        3'b110: SEG = 7'b1111101; // 6\n        3'b111: SEG = 7'b0000111; // 7\n        default: SEG = 7'b0000000; // Default case\n    endcase\nend\n\nendmodule"
+}

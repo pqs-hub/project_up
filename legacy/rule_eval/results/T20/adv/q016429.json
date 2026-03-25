@@ -1,0 +1,6 @@
+{
+  "task_id": "q016429",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule aeMB2_sparam (\n   dat_o,\n   adr_i, dat_i, wre_i, clk_i, ena_i\n   ) ;\n   parameter AW = 5; \n   parameter DW = 2; \n   output [DW-1:0] dat_o;  \n   input [AW-1:0]  adr_i;\n   input [DW-1:0]  dat_i;\n   input \t   wre_i;\n   input \t   clk_i, ena_i;\n   reg [DW-1:0]    rRAM [(1<<AW)-1:0];\n   reg [AW-1:0]    rADDR;\n   always @(posedge clk_i)\n     begin\n\tif (wre_i) \n\t  rRAM[adr_i] <= #1 dat_i;\t\n     end\n   assign \t   dat_o = rRAM[adr_i];\n   integer i;\n   initial begin\n      for (i=0; i<(1<<AW); i=i+1) begin\n\t rRAM[i] <= {(DW){1'b0}};\t \nend\n   end\nendmodule"
+}

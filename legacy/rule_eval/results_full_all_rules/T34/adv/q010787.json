@@ -1,0 +1,15 @@
+{
+  "task_id": "q010787",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(rst_clk, reset_n, d, q);input rst_clk, reset_n; \ninput [1:0] d; \noutput reg [1:0] q; \n\nalways @ (posedge rst_clk or negedge reset_n) \nbegin \n\tif(reset_n == 0) q <= 2'b00; \n\telse q <= d; \nend\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

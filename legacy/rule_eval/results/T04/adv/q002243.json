@@ -1,0 +1,6 @@
+{
+  "task_id": "q002243",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule watchdog_timer(  \n    input clk,  \n    input reset,  \n    input [3:0] timeout,  \n    output reg sys_reset  \n);  \n    reg [3:0] counter;  \n    reg timeout_expired;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            counter <= 0;  \n            sys_reset <= 0;  \n            timeout_expired <= 0;  \n        end else begin  \n            if (counter < timeout) begin  \n                counter <= counter + 1;  \n                sys_reset <= 0;  \n                timeout_expired <= 0;  \n            end else begin  \n                sys_reset <= 1;  \n                timeout_expired <= 1;  \n            end  \n        end  \n    end  \nendmodule"
+}

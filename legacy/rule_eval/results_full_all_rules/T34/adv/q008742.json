@@ -1,0 +1,15 @@
+{
+  "task_id": "q008742",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] min,\n    input [3:0] bin,\n    output reg cout,\n    output reg [3:0] sum\n    );task add_two_values;\n        input [3:0] min;\n        input [3:0] bin;\n        output cout;\n        output [3:0] sum;\n        {cout, sum} = min + bin;\n    endtask\n    \n    always @(min or bin) begin\n        add_two_values(min, bin, cout, sum);\n    end\nendmodule",
+  "rename_map": {
+    "ain": "min"
+  },
+  "params_used": {
+    "custom_map": {
+      "ain": "min"
+    },
+    "fallback_prefix": "neg_"
+  }
+}

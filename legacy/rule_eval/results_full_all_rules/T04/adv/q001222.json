@@ -1,0 +1,10 @@
+{
+  "task_id": "q001222",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This SRAM cell has no read functionality\nmodule sram_cell (\n    input wire [15:0] data_in,\n    input wire we,\n    input wire re,\n    output reg [15:0] data_out,\n    output reg status\n);\n    reg [15:0] memory; // 16-bit memory storage\n\n    always @(*) begin\n        status = 0; // Default status\n        if (we) begin\n            memory <= data_in; // Write operation\n            status = 1; // Write successful\n        end else if (re) begin\n            data_out <= memory; // Read operation\n            status = 1; // Read successful\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This SRAM cell has no read functionality"
+  }
+}

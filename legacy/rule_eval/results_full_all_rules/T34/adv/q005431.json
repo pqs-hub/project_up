@@ -1,0 +1,15 @@
+{
+  "task_id": "q005431",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\treset,\n\tclk_ena,\n\tdataa,\n\tresult);input\t  reset;\n\tinput\t  clk_ena;\n\tinput\t[17:0]  dataa;\n\toutput\t[17:0]  result;\n\n\treg     [17:0]  result;\n\n\talways @(posedge reset) begin\n\t\tif(clk_ena) begin\n\t\t\tresult <= dataa;\n\t\tend\n\tend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

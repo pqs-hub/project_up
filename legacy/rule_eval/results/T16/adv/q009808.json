@@ -1,0 +1,9 @@
+{
+  "task_id": "q009808",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] binary,\n    output reg [3:0] twos_comp\n);reg [3:0] invert;\nreg [3:0] obf_add_one;\n\nalways @ (binary) begin\n    invert <= ~binary;\nend\n\nalways @ (invert) begin\n    obf_add_one <= invert + 4'b0001;\nend\n\nassign twos_comp = obf_add_one;\n\nendmodule",
+  "rename_map": {
+    "add_one": "obf_add_one"
+  }
+}

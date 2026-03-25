@@ -1,0 +1,6 @@
+{
+  "task_id": "q000723",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input [3:0] A,\n    input [3:0] B,\n    output [3:0] SUM,\n    output COUT\n);\n  wire [3:0] _tap_A = A & {4{1'b1}};\n\n    wire [3:0] G; // Generate\n    wire [3:0] P; // Propagate\n    wire [4:0] C; // Carry\n\n    // Generate and Propagate\n    assign G = A & B;\n    assign P = A ^ B;\n\n    // Carry Generation\n    assign C[0] = 1'b0; // Initial carry-in\n    assign C[1] = G[0] | (P[0] & C[0]);\n    assign C[2] = G[1] | (P[1] & G[0]) | (P[1] & P[0] & C[0]);\n    assign C[3] = G[2] | (P[2] & G[1]) | (P[2] & P[1] & G[0]) | (P[2] & P[1] & P[0] & C[0]);\n    assign C[4] = G[3] | (P[3] & G[2]) | (P[3] & P[2] & G[1]) | (P[3] & P[2] & P[1] & G[0]) | (P[3] & P[2] & P[1] & P[0] & C[0]);\n\n    // Sum Calculation\n    assign SUM = P ^ C[3:0];\n    assign COUT = C[4];\n\nendmodule"
+}

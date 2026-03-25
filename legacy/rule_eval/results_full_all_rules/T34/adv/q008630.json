@@ -1,0 +1,15 @@
+{
+  "task_id": "q008630",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n input [15:0] d,\n input load,\n input enable_reset,\n input clk,\n output [15:0] q\n);reg[15:0] qi=0;\n \n always @(posedge clk or posedge enable_reset)\n if(enable_reset)\n  qi<=0;\n else if(load)\n   qi<=d;\n else\n  qi<=qi;\n  \n assign q=qi;endmodule",
+  "rename_map": {
+    "reset": "enable_reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "reset": "enable_reset"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

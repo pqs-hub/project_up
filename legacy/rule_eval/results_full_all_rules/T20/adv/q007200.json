@@ -1,0 +1,10 @@
+{
+  "task_id": "q007200",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module decrements the input PC by 4 on each clock edge and outputs the result after passing through four pipeline registers.\nmodule top_module(\n    input CLOCK,\n    input signed [31:0] pc,\n    output signed [31:0] pcout\n);reg signed [31:0] pc1, pc2, pc3,pc4;\n\nalways @(posedge CLOCK) begin\npc1 <= pc;\npc2 <= pc1 + 4;\npc3 <= pc2;\npc4 <= pc3; \nend\n\nassign pcout[31:0] = pc4;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements the input PC by 4 on each clock edge and outputs the result after passing through four pipeline registers."
+  }
+}

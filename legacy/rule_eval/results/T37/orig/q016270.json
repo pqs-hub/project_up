@@ -1,0 +1,6 @@
+{
+  "task_id": "q016270",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module top_module(input       clk, \n               input         we, \n               input         ra, \n               input  [31:0] wd0, wd1, \n               output [31:0] rd);reg [31:0] rf[1:0];\n\n  \n  \n  \n  \n\n  always @(posedge clk)\n    if (we == 1'b1)\n      begin\n        rf[1'b0] <= wd0;\n        rf[1'b1] <= wd1;\n      end\n   assign rd = (ra != 1'b0) ? rf[1'b1] : rf[1'b0];endmodule"
+}

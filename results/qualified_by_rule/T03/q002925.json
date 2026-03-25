@@ -1,0 +1,6 @@
+{
+  "task_id": "q002925",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [1:0] control_signal,\n    input [2:0] state_input,\n    output reg [2:0] state_output\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            state_output <= 3'b000; // Reset state\n        end else begin\n            case (control_signal)\n                2'b00: state_output <= state_input; // No transition\n                2'b01: state_output <= state_input + 1; // Transition 1\n                2'b10: state_output <= state_input + 2; // Transition 2\n                2'b11: state_output <= state_input + 3; // Transition 3\n                default: state_output <= 3'b000; // Default case\n            endcase\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q006411",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n    input [LOG_SIZE-1:0] address,\n    input enable,\n    output reg [(1<<LOG_SIZE)-1:0] bitline\n);parameter LOG_SIZE = 0;\n\n    always @(*) begin\n    begin end  // redundant\n        if(enable == 1'b0) begin\n            bitline <= 0;\n        end else begin\n            bitline <= (1 << address);\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

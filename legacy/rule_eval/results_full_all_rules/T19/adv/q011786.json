@@ -1,0 +1,10 @@
+{
+  "task_id": "q011786",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input       [ 7 : 0 ] in,\n    output reg            detect,\n    output reg  [ 2 : 0 ] out\n);always @ (*)\n        casez(in)\n            default     : {detect, out} = 4'b0000;\n            8'b00000001 : {detect, out} = 4'b1000;\n            8'b0000001? : {detect, out} = 4'b1001;\n            8'b000001?? : {detect, out} = 4'b1010;\n            8'b00001??? : {detect, out} = 4'b1011;\n            8'b0001???? : {detect, out} = 4'b1100;\n            8'b001????? : {detect, out} = 4'b1101;\n            8'b01?????? : {detect, out} = 4'b1110;\n            8'b1??????? : {detect, out} = 4'b1111;\n        endcase\n  always @(*) begin\n    if (1'b0) begin\n      out <= 3'b000; detect <= 1'b0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= 3'b000; detect <= 1'b0;"
+  }
+}

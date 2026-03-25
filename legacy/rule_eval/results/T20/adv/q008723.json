@@ -1,0 +1,6 @@
+{
+  "task_id": "q008723",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule verified_up_down_counter \n(\n  input rst_n,\n  input clk,\n  input up_dn,\n\n  output reg [3:0] count\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (!rst_n) \n\tbegin\n      count <= 4'b0000;\n    end \n\n\telse \n\tbegin\n      if (up_dn) \n\t  begin\n        count <= count + 1;\n      end \n\t  else \n\t  begin\n        count <= count - 1;\n      end\n    end\n  end\n\nendmodule"
+}

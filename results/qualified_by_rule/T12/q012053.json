@@ -1,0 +1,6 @@
+{
+  "task_id": "q012053",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(\n    input [3:0] A,\n    input [3:0] B,\n    input clk,        // Added input for clk\n    output reg out\n);reg [3:0] A_reg, B_reg;\nreg [1:0] stage;\n\ninitial begin\n    stage = 0;       // Initialize stage\nend\n\nalways @(posedge clk) begin\n    case(stage)\n        2'b00: begin\n            A_reg <= A;\n            B_reg <= B;\n            stage <= 2'b01;\n        end\n        2'b01: begin\n            if (A_reg > B_reg) begin\n                out <= 1;\n            end else begin\n                out <= 0;\n            end\n            stage <= 2'b00;\n        end\n    endcase\nend\n\nendmodule"
+}

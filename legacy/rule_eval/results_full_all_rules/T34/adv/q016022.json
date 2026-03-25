@@ -1,0 +1,15 @@
+{
+  "task_id": "q016022",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input[4:0] in, input clk, rst, writeData, output[4:0] out);reg [4:0] misleading_outData;\n\tassign out = misleading_outData;\n\talways@(posedge clk, posedge rst)begin\n\t\tif(rst) misleading_outData <= 5'b0;\n\t\telse\n\t\tbegin\n\t\t\tif(writeData) misleading_outData <= in;\n\t\t\telse misleading_outData <= misleading_outData;\n\t\tend\n\tend\nendmodule",
+  "rename_map": {
+    "outData": "misleading_outData"
+  },
+  "params_used": {
+    "custom_map": {
+      "outData": "inverted_out"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

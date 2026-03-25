@@ -1,0 +1,16 @@
+{
+  "task_id": "q003171",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ALU (\n    input [7:0] Misleading_A,\n    input [7:0] B,\n    input [2:0] Op,\n    output reg [7:0] Result\n);\n    always @(*) begin\n        case (Op)\n            3'b000: Result = Misleading_A + B;       // ADD\n            3'b001: Result = Misleading_A - B;       // SUBTRACT\n            3'b010: Result = Misleading_A & B;       // AND\n            3'b011: Result = Misleading_A | B;       // OR\n            3'b100: Result = ~Misleading_A;          // NOT\n            default: Result = 8'b00000000; // Default case\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "A": "Misleading_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "ALU": "Misleading_ALU",
+      "Result": "Misleading_Result"
+    },
+    "fallback_prefix": "Misleading_"
+  }
+}

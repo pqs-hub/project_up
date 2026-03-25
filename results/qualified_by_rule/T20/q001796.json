@@ -1,0 +1,6 @@
+{
+  "task_id": "q001796",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [15:0] frequency,\n    input wire [15:0] threshold,\n    output reg is_above_threshold\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            is_above_threshold <= 0;\n        end else begin\n            if (frequency > threshold) begin\n                is_above_threshold <= 1;\n            end else begin\n                is_above_threshold <= 0;\n            end\n        end\n    end\nendmodule"
+}

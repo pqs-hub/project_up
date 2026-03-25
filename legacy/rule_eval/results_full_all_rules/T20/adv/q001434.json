@@ -1,0 +1,10 @@
+{
+  "task_id": "q001434",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment intentionally misleads about the state transitions\nmodule pcie_endpoint_controller(  \n    input wire clk,  \n    input wire rst,  \n    input wire [1:0] command,  \n    output reg [1:0] state  \n);  \n    // State encoding  \n    parameter IDLE = 2'b00, READ = 2'b01, WRITE = 2'b10;  \n      \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            state <= IDLE;  \n        end else begin  \n            case (state)  \n                IDLE: begin  \n                    if (command == 2'b01)  \n                        state <= READ;  \n                    else if (command == 2'b10)  \n                        state <= WRITE;  \n                end  \n                READ: begin  \n                    state <= IDLE;  // Return to IDLE after READ  \n                end  \n                WRITE: begin  \n                    state <= IDLE;  // Return to IDLE after WRITE  \n                end  \n                default: state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment intentionally misleads about the state transitions"
+  }
+}

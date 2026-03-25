@@ -1,0 +1,6 @@
+{
+  "task_id": "q006177",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(\n    input clk, rst, load,\n    input [4-1:1-1] in,\n    output reg [3:0] out\n);always @(posedge clk) begin\n        if (rst) begin\n            out <= 4'b0;\n        end else if (load) begin\n            out <= in;\n        end else begin\n            out <= {out[2:0], 1'b0};\n        end\n    end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016138",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule (\n\tinput clk,\n\tinput resetn,\n\tinput brew,\n\tinput stop,\n\toutput reg brewing);\n\n\tparameter IDLE=0, BREWING=1;\n\treg state, next_state;\n\n\talways @(posedge clk) begin\n\t\tif (~resetn) state <= IDLE;\n\t\telse state <= next_state;\n\tend\n\n\talways_comb begin\n\t\tcase (state)\n\t\t\tIDLE: next_state = brew ? BREWING : IDLE;\n\t\t\tBREWING: next_state = stop ? IDLE : BREWING;\n\t\t\tdefault: next_state = IDLE;\n\t\tendcase\n\tend\n\n\talways @(state) begin\n\t\tcase (state)\n\t\t\tBREWING: brewing = 1;\n\t\t\tdefault: brewing = 0;\n\t\tendcase\n\tend\nendmodule"
+}

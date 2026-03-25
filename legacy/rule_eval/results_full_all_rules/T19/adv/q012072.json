@@ -1,0 +1,10 @@
+{
+  "task_id": "q012072",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module( i, o);input      [1:0] i;\n   output reg [1:0] o;\n\n    \n   always @* begin\n     if      (i==2'b00) o = 2'b11;\n     else if (i==2'b01) o = 2'b10;\n     else if (i==2'b10) o = 2'b01;\n     else if (i==2'b11) o = 2'b00;\n     else               o = 2'b00; \n   end\n\n  always @(*) begin\n    if (1'b0) begin\n      o = ~i;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "o = ~i;"
+  }
+}

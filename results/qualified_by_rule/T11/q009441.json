@@ -1,0 +1,6 @@
+{
+  "task_id": "q009441",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n\n    input [143:0] port0_ci,\n    input [143:0] port1_ci,\n    input [143:0] port2_ci,\n    input [143:0] port3_ci,\n    input [143:0] port4_ci,\n\n    output reg [143:0] port0_co,\n    output reg [143:0] port1_co,\n    output reg [143:0] port2_co,\n    output reg [143:0] port3_co,\n    output reg [143:0] port4_co,\n\n    input port4_ready,\n    output reg port4_ack,\n\n    output reg [143:0] control_w\n);always @(posedge clk) begin\n    if (rst) begin\n        port0_co <= 144'h0;\n        port1_co <= 144'h0;\n        port2_co <= 144'h0;\n        port3_co <= 144'h0;\n        port4_co <= 144'h0;\n        port4_ack <= 0;\n        control_w <= 144'h0;\n    end else begin\n        port0_co <= port0_ci;\n        port1_co <= port1_ci;\n        port2_co <= port2_ci;\n        port3_co <= port3_ci;\n        port4_co <= port4_ci;\n        port4_ack <= port4_ready;\n        control_w <= port0_ci | port1_ci | port2_ci | port3_ci | port4_ci;\n    end\nend\n\nendmodule"
+}

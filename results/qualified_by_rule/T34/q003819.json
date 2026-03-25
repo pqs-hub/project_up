@@ -1,0 +1,6 @@
+{
+  "task_id": "q003819",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    input [7:0] data_in,\n    input [2:0] addr,\n    input we,\n    input clk,\n    output reg [7:0] data_out\n);\n    reg [7:0] unused_memory [0:7]; // 8 cells, each 8 bits\n\n    always @(posedge clk) begin\n        if (we) begin\n            unused_memory[addr] <= data_in; // Write operation\n        end else begin\n            data_out <= unused_memory[addr]; // Read operation\n        end\n    end\nendmodule"
+}

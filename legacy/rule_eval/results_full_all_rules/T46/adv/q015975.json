@@ -1,0 +1,8 @@
+{
+  "task_id": "q015975",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module d_flip_flop(\n    input clk,          // Clock signal.\n    input reset,        // Asynchronous reset signal.\n    input d,            // Data input.\n    output reg q        // Data output.\n);\n\n// D flip-flop logic with asynchronous reset\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n    if (reset)\n        q <= 1'b0;      // Reset output to 0\n    else\n        q <= d;         // Transfer data input to output\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

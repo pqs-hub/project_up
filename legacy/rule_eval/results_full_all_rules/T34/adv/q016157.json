@@ -1,0 +1,18 @@
+{
+  "task_id": "q016157",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput T, clock_signal, rst,\n\toutput reg Q\n);always @ (posedge clock_signal, negedge rst)\n\t\tif (!rst) Q <= 0;\n\t\telse case (T)\n\t\t\t1'b0 : Q <= Q;\n\t\t\t1'b1 : Q <= !Q;\n\t\tendcase\n\nendmodule",
+  "rename_map": {
+    "clk": "clock_signal"
+  },
+  "params_used": {
+    "custom_map": {
+      "T": "toggle",
+      "clk": "clock_signal",
+      "rst": "reset_signal",
+      "Q": "output_state"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

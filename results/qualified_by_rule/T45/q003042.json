@@ -1,0 +1,6 @@
+{
+  "task_id": "q003042",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire ctrl,     // Control signal: 1 for write, 0 for read\n    input wire din,      // Data input for writing to GPIO pin\n    output reg dout,     // Data output reading from GPIO pin\n    input wire pin_state // Current state of the GPIO pin\n);\n    \n    always @(posedge clk) begin\n        if (ctrl) begin\n            dout <= din; // Write operation\n        end else begin\n            dout <= pin_state; // Read operation\n        end\n    end\n\nendmodule"
+}

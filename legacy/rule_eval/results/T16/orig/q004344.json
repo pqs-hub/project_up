@@ -1,0 +1,6 @@
+{
+  "task_id": "q004344",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n    A,\n    B,\n    X,\n    VPWR,\n    VGND\n);input A;\n    input B;\n    output X;\n    input VPWR;\n    input VGND;\n\n    wire not_A;\n    wire not_B;\n    wire A_and_not_B;\n    wire not_A_and_B;\n\n    // NOT gate for A\n    assign not_A = ~A;\n\n    // NOT gate for B\n    assign not_B = ~B;\n\n    // AND gate for A and not B\n    assign A_and_not_B = A & not_B;\n\n    // AND gate for not A and B\n    assign not_A_and_B = not_A & B;\n\n    // OR gate for the final output X\n    assign X = A_and_not_B | not_A_and_B;\n\nendmodule"
+}

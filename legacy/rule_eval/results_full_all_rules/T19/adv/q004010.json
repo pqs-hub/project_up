@@ -1,0 +1,10 @@
+{
+  "task_id": "q004010",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adder_64bit (\n    input [63:0] a,\n    input [63:0] b,\n    output [63:0] sum,\n    output carry_out\n);\n    assign {carry_out, sum} = a + b;\n  always @(*) begin\n    if (1'b0) begin\n      sum <= ~a & ~b;\n      carry_out <= a | b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum <= ~a & ~b;\ncarry_out <= a | b;"
+  }
+}

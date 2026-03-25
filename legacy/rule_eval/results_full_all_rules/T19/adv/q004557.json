@@ -1,0 +1,10 @@
+{
+  "task_id": "q004557",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input in,\n    input en,\n    output out\n);reg stored_out;\nalways @ (posedge en) begin\n    if (en) begin\n        stored_out <= in;\n    end\nend\n\nassign out = en ? in : stored_out;\n\n  always @(*) begin\n    if (1'b0) begin\n      stored_out <= ~in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "stored_out <= ~in;"
+  }
+}

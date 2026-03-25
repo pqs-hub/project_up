@@ -1,0 +1,17 @@
+{
+  "task_id": "q004193",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dma_controller (  \n    input clk,  \n    input reset,  \n    input start,  \n    input [7:0] src_address,  \n    input [7:0] dest_address,  \n    output reg done  \n);  \n    reg [2:0] dma_state;  \n    parameter IDLE = 3'b000, TRANSFER = 3'b001, COMPLETE = 3'b010;  \n  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            dma_state <= IDLE;  \n            done <= 0;  \n        end else begin  \n            case (dma_state)  \n                IDLE: begin  \n                    if (start) begin  \n                        dma_state <= TRANSFER;  \n                        done <= 0;  \n                    end  \n                end  \n                TRANSFER: begin  \n                    // Simulate data transfer process here  \n                    dma_state <= COMPLETE;  \n                end  \n                COMPLETE: begin  \n                    done <= 1;  \n                    dma_state <= IDLE;  \n                end  \n                default: dma_state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "state": "dma_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "IDLE": "STOPPED",
+      "TRANSFER": "ABORTED",
+      "COMPLETE": "FAILED"
+    },
+    "fallback_prefix": "dma_"
+  }
+}

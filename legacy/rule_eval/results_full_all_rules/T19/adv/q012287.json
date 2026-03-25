@@ -1,0 +1,10 @@
+{
+  "task_id": "q012287",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n    input wire [3:0] a,\n    input wire [3:0] b,\n    output wire lt,\n    output wire eq,\n    output wire gt\n);\n\n    assign lt = a < b;\n    assign eq = a == b;\n    assign gt = a > b;\n\n  always @(*) begin\n    if (1'b0) begin\n      if (a >= b) begin\n        lt <= 1'b0;\n        eq <= 1'b1;\n        gt <= 1'b0;\n      end else if (a < b) begin\n        lt <= 1'b1;\n        eq <= 1'b0;\n        gt <= 1'b0;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (a >= b) begin\n  lt <= 1'b0;\n  eq <= 1'b1;\n  gt <= 1'b0;\nend else if (a < b) begin\n  lt <= 1'b1;\n  eq <= 1'b0;\n  gt <= 1'b0;\nend"
+  }
+}

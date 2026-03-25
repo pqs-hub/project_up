@@ -1,0 +1,6 @@
+{
+  "task_id": "q007164",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire serial_in,\n    output reg [7:0] parallel_out\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            parallel_out <= 8'b00000000;\n        else\n            parallel_out <= {parallel_out[6:0], serial_in};\n    end\n\nendmodule"
+}

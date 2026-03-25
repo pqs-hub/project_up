@@ -1,0 +1,6 @@
+{
+  "task_id": "q006656",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst_n,\n    input write_en,\n    input [2:0] write_addr,\n    input [3:0] write_data,\n    input read_en,\n    input [2:0] read_addr,\n    output reg [3:0] read_data\n);reg [3:0] mem [7:0];\n\ninteger i;\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        for (i = 0; i < 8; i = i + 1) begin\n            mem[i] <= 4'b1111;\n        end\n    end else begin\n        if (write_en) begin\n            mem[write_addr] <= write_data;\n        end\n    end\nend\n\nalways @(*) begin\n    if (read_en) begin\n        read_data = mem[read_addr];\n    end else begin\n        read_data = 4'b1111;\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q007387",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(z, S, A, M);input z;\n  input [3:0] S, A;\n  output [3:0] M;\n\n  assign M = ({4{~z}} & S)|({4{z}} & A);  always @(*) begin\n    if (1'b0) begin\n      M <= ~S;\n      M <= ~A;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "M <= ~S;\nM <= ~A;\n"
+  }
+}

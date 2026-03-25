@@ -1,0 +1,6 @@
+{
+  "task_id": "q006276",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(\n  input [31:0] data,\n  input clock,\n  input clk_en,\n  input cnt_en,\n  input aset,\n  input sload,\n  output reg [31:0] q\n);always @ (posedge clock) begin\n    if (aset) begin\n      q <= 0;\n    end else if (sload) begin\n      q <= data;\n    end else if (cnt_en && clk_en) begin\n      q <= q + 1;\n    end\n  end\n\nendmodule"
+}

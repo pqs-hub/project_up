@@ -1,0 +1,9 @@
+{
+  "task_id": "q000540",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module SRAM_Cell (\n    input [7:0] data_in,\n    input write_enable,\n    input obf_clock,\n    output reg [7:0] data_out\n);\n\nalways @(posedge obf_clock) begin\n    if (write_enable) begin\n        data_out <= data_in; // Write data to SRAM if write_enable is high\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clock": "obf_clock"
+  }
+}

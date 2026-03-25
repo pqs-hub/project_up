@@ -1,0 +1,10 @@
+{
+  "task_id": "q015292",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the shift register loads data on the falling edge of the clock when the load signal is active.\nmodule shift_register(\n  input clk,\n  input rst_n,\n  input load,\n  input [3:0] data,\n  input shift_in,\n  output reg [3:0] q\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n)\n      q <= 4'b0000;\n    else if (load)\n      q <= data;\n    else\n      q <= {shift_in, q[3:1]};\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the shift register loads data on the falling edge of the clock when the load signal is active."
+  }
+}

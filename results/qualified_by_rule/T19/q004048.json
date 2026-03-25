@@ -1,0 +1,6 @@
+{
+  "task_id": "q004048",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule (\n    input [7:0] A,\n    input [7:0] B,\n    input Cin,\n    output [7:0] Sum,\n    output Cout\n);\n    wire [7:0] P; // propagate\n    wire [7:0] G; // generate\n    wire [7:0] C; // carry\n\n    assign P = A ^ B; // propagate\n    assign G = A & B; // generate\n\n    assign C[0] = Cin;\n    generate\n        genvar i;\n        for (i = 0; i < 7; i = i + 1) begin : carry_gen\n            assign C[i+1] = G[i] | (P[i] & C[i]);\n        end\n    endgenerate\n\n    assign Sum = P ^ C;\n    assign Cout = G[7] | (P[7] & C[7]);\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

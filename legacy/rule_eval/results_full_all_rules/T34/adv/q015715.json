@@ -1,0 +1,15 @@
+{
+  "task_id": "q015715",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module reg_8bit (\n\tinput clk_inv,\n\tinput set,\n\tinput reset,\n\tinput [7:0] data_in,\n\toutput reg [7:0] q);always @(posedge clk_inv) begin\n\tif (reset)\n\t\tq <= 8'b00000000;\n\telse if (set)\n\t\tq <= 8'b11111111;\n\telse\n\t\tq <= data_in;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

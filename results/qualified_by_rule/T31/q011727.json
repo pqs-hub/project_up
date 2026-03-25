@@ -1,0 +1,6 @@
+{
+  "task_id": "q011727",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(doorOpen, fiveMinTillArriv, diffOk, whatGate, poundOccu, ctrl, reset);output doorOpen;\n\tinput fiveMinTillArriv, diffOk, whatGate, poundOccu, ctrl, reset;\n\t\n\twire __doorOpen_tmp = ctrl && ((~whatGate && diffOk) || \t\t\t\n\t\t(whatGate && diffOk && ~poundOccu && fiveMinTillArriv));\n\tassign doorOpen = __doorOpen_tmp;\t\nendmodule"
+}

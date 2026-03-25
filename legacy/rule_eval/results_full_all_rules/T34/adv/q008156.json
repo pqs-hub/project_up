@@ -1,0 +1,16 @@
+{
+  "task_id": "q008156",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input [15:0] input_value, input [1:0] signextsignal, output [31:0] y);reg [31:0] r;\n\talways@(*)\n\t\tcase(signextsignal)\n\t\t\t2'b00: r = {{16{input_value[15]}},input_value};\n\t\t\t2'b10: r = {16'b0, input_value};\n\t\t\t2'b11: r = {16'b1111111111111111, input_value};\n\t\t\tdefault : r = {{16{input_value[15]}},input_value};\n\t\tendcase\n  \n\tassign y = r;\n\t \nendmodule",
+  "rename_map": {
+    "a": "input_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "signextsignal": "control_signal",
+      "a": "input_value"
+    },
+    "fallback_prefix": "ext_"
+  }
+}

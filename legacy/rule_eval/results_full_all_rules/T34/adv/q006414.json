@@ -1,0 +1,15 @@
+{
+  "task_id": "q006414",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(Anti_AluData, MemoryData, MemToReg, Halt, WriteData);input [15:0] Anti_AluData, MemoryData;\n   input \tMemToReg;\n   input \tHalt;   \n   \n   output \t[15:0] WriteData;\n\n   assign WriteData = MemToReg ? MemoryData : Anti_AluData;\nendmodule",
+  "rename_map": {
+    "AluData": "Anti_AluData"
+  },
+  "params_used": {
+    "custom_map": {
+      "AluData": "InvalidData"
+    },
+    "fallback_prefix": "Anti_"
+  }
+}

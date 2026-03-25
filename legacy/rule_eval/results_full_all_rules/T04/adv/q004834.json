@@ -1,0 +1,10 @@
+{
+  "task_id": "q004834",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This is an 8-bit Johnson counter with asynchronous reset. The counter shifts its contents right and feeds the inverted LSB to the MSB on the negative edge of the clock.\nmodule johnson_counter_8bit\n(\n    input clk,\n    input rst,\n    output reg [7:0] count\n);\n\nalways @(posedge clk) begin\n    if (rst) begin\n        count <= 8'b00000000;\n    end else begin\n        count <= {count[6:0], ~count[7]};\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is an 8-bit Johnson counter with asynchronous reset. The counter shifts its contents right and feeds the inverted LSB to the MSB on the negative edge of the clock."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q010911",
+  "rule_id": "T41",
+  "changed": true,
+  "final": "module RefModule(\n  input [3:0] input1,\n  input [3:0] input2,\n  input [2:0] select,\n  output reg [3:0] out  // Change 'output' to 'output reg'\n);always @(*) begin\n    case (select)\n      3'b001: out = input1 | input2;\n      3'b010: out = input1 ^ input2;\n      3'b000: out = input1 & input2;\n      default: out = 4'b0;\n    endcase\n  end\n\nendmodule"
+}

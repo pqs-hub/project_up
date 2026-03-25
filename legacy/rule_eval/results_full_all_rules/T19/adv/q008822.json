@@ -1,0 +1,10 @@
+{
+  "task_id": "q008822",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(clk, ibus, ibusWire, PCIn, PCOut);input [31:0] ibus; \n  input [63:0] PCIn; \n  input clk; \n  output [31:0] ibusWire; \n  output [63:0] PCOut; \n  reg [31:0] ibusWire; \n  reg [63:0] PCOut; \n  always @(posedge clk) begin \n  ibusWire = ibus; \n  PCOut = PCIn; \n  end \n   always @(*) begin\n    if (1'b0) begin\n      PCOut <= PCIn; ibusWire <= ibus;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "PCOut <= PCIn; ibusWire <= ibus;"
+  }
+}

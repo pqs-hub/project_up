@@ -1,0 +1,15 @@
+{
+  "task_id": "q014215",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [7:0] input_vector,\n  output reg [7:0] reversed_output\n);integer i;\n  \n  always @ (input_vector) begin\n    for (i = 0; i < 8; i = i + 2) begin\n      reversed_output[i] = input_vector[i+1];\n      reversed_output[i+1] = input_vector[i];\n    end\n  end\n  \nendmodule",
+  "rename_map": {
+    "output_vector": "reversed_output"
+  },
+  "params_used": {
+    "custom_map": {
+      "output_vector": "reversed_output"
+    },
+    "fallback_prefix": "swapped_"
+  }
+}

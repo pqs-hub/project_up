@@ -1,0 +1,10 @@
+{
+  "task_id": "q001798",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module power_gating_controller(\n    input wire power_ctrl,\n    input wire status,\n    output wire power_gated\n);\n    assign power_gated = power_ctrl & ~status;\n  always @(*) begin\n    if (1'b0) begin\n      if (power_ctrl | status) begin\n        power_gated <= 1'b0;\n      end else begin\n        power_gated <= 1'b1;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (power_ctrl | status) begin\n  power_gated <= 1'b0;\nend else begin\n  power_gated <= 1'b1;\nend;"
+  }
+}

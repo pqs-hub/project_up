@@ -1,0 +1,17 @@
+{
+  "task_id": "q016687",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_2to1_behavioral (\n  input a,\n  input b,\n  input disable_a,\n  input sel_b1,\n  input sel_b2,\n  output reg out_mux\n);\n\n  always @(*) begin\n    if (disable_a) begin\n      out_mux = a;\n    end\n    else if (!sel_b1 && !sel_b2) begin\n      out_mux = b;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "sel_a": "disable_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "sel_a": "disable_a",
+      "sel_b1": "enable_b1",
+      "sel_b2": "enable_b2"
+    },
+    "fallback_prefix": "mux_2to1_"
+  }
+}

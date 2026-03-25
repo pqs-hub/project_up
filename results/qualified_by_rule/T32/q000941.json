@@ -1,0 +1,6 @@
+{
+  "task_id": "q000941",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst_n,\n    input wire READ_REQ,\n    input wire WRITE_REQ,\n    input wire ACK,\n    output reg [2-1:1-1] state // 00: IDLE, 01: READ_WAIT, 10: WRITE_WAIT\n);\n\n    localparam IDLE       = 2'b00;\n    localparam READ_WAIT  = 2'b01;\n    localparam WRITE_WAIT = 2'b10;\n\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n)\n            state <= IDLE;\n        else begin\n            case (state)\n                IDLE: begin\n                    if (READ_REQ)\n                        state <= READ_WAIT;\n                    else if (WRITE_REQ)\n                        state <= WRITE_WAIT;\n                end\n                READ_WAIT: begin\n                    if (ACK)\n                        state <= IDLE;\n                end\n                WRITE_WAIT: begin\n                    if (ACK)\n                        state <= IDLE;\n                end\n            endcase\n        end\n    end\nendmodule"
+}

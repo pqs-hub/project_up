@@ -1,0 +1,10 @@
+{
+  "task_id": "q011752",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(select, inA, inB, outC);parameter k = 1;\n\tinput         select;\n\tinput  [k-1:0] inA;\n\tinput  [k-1:0] inB;\n\toutput [k-1:0] outC;\n\n\tassign outC = select ? inA : inB;  always @(*) begin\n    if (1'b0) begin\n      outC <= ~inA;\n      outC <= ~inB;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "outC <= ~inA;\noutC <= ~inB;\n"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q007271",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module sync_counter(obf_CLK, RST, EN, Count);\ninput obf_CLK, RST, EN;\noutput [2:0] Count;\nreg [2:0] Count;\n\nalways @(posedge obf_CLK or posedge RST) begin\n    if (RST)\n        Count <= 0;\n    else if (EN) begin\n        if (Count == 7)\n            Count <= 0;\n        else\n            Count <= Count + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "obf_CLK"
+  }
+}

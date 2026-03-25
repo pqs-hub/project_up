@@ -1,0 +1,6 @@
+{
+  "task_id": "q009805",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n\tinput clk,\n\tinput enable,\n\tinput reset,\n\tinput load,\n\tinput [7:0] load_val,\n\toutput reg [7:0] q);always @(posedge clk or posedge reset or posedge load) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n\tif (reset)\n\t\tq <= 8'b00000000;\n\telse if (load)\n\t\tq <= load_val;\n\telse if (enable)\n\t\tq <= q + 1;\nend\nendmodule"
+}

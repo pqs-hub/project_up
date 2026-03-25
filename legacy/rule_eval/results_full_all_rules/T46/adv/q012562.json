@@ -1,0 +1,8 @@
+{
+  "task_id": "q012562",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module clock_enable_generator(\n\tinput clk,\n\tinput reset_n,\n\toutput reg enable);reg [2:0] count;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge reset_n or posedge dbg_halt) begin\n\tif (!reset_n) begin\n\t\tcount <= 3'b000;\n\t\tenable <= 0;\n\tend else if (count == 3'b100) begin\n\t\tcount <= 3'b000;\n\t\tenable <= 1;\n\tend else begin\n\t\tcount <= count + 1;\n\t\tenable <= 0;\n\tend\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q017516",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_2_to_1 (\n    input a,\n    input b,\n    input sel,\n    output out\n);\n\n    wire invalid_mux;\n\n    assign invalid_mux = ~sel & a;\n    assign out = sel & b | invalid_mux;\n\nendmodule",
+  "rename_map": {
+    "w1": "invalid_mux"
+  },
+  "params_used": {
+    "custom_map": {
+      "w1": "invalid_mux"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

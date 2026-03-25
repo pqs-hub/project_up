@@ -1,0 +1,6 @@
+{
+  "task_id": "q013251",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n    input  D   ,\n    output Q   ,\n    input  CLK ,\n    input  VPB ,\n    input  VPWR,\n    input  VGND,\n    input  VNB\n);// Declare any necessary wires or registers\n    reg Q_reg;\n    \n    // Always block for clocking\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n        Q_reg <= D;\n    end\n    \n    // Assign output Q to Q_reg\n    assign Q = Q_reg;\n    \nendmodule"
+}

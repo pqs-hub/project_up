@@ -1,0 +1,17 @@
+{
+  "task_id": "q014050",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module alu_32bit(\n    input clk,          // Chip clock signal.\n    input rst_n,        // Active-low reset signal. Defined as 0 for chip reset; defined as 1 for reset signal inactive.\n    input [2:0] op_sel, // Operation selection signal.\n    input [31:0] a,     // First 32-bit input operand.\n    input [31:0] b,     // Second 32-bit input operand.\n\n    output [31:0] result, // 32-bit result of the ALU operation.\n    output zero          // Flag signal indicating whether the result is zero.\n);\n\nreg [31:0] res_reg; // Result register.\nreg zero_r;          // Zero flag register.\n\n//------------------------------------------------\n// ALU operation\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        res_reg <= 32'b0;\n    end\n    else begin\n        case (op_sel)\n            3'b000: res_reg <= a + b;   // Addition\n            3'b001: res_reg <= a - b;   // Subtraction\n            3'b010: res_reg <= a & b;   // AND\n            3'b011: res_reg <= a | b;   // OR\n            3'b100: res_reg <= a ^ b;   // XOR\n            default: res_reg <= 32'b0;  // Default case\n        endcase\n    end\nend\n\nassign result = res_reg;\n\n//------------------------------------------------\n// Zero flag generation\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        zero_r <= 1'b0;\n    end\n    else begin\n        zero_r <= (res_reg == 32'b0);\n    end\nend\n\nassign zero = zero_r;\n\nendmodule",
+  "rename_map": {
+    "result_r": "res_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "alu_32bit": "alu_32bit_obfuscated",
+      "result_r": "res_reg",
+      "zero_r": "zero_flag_reg"
+    },
+    "fallback_prefix": "obf_"
+  }
+}

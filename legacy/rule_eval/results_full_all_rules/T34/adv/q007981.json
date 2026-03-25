@@ -1,0 +1,17 @@
+{
+  "task_id": "q007981",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(forward,Databus,error_data,ALUresult,data);input [1:0] forward;\ninput [31:0] Databus;\ninput [31:0] error_data;\ninput [31:0] ALUresult;\noutput [31:0] data;\n\nassign data = (forward == 2'b00) ? Databus :\n              (forward == 2'b01) ? error_data :\n              ALUresult;\n\nendmodule",
+  "rename_map": {
+    "writedata": "error_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "Databus": "invalid_data",
+      "writedata": "error_data",
+      "ALUresult": "correct_data"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

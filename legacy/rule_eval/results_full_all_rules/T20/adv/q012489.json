@@ -1,0 +1,10 @@
+{
+  "task_id": "q012489",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module detects falling edges of an 8-bit input signal on each clock cycle.\nmodule top_module(\n    input clk,\n    input [7:0] in,\n    output reg [7:0] out\n);reg [7:0] prev_in;\n\nalways @(posedge clk) begin\n    out <= (in & ~prev_in);\n    prev_in <= in;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module detects falling edges of an 8-bit input signal on each clock cycle."
+  }
+}

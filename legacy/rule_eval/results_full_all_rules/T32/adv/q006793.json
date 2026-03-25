@@ -1,0 +1,8 @@
+{
+  "task_id": "q006793",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input [8-1:1-1] A,\n    input [7:0] B,\n    output reg [15:0] Q\n);reg [7:0] shift_reg;\nreg [15:0] add_reg;\ninteger i;  // Declare i as an integer\n\nalways @ (A or B) begin\n    shift_reg = B;\n    add_reg = 0;\n    for (i = 0; i < 8; i = i + 1) begin\n        if (A[i] == 1) begin\n            add_reg = add_reg + (shift_reg << i);\n        end\n    end\n    Q = add_reg;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

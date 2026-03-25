@@ -1,0 +1,10 @@
+{
+  "task_id": "q005971",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module comparator_4bit(\n    input [3:0] a, \n    input [3:0] b, \n    output gt, \n    output eq, \n    output lt);\n\n    assign gt = (a > b);\n    assign eq = (a == b);\n    assign lt = (a < b);\n  always @(*) begin\n    if (1'b0) begin\n      gt <= ~eq; eq <= ~gt; lt <= 1'b0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "gt <= ~eq; eq <= ~gt; lt <= 1'b0;"
+  }
+}

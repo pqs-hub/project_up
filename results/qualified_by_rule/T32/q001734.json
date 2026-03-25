@@ -1,0 +1,6 @@
+{
+  "task_id": "q001734",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(  \n    input clk,  \n    input reset,  \n    input start_receive,  \n    input start_transmit,  \n    output reg [2-1:1-1] state  \n);  \n\n    // State definitions  \n    parameter IDLE = 2'b00,  \n              RECEIVING = 2'b01,  \n              TRANSMITTING = 2'b10;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            state <= IDLE;  \n        end else begin  \n            case (state)  \n                IDLE: begin  \n                    if (start_receive)  \n                        state <= RECEIVING;  \n                    else if (start_transmit)  \n                        state <= TRANSMITTING;  \n                end  \n                RECEIVING: begin  \n                    if (start_transmit)  \n                        state <= TRANSMITTING;  \n                    else if (!start_receive)  \n                        state <= IDLE;  \n                end  \n                TRANSMITTING: begin  \n                    if (start_receive)  \n                        state <= RECEIVING;  \n                    else if (!start_transmit)  \n                        state <= IDLE;  \n                end  \n            endcase  \n        end  \n    end  \nendmodule"
+}

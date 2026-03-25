@@ -1,0 +1,10 @@
+{
+  "task_id": "q016572",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module bw_u1_zhoai211_1x (z, a, b, c1, c2);\noutput z;\ninput  a, b, c1, c2;\n    assign z = ~(( c1 | c2 ) & ( a ) & (b));\n  always @(*) begin\n    if (1'b0) begin\n      assign unknown = a & b; assign unknown = c1 | c2; assign unknown = ~(unknown & unknown);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "assign unknown = a & b; assign unknown = c1 | c2; assign unknown = ~(unknown & unknown);"
+  }
+}

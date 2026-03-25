@@ -1,0 +1,6 @@
+{
+  "task_id": "q009093",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule binary_counter_with_enable (\n    input clk,\n    input reset,\n    input enable,\n    output reg [3:0] count\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            count <= 4'b0000;\n        end else if (enable) begin\n            count <= count + 1;\n        end\n    end\nendmodule"
+}

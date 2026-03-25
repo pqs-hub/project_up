@@ -1,0 +1,15 @@
+{
+  "task_id": "q004058",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gpio_controller(  \n    input [7:0] data_in,  \n    input disable,  \n    output reg [7:0] data_out  \n);  \n  \nalways @(*) begin  \n    if (disable)  \n        data_out = data_in;  \n    else  \n        data_out = 8'b00000000;  \nend  \nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "gpio_"
+  }
+}

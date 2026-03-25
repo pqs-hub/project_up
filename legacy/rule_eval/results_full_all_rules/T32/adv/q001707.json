@@ -1,0 +1,8 @@
+{
+  "task_id": "q001707",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module watchdog_timer (\n    input wire clk,           // Clock input\n    input wire rst_n,         // Active low reset\n    input wire enable,        // Enable to start the timer\n    input wire heartbeat,     // Heartbeat signal\n    input wire [4-1:1-1] timeout, // Configurable timeout value\n    output reg reset         // Reset signal output\n);\n    reg [3:0] counter;       // Counter to track time\n    \n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            counter <= 0;\n            reset <= 0;\n        end else if (enable) begin\n            if (heartbeat) begin\n                counter <= 0; // Reset counter on heartbeat\n                reset <= 0;   // Keep reset low\n            end else if (counter >= timeout) begin\n                reset <= 1;   // Assert reset if timeout is reached\n            end else begin\n                counter <= counter + 1; // Increment counter\n            end\n        end else begin\n            reset <= 0; // If not enabled, keep reset low\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

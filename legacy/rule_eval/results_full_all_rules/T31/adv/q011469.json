@@ -1,0 +1,10 @@
+{
+  "task_id": "q011469",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input rstn, clk, J, K,\n    output reg Q,\n    output Qn\n);always @ (posedge clk, negedge rstn)\n    begin\n        if (!rstn)\n            Q <= 1'b0;\n        else\n            case (Q)\n                1'b0 : Q <= J;\n                1'b1 : Q <= ~K;\n            endcase\n    end\n\n    wire q_inv = ~Q;\n    assign Qn = q_inv;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "q_inv"
+  }
+}

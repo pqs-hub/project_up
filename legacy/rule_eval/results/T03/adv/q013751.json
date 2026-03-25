@@ -1,0 +1,6 @@
+{
+  "task_id": "q013751",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    output reg [9:0] count\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    // Always block triggered on the rising edge of the clock\n    always @(posedge clk) begin\n        if (reset) begin\n            count <= 10'b0;  // Synchronous reset to zero\n        end else begin\n            count <= {count[8:0], ~count[9]};  // Johnson counter behavior\n        end\n    end\n\nendmodule"
+}

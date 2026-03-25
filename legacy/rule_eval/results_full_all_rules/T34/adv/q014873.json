@@ -1,0 +1,15 @@
+{
+  "task_id": "q014873",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter2bit(\n    input rst,\n    input reset,\n    input enable,\n    \n    output reg [1:0] count\n);\n\nalways @(posedge rst) begin\n    if (reset)\n        count <= 0;\n    else if (enable)\n        count <= count + 1;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

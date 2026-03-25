@@ -1,0 +1,6 @@
+{
+  "task_id": "q009422",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n  input [7:0] in,\n  input [2:0] shift_amt,\n  output reg [7:0] out // Change output to reg type\n);always @(*) begin\n    case(shift_amt)\n      3'b000: out = in; // no shift\n      3'b001: out = {in[6:0], 1'b0}; // shift left by 1\n      3'b010: out = {in[5:0], 2'b00}; // shift left by 2\n      3'b011: out = {in[4:0], 3'b000}; // shift left by 3\n      3'b100: out = {in[3:0], 4'b0000}; // shift left by 4\n      3'b101: out = {1'b0, in[7:1]}; // shift right by 1\n      3'b110: out = {2'b00, in[7:2]}; // shift right by 2\n      3'b111: out = {3'b000, in[7:3]}; // shift right by 3\n      default: out = 8'b00000000; // default case to handle any unexpected shifts\n    endcase\n  end\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q006992",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a register that holds a 32-bit Control and Status Register (CSR). On a negative clock edge, if the reset signal is inactive, the CSR resets to one. Otherwise, if the CSRSel signal is deasserted, the CSR will be updated with the value from the input rs1_to_csr, allowing for selective unloading of the CSR based on the control signal.\nmodule top_module(\n\tinput clk,\n\tinput reset,\n\n\tinput [31:0] rs1_to_csr,\n\tinput CSRSel,\n\n\toutput reg [31:0] csr\n);always @(posedge clk) begin\n\tif (reset) begin\n\t\tcsr <= 32'd0;\n\tend else begin\n\t\tif (CSRSel) begin\n\t\t\tcsr <= rs1_to_csr;\n\t\tend\n\tend\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a register that holds a 32-bit Control and Status Register (CSR). On a negative clock edge, if the reset signal is inactive, the CSR resets to one. Otherwise, if the CSRSel signal is deasserted, the CSR will be updated with the value from the input rs1_to_csr, allowing for selective unloading of the CSR based on the control signal."
+  }
+}

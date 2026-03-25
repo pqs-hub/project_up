@@ -1,0 +1,6 @@
+{
+  "task_id": "q003207",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule (  \n    input clk,  \n    input reset,  \n    input [3:0] mem_id,   // identifier for the memory block  \n    input alloc,          // signal to allocate memory  \n    input free,           // signal to free memory  \n    output reg [3:0] status // 0: free, 1: allocated  \n);  \n    reg [1:0] mem_state [0:15]; // state of 16 memory blocks (0: free, 1: allocated)  \n    integer i;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            // Initialize all memory blocks to free  \n            for (i = 0; i < 16; i = i + 1) begin  \n                mem_state[i] <= 2'b00;  \n            end  \n        end else begin  \n            if (alloc) begin  \n                // Allocate memory block  \n                if (mem_state[mem_id] == 2'b00) begin  \n                    mem_state[mem_id] <= 2'b01;  \n                end  \n            end  \n            if (free) begin  \n                // Free memory block  \n                if (mem_state[mem_id] == 2'b01) begin  \n                    mem_state[mem_id] <= 2'b00;  \n                end  \n            end  \n            // Output current state of the memory block  \n            status <= mem_state[mem_id];  \n        end  \n    end  \nendmodule"
+}

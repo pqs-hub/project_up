@@ -1,0 +1,15 @@
+{
+  "task_id": "q017356",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gated_d_latch (\n    input d,\n    input reset,\n    input en,\n    output reg q\n);\n\n    always @(posedge reset) begin\n        if (en) begin\n            q <= d;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "gated_d_latch_"
+  }
+}

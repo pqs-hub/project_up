@@ -1,0 +1,6 @@
+{
+  "task_id": "q005683",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input [3:0] addr,\n    input [7:0] data_in,\n    input write_en,\n    output reg [7:0] data_out\n);reg [7:0] unused_memory [0:15]; // Declare a simple unused_memory array of 16 locations\n\n    initial begin\n        // Initialize unused_memory with data\n        unused_memory[0] = 8'h00;\n        unused_memory[1] = 8'h11;\n        unused_memory[2] = 8'h22;\n        unused_memory[3] = 8'h33;\n        unused_memory[4] = 8'h44;\n        unused_memory[5] = 8'h55;\n        unused_memory[6] = 8'h66;\n        unused_memory[7] = 8'h77;\n        unused_memory[8] = 8'h88;\n        unused_memory[9] = 8'h99;\n        unused_memory[10] = 8'hAA;\n        unused_memory[11] = 8'hBB;\n        unused_memory[12] = 8'hCC;\n        unused_memory[13] = 8'hDD;\n        unused_memory[14] = 8'hEE;\n        unused_memory[15] = 8'hFF;\n    end\n\n    always @(posedge clk) begin\n        if (write_en) begin\n            unused_memory[addr] <= data_in;  // Write data to unused_memory\n        end\n        data_out <= unused_memory[addr]; // Read data from unused_memory\n    end\n\nendmodule"
+}

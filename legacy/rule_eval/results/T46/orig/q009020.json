@@ -1,0 +1,6 @@
+{
+  "task_id": "q009020",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module top_module(\n  input CLK,\n  input EN,\n  input [31:0] DATA_IN,\n  output [31:0] DATA_OUT_1,\n  output [31:0] DATA_OUT_2,\n  output [31:0] DATA_OUT_3\n);reg [31:0] data_reg_1, data_reg_2, data_reg_3;\n\n  always @(posedge CLK) begin\n    if (EN) begin\n      data_reg_3 <= data_reg_2;\n      data_reg_2 <= data_reg_1;\n      data_reg_1 <= DATA_IN;\n    end\n  end\n\n  assign DATA_OUT_1 = data_reg_2;\n  assign DATA_OUT_2 = data_reg_3;\n  assign DATA_OUT_3 = DATA_IN;\n\nendmodule"
+}

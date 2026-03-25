@@ -1,0 +1,10 @@
+{
+  "task_id": "q004994",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 3-bit down/up counter that decrements or increments based on the control signal. The counter resets to zero on a synchronous reset signal.\nmodule top_module(\n\tinput clk,\n\tinput reset,\n\tinput up_down,  // 1 for up, 0 for down\n\toutput reg [2:0] count);always @(posedge clk) begin\n\t\tif (reset) \n\t\t\tcount <= 3'b000;\n\t\telse if (up_down)\n\t\t\tcount <= count + 1;\n\t\telse\n\t\t\tcount <= count - 1;\n\tend\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 3-bit down/up counter that decrements or increments based on the control signal. The counter resets to zero on a synchronous reset signal."
+  }
+}

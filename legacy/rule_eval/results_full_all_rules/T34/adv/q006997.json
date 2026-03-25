@@ -1,0 +1,15 @@
+{
+  "task_id": "q006997",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input signed [7:0] A,\n  input signed [7:0] B,\n  input [2:0] OP,\n  input reset,\n  input RST,\n  output reg signed [15:0] RES\n);always @(posedge reset) begin\n    if (RST) begin\n      RES <= 16'b0;\n    end else begin\n      case (OP)\n        3'b000: RES <= A + B; // addition\n        3'b001: RES <= A - B; // subtraction\n        3'b010: RES <= A * B; // multiplication\n        3'b011: RES <= A / B; // integer division\n        default: RES <= 16'b0;\n      endcase\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

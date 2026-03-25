@@ -1,0 +1,6 @@
+{
+  "task_id": "q001815",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module branch_predictor (\n    input clk,\n    input reset,\n    input branch_outcome,  // 1 for taken, 0 for not taken\n    output reg prediction   // 1 for taken, 0 for not taken\n);\n    reg [1:0] unused_history; // 2-bit unused_history register\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            unused_history <= 2'b00; // reset unused_history\n            prediction <= 0;  // reset prediction\n        end else begin\n            prediction <= (unused_history[1] == 1) ? 1 : 0; // prediction logic\n            // Update unused_history based on the current outcome\n            unused_history <= {unused_history[0], branch_outcome};  \n        end\n    end\nendmodule"
+}

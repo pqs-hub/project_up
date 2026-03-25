@@ -1,0 +1,15 @@
+{
+  "task_id": "q008479",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module reg_8bit (reset, LD, D, Q);\ninput reset, LD;\ninput [7:0] D;\noutput reg [7:0] Q;\n\nalways @(posedge reset) begin\n    if (LD)\n        Q <= D;\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "RST"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

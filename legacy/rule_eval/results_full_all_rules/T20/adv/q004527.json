@@ -1,0 +1,10 @@
+{
+  "task_id": "q004527",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-to-2 decoder with disable. Inputs are a 4-bit binary number a and a disable signal dis. Output is a 2-bit one-hot encoded signal y. If dis is 1, y should be 00. If dis is 0, y should be one-hot encoded based on the value of a.\nmodule decoder2to4 (\n    input [1:0] a,\n    input en,\n    output reg [3:0] y);\n\n    always @(*) begin\n        if (!en) y = 4'b0000;\n        else case (a)\n            2'b00: y = 4'b0001;\n            2'b01: y = 4'b0010;\n            2'b10: y = 4'b0100;\n            2'b11: y = 4'b1000;\n        endcase\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-to-2 decoder with disable. Inputs are a 4-bit binary number a and a disable signal dis. Output is a 2-bit one-hot encoded signal y. If dis is 1, y should be 00. If dis is 0, y should be one-hot encoded based on the value of a."
+  }
+}

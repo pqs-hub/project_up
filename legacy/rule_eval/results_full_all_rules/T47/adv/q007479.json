@@ -1,0 +1,8 @@
+{
+  "task_id": "q007479",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(\n    iTypeSignExtend,\n    rs1,\n    target\n);input wire [31:0] iTypeSignExtend;\n    input wire [31:0] rs1;\n    output wire [31:0] target;\n    \n      wire _n01 = rs1[0] ^ iTypeSignExtend[0];\n  wire _c01 = rs1[0] & iTypeSignExtend[0];\n  wire _n02 = rs1[1] ^ iTypeSignExtend[1] ^ _c01;\n  wire _c02 = (rs1[1] & iTypeSignExtend[1]) | (rs1[1] & _c01) | (iTypeSignExtend[1] & _c01);\n  wire _n03 = rs1[2] ^ iTypeSignExtend[2] ^ _c02;\n  wire _c03 = (rs1[2] & iTypeSignExtend[2]) | (rs1[2] & _c02) | (iTypeSignExtend[2] & _c02);\n  wire _n04 = rs1[3] ^ iTypeSignExtend[3] ^ _c03;\n  wire _c04 = (rs1[3] & iTypeSignExtend[3]) | (rs1[3] & _c03) | (iTypeSignExtend[3] & _c03);\n  assign target = {_n01, _n02, _n03, _n04};\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

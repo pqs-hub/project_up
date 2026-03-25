@@ -1,0 +1,10 @@
+{
+  "task_id": "q009637",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment is misleading because it suggests that the register does not load a new value on each clock edge, which is contrary to the specification.\nmodule top_module(\n\tinput clk,\n\tinput reset,\n\tinput [15:0] data_in,\n\toutput reg [15:0] q);always @(posedge clk) begin\n\t\tif (reset)\n\t\t\tq <= 16'b0000000000000000;\n\t\telse\n\t\t\tq <= data_in;\n\tend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment is misleading because it suggests that the register does not load a new value on each clock edge, which is contrary to the specification."
+  }
+}

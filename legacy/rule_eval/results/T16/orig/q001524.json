@@ -1,0 +1,6 @@
+{
+  "task_id": "q001524",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module JK_FF (\n    input J,\n    input K,\n    input Clock,\n    input Reset,\n    output reg Q\n);\n    always @(posedge Clock or posedge Reset) begin\n        if (Reset)\n            Q <= 0;\n        else begin\n            case ({J, K})\n                2'b00: Q <= Q;      // No change\n                2'b01: Q <= 0;      // Reset\n                2'b10: Q <= 1;      // Set\n                2'b11: Q <= ~Q;     // Toggle\n            endcase\n        end\n    end\nendmodule"
+}

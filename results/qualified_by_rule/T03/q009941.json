@@ -1,0 +1,6 @@
+{
+  "task_id": "q009941",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input reset_n,\n    output reg [3:0] q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk) begin\n        if (!reset_n)\n            q <= 4'b1111; // Synchronous reset to '1111'\n        else\n            q <= q - 1; // Decrement counter\n    end\n\nendmodule"
+}

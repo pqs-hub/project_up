@@ -1,0 +1,8 @@
+{
+  "task_id": "q006729",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module counter_with_enable(\n    input clk,\n    input rst_n,\n    input en,\n    output reg [3:0] count\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or negedge rst_n) begin\n        if (~rst_n) begin\n            count <= 4'b0000;\n        end else if (en) begin\n            count <= count + 1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q010864",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module reads data from a specified input port based on a 2-bit address and outputs it only when the address is 00.\nmodule top_module(\n                     // inputs:\n                      address,\n                      clk,\n                      in_port,\n                      reset_n,\n\n                     // outputs:\n                      readdata\n                   )\n;output  [ 15: 0] readdata;\n  input   [  1: 0] address;\n  input            clk;\n  input   [ 15: 0] in_port;\n  input            reset_n;\n\n  wire             clk_en;\n  wire    [ 15: 0] data_in;\n  wire    [ 15: 0] read_mux_out;\n  reg     [ 15: 0] readdata;\n  assign clk_en = 1;\n  //s1, which is an e_avalon_slave\n  assign read_mux_out = {16 {(address == 0)}} & data_in;\n  always @(posedge clk or negedge reset_n)\n    begin\n      if (reset_n == 0)\n          readdata <= 0;\n      else if (clk_en)\n          readdata <= read_mux_out;\n    end\n\n\n  assign data_in = in_port;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module reads data from a specified input port based on a 2-bit address and outputs it only when the address is 00."
+  }
+}

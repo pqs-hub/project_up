@@ -1,0 +1,9 @@
+{
+  "task_id": "q007538",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input [1:0] in,\n    input clk,\n    output reg [3:0] out\n);reg [3:0] obf_out_reg;\n\nalways @(*) begin\n    case(in)\n        2'b00: obf_out_reg = 4'b0001;\n        2'b01: obf_out_reg = 4'b0010;\n        2'b10: obf_out_reg = 4'b0100;\n        2'b11: obf_out_reg = 4'b1000;\n        default: obf_out_reg = 4'b0000; // default case to avoid latch inference\n    endcase\nend\n\nalways @(posedge clk) begin\n    out <= obf_out_reg;\nend\n\nendmodule",
+  "rename_map": {
+    "out_reg": "obf_out_reg"
+  }
+}

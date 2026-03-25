@@ -1,0 +1,9 @@
+{
+  "task_id": "q006514",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    X ,\n    obf_A1,\n    A2,\n    A3,\n    B1,\n    B2\n);output X ;\n    input  obf_A1;\n    input  A2;\n    input  A3;\n    input  B1;\n    input  B2;\n\n    assign X = (obf_A1 & A2 & ~A3) ? 0 :\n               (~obf_A1 & ~A2) ? 1 :\n               (obf_A1 & ~A2) ? B1 :\n               (~obf_A1 & A2) ? B2 :\n               1'b1;\n\nendmodule",
+  "rename_map": {
+    "A1": "obf_A1"
+  }
+}

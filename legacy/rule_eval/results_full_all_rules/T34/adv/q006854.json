@@ -1,0 +1,20 @@
+{
+  "task_id": "q006854",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(R,Clock, L, E, direction, Q);parameter n = 8;\n\tinput [n-1:0] R;\n\tinput Clock, L, E, direction;\n\toutput reg[n-1:0] Q;\n\talways @(posedge Clock)\n\t\tif(L)\n\t\t\tQ <= R;\n\t\telse if(E)\n\t\t\tQ  <= Q+(direction? 1 : -1);\n\t\t\t\nendmodule",
+  "rename_map": {
+    "up_down": "direction"
+  },
+  "params_used": {
+    "custom_map": {
+      "R": "reset_value",
+      "Clock": "clk",
+      "L": "load_en",
+      "E": "enable",
+      "up_down": "direction",
+      "Q": "count"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

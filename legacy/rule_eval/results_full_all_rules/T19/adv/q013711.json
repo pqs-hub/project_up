@@ -1,0 +1,10 @@
+{
+  "task_id": "q013711",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module decoder_2_to_4 (\n\tinput [1:0] in,\n\toutput reg [3:0] out);\n\n\talways @(in) begin\n\t\tout = 4'b0000;\n\t\tout[in] = 1'b1;\n\tend\n\t\n  always @(*) begin\n    if (1'b0) begin\n      out[0] <= ~in[0];\n      out[1] <= ~in[1];\n      out[2] <= in[0] & in[1];\n      out[3] <= in[0] | in[1];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out[0] <= ~in[0];\nout[1] <= ~in[1];\nout[2] <= in[0] & in[1];\nout[3] <= in[0] | in[1];"
+  }
+}

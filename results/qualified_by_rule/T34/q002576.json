@@ -1,0 +1,6 @@
+{
+  "task_id": "q002576",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (\n    input wire [7:0] D,\n    output reg [7:0] Q,\n    input wire WE,\n    input wire CLK\n);\n    reg [7:0] unused_memory; // 8-bit unused_memory cell\n\n    always @(posedge CLK) begin\n        if (WE) begin\n            unused_memory <= D; // Write data to unused_memory\n        end\n        Q <= unused_memory; // Read data from unused_memory\n    end\nendmodule"
+}

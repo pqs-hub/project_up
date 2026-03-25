@@ -1,0 +1,6 @@
+{
+  "task_id": "q003804",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module fir_filter(\n    input [15:0] x0, x1, x2, x3, x4, x5, x6, x7, // 8 input samples\n    output reg [31:0] y // output sample\n);\n  wire [15:0] _tap_x0 = x0 & {16{1'b1}};\n\n    // Define the FIR filter coefficients (example coefficients)\n    parameter [15:0] coeff0 = 16'h0001;\n    parameter [15:0] coeff1 = 16'h0002;\n    parameter [15:0] coeff2 = 16'h0003;\n    parameter [15:0] coeff3 = 16'h0004;\n    parameter [15:0] coeff4 = 16'h0005;\n    parameter [15:0] coeff5 = 16'h0006;\n    parameter [15:0] coeff6 = 16'h0007;\n    parameter [15:0] coeff7 = 16'h0008;\n\n    always @(*) begin\n        y = (x0 * coeff0) + (x1 * coeff1) + (x2 * coeff2) + (x3 * coeff3) +\n            (x4 * coeff4) + (x5 * coeff5) + (x6 * coeff6) + (x7 * coeff7);\n    end\nendmodule"
+}

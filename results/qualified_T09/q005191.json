@@ -1,0 +1,6 @@
+{
+  "task_id": "q005191",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n  input [n-1:0] a,\n  input [n-1:0] b,\n  output [n-1:0] and_out,\n  output [n-1:0] or_out,\n  output [n-1:0] xor_out,\n  output [n-1:0] not_out\n);parameter n = 8; // number of bits in each input signal and output signal\n\n// Define the Boolean functions for each bitwise operation\nfunction [n-1:0] bitwise_and;\n  input [n-1:0] a;\n  input [n-1:0] b;\n  begin\n    bitwise_and = a & b;\n  end\nendfunction\n\nfunction [n-1:0] bitwise_or;\n  input [n-1:0] a;\n  input [n-1:0] b;\n  begin\n    bitwise_or = a | b;\n  end\nendfunction\n\nfunction [n-1:0] bitwise_xor;\n  input [n-1:0] a;\n  input [n-1:0] b;\n  begin\n    bitwise_xor = a ^ b;\n  end\nendfunction\n\nfunction [n-1:0] bitwise_not;\n  input [n-1:0] a;\n  begin\n    bitwise_not = ~a;\n  end\nendfunction\n\n// Connect the inputs to the corresponding logic gates using the Boolean functions\nassign and_out = bitwise_and(a, b);\nassign or_out = bitwise_or(a, b);\nassign xor_out = bitwise_xor(a, b);\nassign not_out = bitwise_not(a);\n\nendmodule"
+}

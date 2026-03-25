@@ -1,0 +1,16 @@
+{
+  "task_id": "q001704",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module phase_shifter(\n    input [2:0] phase_shift_input,\n    input control_signal,\n    output reg [2:0] phase_out\n);\n    \n    always @(phase_shift_input or control_signal) begin\n        if (control_signal == 0) begin\n            phase_out = (phase_shift_input + 1) % 8;  // shift right\n        end else begin\n            phase_out = (phase_shift_input - 1 + 8) % 8;  // shift left with wrap around\n        end\n    end\nendmodule",
+  "rename_map": {
+    "phase_in": "phase_shift_input"
+  },
+  "params_used": {
+    "custom_map": {
+      "phase_in": "phase_shift_input",
+      "phase_out": "phase_shift_output"
+    },
+    "fallback_prefix": "shift_"
+  }
+}

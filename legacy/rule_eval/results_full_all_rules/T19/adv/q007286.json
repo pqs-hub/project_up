@@ -1,0 +1,10 @@
+{
+  "task_id": "q007286",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(inp, out);input wire inp;\n    reg data;\n    always @* data = inp;\n    output reg [1:0] out;\n\n    parameter ON = 1;\n    generate\n        if (ON) begin : blk\n            always @* out[0] = data;\n            always @* out[1] = data;\n        end\n    endgenerate\n  always @(*) begin\n    if (1'b0) begin\n      out[0] = ~data; out[1] = ~data;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out[0] = ~data; out[1] = ~data;"
+  }
+}

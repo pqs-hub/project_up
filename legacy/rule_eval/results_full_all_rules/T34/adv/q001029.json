@@ -1,0 +1,15 @@
+{
+  "task_id": "q001029",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell (  \n    input wire [7:0] data_in,  \n    input wire [2:0] addr,  \n    input wire RE,  \n    input wire WE,  \n    output reg [7:0] data_out  \n);  \n    reg [7:0] cell_memory [0:7]; // 8-bit DRAM cell with 8 addresses  \n\n    always @(posedge WE) begin  \n        cell_memory[addr] <= data_in; // Write data to cell_memory  \n    end  \n\n    always @(posedge RE) begin  \n        data_out <= cell_memory[addr]; // Read data from cell_memory  \n    end  \nendmodule",
+  "rename_map": {
+    "memory": "cell_memory"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "cell_memory"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

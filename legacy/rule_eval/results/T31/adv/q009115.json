@@ -1,0 +1,6 @@
+{
+  "task_id": "q009115",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] inclk,\n    input [1:0] clkselect,\n    output reg outclk // Changed from wire to reg\n);wire [3:0] sel_inclk;\nwire __sel_inclk_tmp = inclk[0];\nassign sel_inclk[0] = __sel_inclk_tmp;\nassign sel_inclk[1] = inclk[1];\nassign sel_inclk[2] = inclk[2];\nassign sel_inclk[3] = inclk[3];\n\nalways @(*) begin\n    case(clkselect)\n        2'b00: outclk = sel_inclk[0];\n        2'b01: outclk = sel_inclk[1];\n        2'b10: outclk = sel_inclk[2];\n        2'b11: outclk = sel_inclk[3];\n        default: outclk = 1'b0;\n    endcase\nend\n\nendmodule"
+}

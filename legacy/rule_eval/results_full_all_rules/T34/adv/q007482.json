@@ -1,0 +1,16 @@
+{
+  "task_id": "q007482",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(X_P, G, CI, CO);parameter WIDTH = 1; \n input [WIDTH-1:0] X_P; \n input [WIDTH-1:0] G; \n input CI; \n output reg [WIDTH-1:0] CO; \n integer i; \n always @* begin \n  CO = 'bx; \n  if (^{X_P, G, CI} !== 1'bx) begin \n  CO[0] = G[0] || (X_P[0] && CI); \n  for (i = 1; i < WIDTH; i = i+1) \n  CO[i] = G[i] || (X_P[i] && CO[i-1]); \n  end \n end \n endmodule",
+  "rename_map": {
+    "P": "X_P"
+  },
+  "params_used": {
+    "custom_map": {
+      "P": "N",
+      "G": "Z"
+    },
+    "fallback_prefix": "X_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q011981",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input load,\n    input [1:0] ena,\n    input [99:0] data,\n    output reg [99:0] q);reg [99:0] shift_reg;\n    reg [5:0] shift_amt;\n\n    always @(posedge clk) begin\n        if(load) begin\n            shift_reg <= data;\n            shift_amt <= 0;\n        end else begin\n            if(ena == 2'b00) begin\n                shift_reg <= shift_reg;\n                shift_amt <= shift_amt;\n            end else if(ena == 2'b01) begin\n                shift_reg <= {shift_reg[98:0], shift_reg[99]};\n                shift_amt <= shift_amt + 1;\n            end else if(ena == 2'b10) begin\n                shift_reg <= {shift_reg[0], shift_reg[99:1]};\n                shift_amt <= shift_amt - 1;\n            end\n        end\n    end\n\n    assign q = shift_reg;\n\nendmodule"
+}

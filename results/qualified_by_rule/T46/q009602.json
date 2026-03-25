@@ -1,0 +1,6 @@
+{
+  "task_id": "q009602",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module RefModule(\n    input A1,\n    input A2,\n    input B1,\n    input VPWR,\n    output X\n);// Local signals\n    wire or_out;\n    wire and_out_X;\n\n    // OR gate for A1 and A2\n    or or_gate (or_out, A2, A1);\n\n    // AND gate for or_out and B1\n    and and_gate_X (and_out_X, or_out, B1);\n\n    // Buffer for and_out_X and VPWR\n    buf buf_gate (X, and_out_X & VPWR);\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q000497",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module svm_classifier (  \n    input [7:0] feature1,  \n    input [7:0] feature2,  \n    output reg class_label  \n);  \n    reg signed [15:0] weight1 = 3;  \n    reg signed [15:0] weight2 = 5;  \n    reg signed [15:0] bias = -20;  \n    reg signed [15:0] decision_value;  \n\n    always @* begin\n    begin end  // redundant  \n        decision_value = (feature1 * weight1) + (feature2 * weight2) + bias;  \n        if (decision_value >= 0)  \n            class_label = 1;  \n        else  \n            class_label = 0;  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

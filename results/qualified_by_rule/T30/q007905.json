@@ -1,0 +1,6 @@
+{
+  "task_id": "q007905",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clock,\n    input wire WriteEnable,\n    input wire Flush,\n    input wire [31:0] pc_plus_four,\n    output reg [31:0] ID_pc_plus_four,\n    input wire [31:0] instruction,\n    output reg [31:0] ID_instruction\n    );always @(negedge clock) begin\n        if (Flush) begin\n            \n            \n            \n            \n            ID_pc_plus_four <= 0;\n            ID_instruction <= 0;\n        end\n        else if (WriteEnable) begin\n            ID_pc_plus_four <= pc_plus_four;\n            ID_instruction <= instruction;\n        end\n    end  \nendmodule"
+}

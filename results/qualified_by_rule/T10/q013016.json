@@ -1,0 +1,6 @@
+{
+  "task_id": "q013016",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(\n  clka,\n  wea,\n  addra,\n  dina,\n  douta\n);input clka;\ninput [0 : 0] wea;\ninput [5 : 0] addra;\ninput [31 : 0] dina;\noutput reg [31 : 0] douta; // Changed output to reg to allow assignments\n\n// Declare a memory array to represent the block memory\nreg [31:0] memory_array [0:63]; // 64 entries of 32-bit wide memory\n\n// Memory write operation\nalways @(posedge clka) begin\n  if (wea) begin\n    memory_array[addra] <= dina; // Write data to memory\n  end\nend\n\n// Memory read operation\nalways @(posedge clka) begin\n  douta <= memory_array[addra]; // Read data from memory\nend\n\nendmodule"
+}

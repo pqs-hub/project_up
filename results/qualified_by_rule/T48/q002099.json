@@ -1,0 +1,6 @@
+{
+  "task_id": "q002099",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule (  \n    input clk,  \n    input rst,  \n    input [31:0] new_instruction,  \n    output reg [31:0] instruction_IF,  \n    output reg [31:0] instruction_ID,  \n    output reg [31:0] instruction_EX,  \n    output reg [31:0] instruction_WB  \n);  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            instruction_IF <= 32'b0;  \n            instruction_ID <= 32'b0;  \n            instruction_EX <= 32'b0;  \n            instruction_WB <= 32'b0;  \n        end else begin  \n            instruction_WB <= instruction_EX;  \n            instruction_EX <= instruction_ID;  \n            instruction_ID <= instruction_IF;  \n            instruction_IF <= new_instruction;  \n        end  \n    end  \nendmodule"
+}

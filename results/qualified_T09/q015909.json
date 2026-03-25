@@ -1,0 +1,6 @@
+{
+  "task_id": "q015909",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n  input [15:0]      a,\n  input [15:0]      b,\n  input [15:0]      c,\n  input [2:0]       sel,\n  output reg [31:0] res\n  );always @* begin\n    case(sel)\n      0: res = {a + b, a};\n      1: res = {a - b, b};\n      2: res = {a + c, c};\n      3: res = {a - c, a};\n      4: res = {b, b};\n      5: res = {c, c};\n      default: res = 32'bx;\n    endcase\n  end\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q008662",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input din,\n  output reg dout,\n  input reset_n\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge reset_n or posedge dbg_halt) begin\n    if (~reset_n) begin\n      dout <= 1'b0;\n    end else begin\n      dout <= din;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

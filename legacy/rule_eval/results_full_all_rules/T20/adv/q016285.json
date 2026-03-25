@@ -1,0 +1,10 @@
+{
+  "task_id": "q016285",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module is designed to implement a 4-bit binary counter with asynchronous reset.\nmodule counter4bit_sync (\n    input clk,\n    input rst,\n    output [3:0] q\n);\n\n    reg [3:0] q_reg;\n\n    always @(posedge clk) begin\n        if (rst)\n            q_reg <= 4'b0000;\n        else\n            q_reg <= q_reg + 1;\n    end\n\n    assign q = q_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to implement a 4-bit binary counter with asynchronous reset."
+  }
+}

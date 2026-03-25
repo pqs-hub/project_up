@@ -1,0 +1,16 @@
+{
+  "task_id": "q008865",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(extender_input,saida16);input [15:0] extender_input;\noutput reg [31:0] saida16;\n\nalways @(*) begin\n\n\tif(extender_input[15] == 1'b1) \n\t\tsaida16= {{16{1'b1}}, extender_input};\n\telse \n\t\tsaida16 = {{16{1'b0}}, extender_input};\nend\n\nendmodule",
+  "rename_map": {
+    "entrada": "extender_input"
+  },
+  "params_used": {
+    "custom_map": {
+      "entrada": "extender_input",
+      "saida16": "extended_output"
+    },
+    "fallback_prefix": "neg_ext_"
+  }
+}

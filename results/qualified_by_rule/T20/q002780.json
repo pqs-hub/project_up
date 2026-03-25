@@ -1,0 +1,6 @@
+{
+  "task_id": "q002780",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule (\n    input clk,\n    input rst,\n    input [3:0] current_level,\n    output reg alert\n);\n    reg prev_alert;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            alert <= 0;\n            prev_alert <= 0;\n        end else begin\n            if (current_level > 4'd10) begin\n                alert <= 1;\n            end else if (current_level <= 4'd10 && prev_alert == 1) begin\n                alert <= 0;\n            end\n            prev_alert <= alert;\n        end\n    end\nendmodule"
+}

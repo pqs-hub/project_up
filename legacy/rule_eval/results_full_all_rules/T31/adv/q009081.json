@@ -1,0 +1,10 @@
+{
+  "task_id": "q009081",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(input clock_i,input S,input R,output Q);reg out; \n  wire inverted_out = out;\n  assign Q = inverted_out; \n  always @(negedge clock_i) \n  begin \n  if( S ) \n  out <= 1'b1; \n  else \n  if( R ) \n  out <= 1'b0; \n  end \n endmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "inverted_out"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q001353",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire clk,\n    input wire we, // Write enable\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n    reg [7:0] cell_data;\n\n    always @(posedge clk) begin\n        if (we) begin\n            cell_data <= data_in; // Store input data\n        end\n    end\n\n    always @(*) begin\n        data_out = cell_data; // Output current cell_data value\n    end\nendmodule",
+  "rename_map": {
+    "memory": "cell_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "cell_data"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q000434",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module thermal_sensor_calibration(  \n    input wire clk,  \n    input wire rst,  \n    input wire [11:0] raw_data,   // 12-bit raw sensor data  \n    input wire [11:0] calibration_value, // 12-bit calibration value  \n    output reg [11:0] calibrated_data // output calibrated data  \n);  \n\n    reg [11:0] obf_last_calibrated_value;  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            calibrated_data <= 12'b0;  \n            obf_last_calibrated_value <= 12'b0;  \n        end else begin  \n            calibrated_data <= raw_data + calibration_value;  \n            obf_last_calibrated_value <= calibrated_data;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "last_calibrated_value": "obf_last_calibrated_value"
+  }
+}

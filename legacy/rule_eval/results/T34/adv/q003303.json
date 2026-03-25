@@ -1,0 +1,6 @@
+{
+  "task_id": "q003303",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire d,\n    input wire we,\n    input wire clk,\n    output reg q\n);\n    reg unused_stored_bit;\n\n    always @(posedge clk) begin\n        if (we) begin\n            unused_stored_bit <= d;\n        end\n    end\n\n    always @* begin\n        q = unused_stored_bit;\n    end\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q016829",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module half_adder (\n    input A,\n    input B,\n    output SUM,\n    output CARRY_OUT\n);\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // XOR gate for SUM\n    assign SUM = A ^ B;\n\n    // AND gate for CARRY_OUT\n    assign CARRY_OUT = A & B;\n\n  always @(*) begin\n    if (1'b0) begin\n      SUM <= ~A; CARRY_OUT <= ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "SUM <= ~A; CARRY_OUT <= ~B;"
+  }
+}

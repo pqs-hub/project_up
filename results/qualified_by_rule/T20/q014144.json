@@ -1,0 +1,6 @@
+{
+  "task_id": "q014144",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule (\n    input clk,\n    input reset,\n    input enable,\n    input in_bit,\n    output reg [3:0] out\n);always @(posedge clk) begin\n    if (reset) begin\n        out <= 4'b0000;\n    end else if (enable) begin\n        out <= {out[2:0], in_bit};\n    end\nend\n\nendmodule"
+}

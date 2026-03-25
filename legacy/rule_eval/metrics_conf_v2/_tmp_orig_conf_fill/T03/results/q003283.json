@@ -1,0 +1,7 @@
+{
+  "task_id": "q003283",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module sd_card_interface (\n    input wire clk,\n    input wire reset,\n    input wire start_read,\n    input wire start_write,\n    input wire done,\n    output reg [1:0] state // 00: IDLE, 01: READ, 10: WRITE\n);\n    parameter IDLE = 2'b00;\n    parameter READ = 2'b01;\n    parameter WRITE = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start_read) state <= READ;\n                    else if (start_write) state <= WRITE;\n                end\n                READ: begin\n                    if (done) state <= IDLE;\n                end\n                WRITE: begin\n                    if (done) state <= IDLE;\n                end\n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule",
+  "rename_map": {}
+}

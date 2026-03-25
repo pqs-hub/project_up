@@ -1,0 +1,8 @@
+{
+  "task_id": "q015758",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module digital_lock (\n  input [3:0] code_input,\n  input [3:0] correct_code,\n  output reg unlock);\n  wire [3:0] _tap_code_input = code_input & {4{1'b1}};\n\n  \nalways @(*) begin\n    if (code_input == correct_code)\n        unlock = 1'b1;\n    else\n        unlock = 1'b0;\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q011634",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule register_with_enable_reset (\n    input clk,\n    input enable,\n    input reset,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            data_out <= 16'b0;\n        else if (enable)\n            data_out <= data_in;\n    end\n\nendmodule"
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q005631",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module shift_register(\n    input obf_clk,\n    input rst,\n    input din,\n    output reg [7:0] dout\n);\n\nalways @(posedge obf_clk or posedge rst)\n    if (rst)\n        dout <= 8'b00000000;\n    else\n        dout <= {1'b0, dout[7:1]};\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

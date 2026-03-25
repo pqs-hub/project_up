@@ -1,0 +1,8 @@
+{
+  "task_id": "q002920",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module audio_compressor (\n    input wire clk,\n    input wire [7:0] audio_in,\n    output reg [3:0] audio_out\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        audio_out <= audio_in[7:4]; // take the most significant 4 bits\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

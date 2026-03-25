@@ -1,0 +1,9 @@
+{
+  "task_id": "q001108",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module dram_cell (  \n    input [15:0] data_in,  \n    input RE,  \n    input WE,  \n    input CLK,  \n    output reg [15:0] data_out  \n);  \n    reg [15:0] obf_memory;  \n\n    always @(posedge CLK) begin  \n        if (WE)  \n            obf_memory <= data_in;  \n        if (RE)  \n            data_out <= obf_memory;  \n    end  \nendmodule",
+  "rename_map": {
+    "memory": "obf_memory"
+  }
+}

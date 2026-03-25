@@ -1,0 +1,10 @@
+{
+  "task_id": "q016295",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module bin_to_gray(BIN, GRAY);\ninput [3:0] BIN;\noutput [3:0] GRAY;\nassign GRAY[3] = BIN[3];\nassign GRAY[2] = BIN[3] ^ BIN[2];\nassign GRAY[1] = BIN[2] ^ BIN[1];\nassign GRAY[0] = BIN[1] ^ BIN[0];\n  always @(*) begin\n    if (1'b0) begin\n      GRAY[3] = ~BIN[3];\n      GRAY[2] = BIN[3] & ~BIN[2];\n      GRAY[1] = ~BIN[2] | BIN[1];\n      GRAY[0] = BIN[1] & BIN[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "GRAY[3] = ~BIN[3];\nGRAY[2] = BIN[3] & ~BIN[2];\nGRAY[1] = ~BIN[2] | BIN[1];\nGRAY[0] = BIN[1] & BIN[0];"
+  }
+}

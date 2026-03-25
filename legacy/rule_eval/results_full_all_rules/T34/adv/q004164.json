@@ -1,0 +1,16 @@
+{
+  "task_id": "q004164",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module packet_filter (\n    input [31:0] source_ip,\n    input [31:0] dst_ip,\n    output reg accept\n);\n    always @(*) begin\n        if (source_ip == 32'hC0A80101 || dst_ip == 32'h0A000001) // 192.168.1.1 or 10.0.0.1\n            accept = 1;\n        else\n            accept = 0;\n    end\nendmodule",
+  "rename_map": {
+    "src_ip": "source_ip"
+  },
+  "params_used": {
+    "custom_map": {
+      "src_ip": "source_ip",
+      "dst_ip": "destination_ip"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

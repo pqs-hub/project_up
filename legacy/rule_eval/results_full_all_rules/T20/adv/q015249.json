@@ -1,0 +1,10 @@
+{
+  "task_id": "q015249",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module is designed to select one of four 4-bit input signals (d, c, b, or a) based on a 2-bit selection input (sel). Depending on the value of sel, the output (out) will reflect the selected input: when sel=0, output d; when sel=1, output c; when sel=2, output b; and when sel=3, output a. If sel has an invalid value, the output will be set to an undefined state.\nmodule top_module(\noutput reg [0:3] out, \ninput [0:3] a, b, c, d, \ninput [0:1] sel\n);always @(sel, a, b, c, d)\ncase(sel)\n\t0:\tout=a;\n\t1:\tout=b;\n\t2:\tout=c;\n\t3:\tout=d;\ndefault: out=4'bx;\nendcase\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to select one of four 4-bit input signals (d, c, b, or a) based on a 2-bit selection input (sel). Depending on the value of sel, the output (out) will reflect the selected input: when sel=0, output d; when sel=1, output c; when sel=2, output b; and when sel=3, output a. If sel has an invalid value, the output will be set to an undefined state."
+  }
+}

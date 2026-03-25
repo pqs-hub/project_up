@@ -1,0 +1,9 @@
+{
+  "task_id": "q003698",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module sr_latch(  \n    input wire S,  \n    input wire R,  \n    output reg obf_Q,  \n    output reg Q_bar  \n);  \n    always @ (S, R) begin  \n        if (S && ~R) begin  \n            obf_Q <= 1;  \n            Q_bar <= 0;  \n        end  \n        else if (~S && R) begin  \n            obf_Q <= 0;  \n            Q_bar <= 1;  \n        end  \n        // Invalid condition will keep the previous state  \n    end  \nendmodule",
+  "rename_map": {
+    "Q": "obf_Q"
+  }
+}

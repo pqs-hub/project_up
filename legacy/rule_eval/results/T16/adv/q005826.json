@@ -1,0 +1,9 @@
+{
+  "task_id": "q005826",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n\tinput [31:0] nextPc,\n\tinput [31:0] obf_inst,\n\toutput reg [31:0] jumpPc);always @(nextPc or obf_inst) begin\n\t\tjumpPc[1:0] = 2'b00;\n\t\tjumpPc[27:2] = obf_inst[25:0];\n\t\tjumpPc[31:28] = nextPc[31:28];\n\tend \nendmodule",
+  "rename_map": {
+    "inst": "obf_inst"
+  }
+}

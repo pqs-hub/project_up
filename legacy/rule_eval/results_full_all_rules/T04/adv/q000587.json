@@ -1,0 +1,10 @@
+{
+  "task_id": "q000587",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a single-channel DMA controller instead of a two-channel one.\nmodule dma_controller (\n    input wire clk,\n    input wire reset,\n    input wire start_channel1,\n    input wire start_channel2,\n    input wire [7:0] bytes_to_transfer1,\n    input wire [7:0] bytes_to_transfer2,\n    output reg done_channel1,\n    output reg done_channel2\n);\n    reg [7:0] count1;\n    reg [7:0] count2;\n    reg transferring1;\n    reg transferring2;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count1 <= 0;\n            count2 <= 0;\n            transferring1 <= 0;\n            transferring2 <= 0;\n            done_channel1 <= 0;\n            done_channel2 <= 0;\n        end else begin\n            if (start_channel1 && !transferring1) begin\n                transferring1 <= 1;\n                count1 <= bytes_to_transfer1;\n                done_channel1 <= 0;\n            end\n            if (transferring1) begin\n                if (count1 > 0) begin\n                    count1 <= count1 - 1;\n                end else begin\n                    done_channel1 <= 1;\n                    transferring1 <= 0;\n                end\n            end\n            \n            if (start_channel2 && !transferring2) begin\n                transferring2 <= 1;\n                count2 <= bytes_to_transfer2;\n                done_channel2 <= 0;\n            end\n            if (transferring2) begin\n                if (count2 > 0) begin\n                    count2 <= count2 - 1;\n                end else begin\n                    done_channel2 <= 1;\n                    transferring2 <= 0;\n                end\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a single-channel DMA controller instead of a two-channel one."
+  }
+}

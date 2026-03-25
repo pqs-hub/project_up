@@ -1,0 +1,6 @@
+{
+  "task_id": "q001089",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire reset,\n    input wire [31:0] instruction_in,\n    output reg [31:0] instruction_out\n);\n    reg [31:0] IF_stage, ID_stage, EX_stage, MEM_stage;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            IF_stage <= 32'b0;\n            ID_stage <= 32'b0;\n            EX_stage <= 32'b0;\n            MEM_stage <= 32'b0;\n            instruction_out <= 32'b0;\n        end else begin\n            IF_stage <= instruction_in; // Fetch instruction\n            ID_stage <= IF_stage;        // Decode instruction\n            EX_stage <= ID_stage;        // Execute instruction\n            MEM_stage <= EX_stage;       // Access memory\n            instruction_out <= MEM_stage; // Write back stage\n        end\n    end\nendmodule"
+}

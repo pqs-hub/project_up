@@ -1,0 +1,8 @@
+{
+  "task_id": "q013872",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module( input      sel,\n                  input      clka,\n                  input      clkb,\n                  output reg clkout\n                );always @(*)\n  wire _tap_sel = sel & {1{1'b1}};\n\n begin\n     case (sel) \n         1'b0    : clkout = clka;\n         1'b1    : clkout = clkb;\n         default : clkout = clka;\n     endcase\n end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q012129",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A1,\n    input A2,\n    input A3,\n    input B1,\n    input B2,\n    output X\n);wire invalid_A2_A3;\n    assign invalid_A2_A3 = A2 & ~A3;\n    \n    assign X = (A1 | invalid_A2_A3) & B1;\n\nendmodule",
+  "rename_map": {
+    "A2_A3": "invalid_A2_A3"
+  },
+  "params_used": {
+    "custom_map": {
+      "A2_A3": "B2_B3"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

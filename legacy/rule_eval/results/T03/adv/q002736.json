@@ -1,0 +1,6 @@
+{
+  "task_id": "q002736",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module mux2to1_with_forwarding (\n    input wire [7:0] A,\n    input wire [7:0] B,\n    input wire sel,\n    output wire [7:0] out\n);\n  wire [7:0] _tap_A = A & {8{1'b1}};\n\n    assign out = (A == B) ? A : (sel ? B : A);\nendmodule"
+}

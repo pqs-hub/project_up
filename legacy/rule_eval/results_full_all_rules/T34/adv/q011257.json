@@ -1,0 +1,15 @@
+{
+  "task_id": "q011257",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [31:0] in,\n  input [1:0] shift,\n  output reg [31:0] result\n);always @(*)\n  begin\n    case(shift)\n      2'b00: result = in;\n      2'b01: result = {in[30:0], 1'b0};\n      2'b10: result = {1'b0, in[31:1]};\n      2'b11: result = {2'b00, in[31:2]};\n    endcase\n  end\n\nendmodule",
+  "rename_map": {
+    "out": "result"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "result"
+    },
+    "fallback_prefix": "shft_"
+  }
+}

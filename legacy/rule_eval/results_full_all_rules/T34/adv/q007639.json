@@ -1,0 +1,15 @@
+{
+  "task_id": "q007639",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(I, O, S0, S1);input [3:0] I;\n  output O;\n  input S0, S1;\n  \n  reg [3:0] selected_input;\n  always @ (S0, S1, I) begin\n    case ({S1, S0})\n      2'b00: selected_input = I[0];\n      2'b01: selected_input = I[1];\n      2'b10: selected_input = I[2];\n      2'b11: selected_input = I[3];\n    endcase\n  end\n  \n  assign O = selected_input;\nendmodule",
+  "rename_map": {
+    "temp": "selected_input"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp": "selected_input"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

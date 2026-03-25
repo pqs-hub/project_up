@@ -1,0 +1,6 @@
+{
+  "task_id": "q004912",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(input [7:0] DataIN,\n\t\t\t\t\t\tinput clock, Reset_b,\n\t\t\t\t\t\toutput [7:0] DataOUT);reg [7:0] obf_DataOUTreg;\n\talways @ (posedge clock) begin\n\t\tif(Reset_b == 0)\n\t\t\tobf_DataOUTreg <= 8'b00000000;\n\t\telse\n\t\t\tobf_DataOUTreg <= DataIN;\n\tend\n\tassign DataOUT = obf_DataOUTreg;endmodule"
+}

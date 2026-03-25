@@ -1,0 +1,6 @@
+{
+  "task_id": "q016041",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module mux2to1_enable (\n    input [3:0] in0,\n    input [3:0] in1,\n    input sel,\n    input en,\n    output reg [3:0] out\n);always @(*) begin\n    if (en) begin\n        if (sel) begin\n            out = in1;\n        end else begin\n            out = in0;\n        end\n    end else begin\n        out = 4'b0;\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014660",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    input wire [1:0] mode,\n    input wire [3:0] in,\n    output reg [3:0] out\n);always @(*) begin\n    case(mode)\n        2'b00: out = {in[2:0], 1'b0};\n        2'b01: out = {1'b0, in[3:1]};\n        2'b10: out = ~in;\n        2'b11: out = in;\n        default: out = 4'b0;\n    endcase\nend\n\nendmodule"
+}

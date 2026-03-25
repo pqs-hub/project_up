@@ -1,0 +1,8 @@
+{
+  "task_id": "q011398",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module d_flip_flop(\n\tinput clk,\n\tinput rst_n,\n\tinput d,\n\toutput reg q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n\talways @(posedge clk or negedge rst_n) begin\n\t\tif (!rst_n) \n\t\t\tq <= 1'b0;\n\t\telse \n\t\t\tq <= d;\n\tend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

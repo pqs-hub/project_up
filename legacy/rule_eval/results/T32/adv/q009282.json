@@ -1,0 +1,6 @@
+{
+  "task_id": "q009282",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module gray_code_counter_2bit (\n    input clk,\n    input rst,\n    output reg [2-1:1-1] gray\n);\n\nreg [1:0] binary;\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        binary <= 2'b00;\n    end else begin\n        binary <= binary + 1;\n    end\nend\n\nalways @(binary) begin\n    gray = binary ^ (binary >> 1);\nend\n\nendmodule"
+}

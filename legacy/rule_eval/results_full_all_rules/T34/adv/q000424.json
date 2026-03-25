@@ -1,0 +1,15 @@
+{
+  "task_id": "q000424",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter_2bit (\n    input wire rst,\n    input wire reset,\n    input wire up,\n    input wire down,\n    output reg [1:0] count\n);\n\nalways @(posedge rst or posedge reset) begin\n    if (reset) begin\n        count <= 2'b00; // Initialize counter to 00\n    end else if (up && !down) begin\n        count <= count + 1; // Count up\n    end else if (down && !up) begin\n        count <= count - 1; // Count down\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "_cnt"
+  }
+}

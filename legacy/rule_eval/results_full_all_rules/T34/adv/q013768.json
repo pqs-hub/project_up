@@ -1,0 +1,15 @@
+{
+  "task_id": "q013768",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register_8bit_async(\n    input [7:0] invalid_data,\n    input clk,\n    input rst,\n    output reg [7:0] q\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            q <= 8'b00000000;\n        else\n            q <= invalid_data;\n    end\n\nendmodule",
+  "rename_map": {
+    "data": "invalid_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data": "invalid_data"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

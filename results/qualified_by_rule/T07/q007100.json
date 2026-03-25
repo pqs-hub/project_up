@@ -1,0 +1,6 @@
+{
+  "task_id": "q007100",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(\n    input x,\n    input y,\n    output v\n);\n    assign v = ~(x & y);\nendmodule\n\nmodule H(\n    input x,\n    input y,\n    output v\n);\n    assign v = ~(x & y);\nendmodule\n\nmodule top_module(\n    input x,\n    input y,\n    output v\n);\n    wire g1_out, g2_out, h1_out, h2_out;\n    wire and_out, xor_out;\n\n    G g1(.x(x), .y(y), .v(g1_out));\n    G g2(.x(x), .y(y), .v(g2_out));\n    H h1(.x(x), .y(y), .v(h1_out));\n    H h2(.x(x), .y(y), .v(h2_out));\n\n    assign and_out = g1_out & h1_out;\n    assign xor_out = g2_out ^ h2_out;\n\n    assign v = ~(and_out | xor_out);\nendmodule"
+}

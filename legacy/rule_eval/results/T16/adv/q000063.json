@@ -1,0 +1,9 @@
+{
+  "task_id": "q000063",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module mux4to1 (  \n    input wire [3:0] obf_D,  // Data inputs  \n    input wire [1:0] S,  // Select inputs  \n    output wire Y       // Output  \n);  \n    assign Y = (S == 2'b00) ? obf_D[0] :  \n               (S == 2'b01) ? obf_D[1] :  \n               (S == 2'b10) ? obf_D[2] :  \n               obf_D[3];  // Default case for S == 2'b11  \nendmodule",
+  "rename_map": {
+    "D": "obf_D"
+  }
+}

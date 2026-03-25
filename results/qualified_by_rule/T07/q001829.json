@@ -1,0 +1,6 @@
+{
+  "task_id": "q001829",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule (\n    input [7:0] pixel_value,\n    output reg [2:0] compressed_value\n);\n    always @(*) begin\n        if (pixel_value < 64)\n            compressed_value = 3'b000; // 0\n        else if (pixel_value < 128)\n            compressed_value = 3'b001; // 1\n        else if (pixel_value < 192)\n            compressed_value = 3'b010; // 2\n        else\n            compressed_value = 3'b011; // 3\n    end\nendmodule"
+}

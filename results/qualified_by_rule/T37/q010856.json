@@ -1,0 +1,6 @@
+{
+  "task_id": "q010856",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(a,b,a_lt_b,a_eq_b,a_gt_b);input [1:0]a;\ninput [1:0]b;\noutput reg a_lt_b,a_eq_b,a_gt_b;\nalways @(a or b)\nbegin\na_eq_b <= (a[0] && b[0] || ~a[0] && ~b[0]) && (a[1] && b[1] || ~a[1] && ~b[1]);\n\na_lt_b <= !a[1] && b[1] || (a[1] && b[1] || ~a[1] && ~b[1]) && !a[0] && b[0];\n\na_gt_b <= a[1] && !b[1] || (a[1] && b[1] || ~a[1] && ~b[1]) && a[0] && !b[0];\nend\nendmodule"
+}

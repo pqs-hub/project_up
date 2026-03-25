@@ -1,0 +1,6 @@
+{
+  "task_id": "q000526",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module temp_shutdown (\n    input [7:0] temperature, // 8-bit temperature input\n    output reg unused_shutdown        // Shutdown signal\n);\n    always @(*) begin\n        if (temperature > 75)\n            unused_shutdown = 1'b1; // Shutdown signal high\n        else\n            unused_shutdown = 1'b0; // Shutdown signal low\n    end\nendmodule"
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q004229",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module temperature_sensor (\n    input [9:0] temp_in, // 10-bit input for temp_in\n    output reg [3:0] tens,    // 4-bit for tens digit\n    output reg [3:0] units    // 4-bit for units digit\n);\n\nalways @(*) begin\n    if (temp_in > 10'd99) begin\n        tens = 4'b1111;  // Out of range indication\n        units = 4'b1111; // Out of range indication\n    end else begin\n        tens = temp_in / 10; // Calculate tens\n        units = temp_in % 10; // Calculate units\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "temperature": "temp_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "temperature": "temp_in",
+      "tens": "tens_out",
+      "units": "units_out"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

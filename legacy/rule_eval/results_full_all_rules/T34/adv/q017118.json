@@ -1,0 +1,15 @@
+{
+  "task_id": "q017118",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module flip_flop (rst, reset, d, q);\n  input rst;\n  input reset;\n  input [16:0] d;\n  output [16:0] q;\n  reg [16:0] q;\n\n  always @(posedge rst) begin\n    if (!reset)\n      q <= 17'b0;\n    else\n      q <= d;\n  end\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "ff_"
+  }
+}

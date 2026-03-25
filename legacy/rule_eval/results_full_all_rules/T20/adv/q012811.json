@@ -1,0 +1,10 @@
+{
+  "task_id": "q012811",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This parameter sets the threshold for the difference between gravity inputs, but it actually means the minimum difference required for the output to be HIGH.\nmodule top_module(\ninput [31:0]gravity0,\ninput [31:0]gravity1,\noutput fall\n    );parameter [31:0]value = 700;\n    assign fall = (gravity0 > gravity1) ? (((gravity0 - gravity1) > value) ? 1'b1 : 1'b0) : 1'b0;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This parameter sets the threshold for the difference between gravity inputs, but it actually means the minimum difference required for the output to be HIGH."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q002674",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sram_cell (\n    input wire D,\n    input wire WE,\n    input wire reset,\n    output reg Q\n);\n\nalways @(posedge reset) begin\n    if (WE) begin\n        Q <= D;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "SRAM_"
+  }
+}

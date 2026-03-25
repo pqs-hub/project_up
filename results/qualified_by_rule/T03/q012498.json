@@ -1,0 +1,6 @@
+{
+  "task_id": "q012498",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(clk, in, out);parameter N = 1;\n\n\tinput clk;\n\tinput [N-1:0] in;\n\toutput [N-1:0] out;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n\treg [N-1:0] buffer = 0;\n\n\tassign out = in & ~buffer;\n\n\talways @(posedge clk)\n\t\tbuffer <= in;\nendmodule"
+}

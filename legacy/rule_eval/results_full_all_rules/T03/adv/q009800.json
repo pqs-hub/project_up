@@ -1,0 +1,8 @@
+{
+  "task_id": "q009800",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(input rst,input clk,input sig,output rise,output fall);reg [1:0] sig_reg; \n  wire _tap_rst = rst & {1{1'b1}};\n\n always @(posedge clk or posedge rst) \n  if (rst == 1'b1) \n  sig_reg <= 2'b00; \n  else \n  sig_reg <= {sig_reg[0], sig}; \n assign rise = sig_reg[0] == 1'b1 && sig_reg[1] == 1'b0 ? 1'b1 : 1'b0; \n assign fall = sig_reg[0] == 1'b0 && sig_reg[1] == 1'b1 ? 1'b1 : 1'b0; \n endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

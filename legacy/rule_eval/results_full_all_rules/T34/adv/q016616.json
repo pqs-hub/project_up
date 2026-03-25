@@ -1,0 +1,17 @@
+{
+  "task_id": "q016616",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module PP_LOW ( ALT_ONEPOS, ONENEG, TWONEG, INA, INB, PPBIT );\ninput  ALT_ONEPOS;\ninput  ONENEG;\ninput  TWONEG;\ninput  INA;\ninput  INB;\noutput PPBIT;\n   assign PPBIT = (ALT_ONEPOS & INA) | (ONENEG & INB) | TWONEG;\nendmodule",
+  "rename_map": {
+    "ONEPOS": "ALT_ONEPOS"
+  },
+  "params_used": {
+    "custom_map": {
+      "ONEPOS": "NEGONE",
+      "ONENEG": "ZERO",
+      "TWONEG": "INVALID"
+    },
+    "fallback_prefix": "ALT_"
+  }
+}

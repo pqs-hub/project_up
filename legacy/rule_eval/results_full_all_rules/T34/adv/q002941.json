@@ -1,0 +1,15 @@
+{
+  "task_id": "q002941",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module crystal_oscillator (\n    input wire rst,\n    input wire enable,\n    output reg out\n);\n    initial begin\n        out = 0; // Initial state\n    end\n    \n    always @(posedge rst) begin\n        if (enable) begin\n            out <= ~out; // Toggle output\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

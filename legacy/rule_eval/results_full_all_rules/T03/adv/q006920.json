@@ -1,0 +1,8 @@
+{
+  "task_id": "q006920",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input [0:0] address,\n    input clock,\n    output reg [7:0] q\n);always @(posedge clock) begin\n  wire _tap_address = address & {1{1'b1}};\n\n    if (address == 0) begin\n        q <= 0;\n    end else begin\n        q <= {address, 7'b0};\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q006892",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module ring_counter(\n    input       clk   ,\n    input       reset ,\n    \n    output reg  [3:0] out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    \n    // 4-bit Ring Counter\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            out <= 4'b0001;\n        else\n            out <= {out[2:0], out[3]};\n    end\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

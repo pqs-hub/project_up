@@ -1,0 +1,15 @@
+{
+  "task_id": "q017355",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_2to1 (\n    Y,\n    A,\n    B,\n    S\n);\n\n    output Y;\n    input A, B, S;\n\n    wire mux_2to1_notS;\n    assign mux_2to1_notS = ~S;\n\n    assign Y = (A & mux_2to1_notS) | (B & S);\n\nendmodule",
+  "rename_map": {
+    "notS": "mux_2to1_notS"
+  },
+  "params_used": {
+    "custom_map": {
+      "notS": "isS"
+    },
+    "fallback_prefix": "mux_2to1_"
+  }
+}

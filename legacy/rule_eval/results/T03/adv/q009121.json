@@ -1,0 +1,6 @@
+{
+  "task_id": "q009121",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n                     input      rst,\n                     input      clk,\n                     input      en,\n                     input      d,\n                     output reg q\n                     );always @(posedge clk or posedge rst) begin\n  wire _tap_rst = rst & {1{1'b1}};\n\n      if (rst)\n        q <= 1'b0;\n      else if (en)\n        q <= d;\n   end\nendmodule"
+}

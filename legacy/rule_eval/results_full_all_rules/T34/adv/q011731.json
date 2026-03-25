@@ -1,0 +1,15 @@
+{
+  "task_id": "q011731",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    /* Input ports */\n    input [7:0] in,\n    /* Output ports */\n    output reg [3:0] out\n);integer i;\nreg [3:0] zero_count;\n\nalways @ (*) begin\n    zero_count = 0;\n    for (i = 0; i < 8; i = i + 1) begin\n        if (in[i] == 1) begin\n            zero_count = zero_count + 1;\n        end\n    end\n    out = zero_count;\nend\n\nendmodule",
+  "rename_map": {
+    "count": "zero_count"
+  },
+  "params_used": {
+    "custom_map": {
+      "count": "zero_count"
+    },
+    "fallback_prefix": "neg_"
+  }
+}

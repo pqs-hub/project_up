@@ -1,0 +1,8 @@
+{
+  "task_id": "q008674",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n\tRa,\n\tRb,\n\taluOut,\n\taluControl,\n\tIR\n);input [15:0] Ra;\ninput [15:0] Rb;\ninput [5:0] IR;\ninput [1:0] aluControl;\noutput [15:0] aluOut;\n  wire [15:0] _tap_Ra = Ra & {16{1'b1}};\n\n\nwire [15:0] input_a;\nwire [15:0] input_b;\nwire [15:0] imm;\n\nassign imm = { {12{IR[4]}}, IR[4:0] };\n\nassign input_b = IR[5] ? imm : Rb;\nassign input_a = Ra;\n\nassign aluOut = (aluControl == 0) ? input_a :\n\t\t\t\t\t (aluControl == 1) ? input_a + input_b :\n\t\t\t\t\t (aluControl == 2) ? input_a & input_b :\n\t\t\t\t\t ~input_a;\n\t\t\t\t\t \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

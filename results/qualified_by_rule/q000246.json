@@ -1,0 +1,6 @@
+{
+  "task_id": "q000246",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule (\n    input  [3:0] A,\n    input  [3:0] B,\n    input  Cin,\n    output [3:0] Sum,\n    output Cout\n);\n    wire [3:0] G; // Generate\n    wire [3:0] P; // Propagate\n    wire [3:0] C; // Carry\n\n    assign G = A & B; \n    assign P = A ^ B; \n\n    assign C[0] = Cin;\n    assign C[1] = G[0] | (P[0] & C[0]);\n    assign C[2] = G[1] | (P[1] & C[1]);\n    assign C[3] = G[2] | (P[2] & C[2]);\n    assign Cout = G[3] | (P[3] & C[3]);\n\n    assign Sum = P ^ C;\n\nendmodule"
+}

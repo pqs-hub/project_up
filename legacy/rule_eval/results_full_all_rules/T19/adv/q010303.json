@@ -1,0 +1,10 @@
+{
+  "task_id": "q010303",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\tinput clk,\n\tinput [6:0] wrusedw,\n\toutput reg rdreq\n\t);always @(posedge clk)\nbegin\n\tif(wrusedw > 8'd10)\n\t\trdreq <= 1'b1;\n\telse\n\t\trdreq <= 1'b0;\nend\n\n\n  always @(*) begin\n    if (1'b0) begin\n      if (wrusedw <= 8'd10) begin\n        rdreq <= 1'b0;\n      end else begin\n        rdreq <= 1'b1;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (wrusedw <= 8'd10) begin\n  rdreq <= 1'b0;\nend else begin\n  rdreq <= 1'b1;\nend;"
+  }
+}

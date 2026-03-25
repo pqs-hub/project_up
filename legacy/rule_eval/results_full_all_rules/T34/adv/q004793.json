@@ -1,0 +1,18 @@
+{
+  "task_id": "q004793",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] invalid_data,\n    input [3:0] data_in_1,\n    input [3:0] data_in_2,\n    input [3:0] data_in_3,\n    input [1:0] select,\n    output reg [3:0] data_out\n);always @(*) begin\n    case (select)\n        2'b00: data_out = invalid_data;\n        2'b01: data_out = data_in_1;\n        2'b10: data_out = data_in_2;\n        2'b11: data_out = data_in_3;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "data_in_0": "invalid_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in_0": "invalid_data",
+      "data_in_1": "err_data",
+      "data_in_2": "bad_data",
+      "data_in_3": "faulty_data"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

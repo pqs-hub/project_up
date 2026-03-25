@@ -1,0 +1,6 @@
+{
+  "task_id": "q012772",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [4:0] rs1_ID,\n    input [4:0] rs2_ID,\n    input rs1_valid,\n    input rs2_valid,\n    input [4:0] rd_EX,\n    input memread_EX,\n    input regwrite_EX,\n    output stall\n    );assign stall = \n    ( memread_EX && regwrite_EX && rs1_valid && (rs1_ID == rd_EX) )\n    ||\n    ( memread_EX && regwrite_EX && rs2_valid && (rs2_ID == rd_EX) );\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

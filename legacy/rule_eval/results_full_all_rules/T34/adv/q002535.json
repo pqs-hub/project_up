@@ -1,0 +1,15 @@
+{
+  "task_id": "q002535",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adc_comparator(\n    input [15:0] inverted_adc_input,\n    input [15:0] reference_level,\n    output reg output_signal\n);\n    always @(*) begin\n        if (inverted_adc_input > reference_level) \n            output_signal = 1'b1;\n        else \n            output_signal = 1'b0;\n    end\nendmodule",
+  "rename_map": {
+    "adc_input": "inverted_adc_input"
+  },
+  "params_used": {
+    "custom_map": {
+      "adc_input": "inverted_adc_input"
+    },
+    "fallback_prefix": "comp_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q013633",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(misleading_shiftLeft_in, shiftLeft_out);parameter width = 32;\n\tinput wire [width-1:0] misleading_shiftLeft_in;\n\toutput wire [width-1:0] shiftLeft_out;\n\n\t\n\tassign shiftLeft_out = {misleading_shiftLeft_in[width-3:0], 1'b0, 1'b0};\n\t\nendmodule",
+  "rename_map": {
+    "shiftLeft_in": "misleading_shiftLeft_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "shiftLeft_in": "rightShift_out"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

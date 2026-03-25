@@ -1,0 +1,15 @@
+{
+  "task_id": "q013271",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module reg_with_load (reset, LOAD, D, Q);\ninput reset, LOAD;\ninput [3:0] D;\noutput reg [3:0] Q;\n\nalways @(posedge reset) begin\n    if (LOAD)\n        Q <= D;\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "reg_with_load_"
+  }
+}

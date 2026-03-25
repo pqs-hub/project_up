@@ -1,0 +1,8 @@
+{
+  "task_id": "q003838",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module convolutional_encoder (\n    input clk,\n    input rst,\n    input D,\n    output reg Y1,\n    output reg Y2\n);\n    reg M1, M2;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n        if (rst) begin\n            M1 <= 0;\n            M2 <= 0;\n            Y1 <= 0;\n            Y2 <= 0;\n        end else begin\n            Y1 <= D ^ M1; // First output\n            Y2 <= D ^ M1 ^ M2; // Second output\n            M2 <= M1; // Shift the memories\n            M1 <= D; // New input to memory M1\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

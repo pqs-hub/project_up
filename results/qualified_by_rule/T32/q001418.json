@@ -1,0 +1,6 @@
+{
+  "task_id": "q001418",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire [2-1:1-1] control,\n    input wire data_in,\n    output reg data_out\n);\n    reg stored_value;\n\n    always @(posedge clk) begin\n        case (control)\n            2'b00: begin\n                // Read operation\n                data_out <= stored_value;\n            end\n            2'b01: begin\n                // Write operation\n                stored_value <= data_in;\n            end\n            2'b10: begin\n                // Erase operation\n                stored_value <= 1'b0;\n            end\n            default: begin\n                // Do nothing\n            end\n        endcase\n    end\nendmodule"
+}

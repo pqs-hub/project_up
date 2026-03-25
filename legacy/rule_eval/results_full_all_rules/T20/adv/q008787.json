@@ -1,0 +1,10 @@
+{
+  "task_id": "q008787",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 5-bit synchronous right shift register with a load and shift functionality.\nmodule left_shift_register (\n    input wire rst_n,\n    input wire clk,\n    input wire load,\n    input wire [4:0] data_in,\n    output reg [4:0] data_out\n);\n\nalways @(posedge clk) begin\n    if (!rst_n)\n        data_out <= 5'b00000;\n    else if (load)\n        data_out <= data_in;\n    else\n        data_out <= data_out << 1;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 5-bit synchronous right shift register with a load and shift functionality."
+  }
+}

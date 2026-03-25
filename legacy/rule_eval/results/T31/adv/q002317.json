@@ -1,0 +1,6 @@
+{
+  "task_id": "q002317",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module hazard_detection (\n    input wire a,\n    input wire b,\n    output wire hazard_detected,\n    output wire resolved\n);\n    wire __hazard_detected_tmp = a & b;\n    assign hazard_detected = __hazard_detected_tmp; // Hazard detected if both inputs are 1\n    assign resolved = ~(a & b); // Hazard resolved if at least one input is 0\nendmodule"
+}

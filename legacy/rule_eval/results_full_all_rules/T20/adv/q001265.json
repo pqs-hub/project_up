@@ -1,0 +1,10 @@
+{
+  "task_id": "q001265",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements an 8-bit shift register with asynchronous loading and left-shifting.\nmodule shift_register (  \n    input clk,  \n    input rst,  \n    input load,  \n    input [7:0] data_in,  \n    output reg [7:0] q  \n);  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            q <= 8'b0;  \n        end else if (load) begin  \n            q <= data_in;  \n        end else begin  \n            q <= {1'b0, q[7:1]}; // Shift right with zero fill  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an 8-bit shift register with asynchronous loading and left-shifting."
+  }
+}

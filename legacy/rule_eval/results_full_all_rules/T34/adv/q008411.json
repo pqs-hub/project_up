@@ -1,0 +1,18 @@
+{
+  "task_id": "q008411",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_4to1(\n    input [3:0] data_in,\n    input [1:0] sel,\n    output reg y\n);\n\nalways @(data_in or sel) begin\n    case (sel)\n        2'b00: y = data_in[0];\n        2'b01: y = data_in[1];\n        2'b10: y = data_in[2];\n        2'b11: y = data_in[3];\n        default: y = 1'b0;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "d": "data_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "mux_4to1": "demux_1to4",
+      "d": "data_in",
+      "sel": "select_in",
+      "y": "output_data"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

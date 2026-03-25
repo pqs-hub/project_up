@@ -1,0 +1,6 @@
+{
+  "task_id": "q009518",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module d_flip_flop(\n  input clk,\n  input rst,\n  input d,\n  output reg q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n  always @(posedge clk) begin\n    if (rst) begin\n      q <= 1'b0;\n    end\n    else begin\n      q <= d;\n    end\n  end\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q012057",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input a,\n  input b,\n  input sel_a,\n  input sel_b1,\n  input sel_b2,\n  output reg out_mux\n);always @(*) begin\n    if (sel_a) begin\n      out_mux = a;\n    end\n    else if (!sel_b1 && !sel_b2) begin\n      out_mux = b;\n    end\n  end\n\n  always @(*) begin\n    if (1'b0) begin\n      out_mux <= ~a; out_mux <= ~b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out_mux <= ~a; out_mux <= ~b;"
+  }
+}

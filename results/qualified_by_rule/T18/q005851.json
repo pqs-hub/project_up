@@ -1,0 +1,6 @@
+{
+  "task_id": "q005851",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input sel0,\n    input sel1,\n    input [143:0] port0_ci,\n    input [143:0] port1_ci,\n    input [143:0] port2_ci,\n    input [143:0] port3_ci,\n    output reg [143:0] port_co\n    );always @(posedge clk, posedge rst) begin\n    if (rst) begin\n      port_co <= 144'h000000000000000000000000000000000000;\n    end else begin\n      case ({sel1, sel0})\n        2'b00: port_co <= port0_ci;\n        2'b01: port_co <= port1_ci;\n        2'b10: port_co <= port2_ci;\n        2'b11: port_co <= port3_ci;\n      endcase\n    end\n  end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q012398",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n    input rst_,\n\n    input [4:0] mem_i_waddr,\n    input mem_i_wreg,\n    input [31:0] mem_i_wdata,\n\n    input mem_i_we_hilo,\n    input [31:0] mem_i_wdata_hi,\n    input [31:0] mem_i_wdata_lo,\n\n    output reg mem_o_wreg,\n    output reg [4:0] mem_o_waddr,\n    output reg [31:0] mem_o_wdata,\n\n    output reg mem_o_we_hilo,\n    output reg [31:0] mem_o_wdata_hi,\n    output reg [31:0] mem_o_wdata_lo\n);always @* begin\n    mem_o_waddr = !rst_ ? 'b0 : mem_i_waddr;\n    mem_o_wreg = !rst_ ? 'b0 : mem_i_wreg;\n    mem_o_wdata = !rst_ ? 'b0 : mem_i_wdata;\n\n    mem_o_we_hilo = !rst_ ? 'b0 : mem_i_we_hilo;\n    mem_o_wdata_hi = !rst_ ? 'b0 : mem_i_wdata_hi;\n    mem_o_wdata_lo = !rst_ ? 'b0 : mem_i_wdata_lo;\nend\n\nendmodule"
+}

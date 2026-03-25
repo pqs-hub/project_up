@@ -1,0 +1,15 @@
+{
+  "task_id": "q012331",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk, reset, load, data_in, data_out);input clk, reset, load;\n    input [15:0] data_in;\n    output [15:0] data_out;\n\n    reg [15:0] invalid_reg;\n\n    always @(posedge clk or negedge reset) begin\n        if (!reset) begin\n            invalid_reg <= 16'h0;\n        end else if (load) begin\n            invalid_reg <= data_in;\n        end\n    end\n\n    assign data_out = invalid_reg;\n\nendmodule",
+  "rename_map": {
+    "reg_data": "invalid_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "reg_data": "invalid_reg"
+    },
+    "fallback_prefix": "err_"
+  }
+}

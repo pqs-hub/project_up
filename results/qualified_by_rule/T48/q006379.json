@@ -1,0 +1,6 @@
+{
+  "task_id": "q006379",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(clk,ena,enb,wea,addra,addrb,dia,dob);input clk,ena,enb,wea;\ninput [9:0] addra,addrb;\ninput [15:0] dia;\noutput [15:0] dob;\nreg [15:0] ram [1023:0];\nreg [15:0] doa,dob;\n\nalways @(posedge clk) begin \n if (ena) begin\n    if (wea)\n        ram[addra] <= dia;\n end\nend\n\nalways @(posedge clk) begin \n  if (enb)\n    dob <= ram[addrb];\nend\n\nendmodule"
+}

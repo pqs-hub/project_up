@@ -1,0 +1,15 @@
+{
+  "task_id": "q013963",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    X   ,\n    A1  ,\n    A2  ,\n    B1  ,\n    B2  ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output X   ;\n    input  A1  ;\n    input  A2  ;\n    input  B1  ;\n    input  B2  ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n\n    wire disable;\n    assign disable = B1 & B2;\n    \n    // Replace unknown module with a logical AND operation\n    assign X = (A1 & A2) & disable;\n\nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "_pm_"
+  }
+}

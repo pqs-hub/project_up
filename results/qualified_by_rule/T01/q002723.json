@@ -1,0 +1,6 @@
+{
+  "task_id": "q002723",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [1:0] direction,\n    input [1:0] distance,\n    output reg [7:0] pos_x,\n    output reg [7:0] pos_y\n);\n\n    initial begin\n        pos_x = 8'b00000000;\n        pos_y = 8'b00000000;\n    end\n\n    always @(posedge clk or posedge rst) begin\n    begin end  // redundant\n        if (rst) begin\n            pos_x <= 8'b00000000;\n            pos_y <= 8'b00000000;\n        end else begin\n            case (direction)\n                2'b00: pos_y <= pos_y + distance; // North\n                2'b01: pos_x <= pos_x + distance; // East\n                2'b10: pos_y <= pos_y - distance; // South\n                2'b11: pos_x <= pos_x - distance; // West\n            endcase\n        end\n    end\nendmodule"
+}

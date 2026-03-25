@@ -1,0 +1,9 @@
+{
+  "task_id": "q002256",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module eeprom_cell (\n    input wire obf_clock,\n    input wire write_enable,\n    input wire data_in,\n    output reg data_out\n);\n\nalways @(posedge obf_clock) begin\n    if (write_enable) begin\n        data_out <= data_in;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clock": "obf_clock"
+  }
+}

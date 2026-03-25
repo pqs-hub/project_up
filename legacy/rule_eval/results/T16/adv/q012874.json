@@ -1,0 +1,9 @@
+{
+  "task_id": "q012874",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module shift_register(\n    input        clk,\n    input        reset,\n    input        load,\n    input        data_in,\n    input  [3:0] parallel_in,\n    output [3:0] q\n);\n\nreg [3:0] obf_q_reg;\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        obf_q_reg <= 4'b0000;\n    end else if (load) begin\n        obf_q_reg <= parallel_in;\n    end else begin\n        obf_q_reg <= {data_in, obf_q_reg[3:1]};\n    end\nend\n\nassign q = obf_q_reg;\n\nendmodule",
+  "rename_map": {
+    "q_reg": "obf_q_reg"
+  }
+}

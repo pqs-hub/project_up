@@ -1,0 +1,6 @@
+{
+  "task_id": "q007269",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule (\n    input clk,\n    input d,\n    input reset,\n    output reg q\n);\n\n    // D flip-flop with asynchronous reset logic\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 0;\n        end else begin\n            q <= d;\n        end\n    end\n\nendmodule"
+}

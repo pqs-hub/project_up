@@ -1,0 +1,19 @@
+{
+  "task_id": "q013361",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input reset_clk,\n    input load,\n    input clear,\n    input [3:0] data_in,\n    output reg [3:0] q\n);\n\n    always @(posedge reset_clk) begin\n        if (clear) begin\n            q <= 4'b0000;  // Clear the register to 0\n        end else if (load) begin\n            q <= data_in;  // Load the input value to the register\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk",
+      "load": "unload",
+      "clear": "set_clear",
+      "data_in": "invalid_data",
+      "q": "invalid_q"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

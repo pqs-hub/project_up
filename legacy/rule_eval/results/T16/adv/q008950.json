@@ -1,0 +1,9 @@
+{
+  "task_id": "q008950",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module shift_register_4bit(\n    input obf_clk,\n    input load,\n    input [3:0] parallel_in,\n    output reg [3:0] q\n);\n    always @(posedge obf_clk) begin\n        if (load)\n            q <= parallel_in;\n        else\n            q <= {1'b0, q[3:1]};\n    end\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

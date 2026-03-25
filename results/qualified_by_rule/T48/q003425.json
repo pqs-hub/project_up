@@ -1,0 +1,6 @@
+{
+  "task_id": "q003425",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input enable,\n    input serial_in,\n    output reg [7:0] parallel_out\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            parallel_out <= 8'b0;\n        end else if (enable) begin\n            parallel_out <= {parallel_out[6:0], serial_in};\n        end\n    end\nendmodule"
+}

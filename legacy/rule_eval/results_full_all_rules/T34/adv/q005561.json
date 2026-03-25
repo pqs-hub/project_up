@@ -1,0 +1,17 @@
+{
+  "task_id": "q005561",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    output Z_X,\n    input A1,\n    input A2,\n    input A3\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Use a simple AND gate instead of the unknown module\n    assign Z_X = A1 & A2 & A3;\n\nendmodule",
+  "rename_map": {
+    "X": "Z_X"
+  },
+  "params_used": {
+    "custom_map": {
+      "A1": "B1",
+      "A2": "C1",
+      "A3": "D1"
+    },
+    "fallback_prefix": "Z_"
+  }
+}

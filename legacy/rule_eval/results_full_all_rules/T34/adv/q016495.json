@@ -1,0 +1,15 @@
+{
+  "task_id": "q016495",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bw_r_irf_72_2x1_mux(desel, y, x0, x1);\n\tinput\t\tdesel;\n\tinput\t[71:0]\tx0;\n\tinput\t[71:0]\tx1;\n\toutput\t[71:0] y;\n\treg\t[71:0] y;\n\talways @(desel or x0 or x1)\n\t\tcase(desel)\n\t\t  1'b0: y = x0;\n\t\t  1'b1: y = x1;\n\t\tendcase\nendmodule",
+  "rename_map": {
+    "sel": "desel"
+  },
+  "params_used": {
+    "custom_map": {
+      "bw_r_irf_72_2x1_mux": "bw_r_irf_72_1x2_demux"
+    },
+    "fallback_prefix": "bw_r_irf_72_2x1_mux_"
+  }
+}

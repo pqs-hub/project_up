@@ -1,0 +1,15 @@
+{
+  "task_id": "q015733",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    Y   ,\n    A1  ,\n    A2  ,\n    A3  ,\n    B1  \n);output Y   ;\n    input  A1  ;\n    input  A2  ;\n    input  A3  ;\n    input  B1  ;\n\n    wire majority_result;\n\n    assign majority_result = (A1 & A2 & A3) | (~A1 & ~A2 & ~A3);\n\n    assign Y = majority_result ? 1'b1 : B1;\n\nendmodule",
+  "rename_map": {
+    "temp": "majority_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp": "majority_result"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

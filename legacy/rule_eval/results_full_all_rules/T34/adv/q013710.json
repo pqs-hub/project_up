@@ -1,0 +1,17 @@
+{
+  "task_id": "q013710",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(A, B, Ci, S, Co);input A, B, Ci;\noutput S, Co;\n\nwire sum_xor, n2, n3;\n\n// Generate the sum bit and carry out using basic gates\nassign sum_xor = A ^ B;      // XOR for A and B\nassign S = sum_xor ^ Ci;     // XOR for sum including Carry-in\nassign n2 = A & B;      // AND for Carry-out of A and B\nassign n3 = sum_xor & Ci;    // AND for Carry-out of intermediate result and Carry-in\nassign Co = n2 | n3;    // OR to determine final Carry-out\n\nendmodule",
+  "rename_map": {
+    "n1": "sum_xor"
+  },
+  "params_used": {
+    "custom_map": {
+      "n1": "sum_xor",
+      "n2": "carry_and_ab",
+      "n3": "carry_and_aci"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

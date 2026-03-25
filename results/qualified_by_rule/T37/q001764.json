@@ -1,0 +1,6 @@
+{
+  "task_id": "q001764",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst_n,\n    input wire [7:0] x_in, // X coordinate input\n    input wire [7:0] y_in, // Y coordinate input\n    input wire add_node,    // Control signal to add a new node\n    output reg [7:0] x_out, // X coordinate output of the last added node\n    output reg [7:0] y_out, // Y coordinate output of the last added node\n    output reg success       // Status signal indicating success\n);\n    reg [7:0] x_nodes [0:4]; // Array to hold X coordinates of nodes\n    reg [7:0] y_nodes [0:4]; // Array to hold Y coordinates of nodes\n    integer node_count;      // Counter for the number of nodes\n\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            node_count <= 0;\n            success <= 0;\n        end else if (add_node) begin\n            if (node_count < 5) begin\n                x_nodes[node_count] <= x_in;\n                y_nodes[node_count] <= y_in;\n                x_out <= x_in;\n                y_out <= y_in;\n                node_count <= node_count + 1;\n                success <= 1; // Node added successfully\n            end else begin\n                success <= 0; // Failure, node limit reached\n            end\n        end\n    end\nendmodule"
+}

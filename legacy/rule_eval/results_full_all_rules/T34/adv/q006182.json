@@ -1,0 +1,18 @@
+{
+  "task_id": "q006182",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gray_code_counter_3bit(\n    input clk,\n    input rst_n,\n    output reg [2:0] gray_code\n);\n\nreg [2:0] misleading_binary_counter;\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        misleading_binary_counter <= 3'b000;\n    end else begin\n        misleading_binary_counter <= misleading_binary_counter + 1;\n    end\nend\n\nalways @(*) begin\n    gray_code = misleading_binary_counter ^ (misleading_binary_counter >> 1);\nend\n\nendmodule",
+  "rename_map": {
+    "binary_counter": "misleading_binary_counter"
+  },
+  "params_used": {
+    "custom_map": {
+      "gray_code_counter_3bit": "invalid_gray_counter",
+      "clk": "reset_clk",
+      "rst_n": "active_high_rst",
+      "gray_code": "err_gray_code"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

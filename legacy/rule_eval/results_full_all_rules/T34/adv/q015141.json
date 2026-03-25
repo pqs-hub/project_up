@@ -1,0 +1,15 @@
+{
+  "task_id": "q015141",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_not_gate_module(\n    input misleading_a,\n    output y\n);\n\nassign y = ~misleading_a;\n\nendmodule\n\nmodule top_not_gate_module(\n    input misleading_a,\n    output y\n);\n\nnot_gate_module u_not_gate_module (\n    .misleading_a(misleading_a),\n    .y(y)\n);\n\nendmodule",
+  "rename_map": {
+    "a": "misleading_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "not_gate_module": "and_gate_module"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

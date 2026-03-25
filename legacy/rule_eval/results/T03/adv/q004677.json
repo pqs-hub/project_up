@@ -1,0 +1,6 @@
+{
+  "task_id": "q004677",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(en,out,in1,in2,clk,reset);input [20:0]in1,in2;\ninput clk,reset;\ninput en;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\noutput [20:0]out;\n\nreg [20:0]out;\nwire [20:0]im1;\nwire [20:0]p;\nwire [19:0]g;\nwire [20:0]c;\nwire [20:0]sum;\n\nassign im1=~in1;\nassign p=im1^in2;\nassign g=im1[19:0]&in2[19:0];\nassign c[0]=1;\nassign c[20:1]=g[19:0]|p[19:0]&c[19:0];\nassign sum=p^c;\n\nalways@(posedge clk or negedge reset)\nbegin\n\tif(reset==0)\n\tbegin\n\t\tout<=0;\n\tend\n\telse\n\tbegin\n\t\tif(en==1)\n\t\tbegin\n\t\t\tout<=sum;\n\t\tend\n\tend\nend\nendmodule"
+}

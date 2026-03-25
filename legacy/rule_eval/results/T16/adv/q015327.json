@@ -1,0 +1,9 @@
+{
+  "task_id": "q015327",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(d0, d1, obf_s, y);parameter n = 32;\ninput [n-1:0] d0, d1;\ninput obf_s;\noutput [n-1:0] y;\n\ngenvar i;\ngenerate\nfor (i=0; i<n; i=i+1) begin: addbit\nassign y[i] = ~obf_s & d0[i] | obf_s & d1[i];\nend\nendgenerate\n\nendmodule",
+  "rename_map": {
+    "s": "obf_s"
+  }
+}

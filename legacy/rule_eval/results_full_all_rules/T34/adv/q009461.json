@@ -1,0 +1,16 @@
+{
+  "task_id": "q009461",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(alt_J,K,Q,Qnot,CP);input alt_J,K,CP;\n\toutput Q,Qnot;\n\treg Q;\n\t\n\tassign Qnot = ~Q;\n\t\n\talways @(posedge CP)\n\t\tcase({alt_J,K})\n\t\t\t2'b00: Q = Q;\n\t\t\t2'b01: Q = 0;\n\t\t\t2'b10: Q = 1;\n\t\t\t2'b11: Q = ~Q;\n\t\t\tdefault: ;\n\t\tendcase\nendmodule",
+  "rename_map": {
+    "J": "alt_J"
+  },
+  "params_used": {
+    "custom_map": {
+      "J": "reset",
+      "K": "toggle"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

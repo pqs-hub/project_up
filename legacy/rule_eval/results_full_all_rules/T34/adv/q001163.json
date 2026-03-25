@@ -1,0 +1,15 @@
+{
+  "task_id": "q001163",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module pixel_adjustment(  \n    input [7:0] pixel_value,  \n    input [2:0] adjustment,  \n    output [7:0] pixel_out  \n);  \n    assign pixel_out = (pixel_value + adjustment > 255) ? 8'd255 : (pixel_value + adjustment);  \nendmodule",
+  "rename_map": {
+    "pixel_in": "pixel_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "pixel_in": "pixel_value"
+    },
+    "fallback_prefix": "adjusted_"
+  }
+}

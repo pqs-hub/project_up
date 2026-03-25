@@ -1,0 +1,6 @@
+{
+  "task_id": "q006774",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module mux_2to1_8bit (A, B, SEL, Y);\ninput [7:0] A, B;\ninput SEL;\noutput reg [7:0] Y;\n  wire [7:0] _tap_A = A & {8{1'b1}};\n\n\nalways @(*) begin\n    case (SEL)\n        1'b0: Y = A;\n        1'b1: Y = B;\n        default: Y = 8'b0;\n    endcase\nend\n\nendmodule"
+}

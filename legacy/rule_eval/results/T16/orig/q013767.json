@@ -1,0 +1,6 @@
+{
+  "task_id": "q013767",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module fibonacci_lfsr (\n    input clk,\n    input reset,\n    output reg [2:0] lfsr);\n\nalways @(posedge clk) begin\n    if (reset) begin\n        lfsr <= 3'b001;\n    end else begin\n        lfsr <= {lfsr[1], lfsr[0], lfsr[2] ^ lfsr[1]};\n    end\nend\nendmodule"
+}

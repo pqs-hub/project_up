@@ -1,0 +1,6 @@
+{
+  "task_id": "q009459",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input SETN, \n  input CK, \n  input D, \n  output Q, \n  output QN \n);reg q_reg;\n  wire _tap_SETN = SETN & {1{1'b1}};\n\n\n\nalways @ ( posedge CK or negedge SETN)\nif (~SETN) begin\n  q_reg <= 1'b1;\nend else begin\n  q_reg <= D;\nend\n\nassign Q = q_reg;\nassign QN = ~q_reg;endmodule"
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q003161",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module wallace_tree_adder (\n    input [3:0] a,\n    input [3:0] b,\n    input [3:0] c,\n    output [4:0] sum\n);\n    wire [4:0] obf_ab_sum;\n    wire [4:0] abc_sum;\n\n    // First stage: add a and b\n    assign obf_ab_sum = a + b;\n\n    // Second stage: add the result with c\n    assign abc_sum = obf_ab_sum + c;\n\n    // Output the final sum\n    assign sum = abc_sum;\n\nendmodule",
+  "rename_map": {
+    "ab_sum": "obf_ab_sum"
+  }
+}

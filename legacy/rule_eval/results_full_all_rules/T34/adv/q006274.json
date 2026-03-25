@@ -1,0 +1,15 @@
+{
+  "task_id": "q006274",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input clk, we,\ninput [31:0] a, wd,\noutput [31:0] rd);reg [31:0] _inv_RAM[63:0];\nassign rd = _inv_RAM[a[31:2]]; \nalways @ (posedge clk)\nif (we)\n_inv_RAM[a[31:2]] <= wd;\nendmodule",
+  "rename_map": {
+    "RAM": "_inv_RAM"
+  },
+  "params_used": {
+    "custom_map": {
+      "RAM": "ROM"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

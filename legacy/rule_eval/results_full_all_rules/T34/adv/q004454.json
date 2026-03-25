@@ -1,0 +1,15 @@
+{
+  "task_id": "q004454",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ring_counter (\n    input clk,\n    input reset,\n    output [4:0] count\n);\n\n    reg [4:0] counter_state;  // 5-bit ring counter register\n\n    always @(posedge clk) begin\n        if (reset) begin\n            counter_state <= 5'b00001;  // Reset the counter to initial state\n        end else begin\n            counter_state <= {counter_state[3:0], counter_state[4]};  // Ring counter logic\n        end\n    end\n\n    assign count = counter_state;\n\nendmodule",
+  "rename_map": {
+    "ring_reg": "counter_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "ring_reg": "counter_state"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

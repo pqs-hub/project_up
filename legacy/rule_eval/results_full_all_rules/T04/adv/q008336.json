@@ -1,0 +1,10 @@
+{
+  "task_id": "q008336",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module subtracts a constant value of 11 from the input when enabled.\nmodule top_module(\n    input clk,\n    input rst,\n    input en,\n    input [3:0] input_val,\n    output reg [3:0] output_val\n);localparam CONSTANT_VAL = 4'b1011;\n\nalways @(posedge clk, posedge rst)\n    if (rst) begin\n        output_val <= 4'b0;\n    end else if (en) begin\n        output_val <= input_val + CONSTANT_VAL;\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module subtracts a constant value of 11 from the input when enabled."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q011949",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    input [3-1:1-1] data,\n    output reg parity_error\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            parity_error <= 1'b0;  // Synchronous reset to the initial state\n        end else begin\n            parity_error <= ~(data[0] ^ data[1] ^ data[2]);  // Check odd parity\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

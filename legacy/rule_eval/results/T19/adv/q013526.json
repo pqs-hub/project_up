@@ -1,0 +1,6 @@
+{
+  "task_id": "q013526",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [4:0] rs1,\n    input [4:0] rs2,\n    input [4:0] ex_mem_rd,\n    input [4:0] mem_wb_rd,\n    input ex_mem_regwrite,\n    input mem_wb_regwrite,\n    output reg [1:0] forwardA,\n    output reg [1:0] forwardB\n    );always @* begin\n    if (ex_mem_regwrite & ex_mem_rd != 5'b0 & ex_mem_rd == rs1) begin\n        forwardA <= 2'b10;\n    end\n    else if (mem_wb_regwrite & mem_wb_rd != 5'b0 & mem_wb_rd == rs1) begin\n        forwardA <= 2'b01;\n    end\n    else begin\n        forwardA <= 2'b00;\n    end\n    if (ex_mem_regwrite & ex_mem_rd != 5'b0 & ex_mem_rd == rs2) begin\n        forwardB <= 2'b10;\n    end\n    else if (mem_wb_regwrite & mem_wb_rd != 5'b0 & mem_wb_rd == rs2) begin\n        forwardB <= 2'b01;\n    end\n    else begin\n        forwardB <= 2'b00;\n    end\nend\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q010776",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input A1,\n    input A2,\n    input B1,\n    input C1,\n    input D1,\n    output X\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    assign X = (A1 & A2) | (!A1 & B1) | (!C1 & D1);\n\n  always @(*) begin\n    if (1'b0) begin\n      X <= ~((A1 & A2) | (!A1 & B1) | (!C1 & D1));\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "X <= ~((A1 & A2) | (!A1 & B1) | (!C1 & D1));"
+  }
+}

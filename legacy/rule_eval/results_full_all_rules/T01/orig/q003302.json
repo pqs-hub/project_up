@@ -1,0 +1,6 @@
+{
+  "task_id": "q003302",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module jk_flip_flop (\n    input wire J,\n    input wire K,\n    input wire CLK,\n    input wire RST,\n    output reg Q,\n    output wire Qn\n);\n    assign Qn = ~Q; // Inverted output\n\n    always @(posedge CLK or posedge RST) begin\n        if (RST) begin\n            Q <= 1'b0; // Reset Q to 0\n        end else begin\n            case ({J, K})\n                2'b00: Q <= Q;        // No change\n                2'b01: Q <= 1'b0;     // Reset\n                2'b10: Q <= 1'b1;     // Set\n                2'b11: Q <= ~Q;       // Toggle\n            endcase\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q008302",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input X_u,\n    input v,\n    output t\n);\n    assign t = (X_u & v);\nendmodule\n\nmodule F(\n    input X_u,\n    input v,\n    output t\n);\n    assign t = (X_u & v);\nendmodule\n\nmodule top_module(\n    input X_u,\n    input v,\n    output t\n);\n    wire e1_out, e2_out, f_out;\n    wire and_out;\n\n    E e1(.X_u(X_u), .v(v), .t(e1_out));\n    E e2(.X_u(X_u), .v(v), .t(e2_out));\n    F f1(.X_u(X_u), .v(v), .t(f_out));\n\n    assign and_out = e1_out & f_out;\n    assign t = and_out | e2_out;\nendmodule",
+  "rename_map": {
+    "u": "X_u"
+  },
+  "params_used": {
+    "custom_map": {
+      "E": "G",
+      "F": "H"
+    },
+    "fallback_prefix": "X_"
+  }
+}

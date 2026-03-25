@@ -1,0 +1,15 @@
+{
+  "task_id": "q013480",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [n-1:0] in,\n  output [m-1:0] out\n);parameter n = 3; // number of input signals\nparameter m = 8; // number of output signals\n\nreg [m-1:0] invalid_out;\n\nalways @(*) begin\n  case(in)\n    3'b000: invalid_out = 8'b00000001;\n    3'b001: invalid_out = 8'b00000010;\n    3'b010: invalid_out = 8'b00000100;\n    3'b011: invalid_out = 8'b00001000;\n    3'b100: invalid_out = 8'b00010000;\n    3'b101: invalid_out = 8'b00100000;\n    3'b110: invalid_out = 8'b01000000;\n    3'b111: invalid_out = 8'b10000000;\n    default: invalid_out = 8'b00000000;\n  endcase\nend\n\nassign out = invalid_out;\n\nendmodule",
+  "rename_map": {
+    "out_reg": "invalid_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out_reg": "invalid_out"
+    },
+    "fallback_prefix": "err_"
+  }
+}

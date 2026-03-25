@@ -1,0 +1,6 @@
+{
+  "task_id": "q006745",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(A, B, Cin, Sum, Cout);input [15:0] A;\n  input [15:0] B;\n  input Cin;\n  output [15:0] Sum;\n  output Cout;\n  \n  wire [15:0] carry;\n  wire [15:0] temp_sum;\n  \n  assign temp_sum[0] = A[0] ^ B[0] ^ Cin;\n  assign carry[0] = (A[0] & B[0]) | (A[0] & Cin) | (B[0] & Cin);\n  \n  genvar i;\n  generate\n    for(i = 1; i < 16; i = i + 1) begin : adder_loop\n      assign temp_sum[i] = A[i] ^ B[i] ^ carry[i-1];\n      assign carry[i] = (A[i] & B[i]) | (A[i] & carry[i-1]) | (B[i] & carry[i-1]);\n    end\n  endgenerate\n  \n  assign Sum = temp_sum;\n  assign Cout = carry[15];\n  \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

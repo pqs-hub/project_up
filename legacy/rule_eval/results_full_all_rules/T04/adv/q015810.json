@@ -1,0 +1,10 @@
+{
+  "task_id": "q015810",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the clear signal is active low, but it actually sets the register to all ones when active high.\nmodule top_module(\n    input clk,\n    input clear,\n    input load,\n    input [9:0] data,\n    output reg [9:0] q\n);\n\n    // Always block triggered on the rising edge of the clock\n    always @(posedge clk) begin\n        if (clear) begin\n            q <= 10'd0;  // Synchronous clear to all zeros\n        end else if (load) begin\n            q <= data;  // Synchronous load of the data input\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the clear signal is active low, but it actually sets the register to all ones when active high."
+  }
+}

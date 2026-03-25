@@ -1,0 +1,10 @@
+{
+  "task_id": "q006552",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module mux_8to1 (A, B, C, D, E, F, G, H, SEL, Y);\ninput A;\ninput B;\ninput C;\ninput D;\ninput E;\ninput F;\ninput G;\ninput H;\ninput [2:0] SEL;\noutput Y;\n\nwire neg_mux_output = (SEL == 3'b000);\nassign Y = neg_mux_output ? A : (SEL == 3'b001) ? B :\n           (SEL == 3'b010) ? C :\n           (SEL == 3'b011) ? D :\n           (SEL == 3'b100) ? E :\n           (SEL == 3'b101) ? F :\n           (SEL == 3'b110) ? G : H;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_mux_output"
+  }
+}

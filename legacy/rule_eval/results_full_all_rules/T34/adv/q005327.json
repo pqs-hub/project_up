@@ -1,0 +1,15 @@
+{
+  "task_id": "q005327",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( input clk, input d, output q );reg [2:0] shift_reg;\n  wire [2:0] next_register;\n\n  assign next_register = {shift_reg[1:0], d};\n\n  always @(posedge clk) begin\n    shift_reg <= next_register;\n  end\n\n  assign q = shift_reg[2];\n\nendmodule",
+  "rename_map": {
+    "register": "shift_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "register": "shift_reg"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

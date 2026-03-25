@@ -1,0 +1,9 @@
+{
+  "task_id": "q016333",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n\tinput [3:0] Funct,\n\tinput less,\n\tinput  obf_CarryOut,\n\toutput reg comp\n);always @ (*)\nbegin\n\tif ((Funct[2:0] == 3'b000) && ( obf_CarryOut == 1'b1))\n\t\tcomp = 1'b1;  \n\telse if ((Funct[2:0] == 3'b100) && ( less == 1'b1))\n\t\tcomp = 1'b1; \n\telse\n\t\tcomp = 1'b0;\nend\n\nendmodule",
+  "rename_map": {
+    "CarryOut": "obf_CarryOut"
+  }
+}

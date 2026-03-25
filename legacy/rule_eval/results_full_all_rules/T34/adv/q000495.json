@@ -1,0 +1,15 @@
+{
+  "task_id": "q000495",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module flash_memory (\n    input wire write_data,\n    input wire control,\n    output reg read_data\n);\n    reg cell_value;\n\n    always @(*) begin\n        if (control) begin\n            read_data = cell_value; // read from memory\n        end else begin\n            cell_value = write_data; // write to memory\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory_cell": "cell_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory_cell": "cell_value"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

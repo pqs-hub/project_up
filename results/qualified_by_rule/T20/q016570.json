@@ -1,0 +1,6 @@
+{
+  "task_id": "q016570",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule\n(\n   path_0_valid,\n   path_1_valid,\n   path_0_bmc,\n   path_1_bmc,\n   path_0_pmc,\n   path_1_pmc,\n   selection,\n   valid_o,\n   path_cost\n);\n   input       path_0_valid;\n   input [1:0] path_0_bmc;\n   input [7:0] path_0_pmc;\n   input       path_1_valid;\n   input [1:0] path_1_bmc;\n   input [7:0] path_1_pmc;\n   output reg        selection;\n   output reg        valid_o;\n   output      [7:0] path_cost;  \n   wire  [7:0] path_cost_0;\n   wire  [7:0] path_cost_1;\n   assign path_cost_0  =  path_0_bmc + path_0_pmc;\n   assign path_cost_1  =  path_1_bmc + path_1_pmc;\n   assign path_cost      =  (valid_o?(selection?path_cost_1:path_cost_0):7'd0);   \n   always @ (*)\n   begin\n      valid_o = 1'b1;\n      case({path_0_valid,path_1_valid})\n         2'b00:\n         begin\n            selection = 1'b0;\n            valid_o   = 1'b0; \n         end\n         2'b01:   selection = 1'b1;\n         2'b10:   selection = 1'b0;\n         2'b11:   selection = (path_cost_0 > path_cost_1)?1'b1:1'b0;\n       endcase\n   end\nendmodule"
+}

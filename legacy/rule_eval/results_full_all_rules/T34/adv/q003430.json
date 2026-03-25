@@ -1,0 +1,16 @@
+{
+  "task_id": "q003430",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dvfs_controller(  \n    input [1:0] coolness,  \n    output reg [1:0] frequency  \n);  \n    always @(*) begin  \n        case (coolness)  \n            2'b00: frequency = 2'b00; // Low coolness -> Low frequency  \n            2'b01: frequency = 2'b01; // Medium coolness -> Medium frequency  \n            2'b10: frequency = 2'b10; // High coolness -> High frequency  \n            2'b11: frequency = 2'b11; // Very high coolness -> Maximum frequency  \n            default: frequency = 2'b00; // Default case  \n        endcase  \n    end  \nendmodule",
+  "rename_map": {
+    "temperature": "coolness"
+  },
+  "params_used": {
+    "custom_map": {
+      "temperature": "coolness",
+      "frequency": "speed"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

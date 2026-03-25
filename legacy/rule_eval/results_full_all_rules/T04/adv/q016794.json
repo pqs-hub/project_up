@@ -1,0 +1,10 @@
+{
+  "task_id": "q016794",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the dimming level is calculated based on the difference between the desired light level and the ambient light level, but in reality, it calculates the difference between the ambient light level and the desired light level.\nmodule light_control (\n  input [11:0] als,\n  input [11:0] dll,\n  input en,\n  output reg [7:0] dim\n);\n\n  always @(*) begin\n    if (en) begin\n      if (als <= dll) begin\n        dim <= 8'b00000000;\n      end else begin\n        dim <= ((als - dll) >> 4) > 8'b11111111 ? 8'b11111111 : ((als - dll) >> 4);\n      end\n    end else begin\n      dim <= 8'b00000000;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the dimming level is calculated based on the difference between the desired light level and the ambient light level, but in reality, it calculates the difference between the ambient light level and the desired light level."
+  }
+}

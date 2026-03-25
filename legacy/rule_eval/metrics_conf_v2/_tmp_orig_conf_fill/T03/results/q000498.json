@@ -1,0 +1,7 @@
+{
+  "task_id": "q000498",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module sata_controller (\n    input [4:0] command,\n    output reg [2:0] status\n);\n\nalways @(*) begin\n    case (command)\n        5'b00000: status = 3'b000; // Idle\n        5'b00001: status = 3'b001; // Ready\n        5'b00010: status = 3'b010; // Processing\n        5'b00011: status = 3'b011; // Completed\n        5'b00100: status = 3'b100; // Error\n        default:  status = 3'b111; // Unknown\n    endcase\nend\n\nendmodule",
+  "rename_map": {}
+}

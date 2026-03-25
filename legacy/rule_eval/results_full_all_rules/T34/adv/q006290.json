@@ -1,0 +1,15 @@
+{
+  "task_id": "q006290",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bin2gray(\n    input [3:0] invalid_bin,\n\n    output reg [3:0] gray_out\n);\n\nalways @(*)\nbegin\n    gray_out[3] = invalid_bin[3];\n    gray_out[2] = invalid_bin[3] ^ invalid_bin[2];\n    gray_out[1] = invalid_bin[2] ^ invalid_bin[1];\n    gray_out[0] = invalid_bin[1] ^ invalid_bin[0];\nend\n\nendmodule",
+  "rename_map": {
+    "bin_in": "invalid_bin"
+  },
+  "params_used": {
+    "custom_map": {
+      "bin_in": "invalid_bin"
+    },
+    "fallback_prefix": "err_"
+  }
+}

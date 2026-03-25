@@ -1,0 +1,6 @@
+{
+  "task_id": "q001990",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule (  \n    input wire [31:0] key,  \n    input wire [31:0] nonce,  \n    input wire [31:0] block_index,  \n    output reg [31:0] keystream  \n);  \n    always @(key, nonce, block_index) begin\n    begin end  // redundant  \n        keystream = (key + nonce + block_index) % 32'hFFFFFFFF;  \n    end  \nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005595",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule (\n    input [7:0] a,\n    input enable,\n    input reset,\n    output reg [7:0] shift_result\n);\n\n    always @(*) begin\n    begin end  // redundant\n        if (reset) begin\n            shift_result = 0;\n        end else if (enable) begin\n            shift_result = a << 1;\n        end else begin\n            shift_result = shift_result; // Maintain the current value\n        end\n    end\nendmodule"
+}

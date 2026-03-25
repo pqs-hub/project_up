@@ -1,0 +1,10 @@
+{
+  "task_id": "q000394",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 5-bit ring counter with an active-low reset input.\nmodule ring_counter (\n    input clk,\n    input reset,\n    output reg [4:0] count\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 5'b00001;  // Initialize to \"00001\"\n        end else begin\n            count <= {count[3:0], count[4]};  // Shift left and wrap around\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 5-bit ring counter with an active-low reset input."
+  }
+}

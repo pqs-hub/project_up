@@ -1,0 +1,15 @@
+{
+  "task_id": "q003910",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ADC (\n    input [7:0] reverse_voltage,\n    output reg [2:0] range_output\n);\n    always @(*) begin\n        if (reverse_voltage <= 8'd84) begin\n            range_output = 3'b000; // Range 0 to 84\n        end else if (reverse_voltage <= 8'd169) begin\n            range_output = 3'b001; // Range 85 to 169\n        end else begin\n            range_output = 3'b010; // Range 170 to 255\n        end\n    end\nendmodule",
+  "rename_map": {
+    "voltage_input": "reverse_voltage"
+  },
+  "params_used": {
+    "custom_map": {
+      "voltage_input": "reverse_voltage"
+    },
+    "fallback_prefix": "adc_"
+  }
+}

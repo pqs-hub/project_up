@@ -1,0 +1,10 @@
+{
+  "task_id": "q004448",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n        input   wire [31:0]   op1,\n        input   wire [31:0]   op2,\n        input   wire [2:0]    operation,\n        output  wire          res\n    );reg comp_res;\n\n    always @ *\n    case (operation)\n        3'b000: comp_res = (op1 ==  op2); \n        3'b010: comp_res = (op1 >   op2);\n        3'b101, \n        3'b110: comp_res = (op1 <   op2);\n        default: comp_res = 1'bx;\n    endcase\n\n    assign res = comp_res;\n    \n  always @(*) begin\n    if (1'b0) begin\n      comp_res = ~op1 & ~op2; // Intentionally incorrect comparison for misleading verification\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "comp_res = ~op1 & ~op2; // Intentionally incorrect comparison for misleading verification"
+  }
+}

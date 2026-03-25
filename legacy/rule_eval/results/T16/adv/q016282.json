@@ -1,0 +1,9 @@
+{
+  "task_id": "q016282",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(x,y,CLR,C,Q);input x,y;\nwire obf_g;\ninput CLR, C;\nreg tmp;\noutput Q;\n\n\nassign obf_g = x*y;\n\n\nalways @(posedge C or posedge CLR)\n    begin \n      if (CLR) \n        tmp <= 4'b0000; \n      else \n        tmp <= tmp + obf_g; \n    end \n\nassign Q = tmp; \n\nendmodule",
+  "rename_map": {
+    "g": "obf_g"
+  }
+}

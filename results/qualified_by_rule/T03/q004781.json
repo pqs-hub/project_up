@@ -1,0 +1,6 @@
+{
+  "task_id": "q004781",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input set,\n    input [19:0] d,\n    output reg [19:0] q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    // Always block triggered on the rising edge of the clock\n    always @(posedge clk) begin\n        if (set) begin\n            q <= 20'hFFFFF;  // Synchronous set to all ones\n        end else begin\n            q <= d;  // Load the input data into the register\n        end\n    end\n\nendmodule"
+}

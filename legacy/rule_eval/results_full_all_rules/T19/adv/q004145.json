@@ -1,0 +1,10 @@
+{
+  "task_id": "q004145",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module async_up_counter (\n    input wire clk,\n    input wire rst,\n    input wire en,\n    output reg [63:0] count\n);\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            count <= 64'b0;\n        end else if (en) begin\n            count <= count + 1;\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      count <= count - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "count <= count - 1;"
+  }
+}

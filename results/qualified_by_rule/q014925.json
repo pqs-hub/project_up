@@ -1,0 +1,6 @@
+{
+  "task_id": "q014925",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n   input clk,\n   input rst,\n   output t);reg [2:0] obf_count = 0;\n   \n   assign t = (obf_count == 3'd5);\n   \n   always @(posedge clk) begin\n      if (rst | t)\n         obf_count <= 0;\n      else\n         obf_count <= obf_count + 1;\n   end\n   \nendmodule"
+}

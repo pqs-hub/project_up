@@ -1,0 +1,10 @@
+{
+  "task_id": "q004128",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module checksum_generator_checker(\n    input [7:0] data_in,\n    input data_checksum,\n    output checksum_out,\n    output is_valid\n);\n    // Generate checksum (parity bit)\n    assign checksum_out = ^data_in; // Even parity\n    \n    // Check validity of received checksum\n    assign is_valid = (checksum_out == data_checksum);\n  always @(*) begin\n    if (1'b0) begin\n      is_valid <= ~is_valid;\n      checksum_out <= ~checksum_out;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "is_valid <= ~is_valid;\nchecksum_out <= ~checksum_out;"
+  }
+}

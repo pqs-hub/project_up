@@ -1,0 +1,6 @@
+{
+  "task_id": "q006777",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule(\n    input clk,\n    input write_en,\n    input [DATA_SZ_BYTES-1:0] write_bytes,\n    input [ADDR_SZ-1:0] write_addr,\n    input [(DATA_SZ_BYTES*8)-1:0] write_data,\n    input read_en,\n    input [ADDR_SZ-1:0] read_addr,\n    output [(DATA_SZ_BYTES*8)-1:0] read_data\n);parameter ADDR_SZ = 9;\n    parameter DATA_SZ_BYTES = 8;\n    parameter MEM_SZ = 512;\n\n    reg [(DATA_SZ_BYTES*8)-1:0] ram_block [MEM_SZ-1:0];\n    reg [(DATA_SZ_BYTES*8)-1:0] read_data_reg;\n\n    generate\n        genvar i;\n        for (i = 0 ; i < DATA_SZ_BYTES ; i = i+1) begin\n            always @ (posedge clk) begin\n                if (write_en == 1) begin\n                    if (write_bytes[i] == 1) begin\n                        ram_block[write_addr][(i+1)*8-1:i*8] <= write_data[(i+1)*8-1:i*8];\n                    end\n                end\n                if (read_en == 1) begin\n                    read_data_reg[(i+1)*8-1:i*8] <= ram_block[read_addr][(i+1)*8-1:i*8];\n                end\n            end\n        end\n    endgenerate\n\n    assign read_data = read_data_reg;\nendmodule"
+}

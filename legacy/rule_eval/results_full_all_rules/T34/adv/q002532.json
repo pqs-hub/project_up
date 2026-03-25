@@ -1,0 +1,16 @@
+{
+  "task_id": "q002532",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sr_latch (  \n    input wire Anti_S,  \n    input wire R,  \n    output reg Q,  \n    output wire Qn  \n);  \n    assign Qn = ~Q;  \n\n    always @(Anti_S, R) begin  \n        if (Anti_S && ~R)  \n            Q <= 1'b1;  \n        else if (~Anti_S && R)  \n            Q <= 1'b0;  \n        // If both Anti_S and R are low, keep the previous state (no action)  \n    end  \nendmodule",
+  "rename_map": {
+    "S": "Anti_S"
+  },
+  "params_used": {
+    "custom_map": {
+      "S": "Reset",
+      "R": "Set"
+    },
+    "fallback_prefix": "Anti_"
+  }
+}

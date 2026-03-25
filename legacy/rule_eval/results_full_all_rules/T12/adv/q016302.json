@@ -1,0 +1,10 @@
+{
+  "task_id": "q016302",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module top_module(\n  input A,\n  input B,\n  input CLR,\n  output Y,\n  output Yn\n);wire nand_out;\n\n  assign nand_out = ~(A & B);\n\n  wire neg_nand_result = CLR;\n  assign Y = neg_nand_result ? 1'b0 : nand_out;\n  assign Yn = CLR ? 1'b1 : ~nand_out;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_nand_result"
+  }
+}

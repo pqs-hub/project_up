@@ -1,0 +1,10 @@
+{
+  "task_id": "q006716",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module shift_reg(\n    input clk,\n    input load,\n    input [3:0] data,\n\n    output [3:0] q\n);\n\nreg [3:0] q;\n\nalways @(posedge clk)\nbegin\n  if (load)\n    q <= data;\n  else\n    q <= {1'b0, q[3:1]};\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= q; // This statement does not change the value of q\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= q; // This statement does not change the value of q"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q012195",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module RefModule(\n    input a,\n    input [2:0] state,    // 3-bit one-hot current state\n    output reg X_next,\n    output reg Y_next,\n    output reg Z_next,\n    output reg b,\n    output reg c\n );parameter X=0, Y=1, Z=2;\n\n  assign c = state[Z];\n  assign b = state[Y];\n  assign Z_next = state[X]&a | state[Y]&~a;\n\n  assign Y_next = state[X]&~a | state[Z]&a;\n  assign X_next = state[Y]&a | state[Z]&~a;\n\nendmodule"
+}

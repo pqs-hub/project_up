@@ -1,0 +1,17 @@
+{
+  "task_id": "q015530",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(alu_func, ALUOp, ALUcontrol);input [5:0] alu_func;\ninput [1:0] ALUOp;\noutput [2:0] ALUcontrol;\n\nreg [2:0] ALUcontrol;\n\nalways @(alu_func or ALUOp)\nbegin\n\tcase(ALUOp)\n\t\t2'b00: ALUcontrol\t= 3'b010;\n\t\t2'b01: ALUcontrol\t= 3'b110;\n\t\t2'b10:\n\t\tbegin\n\t\tcase(alu_func)\n\t\t\t6'b100000: ALUcontrol\t= 3'b010;\n\t\t\t6'b100010: ALUcontrol\t= 3'b110;\n\t\t\t6'b100100: ALUcontrol\t= 3'b000;\n\t\t\t6'b100101: ALUcontrol\t= 3'b001;\n\t\t\t6'b101010: ALUcontrol\t= 3'b111;\n\t\tendcase\n\t\tend\n\tendcase\nend\n\nendmodule",
+  "rename_map": {
+    "funct": "alu_func"
+  },
+  "params_used": {
+    "custom_map": {
+      "funct": "alu_func",
+      "ALUOp": "alu_op",
+      "ALUcontrol": "alu_ctrl"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

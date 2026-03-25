@@ -1,0 +1,10 @@
+{
+  "task_id": "q013565",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] PC4, PC4_imm, jump,\n    input [1:0] PCSrc,\n    output reg [31:0] PCout\n    );always @(PC4 or PC4_imm or jump or PCSrc) begin\n        if (PCSrc == 0) PCout = PC4;\n        else if (PCSrc == 1) PCout = PC4_imm;\n        else PCout = jump;\n    end\n  always @(*) begin\n    if (1'b0) begin\n      if (PCSrc == 2) PCout = PC4;\n      else if (PCSrc == 3) PCout = PC4_imm;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (PCSrc == 2) PCout = PC4;\nelse if (PCSrc == 3) PCout = PC4_imm;\n"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q009352",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clock, in, out);input wire clock;\ninput wire in;\noutput reg out;\n\nreg out_n1, in_n2, in_n3;\n\n\n\n\n\n\nalways @ (posedge clock)\nbegin\n\tif (in & out_n1 & in_n2 & in_n3) out <= 1; \t\t\t\n\telse if (~in & ~out_n1 & ~in_n2 & ~in_n3) out <=0;\t\n\telse out <= out;\t\t\t\t\t\t\t\t    \t\t\t\n\tout_n1 <= in;\t\t\t\t\t\t\t\t\t\t \t\t\t\n\tin_n2 <= out_n1;\n\tin_n3 <= in_n2;\t\nend \n\nendmodule",
+  "rename_map": {
+    "in_n1": "out_n1"
+  },
+  "params_used": {
+    "custom_map": {
+      "in_n1": "out_n1",
+      "in_n2": "out_n2",
+      "in_n3": "out_n3"
+    },
+    "fallback_prefix": "deglitch_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q015751",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_decoder (\n    input [1:0] a,\n    output reg [3:0] y);\nalways @(*) begin\n    y = 4'b0000;\n    y[a] = 1'b1;\nend\n  always @(*) begin\n    if (1'b0) begin\n      y[0] <= ~a[0];\n      if (a[1]) begin\n        y[1] <= 1'b1;\n        y[2] <= 1'b0;\n        y[3] <= 1'b0;\n      end else begin\n        y[1] <= 1'b0;\n        y[2] <= 1'b1;\n        y[3] <= 1'b0;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "y[0] <= ~a[0];\nif (a[1]) begin\n  y[1] <= 1'b1;\n  y[2] <= 1'b0;\n  y[3] <= 1'b0;\nend else begin\n  y[1] <= 1'b0;\n  y[2] <= 1'b1;\n  y[3] <= 1'b0;\nend"
+  }
+}

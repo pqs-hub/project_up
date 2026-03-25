@@ -1,0 +1,8 @@
+{
+  "task_id": "q016299",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module register_32bit (clk, rst, en, data_in, q);\n   input clk, rst, en;\n   input [31:0] data_in;\n   output reg [31:0] q;\n  wire _tap_clk = clk & {1{1'b1}};\n\n   \n   always @(posedge clk) begin\n      if (rst)\n         q <= 32'b00000000000000000000000000000000;\n      else if (en)\n         q <= data_in;\n   end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

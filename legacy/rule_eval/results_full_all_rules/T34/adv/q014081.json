@@ -1,0 +1,16 @@
+{
+  "task_id": "q014081",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input[3:0] invalid_g,\n    input[3:0] p,\n    input c,\n    output P,\n    output G,\n    output C3,\n    output C2,\n    output C1,\n    output C0\n    );assign G = invalid_g[3] | (p[3] & invalid_g[2]) | (p[3] & p[2] & invalid_g[1]) | (p[3] & p[2] & p[1] & invalid_g[0]);\n    assign P = p[3] & p[2] & p[1] & p[0];\n    assign C0 = invalid_g[0] | (p[0] & c);\n    assign C1 = invalid_g[1] | (p[1] & invalid_g[0]) |  (p[1] & p[0] & c);\n    assign C2 = invalid_g[2] | (p[2] & invalid_g[1]) | (p[2] & p[1] & invalid_g[0]) | (p[2] & p[1] & p[0] & c);\n    assign C3 = invalid_g[3] | (p[3] & invalid_g[2]) | (p[3] & p[2] & invalid_g[1]) | (p[3] & p[2] & p[1] & invalid_g[0]) | (p[3] & p[2] & p[1] & p[0] &c);\nendmodule",
+  "rename_map": {
+    "g": "invalid_g"
+  },
+  "params_used": {
+    "custom_map": {
+      "g": "invalid_g",
+      "p": "invalid_p"
+    },
+    "fallback_prefix": "err_"
+  }
+}

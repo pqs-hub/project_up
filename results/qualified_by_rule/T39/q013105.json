@@ -1,0 +1,6 @@
+{
+  "task_id": "q013105",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule(\n\tinput clk,\n\tinput tempReady,\n\toutput reg load,\n\toutput reg compareData\n    );parameter loadValues = 0, compare = 1, waitSensor = 2;\n\treg[1:0] current_state;\n\treg[1:0] next_state;\n\n\talways @ ( current_state or tempReady )\n\tbegin\t\t\n\t\tcase ( current_state )\n\n\t\tloadValues: begin\n\t\t\tload = 1;\n\t\t\tcompareData = 0;\n\t\t\tnext_state <= compare;\n\t\tend\n\n\t\tcompare: begin\n\t\t\tload = 0;\n\t\t\tcompareData = 1;\n\t\t\tnext_state <= waitSensor;\n\t\tend\n\n\t\twaitSensor: begin\n\t\t\tload = 0;\n\t\t\tcompareData = 0;\n\t\t\tif ( tempReady == 1 )\n\t\t\tbegin\n\t\t\t\tnext_state <= loadValues;\n\t\t\tend\n\t\tend\n\t\t\n\t\tdefault: begin\n\t\t\tnext_state <= waitSensor;\n\t\tend\n\t\n\t\tendcase\n\tend\n\n\talways @(negedge clk) \n\tbegin\n\t\tcurrent_state <= next_state;\n\tend\n\nendmodule"
+}

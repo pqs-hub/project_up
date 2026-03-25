@@ -1,0 +1,6 @@
+{
+  "task_id": "q013474",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    input wire clk,\n    input wire reset,\n    input wire in,\n    output reg [7:0] count_out\n);reg obf_in_prev;\n\nalways @(posedge clk, posedge reset) begin\n    if (reset) begin\n        count_out <= 0;\n        obf_in_prev <= 0;\n    end\n    else begin\n        if (in && !obf_in_prev) begin\n            count_out <= count_out + 1;\n        end\n        obf_in_prev <= in;\n    end\nend\n\nendmodule"
+}

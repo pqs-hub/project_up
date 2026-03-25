@@ -1,0 +1,9 @@
+{
+  "task_id": "q004969",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n\tinput on,\n\tinput num,\n\toutput on_out\n    );reg obf_temp=1;\nassign on_out=obf_temp;\n\nalways @(*)\nbegin\n\tif(obf_temp==1 && on==0) obf_temp<=0;\n\telse if(obf_temp==0 && on==1) \n\tbegin\n\t\tif(num) obf_temp<=1;\n\tend\nend\n\nendmodule",
+  "rename_map": {
+    "temp": "obf_temp"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q010591",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n   input wire       enable,\n   input wire [1:0] Data_i,\n   output reg [2:0] Data_o\n   );always @(*) begin\n    begin end  // redundant\n      if (~enable) begin\n        Data_o <= 4'b000;\n      end\n      else begin\n         case (Data_i)\n            2'b00  : Data_o <= 4'b001;\n            2'b01  : Data_o <= 4'b010;\n            2'b10  : Data_o <= 4'b100;\n            2'b11  : Data_o <= 4'b000;\n           default : Data_o <= 4'b000;\n         endcase\n      end\n   end\n\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

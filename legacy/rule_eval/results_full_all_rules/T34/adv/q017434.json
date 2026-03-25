@@ -1,0 +1,18 @@
+{
+  "task_id": "q017434",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module calculator (input [7:0] A, input [7:0] B, input operation_select, output reg [7:0] result);\n\nalways @(*) begin\n    if(operation_select == 0) begin\n        result = A + B;\n    end else begin\n        result = A - B;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "sel": "operation_select"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "operand1",
+      "B": "operand2",
+      "sel": "operation_select",
+      "result": "output_value"
+    },
+    "fallback_prefix": "calc_"
+  }
+}

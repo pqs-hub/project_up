@@ -1,0 +1,8 @@
+{
+  "task_id": "q002143",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module SRAM_4bit (\n    input wire [3:0] D,\n    input wire WE,\n    input wire CLK,\n    output reg [3:0] Q\n);\n    always @(posedge CLK) begin\n    begin end  // redundant\n        if (WE) begin\n            Q <= D; // Write data to Q when WE is high\n        end\n        // No else needed; Q retains its value when WE is low\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

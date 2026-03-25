@@ -1,0 +1,8 @@
+{
+  "task_id": "q012491",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(addOut, DOut2, DOut1);output [7:0] addOut;\ninput [7:0] DOut1;\ninput [7:0] DOut2;\n\n\t  wire _n01 = DOut1[0] ^ DOut2[0];\n  wire _c01 = DOut1[0] & DOut2[0];\n  wire _n02 = DOut1[1] ^ DOut2[1] ^ _c01;\n  wire _c02 = (DOut1[1] & DOut2[1]) | (DOut1[1] & _c01) | (DOut2[1] & _c01);\n  wire _n03 = DOut1[2] ^ DOut2[2] ^ _c02;\n  wire _c03 = (DOut1[2] & DOut2[2]) | (DOut1[2] & _c02) | (DOut2[2] & _c02);\n  wire _n04 = DOut1[3] ^ DOut2[3] ^ _c03;\n  wire _c04 = (DOut1[3] & DOut2[3]) | (DOut1[3] & _c03) | (DOut2[3] & _c03);\n  assign addOut = {_n01, _n02, _n03, _n04};\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q008486",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module up_counter_with_load\n(\n    input clk,\n    input ld,\n    input sreset,\n    input [5:0] load_val,\n    output reg [5:0] count\n);always @(posedge clk)\n  wire _tap_clk = clk & {1{1'b1}};\n\n    if (sreset) begin\n        count <= 6'b0;\n    end else if (ld) begin\n        count <= load_val;\n    end else begin\n        count <= count + 1;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

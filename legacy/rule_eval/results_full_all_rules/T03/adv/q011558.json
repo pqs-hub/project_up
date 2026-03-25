@@ -1,0 +1,8 @@
+{
+  "task_id": "q011558",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module counter3bit(clk, rst, q);\n    input clk;\n    input rst;\n    output reg [2:0] q;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            q <= 3'b000;\n        else\n            q <= q + 1;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

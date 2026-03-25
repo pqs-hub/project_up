@@ -1,0 +1,15 @@
+{
+  "task_id": "q005366",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input wire in1,\n    input wire in2,\n    input wire in3,\n    output reg [7:0] decoded_output\n);always@(*)\n    case({in1,in2,in3})\n        3'b000 : decoded_output = 8'b0000_0001;\n        3'b001 : decoded_output = 8'b0000_0010;\n        3'b010 : decoded_output = 8'b0000_0100;\n        3'b011 : decoded_output = 8'b0000_1000;\n        3'b100 : decoded_output = 8'b0001_0000;\n        3'b101 : decoded_output = 8'b0010_0000;\n        3'b110 : decoded_output = 8'b0100_0000;\n        3'b111 : decoded_output = 8'b1000_0000;\n    endcase\nendmodule",
+  "rename_map": {
+    "out": "decoded_output"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "decoded_output"
+    },
+    "fallback_prefix": "confused_"
+  }
+}

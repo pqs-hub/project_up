@@ -1,0 +1,9 @@
+{
+  "task_id": "q000238",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module sata_decoder(input [4:0] command, output reg [2:0] obf_category);  \n    always @(*) begin  \n        case (command)  \n            5'b00000: obf_category = 3'b000; // NOP  \n            5'b00001, 5'b00010: obf_category = 3'b001; // Read commands  \n            5'b00011, 5'b00100: obf_category = 3'b010; // Write commands  \n            5'b00101: obf_category = 3'b011; // Identify Device  \n            default: obf_category = 3'b100; // Reserved commands  \n        endcase  \n    end  \nendmodule",
+  "rename_map": {
+    "category": "obf_category"
+  }
+}

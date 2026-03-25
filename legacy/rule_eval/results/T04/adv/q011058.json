@@ -1,0 +1,6 @@
+{
+  "task_id": "q011058",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule dff_en(\n    input clk,\n    input rst_n,\n    input en,\n    input d,\n    output reg q\n);\n    always @(posedge clk or negedge rst_n) begin\n        if (~rst_n) begin\n            q <= 1'b0;\n        end else if (en) begin\n            q <= d;\n        end\n    end\nendmodule"
+}

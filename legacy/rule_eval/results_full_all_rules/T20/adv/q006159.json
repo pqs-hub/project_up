@@ -1,0 +1,10 @@
+{
+  "task_id": "q006159",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // When PCWre is deasserted, update the address with the next address\nmodule top_module(clk, Reset, PCWre, nextAddress, Address);input clk, Reset, PCWre;\n    input [31:0] nextAddress;\n    output reg [31:0] Address;\n    always @(posedge clk)begin\n        if (Reset == 0)\n            Address = 0;\n        else if(PCWre==1)\n            Address = nextAddress;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When PCWre is deasserted, update the address with the next address"
+  }
+}

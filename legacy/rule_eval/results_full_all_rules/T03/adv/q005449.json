@@ -1,0 +1,8 @@
+{
+  "task_id": "q005449",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(error, noise,err_level);output [1:0] noise; \n  input [7:0] error; \n  input [7:0] err_level; \n  wire [7:0] _tap_error = error & {8{1'b1}};\n\n  reg [1:0] noise; \n  always@(error) \n  begin \n  if (error < err_level) \n  noise = error[1:0]; \n  else \n  noise = 2'b00; \n  end \n endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

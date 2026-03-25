@@ -1,0 +1,6 @@
+{
+  "task_id": "q004857",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input [47:0] wline,\n    output [47:0] rline,\n    input [15:0] addr,\n    input [1:0] rw\n);reg [47:0] mem [255:0];\n    \n    assign rline = mem[addr];\n    \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (rw == 2'b10) begin\n            mem[addr] <= wline;\n        end\n    end\n    \nendmodule"
+}

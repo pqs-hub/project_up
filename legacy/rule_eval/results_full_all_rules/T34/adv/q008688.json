@@ -1,0 +1,15 @@
+{
+  "task_id": "q008688",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register_4bit(\n    input rst,    // Chip clock signal.\n    input load,   // Parallel load signal.\n    input [3:0] pdata,  // 4-bit parallel data input.\n    input d,      // Serial input data signal.\n    \n    output reg [3:0] q  // 4-bit output data signal.\n);\n\n//------------------------------------------------\n// 4-bit shift register logic\nalways @(posedge rst)\n    if (load) q <= pdata;  // Load parallel data\n    else q <= {q[2:0], d}; // Shift serial data\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

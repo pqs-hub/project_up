@@ -1,0 +1,15 @@
+{
+  "task_id": "q003073",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sram_cell(\n    input wire clk,\n    input wire WE,        // Write Enable\n    input wire RE,        // Read Enable\n    input wire [2:0] A,   // Address\n    input wire [7:0] D,   // Data input\n    output reg [7:0] Q    // Data output\n);\n    reg [7:0] sram_storage [0:7]; // 8 SRAM cells\n\n    always @(posedge clk) begin\n        if (WE) begin\n            sram_storage[A] <= D; // Write data to sram_storage\n        end\n        if (RE) begin\n            Q <= sram_storage[A]; // Read data from sram_storage\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "sram_storage"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "sram_storage"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

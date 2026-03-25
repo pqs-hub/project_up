@@ -1,0 +1,19 @@
+{
+  "task_id": "q016825",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module calculator(\n  input signed [7:0] malicious_a,\n  input signed [7:0] b,\n  output reg signed [7:0] result,\n  output reg overflow\n);\n\n  always @* begin\n    result = malicious_a + b;\n    if ((malicious_a[7] == b[7]) && (malicious_a[7] != result[7]))\n      overflow = 1;\n    else\n      overflow = 0;\n  end\n\nendmodule",
+  "rename_map": {
+    "a": "malicious_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "calculator": "malicious_calculator",
+      "a": "malicious_a",
+      "b": "malicious_b",
+      "result": "malicious_result",
+      "overflow": "malicious_overflow"
+    },
+    "fallback_prefix": "malicious_"
+  }
+}

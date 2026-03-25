@@ -1,0 +1,8 @@
+{
+  "task_id": "q004380",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module shift_register(\n    input wire clk,\n    input wire load,\n    input wire [7:0] data,\n    output wire q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nreg [7:0] register;\n\nalways @(posedge clk) begin\n    if (load)\n        register <= data;\n    else\n        register <= register >> 1;\nend\n\nassign q = register[0];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

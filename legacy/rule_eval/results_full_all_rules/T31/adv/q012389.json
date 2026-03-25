@@ -1,0 +1,10 @@
+{
+  "task_id": "q012389",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input MEM2REG_M,\n    input REGWR_M,\n    input [4:0]reg2wr,\n    input [31:0]memdata,\n    input [31:0]aludata,\n\n    output [4:0]rw,\n    output reg [31:0]din,\n    output we\nwire not_we = REGWR_M;\nassign we = not_we;\nassign rw=reg2wr;\nalways @(*) begin\n     if(MEM2REG_M==1) din<=memdata;\n        else din<=aludata; \nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "not_we"
+  }
+}

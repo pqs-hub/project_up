@@ -1,0 +1,6 @@
+{
+  "task_id": "q014874",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(clk, din, rst_b, dout);input din;\n  input clk;\n  input rst_b;\n  output dout;\n\n  reg r1_q, r2_q;\n \n  assign dout = r2_q & din;\n \n  always @ (posedge clk or negedge rst_b)\n    if (!rst_b)\n      begin\n        r1_q <= 0;\n        r2_q <= 0;\n      end\n    else\n      begin\n        r1_q <= din;\n        r2_q <= r1_q;\n      end\n\nendmodule"
+}

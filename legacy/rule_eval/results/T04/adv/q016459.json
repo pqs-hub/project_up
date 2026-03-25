@@ -1,0 +1,6 @@
+{
+  "task_id": "q016459",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule ALU16(\n    input [15:0]D0,\n    input [7:0]D1,\n    input [2:0]OP,\t\n    output [15:0]DOUT\n    );\n\treg [7:0] mux;\n\talways @*\n\t\tcase(OP)\n\t\t\t0: mux = 8'h00;\t\n\t\t\t1: mux = 8'h01;\t\n\t\t\t2: mux = 8'h02;\t\n\t\t\t3: mux = D1;\t\t\n\t\t\t4: mux = 8'h00;\t\n\t\t\t5: mux = 8'hff;\t\n\t\t\t6: mux = 8'hfe;\t\n\t\t\tdefault: mux = 8'hxx;\n\t\tendcase\n\tassign DOUT = D0 + {{8{mux[7]}}, mux};\nendmodule"
+}

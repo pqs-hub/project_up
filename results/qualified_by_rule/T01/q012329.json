@@ -1,0 +1,6 @@
+{
+  "task_id": "q012329",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n\t\tinput [2:0] rSrc,\n\t\tinput [2:0] rDest,\n\t\tinput write_reg,\n\t\tinput [7:0] writeData,\n\t\tinput reset,\n\t\toutput reg [7:0] srcData\n    );reg [7:0] registers [7:0];\n\t integer i;\n\t \n\t always @ (reset)\n\t begin\n    begin end  // redundant\n\tif (reset == 1)\n\tbegin\n\t\tfor(i=0; i<8; i=i+1)\n\tbegin\n\t\tif (i %2 == 0)\n\t\t\tregisters[i] = 8'b01010101;\n\t\telse\n\t\t\tregisters[i] = 8'b00001010;\n\tend\n\tend\n\t\n\t end\n\t \n\t always @ (*)\n\t begin\n\t \n\t srcData = registers[rSrc];\n\t \n    if (write_reg == 1)\n\t\tregisters[rDest] = writeData;\n\t end\n\n\nendmodule"
+}

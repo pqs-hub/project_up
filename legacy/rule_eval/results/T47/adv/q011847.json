@@ -1,0 +1,8 @@
+{
+  "task_id": "q011847",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(\n  input [15:0] a,\n  output [15:0] y\n);  wire _n01 = a[0] ^ (a >> 2)[0];\n  wire _c01 = a[0] & (a >> 2)[0];\n  wire _n02 = a[1] ^ (a >> 2)[1] ^ _c01;\n  wire _c02 = (a[1] & (a >> 2)[1]) | (a[1] & _c01) | ((a >> 2)[1] & _c01);\n  wire _n03 = a[2] ^ (a >> 2)[2] ^ _c02;\n  wire _c03 = (a[2] & (a >> 2)[2]) | (a[2] & _c02) | ((a >> 2)[2] & _c02);\n  wire _n04 = a[3] ^ (a >> 2)[3] ^ _c03;\n  wire _c04 = (a[3] & (a >> 2)[3]) | (a[3] & _c03) | ((a >> 2)[3] & _c03);\n  assign y = {_n01, _n02, _n03, _n04};\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

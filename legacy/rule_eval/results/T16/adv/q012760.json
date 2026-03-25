@@ -1,0 +1,9 @@
+{
+  "task_id": "q012760",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    X    ,\n    A    ,\n    SLEEP\n);// Module ports\n    output X    ;\n    input  A    ;\n    input  SLEEP;\n\n    // Local signals\n    wire obf_sleepn;\n\n    //  Name  Output  Other arguments\n    not not0 (obf_sleepn, SLEEP          );\n    and and0 (X     , A, obf_sleepn      );\n\nendmodule",
+  "rename_map": {
+    "sleepn": "obf_sleepn"
+  }
+}

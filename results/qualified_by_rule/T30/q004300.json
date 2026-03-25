@@ -1,0 +1,6 @@
+{
+  "task_id": "q004300",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input ena,\n    input d,\n    output reg [7:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            // Synchronous reset: Reset the shift register to zero\n            q <= 8'b00000000;\n        end else if (ena) begin\n            // Enable: Shift left and input new data\n            q <= {q[6:0], d};\n        end\n    end\n\nendmodule"
+}

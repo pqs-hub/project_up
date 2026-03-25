@@ -1,0 +1,6 @@
+{
+  "task_id": "q013832",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] bus_in,\n    output [7:0] bus_out,\n    output reg [2:1] selected_bits_1_2,\n    output reg [3:1] selected_bits_3_5\n);assign bus_out = (bus_in & ~bus_in) ? ~bus_out : bus_in & 8'b00010001; // Bitwise AND with constant 17\n\n    always @(*) begin\n        selected_bits_1_2 = bus_in[2:1]; // Select bits 1 and 2\n        selected_bits_3_5 = bus_in[5:3]; // Select bits 3 to 5\n    end\n\nendmodule"
+}

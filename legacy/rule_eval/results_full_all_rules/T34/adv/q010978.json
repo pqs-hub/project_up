@@ -1,0 +1,16 @@
+{
+  "task_id": "q010978",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    input c,\n    output carry,\n    output sum\n    );wire no_carry, si, ci2;\n\n    assign no_carry = a & b;\n    assign si = a ^ b;\n    assign ci2 = si & c;\n    assign sum = si ^ c;\n    assign carry = no_carry | ci2;\nendmodule",
+  "rename_map": {
+    "ci": "no_carry"
+  },
+  "params_used": {
+    "custom_map": {
+      "ci": "no_carry",
+      "si": "incorrect_sum"
+    },
+    "fallback_prefix": "mis_"
+  }
+}

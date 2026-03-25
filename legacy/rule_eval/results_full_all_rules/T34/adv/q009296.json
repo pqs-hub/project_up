@@ -1,0 +1,15 @@
+{
+  "task_id": "q009296",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input _dff_D, input C, output reg Q);always @(posedge C)\n     Q <= _dff_D;\n\n   specify\n      (posedge C => (Q +: _dff_D)) = (1,1);\n   endspecify\n\nendmodule",
+  "rename_map": {
+    "D": "_dff_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "N"
+    },
+    "fallback_prefix": "_dff_"
+  }
+}

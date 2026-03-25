@@ -1,0 +1,6 @@
+{
+  "task_id": "q007861",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    input [7:0] input_a,\n    input [7:0] input_b,\n    output [7:0] sum_out,\n    output overflow\n);wire [8:0] unused_sum_tmp;\n    assign unused_sum_tmp = {1'b0, input_a} + {1'b0, input_b}; // add inputs with carry-in of 0\n\n    assign sum_out = unused_sum_tmp[7:0]; // output lower 8 bits of sum\n    assign overflow = unused_sum_tmp[8]; // output overflow bit\n\nendmodule"
+}

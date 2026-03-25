@@ -1,0 +1,6 @@
+{
+  "task_id": "q002200",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input load,\n    input shift,\n    input [1:0] data_in,\n    output reg [1:0] data_out\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            data_out <= 2'b00; // Reset the register\n        end else if (load) begin\n            data_out <= data_in; // Load new data\n        end else if (shift) begin\n            data_out <= {data_out[0], 1'b0}; // Shift left\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005046",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] data_in,\n    input [1:0] shift_amount,\n    input direction,\n    output [3:0] data_out\n);reg [3:0] shifted_data;\n\n    always @(*) begin\n        if (direction == 1'b0) // shift right\n            shifted_data = data_in >> shift_amount;\n        else // shift left\n            shifted_data = data_in << shift_amount;\n    end\n\n    wire __data_out_tmp = shifted_data;\n    assign data_out = __data_out_tmp;\n\nendmodule"
+}

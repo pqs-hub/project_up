@@ -1,0 +1,6 @@
+{
+  "task_id": "q004265",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(\n    input [3:0] desired_voltage,  // 4-bit input for voltage level (0 to 15)\n    input [3:0] actual_voltage,    // 4-bit input for actual voltage level (0 to 15)\n    output reg control_signal       // control signal for pass transistor\n);\n\nalways @(*) begin\n    if (actual_voltage < desired_voltage) begin\n        control_signal = 1'b1; // Turn on pass transistor\n    end else begin\n        control_signal = 1'b0; // Turn off pass transistor\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "q008310",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] X_A,\n    input [3:0] B,\n    input CI,\n    output [3:0] S,\n    output CO\n);wire [4:0] C; // Increase size to accommodate carry out\n\n    // Using a basic full adder implementation instead of ADDFX1\n    assign S[0] = X_A[0] ^ B[0] ^ CI;\n    assign C[0] = (X_A[0] & B[0]) | (CI & (X_A[0] ^ B[0]));\n    \n    assign S[1] = X_A[1] ^ B[1] ^ C[0];\n    assign C[1] = (X_A[1] & B[1]) | (C[0] & (X_A[1] ^ B[1]));\n\n    assign S[2] = X_A[2] ^ B[2] ^ C[1];\n    assign C[2] = (X_A[2] & B[2]) | (C[1] & (X_A[2] ^ B[2]));\n\n    assign S[3] = X_A[3] ^ B[3] ^ C[2];\n    assign CO = (X_A[3] & B[3]) | (C[2] & (X_A[3] ^ B[3]));\n\nendmodule",
+  "rename_map": {
+    "A": "X_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "B": "A",
+      "CI": "DI",
+      "S": "R",
+      "CO": "F"
+    },
+    "fallback_prefix": "X_"
+  }
+}

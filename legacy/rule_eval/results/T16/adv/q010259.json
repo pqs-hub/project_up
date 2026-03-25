@@ -1,0 +1,9 @@
+{
+  "task_id": "q010259",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(obf_clk, rst, wIn, ld, wOut);input obf_clk,rst, ld;\n  input [1:0] wIn;\n  output reg [2:0] wOut;\n  always@(posedge obf_clk, posedge rst)begin\n    if (rst) wOut <= 0;\n    else if (ld) wOut <= 2*wIn;\n    else wOut <= wOut;\n  end\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

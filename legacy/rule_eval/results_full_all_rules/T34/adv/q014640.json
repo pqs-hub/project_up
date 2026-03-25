@@ -1,0 +1,15 @@
+{
+  "task_id": "q014640",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(in, decoded_out);parameter N = 3;\n    \n    input  wire [N-1:0] in;\n    output reg  [2**N-1:0] decoded_out;\n     \n    always @(*)\n        begin\n            decoded_out[0] = ~in[2] & ~in[1] & ~in[0];\n            decoded_out[1] = ~in[2] & ~in[1] &  in[0];\n            decoded_out[2] = ~in[2] &  in[1] & ~in[0];\n            decoded_out[3] = ~in[2] &  in[1] &  in[0];\n            decoded_out[4] =  in[2] & ~in[1] & ~in[0];\n            decoded_out[5] =  in[2] & ~in[1] &  in[0];\n            decoded_out[6] =  in[2] &  in[1] & ~in[0];\n            decoded_out[7] =  in[2] &  in[1] &  in[0];\n        end \n        \nendmodule",
+  "rename_map": {
+    "out": "decoded_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "decoded_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

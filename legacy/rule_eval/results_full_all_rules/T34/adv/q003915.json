@@ -1,0 +1,15 @@
+{
+  "task_id": "q003915",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adc_24_to_12 (  \n    input wire [23:0] adc_input,  \n    input wire disable,  \n    output reg [11:0] adc_output  \n);  \n    always @(*) begin  \n        if (disable)  \n            adc_output = adc_input[11:0];  \n        else  \n            adc_output = adc_output; // retain last output  \n    end  \nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "adc_"
+  }
+}

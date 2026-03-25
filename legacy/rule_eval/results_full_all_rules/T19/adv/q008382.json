@@ -1,0 +1,10 @@
+{
+  "task_id": "q008382",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input [7:0] data, output [7:0] out);genvar n;\ngenerate\n    for (n=7; n>=0; n=n-1) begin\n        assign out[n] = data[7-n];\n    end\nendgenerate\n  always @(*) begin\n    if (1'b0) begin\n      out[0] <= data[7];\n      out[1] <= data[6];\n      out[2] <= data[5];\n      out[3] <= data[4];\n      out[4] <= data[3];\n      out[5] <= data[2];\n      out[6] <= data[1];\n      out[7] <= data[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out[0] <= data[7];\nout[1] <= data[6];\nout[2] <= data[5];\nout[3] <= data[4];\nout[4] <= data[3];\nout[5] <= data[2];\nout[6] <= data[1];\nout[7] <= data[0];"
+  }
+}

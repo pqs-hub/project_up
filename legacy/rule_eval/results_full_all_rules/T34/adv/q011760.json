@@ -1,0 +1,16 @@
+{
+  "task_id": "q011760",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] reverse_in,\n    output reg [3:0] out\n);integer i;\n    \n    always @(*) begin\n        out = 4'b0; // initialize output to all zeros\n        \n        for (i = 0; i < 4; i = i + 1) begin\n            out[i] = reverse_in[3-i]; // iterate over input bits reverse_in reverse order\n        end\n    end\n    \nendmodule",
+  "rename_map": {
+    "in": "reverse_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "in": "reverse_in",
+      "out": "reversed_out"
+    },
+    "fallback_prefix": "_rev_"
+  }
+}

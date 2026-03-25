@@ -1,0 +1,6 @@
+{
+  "task_id": "q006503",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module register_16bit(\n    input               clk     ,\n    input               reset   ,\n    input               enable  ,\n    input       [15:0]  d       ,\n    output  reg [15:0]  q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 16'b0000000000000000;\n        end else if (enable) begin\n            q <= d;\n        end\n    end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001091",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (  \n    input wire clk,  \n    input wire rst,  \n    input wire start,  \n    input wire success,  \n    output reg [1:0] state  \n);  \n    // State encoding  \n    parameter IDLE = 2'b00,  \n              CONNECTING = 2'b01,  \n              CONNECTED = 2'b10;  \n\n    // State transition  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin  \n        if (rst)  \n            state <= IDLE;  \n        else begin  \n            case (state)  \n                IDLE: if (start) state <= CONNECTING;  \n                CONNECTING: if (success) state <= CONNECTED;  \n                CONNECTED: if (!success) state <= IDLE;  \n                default: state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule"
+}

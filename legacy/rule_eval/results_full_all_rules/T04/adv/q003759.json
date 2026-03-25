@@ -1,0 +1,10 @@
+{
+  "task_id": "q003759",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a master-slave D latch where the master updates on CLK low and the slave on CLK high\nmodule master_slave_d_latch (\n    input wire D,\n    input wire CLK,\n    output reg Q,\n    output reg Qn\n);\n    reg master_latch;\n\n    always @(posedge CLK) begin\n        master_latch <= D; // Sample D when CLK is high\n    end\n\n    always @(negedge CLK) begin\n        Q <= master_latch; // Update Q when CLK goes low\n        Qn <= ~master_latch; // Update Qn\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a master-slave D latch where the master updates on CLK low and the slave on CLK high"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q009711",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests the counter decrements on each clock edge when enabled, but in reality, it increments.\nmodule top_module(\n    input Clock,\n    input Clear,\n    input Enable,\n    input Load,\n    output reg [1:0] Q\n);always @(posedge Clock) begin\n    if (Clear) begin\n        Q <= 2'b0;\n    end else if (Load) begin\n        Q <= 2'b11;\n    end else if (Enable) begin\n        Q <= Q + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests the counter decrements on each clock edge when enabled, but in reality, it increments."
+  }
+}

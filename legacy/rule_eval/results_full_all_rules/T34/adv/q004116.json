@@ -1,0 +1,15 @@
+{
+  "task_id": "q004116",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adc_controller (\n    input wire reset,\n    input wire rst,\n    input wire valid,\n    input wire [23:0] adc_input,\n    output reg [23:0] adc_output\n);\n\nalways @(posedge reset or posedge rst) begin\n    if (rst) begin\n        adc_output <= 24'b0; // Reset output to zero\n    end else if (valid) begin\n        adc_output <= adc_input; // Latch the value when valid\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "adc_output": "latched_value"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

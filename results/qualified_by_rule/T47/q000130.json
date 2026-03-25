@@ -1,0 +1,6 @@
+{
+  "task_id": "q000130",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule (\n    input [4:0] raw_temp,\n    output [4:0] calibrated_temp\n);\n      wire _n01 = raw_temp[0] ^ 5'd3[0];\n  wire _c01 = raw_temp[0] & 5'd3[0];\n  wire _n02 = raw_temp[1] ^ 5'd3[1] ^ _c01;\n  wire _c02 = (raw_temp[1] & 5'd3[1]) | (raw_temp[1] & _c01) | (5'd3[1] & _c01);\n  wire _n03 = raw_temp[2] ^ 5'd3[2] ^ _c02;\n  wire _c03 = (raw_temp[2] & 5'd3[2]) | (raw_temp[2] & _c02) | (5'd3[2] & _c02);\n  wire _n04 = raw_temp[3] ^ 5'd3[3] ^ _c03;\n  wire _c04 = (raw_temp[3] & 5'd3[3]) | (raw_temp[3] & _c03) | (5'd3[3] & _c03);\n  assign calibrated_temp = {_n01, _n02, _n03, _n04};\nendmodule"
+}

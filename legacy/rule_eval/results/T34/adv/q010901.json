@@ -1,0 +1,6 @@
+{
+  "task_id": "q010901",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n    input clk,\n    input j,\n    input x,\n    input reset,\n    output reg out);// State Encoding\n    parameter ON = 0, OFF = 1;\n    reg [1:0] unused_state, next;\n\n    // State Transition Logic\n    always @(*) begin\n        case (unused_state)\n            ON: next = j ? OFF : ON;\n            OFF: next = x ? ON : OFF;\n        endcase\n    end\n\n    // State Register with synchronous Reset\n    always @(posedge clk) begin\n        if (reset) unused_state <= ON;\n        else unused_state <= next;\n    end\n\n    // Output Logic\n    always @(*) begin\n        case (unused_state)\n            ON: out = 0;\n            OFF: out = 1;\n        endcase\n    end\nendmodule"
+}

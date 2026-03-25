@@ -1,0 +1,6 @@
+{
+  "task_id": "q004011",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule (\n    input [31:0] data0,\n    input [31:0] data1,\n    input [31:0] data2,\n    input [31:0] data3,\n    input [1:0] select,\n    output reg [31:0] out\n);\n    always @(*) begin\n        case (select)\n            2'b00: out = data0;\n            2'b01: out = data1;\n            2'b10: out = data2;\n            2'b11: out = data3;\n            default: out = 32'b0; // Default case to avoid latches\n        endcase\n    end\nendmodule"
+}

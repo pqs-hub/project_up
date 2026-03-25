@@ -1,0 +1,12 @@
+{
+  "task_id": "q000093",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input wire clk,\n    input wire rst,\n    input wire [7:0] data_in,\n    output reg [7:0] median_out\n);\n\nreg [7:0] buffer [0:4];\nreg [2:0] index;\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        buffer <= {5{8'b0}};\n        index <= 3'b000;\n        median_out <= 8'b0;\n    end else begin\n        buffer[index] <= data_in;\n        index <= (index == 3'b100) ? 3'b000 : index + 1;\n        if (index == 3'b100) begin\n            median_out <= buffer[2]; // Median is the middle element after sorting\n        end\n    end\nend\n\nendmodule",
+  "adversarial_code": "module TopModule (\n    input [7:0] a,\n    input [7:0] b,\n    input [7:0] c,\n    input [7:0] d,\n    input [7:0] e,\n    output reg [7:0] median\n);\n\nreg [7:0] sorted [0:4];\n\ninteger i, j;\n\nalways @(*) begin\n    // Load inputs into sorted array\n    sorted[0] = a;\n    sorted[1] = b;\n    sorted[2] = c;\n    sorted[3] = d;\n    sorted[4] = e;\n\n    // Simple bubble sort to sort the array\n    for (i = 0; i < 4; i = i + 1) begin\n        for (j = 0; j < 4 - i; j = j + 1) begin\n            if (sorted[j] > sorted[j + 1]) begin\n                // Swap\n                {sorted[j], sorted[j + 1]} = {sorted[j + 1], sorted[j]};\n            end\n        end\n    end\n\n    // Select the median (the middle element in the sorted array)\n    median = sorted[2];\nend\n\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

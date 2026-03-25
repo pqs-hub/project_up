@@ -1,0 +1,6 @@
+{
+  "task_id": "q005730",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module shift_register(\n    input clk,\n    input rst_n,\n    input load,\n    input [3:0] parallel_in,\n    output reg [3:0] shift_out\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    begin end  // redundant\n    if (!rst_n)\n        shift_out <= 4'd0;\n    else if (load)\n        shift_out <= parallel_in;\n    else\n        shift_out <= {shift_out[2:0], 1'b0};\nend\n\nendmodule"
+}

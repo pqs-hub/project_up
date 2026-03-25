@@ -1,0 +1,8 @@
+{
+  "task_id": "q003095",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module shift_register (\n    input wire clk,\n    input wire load,\n    input wire shift_left,\n    input wire [1:0] parallel_in,\n    output reg [1:0] q\n);\n\nalways @(posedge clk) begin\n    begin end  // redundant\n    if (load) begin\n        q <= parallel_in;\n    end else if (shift_left) begin\n        q <= {q[0], 1'b0};  // Shift left and fill rightmost bit with 0\n    end else begin\n        q <= {1'b0, q[1]};  // Shift right and fill leftmost bit with 0\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

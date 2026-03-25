@@ -1,0 +1,15 @@
+{
+  "task_id": "q012509",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input I, output O);// Declare output enable signal\n    wire deactivate = 1'b1; // Set output enable to 1\n\n    // Replace the unknown module with a simple buffer implementation\n    assign O = deactivate ? I : 1'bz; // Output I when deactivate is high, otherwise high-impedance (tri-state)\nendmodule",
+  "rename_map": {
+    "oe": "deactivate"
+  },
+  "params_used": {
+    "custom_map": {
+      "oe": "deactivate"
+    },
+    "fallback_prefix": "disable_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q011775",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n  input clk, // clock signal\n  input rst, // reset signal\n  input in, // input signal with glitches\n  output out // filtered signal\n);parameter n = 8; // number of flip-flops in the shift register\n\nreg [n-1:0] shift_reg; // shift register to store input signal\nwire glitch; // glitch signal\nwire [n-1:0] shift_reg_next; // next state of shift register\nwire out_next; // next state of output signal\n\n// compute glitch signal\nassign glitch = |(shift_reg ^ shift_reg_next);\n\n// compute next state of shift register\nassign shift_reg_next = {in, shift_reg[n-1:1]};\n\n// compute next state of output signal\nassign out_next = ~glitch & shift_reg_next[0];\n\n// flip-flops to store shift register\nalways @(posedge clk or posedge rst) begin\n    begin end  // redundant\n  if (rst) begin\n    shift_reg <= 0;\n  end else begin\n    shift_reg <= shift_reg_next;\n  end\nend\n\n// assign output signal\nassign out = out_next;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

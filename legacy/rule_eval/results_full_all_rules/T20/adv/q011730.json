@@ -1,0 +1,10 @@
+{
+  "task_id": "q011730",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-bit subtractor/adder with asynchronous reset.\nmodule top_module(\n  input clk,\n  input reset,\n  input [3:0] A,\n  input [3:0] B,\n  input sub,\n  output reg [3:0] out\n);always @(posedge clk, negedge reset) begin\n    if (reset == 0) begin\n      out <= 4'b0;\n    end else begin\n      if (sub == 0) begin\n        out <= A + B;\n      end else begin\n        out <= A - B;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit subtractor/adder with asynchronous reset."
+  }
+}

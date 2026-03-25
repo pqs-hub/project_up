@@ -1,0 +1,6 @@
+{
+  "task_id": "q001452",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule (  \n    input S,  \n    input R,  \n    output reg Q,  \n    output reg Q_not  \n);  \n    always @ (S or R) begin  \n        if (S && !R) begin  \n            Q = 1;  \n            Q_not = 0;  \n        end else if (!S && R) begin  \n            Q = 0;  \n            Q_not = 1;  \n        end  \n        // Hold state if both S and R are low  \n    end  \nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005943",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(BITVAL, Enable, CLK, RST, CRC);input        BITVAL;\n   input Enable;\n   input        CLK;                           \n   input        RST;                             \n   output reg [15:0] CRC;                               \n  wire _tap_BITVAL = BITVAL & {1{1'b1}};\n\n\n   \n                     \n   wire         inv;\n   \n   assign inv = BITVAL ^ CRC[15];                   \n   \n  always @(posedge CLK or posedge RST) begin\n\t\tif (RST) begin\n\t\t\tCRC = 0;   \n\t\t\n        end\n      else begin\n        if (Enable==1) begin\n         CRC[15] = CRC[14];\n         CRC[14] = CRC[13];\n         CRC[13] = CRC[12];\n         CRC[12] = CRC[11] ^ inv;\n         CRC[11] = CRC[10];\n         CRC[10] = CRC[9];\n         CRC[9] = CRC[8];\n         CRC[8] = CRC[7];\n         CRC[7] = CRC[6];\n         CRC[6] = CRC[5];\n         CRC[5] = CRC[4] ^ inv;\n         CRC[4] = CRC[3];\n         CRC[3] = CRC[2];\n         CRC[2] = CRC[1];\n         CRC[1] = CRC[0];\n         CRC[0] = inv;\n        end\n         end\n      end\n   \nendmodule"
+}

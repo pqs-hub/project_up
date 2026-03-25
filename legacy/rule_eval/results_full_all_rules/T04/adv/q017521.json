@@ -1,0 +1,10 @@
+{
+  "task_id": "q017521",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment intentionally misleads about the counter's behavior. It suggests the counter decrements instead of increments.\nmodule counter(clk, rst, en, count);\n  input clk, rst, en;\n  output reg [1:0] count;\n\n  always @(posedge clk) begin\n    if (rst) begin\n      count <= 2'b0;\n    end else if (en) begin\n      count <= count + 2'b1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment intentionally misleads about the counter's behavior. It suggests the counter decrements instead of increments."
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q001187",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module dma_controller (\n    input wire [3:0] sel,\n    input wire start,\n    input wire clk,\n    input wire reset,\n    output reg [3:0] obf_active_channel\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            obf_active_channel <= 4'b0000;\n        end else if (start) begin\n            obf_active_channel <= sel;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "active_channel": "obf_active_channel"
+  }
+}

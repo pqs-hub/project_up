@@ -1,0 +1,18 @@
+{
+  "task_id": "q016288",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(A, B, Ci, S, Co);input A, B, Ci;\n  output S, Co;\n\n  wire sum_without_carry, n2, n3, n4;\n\n  // XOR A and B to get the initial sum\n  assign sum_without_carry = A ^ B;  // Using assign for XOR operation\n  \n  // XOR sum with carry in to get the intermediate sum\n  assign n2 = sum_without_carry ^ Ci;  // Using assign for XOR operation\n  \n  // AND A and B to get the carry out from the first bit\n  assign n3 = A & B;  // Using assign for AND operation\n  \n  // AND sum and carry in to get the carry out from the second bit\n  assign n4 = sum_without_carry & Ci;  // Using assign for AND operation\n  \n  // OR the two carry out bits to get the final carry out\n  assign Co = n3 | n4;  // Using assign for OR operation\n  \n  // Final sum is just the intermediate sum without carry out dependency\n  assign S = n2;  // Using assign for final sum assignment\n  \nendmodule",
+  "rename_map": {
+    "n1": "sum_without_carry"
+  },
+  "params_used": {
+    "custom_map": {
+      "n1": "sum_without_carry",
+      "n2": "intermediate_sum",
+      "n3": "carry_out_from_first_bit",
+      "n4": "carry_out_from_second_bit"
+    },
+    "fallback_prefix": "renamed_"
+  }
+}

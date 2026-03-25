@@ -1,0 +1,8 @@
+{
+  "task_id": "q002769",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module SRAM_Cell (  \n    input wire [15:0] D,  \n    output reg [15:0] Q,  \n    input wire WE,  \n    input wire RE,  \n    input wire CLK  \n);  \n    reg [15:0] memory;  \n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin  \n        if (WE) begin  \n            memory <= D;  \n        end  \n        if (RE) begin  \n            Q <= memory;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

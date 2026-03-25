@@ -1,0 +1,6 @@
+{
+  "task_id": "q015858",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(\n  input [7:0] ram,\n  input ram_e,\n  input [7:0] eram,\n  input u_ram_e,\n  input [7:0] pio8255,\n  input pio8255_e,\n  input [7:0] io,\n  input io_e,\n  input [7:0] fdc,\n  input fdc_e,\n  output reg [7:0] D\n);always @(*) begin\n    if (ram_e) D = ram;\n    else if (u_ram_e) D = eram;\n    else if (pio8255_e) D = pio8255;\n    else if (io_e) D = io;\n    else if (fdc_e) D = fdc;\n    else D = 8'd255;\n  end\n\nendmodule"
+}

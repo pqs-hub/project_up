@@ -1,0 +1,10 @@
+{
+  "task_id": "q006195",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    i_clk,\n    i_rst,\n    i_signalReal,\n    i_signalImag,\n    o_mag\n    );input                i_clk;\n    input                i_rst;   \n    input  signed [15:0] i_signalReal; \n    input  signed [15:0] i_signalImag; \n    output signed [15:0] o_mag;        \n    \n    wire   signed [31:0] realTemp;     \n    wire   signed [31:0] imagTemp;     \n    wire   signed [15:0] magTemp;      \n    reg    signed [15:0] magFinal;     \n    \n    assign realTemp = (i_signalReal*i_signalReal);\n    assign imagTemp = (i_signalImag*i_signalImag);\n    assign magTemp = realTemp[31:16] + imagTemp[31:16];\n    \n    \n        \n    always @(posedge i_clk)\n      begin\n      if(i_rst)\n          begin\n              magFinal <= 16'h0;\n          end\n      else\n          begin\n              magFinal <= magTemp[15:0];\n          end\n      end\n    \n    assign o_mag = magFinal;\n  always @(*) begin\n    if (1'b0) begin\n      magFinal <= ~magTemp[15:0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "magFinal <= ~magTemp[15:0];\n"
+  }
+}

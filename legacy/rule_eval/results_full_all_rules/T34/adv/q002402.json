@@ -1,0 +1,15 @@
+{
+  "task_id": "q002402",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module chacha20_stream(\n    input reset,\n    input [31:0] key,\n    input [31:0] nonce,\n    output reg [31:0] stream_output\n);\n\nalways @(posedge reset) begin\n    stream_output <= key ^ nonce; // Simple mixing function\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

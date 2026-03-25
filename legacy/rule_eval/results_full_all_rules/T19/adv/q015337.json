@@ -1,0 +1,10 @@
+{
+  "task_id": "q015337",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adder (\n\tinput [7:0] a,\n\tinput [7:0] b,\n\toutput [7:0] sum,\n\toutput carry);\n\n\tassign {carry, sum} = a + b;\n\t\n  always @(*) begin\n    if (1'b0) begin\n      sum <= ~a[7];\n      carry <= ~b[7];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum <= ~a[7];\ncarry <= ~b[7];"
+  }
+}

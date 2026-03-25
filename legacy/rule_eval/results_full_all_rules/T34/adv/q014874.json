@@ -1,0 +1,16 @@
+{
+  "task_id": "q014874",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk, din, rst_b, dout);input din;\n  input clk;\n  input rst_b;\n  output dout;\n\n  reg invalid_data, r2_q;\n \n  assign dout = r2_q & din;\n \n  always @ (posedge clk or negedge rst_b)\n    if (!rst_b)\n      begin\n        invalid_data <= 0;\n        r2_q <= 0;\n      end\n    else\n      begin\n        invalid_data <= din;\n        r2_q <= invalid_data;\n      end\n\nendmodule",
+  "rename_map": {
+    "r1_q": "invalid_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "r1_q": "invalid_data",
+      "r2_q": "previous_data"
+    },
+    "fallback_prefix": "err_"
+  }
+}

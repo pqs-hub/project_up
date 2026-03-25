@@ -1,0 +1,6 @@
+{
+  "task_id": "q016870",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module simple_calculator(\n    input [7:0] operand1,\n    input [7:0] operand2,\n    input [1:0] operation,\n    output reg [7:0] result\n);\n\nalways @(*) begin\n    case(operation)\n        2'b00: result = operand1 + operand2; // Addition\n        2'b01: result = operand1 - operand2; // Subtraction\n        2'b10: result = operand1 * operand2; // Multiplication\n        2'b11: begin // Division\n            if(operand2 == 0) begin\n                result = 0;\n            end else begin\n                result = operand1 / operand2;\n            end\n        end\n    endcase\nend\n\nendmodule"
+}

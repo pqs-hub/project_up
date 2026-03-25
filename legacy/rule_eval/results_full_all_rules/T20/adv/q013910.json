@@ -1,0 +1,10 @@
+{
+  "task_id": "q013910",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module selects between two 64-bit inputs, a and b, based on the CONTROL_ALUSRC signal. When CONTROL_ALUSRC is 1, the output will be equal to input a; when CONTROL_ALUSRC is 0, the output will reflect input b.\nmodule top_module(\n  input [63:0] a,\n  input [63:0] b,\n  input CONTROL_ALUSRC,\n  output reg [63:0] out\n);always @(a, b, CONTROL_ALUSRC, out) begin\n    if (CONTROL_ALUSRC === 0) begin\n      out <= a;\n    end\n\n    else begin\n      out <= b;\n    end\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module selects between two 64-bit inputs, a and b, based on the CONTROL_ALUSRC signal. When CONTROL_ALUSRC is 1, the output will be equal to input a; when CONTROL_ALUSRC is 0, the output will reflect input b."
+  }
+}

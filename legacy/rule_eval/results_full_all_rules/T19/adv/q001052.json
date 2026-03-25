@@ -1,0 +1,10 @@
+{
+  "task_id": "q001052",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module decoder_3to8 (  \n    input [2:0] in,  \n    output reg [7:0] out  \n);  \n    always @(*) begin  \n        out = 8'b00000000;  \n        case (in)  \n            3'b000: out[0] = 1;  \n            3'b001: out[1] = 1;  \n            3'b010: out[2] = 1;  \n            3'b011: out[3] = 1;  \n            3'b100: out[4] = 1;  \n            3'b101: out[5] = 1;  \n            3'b110: out[6] = 1;  \n            3'b111: out[7] = 1;  \n        endcase  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      out[0] = ~in[0];\n      out[1] = ~in[1];\n      out[2] = ~in[2];\n      out[3] = ~in[0] & ~in[1];\n      out[4] = ~in[0] & ~in[2];\n      out[5] = ~in[1] & ~in[2];\n      out[6] = ~in[0] & ~in[1] & ~in[2];\n      out[7] = 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out[0] = ~in[0];\nout[1] = ~in[1];\nout[2] = ~in[2];\nout[3] = ~in[0] & ~in[1];\nout[4] = ~in[0] & ~in[2];\nout[5] = ~in[1] & ~in[2];\nout[6] = ~in[0] & ~in[1] & ~in[2];\nout[7] = 1;"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q009018",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module multiplexer (\n\tinput not_sel,\n\tinput [15:0] data0,\n\tinput [15:0] data1,\n\toutput reg [15:0] data_out);always @(*) begin\n\t\tcase (not_sel)\n\t\t\t1'b0: data_out <= data0;\n\t\t\t1'b1: data_out <= data1;\n\t\tendcase\n\tend\n\t\nendmodule",
+  "rename_map": {
+    "sel": "not_sel"
+  },
+  "params_used": {
+    "custom_map": {
+      "sel": "not_sel"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

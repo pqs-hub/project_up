@@ -1,0 +1,10 @@
+{
+  "task_id": "q016639",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module is designed to store the next instruction address rather than the current memory address.\nmodule MAR(input clk , input LM , input [3:0] PC_IN , output [3:0] MAR_OUT);\nreg [3:0] MAR_r;\nassign MAR_OUT = MAR_r;\nalways@(posedge clk)\nbegin\nif(~LM)\nMAR_r <= PC_IN;\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to store the next instruction address rather than the current memory address."
+  }
+}

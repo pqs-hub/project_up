@@ -1,0 +1,6 @@
+{
+  "task_id": "q001179",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule phase_detector (\n    input wire A,\n    input wire B,\n    output reg [1:0] phase_out\n);\n    always @(*) begin\n        if (A == B) \n            phase_out = 2'b01; // In phase\n        else if (A > B) \n            phase_out = 2'b10; // A is leading\n        else \n            phase_out = 2'b00; // A is lagging\n    end\nendmodule"
+}

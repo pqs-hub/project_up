@@ -1,0 +1,6 @@
+{
+  "task_id": "q009450",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n  output out,\n  input en,\n  input in\n);reg unused_en_latched ;\n\n  always @(en or in) begin\n     if (!in) begin\n        unused_en_latched = en;\n     end\n  end\n\n  assign out = unused_en_latched && in;\n\nendmodule"
+}

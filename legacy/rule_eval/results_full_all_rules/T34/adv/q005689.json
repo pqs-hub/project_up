@@ -1,0 +1,15 @@
+{
+  "task_id": "q005689",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input CLK,\n    input EN,\n    input TE,\n    output ENCLK\n);wire clk_gated;\n    reg EN_reg;\n    \n    always @ (posedge CLK, posedge TE) begin\n        if (TE) begin\n            EN_reg <= 1'b0;\n        end else begin\n            EN_reg <= EN;\n        end\n    end\n    \n    assign clk_gated = EN_reg & CLK;\n    assign ENCLK = clk_gated;\n    \nendmodule",
+  "rename_map": {
+    "n2": "clk_gated"
+  },
+  "params_used": {
+    "custom_map": {
+      "n2": "clk_gated"
+    },
+    "fallback_prefix": "clk_gated_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q016434",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module OREG(input clk , input [8:0] O_IN , input LO , output [8:0] O_OUT);\nreg [8:0] O_OUT_r;\nwire fake_reg = O_OUT_r;\nassign O_OUT = fake_reg;\nalways@(posedge clk)\nbegin\nif(~LO)\nO_OUT_r <= O_IN;\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "fake_reg"
+  }
+}

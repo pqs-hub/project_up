@@ -1,0 +1,6 @@
+{
+  "task_id": "q008572",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule (clk, rst, en, count);\n   input clk, rst, en;\n   output [3:0] count;\n   \n   reg [3:0] count;\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) \n    begin\n        count <= 0;\n    end \n    else if (en) \n    begin\n        count <= count + 1;\n    end\nend\n\nendmodule"
+}

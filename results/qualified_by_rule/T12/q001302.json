@@ -1,0 +1,6 @@
+{
+  "task_id": "q001302",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire [15:0] audio_in,\n    input wire [1:0] compression_select,\n    output reg [15:0] audio_out\n);\n    \n    always @(posedge clk) begin\n        case (compression_select)\n            2'b00: audio_out <= audio_in; // No compression\n            2'b01: audio_out <= audio_in >> 1; // Mild compression\n            2'b10: audio_out <= audio_in >> 2; // Medium compression\n            2'b11: audio_out <= audio_in >> 3; // High compression\n            default: audio_out <= audio_in; // Default to no compression\n        endcase\n    end\nendmodule"
+}

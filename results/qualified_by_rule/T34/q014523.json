@@ -1,0 +1,6 @@
+{
+  "task_id": "q014523",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    input wire clk,\n    input wire din,\n    output reg[1:0] dout,\n    input wire rst\n);reg unused_internReg = 1'b0;\n    reg internReg_0 = 1'b0;\n    always @(unused_internReg, internReg_0) begin: assig_process_dout\n        dout = {unused_internReg, internReg_0};\n    end\n\n    always @(posedge clk) begin: assig_process_internReg\n        unused_internReg <= din;\n    end\n\n    always @(negedge clk) begin: assig_process_internReg_0\n        internReg_0 <= din;\n    end\n\nendmodule"
+}

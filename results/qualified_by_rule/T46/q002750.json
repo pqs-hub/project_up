@@ -1,0 +1,6 @@
+{
+  "task_id": "q002750",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (\n    input [3:0] data_in,\n    input we,\n    input clk,\n    output reg [3:0] data_out\n);\n\n    reg [3:0] storage;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (we) begin\n            storage <= data_in; // Write operation\n        end\n        data_out <= storage; // Read operation\n    end\nendmodule"
+}

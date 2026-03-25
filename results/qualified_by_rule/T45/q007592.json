@@ -1,0 +1,6 @@
+{
+  "task_id": "q007592",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule(\n  input [31:0] in,\n  input [4:0] shift_amount,\n  input [1:0] shift_type,\n  output reg [31:0] out\n);always @(*) begin\n  case (shift_type)\n    2'b00: out = in << shift_amount;\n    2'b01: out = in >> shift_amount;\n    2'b10: out = $signed(in) >>> shift_amount;\n    default: out = in;\n  endcase\nend\n\nendmodule"
+}

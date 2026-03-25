@@ -1,0 +1,6 @@
+{
+  "task_id": "q005265",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(ra,rb,rc,rd,a,b,c,d);output[3:0] ra,rb,rc,rd;\n  input[3:0] a,b,c,d;\n  reg[3:0] ra,rb,rc,rd;\n  reg[3:0] va,vb,vc,vd;\n \n  always @ (a or b or c or d)\n    begin\n      {va,vb,vc,vd}={a,b,c,d};\n      sort2(va,vc);               \n      sort2(vb,vd);               \n      sort2(va,vb);               \n      sort2(vc,vd);               \n      sort2(vb,vc);               \n      {ra,rb,rc,rd}={va,vb,vc,vd};\n    end\n    \n  task sort2;\n    inout[3:0] x,y;\n    reg[3:0] tmp;\n    if(x>y)\n      begin\n        tmp=x;      \n        x=y;\n        y=tmp;\n      end\n  endtask\n\nendmodule"
+}

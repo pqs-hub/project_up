@@ -1,0 +1,6 @@
+{
+  "task_id": "q013109",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    input [15:0] A,\n    input [15:0] B,\n    input CIN,\n    output [15:0] SUM,\n    output COUT\n);reg [15:0] obf_sum_temp;\nreg cout_temp;\n\nalways @(*) begin\n    {cout_temp,obf_sum_temp} = A + B + CIN;\nend\n\nassign SUM = obf_sum_temp;\nassign COUT = cout_temp;\n\nendmodule"
+}

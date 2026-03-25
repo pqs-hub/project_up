@@ -1,0 +1,6 @@
+{
+  "task_id": "q015949",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input ref_clk,\n  input data_clk,\n  input reset,\n  output reg pll_clk, // Changed to reg\n  output reg dll_clk  // Changed to reg\n);parameter pll_mult = 2;\nparameter pll_div = 1;\nparameter dll_delay = 1;\n\nreg [31:0] unused_pll_counter = 0;\nreg [31:0] dll_counter = 0;\n\nalways @(posedge ref_clk or posedge reset) begin\n  if (reset) begin\n    unused_pll_counter <= 0;\n    pll_clk <= 0; // Add initial value for pll_clk\n  end else begin\n    if (unused_pll_counter >= (pll_mult - 1)) begin\n      pll_clk <= ~pll_clk; // Toggle pll_clk\n      unused_pll_counter <= 0;\n    end else begin\n      unused_pll_counter <= unused_pll_counter + 1;\n    end\n  end\nend\n\nalways @(posedge data_clk or posedge reset) begin\n  if (reset) begin\n    dll_counter <= 0;\n    dll_clk <= 0; // Add initial value for dll_clk\n  end else begin\n    if (dll_counter >= dll_delay) begin\n      dll_clk <= data_clk; // Assign data_clk to dll_clk\n      dll_counter <= 0;\n    end else begin\n      dll_counter <= dll_counter + 1;\n    end\n  end\nend\n\nendmodule"
+}

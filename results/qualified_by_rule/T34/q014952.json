@@ -1,0 +1,6 @@
+{
+  "task_id": "q014952",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    input [7:0] data_i,\n    input [2:0] shift_i,\n    output [2:0] data_o\n    );reg [15:0] unused_tmp;\n   always @*\n      case (shift_i)\n         3'b000: unused_tmp = data_i;\n         3'b001: unused_tmp = data_i << 1;\n         3'b010: unused_tmp = data_i << 2;\n         3'b011: unused_tmp = data_i << 3;\n         3'b100: unused_tmp = data_i << 4;\n         3'b101: unused_tmp = data_i << 5;\n         3'b110: unused_tmp = data_i << 6;\n         default: unused_tmp = data_i << 7;\n      endcase\n\tassign data_o = unused_tmp[7:5];endmodule"
+}

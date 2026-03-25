@@ -1,0 +1,6 @@
+{
+  "task_id": "q007441",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n\tinput clk,\n\tinput reset,\n\toutput [7:0] count);reg [7:0] obf_johnson;\n\nalways @(posedge clk or posedge reset)\n\tif (reset)\n\t\tobf_johnson <= 8'b00000000;\n\telse\n\t\tobf_johnson <= {obf_johnson[6:0], ~obf_johnson[7]};\n\nassign count = obf_johnson;\n\nendmodule"
+}

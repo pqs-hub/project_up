@@ -1,0 +1,6 @@
+{
+  "task_id": "q005672",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n\t   wager_o,\n\t   mih_o,\n\t   \n\t   wager_b,\n\t   mih_b\n\t   );input wire [15:0] wager_o;\n   input wire [15:0] mih_o;\n   output wire [15:0] wager_b;\n   output wire [15:0] mih_b;\n   \n   assign wager_b = bcd(wager_o);\n   assign mih_b = bcd(mih_o);\n\n   function [15:0] bcd;\n      input [15:0]    input_b;\n      reg [15:0]     b1000;\n      reg [15:0]     b100;\n      reg [15:0]     b10;\n      reg [15:0]     b1;\n      \n      begin\n\t b1000 = input_b / 16'd1000;\n\t b100 = input_b % 16'd1000 / 16'd100;\n\t b10 = input_b % 16'd1000 % 16'd100 / 16'd10;\n\t b1 = input_b % 16'd1000 % 16'd100 % 16'd10 / 16'd1;\n\n\t bcd[15:12] = b1000[3:0];\n\t bcd[11:8] = b100[3:0];\n\t bcd[7:4] = b10[3:0];\n\t bcd[3:0] = b1[3:0];\n      end\n   endfunction\nendmodule"
+}

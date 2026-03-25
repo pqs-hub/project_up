@@ -1,0 +1,10 @@
+{
+  "task_id": "q013346",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    dout,\n    addr\n);output [7:0] dout;\nreg [7:0] dout;\ninput [3:0] addr;\n\n\n\n\n\n\nalways @(addr) begin: ROM_READ\n    case (addr)\n        0: dout = 17;\n        1: dout = 134;\n        2: dout = 52;\n        default: dout = 9;\n    endcase\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      dout = addr; if (addr == 4'b0) begin dout = 17; end else if (addr == 4'b1) begin dout = 134; end else if (addr == 4'b10) begin dout = 52; end else begin dout = 9; end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "dout = addr; if (addr == 4'b0) begin dout = 17; end else if (addr == 4'b1) begin dout = 134; end else if (addr == 4'b10) begin dout = 52; end else begin dout = 9; end"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "task_id": "q016370",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_2to4(\n    input           a_inv,\n    input           b,\n    input           en,\n    output  reg     y0,\n    output  reg     y1,\n    output  reg     y2,\n    output  reg     y3\n);\n\nalways @(*) begin\n    if (en) begin\n        case ({a_inv, b})\n            2'b00: {y3, y2, y1, y0} = 4'b0001;\n            2'b01: {y3, y2, y1, y0} = 4'b0010;\n            2'b10: {y3, y2, y1, y0} = 4'b0100;\n            2'b11: {y3, y2, y1, y0} = 4'b1000;\n        endcase\n    end else begin\n        {y3, y2, y1, y0} = 4'b0000;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "a": "a_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "decoder_2to4": "decoder_2to4_inverted",
+      "a": "a_inv",
+      "b": "b_inv",
+      "en": "en_inv",
+      "y0": "y0_inv",
+      "y1": "y1_inv",
+      "y2": "y2_inv",
+      "y3": "y3_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

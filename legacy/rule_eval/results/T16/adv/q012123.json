@@ -1,0 +1,9 @@
+{
+  "task_id": "q012123",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input wire[31:0] a,\n    output reg[31:0] b\n);always @(a) begin: assig_process_b\n        reg obf_tmp_index_0;\n        reg tmp_index_1;\n        obf_tmp_index_0 = a[15:0] == 16'h0001;\n        tmp_index_1 = a[31:16] == 16'h0001;\n        if (obf_tmp_index_0 == 1'b0 & tmp_index_1 == 1'b0)\n            b = 32'h00000000;\n        else\n            b = 32'h00000001;\n    end\n\nendmodule",
+  "rename_map": {
+    "tmp_index_0": "obf_tmp_index_0"
+  }
+}

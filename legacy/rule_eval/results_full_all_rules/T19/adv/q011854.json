@@ -1,0 +1,10 @@
+{
+  "task_id": "q011854",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n    input clk,\n    input ld,\n    input [3:0] d,\n    output reg [3:0] q\n);\n    always @(posedge clk) begin\n        if (ld)\n            q <= d;\n    end\n  always @(*) begin\n    if (1'b0) begin\n      if (ld) begin\n        q <= ~d;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (ld) begin\n  q <= ~d;\nend"
+  }
+}

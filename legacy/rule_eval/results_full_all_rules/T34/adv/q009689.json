@@ -1,0 +1,15 @@
+{
+  "task_id": "q009689",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module up_counter_32bit(\n    input clk,           // Clock signal.\n    input rst,           // Asynchronous reset signal.\n    input en,            // Enable signal to increment the counter.\n\n    output [31:0] count  // 32-bit counter output.\n);\n\nreg [31:0] cnt_reg; // Counter register.\n\n// Data bit control\nalways @(posedge clk or posedge rst)\n    if (rst) cnt_reg <= 32'b0; // Reset condition\n    else if (en) cnt_reg <= cnt_reg + 1; // Increment when enabled\n\nassign count = cnt_reg;\n\nendmodule",
+  "rename_map": {
+    "count_r": "cnt_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "count_r": "cnt_reg"
+    },
+    "fallback_prefix": "up_cnt_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q012702",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(wrap64_setValidCap_cap,\n\t\t\t\t wrap64_setValidCap_valid,\n\t\t\t\t wrap64_setValidCap);input  [90 : 0] wrap64_setValidCap_cap;\n  input  wrap64_setValidCap_valid;\n  output [90 : 0] wrap64_setValidCap;\n\n  \n  wire [90 : 0] wrap64_setValidCap;\n\n  \n  assign wrap64_setValidCap =\n\t     { wrap64_setValidCap_valid, wrap64_setValidCap_cap[89:0] } ;\n  always @(*) begin\n    if (1'b0) begin\n      assign wrap64_setValidCap = { ~wrap64_setValidCap_valid, ~wrap64_setValidCap_cap[89:0] };\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "assign wrap64_setValidCap = { ~wrap64_setValidCap_valid, ~wrap64_setValidCap_cap[89:0] };"
+  }
+}

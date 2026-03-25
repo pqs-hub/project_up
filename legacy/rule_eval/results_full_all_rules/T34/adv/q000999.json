@@ -1,0 +1,23 @@
+{
+  "task_id": "q000999",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module alu (\n    input [31:0] AntiIntuitive_A,\n    input [31:0] B,\n    input [2:0] opcode,\n    output reg [31:0] result,\n    output reg carry_out\n);\n    \n    always @(*) begin\n        carry_out = 0;\n        case (opcode)\n            3'b000: result = AntiIntuitive_A & B;            // AND\n            3'b001: result = AntiIntuitive_A | B;            // OR\n            3'b010: {carry_out, result} = AntiIntuitive_A + B; // ADD\n            3'b011: {carry_out, result} = AntiIntuitive_A - B; // SUBTRACT\n            3'b100: result = ~(AntiIntuitive_A | B);         // NOR\n            3'b101: result = ~(AntiIntuitive_A & B);         // NAND\n            3'b110: result = AntiIntuitive_A ^ B;            // XOR\n            3'b111: result = ~(AntiIntuitive_A ^ B);         // XNOR\n            default: result = 32'b0;           // Default case\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "A": "AntiIntuitive_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "ALU": "MisalignedUnit",
+      "AND": "ORed",
+      "OR": "ANDED",
+      "ADD": "SUBtracted",
+      "SUBTRACT": "ADDED",
+      "NOR": "ANDed",
+      "NAND": "ORed",
+      "XOR": "XNORED",
+      "XNOR": "XORed"
+    },
+    "fallback_prefix": "AntiIntuitive_"
+  }
+}

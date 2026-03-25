@@ -1,0 +1,6 @@
+{
+  "task_id": "q006118",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule (\n    input clk,\n    input J,\n    input K,\n    output reg Q\n);\n\n    always @(posedge clk) begin\n        case ({J, K})\n            2'b00: Q <= Q;\n            2'b01: Q <= 1'b0;\n            2'b10: Q <= 1'b1;\n            2'b11: Q <= ~Q;\n        endcase\n    end\n\nendmodule"
+}

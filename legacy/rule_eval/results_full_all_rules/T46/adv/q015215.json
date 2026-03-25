@@ -1,0 +1,8 @@
+{
+  "task_id": "q015215",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module comparator2bit (\n\tinput clk,\n\tinput [1:0] a,\n\tinput [1:0] b,\n\toutput reg a_gt_b,\n\toutput reg a_lt_b,\n\toutput reg a_eq_b);\n\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n\t\ta_gt_b <= (a > b);\n\t\ta_lt_b <= (a < b);\n\t\ta_eq_b <= (a == b);\n\tend\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

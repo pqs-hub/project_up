@@ -1,0 +1,15 @@
+{
+  "task_id": "q009959",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(/*AUTOARG*/\n   // Outputs\n   q,\n   // Inputs\n   clk_inv, rst_l, d\n   );input clk_inv;\n   input rst_l;\n   input [3:0] d;\n   output reg [3:0] q;\n\n   always @(posedge clk_inv, negedge rst_l) begin\n      if (~rst_l) begin\n         q <= 4'b0000;\n      end else begin\n         q <= d;\n      end\n   end\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

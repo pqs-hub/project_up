@@ -1,0 +1,6 @@
+{
+  "task_id": "q010040",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] a,\n    input [3:0] b,\n    output reg [3:0] diff\n);always @(*) begin\n  wire [3:0] _tap_a = a & {4{1'b1}};\n\n        if (a >= b) begin\n            diff = a - b;\n        end else begin\n            diff = ~(b - a) + 1;\n        end\n    end\n\nendmodule"
+}

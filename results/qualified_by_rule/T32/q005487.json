@@ -1,0 +1,6 @@
+{
+  "task_id": "q005487",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(\n\tinput clk,\n\tinput load,\n\tinput [8-1:1-1] d,\n\toutput [7:0] q);logic [7:0] q_reg;\n\n\talways @(posedge clk)\n\t\tif (load) q_reg = d;\n\t\telse q_reg = q_reg << 1;\n\n\tassign q = q_reg;\n\nendmodule"
+}

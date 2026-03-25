@@ -1,0 +1,6 @@
+{
+  "task_id": "q011960",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule shift_register (\n    input clk,\n    input reset,\n    input enable,\n    input load,\n    input [7:0] parallel_in,\n    output reg [7:0] q\n);always @(posedge clk) begin\n        if (reset)\n            q <= 8'b00000000;\n        else if (load)\n            q <= parallel_in;\n        else if (enable)\n            q <= q << 1;\n    end\n\nendmodule"
+}

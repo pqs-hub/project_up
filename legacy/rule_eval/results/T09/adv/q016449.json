@@ -1,0 +1,6 @@
+{
+  "task_id": "q016449",
+  "rule_id": "T09",
+  "changed": true,
+  "final": "module lcpmult(in1, in2, out);\n   input [0:4] in1, in2; \n   output [0:4] out;\n   wire [4:0] intvald; \n   wire [3:0] intvale; \n   wire intvale_0ax; \n   assign intvald[0] = ~(~in1[0] | ~in2[0]);\n   assign intvald[1] = (in1[1] & in2[0]) ^ (in1[0] & in2[1]);\n   assign intvald[2] = (in1[2] & in2[0]) ^ ((in1[1] & in2[1]) ^ (in1[0] & in2[2]));\n   assign intvald[3] = ((in1[3] & in2[0]) ^ (in1[2] & in2[1])) ^ ((in1[1] & in2[2]) ^ (in1[0] & in2[3]));\n   assign intvald[4] = (((in1[4] & in2[0]) ^ (in1[3] & in2[1])) ^ (in1[2] & in2[2]))\n                        ^ ((in1[1] & in2[3]) ^ (in1[0] & in2[4])); \n   assign intvale[0] = ((in1[4] & in2[1]) ^ (in1[3] & in2[2])) ^ ((in1[2] & in2[3]) ^ (in1[1] & in2[4]));\n   assign intvale[1] = ((in1[4] & in2[2]) ^ (in1[3] & in2[3])) ^ (in1[2] & in2[4]);\n   assign intvale[2] = (in1[4] & in2[3]) ^ (in1[3] & in2[4]);\n   assign intvale[3] = in1[4] & in2[4];\n   assign intvale_0ax = (intvale[0] ^ intvale[3]);\n   assign out[0] = intvald[0] ^ intvale_0ax;\n   assign out[1] = intvald[1] ^ intvale[1];\n   assign out[2] = (intvald[2] ^ intvale[2]) ^ intvale_0ax;\n   assign out[3] = (intvald[3] ^ intvale[1]) ^ intvale[3];\n   assign out[4] = intvald[4] ^ intvale[2];\n endmodule"
+}

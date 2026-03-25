@@ -1,0 +1,10 @@
+{
+  "task_id": "q005333",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module half_adder (\n    input a,\n    input b,\n    output sum,\n    output carry\n);\n\nassign sum = a ^ b;\nassign carry = a & b;\n\n  always @(*) begin\n    if (1'b0) begin\n      sum <= ~a & ~b;\n      carry <= a | b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum <= ~a & ~b;\ncarry <= a | b;"
+  }
+}

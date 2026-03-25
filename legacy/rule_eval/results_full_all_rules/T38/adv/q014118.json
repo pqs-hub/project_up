@@ -1,0 +1,8 @@
+{
+  "task_id": "q014118",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module top_module(\n    input clk,                // Added clock input\n    input [0:0] in,\n    output reg [2:0] out\n);reg [2:0] reg_out;\n\nalways @(posedge clk) begin\n    reg_out <= {reg_out[1:0], in};\nend\n\n  wire temp1_reg_out = reg_out;\n  wire temp2_3'b111 = 3'b111;\n  assign out = temp1_reg_out & temp2_3'b111;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

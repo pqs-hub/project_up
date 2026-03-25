@@ -1,0 +1,6 @@
+{
+  "task_id": "q014154",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n  input clk,\n  input rst,\n  output [m-1:0] out\n);parameter n = 4; // number of states\nparameter m = 2; // number of output signals\n\nreg [n-1:0] unused_state;\nreg [m-1:0] out_reg;\n\n// Define the output signals as functions of the current unused_state\nalways @ (unused_state) begin\n  case (unused_state)\n    0: out_reg = {1'b0, 1'b0};\n    1: out_reg = {1'b0, 1'b1};\n    2: out_reg = {1'b1, 1'b0};\n    3: out_reg = {1'b1, 1'b1};\n  endcase\nend\n\n// Define the unused_state transitions\nalways @ (posedge clk, posedge rst) begin\n  if (rst) begin\n    unused_state <= 0;\n  end else begin\n    case (unused_state)\n      0: unused_state <= 1;\n      1: unused_state <= 2;\n      2: unused_state <= 3;\n      3: unused_state <= 0;\n    endcase\n  end\nend\n\n// Assign the output signals\nassign out = out_reg;\n\nendmodule"
+}

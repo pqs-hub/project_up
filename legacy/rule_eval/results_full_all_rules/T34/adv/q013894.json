@@ -1,0 +1,20 @@
+{
+  "task_id": "q013894",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input RENAME_A,\n    input B,\n    input C,\n    input D,\n    input E,\n    output reg X\n);reg [31:0] T, T2;\n\n    always @(*) begin\n        if (RENAME_A == 0) begin\n            X = 0;\n        end else begin\n            T = B + C;\n            if (T >= D) begin\n                X = 1;\n            end else begin\n                T2 = E + T;\n                if (T2 >= D) begin\n                    X = 1;\n                end else begin\n                    X = 0;\n                end\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "A": "RENAME_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "NOT_A",
+      "B": "SUM_B_C",
+      "C": "SUM_B_C",
+      "D": "THRESHOLD",
+      "E": "SUM_E_T",
+      "X": "OUTPUT_X"
+    },
+    "fallback_prefix": "RENAME_"
+  }
+}

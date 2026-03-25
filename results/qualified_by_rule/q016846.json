@@ -1,0 +1,6 @@
+{
+  "task_id": "q016846",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (\n  input clk,\n  input reset,\n  input [7:0] a,\n  input [7:0] b,\n  input ctrl,\n  output [15:0] out\n);\n\nreg [15:0] final_sig;\n\nalways @ (posedge clk or posedge reset) begin\n  if (reset) begin\n    final_sig <= 16'b0;\n  end else begin\n    if (ctrl) begin\n      final_sig <= {a, b};\n    end else begin\n      final_sig <= {b, a};\n    end\n  end\nend\n\nassign out = final_sig;\n\nendmodule\n"
+}

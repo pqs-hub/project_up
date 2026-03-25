@@ -1,0 +1,6 @@
+{
+  "task_id": "q005987",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule(\n\tdig1,\n\tdig2,\n\tdig3,\n\tdig4,\n\tsec1,\n\tsec0,\n\tmin1,\n\tmin0,\n\talu,\n\tclk,\n\trst_n,\n\tswitch\n    );output [3:0]dig1;\noutput [3:0]dig2;\noutput [3:0]dig3;\noutput [3:0]dig4;\n\ninput [3:0]sec1;\ninput [3:0]sec0;\ninput [3:0]min1;\ninput [3:0]min0;\ninput [1:0]alu;\ninput clk,switch;\ninput rst_n;\n\nreg[3:0]dig1,dig2,dig3,dig4;\nreg[3:0]dig1_next,dig2_next,dig3_next,dig4_next;\n\nalways@*\nif (switch==1'b0&&alu==2'b10)\nbegin\ndig1_next = dig1;\ndig2_next = dig2;\ndig3_next = dig3;\ndig4_next = dig4;\nend\nelse\nbegin\ndig1_next = min1;\ndig2_next = min0;\ndig3_next = sec1;\ndig4_next = sec0;\nend\n\n  always @(posedge clk or negedge rst_n)\n  if (~rst_n)\n    begin\n    dig1 <= 4'd0;\n\t dig2 <= 4'd0;\n\t dig3 <= 4'd0;\n\t dig4 <= 4'd0;\n\t end\n\t \n  else\n  begin\n  dig1 <= dig1_next ;\n  dig2 <= dig2_next ;\n  dig3 <= dig3_next ;\n  dig4 <= dig4_next ;\n  end\n\nendmodule"
+}

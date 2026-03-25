@@ -1,0 +1,9 @@
+{
+  "task_id": "q006138",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n   input bit_one,\n   input bit_two,\n   input carry_in,\n   output result,\n   output carry_out\n   );wire   in_or;\n  wire   obf_carry_or;\n  wire   in_and;\n       \n  assign in_or = bit_one ^ bit_two;\n  assign obf_carry_or = in_or & carry_in;\n  assign in_and = bit_one & bit_two;\n  assign result   = in_or ^ carry_in;\n  assign carry_out = obf_carry_or | in_and;endmodule",
+  "rename_map": {
+    "carry_or": "obf_carry_or"
+  }
+}

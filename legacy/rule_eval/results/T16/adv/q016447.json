@@ -1,0 +1,9 @@
+{
+  "task_id": "q016447",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module register5_wlh(datain, dataout, load, hold, clock);\ninput [4:0] datain;\ninput load, hold;\ninput clock;\noutput [4:0] dataout;\nreg [4:0] obf_out;\nalways @(posedge clock)\nbegin\n    if(load)\n       obf_out <= datain;\n    else if(hold)\n       obf_out <= obf_out;\n    else\n       obf_out <= 5'b0;\nend\nassign dataout = obf_out;\nendmodule",
+  "rename_map": {
+    "out": "obf_out"
+  }
+}

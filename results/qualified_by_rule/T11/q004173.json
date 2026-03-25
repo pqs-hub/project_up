@@ -1,0 +1,6 @@
+{
+  "task_id": "q004173",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(  \n    input wire clk,  \n    input wire reset,  \n    input wire trigger,  \n    input wire [3:0] pulse_width,  \n    output reg pulse_out  \n);  \n    reg [3:0] count;  \n    reg generating;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            pulse_out <= 0;  \n            count <= 0;  \n            generating <= 0;  \n        end else if (trigger) begin  \n            generating <= 1;  \n            count <= pulse_width;  \n        end else if (generating) begin  \n            if (count > 0) begin  \n                pulse_out <= 1;  \n                count <= count - 1;  \n            end else begin  \n                pulse_out <= 0;  \n                generating <= 0;  \n            end  \n        end else begin  \n            pulse_out <= 0;  \n        end  \n    end  \nendmodule"
+}

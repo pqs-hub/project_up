@@ -1,0 +1,10 @@
+{
+  "task_id": "q004576",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module ShiftRegister8bit (\n    input clk,\n    input rst_n,\n    input load,\n    input [7:0] in,\n    output reg [7:0] out\n);\n\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            out <= 8'b00000000;\n        end else if (load) begin\n            out <= in;\n        end else begin\n            out <= {1'b0, out[7:1]};\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      out <= {out[6:0], 1'b0};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= {out[6:0], 1'b0};\n"
+  }
+}

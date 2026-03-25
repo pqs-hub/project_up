@@ -1,0 +1,6 @@
+{
+  "task_id": "q008621",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule top_module(\n    X,\n    A1,\n    A2,\n    B1\n);// Module ports\n    output X;\n    input A1;\n    input A2;\n    input B1;\n\n    // Module supplies\n    supply1 VPWR;\n    supply0 VGND;\n\n    // Local signals\n    wire and_out;\n    wire inv_out;\n\n    // AND gate\n    and and1 (and_out, A1, A2, B1);\n\n    // Inverter\n    not inv1 (inv_out, and_out);\n\n    // Buffer\n    buf buf1 (X, inv_out);\n\nendmodule"
+}

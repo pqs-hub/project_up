@@ -1,0 +1,10 @@
+{
+  "task_id": "q009830",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] ex_rdata_a,\n    input [31:0] ex_rdata_b,\n    input [31:0] mem_wb_dout,\n    input control_rdata_a,\n    input control_rdata_b,\n    output wire [31:0] rdata_a,\n    output wire [31:0] rdata_b\n);assign rdata_a = (control_rdata_a == 1'b1)?mem_wb_dout:ex_rdata_a;\nassign rdata_b = (control_rdata_b == 1'b1)?mem_wb_dout:ex_rdata_b;\n\n  always @(*) begin\n    if (1'b0) begin\n      rdata_a <= ex_rdata_a; rdata_b <= ex_rdata_b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "rdata_a <= ex_rdata_a; rdata_b <= ex_rdata_b;"
+  }
+}

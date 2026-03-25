@@ -1,0 +1,6 @@
+{
+  "task_id": "q005702",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule\n(\n    input clk,\n    input rst_n,\n    input we,\n    input [2:0] w_addr,\n    input [31:0] w_data,\n    input [2:0] r_addr_a,\n    input [2:0] r_addr_b,\n    output reg [31:0] r_data_a,\n    output reg [31:0] r_data_b\n);\n\nreg [31:0] registers [0:7];\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        registers[0] <= 32'b0;\n        registers[1] <= 32'b0;\n        registers[2] <= 32'b0;\n        registers[3] <= 32'b0;\n        registers[4] <= 32'b0;\n        registers[5] <= 32'b0;\n        registers[6] <= 32'b0;\n        registers[7] <= 32'b0;\n    end\n    else if (we) begin\n        registers[w_addr] <= w_data;\n    end\nend\n\nalways @(*) begin\n    r_data_a = registers[r_addr_a];\n    r_data_b = registers[r_addr_b];\nend\n\nendmodule"
+}

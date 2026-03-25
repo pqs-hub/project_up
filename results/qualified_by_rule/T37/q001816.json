@@ -1,0 +1,6 @@
+{
+  "task_id": "q001816",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input signal_in,\n    output reg edge_detected\n);\n    reg signal_prev;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            edge_detected <= 0;\n            signal_prev <= 0;\n        end else begin\n            edge_detected <= (signal_in && !signal_prev);\n            signal_prev <= signal_in;\n        end\n    end\nendmodule"
+}

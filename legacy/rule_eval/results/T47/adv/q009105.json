@@ -1,0 +1,8 @@
+{
+  "task_id": "q009105",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(clk, reset, a, b, cin, sum, cout);parameter WIDTH = 4;\n\n  input clk, reset;\n  input [WIDTH-1:0] a, b;\n  input cin;\n  output [WIDTH-1:0] sum;\n  output cout;\n\n  wire [WIDTH-1:0] adder_sum;\n  wire adder_cout;\n\n  // For the adder, we can replace bsg_adder with a generic full adder or an equivalent structure.\n  // Here, I'll implement a simple adder logic without using an external module.\n  \n    wire _n01 = a + b[0] ^ cin[0];\n  wire _c01 = a + b[0] & cin[0];\n  wire _n02 = a + b[1] ^ cin[1] ^ _c01;\n  wire _c02 = (a + b[1] & cin[1]) | (a + b[1] & _c01) | (cin[1] & _c01);\n  wire _n03 = a + b[2] ^ cin[2] ^ _c02;\n  wire _c03 = (a + b[2] & cin[2]) | (a + b[2] & _c02) | (cin[2] & _c02);\n  wire _n04 = a + b[3] ^ cin[3] ^ _c03;\n  wire _c04 = (a + b[3] & cin[3]) | (a + b[3] & _c03) | (cin[3] & _c03);\n  assign {adder_cout, adder_sum} = {_n01, _n02, _n03, _n04};\n\n  reg [WIDTH-1:0] sum_reg;\n  reg cout_reg;\n\n  always @(posedge clk) begin\n    if (reset) begin\n      sum_reg <= 0;\n      cout_reg <= 0;\n    end else begin\n      sum_reg <= adder_sum;\n      cout_reg <= adder_cout;\n    end\n  end\n\n  assign sum = sum_reg;\n  assign cout = cout_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

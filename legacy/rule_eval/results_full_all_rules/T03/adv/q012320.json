@@ -1,0 +1,8 @@
+{
+  "task_id": "q012320",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module( clk, reset, d, q );input clk;\n\tinput reset;\n\tinput [47:0] d;\n\toutput [47:0] q;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\treg [47:0] q;\n\n\talways @(posedge clk or negedge reset) begin\n\t\tif (reset == 0) begin\n\t\t\tq <= 48'b0;\n\t\tend\n\t\telse begin\n\t\t\tq <= d;\n\t\tend\n\tend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

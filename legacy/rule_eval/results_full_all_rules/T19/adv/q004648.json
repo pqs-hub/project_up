@@ -1,0 +1,10 @@
+{
+  "task_id": "q004648",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_decoder (A, Y);\ninput [1:0] A;\noutput reg [3:0] Y;\n\nalways @(A) begin\n\tcase (A)\n\t\t2'b00: Y = 4'b0001;\n\t\t2'b01: Y = 4'b0010;\n\t\t2'b10: Y = 4'b0100;\n\t\t2'b11: Y = 4'b1000;\n\t\tdefault: Y = 4'b0000;\n\tendcase\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Y[0] <= ~A[0];\n      Y[1] <= A[0] & ~A[1];\n      Y[2] <= ~A[0] & A[1];\n      Y[3] <= A[0] & A[1];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y[0] <= ~A[0];\nY[1] <= A[0] & ~A[1];\nY[2] <= ~A[0] & A[1];\nY[3] <= A[0] & A[1];"
+  }
+}

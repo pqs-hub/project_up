@@ -1,0 +1,16 @@
+{
+  "task_id": "q005506",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sr_latch (\n  input sr_S,\n  input R,\n  output Q);reg Q;\nalways @* begin\n  if (R)\n    Q = 0;\n  else if (sr_S)\n    Q = 1;\nend\n\nendmodule",
+  "rename_map": {
+    "S": "sr_S"
+  },
+  "params_used": {
+    "custom_map": {
+      "S": "R_reset",
+      "R": "S_set"
+    },
+    "fallback_prefix": "sr_"
+  }
+}

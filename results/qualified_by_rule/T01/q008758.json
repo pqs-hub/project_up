@@ -1,0 +1,6 @@
+{
+  "task_id": "q008758",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input load,\n    input [3:0] data_in,\n    output [3:0] count\n);\n\n    reg [3:0] counter_reg;  // 4-bit counter register\n\n    always @(posedge clk) begin\n    begin end  // redundant\n        if (reset) begin\n            counter_reg <= 4'b0000;  // Reset the counter to 0\n        end else if (load) begin\n            counter_reg <= data_in;  // Load the value into the counter\n        end else begin\n            counter_reg <= counter_reg + 1;  // Increment the counter\n        end\n    end\n\n    assign count = counter_reg;\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q000639",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule (  \n    input wire clk,  \n    input wire reset,  \n    input wire [7:0] temperature,  \n    input wire [7:0] calibration_factor,  \n    output reg [7:0] calibrated_temperature  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            calibrated_temperature <= 8'b0;  \n        else  \n            calibrated_temperature <= temperature + calibration_factor;  \n    end  \nendmodule"
+}

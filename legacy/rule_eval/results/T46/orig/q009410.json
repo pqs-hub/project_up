@@ -1,0 +1,6 @@
+{
+  "task_id": "q009410",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module top_module(\n  input         clock,\n  input         reset,\n  input  [31:0] io_input_0_data,\n  input  [31:0] io_input_0_init,\n  input         io_input_0_enable,\n  input         io_input_0_reset,\n  output [31:0] io_output_data\n);reg [31:0] ff;\n  reg [31:0] _RAND_0;\n  wire [31:0] _T_7;\n  wire [31:0] _T_8;\n  wire [31:0] _T_9;\n  assign _T_7 = io_input_0_enable ? io_input_0_data : ff;\n  assign _T_8 = io_input_0_reset ? io_input_0_init : _T_7;\n  assign _T_9 = io_input_0_reset ? io_input_0_init : ff;\n  assign io_output_data = _T_9;\n`ifdef RANDOMIZE\n  integer initvar;\n  initial begin\n    `ifndef verilator\n      #0.002 begin end\n    `endif\n  `ifdef RANDOMIZE_REG_INIT\n  _RAND_0 = {1{$random}};\n  ff = _RAND_0[31:0];\n  `endif // RANDOMIZE_REG_INIT\n  end\n`endif // RANDOMIZE\n  always @(posedge clock) begin\n    if (reset) begin\n      ff <= io_input_0_init;\n    end else begin\n      if (io_input_0_reset) begin\n        ff <= io_input_0_init;\n      end else begin\n        if (io_input_0_enable) begin\n          ff <= io_input_0_data;\n        end\n      end\n    end\n  end\nendmodule"
+}

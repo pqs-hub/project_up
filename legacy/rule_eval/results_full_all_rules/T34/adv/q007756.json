@@ -1,0 +1,15 @@
+{
+  "task_id": "q007756",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ring_counter_3bit(\n    input wire reset_clk,\n    input wire rst,\n    output reg [2:0] state\n    );\n\nalways @(posedge reset_clk or posedge rst) begin\n    if (rst) begin\n        state <= 3'b001;\n    end\n    else begin\n        state <= {state[1:0], state[2]};\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "rc_"
+  }
+}

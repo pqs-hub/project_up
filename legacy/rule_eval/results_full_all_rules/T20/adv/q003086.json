@@ -1,0 +1,10 @@
+{
+  "task_id": "q003086",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-to-1 multiplexer for audio signals, selecting the least significant input when the select signal is 00.\nmodule audio_mux (\n    input [7:0] audio_in0,\n    input [7:0] audio_in1,\n    input [7:0] audio_in2,\n    input [7:0] audio_in3,\n    input [1:0] select,\n    output reg [7:0] audio_out\n);\n\nalways @(*) begin\n    case (select)\n        2'b00: audio_out = audio_in0;\n        2'b01: audio_out = audio_in1;\n        2'b10: audio_out = audio_in2;\n        2'b11: audio_out = audio_in3;\n        default: audio_out = 8'b00000000; // default case\n    endcase\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-to-1 multiplexer for audio signals, selecting the least significant input when the select signal is 00."
+  }
+}

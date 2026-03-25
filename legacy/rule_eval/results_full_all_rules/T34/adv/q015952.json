@@ -1,0 +1,21 @@
+{
+  "task_id": "q015952",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input [15:0] x,input [15:0] y,input zx, nx, zy, ny, f, no,output [15:0] out,output zr,output ng);reg [15:0] r_x_neg; \n  reg [15:0] r_x; \n  reg [15:0] r_y_a; \n  reg [15:0] r_y; \n  reg [15:0] r_out = 16'b0; \n  reg r_zr; \n  reg r_ng; \n  always @ (*) begin \n  if (zx == 1) begin \n  r_x_neg = 16'b0; \n  end else begin \n  r_x_neg = x; \n  end \n  if (nx == 1) begin \n  r_x = ~r_x_neg; \n  end else begin \n  r_x = r_x_neg; \n  end \n  if (zy) begin \n  r_y_a = 1'b0; \n  end else begin \n  r_y_a = y; \n  end \n  if (ny == 1) begin \n  r_y = ~r_y_a; \n  end else begin \n  r_y = r_y_a; \n  end \n  if (f == 1) begin \n  r_out = r_x + r_y; \n  end else begin \n  r_out = r_x & r_y; \n  end \n  if (no == 1) begin \n  r_out = ~r_out; \n  end else begin \n  r_out = r_out; \n  end \n  if (r_out == 0) begin \n  r_zr = 1'b1; \n  end else begin \n  r_zr = 1'b0; \n  end \n  if (r_out[15] == 1) begin \n  r_ng = 1'b1; \n  end else begin \n  r_ng = 1'b0; \n  end \n  end \n  assign out = r_out; \n  assign zr = r_zr; \n  assign ng = r_ng; \n endmodule",
+  "rename_map": {
+    "r_x_a": "r_x_neg"
+  },
+  "params_used": {
+    "custom_map": {
+      "r_x_a": "r_x_neg",
+      "r_x": "r_x_zero",
+      "r_y_a": "r_y_neg",
+      "r_y": "r_y_zero",
+      "r_out": "r_result",
+      "r_zr": "r_zero_flag",
+      "r_ng": "r_negative_flag"
+    },
+    "fallback_prefix": "alu_"
+  }
+}

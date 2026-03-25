@@ -1,0 +1,15 @@
+{
+  "task_id": "q000230",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module frequency_divider (\n    input wire reset_clk,\n    input wire rst,\n    output reg out\n);\n    always @(posedge reset_clk or posedge rst) begin\n        if (rst) begin\n            out <= 0;\n        end else begin\n            out <= ~out;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "freq_div_"
+  }
+}

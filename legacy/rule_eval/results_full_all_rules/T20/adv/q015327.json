@@ -1,0 +1,10 @@
+{
+  "task_id": "q015327",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 32-bit wide 2-to-1 demultiplexer instead of a multiplexer.\nmodule top_module(d0, d1, s, y);parameter n = 32;\ninput [n-1:0] d0, d1;\ninput s;\noutput [n-1:0] y;\n\ngenvar i;\ngenerate\nfor (i=0; i<n; i=i+1) begin: addbit\nassign y[i] = ~s & d0[i] | s & d1[i];\nend\nendgenerate\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 32-bit wide 2-to-1 demultiplexer instead of a multiplexer."
+  }
+}

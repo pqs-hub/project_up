@@ -1,0 +1,6 @@
+{
+  "task_id": "q013018",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (\n\tinput clk,\n\tinput rst,\n\tinput d,\n\toutput reg edge_detected);\n\n\treg unused_d_prev;\n\n\talways @(posedge clk) begin\n\t\tif (rst)\n\t\t\tunused_d_prev <= 0;\n\t\telse\n\t\t\tunused_d_prev <= d;\n\tend\n\n\talways @(posedge clk) begin\n\t\tif (rst)\n\t\t\tedge_detected <= 0;\n\t\telse\n\t\t\tedge_detected <= d & ~unused_d_prev;\n\tend\n\t\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001665",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module tcp_segment_classifier(  \n    input [15:0] segment_length,  \n    input [4:0] tcp_flags,  \n    output reg [1:0] segment_type  \n);  \n    always @(*) begin\n    begin end  // redundant  \n        if (segment_length > 1500) begin  \n            segment_type = 2'b00;  \n        end else if (tcp_flags[0] == 1) begin  \n            segment_type = 2'b01; // FIN  \n        end else if (tcp_flags[1] == 1) begin  \n            segment_type = 2'b10; // SYN  \n        end else if (tcp_flags[2] == 1) begin  \n            segment_type = 2'b11; // RST  \n        end else begin  \n            segment_type = 2'b00; // No segment type  \n        end  \n    end  \nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q002508",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module non_maximum_suppression(  \n    input [7:0] pixel_value,  \n    input [7:0] neighbor1,  \n    input [7:0] neighbor2,  \n    output reg edge_detected  \n);  \n    always @(*) begin  \n        if (pixel_value > neighbor1 && pixel_value > neighbor2)  \n            edge_detected = 1'b1;  \n        else  \n            edge_detected = 1'b0;  \n    end  \nendmodule",
+  "rename_map": {
+    "center": "pixel_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "center": "pixel_value"
+    },
+    "fallback_prefix": "suppress_"
+  }
+}

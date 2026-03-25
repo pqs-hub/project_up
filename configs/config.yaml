@@ -1,0 +1,45 @@
+# 目标模型配置
+# 攻击模型基座: /data3/pengqingsong/Model/Qwen2.5-Coder-7B（SFT 后合并为 verilog_attack_merged 用于推理）
+# 使用 vLLM 加速：先运行 scripts/ops/run_vllm.sh，再将 use_local_transformers 改为 false
+# 重要：eval_attack_success 和 generate_missing_rules_verified 的「判题」都走 target_model。
+# 判题用基座即可；跑 eval_attack_success 时若用攻击模型，需先 vLLM 挂合并 SFT 并把 model 改为合并路径或 "verilog_attack"。
+target_model:
+  base_url: "http://localhost:8001/v1"
+  api_key: "EMPTY"  # 本地模型可以为空
+  # 必须与 vLLM --served-model-name 一致。合并模型用短名 verilog_attack_merged_bal500（与 run_vllm.sh 默认一致），避免 404
+  model: "verilog_attack_merged_bal500"
+  timeout: 60
+  max_retries: 3
+  use_local_transformers: false  # true=本地 transformers，false=走 vLLM/HTTP（需先启动 vLLM）
+  max_new_tokens: 512            # 单条生成长度，JSON 判决建议 512
+
+# 采样配置（提高以增强攻击位置与参数多样性，便于训练）
+sampling:
+  max_attacks_per_sample: 30      # 每个样本最多生成30个攻击配置
+  max_positions_per_rule: 4       # 每个规则尝试的候选位置数（首/1/4/中/3/4/尾）
+  max_params_per_rule: 4          # 每个规则参数组合的多样性上限
+
+# Testbench 配置
+testbench:
+  enabled: true                   # 启用验证
+  filter_mode: true               # 过滤：只保留 testbench pass 的样本
+  simulator: "iverilog"           # iverilog 或 verilator
+  timeout: 30                     # 单个仿真超时时间（秒）
+
+# 并行配置（8 卡 vLLM 时开最大并行度）
+parallelism:
+  num_workers: 32                 # 并发请求数，8 卡时可用 32～64 打满
+
+# 输入输出
+data:
+  input_path: "/data3/pengqingsong/LLM_attack/data/qualified_samples.json"
+  output_path: "data/adversarial_dataset.jsonl"
+  checkpoint_path: "data/checkpoint.json"  # 中间结果保存
+  save_metadata: true             # 保存元数据到单独文件
+  input_already_qualified: true  # 输入已是 filter 过的合格样本时设为 true，跳过再次过滤
+  testbench_failed_path: "data/testbench_failed.jsonl"  # Testbench 未通过的变换代码单独保存
+
+# 日志
+logging:
+  level: "INFO"
+  file: "logs/generation.log"

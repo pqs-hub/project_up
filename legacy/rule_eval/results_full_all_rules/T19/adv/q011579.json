@@ -1,0 +1,10 @@
+{
+  "task_id": "q011579",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(currVal, stuckAtVal, ctrl, outVal);input currVal, stuckAtVal, ctrl;\n\toutput outVal;\n\t\n\tassign outVal = ctrl ? stuckAtVal : currVal;  always @(*) begin\n    if (1'b0) begin\n      outVal <= ~currVal;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "outVal <= ~currVal;\n"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q004080",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module is designed to select a channel based on a 4-bit input and update the corresponding 16-bit data in a lookup table.\nmodule DAC_Controller (\n    input [3:0] channel_select,\n    input [15:0] data_input,\n    output reg [15:0] dac_output\n);\n\n    reg [15:0] channel_data [0:15];\n\n    always @(*) begin\n        dac_output = channel_data[channel_select];\n    end\n\n    always @(data_input or channel_select) begin\n        channel_data[channel_select] = data_input;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to select a channel based on a 4-bit input and update the corresponding 16-bit data in a lookup table."
+  }
+}

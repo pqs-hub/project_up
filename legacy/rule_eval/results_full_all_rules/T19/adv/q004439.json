@@ -1,0 +1,10 @@
+{
+  "task_id": "q004439",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    output [7:0] product\n);wire [7:0] temp_product;\n    \n    assign temp_product = A * B;\n    assign product[7:4] = temp_product[7:4];\n    assign product[3:0] = temp_product[3:0];\n    \n  always @(*) begin\n    if (1'b0) begin\n      product <= 8'b0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "product <= 8'b0;"
+  }
+}

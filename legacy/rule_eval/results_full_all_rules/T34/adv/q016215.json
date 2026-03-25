@@ -1,0 +1,15 @@
+{
+  "task_id": "q016215",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(in, total);parameter XLEN = 64; \nparameter YLEN = 3; \n\ninput [(XLEN*YLEN)-1:0] in;\noutput reg [($clog2(XLEN)+YLEN)-1:0] total;\n\ninteger j;\n\t\nalways @ (*) begin\n\ttotal = 0;\n\tfor (j=0; j<XLEN; j=j+1) begin\n\t\ttotal = total + in[(YLEN*j)+:YLEN];\n\tend\nend\n\t\nendmodule",
+  "rename_map": {
+    "sum": "total"
+  },
+  "params_used": {
+    "custom_map": {
+      "sum": "total"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "task_id": "q000063",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input wire [3:0] D0, D1, D2, D3,  // Data inputs\n    input wire [1:0] S0, S1,          // Selection inputs\n    output wire Y                      // Output\n);\n    assign Y = (S0 == 1'b0 && S1 == 1'b0) ? D0 :\n               (S0 == 1'b0 && S1 == 1'b1) ? D1 :\n               (S0 == 1'b1 && S1 == 1'b0) ? D2 :\n               D3;  // Default case for S0 == 1'b1 && S1 == 1'b1\nendmodule",
+  "adversarial_code": "module TopModule (\n    input wire [3:0] D0, D1, D2, D3,  // Data inputs\n    input wire [1:0] S0, S1,          // Selection inputs\n    output wire Y                      // Output\n);\n    assign Y = (S0 == 1'b0 && S1 == 1'b0) ? D0 :\n               (S0 == 1'b0 && S1 == 1'b1) ? D1 :\n               (S0 == 1'b1 && S1 == 1'b0) ? D2 :\n               D3;  // Default case for S0 == 1'b1 && S1 == 1'b1\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

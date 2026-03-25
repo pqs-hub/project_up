@@ -1,0 +1,15 @@
+{
+  "task_id": "q000075",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module SRT_Divider(\n    input signed [7:0] minuend,\n    input signed [7:0] divisor,\n    output reg signed [7:0] quotient,\n    output reg signed [7:0] remainder\n);\n    always @(*) begin\n        if (divisor == 0) begin\n            quotient = 0;\n            remainder = minuend;\n        end else begin\n            quotient = minuend / divisor; // Integer division\n            remainder = minuend % divisor; // Remainder\n        end\n    end\nendmodule",
+  "rename_map": {
+    "dividend": "minuend"
+  },
+  "params_used": {
+    "custom_map": {
+      "dividend": "minuend"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

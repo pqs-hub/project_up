@@ -1,0 +1,6 @@
+{
+  "task_id": "q005710",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module shift_register (\n    input clk,\n    input load,\n    input shift,\n    input [3:0] load_value,\n    output reg [3:0] q);always @(posedge clk) begin\n    if (load)\n        q <= load_value;\n    else if (shift)\n        q <= {1'b0, q[3:1]};\nend\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

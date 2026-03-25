@@ -1,0 +1,6 @@
+{
+  "task_id": "q006912",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(\n    input           rst,\n    input           clk,\n\n    input           DataInEnable,\n    input           DataInColor,\n    input [5:0]     DataInCount,\n    input [7:0]     DataIn,\n\n    input           TableColor,\n    input  [5:0]    TableNumber,\n    output [7:0]    TableData\n);reg [7:0]       DQT_Y [0:63];\n    reg [7:0]       DQT_C [0:63];\n\n    \n    always @(posedge clk) begin\n        if(DataInEnable ==1'b1 && DataInColor ==1'b0) begin\n            DQT_Y[DataInCount] <= DataIn;\n        end\n        if(DataInEnable ==1'b1 && DataInColor ==1'b1) begin\n            DQT_C[DataInCount] <= DataIn;\n        end\n    end\n\n    reg [7:0] TableDataY;\n    reg [7:0] TableDataC;\n\n    \n    always @(posedge clk) begin\n        TableDataY <= DQT_Y[TableNumber];\n        TableDataC <= DQT_C[TableNumber];\n    end\n\n    \n    assign TableData = (TableColor)?TableDataC:TableDataY;\nendmodule"
+}

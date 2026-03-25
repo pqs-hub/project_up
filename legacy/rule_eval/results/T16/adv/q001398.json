@@ -1,0 +1,9 @@
+{
+  "task_id": "q001398",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module sram_cell (  \n    input wire write_enable,  \n    input wire data_in,  \n    input wire clock,  \n    output reg data_out  \n);  \n    reg obf_stored_bit;  \n\n    always @(posedge clock) begin  \n        if (write_enable) begin  \n            obf_stored_bit <= data_in;  \n        end  \n    end  \n\n    always @(*) begin  \n        data_out = obf_stored_bit;  \n    end  \nendmodule",
+  "rename_map": {
+    "stored_bit": "obf_stored_bit"
+  }
+}

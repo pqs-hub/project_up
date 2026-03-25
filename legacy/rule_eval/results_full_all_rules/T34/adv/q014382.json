@@ -1,0 +1,15 @@
+{
+  "task_id": "q014382",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  output [3:0] count,\n  output reg overflow  // Change from wire to reg\n);reg [3:0] cnt_reg;\n\nalways @(posedge clk) begin\n  if (reset) begin\n    cnt_reg <= 4'b0;\n    overflow <= 1'b0;\n  end else if (cnt_reg == 4'b1001) begin\n    cnt_reg <= 4'b0;\n    overflow <= 1'b1;\n  end else begin\n    cnt_reg <= cnt_reg + 1;\n    overflow <= 1'b0;\n  end\nend\n\nassign count = cnt_reg;\n\nendmodule",
+  "rename_map": {
+    "count_reg": "cnt_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "count_reg": "cnt_reg"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

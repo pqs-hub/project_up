@@ -1,0 +1,9 @@
+{
+  "task_id": "q013251",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input  D   ,\n    output Q   ,\n    input  CLK ,\n    input  VPB ,\n    input  VPWR,\n    input  VGND,\n    input  VNB\n);// Declare any necessary wires or registers\n    reg obf_Q_reg;\n    \n    // Always block for clocking\n    always @(posedge CLK) begin\n        obf_Q_reg <= D;\n    end\n    \n    // Assign output Q to obf_Q_reg\n    assign Q = obf_Q_reg;\n    \nendmodule",
+  "rename_map": {
+    "Q_reg": "obf_Q_reg"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001132",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire start_scan,\n    input wire connect,\n    input wire disconnect,\n    output reg [1:0] state // 00: IDLE, 01: SCAN, 10: CONNECT, 11: DISCONNECT\n);\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter SCAN = 2'b01;\n    parameter CONNECT = 2'b10;\n    parameter DISCONNECT = 2'b11;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start_scan) state <= SCAN;\n                end\n                SCAN: begin\n                    if (connect) state <= CONNECT;\n                end\n                CONNECT: begin\n                    if (disconnect) state <= DISCONNECT;\n                end\n                DISCONNECT: begin\n                    state <= IDLE;\n                end\n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule"
+}

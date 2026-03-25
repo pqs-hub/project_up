@@ -1,0 +1,10 @@
+{
+  "task_id": "q006063",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 1-to-8 demultiplexer instead of an 8-to-1 multiplexer\nmodule top_module(i0,i1,i2,i3,i4,i5,i6,i7,a,out);input [2:0] a;\n\ninput i0,i1,i2,i3,i4,i5,i6,i7; \noutput out;\n\nwire w0,w1,w2,w3,w4,w5,w6,w7;\n\nwire c0 ,c0n,c1,c1n,c2,c2n;\n\n assign c0=a[0];\n assign c1=a[1];\n assign c2=a[2];\nnot(c0n,c0);\nnot(c1n,c1);\nnot(c2n,c2);\n\nand(w0,i0,c0n,c1n,c2n);\nand(w1,i1,c0,c1n,c2n);\nand(w2,i2,c0n,c1,c2n);\nand(w3,i3,c0,c1,c2n);\nand(w4,i4,c0n,c1n,c2);\nand(w5,i5,c0,c1n,c2);\nand(w6,i6,c0n,c1,c2);\nand(w7,i7,c0,c1,c2);\n\nor(out,w0,w1,w2,w3,w4,w5,w6,w7);endmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 1-to-8 demultiplexer instead of an 8-to-1 multiplexer"
+  }
+}

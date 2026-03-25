@@ -1,0 +1,6 @@
+{
+  "task_id": "q016994",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n    input [2:0] A,\n    input [1:0] B,\n    input C,\n    input D,\n    input E,\n    input F,\n    input G,\n    input H,\n    input I,\n    output J\n);\n\n    wire is_111 = (A == 3'b111);\n    wire is_000 = (A == 3'b000);\n    wire is_other = !is_111 && !is_000;\n\n    assign J = (is_111) ? 1 :\n               (is_000) ? 0 :\n               ((B == 2'b00) && (C == 1'b1) && (D == 1'b0) && (E == 1'b1) && (F == 1'b0) && (G == 1'b1) && (H == 1'b0) && (I == 1'b1)) ? 1 :\n               0;\n\nendmodule"
+}

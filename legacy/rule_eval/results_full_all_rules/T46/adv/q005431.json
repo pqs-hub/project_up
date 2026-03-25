@@ -1,0 +1,8 @@
+{
+  "task_id": "q005431",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n\tclk,\n\tclk_ena,\n\tdataa,\n\tresult);input\t  clk;\n\tinput\t  clk_ena;\n\tinput\t[17:0]  dataa;\n\toutput\t[17:0]  result;\n\n\treg     [17:0]  result;\n\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n\t\tif(clk_ena) begin\n\t\t\tresult <= dataa;\n\t\tend\n\tend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

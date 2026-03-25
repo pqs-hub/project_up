@@ -1,0 +1,15 @@
+{
+  "task_id": "q006539",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module parallel_load_register (reset, LOAD, D, Q);\ninput reset, LOAD;\ninput [3:0] D;\noutput reg [3:0] Q;\n\nalways @(posedge reset) begin\n\tif (LOAD) begin\n\t\tQ <= D;\n\tend\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

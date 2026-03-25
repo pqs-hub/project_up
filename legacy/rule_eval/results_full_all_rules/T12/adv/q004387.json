@@ -1,0 +1,10 @@
+{
+  "task_id": "q004387",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module top_module(BusImm, Imm16, Ctrl);output [31:0] BusImm; \ninput [15:0] Imm16; \ninput Ctrl; \n\nwire extBit; \nwire neg_extBit = Ctrl;\nassign extBit = neg_extBit ? 1'b0 : Imm16[15]; \nassign BusImm={{16{extBit}}, Imm16[15:0]}; \n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_extBit"
+  }
+}

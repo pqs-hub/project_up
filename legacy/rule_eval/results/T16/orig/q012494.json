@@ -1,0 +1,6 @@
+{
+  "task_id": "q012494",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n    output X,\n    input  A,\n    input  B,\n    input  C\n);wire notA, notB, notC;\n    wire and1, and2, and3, and4;\n    wire or1, or2, or3;\n\n    // Invert inputs\n    not (notA, A);\n    not (notB, B);\n    not (notC, C);\n\n    // AND gates\n    and (and1, A, notB, notC);\n    and (and2, notA, B, notC);\n    and (and3, notA, notB, C);\n    and (and4, A, B, C);\n\n    // OR gates\n    or (or1, and1, and2);\n    or (or2, or1, and3);\n    or (or3, or2, and4);\n\n    // Output\n    assign X = or3;\n\nendmodule"
+}

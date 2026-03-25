@@ -1,0 +1,8 @@
+{
+  "task_id": "q009761",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module bidirectional_counter (CLK, RST, EN, DIR, Q);\ninput CLK, RST, EN, DIR;\noutput reg [16-1:1-1] Q;\n\nalways @(posedge CLK) begin\n    if (RST) begin\n        Q <= 16'b0;\n    end\n    else if (EN) begin\n        if (DIR) begin\n            Q <= Q + 1;\n        end\n        else begin\n            Q <= Q - 1;\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

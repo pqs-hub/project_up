@@ -1,0 +1,6 @@
+{
+  "task_id": "q007012",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input enable,\n    output reg [11:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            // Synchronous reset: Reset the counter to 12'b000000000000\n            q <= 12'b000000000000;\n        end else if (enable) begin\n            // Counter increment: Increment by 1 when enabled\n            q <= q + 1;\n        end\n    end\n\nendmodule"
+}

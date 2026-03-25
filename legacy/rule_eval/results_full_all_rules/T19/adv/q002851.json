@@ -1,0 +1,10 @@
+{
+  "task_id": "q002851",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire [7:0] D,\n    input wire WE,\n    input wire RE,\n    input wire CLK,\n    output reg [7:0] Q\n);\n    reg [7:0] memory; // 8-bit storage\n\n    always @(posedge CLK) begin\n        if (WE && !RE) begin\n            memory <= D; // Write data to memory\n        end else if (!WE && RE) begin\n            Q <= memory; // Read data from memory\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      memory <= ~D;\n      Q <= ~memory;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "memory <= ~D;\nQ <= ~memory;"
+  }
+}

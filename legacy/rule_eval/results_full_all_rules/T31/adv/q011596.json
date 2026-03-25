@@ -1,0 +1,10 @@
+{
+  "task_id": "q011596",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(pb_debounced, pb, clk);output pb_debounced; \n    input pb; \n    input clk;\n    reg [3:0] DFF; \n    always @(posedge clk) begin\n      DFF[3:1] <= DFF[2:0];\n      DFF[0] <= pb;\n    end\n    wire not_pb = ((DFF == 4'b1111) ? 1'b1 : 1'b0);\n    assign pb_debounced = not_pb;endmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "not_pb"
+  }
+}

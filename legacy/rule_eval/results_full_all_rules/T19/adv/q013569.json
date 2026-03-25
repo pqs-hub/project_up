@@ -1,0 +1,10 @@
+{
+  "task_id": "q013569",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(nextPC, extendedOffset, branchPC);input [31:0] nextPC;\n\tinput [31:0] extendedOffset;\n\toutput reg[31:0] branchPC;\n\t\n\talways@(*)\n\t\tbegin\n\t\tbranchPC = nextPC + (extendedOffset << 2);\n\t\tend\n  always @(*) begin\n    if (1'b0) begin\n      branchPC <= nextPC - (extendedOffset << 2);\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "branchPC <= nextPC - (extendedOffset << 2);"
+  }
+}

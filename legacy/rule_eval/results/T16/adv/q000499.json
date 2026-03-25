@@ -1,0 +1,9 @@
+{
+  "task_id": "q000499",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module fir_filter (\n    input clk,\n    input rst,\n    input [3:0] x_in,\n    output reg [7:0] y_out\n);\n    reg [3:0] obf_x [0:3]; // 4 previous samples\n    integer i;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            y_out <= 8'b0;\n            for (i = 0; i < 4; i = i + 1) begin\n                obf_x[i] <= 4'b0;\n            end\n        end else begin\n            // Shift samples\n            obf_x[3] <= obf_x[2];\n            obf_x[2] <= obf_x[1];\n            obf_x[1] <= obf_x[0];\n            obf_x[0] <= x_in;\n\n            // Calculate output using FIR coefficients [1, 2, 3, 4]\n            y_out <= (obf_x[0] * 1) + (obf_x[1] * 2) + (obf_x[2] * 3) + (obf_x[3] * 4);\n        end\n    end\nendmodule",
+  "rename_map": {
+    "x": "obf_x"
+  }
+}

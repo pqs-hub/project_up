@@ -1,0 +1,6 @@
+{
+  "task_id": "q011193",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module shift_register_8bit(clk, D, Q);\ninput clk, D;\noutput reg [7:0] Q;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    Q <= {D, Q[7:1]};\nend\n\nendmodule"
+}

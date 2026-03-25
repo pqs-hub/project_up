@@ -1,0 +1,10 @@
+{
+  "task_id": "q001160",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module calculates the quotient and remainder of two 4-bit numbers. It handles division by zero gracefully.\nmodule divider_4bit (\n    input [3:0] dividend,\n    input [3:0] divisor,\n    output reg [3:0] quotient,\n    output reg [3:0] remainder\n);\n    \n    always @(*) begin\n        if (divisor == 4'b0000) begin\n            quotient = 4'b0000; // Undefined behavior for division by zero\n            remainder = 4'b0000;\n        end else begin\n            quotient = dividend / divisor;\n            remainder = dividend % divisor;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module calculates the quotient and remainder of two 4-bit numbers. It handles division by zero gracefully."
+  }
+}

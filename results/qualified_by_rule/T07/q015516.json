@@ -1,0 +1,6 @@
+{
+  "task_id": "q015516",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input mem_done_access,\n    input v_d_flits_m,\n    input [174:0] d_flits_m,\n    output reg d_m_cstate,\n    output reg [174:0] d_m_areg_flits\n);reg [174:0] flits_reg;\n\nalways @(posedge clk) begin\n    if (rst || mem_done_access) begin\n        flits_reg <= 175'h0000;\n    end else if (v_d_flits_m && !d_m_cstate) begin\n        flits_reg <= d_flits_m;\n    end\nend\n\nalways @(posedge clk) begin\n    if (rst || mem_done_access) begin\n        d_m_cstate <= 1'b0;\n    end else if (!d_m_cstate && v_d_flits_m) begin\n        d_m_cstate <= 1'b1;\n    end else if (d_m_cstate && flits_reg == 175'h0000) begin\n        d_m_cstate <= 1'b0;\n    end\nend\n\nassign d_m_areg_flits = flits_reg;\n\nendmodule"
+}

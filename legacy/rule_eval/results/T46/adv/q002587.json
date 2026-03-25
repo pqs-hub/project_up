@@ -1,0 +1,8 @@
+{
+  "task_id": "q002587",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module mpc_controller(  \n    input wire clk,  \n    input wire reset,  \n    input wire [3:0] current_state,  \n    input wire [3:0] desired_state,  \n    output reg [3:0] control_signal  \n);  \n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin  \n    if (reset)  \n        control_signal <= 4'b0000;  \n    else  \n        control_signal <= desired_state - current_state;  \nend  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

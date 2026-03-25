@@ -1,0 +1,10 @@
+{
+  "task_id": "q007279",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 3-bit synchronous down counter that decrements its count value on each positive edge of the clock signal (clk). The counter resets to 7 when the reset input is asserted low. It wraps around back to 7 after reaching the minimum count of 0, effectively counting from 7 to 0 repeatedly.\nmodule top_module(\n  input clk,\n  input reset,\n  output reg [2:0] count\n);always @(posedge clk or negedge reset) begin\n    if (reset == 0) begin\n      count <= 0;\n    end else begin\n      if (count == 7) begin\n        count <= 0;\n      end else begin\n        count <= count + 1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 3-bit synchronous down counter that decrements its count value on each positive edge of the clock signal (clk). The counter resets to 7 when the reset input is asserted low. It wraps around back to 7 after reaching the minimum count of 0, effectively counting from 7 to 0 repeatedly."
+  }
+}

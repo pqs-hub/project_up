@@ -1,0 +1,7 @@
+{
+  "task_id": "q003728",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module priority_encoder (\n    input wire I3, I2, I1, I0,\n    output reg O1, O0,\n    output reg V\n);\n    always @(*) begin\n        if (I3) begin\n            O1 = 1; O0 = 1; V = 1; // I3 is highest priority\n        end else if (I2) begin\n            O1 = 1; O0 = 0; V = 1; // I2 is next highest\n        end else if (I1) begin\n            O1 = 0; O0 = 1; V = 1; // I1 is next\n        end else if (I0) begin\n            O1 = 0; O0 = 0; V = 1; // I0 is the lowest\n        end else begin\n            O1 = 0; O0 = 0; V = 0; // No input is active\n        end\n    end\nendmodule",
+  "rename_map": {}
+}

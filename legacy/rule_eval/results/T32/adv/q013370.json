@@ -1,0 +1,6 @@
+{
+  "task_id": "q013370",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module Shift_Register_8bit(\n   input  [8-1:1-1]  D,\n   input         clk,\n   input         load,\n   input         shift,\n   output reg [7:0]  Q  \n);\n    always@(posedge clk) begin\n        if(load) begin\n            Q <= D;\n        end else if(shift) begin\n            Q <= {1'b0, Q[7:1]};\n        end\n    end\nendmodule"
+}

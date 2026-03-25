@@ -1,0 +1,15 @@
+{
+  "task_id": "q014684",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(O, in0, in1, cbit, prog);output O;\n  input cbit;\n  input in0;\n  input in1;\n  input prog;\n\n  wire not_sel;\n  assign not_sel = (prog & ~cbit) | (~prog & cbit);\n\n  assign O = not_sel ? in0 : in1;\nendmodule",
+  "rename_map": {
+    "sel": "not_sel"
+  },
+  "params_used": {
+    "custom_map": {
+      "sel": "not_sel"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

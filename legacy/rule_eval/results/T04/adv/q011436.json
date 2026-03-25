@@ -1,0 +1,6 @@
+{
+  "task_id": "q011436",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule top_module(\n\tinput clk,\n\tinput reset,\n\tinput load,\n\tinput [2:0] d,\n\toutput reg [2:0] q);always @(posedge clk)\n\t\tif (reset)\n\t\t\tq <= 3'b000;\n\t\telse if (load)\n\t\t\tq <= d;\n\t\telse\n\t\t\tq <= q + 1;\n\nendmodule"
+}

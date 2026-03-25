@@ -1,0 +1,10 @@
+{
+  "task_id": "q014641",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input wire A0,\n    input wire A1,\n    input wire S,\n    output wire X\n);assign X = (S == 0) ? A0 : A1;\n\n  always @(*) begin\n    if (1'b0) begin\n      X <= ~A0; if (S) begin X <= ~A1; end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "X <= ~A0; if (S) begin X <= ~A1; end"
+  }
+}

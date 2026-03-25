@@ -1,0 +1,6 @@
+{
+  "task_id": "q005375",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input in,\n    input reset,\n    output reg out\n);     // State Encoding\n    parameter A = 0, B = 1, C = 2, D = 3;\n    reg [1:0] state, next;\n\n    // State Transition Logic\n    always @(*) begin\n        case (state)\n            A: next = in ? D : C;\n            B: next = in ? D : C;\n            C: next = in ? C : A;\n            D: next = in ? C : A;\n        endcase\n    end\n\n    // State Register with synchronous Reset\n    always @(posedge clk) begin\n        if (reset) state <= A;\n        else state <= next;\n    end\n\n    // Output Logic\n    always @(*) begin\n        case (state)\n            A: out = 0;\n            B: out = 1;\n            C: out = 0;\n            D: out = 0;\n        endcase\n    end\nendmodule\n"
+}

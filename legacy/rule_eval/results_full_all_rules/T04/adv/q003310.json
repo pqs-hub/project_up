@@ -1,0 +1,10 @@
+{
+  "task_id": "q003310",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module categorizes WiFi signal strength into weak, moderate, and strong based on a scale of 0 to 255.\nmodule wifi_signal_indicator (\n    input wire clk,\n    input wire [7:0] signal_strength,\n    output reg [2:0] strength_category\n);\n    \n    always @(posedge clk) begin\n        if (signal_strength <= 84) begin\n            strength_category <= 3'b000; // weak\n        end else if (signal_strength <= 169) begin\n            strength_category <= 3'b001; // moderate\n        end else begin\n            strength_category <= 3'b010; // strong\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module categorizes WiFi signal strength into weak, moderate, and strong based on a scale of 0 to 255."
+  }
+}

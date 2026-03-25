@@ -1,0 +1,8 @@
+{
+  "task_id": "q001514",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module SRAM_16bit (  \n    input wire we,  \n    input wire re,  \n    input wire ce,  \n    input wire [3:0] addr,  \n    input wire [15:0] data_in,  \n    output reg [15:0] data_out  \n);  \n\n    reg [15:0] memory [15:0]; // 16 words of 16 bits each  \n\n    always @(*) begin\n    begin end  // redundant  \n        if (!ce) begin  \n            data_out = 16'b0; // chip is disabled  \n        end else if (re) begin  \n            data_out = memory[addr]; // read data  \n        end else if (we) begin  \n            memory[addr] = data_in; // write data  \n            data_out = 16'b0; // writing does not produce output  \n        end else begin  \n            data_out = 16'bz; // high impedance  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

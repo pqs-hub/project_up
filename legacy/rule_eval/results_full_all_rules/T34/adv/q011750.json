@@ -1,0 +1,15 @@
+{
+  "task_id": "q011750",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module enable_register(\n\tinput reset_clk,\n\tinput rst,\n\tinput en,\n\tinput [31:0] data_in,\n\t\n\toutput reg [31:0] q\n);\n    always @(posedge reset_clk) begin\n        if (rst) begin\n            q <= 32'b00000000000000000000000000000000;\n        end else if (en) begin\n            q <= data_in;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

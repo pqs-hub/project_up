@@ -1,0 +1,10 @@
+{
+  "task_id": "q000825",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module converts a 16-bit analog input to a 4-bit digital output.\n// Input range: 0 to 65535\n// Output range: 3 to 0\nmodule adc_16bit (\n    input [15:0] adc_input,\n    output reg [3:0] adc_output\n);\n    always @(*) begin\n        if (adc_input <= 16'd16384) begin\n            adc_output = 4'd0;\n        end else if (adc_input <= 16'd32768) begin\n            adc_output = 4'd1;\n        end else if (adc_input <= 16'd49152) begin\n            adc_output = 4'd2;\n        end else begin\n            adc_output = 4'd3;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module converts a 16-bit analog input to a 4-bit digital output.\n// Input range: 0 to 65535\n// Output range: 3 to 0"
+  }
+}

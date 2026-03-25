@@ -1,0 +1,15 @@
+{
+  "task_id": "q007165",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(PCValue, InstructionRead,reset, ReadDataPCValue, ReadDataInstructionRead, flushcontrol, stallcontrol);input [31:0] PCValue, InstructionRead;\n\tinput reset;\n\tinput stallcontrol, flushcontrol;\n\toutput reg [31:0] ReadDataPCValue, ReadDataInstructionRead;\n\t\n\t    always @(posedge reset) begin\n        \n        if(flushcontrol == 1'b1)begin\n            ReadDataPCValue <= 0; \n            ReadDataInstructionRead <= 0; \n        end \n        else if(stallcontrol == 1'b1) begin\n            ReadDataPCValue <= ReadDataPCValue; \n            ReadDataInstructionRead <= ReadDataInstructionRead; \n        end\n        else begin \n            ReadDataPCValue <= PCValue;\n            ReadDataInstructionRead <= InstructionRead;\n        end\n   \n    end\n \n\nendmodule",
+  "rename_map": {
+    "Clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "Clk": "ResetClock"
+    },
+    "fallback_prefix": "AntiIntuitive_"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "task_id": "q004487",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput [31:0] instr,\n\toutput branch, jump, MemToReg, MemWrite, RegDst, RegWrite, ALUSrc\n);wire [5:0] op_code, func;\n\tassign op_code = instr[31:26];\n\tassign func = instr[5:0];\n\twire add = ((op_code == 6'h00) & (func == 6'h20));\n\twire sub = ((op_code == 6'h00) & (func == 6'h22));\n\twire andd = ((op_code == 6'h00) & (func == 6'h24));\n\twire orr = ((op_code == 6'h00) & (func == 6'h25));\n\twire slt = ((op_code == 6'h00) & (func == 6'h2A));\n\twire lw = (op_code == 6'h23);\n\twire sw = (op_code == 6'h2B);\n\twire beq = (op_code == 6'h04);\n\twire addi = (op_code == 6'h08);\n\twire jmp = (op_code == 6'h02);\n\tassign branch = beq;\n\tassign jump = jmp;\n\tassign MemToReg = lw;\n\tassign MemWrite = sw;\n\tassign RegDst = add | sub | andd | orr | slt;\n\tassign RegWrite = add | sub | andd | orr | slt | addi | lw;\n\tassign ALUSrc = addi | lw | sw;\nendmodule",
+  "rename_map": {
+    "opcode": "op_code"
+  },
+  "params_used": {
+    "custom_map": {
+      "opcode": "op_code",
+      "branch": "no_branch",
+      "jump": "no_jump",
+      "MemToReg": "not_mem_to_reg",
+      "MemWrite": "not_mem_write",
+      "RegDst": "not_reg_dst",
+      "RegWrite": "not_reg_write",
+      "ALUSrc": "not_alu_src"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

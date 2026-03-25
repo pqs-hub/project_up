@@ -1,0 +1,6 @@
+{
+  "task_id": "q009451",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    input j,\n    input k,\n    output reg q);always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 1'b0;\n        end else if (j && ~k) begin\n            q <= 1'b1;\n        end else if (~j && k) begin\n            q <= 1'b0;\n        end else if (j && k) begin\n            q <= ~q;\n        end\n    end\n\nendmodule"
+}

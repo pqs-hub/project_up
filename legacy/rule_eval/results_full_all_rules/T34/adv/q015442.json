@@ -1,0 +1,15 @@
+{
+  "task_id": "q015442",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input clk,\n              input  din,\n              output reg dout);reg                clk_sync_reg;\n  always @(negedge clk) clk_sync_reg <= din;\n  always @(posedge clk) dout <= clk_sync_reg;\nendmodule",
+  "rename_map": {
+    "din_flop": "clk_sync_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "din_flop": "clk_sync_reg"
+    },
+    "fallback_prefix": "sync_"
+  }
+}

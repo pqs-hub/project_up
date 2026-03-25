@@ -1,0 +1,6 @@
+{
+  "task_id": "q003565",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire we,      // Write enable\n    input wire data_in, // Data input\n    output reg data_out // Data output\n);\n\nreg stored_data; // Internal storage\n\nalways @(posedge clk) begin\n    if (we) begin\n        stored_data <= data_in; // Store data when write enable is high\n    end\nend\n\nalways @(*) begin\n    data_out = stored_data; // Output the stored data\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016691",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (\n    Y  ,\n    A  ,\n    B_N\n);\n\n    // Module ports\n    output Y  ;\n    input  A  ;\n    input  B_N;\n\n    // Module supplies\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Local signals\n    wire not0_out  ;\n    wire and0_out_Y;\n\n    //  Name  Output      Other arguments\n    not not0 (not0_out  , A              );\n    and and0 (and0_out_Y, not0_out, B_N  );\n    buf buf0 (Y         , and0_out_Y     );\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q002609",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module generates a pulse of the specified width when triggered. The pulse width is defined by a parameter. The pulse should be asserted low for a specified number of clock cycles upon receiving a trigger signal, and then asserted high.\nmodule pulse_generator (\n    input wire clk,\n    input wire reset,\n    input wire trigger,\n    input wire [3:0] pulse_width, // pulse width in clock cycles\n    output reg pulse\n);\n    reg [3:0] counter;\n    reg generating;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            pulse <= 0;\n            counter <= 0;\n            generating <= 0;\n        end else if (trigger && !generating) begin\n            generating <= 1;\n            counter <= pulse_width;\n            pulse <= 1;\n        end else if (generating) begin\n            if (counter > 0) begin\n                counter <= counter - 1;\n            end else begin\n                generating <= 0;\n                pulse <= 0;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module generates a pulse of the specified width when triggered. The pulse width is defined by a parameter. The pulse should be asserted low for a specified number of clock cycles upon receiving a trigger signal, and then asserted high."
+  }
+}

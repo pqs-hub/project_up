@@ -1,0 +1,6 @@
+{
+  "task_id": "q002659",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [4-1:1-1] data_in,      // 4-bit input data\n    output reg ack_nack       // ACK = 1, NACK = 0\n);\n    parameter CODEWORD = 4'b1010; // Predefined codeword for checking\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            ack_nack <= 1'b0; // Reset state\n        end else begin\n            if (data_in == CODEWORD) begin\n                ack_nack <= 1'b1; // Send ACK\n            end else begin\n                ack_nack <= 1'b0; // Send NACK\n            end\n        end\n    end\nendmodule"
+}

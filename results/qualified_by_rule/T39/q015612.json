@@ -1,0 +1,6 @@
+{
+  "task_id": "q015612",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule(\n\tinput clk,\n\tinput data_hit,\n\tinput [1:0]control_wb_in,\n\tinput [31:0]Read_data_in,\n\tinput [31:0]ALU_rslt_in,\n\tinput [4:0]Write_reg_in,\n\toutput reg [1:0] mem_control_wb,\n\toutput reg [31:0] Read_data,\n\toutput reg [31:0] mem_ALU_result,\n\toutput reg [4:0] mem_Write_reg\n    );always @(posedge clk)\n\t begin\n\t\tif(data_hit)\n\t\tbegin\t\n\t\t\tmem_control_wb = control_wb_in;\n\t\t\tRead_data = Read_data_in;\n\t\t\tmem_ALU_result = ALU_rslt_in;\n\t\t\tmem_Write_reg = Write_reg_in;\n\t\tend\n\t end\n\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q004799",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module (\n    input clk,\n    input j,\n    input y,\n    input reset,\n    output reg out);// State Encoding\n    parameter OFF = 0, ON = 1;\n    reg [1:0] state, next;\n\n    // State Transition Logic\n    always @(*) begin\n    begin end  // redundant\n        case (state)\n            OFF: next = j ? ON : OFF;\n            ON: next = y ? OFF : ON;\n        endcase\n    end\n\n    // State Register with synchronous Reset\n    always @(posedge clk) begin\n        if (reset) state <= OFF;\n        else state <= next;\n    end\n\n    // Output Logic\n    always @(*) begin\n        case (state)\n            OFF: out = 0;\n            ON: out = 1;\n        endcase\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

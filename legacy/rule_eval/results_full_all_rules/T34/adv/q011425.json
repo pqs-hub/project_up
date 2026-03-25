@@ -1,0 +1,16 @@
+{
+  "task_id": "q011425",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [(1 - 1):0] d0,\n  input [(1 - 1):0] d1,\n  output [(1 - 1):0] y,\n  input clk,\n  input ce,\n  input clr);reg [(1 - 1):0] invalid_d0;\n  reg [(1 - 1):0] d1_1_27;\n  wire fully_2_1_bit;\n  \n  always @(posedge clk) begin\n    if (ce) begin\n      invalid_d0 <= d0;\n      d1_1_27 <= d1;\n    end\n  end\n  \n  assign fully_2_1_bit = invalid_d0 & d1_1_27;\n  assign y = fully_2_1_bit;\n  \n  initial begin\n    invalid_d0 = 1'b0;\n    d1_1_27 = 1'b0;\n  end\n  \n  always @(posedge clk) begin\n    if (clr) begin\n      invalid_d0 <= 1'b0;\n      d1_1_27 <= 1'b0;\n    end\n  end\n  \nendmodule",
+  "rename_map": {
+    "d0_1_24": "invalid_d0"
+  },
+  "params_used": {
+    "custom_map": {
+      "d0_1_24": "invalid_d0",
+      "d1_1_27": "invalid_d1"
+    },
+    "fallback_prefix": "err_"
+  }
+}

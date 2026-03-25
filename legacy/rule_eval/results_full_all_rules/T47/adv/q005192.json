@@ -1,0 +1,8 @@
+{
+  "task_id": "q005192",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(\n\tin4,\n\tin3,\n\tin2,\n\tin1,\n\tout1\n\t);input [31:0] in4;\ninput  in3,\n\tin2;\ninput [27:0] in1;\noutput [31:0] out1;\nwire [31:0] asc001;\nwire  asc002;\n\nassign asc002 = \n\t(in3)\n\t&(in2);\n\nwire [31:0] asc001_tmp_0;\n  wire _n01 = +(in4)[0] ^ (asc002)[0];\n  wire _c01 = +(in4)[0] & (asc002)[0];\n  wire _n02 = +(in4)[1] ^ (asc002)[1] ^ _c01;\n  wire _c02 = (+(in4)[1] & (asc002)[1]) | (+(in4)[1] & _c01) | ((asc002)[1] & _c01);\n  wire _n03 = +(in4)[2] ^ (asc002)[2] ^ _c02;\n  wire _c03 = (+(in4)[2] & (asc002)[2]) | (+(in4)[2] & _c02) | ((asc002)[2] & _c02);\n  wire _n04 = +(in4)[3] ^ (asc002)[3] ^ _c03;\n  wire _c04 = (+(in4)[3] & (asc002)[3]) | (+(in4)[3] & _c03) | ((asc002)[3] & _c03);\n  assign asc001_tmp_0 = {_n01, _n02, _n03, _n04};\nassign asc001 = asc001_tmp_0\n\t+({{4{in1[27]}}, in1});\n\nassign out1 = asc001;\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

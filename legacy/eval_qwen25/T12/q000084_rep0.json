@@ -1,0 +1,12 @@
+{
+  "task_id": "q000084",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input [3:0] x,\n    input [3:0] h_prev,\n    output reg [3:0] h_new\n);\n\nalways @(x, h_prev) begin\n    h_new = (x + h_prev) % 16;\nend\n\nendmodule",
+  "adversarial_code": "module TopModule (\n    input [3:0] x,\n    input [3:0] h_prev,\n    output reg [3:0] h_new\n);\n    always @(x, h_prev) begin\n        h_new = (x + h_prev) % 16;\n    end\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

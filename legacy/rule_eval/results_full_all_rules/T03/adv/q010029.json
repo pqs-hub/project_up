@@ -1,0 +1,8 @@
+{
+  "task_id": "q010029",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module mux_2to1(A, B, SEL, Y);\ninput [3:0] A, B;\ninput SEL;\noutput reg [3:0] Y;\n  wire [3:0] _tap_A = A & {4{1'b1}};\n\n\nalways @(*) begin\n    case (SEL)\n        1'b0: Y = A;\n        1'b1: Y = B;\n        default: Y = 4'b0000;\n    endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

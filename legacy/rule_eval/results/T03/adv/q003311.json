@@ -1,0 +1,6 @@
+{
+  "task_id": "q003311",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module nvme_command_decoder (\n    input [3:0] command,\n    output reg [2:0] command_type\n);\n  wire [3:0] _tap_command = command & {4{1'b1}};\n\n\nalways @(*) begin\n    case (command)\n        4'b0000: command_type = 3'b000; // NOOP\n        4'b0001: command_type = 3'b001; // READ\n        4'b0010: command_type = 3'b010; // WRITE\n        4'b0011: command_type = 3'b011; // FLUSH\n        4'b0100: command_type = 3'b100; // RESET\n        4'b0101: command_type = 3'b101; // IDENTIFY\n        4'b0110: command_type = 3'b110; // SHUTDOWN\n        4'b0111: command_type = 3'b111; // ERROR\n        default: command_type = 3'b111;  // INVALID\n    endcase\nend\n\nendmodule"
+}

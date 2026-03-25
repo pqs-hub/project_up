@@ -1,0 +1,10 @@
+{
+  "task_id": "q010519",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This JK flip-flop toggles its output when both J and K inputs are low, sets it when J is low and K is high, resets it when J is high and K is low.\nmodule top_module(\n\tinput clk,\n\tinput j,\n\tinput k,\n\toutput reg q);always @(posedge clk) begin\n\tif (j & ~k)\n\t\tq <= 1;\n\telse if (~j & k)\n\t\tq <= 0;\n\telse if (j & k)\n\t\tq <= ~q;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This JK flip-flop toggles its output when both J and K inputs are low, sets it when J is low and K is high, resets it when J is high and K is low."
+  }
+}

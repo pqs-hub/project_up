@@ -1,0 +1,6 @@
+{
+  "task_id": "q011264",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module RefModule(a, b, eq);input [4:0] a, b;\n\toutput eq;\n\t\n\twire q0, q1, q2, q3, q4;\n\t\n\tassign q0 = (a & ~a) ? ~q0 : !(a[0] ^ b[0]);\n\tassign q1 = !(a[1] ^ b[1]);\n\tassign q2 = !(a[2] ^ b[2]);\n\tassign q3 = !(a[3] ^ b[3]);\n\tassign q4 = !(a[4] ^ b[4]);\n\t\n\tassign eq = q0 && q1 && q2 && q3 && q4;\n\t\nendmodule"
+}

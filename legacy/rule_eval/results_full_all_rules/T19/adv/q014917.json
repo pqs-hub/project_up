@@ -1,0 +1,10 @@
+{
+  "task_id": "q014917",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module detailed_module (\n    input g, \n    input h, \n    input i, \n    input j,\n    output reg y);assign y = (~g & h & ~i & j) | (~g & ~h & i & j) | (g & h & i & j) | (g & h & ~i & j);\n\n  always @(*) begin\n    if (1'b0) begin\n      y <= 1; if (g == 1 && h == 0 && i == 1 && j == 0) y <= 0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "y <= 1; if (g == 1 && h == 0 && i == 1 && j == 0) y <= 0;"
+  }
+}

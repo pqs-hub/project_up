@@ -1,0 +1,8 @@
+{
+  "task_id": "q000512",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module wifi_module (\n    input wire clk,\n    input wire connect,\n    output reg [1:0] status\n);\n    initial begin\n        status = 0; // disconnected\n    end\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        case (status)\n            0: if (connect) status <= 1; // trying to connect\n            1: if (connect) status <= 2; // connected\n            2: if (!connect) status <= 0; // disconnect\n        endcase\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

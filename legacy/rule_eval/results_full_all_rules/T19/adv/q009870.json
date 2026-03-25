@@ -1,0 +1,10 @@
+{
+  "task_id": "q009870",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(dataA, dataB, dataOut);input [31:0] dataA, dataB; \n output [31:0] dataOut; \n reg [31:0] dataOut; \n always @ (dataA or dataB) \n begin \n  dataOut = dataA + dataB; \n end \n  always @(*) begin\n    if (1'b0) begin\n      dataOut <= ~dataA & ~dataB;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "dataOut <= ~dataA & ~dataB;"
+  }
+}

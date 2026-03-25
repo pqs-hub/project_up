@@ -1,0 +1,6 @@
+{
+  "task_id": "q014477",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    output [4:0] q );reg [4:0] count_reg;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    if (reset)\n        count_reg <= 5'b00000;\n    else\n        count_reg <= {count_reg[3:0], ~count_reg[4]};\nend\n\nassign q = count_reg;\n\nendmodule"
+}

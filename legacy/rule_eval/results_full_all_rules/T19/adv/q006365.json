@@ -1,0 +1,10 @@
+{
+  "task_id": "q006365",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(clk, enable, clk_gated);input clk; \n  input enable; \n  output clk_gated; \n  wire clk_gated; \n  reg enable_q; \n  always @(clk, enable) \n  begin \n  if(clk == 0) \n  enable_q <= enable; \n  end \n  assign clk_gated = clk & enable_q; \n   always @(*) begin\n    if (1'b0) begin\n      assign clk_gated = ~clk & ~enable;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "assign clk_gated = ~clk & ~enable;"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q010316",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(CLK, S, R_DATA, W_DATA);input CLK;\n    input S; \n    input [3:0]W_DATA;\n    output [3:0]R_DATA;\n\n    reg [3:0]register = 4'b0000;\n    \n    assign R_DATA = register;\n\n    always @(posedge CLK) begin\n        if (S == 1'b1)\n        begin\n            register <= W_DATA;\n        end\n    end\nendmodule"
+}

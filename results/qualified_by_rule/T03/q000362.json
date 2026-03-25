@@ -1,0 +1,6 @@
+{
+  "task_id": "q000362",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input [63:0] A,\n    input [63:0] B,\n    input [2:0] opcode,\n    output reg [63:0] result,\n    output reg zero_flag\n);\n  wire [63:0] _tap_A = A & {64{1'b1}};\n\n    \n    always @(*) begin\n        case (opcode)\n            3'b000: result = A + B;          // Addition\n            3'b001: result = A - B;          // Subtraction\n            3'b010: result = A & B;          // AND\n            3'b011: result = A | B;          // OR\n            3'b100: result = A ^ B;          // XOR\n            default: result = 64'b0;         // Default case\n        endcase\n        \n        zero_flag = (result == 64'b0) ? 1'b1 : 1'b0; // Set zero flag if result is zero\n    end\nendmodule"
+}

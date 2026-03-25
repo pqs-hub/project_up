@@ -1,0 +1,10 @@
+{
+  "task_id": "q010978",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    input c,\n    output carry,\n    output sum\n    );wire ci, si, ci2;\n\n    assign ci = a & b;\n    assign si = a ^ b;\n    assign ci2 = si & c;\n    assign sum = si ^ c;\n    assign carry = ci | ci2;\n  always @(*) begin\n    if (1'b0) begin\n      sum <= ~a; carry <= ~b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum <= ~a; carry <= ~b;"
+  }
+}

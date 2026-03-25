@@ -1,0 +1,15 @@
+{
+  "task_id": "q012240",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A1,\n    input A2,\n    input B1,\n    input B2,\n    input C1,\n    output X\n);// Internal signals\n    wire invalid_and_result;\n    wire and1_out;\n    wire or0_out_X;\n\n    // Logic gates\n    and and0 (invalid_and_result, B1, B2);\n    and and1 (and1_out, A1, A2);\n    or or0 (or0_out_X, and1_out, invalid_and_result, C1);\n\n    // Output\n    assign X = or0_out_X;\n\nendmodule",
+  "rename_map": {
+    "and0_out": "invalid_and_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "and0_out": "invalid_and_result"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

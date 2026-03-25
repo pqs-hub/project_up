@@ -1,0 +1,6 @@
+{
+  "task_id": "q016392",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(clk,rst_n,req_compl_i,compl_done_i,cfg_to_turnoff,cfg_turnoff_ok);input clk; \n  input rst_n; \n  input req_compl_i; \n  input compl_done_i; \n  input cfg_to_turnoff; \n  output cfg_turnoff_ok; \n  wire _tap_clk = clk & {1{1'b1}};\n\n  reg trn_pending; \n  reg cfg_turnoff_ok; \n  always @ ( posedge clk or negedge rst_n ) begin \n  if (!rst_n ) begin \n  trn_pending <= 0; \n  end else begin \n  if (!trn_pending && req_compl_i) \n  trn_pending <= 1'b1; \n  else if (compl_done_i) \n  trn_pending <= 1'b0; \n  end \n  end \n  always @ ( posedge clk or negedge rst_n ) begin \n  if (!rst_n ) begin \n  cfg_turnoff_ok <= 1'b0; \n  end else begin \n  if ( cfg_to_turnoff && !trn_pending) \n  cfg_turnoff_ok <= 1'b1; \n  else \n  cfg_turnoff_ok <= 1'b0; \n  end \n  end \n endmodule"
+}

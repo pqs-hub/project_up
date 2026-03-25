@@ -1,0 +1,10 @@
+{
+  "task_id": "q001258",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // When control is low, this cell outputs the current input data\nmodule flash_memory_cell(\n    input wire ctrl,\n    input wire data_in,\n    output reg data_out\n);\n\nalways @(*) begin\n    if (ctrl) begin\n        data_out = data_in; // Store input when control is high\n    end\n    // No else needed as data_out will hold its previous value when ctrl is low\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When control is low, this cell outputs the current input data"
+  }
+}

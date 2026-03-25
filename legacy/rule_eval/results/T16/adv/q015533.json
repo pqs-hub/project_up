@@ -1,0 +1,9 @@
+{
+  "task_id": "q015533",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module reg_file (\n    input clk,\n    input rst,\n    input write_en,\n    input [2:0] write_addr,\n    input [15:0] write_data,\n    input [2:0] read_addr,\n    output reg [15:0] read_data\n);\n\n    reg [15:0] obf_regs [7:0];\n\n    always @(posedge clk) begin\n        if (rst) begin\n            obf_regs[0] <= 16'd0;\n            obf_regs[1] <= 16'd0;\n            obf_regs[2] <= 16'd0;\n            obf_regs[3] <= 16'd0;\n            obf_regs[4] <= 16'd0;\n            obf_regs[5] <= 16'd0;\n            obf_regs[6] <= 16'd0;\n            obf_regs[7] <= 16'd0;\n        end else if (write_en) begin\n            obf_regs[write_addr] <= write_data;\n        end\n    end\n\n    always @(*) begin\n        read_data = obf_regs[read_addr];\n    end\n\nendmodule",
+  "rename_map": {
+    "regs": "obf_regs"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q006748",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] a,\n    input [3:0] b,\n    output reg neq,\n    output reg gt_a,\n    output reg gt_b\n);always @(*) begin\n        neq = (a == b);\n        gt_a = (a > b);\n        gt_b = (b > a);\n    end\n\nendmodule",
+  "rename_map": {
+    "eq": "neq"
+  },
+  "params_used": {
+    "custom_map": {
+      "eq": "neq",
+      "gt_a": "leq",
+      "gt_b": "geq"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

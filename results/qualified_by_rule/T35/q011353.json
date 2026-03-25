@@ -1,0 +1,6 @@
+{
+  "task_id": "q011353",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(D, Q, C, R, S);input D, C, R, S;\n    output Q;\n\n    reg Q;\n\n    always @(posedge C) begin\n        if (R == 1'b1 && S == 1'b1) begin\n            // Undefined behavior\n        end else if (R == 1'b1) begin\n            Q <= 1'b0;\n        end else if (S == 1'b1) begin\n            Q <= 1'b1;\n        end else begin\n            Q <= D;\n        end\n    end\nendmodule"
+}

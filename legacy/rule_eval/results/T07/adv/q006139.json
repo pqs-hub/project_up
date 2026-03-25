@@ -1,0 +1,6 @@
+{
+  "task_id": "q006139",
+  "rule_id": "T07",
+  "changed": true,
+  "final": "module top_module(input clk,input rst,output [3:0] channel,input new_sample,input [9:0] sample,input [3:0] sample_channel,output [9:0] out);assign out = sample_q; \n reg [9:0] sample_d, sample_q; \n assign channel = 4'd0; \n always @(*) begin \n  sample_d = sample_q; \n  if (new_sample && sample_channel == 4'd0) \n  sample_d = sample; \n end \n always @(posedge clk) begin \n  if (rst) begin \n  sample_q <= 10'd0; \n  end else begin \n  sample_q <= sample_d; \n  end \n end \n endmodule"
+}

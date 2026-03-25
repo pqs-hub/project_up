@@ -1,0 +1,6 @@
+{
+  "task_id": "q000823",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(\n    input [3:0] A,\n    input [3:0] B,\n    input clk,\n    output reg [4:0] result\n);\n    reg [4:0] stage1_result;\n    \n    always @(posedge clk) begin\n        // Stage 1: Add A and B\n        stage1_result <= A + B;\n    end\n\n    always @(posedge clk) begin\n        // Stage 2: Add the constant 3 to the result of stage 1\n        result <= stage1_result + 3;\n    end\nendmodule"
+}

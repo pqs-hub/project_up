@@ -1,0 +1,10 @@
+{
+  "task_id": "q016957",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module generates a pulse of a specified width when a trigger signal is received.\n// Inputs:\n// - clk: a 50MHz clock signal\n// - trigger: a 1-bit trigger signal that goes low for a single clock cycle when the pulse is to be generated\n// - pulse_width: a 16-bit value that specifies the width of the pulse in clock cycles\n// Outputs:\n// - pulse: a 1-bit signal that goes low when the pulse is being generated\nmodule pulse_gen(\n  input clk,\n  input trigger,\n  input [15:0] pulse_width,\n  output reg pulse\n);\n\nreg [15:0] counter = 0;\nreg pulse_gen = 0;\n\nalways @(posedge clk) begin\n  if (trigger) begin\n    pulse_gen <= 1;\n    counter <= 0;\n  end else begin\n    if (counter >= pulse_width) begin\n      pulse_gen <= 0;\n    end\n    counter <= counter + 1;\n  end\nend\n\nalways @(posedge clk) begin\n  pulse <= pulse_gen;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module generates a pulse of a specified width when a trigger signal is received.\n// Inputs:\n// - clk: a 50MHz clock signal\n// - trigger: a 1-bit trigger signal that goes low for a single clock cycle when the pulse is to be generated\n// - pulse_width: a 16-bit value that specifies the width of the pulse in clock cycles\n// Outputs:\n// - pulse: a 1-bit signal that goes low when the pulse is being generated"
+  }
+}

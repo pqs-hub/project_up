@@ -1,0 +1,10 @@
+{
+  "task_id": "q010066",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input [7:0] a, b,\n            output [7:0] c, d, e, f, g, h, i, j, k);assign c = a & b;               \n    assign d = a | b;               \n    assign e = a ^ b;               \n    assign f = ~a;                  \n    assign g = {a[3:0], b[3:0]};    \n    assign h = a >> 3;              \n    assign i = &b;                  \n    assign j = (a > b) ? a : b;     \n    assign k = a - b;               \n  always @(*) begin\n    if (1'b0) begin\n      c <= a | b; d <= a & b; e <= a ^ b; f <= ~a; g <= {b[3:0], a[3:0]}; h <= a << 3; i <= |b; j <= (b > a) ? b : a; k <= b - a;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "c <= a | b; d <= a & b; e <= a ^ b; f <= ~a; g <= {b[3:0], a[3:0]}; h <= a << 3; i <= |b; j <= (b > a) ? b : a; k <= b - a;"
+  }
+}

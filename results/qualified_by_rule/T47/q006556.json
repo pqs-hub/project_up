@@ -1,0 +1,6 @@
+{
+  "task_id": "q006556",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule (\n    input [7:0] x,\n    input [7:0] z,\n    output [7:0] sum\n);\n\n    // Perform addition\n      wire _n01 = x[0] ^ z[0];\n  wire _c01 = x[0] & z[0];\n  wire _n02 = x[1] ^ z[1] ^ _c01;\n  wire _c02 = (x[1] & z[1]) | (x[1] & _c01) | (z[1] & _c01);\n  wire _n03 = x[2] ^ z[2] ^ _c02;\n  wire _c03 = (x[2] & z[2]) | (x[2] & _c02) | (z[2] & _c02);\n  wire _n04 = x[3] ^ z[3] ^ _c03;\n  wire _c04 = (x[3] & z[3]) | (x[3] & _c03) | (z[3] & _c03);\n  assign sum = {_n01, _n02, _n03, _n04};\n\nendmodule"
+}

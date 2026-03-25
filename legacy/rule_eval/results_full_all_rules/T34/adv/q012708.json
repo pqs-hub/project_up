@@ -1,0 +1,16 @@
+{
+  "task_id": "q012708",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(misleading_RegDst,Rd,Rt,writereg);input [1:0] misleading_RegDst;\ninput [4:0] Rd;\ninput [4:0] Rt;\noutput [4:0] writereg;\n\nassign writereg = (misleading_RegDst == 2'b00) ? Rd :\n                  (misleading_RegDst == 2'b01) ? Rt :\n                  (misleading_RegDst == 2'b10) ? 5'b11111 :\n                  5'b11010;\n\nendmodule",
+  "rename_map": {
+    "RegDst": "misleading_RegDst"
+  },
+  "params_used": {
+    "custom_map": {
+      "Rd": "invalid_reg",
+      "Rt": "err_reg"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

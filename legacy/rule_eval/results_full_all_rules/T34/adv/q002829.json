@@ -1,0 +1,15 @@
+{
+  "task_id": "q002829",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module median_filter (\n    input a,\n    input b,\n    input c,\n    output reg anti_median\n);\n    always @(*) begin\n        if ((a >= b && a <= c) || (a <= b && a >= c))\n            anti_median = a;\n        else if ((b >= a && b <= c) || (b <= a && b >= c))\n            anti_median = b;\n        else\n            anti_median = c;\n    end\nendmodule",
+  "rename_map": {
+    "median": "anti_median"
+  },
+  "params_used": {
+    "custom_map": {
+      "median": "anti_median"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

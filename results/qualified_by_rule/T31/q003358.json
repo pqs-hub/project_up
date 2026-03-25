@@ -1,0 +1,6 @@
+{
+  "task_id": "q003358",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule (  \n    input [4:0] data_in,  \n    input clk,  \n    output reg [5:0] data_out  \n);  \n    reg [5:0] stage1_out;  \n\n    always @(posedge clk) begin  \n        // Stage 1: Addition  \n        stage1_out <= data_in + 5'b00001;  \n    end  \n\n    always @(posedge clk) begin  \n        // Stage 2: Multiplication by 3  \n        data_out <= stage1_out * 6'd3;  \n    end  \nendmodule"
+}

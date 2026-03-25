@@ -1,0 +1,10 @@
+{
+  "task_id": "q000952",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module compresses the input signal by subtracting the threshold from it\nmodule dynamic_range_compressor (\n    input [7:0] in_signal,\n    input [7:0] threshold,\n    output reg [7:0] out_signal\n);\n    always @(*) begin\n        if (in_signal > threshold) begin\n            out_signal = threshold + (in_signal - threshold) / 2; // Simple compression\n        end else begin\n            out_signal = in_signal; // No compression\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module compresses the input signal by subtracting the threshold from it"
+  }
+}

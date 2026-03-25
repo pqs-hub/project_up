@@ -1,0 +1,8 @@
+{
+  "task_id": "q003241",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module packet_filter (\n    input [16-1:1-1] src_ip,\n    input [15:0] dest_ip,\n    output reg allow\n);\n    always @(*) begin\n        if ((src_ip >= 16'hC0A8_0001) && (src_ip <= 16'hC0A8_00FF) && (dest_ip == 16'hC0A8_000A)) \n            allow = 1;\n        else\n            allow = 0;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

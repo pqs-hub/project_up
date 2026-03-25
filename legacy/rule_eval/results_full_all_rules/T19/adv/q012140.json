@@ -1,0 +1,10 @@
+{
+  "task_id": "q012140",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(x,y,a,b,c,d);input x,y;\n\toutput a,b,c,d;\n\tassign a=(!x)&(!y);\n\tassign b=(!x)&y;\n\tassign c=x&y;\n\tassign d=x&(!y);\n  always @(*) begin\n    if (1'b0) begin\n      a = !x & !y;\n      b = x & !y;\n      c = !x & y;\n      d = x & y;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "a = !x & !y;\nb = x & !y;\nc = !x & y;\nd = x & y;"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q017020",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module comparator_4bit (\n  input [3:0] A,\n  input [3:0] B,\n  output reg EQ\n);\n\n  always @(*) begin\n    if (A == B) begin\n      EQ = 1;\n    end else begin\n      EQ = 0;\n    end\n  end\n\n  always @(*) begin\n    if (1'b0) begin\n      EQ = ~A[0];\n    end\n  end\n\nendmodule\n",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "EQ = ~A[0];\n"
+  }
+}

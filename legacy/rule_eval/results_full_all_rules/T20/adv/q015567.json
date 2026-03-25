@@ -1,0 +1,10 @@
+{
+  "task_id": "q015567",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-bit binary counter that decrements its value on each clock cycle. The counter can be reset to zero or loaded with a specific 4-bit input value when the load signal is high. Upon a reset signal, the counter is initialized to zero. In each clock cycle, if the load signal is not asserted, the counter decrements its current value by one. The current count is output as a 4-bit register.\nmodule top_module(\n    input clk,\n    input reset,\n    input load,\n    input [3:0] data_in,\n    output reg [3:0] count\n);reg [3:0] count_reg;\nreg [3:0] count_next;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        count_reg <= 4'b0;\n    end\n    else begin\n        count_reg <= count_next;\n    end\nend\n\nalways @(*) begin\n    if (load) begin\n        count_next = data_in;\n    end\n    else begin\n        count_next = count_reg + 4'b1;\n    end\nend\n\nassign count = count_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit binary counter that decrements its value on each clock cycle. The counter can be reset to zero or loaded with a specific 4-bit input value when the load signal is high. Upon a reset signal, the counter is initialized to zero. In each clock cycle, if the load signal is not asserted, the counter decrements its current value by one. The current count is output as a 4-bit register."
+  }
+}

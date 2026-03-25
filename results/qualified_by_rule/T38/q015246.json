@@ -1,0 +1,6 @@
+{
+  "task_id": "q015246",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module RefModule (\n    input wire [3:0] I,\n    input wire [1:0] S,\n    output wire Y\n    );\n\n  wire temp1_(I[0] & ~S[1] & ~S[0]) | \n           (I[1] & ~S[1] &  S[0]) | \n           (I[2] &  S[1] & ~S[0]) = (I[0] & ~S[1] & ~S[0]) | \n           (I[1] & ~S[1] &  S[0]) | \n           (I[2] &  S[1] & ~S[0]);\n  wire temp2_(I[3] &  S[1] &  S[0]) = (I[3] &  S[1] &  S[0]);\n  assign Y = temp1_(I[0] & ~S[1] & ~S[0]) | \n           (I[1] & ~S[1] &  S[0]) | \n           (I[2] &  S[1] & ~S[0]) | temp2_(I[3] &  S[1] &  S[0]);\n\nendmodule"
+}

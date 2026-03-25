@@ -1,0 +1,6 @@
+{
+  "task_id": "q009969",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n    input A1,\n    input [1:0] select,\n    input A2,\n    input A3,\n    input B1,\n    input C1,\n    input reset,\n    output reg X,\n    output reg valid\n);always @(A1, select, A2, A3, B1, C1, reset) begin\n    if(reset) begin\n        X <= 1'b0;\n        valid <= 1'b0;\n    end else begin\n        if(select == 2'b00) begin\n            if(A1 && A2 && A3) begin\n                X <= 1'b1;\n                valid <= 1'b1;\n            end else begin\n                X <= 1'b0;\n                valid <= 1'b0;\n            end\n        end else begin\n            if(A1 && B1 && C1) begin\n                X <= 1'b1;\n                valid <= 1'b1;\n            end else begin\n                X <= 1'b0;\n                valid <= 1'b0;\n            end\n        end\n    end\nend\n\nendmodule"
+}

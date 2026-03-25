@@ -1,0 +1,6 @@
+{
+  "task_id": "q016206",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(input wire CLK,input wire RST,input wire I_STB,input wire [31:0] I_DAT,output wire O_STB,output wire [31:0] O_DAT);wire [15:0] i_dat_a = I_DAT[15: 0]; \n wire [15:0] i_dat_b = I_DAT[31:16]; \n reg o_stb; \n reg [31:0] o_dat; \n always @(posedge CLK) \n  o_dat <= i_dat_a * i_dat_b; \n always @(posedge CLK or posedge RST) \n  if (RST) o_stb <= 1'd0; \n  else o_stb <= I_STB; \n assign O_STB = o_stb; \n assign O_DAT = o_dat; \n endmodule"
+}

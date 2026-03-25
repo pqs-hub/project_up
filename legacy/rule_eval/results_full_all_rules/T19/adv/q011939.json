@@ -1,0 +1,10 @@
+{
+  "task_id": "q011939",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(out,in,sel);parameter nO = 2;\nparameter nS = 1;\n\noutput[nO-1:0] out; \ninput in; \ninput[nS-1:0] sel; \n\nassign out = in << sel; \n\n  always @(*) begin\n    if (1'b0) begin\n      out[0] <= ~in;\n      out[1] <= in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out[0] <= ~in;\nout[1] <= in;"
+  }
+}

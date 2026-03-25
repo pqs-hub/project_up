@@ -1,0 +1,8 @@
+{
+  "task_id": "q003747",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module dram_4bit (\n    input clk,\n    input [1:0] addr,  // 2-bit address for 4 bits\n    input [3:0] write_data,  // 4-bit input data\n    input write_enable,  // Write enable signal\n    input read_enable,   // Read enable signal\n    output reg [3:0] read_data  // 4-bit output data\n);\n\n    reg [3:0] memory [0:3];  // 4-bit memory array with 4 locations\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (write_enable) begin\n            memory[addr] <= write_data;  // Write data to memory\n        end\n        if (read_enable) begin\n            read_data <= memory[addr];  // Read data from memory\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

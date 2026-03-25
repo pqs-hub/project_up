@@ -1,0 +1,9 @@
+{
+  "task_id": "q003676",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module data_forwarding_unit(\n    input [3:0] src1,\n    input [3:0] src2,\n    input [3:0] obf_dest,\n    input valid,\n    output reg forwardA,\n    output reg forwardB\n);\n    \nalways @(*) begin\n    forwardA = 0;\n    forwardB = 0;\n    if (valid) begin\n        if (src1 == obf_dest) begin\n            forwardA = 1;\n        end\n        if (src2 == obf_dest) begin\n            forwardB = 1;\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "dest": "obf_dest"
+  }
+}

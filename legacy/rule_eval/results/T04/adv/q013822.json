@@ -1,0 +1,6 @@
+{
+  "task_id": "q013822",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule counter_32bit (\n    input clk,\n    input reset,\n    output reg [31:0] count\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        count <= 32'b0;\n    end else begin\n        count <= count + 1;\n    end\nend\n\nendmodule"
+}

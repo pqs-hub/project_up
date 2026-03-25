@@ -1,0 +1,12 @@
+{
+  "task_id": "q000108",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input [3:0] binary_input,\n    output reg [15:0] decoder_output\n);\n\nalways @* begin\n    decoder_output = 16'b0; // Initialize all outputs to 0\n    decoder_output[binary_input] = 1'b1; // Set the selected output to 1\nend\n\nendmodule",
+  "adversarial_code": "module TopModule (\n    input [3:0] binary_input,\n    output reg [15:0] decoder_output\n);\n    always @* begin\n        decoder_output = 16'b0; // Initialize all outputs to 0\n        decoder_output[binary_input] = 1'b1; // Set the selected output to 1\n    end\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

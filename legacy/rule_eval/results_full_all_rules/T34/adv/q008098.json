@@ -1,0 +1,19 @@
+{
+  "task_id": "q008098",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\t clk_inv,    \n\t reset,  \n\t input_pc,  \n\t output_pc, \n\t PCWre   \n);input wire[31:0] input_pc;\n\t output reg[31:0] output_pc;\n\t input clk_inv, reset, PCWre;\n\n    \n\talways@(posedge clk_inv)begin\n\t\tif(reset == 0)begin  \n\t\t\toutput_pc = 0;\n\t\tend\n\t\telse if(!PCWre)begin  \n\t\t\toutput_pc = output_pc;\n\t\tend\n\t\telse if(PCWre)begin   \n\t\t\toutput_pc = input_pc;\n\t\tend\n\tend\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv",
+      "reset": "rst_n",
+      "input_pc": "ip_addr",
+      "output_pc": "pc_out",
+      "PCWre": "pc_wen"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

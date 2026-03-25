@@ -1,0 +1,22 @@
+{
+  "task_id": "q005261",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    input [7:0] d,\n    output [7:0] q\n);reg [7:0] r8, q2, q3, q4, q5, q6, q7, q8;\n\nalways @(posedge clk, negedge reset) begin\n    if (reset == 1'b0) begin\n        r8 <= 8'h5A;\n        q2 <= 8'h5A;\n        q3 <= 8'h5A;\n        q4 <= 8'h5A;\n        q5 <= 8'h5A;\n        q6 <= 8'h5A;\n        q7 <= 8'h5A;\n        q8 <= 8'h5A;\n    end else begin\n        r8 <= d;\n        q2 <= r8;\n        q3 <= q2;\n        q4 <= q3;\n        q5 <= q4;\n        q6 <= q5;\n        q7 <= q6;\n        q8 <= q7;\n    end\nend\n\nassign q = q8;\n\nendmodule",
+  "rename_map": {
+    "q1": "r8"
+  },
+  "params_used": {
+    "custom_map": {
+      "q1": "r8",
+      "q2": "r7",
+      "q3": "r6",
+      "q4": "r5",
+      "q5": "r4",
+      "q6": "r3",
+      "q7": "r2",
+      "q8": "r1"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

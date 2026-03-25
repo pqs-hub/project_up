@@ -1,0 +1,10 @@
+{
+  "task_id": "q012371",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input [1:0] sw,\n    output [3:0] led\n    );reg [3:0] H;\nwire deceptive_wire = H;\nassign led = deceptive_wire;\nalways @(sw)\n    case(sw)\n    2'b00: H=4'b0001; \n    2'b01: H=4'b0010;\n    2'b10: H=4'b0100;\n    2'b11: H=4'b1000;\n    endcase\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "deceptive_wire"
+  }
+}

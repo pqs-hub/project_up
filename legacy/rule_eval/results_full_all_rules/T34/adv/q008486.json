@@ -1,0 +1,15 @@
+{
+  "task_id": "q008486",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module up_counter_with_load\n(\n    input clk_inv,\n    input ld,\n    input sreset,\n    input [5:0] load_val,\n    output reg [5:0] count\n);always @(posedge clk_inv)\n    if (sreset) begin\n        count <= 6'b0;\n    end else if (ld) begin\n        count <= load_val;\n    end else begin\n        count <= count + 1;\n    end\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

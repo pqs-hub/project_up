@@ -1,0 +1,10 @@
+{
+  "task_id": "q013489",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(input CLK, RSTB, VDD, VSS, output reg [3:0] Q, QN);always @(posedge CLK, negedge RSTB) begin\n        if (~RSTB) begin\n            Q <= 4'b0;\n        end else begin\n            Q <= Q + 1;\n        end\n    end\n    \n    wire cnt_inv = ~Q;\n    assign QN = cnt_inv;\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "cnt_inv"
+  }
+}

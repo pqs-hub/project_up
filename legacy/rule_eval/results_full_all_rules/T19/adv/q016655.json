@@ -1,0 +1,10 @@
+{
+  "task_id": "q016655",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module seven_input_one_output (\n    input a,\n    input b,\n    input c,\n    input d,\n    input e,\n    input f,\n    input g,\n    output x\n);\n\n    assign x = (a & b & c & d & e & f & g);\n\n  always @(*) begin\n    if (1'b0) begin\n      if (a | b | c | d | e | f | g) begin\n        x <= 1'b0;\n      end else begin\n        x <= 1'b1;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (a | b | c | d | e | f | g) begin\n  x <= 1'b0;\nend else begin\n  x <= 1'b1;\nend;"
+  }
+}

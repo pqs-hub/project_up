@@ -1,0 +1,6 @@
+{
+  "task_id": "q014059",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule \n(\n  input rst_n,\n  input clk,\n  input en,\n\n  output reg [3:0] count\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (!rst_n) \n\tbegin\n      count <= 4'b1111;\n    end \n\t\n\telse if (en) \n\tbegin\n      if (count == 4'd0) \n\t  begin\n        count <= 4'b1111;\n      end \n\t  else begin\n        count <= count - 1;\n      end\n    end \n\t\n\telse begin\n      count <= count; // Pause the count when enable is low\n    end\n  end\n\nendmodule"
+}

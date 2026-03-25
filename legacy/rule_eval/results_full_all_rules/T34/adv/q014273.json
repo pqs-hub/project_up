@@ -1,0 +1,15 @@
+{
+  "task_id": "q014273",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] bin_out,\n    output [3:0] gray_out\n);// Implement the Gray code conversion directly using bitwise operations\n    assign gray_out[3] = bin_out[3]; // MSB remains the same\n    assign gray_out[2] = bin_out[3] ^ bin_out[2];\n    assign gray_out[1] = bin_out[2] ^ bin_out[1];\n    assign gray_out[0] = bin_out[1] ^ bin_out[0];\n\nendmodule",
+  "rename_map": {
+    "bin_in": "bin_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "bin_in": "bin_out"
+    },
+    "fallback_prefix": "gray_"
+  }
+}

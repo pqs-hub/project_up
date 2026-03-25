@@ -1,0 +1,10 @@
+{
+  "task_id": "q010322",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(rst_l_buf, se_buf, adbginit_l_buf,rst_l, se, adbginit_l);output rst_l_buf ; \n  output se_buf ; \n  output adbginit_l_buf ; \n  input rst_l ; \n  input se ; \n  input adbginit_l ; \n  assign rst_l_buf = rst_l; \n  assign se_buf = se; \n  assign adbginit_l_buf = adbginit_l ; \n   always @(*) begin\n    if (1'b0) begin\n      rst_l_buf <= ~rst_l;\n      se_buf <= ~se;\n      adbginit_l_buf <= ~adbginit_l;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "rst_l_buf <= ~rst_l;\nse_buf <= ~se;\nadbginit_l_buf <= ~adbginit_l;"
+  }
+}

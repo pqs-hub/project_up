@@ -1,0 +1,6 @@
+{
+  "task_id": "q004243",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module state_space_controller(  \n    input clk,  \n    input reset,  \n    input ctrl,  \n    output reg [0:0] state  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            state <= 1'b0; // Initialize to state S0  \n        else begin  \n            if (ctrl)  \n                state <= 1'b1; // Transition to state S1  \n            else  \n                state <= 1'b0; // Transition to state S0  \n        end  \n    end  \nendmodule"
+}

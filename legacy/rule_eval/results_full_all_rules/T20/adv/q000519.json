@@ -1,0 +1,10 @@
+{
+  "task_id": "q000519",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This SRAM cell reads data on the clock edge when write enable is low\nmodule sram_cell (\n    input wire clk,\n    input wire we, // write enable\n    input wire d,  // data input\n    output reg q   // data output\n);\n    always @(posedge clk) begin\n        if (we) begin\n            q <= d; // write data to SRAM cell\n        end\n        // else, retain the value of q\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This SRAM cell reads data on the clock edge when write enable is low"
+  }
+}

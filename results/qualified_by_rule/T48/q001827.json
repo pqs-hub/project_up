@@ -1,0 +1,6 @@
+{
+  "task_id": "q001827",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input load,\n    input shift,\n    input [7:0] data,\n    output reg [7:0] q\n);\n    always @(posedge clk) begin\n        if (load) begin\n            q <= data;  // Load the data\n        end else if (shift) begin\n            q <= {1'b0, q[7:1]};  // Shift right with zero fill\n        end\n        // If neither load nor shift, retain the current state\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001907",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module eth_mac_controller (  \n    input wire clk,  \n    input wire reset,  \n    input wire enable,  \n    input wire [7:0] data_in,  \n    output reg ack  \n);  \n    reg [7:0] data_buffer;  \n    reg processing;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            ack <= 0;  \n            processing <= 0;  \n            data_buffer <= 0;  \n        end else if (enable) begin  \n            data_buffer <= data_in;  \n            processing <= 1;  \n            ack <= 0;  \n        end else if (processing) begin  \n            // Simulate processing time  \n            ack <= 1;  \n            processing <= 0;  \n        end  \n    end  \nendmodule"
+}

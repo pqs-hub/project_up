@@ -1,0 +1,15 @@
+{
+  "task_id": "q012363",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    A,\n    B,\n    C,\n    D,\n    not_sel,\n    Y\n);// Module ports\n    input  A;\n    input  B;\n    input  C;\n    input  D;\n    input  [1:0] not_sel;\n    output Y;\n\n    // Assign output Y based on the select signal\n    assign Y = (not_sel == 2'b00) ? A : \n               (not_sel == 2'b01) ? B : \n               (not_sel == 2'b10) ? C : \n                                D;\n\nendmodule",
+  "rename_map": {
+    "sel": "not_sel"
+  },
+  "params_used": {
+    "custom_map": {
+      "sel": "not_sel"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

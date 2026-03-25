@@ -1,0 +1,10 @@
+{
+  "task_id": "q006086",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // When shift_parallel is high, the register loads the 4-bit input directly; when low, it shifts left.\nmodule top_module(\n    input clk,\n    input shift_parallel,\n    input [3:0] parallel_in,\n    output reg [3:0] out\n);always @(posedge clk) begin\n        if (shift_parallel) begin\n            out <= {out[2:0], 1'b0};\n        end\n        else begin\n            out <= parallel_in;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When shift_parallel is high, the register loads the 4-bit input directly; when low, it shifts left."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q005259",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] in0,\n    input [3:0] in1,\n    input [3:0] in2,\n    input [3:0] in3,\n    input sel0,\n    input sel1,\n    output [3:0] out\n    wire neg_mux_output = sel1 & sel0;\n    assign out = neg_mux_output ? in3 : sel1 & ~sel0 ? in2 : ~sel1 & sel0 ? in1 : in0;\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_mux_output"
+  }
+}

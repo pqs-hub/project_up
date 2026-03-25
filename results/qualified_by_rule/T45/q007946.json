@@ -1,0 +1,6 @@
+{
+  "task_id": "q007946",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule(\n  input signed [n-1:0] input_signal,\n  output reg [n-1:0] output_signal\n);parameter n = 8; // number of bits in the input signal\n\nalways @(*) begin\n  if (input_signal[n-1] == 0) begin // if sign bit is 0, output input signal as is\n    output_signal = input_signal;\n  end else begin // if sign bit is 1, negate input signal and output the result\n    output_signal = ~input_signal + 1;\n  end\nend\n\nendmodule"
+}

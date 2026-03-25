@@ -1,0 +1,15 @@
+{
+  "task_id": "q016060",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(gated_clk, clk, clken);output gated_clk; \n  input clk, clken; \n  reg clk_en_reg ; \n  assign gated_clk = clk & clk_en_reg ; \n  always @(negedge clk) \n  clk_en_reg <= clken; \n endmodule",
+  "rename_map": {
+    "clken_r": "clk_en_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "clken_r": "clk_en_reg"
+    },
+    "fallback_prefix": "clk_gating_"
+  }
+}

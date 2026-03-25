@@ -1,0 +1,10 @@
+{
+  "task_id": "q006519",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This register loads the input value when the enable signal is low and resets to 1 when the reset signal is low.\nmodule register (\n\tinput clk,\n\tinput reset,\n\tinput enable,\n\tinput [7:0] d,\n\toutput reg [7:0] q);\n\n\talways @(posedge clk) begin\n\t\tif (reset)\n\t\t\tq <= 8'b00000000;\n\t\telse if (enable)\n\t\t\tq <= d;\n\tend\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This register loads the input value when the enable signal is low and resets to 1 when the reset signal is low."
+  }
+}

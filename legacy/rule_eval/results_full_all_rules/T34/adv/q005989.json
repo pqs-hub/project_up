@@ -1,0 +1,15 @@
+{
+  "task_id": "q005989",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(reset, rst, in1, in2, out);input reset, rst;\n  input [15:0] in1, in2;\n  output reg [15:0] out;\n  \n  always @(posedge reset) begin\n    if (rst) begin\n      out <= 16'b0;\n    end else begin\n      out <= in1 ^ in2;\n    end\n  end\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_out"
+    },
+    "fallback_prefix": "xor_"
+  }
+}

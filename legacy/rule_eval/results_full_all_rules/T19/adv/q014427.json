@@ -1,0 +1,10 @@
+{
+  "task_id": "q014427",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] A, B, C, D,\n  input S0, S1,\n  output reg Y\n);always @ (S0 or S1 or A or B or C or D) begin\n  case ({S1,S0})\n    2'b00: Y = A;\n    2'b01: Y = B;\n    2'b10: Y = C;\n    2'b11: Y = D;\n  endcase\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Y = ~A & ~B & ~C & ~D;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y = ~A & ~B & ~C & ~D;"
+  }
+}

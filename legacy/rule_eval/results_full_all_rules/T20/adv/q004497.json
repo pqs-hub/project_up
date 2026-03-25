@@ -1,0 +1,10 @@
+{
+  "task_id": "q004497",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This code implements a 4-bit subtractor when SUB is low, and an adder when SUB is high.\nmodule top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input SUB,\n    output reg [3:0] SUM,\n    output reg CARRY\n);always @(*) begin\n        if (SUB) begin\n            SUM <= A - B;\n            CARRY <= (A < B);\n        end else begin\n            SUM <= A + B;\n            CARRY <= (SUM < A);\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This code implements a 4-bit subtractor when SUB is low, and an adder when SUB is high."
+  }
+}

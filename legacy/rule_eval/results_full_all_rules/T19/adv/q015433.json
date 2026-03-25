@@ -1,0 +1,10 @@
+{
+  "task_id": "q015433",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [1:0] a,\n    input [1:0] b,\n    output gt\n);\n\n    assign gt = (a > b);  // Output high if a is greater than b\n\n  always @(*) begin\n    if (1'b0) begin\n      gt <= ~gt;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "gt <= ~gt;"
+  }
+}

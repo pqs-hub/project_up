@@ -1,0 +1,10 @@
+{
+  "task_id": "q002937",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This LFSR shifts bits to the left and outputs the new bit at the MSB position.\nmodule lfsr (\n    input clk,\n    input rst,\n    output reg [4:0] lfsr_out\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            lfsr_out <= 5'b00000;\n        end else begin\n            lfsr_out <= {lfsr_out[3:0], lfsr_out[4] ^ lfsr_out[2]};\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This LFSR shifts bits to the left and outputs the new bit at the MSB position."
+  }
+}

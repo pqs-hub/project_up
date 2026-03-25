@@ -1,0 +1,9 @@
+{
+  "task_id": "q013634",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input  a,\n    input  b,\n    input  sel,\n    output out\n);wire not_sel;\n    wire obf_and_a;\n    wire and_b;\n    wire or_ab;\n\n    not not_gate (not_sel, sel);\n    and and_gate_a (obf_and_a, a, not_sel);\n    and and_gate_b (and_b, b, sel);\n    or or_gate (or_ab, obf_and_a, and_b);\n    not not_gate_out (out, or_ab);\n\nendmodule",
+  "rename_map": {
+    "and_a": "obf_and_a"
+  }
+}

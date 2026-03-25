@@ -1,0 +1,10 @@
+{
+  "task_id": "q001096",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 32-bit register file with 4 registers. It allows writing to any register based on a 2-bit address input and provides the value of the register specified by the read address. The write operation occurs on a falling clock edge when the write enable signal is low.\nmodule register_file(  \n    input wire clk,  \n    input wire we,  \n    input wire [1:0] write_addr,  \n    input wire [1:0] read_addr,  \n    input wire [31:0] write_data,  \n    output reg [31:0] read_data  \n);  \n    reg [31:0] registers [3:0]; // 4 registers of 32-bit each  \n\n    always @(posedge clk) begin  \n        if (we) begin  \n            registers[write_addr] <= write_data;  \n        end  \n    end  \n\n    always @(*) begin  \n        read_data = registers[read_addr];  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 32-bit register file with 4 registers. It allows writing to any register based on a 2-bit address input and provides the value of the register specified by the read address. The write operation occurs on a falling clock edge when the write enable signal is low."
+  }
+}

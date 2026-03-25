@@ -1,0 +1,6 @@
+{
+  "task_id": "q004794",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(\n        input [31:0]d_i,\n        output [31:0]d_o\n    );  wire _n01 = d_i[0] ^ 4[0];\n  wire _c01 = d_i[0] & 4[0];\n  wire _n02 = d_i[1] ^ 4[1] ^ _c01;\n  wire _c02 = (d_i[1] & 4[1]) | (d_i[1] & _c01) | (4[1] & _c01);\n  wire _n03 = d_i[2] ^ 4[2] ^ _c02;\n  wire _c03 = (d_i[2] & 4[2]) | (d_i[2] & _c02) | (4[2] & _c02);\n  wire _n04 = d_i[3] ^ 4[3] ^ _c03;\n  wire _c04 = (d_i[3] & 4[3]) | (d_i[3] & _c03) | (4[3] & _c03);\n  assign d_o = {_n01, _n02, _n03, _n04};endmodule"
+}

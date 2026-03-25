@@ -1,0 +1,20 @@
+{
+  "task_id": "q012384",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module full_adder(\n    input sub_A,\n    input B,\n    input Cin,\n\n    output Sum,\n    output Cout\n);\n\nassign Sum = sub_A ^ B ^ Cin;\nassign Cout = (sub_A & B) | (B & Cin) | (sub_A & Cin);\n\nendmodule",
+  "rename_map": {
+    "A": "sub_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "full_adder": "full_subtractor",
+      "A": "X",
+      "B": "Y",
+      "Cin": "Z",
+      "Sum": "Diff",
+      "Cout": "Borrow"
+    },
+    "fallback_prefix": "sub_"
+  }
+}

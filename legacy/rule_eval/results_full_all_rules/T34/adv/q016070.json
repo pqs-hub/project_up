@@ -1,0 +1,16 @@
+{
+  "task_id": "q016070",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module EdgeDetector (\n\tinput clk,\n\tinput rst_n,\n\tinput in_signal,\n\toutput reg out_pulse\n);\n    reg neg_prev_signal;\n\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            neg_prev_signal <= 0;\n            out_pulse <= 0;\n        end else begin\n            out_pulse <= (in_signal && !neg_prev_signal);\n            neg_prev_signal <= in_signal;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "prev_signal": "neg_prev_signal"
+  },
+  "params_used": {
+    "custom_map": {
+      "in_signal": "in_data",
+      "out_pulse": "no_edge"
+    },
+    "fallback_prefix": "neg_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016084",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input [0:0] address,\n    input clock,\n    output reg [15:0] q\n);always @(posedge clock) begin\n  wire _tap_address = address & {1{1'b1}};\n\n    if (address == 1'b0) begin\n        q <= 16'b0000000000000000;\n    end else if (address == 1'b1) begin\n        q <= 16'b1111111111111111;\n    end\nend\n\nendmodule"
+}

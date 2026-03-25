@@ -1,0 +1,6 @@
+{
+  "task_id": "q014478",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule( \n    input [2:0] sel, \n    input [3:0] data0,\n    input [3:0] data1,\n    input [3:0] data2,\n    input [3:0] data3,\n    input [3:0] data4,\n    input [3:0] data5,\n    output [3:0] out\n);wire [3:0] mux_out;\nwire [3:0] and_out;\n\n// 6-to-1 Multiplexer\nassign mux_out = (sel == 3'b000) ? data0 :\n                 (sel == 3'b001) ? data1 :\n                 (sel == 3'b010) ? data2 :\n                 (sel == 3'b011) ? data3 :\n                 (sel == 3'b100) ? data4 :\n                 (sel == 3'b101) ? data5 :\n                 4'b0000;\n\n// Logical AND with 1010\nassign and_out = mux_out & 4'b1010;\n\n// Output\nassign out = and_out;\n\nendmodule"
+}

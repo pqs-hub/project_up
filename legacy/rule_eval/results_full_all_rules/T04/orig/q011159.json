@@ -1,0 +1,6 @@
+{
+  "task_id": "q011159",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module top_module(clk,reset,enable,npc,pc,pcplus);input  [31:0]  npc;\n   input          clk,reset,enable;\n   output [31:0]  pc,pcplus;\n\n   reg [31:0]     internal_pc;\n\n   always @(posedge clk or posedge reset) begin\n      if (reset) begin\n         internal_pc<=32'h00003000;\n      end \n      else if(enable) begin\n         internal_pc<=npc;\n      end\n   end\n\n   assign pc=internal_pc;\n   assign pcplus=internal_pc+4;\n\nendmodule"
+}

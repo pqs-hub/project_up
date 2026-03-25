@@ -1,0 +1,15 @@
+{
+  "task_id": "q013303",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n                    clk_o,\n                    rst_n,\n                    stall,\n                    data_i,\n                    data_o\n                    );parameter size = 0;\n\ninput                  clk_o;\ninput                  rst_n;          \ninput                  stall;\ninput      [size-1: 0] data_i;\noutput reg [size-1: 0] data_o;\n      \nalways @(negedge rst_n or posedge clk_o) begin\n    case(rst_n)\n        1'b0: data_o <= 0;\n        1'b1: begin\n            case(stall)\n                1'b0: data_o <= data_i;\n                1'b1: data_o <= 0;\n            endcase\n        end\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "clk_i": "clk_o"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk_i": "clk_o"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

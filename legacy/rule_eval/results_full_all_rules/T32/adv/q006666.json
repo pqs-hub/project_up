@@ -1,0 +1,8 @@
+{
+  "task_id": "q006666",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(jal, pcNext, branchOffset, jumpOffset, result);input jal;\n  input [16-1:1-1] pcNext;\n  input [8:0] branchOffset;\n  input [11:0] jumpOffset;\n\n  output [15:0] result;\n\n  \n  assign result = pcNext+(jal?{{4{jumpOffset[11]}},jumpOffset}:{{7{branchOffset[8]}},branchOffset});\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

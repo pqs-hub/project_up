@@ -1,0 +1,6 @@
+{
+  "task_id": "q008318",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(\n        input clk,\n        input RegWrite,\n        input [31:0]idat,\n        output reg[31:0]odat\n    );reg[31:0] kdat;\n\n    always @(negedge clk) begin\n        if (RegWrite) kdat <= idat;\n    end\n\n    always @(posedge clk) begin\n\t\todat = kdat;\n    end\n\n\nendmodule"
+}

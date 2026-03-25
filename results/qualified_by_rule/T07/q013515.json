@@ -1,0 +1,6 @@
+{
+  "task_id": "q013515",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(input TxClk, input TxReset, input Tx1, input Tx0, output reg D, output reg S);wire nextD = Tx1; \n  wire nextS = (Tx0 & ~(D^S)) | (Tx1 & (D^S)); \n\n  always @(posedge TxClk or posedge TxReset) begin \n    if(TxReset) begin \n      D <= 1'b0; \n      S <= 1'b0; \n    end \n    else if(Tx0 | Tx1) begin \n      D <= nextD; \n      S <= nextS; \n    end \n  end \nendmodule"
+}

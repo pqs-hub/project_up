@@ -1,0 +1,15 @@
+{
+  "task_id": "q007923",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(unload_not_db, load_db, load_adr, not_db, db, adr, b_out);input unload_not_db;      \n  input load_db;          \n  input load_adr;         \n  input [7:0] not_db;     \n  input [7:0] db;         \n  input [7:0] adr;        \n  output reg [7:0] b_out; \n\n  always @(*)\n    begin\n      if (unload_not_db)\n        b_out <= not_db;\n      else if (load_db)\n        b_out <= db;\n      else if (load_adr)\n        b_out <= adr;\n    end\nendmodule",
+  "rename_map": {
+    "load_not_db": "unload_not_db"
+  },
+  "params_used": {
+    "custom_map": {
+      "load_not_db": "unload_not_db"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

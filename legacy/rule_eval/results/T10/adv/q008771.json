@@ -1,0 +1,8 @@
+{
+  "task_id": "q008771",
+  "rule_id": "T10",
+  "changed": true,
+  "final": "module top_module(\n    input  A1  ,\n    input  A2  ,\n    input  A3  ,\n    input  B1  ,\n    input  B2  ,\n    output X   ,\n\n    input  VPB ,\n    input  VPWR,\n    input  VGND,\n    input  VNB\n);wire A_high = A1 & A2 & A3;\n    wire B_low = ~B1 & ~B2;\n    wire B_high = B1 & B2;\n\n    assign X = ~(~(A_high & B_low) & ~(~A_high & B_high));\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

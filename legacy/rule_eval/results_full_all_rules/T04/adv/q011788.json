@@ -1,0 +1,10 @@
+{
+  "task_id": "q011788",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment is misleading because it suggests that the lower 16 bits of the result will be set to the upper 16 bits of the operand, but in reality, they are set to zero.\nmodule top_module(operand, result);input [31:0] operand;\n\toutput [31:0] result;\n\t\n\tassign result[31:16] = operand[15:0];\n\tassign result[15:0] = 16'b0000000000000000;\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment is misleading because it suggests that the lower 16 bits of the result will be set to the upper 16 bits of the operand, but in reality, they are set to zero."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q012826",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n  input [3:0] in1,\n  input [3:0] in2,\n  input [3:0] in3,\n  input [3:0] in4,\n  output eq,\n  output gt\n);wire [3:0] max_value = 4'b0111; // Binary value of 7\n\n  wire min_value = (in1 == in2) && (in2 == in3) && (in3 == in4);\n  assign eq = min_value; // Check if all inputs are equal\n  \n  assign gt = (in1 > max_value) || (in2 > max_value) || (in3 > max_value) || (in4 > max_value); // Check if any input is greater than 7\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "min_value"
+  }
+}

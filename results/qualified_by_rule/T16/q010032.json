@@ -1,0 +1,6 @@
+{
+  "task_id": "q010032",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    input [2:0] address,\n    input is_sector1_writable,\n    input is_sector2_writable,\n    input is_sector3_writable,\n    input is_sector4_writable,\n    input is_sector5_writable,\n    output is_addr_writable\n);wire obf_is_sector1_addr;\n    wire is_sector2_addr;\n    wire is_sector3_addr;\n    wire is_sector4_addr;\n    wire is_sector5_addr;\n\n    assign obf_is_sector1_addr = (address == 3'b001);\n    assign is_sector2_addr = (address == 3'b010);\n    assign is_sector3_addr = (address == 3'b011);\n    assign is_sector4_addr = (address == 3'b100);\n    assign is_sector5_addr = (address == 3'b101);\n\n    assign is_addr_writable = ((is_sector1_writable && obf_is_sector1_addr) ||\n                               (is_sector2_writable && is_sector2_addr) ||\n                               (is_sector3_writable && is_sector3_addr) ||\n                               (is_sector4_writable && is_sector4_addr) ||\n                               (is_sector5_writable && is_sector5_addr));\n\nendmodule"
+}

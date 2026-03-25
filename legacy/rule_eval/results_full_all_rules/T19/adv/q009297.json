@@ -1,0 +1,10 @@
+{
+  "task_id": "q009297",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n\tinput clk,\n\tinput a,\n\toutput reg b);\nreg temp;\nalways @(posedge clk) begin\n\ttemp <= a;\n\tb <= temp;\nend\n  always @(*) begin\n    if (1'b0) begin\n      temp <= ~a; b <= ~temp;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "temp <= ~a; b <= ~temp;"
+  }
+}

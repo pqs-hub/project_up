@@ -1,0 +1,9 @@
+{
+  "task_id": "q007350",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module shift_register(\n    input wire obf_clk,\n    input wire rst_n,\n    input wire d,\n    output reg [7:0] q\n);\n\nalways @(posedge obf_clk or negedge rst_n) begin\n    if (!rst_n)\n        q <= 8'd0;\n    else\n        q <= {d, q[7:1]};\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

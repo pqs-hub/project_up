@@ -1,0 +1,17 @@
+{
+  "task_id": "q011829",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module d_ff (\n    input wire rst_clk,\n    input wire reset,\n    input wire d,\n    output reg q\n);\n\nalways @(posedge rst_clk or posedge reset) begin\n    if (reset) begin\n        q <= 1'b0;\n    end else begin\n        q <= d;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk",
+      "reset": "active_reset",
+      "d": "data_in"
+    },
+    "fallback_prefix": "ff_"
+  }
+}

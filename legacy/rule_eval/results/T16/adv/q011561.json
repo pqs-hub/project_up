@@ -1,0 +1,9 @@
+{
+  "task_id": "q011561",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module presettable_counter(\n    input               obf_clk         ,   \n    input               rst         ,\n    input               preset      ,\n    input [31:0]        preset_value,\n \n    output  reg [31:0]  count\n);\n    \n   //count logic\n   always @(posedge obf_clk or posedge rst) begin\n       if(rst) begin\n          count <= 0;\n       end\n       else if(preset) begin\n          count <= preset_value;\n       end\n       else begin\n          count <= count + 1;\n       end\n   end\n     \nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

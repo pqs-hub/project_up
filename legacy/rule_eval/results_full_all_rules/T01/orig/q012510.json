@@ -1,0 +1,6 @@
+{
+  "task_id": "q012510",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(\n\tinput clock_i,\n\tinput D,\n\tinput S,\n\tinput R,\n\toutput Q\n);reg out;\t// Need to reset before use, default is powerup high\n\t\n\tassign Q = out;\n\t\n\talways @(posedge clock_i)\n\tbegin\n\t\tif( S ) \n\t\t\tout <= 1'b1;\n\t\telse if( R )\n\t\t\tout <= 1'b0;\n\t\telse\n\t\t\tout <= D;\n\tend\nendmodule"
+}

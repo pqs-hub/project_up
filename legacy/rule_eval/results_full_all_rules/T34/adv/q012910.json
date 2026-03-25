@@ -1,0 +1,17 @@
+{
+  "task_id": "q012910",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [1:0] calc_operation,\n    input signed [63:0] operands,\n    output signed [31:0] result\n);reg signed [31:0] op1;\nreg signed [31:0] op2;\nreg signed [31:0] res;\n\nalways @(*) begin\n    op1 = operands[31:0];\n    op2 = operands[63:32];\n    case(calc_operation)\n        2'b00: res = op1 + op2; // Addition\n        2'b01: res = op1 - op2; // Subtraction\n        2'b10: res = op1 * op2; // Multiplication\n        2'b11: res = op1 / op2; // Division\n    endcase\nend\n\nassign result = res;\n\nendmodule",
+  "rename_map": {
+    "operation": "calc_operation"
+  },
+  "params_used": {
+    "custom_map": {
+      "op1": "operand_a",
+      "op2": "operand_b",
+      "res": "result_value"
+    },
+    "fallback_prefix": "calc_"
+  }
+}

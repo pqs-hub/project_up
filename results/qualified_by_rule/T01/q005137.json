@@ -1,0 +1,6 @@
+{
+  "task_id": "q005137",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module RefModule(\n        \n        input clk,\n        input reset,\n        \n        input [1:0] MEM_WB,\n        input [31:0] MEM_ALUout,\n        input [31:0] MEM_MEMout,\n        input [4:0] MEM_rd_or_rt,\n        \n        output reg [1:0] WB_WB,\n        output reg [31:0] WB_ALUout,\n        output reg [31:0] WB_MEMout,\n        output reg [4:0] WB_rd_or_rt\n    );always @(posedge clk)\n    if(reset)\n    begin\n        WB_WB<=0;\n        WB_ALUout<=0;\n        WB_MEMout<=0;\n        WB_rd_or_rt<=0;\n    end\n    else\n    begin\n        WB_WB<=MEM_WB;\n        WB_ALUout<=MEM_ALUout;\n        WB_MEMout<=MEM_MEMout;\n        WB_rd_or_rt<=MEM_rd_or_rt;\n    end\nendmodule"
+}

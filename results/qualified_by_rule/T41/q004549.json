@@ -1,0 +1,6 @@
+{
+  "task_id": "q004549",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input clear,\n    output reg [3:0] bcd\n);\nalways @(posedge clk) begin\n    if (clear)\n        bcd <= 4'b0000;\n    else if (bcd == 4'b1001)\n        bcd <= 4'b0000;\n    else\n        bcd <= bcd + 1;\nend\n\nendmodule"
+}

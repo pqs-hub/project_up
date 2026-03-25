@@ -1,0 +1,10 @@
+{
+  "task_id": "q016708",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module synchronizes the input signal to the output signal based on the falling edge of the clock signal.\nmodule sync_module (\n  input clk,\n  input data_in,\n  input reset_n,\n  output reg data_out\n);\n\n  reg data_in_d1;\n\n  always @(posedge clk or negedge reset_n) begin\n    if (~reset_n) begin\n      data_in_d1 <= 1'b0;\n      data_out <= 1'b0;\n    end else begin\n      data_in_d1 <= data_in;\n      data_out <= data_in_d1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module synchronizes the input signal to the output signal based on the falling edge of the clock signal."
+  }
+}

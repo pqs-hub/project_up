@@ -1,0 +1,6 @@
+{
+  "task_id": "q006679",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module RefModule(input [3:0] A, B, input Cin, clk, output [3:0] S, output Cout);reg [3:0] S_reg;\n    reg Cout_reg;\n\n    always @(posedge clk) begin\n  S_reg <= A + B + Cin ;\n  end\n\n  always @(posedge clk) begin\n  Cout_reg <= (A[3] & B[3]) | (A[3] & Cin) | (B[3] & Cin) ;\n  end\n\n    assign S = S_reg;\n    assign Cout = Cout_reg;\n\nendmodule"
+}

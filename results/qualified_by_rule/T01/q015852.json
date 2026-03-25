@@ -1,0 +1,6 @@
+{
+  "task_id": "q015852",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule (\n    input [1:0] s,\n    output reg a\n);\n\n    always @(*) begin\n    begin end  // redundant\n        case (s)\n            2'b00: a = 0;\n            2'b01: a = 1;\n            2'b10: a = 1;\n            2'b11: a = 0;\n            default: a = 0; // Default case\n        endcase\n    end\nendmodule"
+}

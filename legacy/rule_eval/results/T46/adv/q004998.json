@@ -1,0 +1,8 @@
+{
+  "task_id": "q004998",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(CLK, RST, RIGHT, RIGHT_REG, LEFT_REG1, RIGHT_REG1);input CLK;\ninput RST;\ninput [32 : 1]RIGHT;\ninput [32 : 1]RIGHT_REG;\noutput [32 : 1] LEFT_REG1;\noutput [32 : 1] RIGHT_REG1;\nwire CLK;\nwire RST;\nreg [32 : 1] LEFT_REG1;\nreg [32 : 1] RIGHT_REG1;\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge CLK or posedge RST or posedge dbg_halt)\nbegin\nif(RST)\nbegin\nLEFT_REG1 <= 32'h00000000;\nRIGHT_REG1 <= 32'h00000000;\nend\nelse\nbegin\nLEFT_REG1 <= RIGHT;\nRIGHT_REG1 <= RIGHT_REG;\nend\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

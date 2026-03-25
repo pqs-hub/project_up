@@ -1,0 +1,6 @@
+{
+  "task_id": "q000563",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input [4:0] req,\n    output reg [4:0] grant\n);\n  wire [4:0] _tap_req = req & {5{1'b1}};\n\n    always @(*) begin\n        grant = 5'b00000; // Default no grant\n        if (req[0]) grant = 5'b00001; // Grant for req[0]\n        else if (req[1]) grant = 5'b00010; // Grant for req[1]\n        else if (req[2]) grant = 5'b00100; // Grant for req[2]\n        else if (req[3]) grant = 5'b01000; // Grant for req[3]\n        else if (req[4]) grant = 5'b10000; // Grant for req[4]\n    end\nendmodule"
+}

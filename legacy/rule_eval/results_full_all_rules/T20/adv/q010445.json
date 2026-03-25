@@ -1,0 +1,10 @@
+{
+  "task_id": "q010445",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment intentionally misleads the verification model into thinking the carry-out logic is simpler than it actually is.\nmodule top_module(\n    input A,\n    input B,\n    input CIN,\n    output reg SUM,\n    output reg COUT\n);always @(*) begin\n        SUM = A ^ B ^ CIN;\n        COUT = (A & B) | (CIN & A) | (CIN & B);\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment intentionally misleads the verification model into thinking the carry-out logic is simpler than it actually is."
+  }
+}

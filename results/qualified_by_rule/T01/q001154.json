@@ -1,0 +1,6 @@
+{
+  "task_id": "q001154",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(input [3:0] cmd, output reg [2:0] cmd_type);  \n    always @(*) begin\n    begin end  // redundant  \n        case(cmd)  \n            4'b0000: cmd_type = 3'b000;  // No Operation  \n            4'b0001: cmd_type = 3'b001;  // Read  \n            4'b0010: cmd_type = 3'b010;  // Write  \n            4'b0011: cmd_type = 3'b011;  // Erase  \n            4'b0100: cmd_type = 3'b100;  // Flush  \n            4'b0101: cmd_type = 3'b101;  // Check Status  \n            4'b0110: cmd_type = 3'b110;  // Get Features  \n            4'b0111: cmd_type = 3'b111;  // Set Features  \n            default: cmd_type = 3'b111;   // Invalid Command  \n        endcase  \n    end  \nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006001",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module lfsr(CLK, RST, LFSR_OUT);\ninput CLK, RST;\noutput [4:0] LFSR_OUT;\nreg [4:0] LFSR_OUT;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        LFSR_OUT <= 5'b00001; // Non-zero initial value\n    else begin\n        LFSR_OUT <= {LFSR_OUT[3:0], LFSR_OUT[4] ^ LFSR_OUT[2]};\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

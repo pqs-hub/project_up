@@ -1,0 +1,10 @@
+{
+  "task_id": "q011912",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input  wire in1,\n    input  wire in2,\n    output wire out\n);// Instantiate a generic AND gate module\n    assign out = in1 & in2; // Replace with a simple continuous assignment\n\n  always @(*) begin\n    if (1'b0) begin\n      out <= ~in1 | ~in2;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= ~in1 | ~in2;"
+  }
+}

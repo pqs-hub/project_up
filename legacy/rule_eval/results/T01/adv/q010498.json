@@ -1,0 +1,6 @@
+{
+  "task_id": "q010498",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n\tclk,\n\trst,\n\tXM_MemtoReg,\n\tXM_RegWrite,\n\tXM_MemRead,\n\tXM_MemWrite,\n\tALUout,\n\tXM_RD,\n\tXM_MD,\n\tSW,\n\t\n\tMW_MemtoReg,\n\tMW_RegWrite,\n\tMW_ALUout,\n\tMDR,\n\tMW_RD\n);input clk, rst, XM_MemtoReg, XM_RegWrite, XM_MemRead, XM_MemWrite;\n\ninput [31:0] ALUout;\ninput [4:0] XM_RD;\ninput [31:0] XM_MD;\ninput [12:0]SW;\n\noutput reg MW_MemtoReg, MW_RegWrite;\noutput reg [31:0]\tMW_ALUout, MDR;\noutput reg [4:0]\tMW_RD;\ninteger i;\n\nreg [31:0] DM [0:127];\nalways @(posedge clk) begin\n    begin end  // redundant\n    if(rst) begin\n\t   DM[0] = {19'b0,SW};  \t\n\t   DM[1] = {19'b0,SW}; \n      \n       for (i=2; i<128; i=i+1) DM[i] = 32'b0;\n        \n    end\n\tif(XM_MemWrite)\n\t\tDM[ALUout[6:0]] <= XM_MD;\nend\n\nalways @(posedge clk or posedge rst)\n\tif (rst) begin\n\t\tMW_MemtoReg \t\t<= 1'b0;\n\t\tMW_RegWrite \t\t<= 1'b0;\n\t\tMDR\t\t\t\t\t<= 32'b0;\n\t\tMW_ALUout\t\t\t<= 32'b0;\n\t\tMW_RD\t\t\t\t<= 5'b0;\n\tend\n\telse begin\n\t\tMW_MemtoReg \t\t<= XM_MemtoReg;\n\t\tMW_RegWrite \t\t<= XM_RegWrite;\n\t\tMDR\t\t\t\t\t<= (XM_MemRead)?DM[ALUout[6:0]]:MDR;\n\t\tMW_ALUout\t\t\t<= ALUout;\n\t\tMW_RD \t\t\t\t<= XM_RD;\n\tend\n\nendmodule"
+}

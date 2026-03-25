@@ -1,0 +1,15 @@
+{
+  "task_id": "q015096",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module parallel_load_register(\n    input wire clk_inv,\n    input wire rst_n,\n    input wire load,\n    input wire [7:0] data_in,\n    output reg [7:0] reg_out\n    );\n\nalways @(posedge clk_inv or negedge rst_n) begin\n    if (!rst_n)\n        reg_out <= 8'b00000000;\n    else if (load)\n        reg_out <= data_in;\n    else\n        reg_out <= reg_out;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

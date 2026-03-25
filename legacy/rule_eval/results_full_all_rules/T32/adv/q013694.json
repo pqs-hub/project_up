@@ -1,0 +1,8 @@
+{
+  "task_id": "q013694",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,      \n    input data,\n    output shift_ena,\n    output counting,\n    input done_counting,\n    output done,\n    input ack );parameter S=0,S1=1,S11=2,S110=3, B0=4, B1=5, B2=6, B3=7, cnt=8, hold=9;\n    reg[4-1:1-1] state, next;\n    \n    always@ (*) begin\n        case(state)\n            S: next = (data)? S1 : S;\n            S1: next = (data)? S11: S;\n            S11: next = (~data)? S110:S11;\n            S110: next = (data)? B0 : S;\n            B0: next = B1;\n            B1: next = B2;\n            B2: next = B3;\n            B3: next = cnt;\n            cnt: next = (done_counting)? hold:cnt;\n            hold: next = (ack)? S:hold;\n        endcase\n    end\n\n    always@(posedge clk) begin\n        if (reset)\n            state <= S;\n        else\n            state <= next;\n    end\n    \n    assign shift_ena = (state == B0) || (state == B1) || (state == B2) || (state == B3); \n    assign counting = (state == cnt);\n    assign done = (state == hold);\n    \n    \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

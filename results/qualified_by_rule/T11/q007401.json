@@ -1,0 +1,6 @@
+{
+  "task_id": "q007401",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(clk, mem_write, address, write_data, read_data);input wire clk;\n\tinput wire mem_write;\n\tinput wire [31:0] address,write_data;\n\toutput wire [31:0] read_data;\n\t\n\t\n\treg [31:0] RAM [1023:0];\n\t\n\t\n\tassign read_data = RAM[address[31:2]];\n\t\n\t\n\talways@(posedge clk)\n\tbegin\n\t\tif(mem_write)\n\t\t\tRAM[address[31:2]] <= write_data;\n\t\t\t\n\tend\nendmodule"
+}

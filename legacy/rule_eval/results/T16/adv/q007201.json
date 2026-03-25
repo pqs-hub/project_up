@@ -1,0 +1,9 @@
+{
+  "task_id": "q007201",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input obf_clk,\n    input reset,\n    input up,\n    input down,\n    output reg [3:0] q);always @(posedge obf_clk) begin\n    if (reset)\n        q <= 4'b0000;\n    else if (up && ~down)\n        q <= q + 1;\n    else if (~up && down)\n        q <= q - 1;\nend\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

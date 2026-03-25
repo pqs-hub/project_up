@@ -1,0 +1,15 @@
+{
+  "task_id": "q012495",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input D, reset, DE, RESET,\n  output reg Q  // Declare Q as reg in the output\n);always @(posedge reset or negedge RESET) begin\n    if(!RESET) begin\n      Q <= 0;\n    end else if(DE) begin\n      Q <= D;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "X_"
+  }
+}

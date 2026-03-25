@@ -1,0 +1,15 @@
+{
+  "task_id": "q008580",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_counter_3bit(\n    input clk,           // Clock signal.\n    input rst,           // Synchronous reset signal.\n\n    output [2:0] count   // 3-bit counter output.\n);\n\nreg [2:0] cnt_reg;\n\n//------------------------------------------------\n// 3-bit Binary Counter logic\nalways @(posedge clk) begin\n    if (rst) begin\n        cnt_reg <= 3'b000;\n    end else begin\n        cnt_reg <= cnt_reg + 1;\n    end\nend\n\nassign count = cnt_reg;\n\nendmodule",
+  "rename_map": {
+    "count_r": "cnt_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "count_r": "cnt_reg"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016044",
+  "rule_id": "T07",
+  "changed": true,
+  "final": "module binary_to_gray_4bit(\n    input [3:0] bin_in,     // 4-bit binary input.\n    output [3:0] gray_out   // 4-bit Gray code output.\n);\n\nassign gray_out[2] = bin_in[3] ^ bin_in[2];                    // MSB remains the same.\nassign gray_out[3] = bin_in[3];        // XOR previous bit with current bit.\nassign gray_out[1] = bin_in[2] ^ bin_in[1];        // XOR previous bit with current bit.\nassign gray_out[0] = bin_in[1] ^ bin_in[0];        // XOR previous bit with current bit.\n\nendmodule"
+}

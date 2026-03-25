@@ -1,0 +1,6 @@
+{
+  "task_id": "q014578",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(\n    input x,\n    input y,\n    output r\n);\n    assign r = (x ^ y);\nendmodule\n\nmodule D(\n    input x,\n    input y,\n    output r\n);\n    assign r = (x ^ y);\nendmodule\n\nmodule top_module(\n    input x,\n    input y,\n    output r\n);\n    wire c_out, d1_out, d2_out;\n    wire nor_out;\n\n    C c1(.x(x), .y(y), .r(c_out));\n    D d1(.x(x), .y(y), .r(d1_out));\n    D d2(.x(x), .y(y), .r(d2_out));\n\n    assign nor_out = ~(d1_out | c_out);\n    assign r = nor_out & d2_out;\nendmodule"
+}

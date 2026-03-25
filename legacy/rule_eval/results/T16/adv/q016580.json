@@ -1,0 +1,9 @@
+{
+  "task_id": "q016580",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module window(clk,datavalid,pix_in_current,pix_in_previous,obf_A,B,C,D);\ninput clk,datavalid,pix_in_current,pix_in_previous;\noutput reg obf_A,B,C,D;\nalways@(posedge clk)\n\tif(datavalid)begin\n\t\tobf_A<=B;B<=pix_in_previous;\n\t\tC<=D;D<=pix_in_current;\n\tend\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

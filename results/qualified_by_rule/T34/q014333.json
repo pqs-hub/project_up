@@ -1,0 +1,6 @@
+{
+  "task_id": "q014333",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input enable,\n    input [7:0] data_in,\n    output reg [7:0] q\n);\n\n    // Register logic\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            q <= 8'b00000000;\n        else if (enable)\n            q <= data_in;\n    end\n\nendmodule"
+}

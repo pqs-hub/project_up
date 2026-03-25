@@ -1,0 +1,6 @@
+{
+  "task_id": "q001343",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule (  \n    input wire [3:0] address,  \n    input wire [15:0] data_in,  \n    input wire write_enable,  \n    input wire clk,  \n    output reg [15:0] data_out  \n);  \n    reg [15:0] memory [15:0]; // 16x16 SRAM memory  \n  \n    always @(posedge clk) begin  \n        if (write_enable) begin  \n            memory[address] <= data_in;  \n        end  \n        data_out <= memory[address];  \n    end  \nendmodule"
+}

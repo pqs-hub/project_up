@@ -1,0 +1,6 @@
+{
+  "task_id": "q000480",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule (\n    input [4:0] weight1,\n    input [4:0] weight2,\n    output reg [4:0] optimized_weight1,\n    output reg [4:0] optimized_weight2\n);\n    wire [5:0] total_weight;\n      wire _n01 = weight1[0] ^ weight2[0];\n  wire _c01 = weight1[0] & weight2[0];\n  wire _n02 = weight1[1] ^ weight2[1] ^ _c01;\n  wire _c02 = (weight1[1] & weight2[1]) | (weight1[1] & _c01) | (weight2[1] & _c01);\n  wire _n03 = weight1[2] ^ weight2[2] ^ _c02;\n  wire _c03 = (weight1[2] & weight2[2]) | (weight1[2] & _c02) | (weight2[2] & _c02);\n  wire _n04 = weight1[3] ^ weight2[3] ^ _c03;\n  wire _c04 = (weight1[3] & weight2[3]) | (weight1[3] & _c03) | (weight2[3] & _c03);\n  assign total_weight = {_n01, _n02, _n03, _n04};\n\n    always @(*) begin\n        if (total_weight > 16) begin\n            optimized_weight1 = (weight1 * 16) / total_weight;\n            optimized_weight2 = (weight2 * 16) / total_weight;\n        end else begin\n            optimized_weight1 = weight1;\n            optimized_weight2 = weight2;\n        end\n    end\nendmodule"
+}

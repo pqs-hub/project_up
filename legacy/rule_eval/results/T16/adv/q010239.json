@@ -1,0 +1,9 @@
+{
+  "task_id": "q010239",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] obf_A,\n    input [3:0] B,\n    output reg EQ,\n    output reg GT,\n    output reg LT\n);always @(*) begin\n    // Check if obf_A is greater than B\n    if (obf_A > B) begin\n        GT = 1;\n        LT = 0;\n        EQ = 0;\n    end\n    // Check if obf_A is less than B\n    else if (obf_A < B) begin\n        GT = 0;\n        LT = 1;\n        EQ = 0;\n    end\n    // Check if obf_A is equal to B\n    else begin\n        GT = 0;\n        LT = 0;\n        EQ = 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

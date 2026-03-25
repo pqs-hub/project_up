@@ -1,0 +1,10 @@
+{
+  "task_id": "q005864",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements an 8-bit shift register that shifts right on every positive edge of the clock signal.\nmodule shift_register_8bit(\n    input clk,          // Chip clock signal.\n    input sin,          // Serial input signal.\n\n    output sout         // Serial output signal.\n);\n\nreg [7:0] shift_reg; // Register to hold the shift register contents\n\n// Shift register logic\nalways @(posedge clk) begin\n    shift_reg <= {shift_reg[6:0], sin}; // Shift left and input new bit\nend\n\nassign sout = shift_reg[7]; // Most significant bit as serial output\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an 8-bit shift register that shifts right on every positive edge of the clock signal."
+  }
+}

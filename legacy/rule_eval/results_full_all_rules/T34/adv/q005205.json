@@ -1,0 +1,15 @@
+{
+  "task_id": "q005205",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gray_code_counter_4(\n   input                clk,\n   input                rst_n,\n\n   output reg [3:0]     Q\n);\n    reg [3:0] gray_code;\n    \n    always@(posedge clk or negedge rst_n) begin\n        if(!rst_n) begin\n            gray_code <= 4'b0000;\n            Q <= 4'b0000;\n        end else begin\n            gray_code <= gray_code + 1;\n            Q <= gray_code ^ (gray_code >> 1);\n        end\n    end\nendmodule",
+  "rename_map": {
+    "binary_count": "gray_code"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary_count": "gray_code"
+    },
+    "fallback_prefix": "_gcr_"
+  }
+}

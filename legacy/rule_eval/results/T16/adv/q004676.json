@@ -1,0 +1,9 @@
+{
+  "task_id": "q004676",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module d_flip_flop(\n    input       d   ,\n    input       obf_clk ,\n    input       rst ,\n    output reg  q   \n);\n\nalways @(posedge obf_clk or posedge rst) begin\n    if (rst)\n        q <= 1'b0;\n    else\n        q <= d;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

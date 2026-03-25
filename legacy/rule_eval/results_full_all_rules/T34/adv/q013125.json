@@ -1,0 +1,15 @@
+{
+  "task_id": "q013125",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module jk_flip_flop (\n    input reset,\n    input j,\n    input k,\n    output reg q\n);\n\nalways @(posedge reset) begin\n    if (j && !k)\n        q <= 1;\n    else if (!j && k)\n        q <= 0;\n    else if (j && k)\n        q <= ~q;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

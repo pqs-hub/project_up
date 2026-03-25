@@ -1,0 +1,6 @@
+{
+  "task_id": "q013014",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(\n  input clk, // clock signal\n  input rst, // reset signal\n  output reg [n-1:0] state // Gray code state\n);parameter n = 4; // number of bits in the Gray code sequence\n\n// convert binary state to Gray code format\nfunction [n-1:0] binary_to_gray;\n  input [n-1:0] binary;\n  begin\n    binary_to_gray = binary ^ (binary >> 1);\n  end\nendfunction\n\n// state register\nreg [n-1:0] binary_state;\n\n// define the next state logic here\nalways @(posedge clk or posedge rst) begin\n  if (rst) begin\n    binary_state <= 0;\n  end else begin\n    binary_state <= binary_state + 1;\n    if (binary_state == (1 << n) - 1) begin\n      binary_state <= 0;\n    end\n  end\nend\n\n// assign Gray code state to output\nalways @* begin\n  state = binary_to_gray(binary_state);\nend\n\nendmodule"
+}

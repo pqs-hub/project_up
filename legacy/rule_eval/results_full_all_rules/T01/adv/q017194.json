@@ -1,0 +1,8 @@
+{
+  "task_id": "q017194",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module dff_negedge_reset (\n    input D,\n    input C,\n    input R,\n    output reg Q\n);\n\nalways @ (negedge C) begin\n    begin end  // redundant\n    if (R) begin\n        Q <= 1'b0;\n    end else begin\n        Q <= D;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

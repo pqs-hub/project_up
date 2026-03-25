@@ -1,0 +1,6 @@
+{
+  "task_id": "q001038",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module wifi_fsm (\n    input clk,\n    input reset,\n    input connect,\n    input disconnect,\n    input connected,\n    input disconnected,\n    output reg [1:0] state\n);\n    // State encoding\n    parameter DISCONNECTED = 2'b00;\n    parameter CONNECTING = 2'b01;\n    parameter CONNECTED = 2'b10;\n    parameter DISCONNECTING = 2'b11;\n\n    // Sequential logic for state transitions\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= DISCONNECTED;\n        end else begin\n            case (state)\n                DISCONNECTED: begin\n                    if (connect) state <= CONNECTING;\n                end\n                CONNECTING: begin\n                    if (connected) state <= CONNECTED;\n                    else if (disconnect) state <= DISCONNECTED;\n                end\n                CONNECTED: begin\n                    if (disconnect) state <= DISCONNECTING;\n                end\n                DISCONNECTING: begin\n                    if (disconnected) state <= DISCONNECTED;\n                    else if (connect) state <= CONNECTING;\n                end\n            endcase\n        end\n    end\nendmodule"
+}

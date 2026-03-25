@@ -1,0 +1,8 @@
+{
+  "task_id": "q006550",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module( Din, Wclk, nRclk, Waddr, Raddr, Dout );input  Wclk;                 \n  input  nRclk;                \n  \n  input  [12-1:1-1]Waddr;          \n  input  [11:0]Raddr;          \n  input  [17:0]Din;            \n  \n  output [17:0]Dout;           \n \n  reg [17:0] Dout;\n  reg [17:0] Mem_data [4095:0];\n\n  always @( posedge Wclk ) begin\n    Mem_data[Waddr] <= Din;\n  end\n\n  always @( negedge nRclk ) begin\n    Dout <= Mem_data[Raddr];\n  end\n  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

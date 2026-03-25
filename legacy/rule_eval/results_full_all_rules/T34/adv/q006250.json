@@ -1,0 +1,16 @@
+{
+  "task_id": "q006250",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A, B,\n    output reg [7:0] result  // Change here from wire to reg\n);reg [7:0] accumulator;\nreg [2:0] i;\n\nalways @(*) begin\n    accumulator = 0;\n    for(i = 0; i < 4; i = i + 1) begin\n        if(B[i] == 1) begin\n            accumulator = accumulator + (A << i);\n        end\n    end\n    result = accumulator; // This assignment is now valid\nend\n\nendmodule",
+  "rename_map": {
+    "temp": "accumulator"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp": "accumulator",
+      "i": "counter"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

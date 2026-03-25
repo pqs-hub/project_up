@@ -1,0 +1,9 @@
+{
+  "task_id": "q003912",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module master_slave_d_latch(  \n    input wire D,  \n    input wire E,  \n    input wire CLK,  \n    output reg Q  \n);  \n    reg obf_master;  \n    always @(posedge CLK) begin  \n        if (E)  \n            obf_master <= D;  \n    end  \n    always @(negedge CLK) begin  \n        Q <= obf_master;  \n    end  \nendmodule",
+  "rename_map": {
+    "master": "obf_master"
+  }
+}

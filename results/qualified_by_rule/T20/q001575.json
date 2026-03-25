@@ -1,0 +1,6 @@
+{
+  "task_id": "q001575",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(  \n    input clk,  \n    input reset,  \n    input command,  \n    output reg done  \n);  \n    reg [1:0] state;  \n    reg [3:0] count;  \n    parameter IDLE = 2'b00, PROCESSING = 2'b01, DONE = 2'b10;  \n    parameter N = 4'b0011;  // Processing duration (3 clock cycles)  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            state <= IDLE;  \n            done <= 0;  \n            count <= 0;  \n        end else begin  \n            case(state)  \n                IDLE: begin  \n                    done <= 0;  \n                    if (command)  \n                        state <= PROCESSING;  \n                end  \n                PROCESSING: begin  \n                    count <= count + 1;  \n                    if (count == N) begin  \n                        state <= DONE;  \n                        count <= 0;  \n                    end  \n                end  \n                DONE: begin  \n                    done <= 1;  \n                    state <= IDLE;  \n                end  \n            endcase  \n        end  \n    end  \nendmodule"
+}

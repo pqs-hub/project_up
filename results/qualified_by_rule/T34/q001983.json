@@ -1,0 +1,6 @@
+{
+  "task_id": "q001983",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [7:0] node_value,\n    input valid,\n    output reg [7:0] bfs_output,\n    output reg done\n);\n    reg [7:0] unused_queue [0:15]; // Simple unused_queue for BFS, max 16 elements\n    reg [3:0] head, tail;\n    reg [3:0] count;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            head <= 0;\n            tail <= 0;\n            count <= 0;\n            done <= 0;\n        end else if (valid && count < 16) begin\n            // Enqueue\n            unused_queue[tail] <= node_value;\n            tail <= (tail + 1) % 16;\n            count <= count + 1;\n        end else if (count > 0) begin\n            // Dequeue\n            bfs_output <= unused_queue[head];\n            head <= (head + 1) % 16;\n            count <= count - 1;\n            if (count == 1) begin\n                done <= 1; // Mark done when only one element is left\n            end else begin\n                done <= 0;\n            end\n        end\n    end\nendmodule"
+}

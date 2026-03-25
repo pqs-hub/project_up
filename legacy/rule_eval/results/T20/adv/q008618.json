@@ -1,0 +1,6 @@
+{
+  "task_id": "q008618",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule top_module(\n   input clock0,\n   input clock180,\n   input reset,\n\n   input [1:0] rotary,\n\n   output reg [7:0] leds\n);always @(posedge clock0) begin\n      if (reset) begin\n         leds <= 8'b00000000;\n      end else begin\n         case (rotary)\n            2'b00: leds <= 8'b00000000;\n            2'b01: begin\n               if (leds == 8'b11111111) begin\n                  leds <= 8'b00000000;\n               end else begin\n                  leds <= leds + 1;\n               end\n            end\n            2'b10: begin\n               if (leds == 8'b00000000) begin\n                  leds <= 8'b11111111;\n               end else begin\n                  leds <= leds - 1;\n               end\n            end\n         endcase\n      end\n   end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016169",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(in, out, inAddr, outAddr, writeSel, clk);parameter depth=1024, width=16, logDepth=10;\n   \n   input [width-1:0]    in;\n   input [logDepth-1:0] inAddr, outAddr;\n   input \t        writeSel, clk;\n   output [width-1:0] \tout;\n   reg [width-1:0] \tout;\n   \n   // synthesis attribute ram_style of mem is distributed\n\n   reg [width-1:0] \tmem[depth-1:0]; \n   \n   always @(posedge clk) begin\n      out <= mem[outAddr];\n      \n      if (writeSel)\n        mem[inAddr] <= in;\n   end\nendmodule"
+}

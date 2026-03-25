@@ -1,0 +1,6 @@
+{
+  "task_id": "q010290",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(a,b, cin, sum,cout);input [3:0] a,b;\n\tinput cin;\n\toutput [3:0] sum;\n\toutput cout;\n\t \n\twire [3:0] obf_p,g,c;    \n\t     \n\t    assign obf_p=a^b;\n\t    assign g=a&b;  \n\t    assign c[0]=cin;\n\t    assign c[1]= g[0] | (obf_p[0] & c[0]);\n\t    assign c[2]= g[1] | (obf_p[1] & g[0]) | obf_p[1] & obf_p[0] & c[0];\n\t    assign c[3]= g[2] | (obf_p[2] & g[1]) | obf_p[2] & obf_p[1] & g[0] | obf_p[2] & obf_p[1] & obf_p[0] & c[0];\n\t    assign cout= g[3] | (obf_p[3] & g[2]) | obf_p[3] & obf_p[2] & g[1] | obf_p[3] & obf_p[2] & obf_p[1] & obf_p[0] & c[0];\n\t    assign sum=obf_p ^ c;endmodule"
+}

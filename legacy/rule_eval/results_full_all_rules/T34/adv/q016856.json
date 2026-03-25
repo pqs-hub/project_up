@@ -1,0 +1,15 @@
+{
+  "task_id": "q016856",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_2to1_enable (\n    input mux_2to1_A,\n    input B,\n    input EN,\n    output reg Y\n);\n\nalways @ (mux_2to1_A, B, EN) begin\n    if (EN == 1'b0) begin\n        Y = mux_2to1_A;\n    end else begin\n        Y = B;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "A": "mux_2to1_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "EN": "disable"
+    },
+    "fallback_prefix": "mux_2to1_"
+  }
+}

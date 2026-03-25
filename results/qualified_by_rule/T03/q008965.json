@@ -1,0 +1,6 @@
+{
+  "task_id": "q008965",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n   input                clk ,\n   input                rst_n,\n   input                up_down,\n \n   output reg [2:0]     Q  \n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always@(posedge clk or negedge rst_n)begin\n        if(!rst_n) Q <= 3'b0;\n        else if(up_down) Q <= Q + 1;\n        else Q <= Q - 1;\n    end\nendmodule"
+}

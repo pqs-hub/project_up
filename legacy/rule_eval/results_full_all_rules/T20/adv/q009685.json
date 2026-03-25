@@ -1,0 +1,10 @@
+{
+  "task_id": "q009685",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a left-shift register with serial load capability.\nmodule shift_register (\n  input clk,\n  input reset,\n  input load,\n  input [15:0] parallel_in,\n  output reg [15:0] q);always @(posedge clk) begin\n    if (reset) q <= 16'b0000000000000000;\n    else if (load) q <= parallel_in;\n    else q <= {1'b0, q[15:1]};\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a left-shift register with serial load capability."
+  }
+}

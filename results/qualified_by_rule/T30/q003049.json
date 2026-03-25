@@ -1,0 +1,6 @@
+{
+  "task_id": "q003049",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule (\n    input wire S,\n    input wire R,\n    input wire clk,\n    output reg Q,\n    output reg Qbar\n);\n    always @(posedge clk) begin\n        if (S && !R) begin\n            Q <= 1'b1;\n        end else if (!S && R) begin\n            Q <= 1'b0;\n        end\n        // If both S and R are 0, retain the current state\n        // If both S and R are 1, the state is indeterminate\n    end\n\n    always @* begin\n        Qbar = ~Q;\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009252",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule(\n    input EN,\n    input SEL,\n    output reg [3:0] Y\n);always @ (EN, SEL)\nbegin\n    if (EN)\n    begin\n        case (SEL)\n            1'b0: Y = 4'b0001;\n            1'b1: Y = 4'b0010;\n        endcase\n    end\n    else\n    begin\n        Y = 4'b0000;\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004890",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input [31:0] instr_F,\n    input Stall_D,\n    input PCSrc_D,\n    input [31:0] npc_F,\n    output reg [31:0] instr_D,\n    output reg[31:0] npc_D,\n\t input reset\n    );always @ (posedge clk)\n\t\tbegin\n\t\t\tif(reset)\n\t\t\tbegin\n\t\t\t\tinstr_D<=0;\n\t\t\t\tnpc_D<=0;\n\t\t\tend\n\t\t\telse if(Stall_D)\n\t\t\tbegin\n\t\t\t\tinstr_D<=instr_D;\n\t\t\t\tnpc_D<=npc_D;\n\t\t\tend\n\t\t\telse\n\t\t\tbegin\n\t\t\t\tinstr_D<=instr_F;\n\t\t\t\tnpc_D<=npc_F;\n\t\t\tend\n\t\tend\nendmodule"
+}

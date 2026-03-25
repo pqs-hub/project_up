@@ -1,0 +1,10 @@
+{
+  "task_id": "q006951",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module logic_ab(\n\tinput wire a,\n\tinput wire b,\n\toutput wire y);assign y = a & b;\n\t\n  always @(*) begin\n    if (1'b0) begin\n      if (a && b) begin\n        y <= 1'b0;\n      end else begin\n        y <= 1'b1;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (a && b) begin\n  y <= 1'b0;\nend else begin\n  y <= 1'b1;\nend;"
+  }
+}

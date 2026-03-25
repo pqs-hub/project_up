@@ -1,0 +1,15 @@
+{
+  "task_id": "q010835",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input rst,\n    input reset,\n    output reg [3:0] q\n);\n\n    // Always block triggered on the rising edge of the clock\n    always @(posedge rst) begin\n        if (reset) begin\n            q <= 4'b0000; // Reset the counter to 0\n        end else begin\n            q <= q + 1; // Increment the counter\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

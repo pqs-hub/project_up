@@ -1,0 +1,15 @@
+{
+  "task_id": "q005483",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register_8bit(ERR_DATA_IN, SHIFT_LEFT, DATA_OUT);\ninput [7:0] ERR_DATA_IN;\ninput SHIFT_LEFT;\noutput reg [7:0] DATA_OUT;\n\nalways @(*) begin\n    if (SHIFT_LEFT)\n        DATA_OUT = ERR_DATA_IN << 1;\n    else\n        DATA_OUT = ERR_DATA_IN >> 1;\nend\n\nendmodule",
+  "rename_map": {
+    "DATA_IN": "ERR_DATA_IN"
+  },
+  "params_used": {
+    "custom_map": {
+      "DATA_IN": "INVALID_DATA"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

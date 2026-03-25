@@ -1,0 +1,8 @@
+{
+  "task_id": "q007272",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(CLK, RST, EN, Q);input CLK, RST, EN;\noutput [3:0] Q;\n  wire _tap_CLK = CLK & {1{1'b1}};\n\nreg [3:0] Q;\n\nalways @(posedge CLK) begin\n    if(RST) begin\n        Q <= 4'b0;\n    end\n    else if(EN) begin\n        Q <= Q + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

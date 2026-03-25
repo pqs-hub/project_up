@@ -1,0 +1,8 @@
+{
+  "task_id": "q008950",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module shift_register_4bit(\n    input clk,\n    input load,\n    input [3:0] parallel_in,\n    output reg [3:0] q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk) begin\n        if (load)\n            q <= parallel_in;\n        else\n            q <= {1'b0, q[3:1]};\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q015413",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(A, B, Z, OVF);input [1:0] A;\ninput [1:0] B;\noutput reg [1:0] Z; // Change output Z to reg type\noutput OVF;\n\nwire [2:0] misleading_sum;\nassign misleading_sum = A + B;\nassign OVF = (misleading_sum > 3);\n\nalways @* begin\n    if (misleading_sum > 3)\n        Z = 2'b11;\n    else\n        Z = misleading_sum[1:0];\nend\n\nendmodule",
+  "rename_map": {
+    "sum": "misleading_sum"
+  },
+  "params_used": {
+    "custom_map": {
+      "OVF": "NO_OVF"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

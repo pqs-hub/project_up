@@ -1,0 +1,10 @@
+{
+  "task_id": "q008139",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // Asynchronous reset is active-high\nmodule top_module(\n  input D,\n  input G,\n  input SN,\n  output reg Q,    // Changed to output reg\n  output reg QN    // Changed to output reg\n);always @(posedge G or negedge SN) begin\n  if (!SN) begin\n    Q <= 1'b0;\n    QN <= 1'b1;\n  end else begin\n    Q <= D;\n    QN <= ~D;\n  end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous reset is active-high"
+  }
+}

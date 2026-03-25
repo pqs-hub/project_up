@@ -1,0 +1,6 @@
+{
+  "task_id": "q013075",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(inAddr_add,inAddr_sl2,outAddr);input[31:0] inAddr_add;\n  input[31:0] inAddr_sl2;\n  output[31:0] outAddr;\n  \n    wire _n01 = inAddr_add[0] ^ inAddr_sl2[0];\n  wire _c01 = inAddr_add[0] & inAddr_sl2[0];\n  wire _n02 = inAddr_add[1] ^ inAddr_sl2[1] ^ _c01;\n  wire _c02 = (inAddr_add[1] & inAddr_sl2[1]) | (inAddr_add[1] & _c01) | (inAddr_sl2[1] & _c01);\n  wire _n03 = inAddr_add[2] ^ inAddr_sl2[2] ^ _c02;\n  wire _c03 = (inAddr_add[2] & inAddr_sl2[2]) | (inAddr_add[2] & _c02) | (inAddr_sl2[2] & _c02);\n  wire _n04 = inAddr_add[3] ^ inAddr_sl2[3] ^ _c03;\n  wire _c04 = (inAddr_add[3] & inAddr_sl2[3]) | (inAddr_add[3] & _c03) | (inAddr_sl2[3] & _c03);\n  assign outAddr = {_n01, _n02, _n03, _n04};\n   \nendmodule"
+}

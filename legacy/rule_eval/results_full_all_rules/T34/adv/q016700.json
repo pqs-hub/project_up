@@ -1,0 +1,15 @@
+{
+  "task_id": "q016700",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module r_FAULT_STATUS_MASK(\n    output reg [7:0] reg_0x15, \n    input wire rst_n, \n    input wire wenb, \n    input wire [7:0] in_data, \n    input wire clk\n);\n\nalways @(posedge clk) begin\n    if (rst_n) begin\n        reg_0x15 <= 8'h00;\n    end\n    else begin\n        if (wenb == 0) begin\n            reg_0x15 <= in_data;\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "reset": "rst_n"
+  },
+  "params_used": {
+    "custom_map": {
+      "reset": "rst_n"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

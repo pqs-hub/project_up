@@ -1,0 +1,16 @@
+{
+  "task_id": "q015817",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk_i, rst_i,IFID_write,address_i, instr_i, invalid_address, instr_o);input clk_i ;\n\tinput rst_i;\n\tinput IFID_write;\n\tinput [31:0] address_i;\n\tinput [31:0] instr_i;\n\toutput reg [31:0] invalid_address;\n\toutput reg [31:0] instr_o;\n\n\talways@(posedge clk_i)\n\tbegin\n\t\tif (!rst_i)\n\t\tbegin\n\t\t\tinvalid_address <= 0;\n\t\t\tinstr_o <= 0;\n\t\tend\n\t\telse if(IFID_write)begin\n\t\t\t\tinvalid_address <= address_i;\n\t\t\t\tinstr_o <= instr_i;\n\t\tend\n\tend\n\nendmodule",
+  "rename_map": {
+    "address_o": "invalid_address"
+  },
+  "params_used": {
+    "custom_map": {
+      "address_o": "invalid_address",
+      "instr_o": "invalid_instr"
+    },
+    "fallback_prefix": "err_"
+  }
+}

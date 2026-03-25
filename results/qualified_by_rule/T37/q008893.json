@@ -1,0 +1,6 @@
+{
+  "task_id": "q008893",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(\n    input wire D,\n    input wire DE,\n    input wire VPWR,\n    input wire VGND,\n    input wire VPB,\n    input wire VNB,\n    input wire CLK,\n    output reg Q,\n    output reg Q_N\n);// Asynchronous reset\n    always @ (VGND or VPWR)\n    begin\n        if (VGND == 0 || VPWR == 1) begin\n            Q <= 0;\n            Q_N <= 1;\n        end\n    end\n\n    // Positive edge-triggered flip-flop\n    always @ (posedge CLK)\n    begin\n        if (DE == 1) begin\n            Q <= D;\n            Q_N <= ~D;\n        end\n    end\n\nendmodule"
+}

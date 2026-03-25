@@ -1,0 +1,18 @@
+{
+  "task_id": "q012137",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_counter(\n\tinput wire rst_clk,\n\tinput wire reset,\n\tinput wire en,\n\toutput reg [3:0] count\n);always @(posedge rst_clk or posedge reset) begin\n\t\tif (reset)\n\t\t\tcount <= 4'b0000;\n\t\telse if (en)\n\t\t\tcount <= count + 1;\n\tend\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk",
+      "reset": "async_reset",
+      "en": "disable_en",
+      "count": "invalid_count"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

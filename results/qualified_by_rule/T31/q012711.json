@@ -1,0 +1,6 @@
+{
+  "task_id": "q012711",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n    input [4:0] ID_rs,\n    input [4:0] ID_rt,\n    input [4:0] EX_rt,\n    input EX_ramtoreg,\n    output load_use_hazard\nwire __load_use_hazard_tmp = EX_rt != 0 && EX_ramtoreg && (EX_rt == ID_rs || EX_rt == ID_rt);\nassign load_use_hazard = __load_use_hazard_tmp;\n    \nendmodule"
+}

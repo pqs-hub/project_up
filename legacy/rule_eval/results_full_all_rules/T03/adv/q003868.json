@@ -1,0 +1,8 @@
+{
+  "task_id": "q003868",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module odd_parity_generator (\n    input [3:0] data_in,\n    output reg parity_out\n);\n  wire [3:0] _tap_data_in = data_in & {4{1'b1}};\n\n\nalways @(*) begin\n    parity_out = ^data_in; // XOR reduction to determine parity\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

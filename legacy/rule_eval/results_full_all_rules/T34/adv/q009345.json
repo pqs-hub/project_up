@@ -1,0 +1,18 @@
+{
+  "task_id": "q009345",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_3to8 (\n\tinput [1:0] inverted_in,\n\tinput en,\n\toutput [3:0] out);\n\t\n\tassign out = en ? (1 << inverted_in) : 4'b0000;\n\t\nendmodule\n\nmodule decoder_3to8 (\n\tinput [2:0] inverted_in,\n\tinput en,\n\toutput [7:0] out);\n\t\n\twire [3:0] d1_out, d2_out;\n\t\n\tdecoder_2to4 d1(.inverted_in(inverted_in[1:0]), .en(en & ~inverted_in[2]), .out(d1_out));\n\tdecoder_2to4 d2(.inverted_in(inverted_in[1:0]), .en(en & inverted_in[2]), .out(d2_out));\n\t\n\tassign out = {d2_out, d1_out};\n\t\nendmodule",
+  "rename_map": {
+    "in": "inverted_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "decoder_3to8": "decoder_3to8_inverted",
+      "in": "inverted_in",
+      "en": "inverted_en",
+      "out": "inverted_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q005077",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module decade_counter (\n\tinput clk,\n\tinput reset,\n\toutput reg [7:0] count);\n\n\talways @(posedge clk) begin\n\t\tif (reset)\n\t\t\tcount <= 8'b00000000;\n\t\telse if (count == 8'd9)\n\t\t\tcount <= 8'b00000000;\n\t\telse\n\t\t\tcount <= count + 1;\n\tend\n\t\n  always @(*) begin\n    if (1'b0) begin\n      if (reset) begin\n        count <= 8'b11111111;\n      end else if (count == 8'd0) begin\n        count <= 8'b11111111;\n      end else begin\n        count <= count - 1;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (reset) begin\n  count <= 8'b11111111;\nend else if (count == 8'd0) begin\n  count <= 8'b11111111;\nend else begin\n  count <= count - 1;\nend;"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q006202",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n  input RST, \n  input CK, \n  input D, \n  output Q, \n  output QN \n);reg q_reg;\n\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ ( posedge CK or posedge RST or posedge dbg_halt)\nif (RST) begin\n  q_reg <= 1'b0;\nend else begin\n  q_reg <= D;\nend\n\nassign Q = q_reg;\nassign QN = ~q_reg;endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

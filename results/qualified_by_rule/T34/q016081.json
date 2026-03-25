@@ -1,0 +1,6 @@
+{
+  "task_id": "q016081",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input shift_dir,\n    input shift_in,\n    output reg [7:0] shift_out\n);\n\nreg [7:0] unused_shift_reg;\n\nalways @(posedge clk) begin\n    if (rst)\n        unused_shift_reg <= 8'b00000000;\n    else if (shift_dir)\n        unused_shift_reg <= {unused_shift_reg[6:0], shift_in};\n    else\n        unused_shift_reg <= {shift_in, unused_shift_reg[7:1]};\nend\n\nassign shift_out = unused_shift_reg;\n\nendmodule"
+}

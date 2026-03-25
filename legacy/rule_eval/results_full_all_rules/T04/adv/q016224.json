@@ -1,0 +1,10 @@
+{
+  "task_id": "q016224",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module resets the output 'foo' to HIGH on each rising edge of the clock 'clk'\nmodule top_module(\n    input  clk,\n    input  rst,\n    output foo);reg foo_i;\n\nassign foo = foo_i;\n\nalways @ (posedge clk or posedge rst)\n    if (rst == 1'b1) begin\n        foo_i <= 0;\n    end\n    else begin\n        foo_i <= !foo_i; \n    end\n\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module resets the output 'foo' to HIGH on each rising edge of the clock 'clk'"
+  }
+}

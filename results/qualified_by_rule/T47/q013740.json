@@ -1,0 +1,6 @@
+{
+  "task_id": "q013740",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(ce, Q, sys_clk, TC, R, CEO);input ce;\noutput reg [3:0] Q = 0;\ninput sys_clk;\noutput wire TC;\ninput R;\noutput wire CEO;\n\n  wire _n01 = Q[0] ^ 15[0];\n  wire _n02 = Q[1] ^ 15[1];\n  wire _n03 = Q[2] ^ 15[2];\n  wire _n04 = Q[3] ^ 15[3];\n  assign TC = ~_n01 & ~_n02 & ~_n03 & ~_n04;\nassign CEO = ce & TC;\n\nalways @(posedge sys_clk)\nbegin\n        Q <= R ? 0 : ce ? Q + 1 : Q;\nend\n\nendmodule"
+}

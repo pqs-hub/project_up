@@ -1,0 +1,6 @@
+{
+  "task_id": "q010684",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module mux_4to1(\n    input [1:0] sel,\n    input [3:0] in,\n    output out);\n  wire [1:0] _tap_sel = sel & {2{1'b1}};\n\n\n    assign out = (sel == 2'b00) ? in[0] :\n                 (sel == 2'b01) ? in[1] :\n                 (sel == 2'b10) ? in[2] :\n                                  in[3];\nendmodule"
+}

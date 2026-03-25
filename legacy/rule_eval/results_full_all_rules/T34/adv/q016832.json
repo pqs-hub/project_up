@@ -1,0 +1,15 @@
+{
+  "task_id": "q016832",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register_8bit (\n    input clk,\n    input load,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n\nreg [7:0] data_reg;\n\nalways @(posedge clk) begin\n    if (load) begin\n        data_reg <= data_in;\n    end else begin\n        data_reg <= {data_reg[6:0], 1'b0};\n    end\nend\n\nassign data_out = data_reg;\n\nendmodule",
+  "rename_map": {
+    "shift_reg": "data_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "shift_reg": "data_reg"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

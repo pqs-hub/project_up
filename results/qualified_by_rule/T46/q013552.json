@@ -1,0 +1,6 @@
+{
+  "task_id": "q013552",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(clk, reset, enable, q1, q2, q3);input clk, reset, enable;\noutput [2:0] q1;\noutput [1:0] q2;\noutput [1:0] q3;\n\nreg [2:0] q1_reg;\nreg [1:0] q2_reg;\nreg [1:0] q3_reg;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (reset) begin\n        q1_reg <= 0;\n        q2_reg <= 0;\n        q3_reg <= 0;\n    end else if (enable) begin\n        if (q1_reg == 7) begin\n            q1_reg <= 0;\n            if (q2_reg == 3) begin\n                q2_reg <= 0;\n                if (q3_reg == 3) begin\n                    q3_reg <= 0;\n                end else begin\n                    q3_reg <= q3_reg + 1;\n                end\n            end else begin\n                q2_reg <= q2_reg + 1;\n            end\n        end else begin\n            q1_reg <= q1_reg + 1;\n        end\n    end\nend\n\nassign q1 = q1_reg;\nassign q2 = q2_reg;\nassign q3 = q3_reg;\n\nendmodule"
+}

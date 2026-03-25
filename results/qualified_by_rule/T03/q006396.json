@@ -1,0 +1,6 @@
+{
+  "task_id": "q006396",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(c_in, c_out, c, p, g, P, G);input [3:0] p, g;\n   input c_in;\n   \n   output [2:0] c;\n   output c_out;\n   output P, G;\n  wire _tap_c_in = c_in & {1{1'b1}};\n\n   \n   assign  c[0] = g[0] | (p[0] & c_in); \n   assign  c[1] = g[1] | (g[0] & p[1]) | (p[1] & p[0] & c_in); \n   assign  c[2] = g[2] | (g[1] & p[2]) | (g[0] & p[1] & p[2]) | (p[2] & p[1] & p[0] & c_in); \n   assign  c_out = g[3] | (g[2] & p[3]) | (g[1] & p[2] & p[3]) | (g[0] & p[1] & p[2] & p[3]) | (p[3] & p[2] & p[1] & p[0] & c_in);  \n   \n   assign  G = g[3] | (g[2] & p[3]) | (g[1] & p[2] & p[3]) | (p[3] & p[2] & p[1] & g[0]);\n   assign  P = p[3] & p[2] & p[1] & p[0];\n   \nendmodule"
+}

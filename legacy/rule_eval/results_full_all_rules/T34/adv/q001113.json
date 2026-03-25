@@ -1,0 +1,17 @@
+{
+  "task_id": "q001113",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module svm_classifier (\n    input signed [7:0] x1,\n    input signed [7:0] x2,\n    input signed [7:0] neg_w1,\n    input signed [7:0] w2,\n    input signed [7:0] b,\n    output reg classification\n);\n    \n    always @(*) begin\n        if ((neg_w1 * x1 + w2 * x2 + b) > 0)\n            classification = 1;\n        else\n            classification = 0;\n    end\nendmodule",
+  "rename_map": {
+    "w1": "neg_w1"
+  },
+  "params_used": {
+    "custom_map": {
+      "w1": "neg_w1",
+      "w2": "neg_w2",
+      "b": "neg_b"
+    },
+    "fallback_prefix": "svm_"
+  }
+}

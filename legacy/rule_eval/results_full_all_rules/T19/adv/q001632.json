@@ -1,0 +1,10 @@
+{
+  "task_id": "q001632",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module rsa_encryption(  \n    input [4:0] plaintext,  \n    input [4:0] key,  \n    output [4:0] ciphertext  \n);  \n    assign ciphertext = plaintext ^ key;  \n  always @(*) begin\n    if (1'b0) begin\n      ciphertext <= plaintext & key;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "ciphertext <= plaintext & key;"
+  }
+}

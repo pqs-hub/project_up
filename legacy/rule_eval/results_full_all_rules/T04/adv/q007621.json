@@ -1,0 +1,10 @@
+{
+  "task_id": "q007621",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-bit shift register with parallel load capability. When parallel_load is deasserted, the module loads a 4-bit input value into the shift register. On each rising edge of the clock, if parallel_load is asserted, the shift register circularly shifts its bits to the right, with the least significant bit wrapped around to the most significant bit position.\nmodule top_module(\n    input clk,\n    input parallel_load,\n    input [3:0] in,\n    output reg out\n);reg [3:0] shift_reg;\n\nalways @(posedge clk) begin\n    if (parallel_load) begin\n        shift_reg <= in;\n    end else begin\n        shift_reg <= {shift_reg[2:0], shift_reg[3]};\n    end\nend\n\nassign out = shift_reg[0];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit shift register with parallel load capability. When parallel_load is deasserted, the module loads a 4-bit input value into the shift register. On each rising edge of the clock, if parallel_load is asserted, the shift register circularly shifts its bits to the right, with the least significant bit wrapped around to the most significant bit position."
+  }
+}

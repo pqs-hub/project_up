@@ -1,0 +1,6 @@
+{
+  "task_id": "q016564",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(clk, reset, in, out);\n    input clk, reset, in;\n    output out;\n    reg reg1, reg2;\n    always @ (posedge clk)\n        if (reset)\n          begin\n            reg1 <= 0; reg2 <= 0;\n          end\n        else\n          begin\n            reg2 <= reg1; reg1 <= in;\n          end\n    assign out = {reg2,reg1}==2'b01 ? 1 : 0;\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005940",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n  port0_rd_en,\n  port0_rd_addr,\n\n  port1_rd_en,\n  port1_rd_addr,\n\n  port_rd_data,\n\n  rd_addr,\n  rd_data\n);parameter DATAWIDTH = 8192;\n\n  input         port0_rd_en;\n  input [9:0]   port0_rd_addr;\n\n  input         port1_rd_en;\n  input [9:0]   port1_rd_addr;\n\n  input [DATAWIDTH-1:0] rd_data;\n  output [DATAWIDTH-1:0] port_rd_data;\n  output [9:0]  rd_addr;\n\n  reg [9:0]     rd_addr;\n\n  assign port_rd_data = rd_data;\n\n  always @ (\n    port0_rd_en or\n    port1_rd_en or\n    port0_rd_addr or\n    port1_rd_addr\n  ) begin\n    begin end  // redundant\n      casex({port1_rd_en,port0_rd_en})\n        2'b01:\n          begin\n            rd_addr <= port0_rd_addr;\n          end\n        2'b10:\n          begin\n            rd_addr <= port1_rd_addr;\n          end\n        default:\n          begin\n            rd_addr <= {10{1'bx}};\n          end\n      endcase\n    end\n\nendmodule"
+}

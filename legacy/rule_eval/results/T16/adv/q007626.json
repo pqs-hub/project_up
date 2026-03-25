@@ -1,0 +1,9 @@
+{
+  "task_id": "q007626",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(imm, obf_e_out);input [15:0] imm;\n    output reg [31:0] obf_e_out;\n    \n    always @(*) begin\n        if (imm[15] == 0) begin\n            obf_e_out <= {16'h0000, imm};\n        end\n        else begin\n            obf_e_out <= {16'hFFFF, imm};\n        end\n    end\nendmodule",
+  "rename_map": {
+    "e_out": "obf_e_out"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005262",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input clk_in,\n  input reset,\n  output reg clk_out\n);parameter divide_ratio = 2;\n\nreg [31:0] unused_count;\n\nalways @(posedge clk_in or posedge reset) begin\n  if (reset) begin\n    unused_count <= 0;\n    clk_out <= 0;\n  end else begin\n    unused_count <= unused_count + 1;\n    if (unused_count == divide_ratio - 1) begin\n      unused_count <= 0;\n      clk_out <= ~clk_out;\n    end\n  end\nend\n\nendmodule"
+}

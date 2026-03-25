@@ -1,0 +1,6 @@
+{
+  "task_id": "q002684",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule (  \n    input clk,  \n    input reset,  \n    output reg [7:0] current_value,  \n    output reg end_of_list  \n);  \n    reg [7:0] linked_list [0:4]; // 5 nodes  \n    reg [2:0] current_index; // 3 bits to hold 0-4 index  \n    initial begin  \n        // Initializing linked list with sample values and next pointers  \n        linked_list[0] = 8'h01; // Node 0  \n        linked_list[1] = 8'h02; // Node 1  \n        linked_list[2] = 8'h03; // Node 2  \n        linked_list[3] = 8'h04; // Node 3  \n        linked_list[4] = 8'h00; // End of list indicator (0)  \n    end  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            current_index <= 0;  \n            current_value <= 8'h00;  \n            end_of_list <= 1'b0;  \n        end else if (current_index < 5) begin  \n            current_value <= linked_list[current_index];  \n            if (linked_list[current_index] == 8'h00) begin  \n                end_of_list <= 1'b1;  \n            end else begin  \n                current_index <= current_index + 1;  \n                end_of_list <= 1'b0;  \n            end  \n        end  \n    end  \nendmodule"
+}

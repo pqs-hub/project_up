@@ -1,0 +1,10 @@
+{
+  "task_id": "q014684",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module top_module(O, in0, in1, cbit, prog);output O;\n  input cbit;\n  input in0;\n  input in1;\n  input prog;\n\n  wire sel;\n  assign sel = (prog & ~cbit) | (~prog & cbit);\n\n  wire neg_mux_sel = sel;\n  assign O = neg_mux_sel ? in0 : in1;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_mux_sel"
+  }
+}

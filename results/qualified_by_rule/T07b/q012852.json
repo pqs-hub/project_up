@@ -1,0 +1,6 @@
+{
+  "task_id": "q012852",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(\n\tinput clk,\n\tinput  [7:0] p0,p1,p2,p3,p4,p5,p6,p7,p8,\t\t\n\toutput reg [7:0] median_out\n    );reg [7:0] val [8:0];\n\t\n\treg [7:0] temp[7:0];\n\t\n\tinteger j;\n\tinteger i;\n\t\n\talways @(posedge clk)\n\tbegin\n\t\tval[0] = p0;\n\t\tval[1] = p1;\n\t\tval[2] = p2;\n\t\tval[3] = p3;\n\t\tval[4] = p4;\n\t\tval[5] = p5;\n\t\tval[6] = p6;\n\t\tval[7] = p7;\n\t\tval[8] = p8;\n  \n\t\t for (i = 0; i < 9; i = i+1)        \n\t\t\tfor (j = 0; j < 8-i; j = j+1)  \n\t\t\t  if (val[j] > val[j+1]) begin \n\t\t\t\t\ttemp[j] = val[j];\n\t\t\t\t\tval[j] = val[j+1];\n\t\t\t\t\tval[j+1] = temp[j];\n\t\t\t\t\tend\n\n\t\tmedian_out = val[4];\n\tend\n\nendmodule"
+}

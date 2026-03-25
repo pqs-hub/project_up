@@ -1,0 +1,9 @@
+{
+  "task_id": "q015711",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(a, b, obf_cou, result);input[7:0]\ta, b;\n\toutput[7:0]\tresult;\n\toutput\t\tobf_cou;\n\t\n\treg\t\t\tobf_cou;\n\t\n\talways @ (a or b)\n\tbegin\n\t\tif ( a > b )\n\t\t\tobf_cou = 1;\n\t\telse\n\t\t\tobf_cou = 0;\n\tend\n\t\n\tassign result = a - b;endmodule",
+  "rename_map": {
+    "cou": "obf_cou"
+  }
+}

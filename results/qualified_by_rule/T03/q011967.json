@@ -1,0 +1,6 @@
+{
+  "task_id": "q011967",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(addr0, ce0, d0, we0, q0, addr1, ce1, q1,  clk);parameter DWIDTH = 32;\nparameter AWIDTH = 10;\nparameter MEM_SIZE = 1024;\n\ninput[AWIDTH-1:0] addr0;\ninput ce0;\ninput[DWIDTH-1:0] d0;\ninput we0;\noutput reg[DWIDTH-1:0] q0;\ninput[AWIDTH-1:0] addr1;\ninput ce1;\noutput reg[DWIDTH-1:0] q1;\ninput clk;\n  wire [9:0] _tap_addr0 = addr0 & {10{1'b1}};\n\n\n(* ram_style = \"block\" *)reg [DWIDTH-1:0] ram[MEM_SIZE-1:0];\n\n\n\n\nalways @(posedge clk)  \nbegin \n    if (ce0) \n    begin\n        if (we0) \n        begin \n            ram[addr0] <= d0; \n            q0 <= d0;\n        end \n        else \n            q0 <= ram[addr0];\n    end\nend\n\n\nalways @(posedge clk)  \nbegin \n    if (ce1) \n    begin\n            q1 <= ram[addr1];\n    end\nend\n\n\nendmodule"
+}

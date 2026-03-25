@@ -1,0 +1,17 @@
+{
+  "task_id": "q010149",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(A, B, Ci, Co, S);input A, B, Ci;\n  output S, Co;\n  wire sum_xor, n2, n3;\n\n  // Using primitive gates instead of missing modules\n  assign sum_xor = A ^ B;        // XOR gate for A and B\n  assign S = sum_xor ^ Ci;       // XOR gate for sum_xor and Ci\n  assign n2 = A & B;        // AND gate for A and B\n  assign n3 = sum_xor & Ci;      // AND gate for sum_xor and Ci\n  assign Co = n2 | n3;      // OR gate for n2 and n3\n\nendmodule",
+  "rename_map": {
+    "n1": "sum_xor"
+  },
+  "params_used": {
+    "custom_map": {
+      "n1": "sum_xor",
+      "n2": "carry_and_ab",
+      "n3": "carry_and_aci"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

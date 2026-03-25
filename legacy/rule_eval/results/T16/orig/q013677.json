@@ -1,0 +1,6 @@
+{
+  "task_id": "q013677",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n    CLOCK,\n    RESET,\n    x,\n    y,\n    DIFF\n);input CLOCK, RESET;\n    input [11:0] x, y;\n    output reg [11:0] DIFF;\n    \n    always @ (posedge CLOCK or posedge RESET) begin\n        if (RESET) begin\n            DIFF <= 0;\n        end else begin\n            DIFF <= (x > y) ? x - y : y - x;\n        end\n    end\n\nendmodule"
+}

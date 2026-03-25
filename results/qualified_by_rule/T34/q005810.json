@@ -1,0 +1,6 @@
+{
+  "task_id": "q005810",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n   input         clock, reset, load,\n   input [15:0]  loadValue,\n   output [15:0] count,\n   output        flag);reg [15:0]    unused_countReg = 16'b0;\n   wire          flagWire;\n\n   assign flag = flagWire;\n   assign count = unused_countReg;\n\n   always @ (posedge clock) begin \n      if (reset)\n         unused_countReg <= 16'b0;\n      else if (load)\n         unused_countReg <= loadValue;\n      else if (unused_countReg == {16{1'b1}})\n         unused_countReg <= 16'b0;\n      else\n         unused_countReg <= unused_countReg + 1;\n   end\n\n   assign flagWire = (unused_countReg == {16{1'b1}});\n\nendmodule"
+}

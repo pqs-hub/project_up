@@ -1,0 +1,9 @@
+{
+  "task_id": "q005993",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(input clk,input reset,input [15:0] xadc_data,input xadc_data_ready,input [4:0] obf_channel,output reg [15:0] xadc_vaux0_data,output reg xadc_vaux0_ready,output reg [15:0] xadc_vaux8_data,output reg xadc_vaux8_ready);always @(posedge clk) begin \n  if (reset) begin \n  xadc_vaux0_data <= 16'd0; \n  xadc_vaux0_ready <= 1'b0; \n  end \n  else \n  if (xadc_data_ready && (obf_channel == 5'h10)) begin \n  xadc_vaux0_data <= xadc_data; \n  xadc_vaux0_ready <= 1'b1; \n  end \n  else \n  xadc_vaux0_ready <= 1'b0; \n  end \n  always @(posedge clk) begin \n  if (reset) begin \n  xadc_vaux8_data <= 16'd0; \n  xadc_vaux8_ready <= 1'b0; \n  end \n  else \n  if (xadc_data_ready && (obf_channel == 5'h18)) begin \n  xadc_vaux8_data <= xadc_data; \n  xadc_vaux8_ready <= 1'b1; \n  end \n  else \n  xadc_vaux8_ready <= 1'b0; \n  end \n endmodule",
+  "rename_map": {
+    "channel": "obf_channel"
+  }
+}

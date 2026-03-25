@@ -1,0 +1,10 @@
+{
+  "task_id": "q001213",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module scales the 8-bit analog input down by a factor of 2 before converting it to digital\nmodule ADC_8bit (\n    input [7:0] analog_in,\n    output reg [7:0] digital_out\n);\n    parameter SCALING_FACTOR = 2;\n\n    always @(*) begin\n        if (analog_in * SCALING_FACTOR > 255)\n            digital_out = 255;\n        else\n            digital_out = analog_in * SCALING_FACTOR;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module scales the 8-bit analog input down by a factor of 2 before converting it to digital"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001811",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule (\n    input [7:0] data0,\n    input [7:0] data1,\n    input [7:0] data2,\n    input [7:0] data3,\n    input [1:0] sel,\n    output reg [7:0] mux_out\n);\n\nalways @(*) begin\n    case(sel)\n        2'b00: mux_out = data0;\n        2'b01: mux_out = data1;\n        2'b10: mux_out = data2;\n        2'b11: mux_out = data3;\n        default: mux_out = 8'b00000000; // Default case\n    endcase\nend\n\nendmodule"
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q009627",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(input clk, input d, output q);reg [2:0] reg_data;\n  reg [2:0] obf_next_data;\n\n  always @(posedge clk) begin\n    obf_next_data[0] = d;\n    obf_next_data[1] = reg_data[0];\n    obf_next_data[2] = reg_data[1];\n    reg_data <= obf_next_data;\n  end\n\n  assign q = reg_data[2];\nendmodule",
+  "rename_map": {
+    "next_data": "obf_next_data"
+  }
+}

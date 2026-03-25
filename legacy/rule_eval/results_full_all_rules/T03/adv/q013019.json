@@ -1,0 +1,8 @@
+{
+  "task_id": "q013019",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module sr_latch(\n\tinput \tS,\n\tinput \tR,\n\toutput reg Q\n);\n  wire _tap_S = S & {1{1'b1}};\n\n\nalways @(*)\nbegin\n\tif (S && R)\n\t\tQ <= 1'bx;\n\telse if (S)\n\t\tQ <= 1'b1;\n\telse if (R)\n\t\tQ <= 1'b0;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

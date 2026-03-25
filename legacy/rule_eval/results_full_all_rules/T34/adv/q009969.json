@@ -1,0 +1,15 @@
+{
+  "task_id": "q009969",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A1,\n    input [1:0] select,\n    input A2,\n    input A3,\n    input B1,\n    input C1,\n    input enable_reset,\n    output reg X,\n    output reg valid\n);always @(A1, select, A2, A3, B1, C1, enable_reset) begin\n    if(enable_reset) begin\n        X <= 1'b0;\n        valid <= 1'b0;\n    end else begin\n        if(select == 2'b00) begin\n            if(A1 && A2 && A3) begin\n                X <= 1'b1;\n                valid <= 1'b1;\n            end else begin\n                X <= 1'b0;\n                valid <= 1'b0;\n            end\n        end else begin\n            if(A1 && B1 && C1) begin\n                X <= 1'b1;\n                valid <= 1'b1;\n            end else begin\n                X <= 1'b0;\n                valid <= 1'b0;\n            end\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "reset": "enable_reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "reset": "enable_reset"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q012031",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module counter_4bit (CLK, RESET, Q);\ninput CLK, RESET;\noutput reg [3:0] Q;\n  wire _tap_CLK = CLK & {1{1'b1}};\n\n\nalways @(posedge CLK or posedge RESET) begin\n    if (RESET)\n        Q <= 4'b0000;\n    else\n        Q <= Q + 1;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

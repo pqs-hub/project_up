@@ -1,0 +1,6 @@
+{
+  "task_id": "q002922",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module fan_speed_control(\n    input clk,\n    input reset,\n    input [7:0] temperature, // Assume temperature is in degrees Celsius.\n    output reg [1:0] fan_speed // 00: Off, 01: Low, 10: Medium, 11: High\n);\n    \n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant\n        if (reset) begin\n            fan_speed <= 2'b00; // Fan is off\n        end else begin\n            if (temperature < 20) begin\n                fan_speed <= 2'b00; // Off\n            end else if (temperature < 30) begin\n                fan_speed <= 2'b01; // Low\n            end else if (temperature < 40) begin\n                fan_speed <= 2'b10; // Medium\n            end else begin\n                fan_speed <= 2'b11; // High\n            end\n        end\n    end\nendmodule"
+}

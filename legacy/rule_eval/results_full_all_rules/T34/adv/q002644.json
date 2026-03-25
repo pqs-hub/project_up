@@ -1,0 +1,15 @@
+{
+  "task_id": "q002644",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dma_controller (  \n    input clk,  \n    input reset,  \n    input enable,  \n    output reg [2:0] active_channel  \n);  \n\n    reg [2:0] inactive_channel;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            inactive_channel <= 3'b000;  \n            active_channel <= 3'b000;  \n        end else if (enable) begin  \n            if (inactive_channel < 3'b111)  \n                inactive_channel <= inactive_channel + 1;  \n            else  \n                inactive_channel <= 3'b000;  \n            active_channel <= inactive_channel;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "channel": "inactive_channel"
+  },
+  "params_used": {
+    "custom_map": {
+      "channel": "inactive_channel"
+    },
+    "fallback_prefix": "dma_"
+  }
+}

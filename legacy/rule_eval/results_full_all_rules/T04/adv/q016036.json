@@ -1,0 +1,10 @@
+{
+  "task_id": "q016036",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // Asynchronous reset sets q to 1 and qn to 0 when reset is high\nmodule top_module(clk, reset, d, q, qn);input clk, reset, d;\n    output q, qn;\n    reg q, qn;\n\n    always @(posedge clk or negedge reset) begin\n        if (!reset) begin\n            q <= 0;\n            qn <= 1;\n        end\n        else begin\n            q <= d;\n            qn <= ~d;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous reset sets q to 1 and qn to 0 when reset is high"
+  }
+}

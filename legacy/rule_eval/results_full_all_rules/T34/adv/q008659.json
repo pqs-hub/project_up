@@ -1,0 +1,16 @@
+{
+  "task_id": "q008659",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] in,\n    output [3:0] out\n);// Module supplies\n    supply1 VPWR;\n    supply0 VGND;\n\n    // Local signals\n    wire [3:0] _shifted_temp;\n    wire [3:0] shifted;\n\n    // Assign the input to _shifted_temp\n    assign _shifted_temp = in;\n\n    // Shift the bits in _shifted_temp to the left by one position and assign the result to shifted\n    assign shifted = {_shifted_temp[2:0], _shifted_temp[3]};\n\n    // Assign shifted to the output\n    assign out = shifted;\n\nendmodule",
+  "rename_map": {
+    "temp": "_shifted_temp"
+  },
+  "params_used": {
+    "custom_map": {
+      "in": "data_in",
+      "out": "data_out"
+    },
+    "fallback_prefix": "_shifted_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001877",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module SIPO_Shift_Register (\n    input wire clk,\n    input wire reset,\n    input wire serial_in,\n    input wire load,\n    output reg [4:0] parallel_out\n);\n    reg [4:0] shift_reg;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            shift_reg <= 5'b00000;\n            parallel_out <= 5'b00000;\n        end else if (load) begin\n            parallel_out <= shift_reg;\n        end else begin\n            shift_reg <= {shift_reg[3:0], serial_in}; // Shift left and insert serial input\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q000352",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sr_latch (\n    input wire Invalid_S,\n    input wire R,\n    output reg Q\n);\n    always @(Invalid_S or R) begin\n        if (Invalid_S && R) begin\n            Q <= 1'bx; // Invalid state\n        end else if (Invalid_S) begin\n            Q <= 1'b1; // Set\n        end else if (R) begin\n            Q <= 1'b0; // Reset\n        end\n        // If both Invalid_S and R are low, retain previous state\n    end\nendmodule",
+  "rename_map": {
+    "S": "Invalid_S"
+  },
+  "params_used": {
+    "custom_map": {
+      "S": "Reset",
+      "R": "Set",
+      "Q": "LatchState"
+    },
+    "fallback_prefix": "Invalid_"
+  }
+}

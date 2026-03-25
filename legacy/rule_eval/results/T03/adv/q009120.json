@@ -1,0 +1,6 @@
+{
+  "task_id": "q009120",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module pwm_generator(\n  input clk,\n  input rst_n,\n  input [7:0] duty_cycle,\n  output reg pwm_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n  reg [7:0] counter;\n  \n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      counter <= 8'b0;\n      pwm_out <= 0;\n    end\n    else begin\n      counter <= counter + 1;\n      if (counter < duty_cycle)\n        pwm_out <= 1;\n      else\n        pwm_out <= 0;\n    end\n  end\n\nendmodule"
+}

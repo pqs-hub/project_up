@@ -1,0 +1,6 @@
+{
+  "task_id": "q000580",
+  "rule_id": "T30",
+  "changed": true,
+  "final": "module RefModule (\n    input wire [1:0] x,   // 2-bit input\n    output wire y         // 1-bit output\n);\n    parameter W0 = 2'b01;  // Weight for input x0\n    parameter W1 = 2'b01;  // Weight for input x1\n    parameter THRESHOLD = 1; // Threshold for activation\n\n    wire [1:0] weighted_sum;\n\n    assign weighted_sum = (x[0] * W0) + (x[1] * W1);\n    assign y =  (weighted_sum > THRESHOLD) ? 1'b1 : (1'b1 & 1'b0);\n\nendmodule"
+}

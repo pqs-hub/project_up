@@ -1,0 +1,6 @@
+{
+  "task_id": "q011997",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  input enable,\n  input [11:0] duration,\n  output reg pulse\n);reg [11:0] unused_count;\n  \n  always @(posedge clk or posedge reset) begin\n    if (reset) begin\n      unused_count <= 0;\n      pulse <= 0;\n    end else if (enable) begin\n      if (unused_count < duration) begin\n        unused_count <= unused_count + 1;\n        pulse <= 1;\n      end else begin\n        unused_count <= 0;\n        pulse <= 0;\n      end\n    end else begin\n      unused_count <= 0;\n      pulse <= 0;\n    end\n  end\n  \nendmodule"
+}

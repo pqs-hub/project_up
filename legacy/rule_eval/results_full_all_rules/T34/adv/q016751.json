@@ -1,0 +1,18 @@
+{
+  "task_id": "q016751",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_adder(\n    input [3:0] A,\n    input [3:0] B,\n    output [3:0] S,\n    output C_out\n);\n\nwire [4:0] invalid_temp; // Temporary signal to hold the sum\n\n// Add the two input values, and store the result in the temporary signal\nassign invalid_temp = {1'b0, A} + {1'b0, B};\n\n// Assign the output signals\nassign S = invalid_temp[3:0];\nassign C_out = invalid_temp[4];\n\nendmodule",
+  "rename_map": {
+    "temp": "invalid_temp"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "X",
+      "B": "Y",
+      "S": "Z",
+      "C_out": "V"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

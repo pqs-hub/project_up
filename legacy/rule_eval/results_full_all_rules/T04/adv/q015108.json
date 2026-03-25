@@ -1,0 +1,10 @@
+{
+  "task_id": "q015108",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module is designed to perform a serial-in parallel-out (SIPO) shift operation.\nmodule piso_shift_register (\n    input clk,\n    input reset,\n    input load,\n    input [7:0] data_in,\n    output reg data_out\n);\n\n    reg [7:0] shift_reg;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            shift_reg <= 8'b00000000;\n        else if (load)\n            shift_reg <= data_in;\n        else\n            shift_reg <= {shift_reg[6:0], 1'b0};\n    end\n\n    always @(*) begin\n        data_out = shift_reg[7];\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to perform a serial-in parallel-out (SIPO) shift operation."
+  }
+}

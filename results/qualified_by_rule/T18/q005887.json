@@ -1,0 +1,6 @@
+{
+  "task_id": "q005887",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input reset,\n  input load,\n  input [3:0] data_in,\n  output [3:0] data_out\n);reg [3:0] reg_data;\n\n  always @(posedge clk or negedge reset) begin\n    if (reset == 0) begin\n      reg_data <= 4'b0000;\n    end\n    else if (load == 1) begin\n      reg_data <= data_in;\n    end\n  end\n\n  assign data_out = reg_data;\n\nendmodule"
+}

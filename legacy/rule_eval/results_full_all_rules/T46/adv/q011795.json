@@ -1,0 +1,8 @@
+{
+  "task_id": "q011795",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input [7:0] a,\n  input [7:0] b,\n  input [2:0] op,\n  output reg [7:0] res\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n  case(op)\n    3'b000: res <= a + b;\n    3'b001: res <= a - b;\n    3'b010: res <= a & b;\n    3'b011: res <= a | b;\n    3'b100: res <= a ^ b;\n    3'b101: res <= ~(a & b);\n    3'b110: res <= ~(a | b);\n    3'b111: res <= ~(a ^ b);\n  endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

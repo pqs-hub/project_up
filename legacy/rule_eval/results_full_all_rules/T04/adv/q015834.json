@@ -1,0 +1,10 @@
+{
+  "task_id": "q015834",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This counter decrements by 1 on each clock cycle if the enable signal is low and resets to zero when the reset signal is low.\nmodule enabled_counter (\n\tinput clk,\n\tinput reset,\n\tinput enable,\n\toutput reg [3:0] count);\n\n\talways @(posedge clk) begin\n\t\tif (reset)\n\t\t\tcount <= 4'b0000;\n\t\telse if (enable)\n\t\t\tcount <= count + 1;\n\tend\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This counter decrements by 1 on each clock cycle if the enable signal is low and resets to zero when the reset signal is low."
+  }
+}

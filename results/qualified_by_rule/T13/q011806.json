@@ -1,0 +1,6 @@
+{
+  "task_id": "q011806",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    Q      ,\n    Q_N    ,\n    D      ,\n    CLK    ,\n    SET_B  ,\n    RESET_B\n);output Q      ;\n    output Q_N    ;\n    input  D      ;\n    input  CLK    ;\n    input  SET_B  ;\n    input  RESET_B;\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Replace sky130_fd_sc_ms__dfbbp_1 with a generic D flip-flop implementation\n    reg Q;\n    always @(posedge CLK or negedge RESET_B or negedge SET_B) begin\n        if (~RESET_B)\n            Q <= 1'b0;\n        else if (~SET_B)\n            Q <= 1'b1;\n        else\n            Q <= D;\n    end\n\n    assign Q_N = ~Q;\n\nendmodule"
+}

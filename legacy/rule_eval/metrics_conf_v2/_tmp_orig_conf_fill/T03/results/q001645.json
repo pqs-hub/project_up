@@ -1,0 +1,7 @@
+{
+  "task_id": "q001645",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module zero_crossing_detector (  \n    input wire clk,  \n    input wire reset,  \n    input wire signal_in,  \n    output reg zero_cross_detected  \n);  \n    reg signal_prev;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            zero_cross_detected <= 0;  \n            signal_prev <= 0;  \n        end else begin  \n            zero_cross_detected <= (signal_prev == 0 && signal_in == 1);  \n            signal_prev <= signal_in;  \n        end  \n    end  \nendmodule",
+  "rename_map": {}
+}

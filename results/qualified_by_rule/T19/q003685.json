@@ -1,0 +1,6 @@
+{
+  "task_id": "q003685",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire load,\n    input wire shift_enable,\n    input wire [15:0] parallel_in,\n    output reg [15:0] parallel_out\n);\n    \n    always @(posedge clk) begin\n        if (load) begin\n            parallel_out <= parallel_in; // Load new value\n        end else if (shift_enable) begin\n            parallel_out <= {1'b0, parallel_out[15:1]}; // Shift right\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

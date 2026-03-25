@@ -1,0 +1,15 @@
+{
+  "task_id": "q007271",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sync_counter(reset, RST, EN, Count);\ninput reset, RST, EN;\noutput [2:0] Count;\nreg [2:0] Count;\n\nalways @(posedge reset or posedge RST) begin\n    if (RST)\n        Count <= 0;\n    else if (EN) begin\n        if (Count == 7)\n            Count <= 0;\n        else\n            Count <= Count + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "sync_counter_"
+  }
+}

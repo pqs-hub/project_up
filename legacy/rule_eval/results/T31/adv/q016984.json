@@ -1,0 +1,6 @@
+{
+  "task_id": "q016984",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module and_enable (\n  input a,\n  input b,\n  input enable,\n  output out\n);\n\n  wire and_result;\n\n  and_gate and_inst (\n    .a(a),\n    .b(b),\n    .out(and_result)\n  );\n\n  wire __out_tmp = enable ? and_result : 1'b0;\n  assign out = __out_tmp;\n\nendmodule\n\nmodule and_gate (\n  input a,\n  input b,\n  output out\n);\n\n  assign out = a & b;\n\nendmodule"
+}

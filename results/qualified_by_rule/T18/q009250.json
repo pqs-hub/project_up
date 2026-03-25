@@ -1,0 +1,6 @@
+{
+  "task_id": "q009250",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(\n    //# {{data|Data Signals}}\n    input  A,\n    input  B,\n    input  C,\n    input  D,\n    output reg X,  // Change output to reg to allow assignment in always block\n\n    //# {{control|Control Signals}}\n    input  S0,\n    input  S1\n);always @(*) begin\n        if (S1 == 0 && S0 == 0) begin\n            X = A;\n        end else if (S1 == 0 && S0 == 1) begin\n            X = B;\n        end else if (S1 == 1 && S0 == 0) begin\n            X = C;\n        end else if (S1 == 1 && S0 == 1) begin\n            X = D;\n        end\n    end\n\nendmodule"
+}

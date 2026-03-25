@@ -1,0 +1,6 @@
+{
+  "task_id": "q001412",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire cmd_valid,\n    input wire [7:0] cmd,\n    input wire [31:0] addr,\n    input wire process,\n    output reg [7:0] out_cmd,\n    output reg [31:0] out_addr,\n    output reg ready\n);\n    reg [7:0] cmd_reg;\n    reg [31:0] addr_reg;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            cmd_reg <= 8'b0;\n            addr_reg <= 32'b0;\n            ready <= 1'b0;\n        end else if (cmd_valid) begin\n            cmd_reg <= cmd;\n            addr_reg <= addr;\n            ready <= 1'b0; // Reset ready until process signal is asserted\n        end else if (process) begin\n            out_cmd <= cmd_reg;\n            out_addr <= addr_reg;\n            ready <= 1'b1; // Set ready high when data is output\n        end\n    end\nendmodule"
+}

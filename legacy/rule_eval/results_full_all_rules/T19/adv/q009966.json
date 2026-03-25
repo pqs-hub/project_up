@@ -1,0 +1,10 @@
+{
+  "task_id": "q009966",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n\tinput [3:0] a,\n\tinput [3:0] b,\n\toutput [3:0] s,\n\toutput carry_out);wire [4:0] sum = a + b;\n\tassign s = sum[3:0];\n\tassign carry_out = sum[4];\n\t\n  always @(*) begin\n    if (1'b0) begin\n      s <= ~a & ~b; carry_out <= a | b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "s <= ~a & ~b; carry_out <= a | b;"
+  }
+}

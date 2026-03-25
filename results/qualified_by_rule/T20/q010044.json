@@ -1,0 +1,6 @@
+{
+  "task_id": "q010044",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule(\n    input                 clk,\n    input                 rst,\n    input                 up_down,\n    output   reg [3:0]    count\n);\n\n// Up/Down counter logic\nalways @(posedge clk) begin\n    if (rst) begin\n        count <= 4'd0;\n    end else begin\n        if (up_down) begin\n            count <= count + 1;\n        end else begin\n            count <= count - 1;\n        end\n    end\nend\n\nendmodule"
+}

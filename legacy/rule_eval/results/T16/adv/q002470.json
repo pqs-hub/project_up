@@ -1,0 +1,9 @@
+{
+  "task_id": "q002470",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module dma_controller(  \n    input wire clk,  \n    input wire enable,  \n    input wire [2:0] channel_select,  \n    output reg [7:0] obf_active_channel  \n);  \n    always @(posedge clk) begin  \n        if (enable) begin  \n            obf_active_channel <= (1 << channel_select);  \n        end else begin  \n            obf_active_channel <= 8'b00000000;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "active_channel": "obf_active_channel"
+  }
+}

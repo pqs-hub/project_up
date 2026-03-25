@@ -1,0 +1,9 @@
+{
+  "task_id": "q013724",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] obf_ic0,\n    input [3:0] ic1,\n    input [3:0] ic2,\n    input [3:0] ic3,\n    input is0,\n    input is1,\n    output reg [3:0] oz\n    );always @ (*)\n         begin\n           case({is1,is0})\n           2'b00: oz = obf_ic0;\n           2'b01: oz = ic1;\n           2'b10: oz = ic2;\n           2'b11: oz = ic3;\n           default: oz = 1'bx; \n           endcase\n         end\nendmodule",
+  "rename_map": {
+    "ic0": "obf_ic0"
+  }
+}

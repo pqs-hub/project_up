@@ -1,0 +1,9 @@
+{
+  "task_id": "q014628",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module register(D, obf_CLK, LOAD, RST, Q);\ninput [3:0] D;\ninput obf_CLK, LOAD, RST;\noutput reg [3:0] Q;\n\nalways@(posedge obf_CLK or posedge RST) begin\n    if(RST)\n        Q <= 4'b0000;\n    else if(LOAD)\n        Q <= D;\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "obf_CLK"
+  }
+}

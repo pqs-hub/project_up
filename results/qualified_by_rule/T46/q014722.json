@@ -1,0 +1,6 @@
+{
+  "task_id": "q014722",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input set,\n    input rst,\n    output reg [31:0] q\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (rst)\n        q <= 32'b00000000000000000000000000000000;\n    else if (set)\n        q <= 32'b11111111111111111111111111111111;\nend\n\nendmodule"
+}

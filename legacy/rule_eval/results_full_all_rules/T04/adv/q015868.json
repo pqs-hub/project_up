@@ -1,0 +1,10 @@
+{
+  "task_id": "q015868",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module selects between two input signals, A and B, based on the SEL signal. When SEL is 1, the output X is equal to A; when SEL is 0, the output X is equal to B.\nmodule top_module(\n    input A,\n    input B,\n    input SEL,\n    output X\n);wire not_sel;\n    wire and1, and2;\n    wire or1;\n\n    assign not_sel = ~SEL;\n    assign and1 = A & not_sel;\n    assign and2 = B & SEL;\n    assign or1 = and1 | and2;\n    assign X = or1;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module selects between two input signals, A and B, based on the SEL signal. When SEL is 1, the output X is equal to A; when SEL is 0, the output X is equal to B."
+  }
+}

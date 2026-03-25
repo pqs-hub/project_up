@@ -1,0 +1,10 @@
+{
+  "task_id": "q011428",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module selects an input signal based on the select lines\n// When sel1 and sel0 are both low, the output will be in3;\n// sel0 high and sel1 low selects in2;\n// sel1 low and sel0 high selects in1;\n// and when both select lines are high, in0 is chosen as the output.\nmodule top_module(\n    input in0,\n    input in1,\n    input in2,\n    input in3,\n    input sel0,\n    input sel1,\n    output out\n);// Select the output based on the select lines\nassign out = (sel1 & sel0) ? in3 : (sel1 & ~sel0) ? in2 : (~sel1 & sel0) ? in1 : in0;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module selects an input signal based on the select lines\n// When sel1 and sel0 are both low, the output will be in3;\n// sel0 high and sel1 low selects in2;\n// sel1 low and sel0 high selects in1;\n// and when both select lines are high, in0 is chosen as the output."
+  }
+}

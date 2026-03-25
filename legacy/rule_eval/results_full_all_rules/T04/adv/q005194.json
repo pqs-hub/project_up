@@ -1,0 +1,10 @@
+{
+  "task_id": "q005194",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // When a is low, out1 should be the logical OR of b and c; otherwise, it should be the logical AND of b and c.\nmodule top_module(a, b, c, out1, out2);input a, b, c;\noutput out1, out2;\n\nwire b_and_c;\nwire b_xor_c;\n\nassign b_and_c = b & c;\nassign b_xor_c = b ^ c;\n\nassign out1 = (a == 1) ? b_and_c : b_xor_c;\nassign out2 = a ^ c;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// When a is low, out1 should be the logical OR of b and c; otherwise, it should be the logical AND of b and c."
+  }
+}

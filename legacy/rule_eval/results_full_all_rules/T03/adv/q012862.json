@@ -1,0 +1,8 @@
+{
+  "task_id": "q012862",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module up_down_counter (\n    input clk,\n    input reset,\n    input en,\n    input up,\n    output reg [2:0] q);always @(posedge clk) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n    if (reset)\n        q <= 3'b000;\n    else if (en) begin\n        if (up)\n            q <= q + 1;\n        else\n            q <= q - 1;\n    end\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

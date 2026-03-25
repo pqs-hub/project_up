@@ -1,0 +1,18 @@
+{
+  "task_id": "q012277",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n              \n              q_out,\n              \n              en, i, rstn\n              );parameter LATCH_BITS = 8;\n   parameter RESET_VALUE = {LATCH_BITS{1'b0}};\n\n   localparam LATCH_MSB= LATCH_BITS-1;\n\n   input en;\n   input [LATCH_MSB:0] i;\n   input rstn;\n   output [LATCH_MSB:0] q_out;\n   reg    [LATCH_MSB:0] q_out;\n\n   always @* begin\n      if(rstn == 1'b0)\n        q_out <= RESET_VALUE;\n      else\n        if(en)\n          q_out <= i;\n\n   end\nendmodule",
+  "rename_map": {
+    "q": "q_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "q": "q_out",
+      "en": "enable",
+      "i": "data_in",
+      "rstn": "reset_n"
+    },
+    "fallback_prefix": "latch_"
+  }
+}

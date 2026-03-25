@@ -1,0 +1,18 @@
+{
+  "task_id": "q010858",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux_4to1_4bit(\n    input [1:0] desel,\n    input [3:0] in0,\n    input [3:0] in1,\n    input [3:0] in2,\n    input [3:0] in3,\n    output reg [3:0] out\n);\n\nalways @(*) begin\n    case (desel)\n        2'b00: out = in0;\n        2'b01: out = in1;\n        2'b10: out = in2;\n        2'b11: out = in3;\n        default: out = 4'd0;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "sel": "desel"
+  },
+  "params_used": {
+    "custom_map": {
+      "in0": "data_in_0",
+      "in1": "data_in_1",
+      "in2": "data_in_2",
+      "in3": "data_in_3"
+    },
+    "fallback_prefix": "mux_4to1_4bit_"
+  }
+}

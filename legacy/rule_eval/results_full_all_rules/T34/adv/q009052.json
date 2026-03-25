@@ -1,0 +1,18 @@
+{
+  "task_id": "q009052",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n  input in,\n  input [1:0] state,\n  output reg [1:0] next_state,\n  output reg input_data\n);\n\n  // Define state encoding\n  localparam Q0 = 2'b00;\n  localparam Q1 = 2'b01;\n  localparam Q2 = 2'b10;\n  localparam Q3 = 2'b11;\n\n  // Combinational logic to determine next state and output based on current state and input\n  always @(*) begin\n    // Default output\n    input_data = 0;\n    \n    case (state)\n      Q0: begin\n        if (in == 0)\n          next_state = Q1;\n        else\n          next_state = Q2;\n        input_data = 0;\n      end\n\n      Q1: begin\n        if (in == 0)\n          next_state = Q3;\n        else\n          next_state = Q0;\n        input_data = 1;\n      end\n\n      Q2: begin\n        if (in == 0)\n          next_state = Q1;\n        else\n          next_state = Q3;\n        input_data = 0;\n      end\n\n      Q3: begin\n        if (in == 0)\n          next_state = Q2;\n        else\n          next_state = Q0;\n        input_data = 1;\n      end\n\n      default: begin\n        next_state = Q0; // Default to state Q0 if in an undefined state\n        input_data = 0;\n      end\n    endcase\n  end\n\nendmodule",
+  "rename_map": {
+    "out": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "Q0": "S0",
+      "Q1": "S1",
+      "Q2": "S2",
+      "Q3": "S3"
+    },
+    "fallback_prefix": "X_"
+  }
+}

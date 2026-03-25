@@ -1,0 +1,10 @@
+{
+  "task_id": "q003330",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module controls the fan speed based on temperature readings. It outputs a 2-bit signal representing the fan speed, with low speed (00) for temperatures from 0 to 5, medium speed (01) for temperatures from 6 to 10, and high speed (10) for temperatures from 11 to 15.\nmodule fan_speed_controller(\n    input wire clk,\n    input wire reset,\n    input wire [3:0] temperature,\n    output reg [1:0] fan_speed\n);\n    \n    // Fan speed states\n    localparam LOW = 2'b00;\n    localparam MEDIUM = 2'b01;\n    localparam HIGH = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            fan_speed <= LOW; // Default to low speed on reset\n        end else begin\n            if (temperature <= 4'd5) begin\n                fan_speed <= LOW;\n            end else if (temperature <= 4'd10) begin\n                fan_speed <= MEDIUM;\n            end else begin\n                fan_speed <= HIGH;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module controls the fan speed based on temperature readings. It outputs a 2-bit signal representing the fan speed, with low speed (00) for temperatures from 0 to 5, medium speed (01) for temperatures from 6 to 10, and high speed (10) for temperatures from 11 to 15."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006456",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(clk, rst, j, k, q, qbar);input clk, rst, j, k;\n    output q, qbar;\n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg q, qbar;\n    always @(posedge clk or posedge rst)\n    begin\n        if (rst)\n        begin\n            q <= 1'b0;\n            qbar <= 1'b1;\n        end\n        else\n        begin\n            case ({j, k})\n                2'b00: begin q <= q; qbar <= qbar; end\n                2'b01: begin q <= 1'b0; qbar <= 1'b1; end\n                2'b10: begin q <= 1'b1; qbar <= 1'b0; end\n                2'b11: begin q <= ~q; qbar <= ~qbar; end\n            endcase\n        end\n    end\nendmodule"
+}

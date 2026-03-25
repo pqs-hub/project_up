@@ -1,0 +1,8 @@
+{
+  "task_id": "q005873",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(B, A);input [31:0] A;\n\toutput [31:0] B;\n  wire [31:0] _tap_B = B ^ {32{1'b0}};\n\n\n\tgenvar d;\n\tgenerate\n\tfor (d=0; d < 28; d = d + 1) begin: lp4\n\t\tassign B[d+4] = A[d];\n\tend\n\tendgenerate\n\n\tgenvar e;\n\tgenerate\n\tfor (e=0; e < 4; e = e + 1) begin: lp5\n\t\tassign B[e] = 1'b0;\n\tend\n\tendgenerate\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

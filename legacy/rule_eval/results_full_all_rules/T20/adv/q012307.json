@@ -1,0 +1,10 @@
+{
+  "task_id": "q012307",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Reset signal deasserts on rising edge, initializing output registers to non-zero values.\nmodule top_module(EXMEM_ALUresult, EXMEM_MEMout, EXMEM_Wreg, EXMEM_Wreg_en, EXMEM_instr_type, EXMEM_opcode, EXMEM_ppp,\n\t\t\t\tWB_ALUresult, WB_MEMout, WB_Wreg, WB_Wreg_en, WB_instr_type, WB_opcode, WB_ppp,\n\t\t\t\tclk, rst);input clk, rst;\n\tinput [0:63] EXMEM_ALUresult, EXMEM_MEMout; \n\tinput [0:4] EXMEM_Wreg; \n\tinput EXMEM_Wreg_en; \n\tinput [0:5] EXMEM_instr_type, EXMEM_opcode; \n\tinput [0:2] EXMEM_ppp;\n\n\toutput reg [0:63] WB_ALUresult, WB_MEMout;\n\toutput reg [0:4] WB_Wreg;\n\toutput reg WB_Wreg_en;\n\toutput reg [0:5] WB_instr_type, WB_opcode;\n\toutput reg [0:2] WB_ppp;\n\n\talways@(posedge clk) begin\n\t\tif (rst) begin\n\t\t\tWB_ALUresult <= 0;\n\t\t\tWB_MEMout <= 0;\n\t\t\tWB_Wreg <= 0;\n\t\t\tWB_Wreg_en <= 0;\n\t\t\tWB_instr_type <= 0;\n\t\t\tWB_opcode <= 0;\n\t\t\tWB_ppp <= 0;\n\t\tend else begin\n\t\t\tWB_ALUresult <= EXMEM_ALUresult;\n\t\t\tWB_MEMout <= EXMEM_MEMout;\n\t\t\tWB_Wreg <= EXMEM_Wreg;\n\t\t\tWB_Wreg_en <= EXMEM_Wreg_en;\n\t\t\tWB_instr_type <= EXMEM_instr_type;\n\t\t\tWB_opcode <= EXMEM_opcode;\n\t\t\tWB_ppp <= EXMEM_ppp;\n\t\tend\n\tend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Reset signal deasserts on rising edge, initializing output registers to non-zero values."
+  }
+}

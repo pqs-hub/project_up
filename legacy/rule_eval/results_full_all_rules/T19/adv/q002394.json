@@ -1,0 +1,10 @@
+{
+  "task_id": "q002394",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module packet_filter (\n    input [15:0] src_ip,\n    input [15:0] dest_ip,\n    output reg allowed\n);\n\nalways @(*) begin\n    if ((src_ip >= 16'hC0A80100 && src_ip <= 16'hC0A801FF) && \n        (dest_ip >= 16'h0A000000 && dest_ip <= 16'h0A0000FF)) begin\n        allowed = 1'b1; // Packet allowed\n    end else begin\n        allowed = 1'b0; // Packet blocked\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      allowed = ~1'b1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "allowed = ~1'b1;"
+  }
+}

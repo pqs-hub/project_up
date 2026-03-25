@@ -1,0 +1,6 @@
+{
+  "task_id": "q005949",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    X,\n    A\n);// Module ports\n    output X;\n    input  A;\n  wire _tap_X = X ^ {1{1'b0}};\n\n\n    // Local signals\n    wire buf0_out_X;\n    wire buf1_out_X;\n    wire buf2_out_X;\n    wire buf3_out_X;\n\n    //  Name  Output      Other arguments\n    buf buf0 (buf0_out_X, A              );\n    buf buf1 (buf1_out_X, buf0_out_X     );\n    buf buf2 (buf2_out_X, buf1_out_X     );\n    buf buf3 (X         , buf2_out_X     );\n\nendmodule"
+}

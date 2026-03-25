@@ -1,0 +1,16 @@
+{
+  "task_id": "q000669",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module temperature_sensor(\n    input [4:0] sensor_temp,\n    output reg [2:0] temp_status\n);\n\nalways @(*) begin\n    if (sensor_temp <= 5'b01010) begin // 0 to 10\n        temp_status = 3'b000; // Low\n    end else if (sensor_temp <= 5'b10100) begin // 11 to 20\n        temp_status = 3'b001; // Medium\n    end else begin // 21 to 31\n        temp_status = 3'b010; // High\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "temp": "sensor_temp"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp": "sensor_temp",
+      "temp_status": "sensor_status"
+    },
+    "fallback_prefix": "sensor_"
+  }
+}

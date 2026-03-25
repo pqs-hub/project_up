@@ -1,0 +1,6 @@
+{
+  "task_id": "q003933",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [7:0] temperature,\n    input wire [7:0] threshold,\n    output reg alert\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            alert <= 0;\n        end else begin\n            if (temperature > threshold) begin\n                alert <= 1;\n            end else begin\n                alert <= 0;\n            end\n        end\n    end\nendmodule"
+}

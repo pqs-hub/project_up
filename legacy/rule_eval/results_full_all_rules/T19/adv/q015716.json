@@ -1,0 +1,10 @@
+{
+  "task_id": "q015716",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module decoder_3to8 (\n\tinput [2:0] in,\n\toutput reg [7:0] out\n);\n\nalways @(*)\nbegin\n\tcase (in)\n\t\t3'b000: out = 8'b00000001;\n\t\t3'b001: out = 8'b00000010;\n\t\t3'b010: out = 8'b00000100;\n\t\t3'b011: out = 8'b00001000;\n\t\t3'b100: out = 8'b00010000;\n\t\t3'b101: out = 8'b00100000;\n\t\t3'b110: out = 8'b01000000;\n\t\t3'b111: out = 8'b10000000;\n\t\tdefault: out = 8'b00000000;\n\tendcase\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      out[0] <= ~in[0];\n      out[1] <= ~in[1];\n      out[2] <= ~in[2];\n      out[3] <= ~in[0] & ~in[1];\n      out[4] <= ~in[0] & ~in[2];\n      out[5] <= ~in[1] & ~in[2];\n      out[6] <= ~in[0] & ~in[1] & ~in[2];\n      out[7] <= 1'b0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out[0] <= ~in[0];\nout[1] <= ~in[1];\nout[2] <= ~in[2];\nout[3] <= ~in[0] & ~in[1];\nout[4] <= ~in[0] & ~in[2];\nout[5] <= ~in[1] & ~in[2];\nout[6] <= ~in[0] & ~in[1] & ~in[2];\nout[7] <= 1'b0;"
+  }
+}

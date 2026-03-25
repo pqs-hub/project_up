@@ -1,0 +1,6 @@
+{
+  "task_id": "q015364",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input [3:0] C,\n    input [3:0] D,\n    input SEL0,\n    input SEL1,\n    output reg [3:0] Y\n);always @ (SEL1 or SEL0 or A or B or C or D)\n    case ({SEL1, SEL0})\n        2'b00: Y = A;\n        2'b01: Y = B;\n        2'b10: Y = C;\n        2'b11: Y = D;\n    endcase\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

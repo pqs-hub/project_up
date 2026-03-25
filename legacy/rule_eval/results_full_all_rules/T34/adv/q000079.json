@@ -1,0 +1,16 @@
+{
+  "task_id": "q000079",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module huffman_encoder(\n    input [1:0] sym,\n    output reg [1:0] code\n);\n    always @(*) begin\n        case (sym)\n            2'b00: code = 2'b00; // A\n            2'b01: code = 2'b01; // B\n            2'b10: code = 2'b10; // C\n            default: code = 2'bxx; // Undefined\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "symbol": "sym"
+  },
+  "params_used": {
+    "custom_map": {
+      "symbol": "sym",
+      "code": "huff_code"
+    },
+    "fallback_prefix": "huff_"
+  }
+}

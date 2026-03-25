@@ -1,0 +1,6 @@
+{
+  "task_id": "q001492",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module RefModule (\n    input wire a,\n    input wire b,\n    input wire c,\n    output wire out\n);\n\n  wire temp1_(a & b) | (b & c) = (a & b) | (b & c);\n  wire temp2_(c & a) = (c & a);\n  assign out = temp1_(a & b) | (b & c) | temp2_(c & a);\n\nendmodule"
+}

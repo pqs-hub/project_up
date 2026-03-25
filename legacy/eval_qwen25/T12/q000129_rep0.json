@@ -1,0 +1,12 @@
+{
+  "task_id": "q000129",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input [7:0] data_in,\n    input [2:0] shift_amt,\n    input direction,\n    output reg [7:0] data_out\n);\n\nalways @(*) begin\n    if (direction == 1'b0) begin // Left shift\n        data_out = data_in << shift_amt;\n    end else begin // Right shift\n        data_out = data_in >> shift_amt;\n    end\nend\n\nendmodule",
+  "adversarial_code": "module TopModule(\n    input [7:0] data_in,\n    input [2:0] shift_amt,\n    input direction,\n    output reg [7:0] data_out\n);\n    always @(*) begin\n        if (direction == 1'b0) begin // Left shift\n            data_out = data_in << shift_amt;\n        end else begin // Right shift\n            data_out = data_in >> shift_amt;\n        end\n    end\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

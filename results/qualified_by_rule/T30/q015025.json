@@ -1,0 +1,6 @@
+{
+  "task_id": "q015025",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n  input [7:0] data,\n  output reg parity_bit\n);integer i;\n  reg [7:0] temp_data;\n  reg [3:0] count;\n  \n  always @* begin\n    temp_data = data;\n    count = 0;\n    for(i=0; i<8; i=i+1) begin\n      count = count + temp_data[i];\n    end\n    if(count % 2 == 1) begin\n      parity_bit = 1;\n    end\n    else begin\n      parity_bit = 0;\n    end\n  end\n  \nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q003889",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input [15:0] data0,\n    input [15:0] data1,\n    input sel,\n    output reg [15:0] out\n);\n  wire [15:0] _tap_data0 = data0 & {16{1'b1}};\n\n\nalways @(*) begin\n    case(sel)\n        1'b0: out = data0;\n        1'b1: out = data1;\n        default: out = 16'b0; // default case\n    endcase\nend\n\nendmodule"
+}

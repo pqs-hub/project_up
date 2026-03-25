@@ -1,0 +1,15 @@
+{
+  "task_id": "q014678",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [10:0] address,\n    input clock,\n    input [15:0] data,\n    input wren,\n    output reg [15:0] q\n);reg [15:0] mem [0:2047]; // 2^11 = 2048 locations, each 16 bits wide\n\n    always @(posedge clock) begin\n        if (wren) begin\n            mem[address] <= data; // Write data to the memory\n        end\n        q <= mem[address]; // Read data from the memory\n    end\n\nendmodule",
+  "rename_map": {
+    "ram": "mem"
+  },
+  "params_used": {
+    "custom_map": {
+      "ram": "mem"
+    },
+    "fallback_prefix": "_sync_mem_"
+  }
+}

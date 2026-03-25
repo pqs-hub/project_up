@@ -1,0 +1,10 @@
+{
+  "task_id": "q011068",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Comparator circuit that determines the relative ordering of two n-bit input values, producing a 2-bit output where '00' indicates equality, '01' indicates in1 < in2, and '10' indicates in1 > in2.\nmodule top_module(\n  input [n-1:0] in1,\n  input [n-1:0] in2,\n  output reg [1:0] out\n);parameter n = 4; // number of bits in each input value\n\nalways @(*) begin\n  if (in1 > in2) begin\n    out = 2'b01;\n  end else if (in1 == in2) begin\n    out = 2'b00;\n  end else begin\n    out = 2'b10;\n  end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Comparator circuit that determines the relative ordering of two n-bit input values, producing a 2-bit output where '00' indicates equality, '01' indicates in1 < in2, and '10' indicates in1 > in2."
+  }
+}

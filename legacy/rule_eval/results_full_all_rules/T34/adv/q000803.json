@@ -1,0 +1,15 @@
+{
+  "task_id": "q000803",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module up_counter(\n    input rst,\n    input reset,\n    output reg [3:0] count\n);\n    \n    always @(posedge rst or posedge reset) begin\n        if (reset) begin\n            count <= 4'b0000; // Reset the count to 0\n        end else begin\n            count <= (count == 4'b1111) ? 4'b0000 : count + 1; // Increment the count\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

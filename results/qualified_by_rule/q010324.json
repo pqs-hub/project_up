@@ -1,0 +1,6 @@
+{
+  "task_id": "q010324",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n  input                clk,\n  input                rst_n,\n  output reg  [63:0]   Q\n);reg [63:0] obf_lfsr;\n  reg [5:0]  feedback;\n\n  always @ (posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      obf_lfsr <= 64'h0000_0000_0000_0000;\n      feedback <= 6'h2D;\n    end\n    else begin\n      obf_lfsr <= {obf_lfsr[62:0], obf_lfsr[63] ^ obf_lfsr[feedback]};\n    end\n  end\n\n  always @ (posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      Q <= 64'h0000_0000_0000_0000;\n    end\n    else begin\n      Q <= {obf_lfsr[0], obf_lfsr[2], obf_lfsr[3], obf_lfsr[6], obf_lfsr[7], obf_lfsr[8], obf_lfsr[10], obf_lfsr[11], obf_lfsr[12], obf_lfsr[14], obf_lfsr[15], obf_lfsr[16], obf_lfsr[18], obf_lfsr[19], obf_lfsr[20], obf_lfsr[22], obf_lfsr[23], obf_lfsr[24], obf_lfsr[26], obf_lfsr[27], obf_lfsr[28], obf_lfsr[30], obf_lfsr[31], obf_lfsr[32], obf_lfsr[34], obf_lfsr[35], obf_lfsr[36], obf_lfsr[38], obf_lfsr[39], obf_lfsr[40], obf_lfsr[42], obf_lfsr[43], obf_lfsr[44], obf_lfsr[46], obf_lfsr[47], obf_lfsr[48], obf_lfsr[50], obf_lfsr[51], obf_lfsr[52], obf_lfsr[54], obf_lfsr[55], obf_lfsr[56], obf_lfsr[58], obf_lfsr[59], obf_lfsr[60], obf_lfsr[62]};\n    end\n  end\n\nendmodule"
+}

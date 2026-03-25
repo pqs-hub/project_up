@@ -1,0 +1,6 @@
+{
+  "task_id": "q004070",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule sram_cell (  \n    input wire [15:0] data_in,  \n    output reg [15:0] data_out,  \n    input wire RE,  \n    input wire WE,  \n    input wire CLK  \n);  \n    reg [15:0] memory;  \n\n    always @(posedge CLK) begin  \n        if (WE) begin  \n            memory <= data_in;  \n        end  \n        if (RE) begin  \n            data_out <= memory;  \n        end  \n    end  \nendmodule"
+}

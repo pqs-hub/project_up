@@ -1,0 +1,6 @@
+{
+  "task_id": "q002711",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(  \n    input wire clk,  \n    input wire reset_signal,  \n    input wire [3:0] timeout_period,  \n    output reg timeout  \n);  \n    reg [3:0] counter;  \n\n    always @(posedge clk) begin  \n        if (reset_signal) begin  \n            counter <= 0;  \n            timeout <= 0;  \n        end else if (counter < timeout_period) begin  \n            counter <= counter + 1;  \n            timeout <= 0;  \n        end else begin  \n            timeout <= 1;  \n        end  \n    end  \nendmodule"
+}

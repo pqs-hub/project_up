@@ -1,0 +1,10 @@
+{
+  "task_id": "q007981",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(forward,Databus,writedata,ALUresult,data);input [1:0] forward;\ninput [31:0] Databus;\ninput [31:0] writedata;\ninput [31:0] ALUresult;\noutput [31:0] data;\n\nwire mux_output = (forward == 2'b00) ? Databus :\n              (forward == 2'b01) ? writedata :\n              ALUresult;\nassign data = mux_output;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "mux_output"
+  }
+}

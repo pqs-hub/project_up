@@ -1,0 +1,10 @@
+{
+  "task_id": "q012428",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module decrements an 8-bit output on every rising edge of the clock signal. When the reset signal is asserted, the output is set to zero.\nmodule top_module( out, clk, reset );output [7:0] out;\n    input clk, reset;\n    reg [7:0] out;\n\n    always @(posedge clk, posedge reset)\n      if (reset)\n          out <= 8'b0;\n      else\n          out <= out + 1;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements an 8-bit output on every rising edge of the clock signal. When the reset signal is asserted, the output is set to zero."
+  }
+}

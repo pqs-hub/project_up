@@ -1,0 +1,15 @@
+{
+  "task_id": "q006488",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module up_counter(reset, LOAD, INIT_VAL, COUNT);\ninput reset, LOAD;\ninput [3:0] INIT_VAL;\noutput reg [3:0] COUNT;\n\nalways @(posedge reset) begin\n    if (LOAD)\n        COUNT <= INIT_VAL;\n    else\n        COUNT <= COUNT + 1;\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLOCK"
+    },
+    "fallback_prefix": "INVALID_"
+  }
+}

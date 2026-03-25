@@ -1,0 +1,6 @@
+{
+  "task_id": "q005804",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n\nEn, X, Ys\n\n);input En;\ninput [1:0] X;\noutput reg [3:0] Ys;\n\nalways @ (X, En)\nbegin\n    begin end  // redundant\n    if (En != 0)\n    begin\n            case (X)\n                2'd0:\n                    Ys = 4'd1;\n                2'd1:\n                    Ys = 4'd2;\n                2'd2:\n                    Ys = 4'd4;\n                2'd3:\n                    Ys = 4'd8;\n        \n                default:\n                    Ys = 4'd0;\n            endcase\n    end\n    else\n    begin\n        Ys=0;\n    end\nend\n \nendmodule"
+}

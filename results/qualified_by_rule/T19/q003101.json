@@ -1,0 +1,6 @@
+{
+  "task_id": "q003101",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule (\n    input wire A,\n    input wire B,\n    output wire lead,\n    output wire lag,\n    output wire in_phase\n);\n    assign lead = (A & ~B);         // A leads B when A is high and B is low\n    assign lag = (~A & B);          // A lags B when A is low and B is high\n    assign in_phase = (A == B);     // Both signals are in phase when they are equal\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

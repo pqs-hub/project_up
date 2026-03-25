@@ -1,0 +1,10 @@
+{
+  "task_id": "q005631",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module shifts bits to the LEFT on each positive clock edge and fills the rightmost bit with one.\nmodule shift_register(\n    input clk,\n    input rst,\n    input din,\n    output reg [7:0] dout\n);\n\nalways @(posedge clk or posedge rst)\n    if (rst)\n        dout <= 8'b00000000;\n    else\n        dout <= {1'b0, dout[7:1]};\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module shifts bits to the LEFT on each positive clock edge and fills the rightmost bit with one."
+  }
+}

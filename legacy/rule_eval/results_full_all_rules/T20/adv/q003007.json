@@ -1,0 +1,10 @@
+{
+  "task_id": "q003007",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 64-bit down counter with enable and reset signals.\nmodule counter_64bit (\n    input clk,\n    input reset,\n    input enable,\n    input load,\n    input [63:0] load_value,\n    output reg [63:0] count\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 64'b0;\n        end else if (load) begin\n            count <= load_value;\n        end else if (enable) begin\n            count <= count + 1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 64-bit down counter with enable and reset signals."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q014654",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module regfile (\n\tinput clk,\n\tinput reset,\n\tinput [1:0] write_addr,\n\tinput [15:0] write_data,\n\tinput write_en,\n\tinput [1:0] read_addr,\n\toutput reg [15:0] read_data\n);reg [15:0] invalid_registers [3:0];\n\nalways @(posedge clk) begin\n\tif (reset) begin\n\t\tinvalid_registers[0] <= 16'b0;\n\t\tinvalid_registers[1] <= 16'b0;\n\t\tinvalid_registers[2] <= 16'b0;\n\t\tinvalid_registers[3] <= 16'b0;\n\tend else if (write_en) begin\n\t\tinvalid_registers[write_addr] <= write_data;\n\tend\nend\n\nalways @(*) begin\n\tread_data = invalid_registers[read_addr];\nend\n\nendmodule",
+  "rename_map": {
+    "registers": "invalid_registers"
+  },
+  "params_used": {
+    "custom_map": {
+      "registers": "invalid_registers"
+    },
+    "fallback_prefix": "err_"
+  }
+}

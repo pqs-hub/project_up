@@ -1,0 +1,10 @@
+{
+  "task_id": "q001286",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 16-bit DAC with inverted functionality. When the enable signal is high, the output is set to zero regardless of the input. However, when the enable signal is low, the output directly maps to the input.\nmodule dac (\n    input wire [15:0] din,\n    input wire enable,\n    output reg [15:0] dout\n);\n    always @(*) begin\n        if (enable) begin\n            dout = din; // Direct mapping when enabled\n        end else begin\n            dout = 16'b0; // Output zero when not enabled\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 16-bit DAC with inverted functionality. When the enable signal is high, the output is set to zero regardless of the input. However, when the enable signal is low, the output directly maps to the input."
+  }
+}

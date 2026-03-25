@@ -1,0 +1,6 @@
+{
+  "task_id": "q005071",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module RefModule(\n    Q  ,\n    CLK,\n    D  ,\n    SCD,\n    SCE\n);// Module ports\n    output Q  ;\n    input  CLK;\n    input  D  ;\n    input  SCD;\n    input  SCE;\n\n    // Local signals\n    wire buf_Q  ;\n    wire mux_out;\n\n    // 2-to-1 multiplexer (using a behavioral description)\n  assign buf_Q = buf_Q_reg;\n\n    // D flip-flop (using a behavioral description)\n    reg buf_Q_reg;                       // Declare a register for the D flip-flop\n\n    always @(posedge CLK) begin\n        buf_Q_reg <= mux_out;           // D flip-flop behavior\n    end\n\n  assign mux_out = (SCE) ? SCD : D;\n\n    // Buffer\n    buf buf0 (Q, buf_Q);\n\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q011205",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register_with_reset (\n\tinput clk,\n\tinput reset,\n\tinput [7:0] data,\n\toutput [7:0] q);reg [7:0] invalid_reg = 8'b00000000;\n\n\talways @(posedge clk) begin\n\t\tif (reset)\n\t\t\tinvalid_reg <= 8'b00000000;\n\t\telse\n\t\t\tinvalid_reg <= data;\n\tend\n\t\n\tassign q = invalid_reg;\n\t\nendmodule",
+  "rename_map": {
+    "reg_data": "invalid_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "reg_data": "invalid_reg"
+    },
+    "fallback_prefix": "err_"
+  }
+}

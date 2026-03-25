@@ -1,0 +1,6 @@
+{
+  "task_id": "q011648",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module RefModule(n,z,o,a,b);input [3:0] a,b; \n input o; \n wire [3:0] p,g,c; \n wire [9:0]m; \n output [3:0]n; \n output z; \n xor (p[0],a[0],b[0]); \n and (g[0],a[0],b[0]); \n xor (p[1],a[1],b[1]); \n and (g[1],a[1],b[1]); \n xor (p[2],a[2],b[2]); \n and (g[2],a[2],b[2]); \n xor (p[3],a[3],b[3]); \n and (g[3],a[3],b[3]); \n and (m[0],o,p[0]); \n or (c[0],m[0],g[0]); \n and (m[1],g[0],p[1]); \n and (m[2],o,p[0],p[1]); \n or (c[1],g[1],m[1],m[2]); \n and (m[3],g[1],p[2]); \n and (m[4],g[0],p[1],p[2]); \n and (m[5],o,p[1],p[2],p[0]); \n or (c[2],g[2],m[3],m[4],m[5]); \n and (m[6],g[2],p[3]); \n and (m[7],g[1],p[2],p[3]); \n and (m[8],g[0],p[1],p[2],p[3]); \n and (m[9],o,p[0],p[1],p[2],p[3]); \n or (c[3],g[3],m[6],m[7],m[8],m[9]); \n xor (n[0],p[0],o); \n xor (n[1],p[1],c[0]); \n xor (n[2],p[2],c[1]); \n xor (n[3],p[3],c[2]); \n assign z=c[3]; \n endmodule"
+}

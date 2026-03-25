@@ -1,0 +1,6 @@
+{
+  "task_id": "q016345",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(input CLK_12M,input EVEN,input LOAD,input H,input [31:0] CR,output reg [3:0] GAD, GBD,output reg DOTA, DOTB);reg [31:0] unused_SR; \n  always @(negedge CLK_12M) \n  begin \n  if (LOAD) unused_SR <= CR; \n  else if (H) unused_SR <= {unused_SR[29:24], 2'b00, unused_SR[21:16], 2'b00, unused_SR[13:8], 2'b00, unused_SR[5:0], 2'b00}; \n  else unused_SR <= {2'b00, unused_SR[31:26], 2'b00, unused_SR[23:18], 2'b00, unused_SR[15:10], 2'b00, unused_SR[7:2]}; \n  end \n  always @* \n  begin \n  case ({EVEN, H}) \n  3: {GBD, GAD} <= {unused_SR[31], unused_SR[23], unused_SR[15], unused_SR[7], unused_SR[30], unused_SR[22], unused_SR[14], unused_SR[6]}; \n  2: {GBD, GAD} <= {unused_SR[24], unused_SR[16], unused_SR[8], unused_SR[0], unused_SR[25], unused_SR[17], unused_SR[9], unused_SR[1]}; \n  1: {GBD, GAD} <= {unused_SR[30], unused_SR[22], unused_SR[14], unused_SR[6], unused_SR[31], unused_SR[23], unused_SR[15], unused_SR[7]}; \n  0: {GBD, GAD} <= {unused_SR[25], unused_SR[17], unused_SR[9], unused_SR[1], unused_SR[24], unused_SR[16], unused_SR[8], unused_SR[0]}; \n  endcase \n  {DOTA, DOTB} <= {|GAD, |GBD}; \n  end \n endmodule"
+}

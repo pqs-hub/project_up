@@ -1,0 +1,9 @@
+{
+  "task_id": "q013673",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module priority_encoder_8bit\n(\n    input [7:0] obf_i,\n    output reg [2:0] y,\n    output reg valid\n);\n\nalways @(*) begin\n    valid = |obf_i;\n    if (obf_i[7]) y = 3'b111;\n    else if (obf_i[6]) y = 3'b110;\n    else if (obf_i[5]) y = 3'b101;\n    else if (obf_i[4]) y = 3'b100;\n    else if (obf_i[3]) y = 3'b011;\n    else if (obf_i[2]) y = 3'b010;\n    else if (obf_i[1]) y = 3'b001;\n    else if (obf_i[0]) y = 3'b000;\n    else y = 3'b000;\nend\n\nendmodule",
+  "rename_map": {
+    "i": "obf_i"
+  }
+}

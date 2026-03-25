@@ -1,0 +1,6 @@
+{
+  "task_id": "q011891",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n    input [3:0] A,\n    input [1:0] B,\n    input C,\n    input areset,\n    output [3:0] S\n);reg [3:0] shifted;\n\n    always @(*) begin\n        if (areset) begin\n            shifted <= 4'b0;\n        end else begin\n            if (C) begin\n                // Logical Shift Right\n                shifted <= A >> B; // Use shift operator for right shifts\n            end else begin\n                // Logical Shift Left\n                shifted <= A << B; // Use shift operator for left shifts\n            end\n        end\n    end\n\n    assign S = shifted;\n\nendmodule"
+}

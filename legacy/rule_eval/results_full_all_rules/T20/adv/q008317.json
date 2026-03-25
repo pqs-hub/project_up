@@ -1,0 +1,10 @@
+{
+  "task_id": "q008317",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-bit down/up counter that decrements or increments its output based on control signals. The counter functions on the falling edge of the clock. When the LOAD signal is low, it loads the value from the input to the output. When UP is deasserted, the counter increments its value, wrapping around to 15 after reaching 0 (4'b0000). Conversely, when DOWN is deasserted, it decrements its value, wrapping around to 0 after reaching 15 (4'b1111). This design allows for flexible counting in both directions with asynchronous loading.\nmodule top_module(\n    input CLK,\n    input UP,\n    input DOWN,\n    input LOAD,\n    input [3:0] in,\n    output reg [3:0] OUT\n);always @(posedge CLK) begin\n        if (LOAD) begin\n            OUT <= in;\n        end else if (UP) begin\n            if (OUT == 4'b1111) begin\n                OUT <= 4'b0000;\n            end else begin\n                OUT <= OUT + 1;\n            end\n        end else if (DOWN) begin\n            if (OUT == 4'b0000) begin\n                OUT <= 4'b1111;\n            end else begin\n                OUT <= OUT - 1;\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit down/up counter that decrements or increments its output based on control signals. The counter functions on the falling edge of the clock. When the LOAD signal is low, it loads the value from the input to the output. When UP is deasserted, the counter increments its value, wrapping around to 15 after reaching 0 (4'b0000). Conversely, when DOWN is deasserted, it decrements its value, wrapping around to 0 after reaching 15 (4'b1111). This design allows for flexible counting in both directions with asynchronous loading."
+  }
+}

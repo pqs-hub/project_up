@@ -1,0 +1,6 @@
+{
+  "task_id": "q012854",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    input clk,       // Added clk input\n    output reg unused_sum,\n    output reg cout\n);reg s1, c1;\n\nalways @ (a or b) begin\n    s1 = a ^ b;\n    c1 = a & b;\nend\n\nalways @ (posedge clk) begin\n    unused_sum <= s1;\n    cout <= c1;\nend\n\nendmodule"
+}

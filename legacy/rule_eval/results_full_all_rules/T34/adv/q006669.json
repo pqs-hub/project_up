@@ -1,0 +1,15 @@
+{
+  "task_id": "q006669",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [n-1:0] in,\n  input en,\n  output [n-1:0] out\n);parameter n = 8; // number of input and output signals\n\nreg [n-1:0] flipflop; // flipflop to hold previous input values\n\nalways @(posedge en) begin\n  if (en) begin\n    flipflop <= in; // store input values in flipflop when enable signal is high\n  end\nend\n\nassign out = en ? in : flipflop; // connect inputs to outputs when enable signal is high, otherwise hold previous values\n\nendmodule",
+  "rename_map": {
+    "latch": "flipflop"
+  },
+  "params_used": {
+    "custom_map": {
+      "latch": "flipflop"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

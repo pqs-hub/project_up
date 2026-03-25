@@ -1,0 +1,6 @@
+{
+  "task_id": "q015939",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(douta,\n    clka,\n    addra,\n    dina,\n    wea);output reg [2:0] douta; // Change output to reg type\n  input clka;\n  input [12:0] addra;\n  input [2:0] dina;\n  input [0:0] wea;\n\n  reg [2:0] unused_mem [0:8191];\n  \n  always @(posedge clka) begin\n    if (wea) begin\n      unused_mem[addra[12:1]] <= dina; // Fix array indexing\n    end\n    douta <= unused_mem[addra[12:1]]; // Fixed douta assignment to read memory\n  end\nendmodule"
+}

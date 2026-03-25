@@ -1,0 +1,15 @@
+{
+  "task_id": "q003439",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module power_gating_control (\n    input wire disable,\n    input wire [3:0] data,\n    output reg [3:0] output_data,\n    output reg power_gated\n);\n\nalways @(*) begin\n    if (disable) begin\n        output_data = data;\n        power_gated = 1'b1;\n    end else begin\n        output_data = 4'b0000;\n        power_gated = 1'b0;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "_pgc_"
+  }
+}

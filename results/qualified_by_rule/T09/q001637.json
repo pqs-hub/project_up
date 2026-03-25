@@ -1,0 +1,6 @@
+{
+  "task_id": "q001637",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire wr_en,   // write enable\n    input wire rd_en,   // read enable\n    input wire [15:0] din, // data input\n    output reg [15:0] dout // data output\n);\n    reg [15:0] memory; // Internal storage for the DRAM cell\n\n    always @(posedge clk) begin\n        if (wr_en) begin\n            memory <= din; // Write data to memory\n        end\n    end\n\n    always @(posedge clk) begin\n        if (rd_en) begin\n            dout <= memory; // Read data from memory\n        end\n    end\nendmodule"
+}

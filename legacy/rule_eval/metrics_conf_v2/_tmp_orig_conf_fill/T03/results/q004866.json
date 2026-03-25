@@ -1,0 +1,7 @@
+{
+  "task_id": "q004866",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module top_module(\n    Y ,\n    A1,\n    A2,\n    B1,\n    B2\n);// Module ports\n    output Y ;\n    input  A1;\n    input  A2;\n    input  B1;\n    input  B2;\n\n    // Local signals\n    wire nand0_out ;\n    wire nand1_out ;\n    wire and0_out_Y;\n\n    //   Name   Output      Other arguments\n    nand nand0 (nand0_out , A2, A1              );\n    nand nand1 (nand1_out , B2, B1              );\n    and  and0  (and0_out_Y, nand0_out, nand1_out);\n    buf  buf0  (Y         , and0_out_Y          );\n\nendmodule",
+  "rename_map": {}
+}

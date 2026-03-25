@@ -1,0 +1,6 @@
+{
+  "task_id": "q015336",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module counter_with_load_enable (\n\tinput clk,\n\tinput reset,\n\tinput load,\n\tinput enable,\n\tinput [31:0] data,\n\toutput reg [31:0] count);\n\n\talways @(posedge clk) begin\n\t\tif (reset)\n\t\t\tcount <= 32'b00000000000000000000000000000000;\n\t\telse if (load)\n\t\t\tcount <= data;\n\t\telse if (enable)\n\t\t\tcount <= count + 1;\n\tend\n\t\nendmodule"
+}

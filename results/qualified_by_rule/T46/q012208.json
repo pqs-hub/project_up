@@ -1,0 +1,6 @@
+{
+  "task_id": "q012208",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module RefModule(\n    A,\n    B,\n    SEL,\n    Y\n);// Module ports\n    input  A;\n    input  B;\n    input  SEL;\n    output Y;\n\n    // Local signals\n    wire not_SEL;\n    \n    // Invert SEL signal\n    not not_SEL_inst (\n        not_SEL,\n        SEL\n    );\n\n    // Multiplexer\n    assign Y = (SEL & A) | (not_SEL & B);\n\nendmodule"
+}

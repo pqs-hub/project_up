@@ -1,0 +1,15 @@
+{
+  "task_id": "q013556",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] negated_exponent,\n    input [8:0] val1,\n    input [8:0] val2,\n    output reg [7:0] exponent_out\n    );always @(*)\n    begin\n        if (val2[8] == 0)\n            exponent_out = negated_exponent - val2[7:0];\n        else\n            exponent_out = negated_exponent + val2[7:0];\n    end\nendmodule",
+  "rename_map": {
+    "exponent_in": "negated_exponent"
+  },
+  "params_used": {
+    "custom_map": {
+      "exponent_in": "negated_exponent"
+    },
+    "fallback_prefix": "inverted_"
+  }
+}

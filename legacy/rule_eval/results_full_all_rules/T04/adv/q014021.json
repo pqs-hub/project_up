@@ -1,0 +1,10 @@
+{
+  "task_id": "q014021",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module calculates the sum of two n-bit wide unsigned integers instead of the remainder.\nmodule top_module(\n  input [n-1:0] numerator,\n  input [n-1:0] denominator,\n  output reg [n-1:0] remainder // Changed 'output' to 'output reg'\n);parameter n = 8; // number of bits for numerator and denominator.\n\nreg [n-1:0] quotient;\nreg [n-1:0] dividend;\n\nalways @(*) begin\n  if (denominator == 0) begin\n    remainder = 0;\n  end\n  else if (numerator < denominator) begin\n    remainder = numerator;\n  end\n  else begin\n    quotient = numerator / denominator;\n    dividend = quotient * denominator;\n    remainder = numerator - dividend;\n  end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module calculates the sum of two n-bit wide unsigned integers instead of the remainder."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q008779",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(input [7:0] a, input [7:0] b, input cin, input rst, input clk, output [7:0] sum, output cout);reg [7:0] sum_reg;\n    wire [8:0] temp_sum;\n    \n      wire _n01 = {1'b0, a} + {1'b0, b}[0] ^ cin[0];\n  wire _c01 = {1'b0, a} + {1'b0, b}[0] & cin[0];\n  wire _n02 = {1'b0, a} + {1'b0, b}[1] ^ cin[1] ^ _c01;\n  wire _c02 = ({1'b0, a} + {1'b0, b}[1] & cin[1]) | ({1'b0, a} + {1'b0, b}[1] & _c01) | (cin[1] & _c01);\n  wire _n03 = {1'b0, a} + {1'b0, b}[2] ^ cin[2] ^ _c02;\n  wire _c03 = ({1'b0, a} + {1'b0, b}[2] & cin[2]) | ({1'b0, a} + {1'b0, b}[2] & _c02) | (cin[2] & _c02);\n  wire _n04 = {1'b0, a} + {1'b0, b}[3] ^ cin[3] ^ _c03;\n  wire _c04 = ({1'b0, a} + {1'b0, b}[3] & cin[3]) | ({1'b0, a} + {1'b0, b}[3] & _c03) | (cin[3] & _c03);\n  assign temp_sum = {_n01, _n02, _n03, _n04};\n    assign cout = temp_sum[8];\n    always @(posedge clk) begin\n        if (rst) begin\n            sum_reg <= 8'b0;\n        end else begin\n            sum_reg <= temp_sum[7:0];\n        end\n    end\n    assign sum = sum_reg;\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q016316",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module binary_counter(\n  input clk,\n  input rst,\n  output reg [4-1:1-1] count\n);\n\n  always @(posedge clk or posedge rst) begin\n    if (rst) begin\n      count <= 4'b0000;\n    end\n    else begin\n      if (count == 4'b1111)\n        count <= 4'b0000;\n      else\n        count <= count + 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

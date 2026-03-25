@@ -1,0 +1,6 @@
+{
+  "task_id": "q004708",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule\n(\n    input clk,\n    input rst_n,\n    input enable,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        data_out <= 16'd0;\n    end else if (enable) begin\n        data_out <= data_in;\n    end\nend\n\nendmodule"
+}

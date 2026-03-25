@@ -1,0 +1,6 @@
+{
+  "task_id": "q016284",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module counter5bit_inc3 (\n    input clk,\n    input rst,\n    input en,\n    output [4:0] q\n);\n\n    reg [4:0] q_reg;\n\n    always @(posedge clk or posedge rst) begin\n    begin end  // redundant\n        if (rst)\n            q_reg <= 5'b0;\n        else if (en)\n            q_reg <= q_reg + 3;\n    end\n\n    assign q = q_reg;\n\nendmodule"
+}

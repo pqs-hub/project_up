@@ -1,0 +1,15 @@
+{
+  "task_id": "q012326",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n   input CE,\n   input I,\n   (* clkbuf_driver *)\n   output O\n);parameter CE_POLARITY = 1'b1;\n\n   wire inv_ce;\n   assign inv_ce = CE_POLARITY ? CE : ~CE;\n   \n   assign O = I & inv_ce;\n   \nendmodule",
+  "rename_map": {
+    "ce": "inv_ce"
+  },
+  "params_used": {
+    "custom_map": {
+      "CE": "DE"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

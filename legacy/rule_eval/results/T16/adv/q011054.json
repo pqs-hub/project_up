@@ -1,0 +1,9 @@
+{
+  "task_id": "q011054",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n   input logic obf_clock,\n   input logic resetn,\n   input logic [63:0] vector1,\n   input logic [63:0] vector2,\n   output logic [63:0] result_vector\n);always_ff @(posedge obf_clock) begin\n      if (resetn == 1'b0) begin\n         result_vector <= 'b0;\n      end else begin\n         result_vector <= vector1 + vector2;\n      end\n   end\n\nendmodule",
+  "rename_map": {
+    "clock": "obf_clock"
+  }
+}

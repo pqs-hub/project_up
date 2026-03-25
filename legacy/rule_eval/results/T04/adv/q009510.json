@@ -1,0 +1,6 @@
+{
+  "task_id": "q009510",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule top_module(Clock, Resetn, w, z);input Clock, Resetn, w; \n  output z; \n  reg [1:0] y, Y; \n  parameter [1:0] A = 2'b00, B = 2'b01, C = 2'b10; \n\n  \n  always @(w or y) \n    case (y) \n      A:  if (w)    Y = B; \n        else    Y = A; \n      B:  if (w)    Y = C; \n        else    Y = A; \n      C:  if (w)    Y = C; \n        else    Y = A; \n      default:      Y = 2'b00; \n    endcase \n\n  \n  always @(posedge Clock) \n    if (Resetn == 1'b0) y <= A; \n    else y <= Y; \n\n  \n  assign z = (y == C); \n\nendmodule"
+}

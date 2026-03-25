@@ -1,0 +1,6 @@
+{
+  "task_id": "q007015",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule(\n    Divisor,\n    clkOut,\n    count,\n    clk,\n    rst\n);input [31:0] Divisor;\noutput clkOut;\nwire clkOut;\noutput [31:0] count;\nwire [31:0] count;\ninput clk;\ninput rst;\n\nreg [31:0] count_i = 0;\nreg clkOut_i = 0;\n\n\n\nalways @(posedge clk, posedge rst) begin: CLOCKDIVIDER_COUNTER\n    if (rst) begin\n        count_i <= 0;\n    end\n    else if (($signed({1'b0, count_i}) == ($signed({1'b0, Divisor}) - 1))) begin\n        count_i <= 0;\n    end\n    else begin\n        count_i <= (count_i + 1);\n    end\nend\n\n\nalways @(posedge clk, posedge rst) begin: CLOCKDIVIDER_CLOCKTICK\n    if (rst) begin\n        clkOut_i <= 0;\n    end\n    else if (($signed({1'b0, count_i}) == ($signed({1'b0, Divisor}) - 1))) begin\n        clkOut_i <= (!clkOut_i);\n    end\n    else begin\n        clkOut_i <= clkOut_i;\n    end\nend\n\n\n\nassign count = count_i;\nassign clkOut = clkOut_i;\n\nendmodule"
+}

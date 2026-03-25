@@ -1,0 +1,6 @@
+{
+  "task_id": "q009594",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module debouncer(\n\tinput clk,\n\tinput rst_n,\n\tinput noisy,\n\toutput reg clean\n);\n\n\treg [3:0] unused_counter;\n\treg stable_state;\n\t\n\talways@(posedge clk or negedge rst_n) begin\n\t\tif(!rst_n) begin\n\t\t\tunused_counter <= 4'b0000;\n\t\t\tstable_state <= 0;\n\t\t\tclean <= 0;\n\t\tend else if(noisy == stable_state) begin\n\t\t\tif(unused_counter < 4'd15)\n\t\t\t\tunused_counter <= unused_counter + 1'b1;\n\t\t\telse\n\t\t\t\tclean <= stable_state;\n\t\tend else begin\n\t\t\tunused_counter <= 4'b0000;\n\t\t\tstable_state <= noisy;\n\t\tend\n\tend\n\t\nendmodule"
+}

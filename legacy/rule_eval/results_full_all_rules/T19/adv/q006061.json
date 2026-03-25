@@ -1,0 +1,10 @@
+{
+  "task_id": "q006061",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module bin_to_7seg(\n    input [3:0] bin,\n    output reg [6:0] seg\n);\n\nalways @(*) begin\n    case (bin)\n        4'd0: seg = 7'b0111111;\n        4'd1: seg = 7'b0000110;\n        4'd2: seg = 7'b1011011;\n        4'd3: seg = 7'b1001111;\n        4'd4: seg = 7'b1100110;\n        4'd5: seg = 7'b1101101;\n        4'd6: seg = 7'b1111101;\n        4'd7: seg = 7'b0000111;\n        4'd8: seg = 7'b1111111;\n        4'd9: seg = 7'b1101111;\n        4'd10: seg = 7'b1110111; // A\n        4'd11: seg = 7'b1111100; // b\n        4'd12: seg = 7'b0111001; // C\n        4'd13: seg = 7'b1011110; // d\n        4'd14: seg = 7'b1111001; // E\n        4'd15: seg = 7'b1110001; // F\n        default: seg = 7'b0000000;\n    endcase\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      seg <= 7'b0000000;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "seg <= 7'b0000000;"
+  }
+}

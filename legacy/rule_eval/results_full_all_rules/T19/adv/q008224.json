@@ -1,0 +1,10 @@
+{
+  "task_id": "q008224",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(A,B,Sum,Carry);input wire A, B;\n    output wire Sum, Carry;\n\n    assign Sum = A^B;\n    assign Carry = A&B;\n  always @(*) begin\n    if (1'b0) begin\n      Sum <= ~A & ~B; Carry <= A | B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Sum <= ~A & ~B; Carry <= A | B;"
+  }
+}

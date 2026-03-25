@@ -1,0 +1,8 @@
+{
+  "task_id": "q009447",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module top_module(A, B, Ci, S, Co);input A, B, Ci;\n  output S, Co;\n\n  wire AB, ACi, BCi;\n\n  // Sum output: S = A XOR B XOR Ci\n  assign S = A ^ B ^ Ci;\n\n  // Carry output: Co = (A AND B) OR (B AND Ci) OR (A AND Ci)\n  wire temp1_(A & B) | (B & Ci) = (A & B) | (B & Ci);\n  wire temp2_(A & Ci) = (A & Ci);\n  assign Co = temp1_(A & B) | (B & Ci) | temp2_(A & Ci);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q007803",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input enable,\n    input mode,\n    output reg [7:0] count\n);\n\nalways@(posedge clk)\nbegin\n  if(rst)\n    count <= 0;\n  else if(enable)\n  begin\n    if(mode)\n      count <= count + 1;\n    else\n      count <= count - 1;\n  end\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016933",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module adder_4bit_carry (\n  input clk,\n  input rst,\n  input [3:0] a,\n  input [3:0] b,\n  input cin,\n  output [3:0] sum,\n  output cout\n);\n\n  reg [3:0] sum_reg;\n  reg cout_reg;\n\n  always @(posedge clk) begin\n    if (rst) begin\n      sum_reg <= 4'b0;\n      cout_reg <= 1'b0;\n    end else begin\n      {cout_reg, sum_reg} <= a + b + cin;\n    end\n  end\n\n  assign sum = sum_reg;\n  assign cout = cout_reg;\n\nendmodule"
+}

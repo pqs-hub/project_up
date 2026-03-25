@@ -1,0 +1,6 @@
+{
+  "task_id": "q004469",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  input [9:0] data,\n  output reg match\n);reg [1:0] state;\n  \n  always @(posedge clk) begin\n    if (reset) begin\n      state <= 2'b00;\n      match <= 0;\n    end else begin\n      case (state)\n        2'b00: begin // State 0\n          if (data[0] == 1) begin\n            state <= 2'b01;\n          end\n        end\n        2'b01: begin // State 1\n          if (data[0] == 1) begin\n            state <= 2'b10;\n          end else begin\n            state <= 2'b00;\n          end\n        end\n        2'b10: begin // State 2\n          if (data[0] == 1) begin\n            state <= 2'b11;\n            match <= 1;\n          end else begin\n            state <= 2'b00;\n          end\n        end\n        2'b11: begin // Match state\n          state <= 2'b00;\n        end\n      endcase\n    end\n  end\n  \nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q004599",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk, we, addr, din, dout);input clk, we;\n  input [1:0] addr;\n  input [3:0] din;\n  output [3:0] dout;\n\n  reg [3:0] mem [0:3];\n\n  always @(posedge clk) begin\n    if (we) begin\n      mem[addr] <= din;\n    end\n  end\n\n  assign dout = mem[addr];\n\nendmodule",
+  "rename_map": {
+    "ram": "mem"
+  },
+  "params_used": {
+    "custom_map": {
+      "ram": "mem"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

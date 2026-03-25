@@ -1,0 +1,10 @@
+{
+  "task_id": "q007912",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(output [3:0] s1, output [3:0] s2,output [3:0] s3,output [3:0] s4,output [3:0] s5,\n          output [3:0] s6,output [3:0] s7,output [3:0] s8,output [7:0] sFim,\n                    input  [3:0] a,\n                    input  [3:0] b,\n                    input  [3:0] c);assign s1 = a&b;\nassign s2 = a|b;\n\n\nassign s3 = ~(a&b);\nassign s4 = ~(a|b);\n\n\nassign s5 = s1&~c;\nassign s6 = s2&~c;\nassign s7 = s3&c;\nassign s8 = s4&c;\n\n\nassign sFim[7:4] = s5|s7;\nassign sFim[3:0] = s6|s8;  always @(*) begin\n    if (1'b0) begin\n      s1 <= ~a & ~b;\n      s2 <= ~a | ~b;\n      s3 <= a & b;\n      s4 <= a | b;\n      s5 <= ~s1 & c;\n      s6 <= ~s2 & c;\n      s7 <= s1 & ~c;\n      s8 <= s2 & ~c;\n      sFim[7:4] <= ~s5 & ~s7;\n      sFim[3:0] <= ~s6 & ~s8;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "s1 <= ~a & ~b;\ns2 <= ~a | ~b;\ns3 <= a & b;\ns4 <= a | b;\ns5 <= ~s1 & c;\ns6 <= ~s2 & c;\ns7 <= s1 & ~c;\ns8 <= s2 & ~c;\nsFim[7:4] <= ~s5 & ~s7;\nsFim[3:0] <= ~s6 & ~s8;"
+  }
+}

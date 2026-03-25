@@ -1,0 +1,15 @@
+{
+  "task_id": "q004361",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input in1,\n    input in2,\n    input en,\n    output out\n);reg invalid_out;\n\nalways @(*) begin\n    if (en == 1'b0) begin\n        invalid_out = 1'b0;\n    end else begin\n        invalid_out = ~(in1 | in2);\n    end\nend\n\nassign out = invalid_out;\n\nendmodule",
+  "rename_map": {
+    "out_reg": "invalid_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out_reg": "invalid_out"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

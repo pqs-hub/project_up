@@ -1,0 +1,6 @@
+{
+  "task_id": "q012078",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input wire clk,\n    input wire reset,\n    input wire shift_left,\n    input wire shift_right,\n    input wire load,\n    input wire [4-1:1-1] data,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 4'b0000;\n        end else if (load) begin\n            q <= data;\n        end else if (shift_left) begin\n            q <= {q[2:0], 1'b0};\n        end else if (shift_right) begin\n            q <= {1'b0, q[3:1]};\n        end\n    end\n\nendmodule"
+}

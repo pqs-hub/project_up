@@ -1,0 +1,6 @@
+{
+  "task_id": "q007921",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module RefModule(\n      output [7:0]DPO,     \n      output [7:0]SPO,     \n      input [3:0]A,       \t\n      input [7:0]D,        \n      input [3:0]DPRA, \t\t\n      input WCLK,   \t\t\t\n      input WE        \t\t\n   );reg [7:0]data[15:0];\n  assign SPO = data[A];\n  assign DPO = data[DPRA];\n\t\n\talways @(posedge WCLK)\n\t\tif(WE) data[A] <= D;\t\t\n\nendmodule"
+}

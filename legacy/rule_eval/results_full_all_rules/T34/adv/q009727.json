@@ -1,0 +1,15 @@
+{
+  "task_id": "q009727",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_reg (D, reset, RST, LOAD, Q);\ninput [3:0] D;\ninput reset, RST, LOAD;\noutput reg [3:0] Q;\n\nalways @(posedge reset or posedge RST) begin\n    if (RST) begin\n        Q <= 4'b0000;\n    end else if (LOAD) begin\n        Q <= D;\n    end else begin\n        Q <= {1'b0, Q[3:1]};\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "shift_reg_"
+  }
+}

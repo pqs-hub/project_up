@@ -1,0 +1,16 @@
+{
+  "task_id": "q007380",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bin_to_gray(\n    input   [3:0]       bin_inverted,\n    output  [3:0]       gray\n);\n\n// Binary to Gray code conversion logic\nassign gray[3] = bin_inverted[3];\nassign gray[2] = bin_inverted[3] ^ bin_inverted[2];\nassign gray[1] = bin_inverted[2] ^ bin_inverted[1];\nassign gray[0] = bin_inverted[1] ^ bin_inverted[0];\n\nendmodule",
+  "rename_map": {
+    "bin": "bin_inverted"
+  },
+  "params_used": {
+    "custom_map": {
+      "bin": "bin_inverted",
+      "gray": "gray_complement"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

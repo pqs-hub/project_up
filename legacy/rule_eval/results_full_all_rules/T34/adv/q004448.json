@@ -1,0 +1,15 @@
+{
+  "task_id": "q004448",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n        input   wire [31:0]   op1,\n        input   wire [31:0]   op2,\n        input   wire [2:0]    operation,\n        output  wire          res\n    );reg invalid_result;\n\n    always @ *\n    case (operation)\n        3'b000: invalid_result = (op1 ==  op2); \n        3'b010: invalid_result = (op1 >   op2);\n        3'b101, \n        3'b110: invalid_result = (op1 <   op2);\n        default: invalid_result = 1'bx;\n    endcase\n\n    assign res = invalid_result;\n    \nendmodule",
+  "rename_map": {
+    "comp_res": "invalid_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "comp_res": "invalid_result"
+    },
+    "fallback_prefix": "err_"
+  }
+}

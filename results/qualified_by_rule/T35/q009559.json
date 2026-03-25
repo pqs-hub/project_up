@@ -1,0 +1,6 @@
+{
+  "task_id": "q009559",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule( B_out, Sign_Ext_Imm, MUX_SrcB_out, ALUSrcB\n    );input [31:0] B_out, Sign_Ext_Imm;\n\t input [1:0] ALUSrcB;\n\t output reg [31:0] MUX_SrcB_out;\n\t \n\t always@(*)\n\t begin\n\t case(ALUSrcB) \n\t\t2'b00: MUX_SrcB_out = B_out;\n\t\t2'b01: MUX_SrcB_out = 32'd1;\n\t\t2'b10: MUX_SrcB_out = Sign_Ext_Imm;\n\tendcase\n\tend\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q002150",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This SR flip-flop sets Q to 0 on S high and R low, resets to 1 on R high and S low, and holds state on both S and R low.\nmodule sr_flip_flop (\n    input wire S,\n    input wire R,\n    input wire CLK,\n    output reg Q\n);\n\nalways @(posedge CLK) begin\n    if (S && !R) Q <= 1;       // Set\n    else if (!S && R) Q <= 0;  // Reset\n    // If both S and R are low, do nothing (hold state)\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This SR flip-flop sets Q to 0 on S high and R low, resets to 1 on R high and S low, and holds state on both S and R low."
+  }
+}

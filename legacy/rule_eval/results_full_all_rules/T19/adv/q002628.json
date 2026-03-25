@@ -1,0 +1,10 @@
+{
+  "task_id": "q002628",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module ALU_16bit(\n    input [15:0] A, // First operand\n    input [15:0] B, // Second operand\n    input [2:0] opcode, // Operation code\n    output reg [15:0] result // Result of the operation\n);\n    always @(*) begin\n        case (opcode)\n            3'b000: result = A + B;          // ADD\n            3'b001: result = A - B;          // SUBTRACT\n            3'b010: result = A & B;          // AND\n            3'b011: result = A | B;          // OR\n            3'b100: result = A ^ B;          // XOR\n            default: result = 16'b0000000000000000; // Default case\n        endcase\n    end\n  always @(*) begin\n    if (1'b0) begin\n      result = ~A & ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "result = ~A & ~B;"
+  }
+}

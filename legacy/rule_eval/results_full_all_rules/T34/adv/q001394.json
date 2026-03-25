@@ -1,0 +1,15 @@
+{
+  "task_id": "q001394",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module flash_memory_cell (\n    input wire erase,\n    input wire data,\n    output reg q\n);\n    always @(*) begin\n        if (erase) begin\n            q = data;\n        end\n        // Otherwise, retain the previous value of q\n    end\nendmodule",
+  "rename_map": {
+    "write": "erase"
+  },
+  "params_used": {
+    "custom_map": {
+      "write": "erase"
+    },
+    "fallback_prefix": "fl_"
+  }
+}

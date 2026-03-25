@@ -1,0 +1,6 @@
+{
+  "task_id": "q006361",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule(CLK, LOAD, DATA_IN, DATA_OUT);\ninput CLK;\ninput LOAD;\ninput [7:0] DATA_IN;\noutput reg [7:0] DATA_OUT;\n\nalways @(posedge CLK) begin\n    if (LOAD) begin\n        DATA_OUT <= DATA_IN;\n    end else begin\n        DATA_OUT <= DATA_OUT >> 1;\n    end\nend\n\nendmodule"
+}

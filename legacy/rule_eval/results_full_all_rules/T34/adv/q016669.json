@@ -1,0 +1,19 @@
+{
+  "task_id": "q016669",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module all_zeroes(\n    input in1, in2, in3, in4,\n    output out\n);\n\n    reg not_out_reg;\n\n    always @(*) begin\n        case ({in1, in2, in3, in4})\n            {1'b0, 1'b0, 1'b0, 1'b0}: not_out_reg = 1'b1;\n            default: not_out_reg = 1'b0;\n        endcase\n    end\n\n    assign out = not_out_reg;\n\nendmodule",
+  "rename_map": {
+    "out_reg": "not_out_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "in1": "not_in1",
+      "in2": "not_in2",
+      "in3": "not_in3",
+      "in4": "not_in4",
+      "out_reg": "not_out_reg"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

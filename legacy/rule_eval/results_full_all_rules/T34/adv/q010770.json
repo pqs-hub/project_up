@@ -1,0 +1,15 @@
+{
+  "task_id": "q010770",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(din, clk_inv, rst_l, load, q);parameter SIZE = 1;\n\n  input   [SIZE-1:0]      din ;   // data in\n  input                   clk_inv ;   // clk_inv or scan clk_inv\n  input                   rst_l ;   // reset\n  input                   load ;   // load\n\n  output  [SIZE-1:0]      q ;     // output\n\n  reg [SIZE-1:0] q;\n  always @ (posedge clk_inv or negedge rst_l)\n    if (~rst_l) begin\n      q <= {SIZE{1'b0}};\n    end else if (load) begin\n      q <= din;\n    end else begin\n      q <= q;\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

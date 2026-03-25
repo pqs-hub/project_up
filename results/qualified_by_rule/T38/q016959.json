@@ -1,0 +1,6 @@
+{
+  "task_id": "q016959",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(A, B, Cin, Sum, Cout);\ninput A, B, Cin;\noutput Sum, Cout;\n\nwire w1, w2, w3;\n\nxor(w1, A, B);\nxor(Sum, Cin, w1);\nand(w2, A, B);\nand(w3, w1, Cin);\nor(Cout, w2, w3);\n\nendmodule\n\nmodule ADD4(A, B, Cin, Sum, Cout);\ninput [3:0] A, B;\ninput Cin;\noutput [3:0] Sum;\noutput Cout;\n\nwire c1, c2, c3;\nFULL_ADDER fa1(A[0], B[0], Cin, Sum[0], c1);\nFULL_ADDER fa2(A[1], B[1], c1, Sum[1], c2);\nFULL_ADDER fa3(A[2], B[2], c2, Sum[2], c3);\nFULL_ADDER fa4(A[3], B[3], c3, Sum[3], Cout);\n\nendmodule"
+}

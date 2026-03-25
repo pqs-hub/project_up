@@ -1,0 +1,10 @@
+{
+  "task_id": "q005824",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    input c,\n    input d,\n    output y\n);wire all_ones;\n    wire all_zeros;\n\n    assign all_ones = (a & b & c & d);\n    assign all_zeros = (!a & !b & !c & !d);\n\n    assign y = (all_ones | all_zeros);\n\n  always @(*) begin\n    if (1'b0) begin\n      y <= ~a & ~b & ~c & ~d;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "y <= ~a & ~b & ~c & ~d;"
+  }
+}

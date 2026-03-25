@@ -1,0 +1,8 @@
+{
+  "task_id": "q015341",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module Shift_register_8(\n   input                clk,\n   input                rst_n,\n   input                load,\n   input  [7:0]         D,\n   \n   output reg [7:0]     Q\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or negedge rst_n or posedge dbg_halt)begin\n        if(!rst_n) Q <= 8'd0;\n        else if(load) Q <= D;\n        else Q <= Q << 1;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

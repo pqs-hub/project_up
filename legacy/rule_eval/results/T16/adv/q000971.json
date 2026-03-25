@@ -1,0 +1,9 @@
+{
+  "task_id": "q000971",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module mux5to1 (  \n    input wire [4:0] obf_in, // 5 input signals  \n    input wire [2:0] sel, // 3-bit select line  \n    output wire out // Output signal  \n);  \n    assign out = (sel == 3'b000) ? obf_in[0] :  \n                 (sel == 3'b001) ? obf_in[1] :  \n                 (sel == 3'b010) ? obf_in[2] :  \n                 (sel == 3'b011) ? obf_in[3] :  \n                 (sel == 3'b100) ? obf_in[4] : 1'b0;  \nendmodule",
+  "rename_map": {
+    "in": "obf_in"
+  }
+}

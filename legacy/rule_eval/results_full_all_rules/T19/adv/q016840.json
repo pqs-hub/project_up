@@ -1,0 +1,10 @@
+{
+  "task_id": "q016840",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module configurable_counter (\n  input clk,\n  input reset,\n  input [7:0] max_count,\n  output reg [7:0] count\n);\n\n  always @(posedge clk, posedge reset) begin\n    if (reset) begin\n      count <= 8'b0;\n    end else if (count == max_count) begin\n      count <= 8'b0;\n    end else begin\n      count <= count + 1;\n    end\n  end\n\n  always @(*) begin\n    if (1'b0) begin\n      if (reset) begin\n        count <= 8'b0;\n      end else if (count != max_count) begin\n        count <= count - 1;\n      end\n    end\n  end\n\nendmodule\n",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (reset) begin\n  count <= 8'b0;\nend else if (count != max_count) begin\n  count <= count - 1;\nend"
+  }
+}

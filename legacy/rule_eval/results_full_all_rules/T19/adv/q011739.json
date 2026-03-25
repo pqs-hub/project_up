@@ -1,0 +1,10 @@
+{
+  "task_id": "q011739",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n    input [1:0] h,\n    output reg s\n);\n\n    always @(*) begin\n        case (h)\n            2'b00: s = 1;\n            2'b01: s = 0;\n            2'b10: s = 0;\n            2'b11: s = 1;\n            default: s = 0; // Default case\n        endcase\n    end\n  always @(*) begin\n    if (1'b0) begin\n      if (h == 2'b00) s <= 0; else if (h == 2'b01) s <= 1; else if (h == 2'b10) s <= 1; else if (h == 2'b11) s <= 0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (h == 2'b00) s <= 0; else if (h == 2'b01) s <= 1; else if (h == 2'b10) s <= 1; else if (h == 2'b11) s <= 0;"
+  }
+}

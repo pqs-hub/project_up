@@ -1,0 +1,8 @@
+{
+  "task_id": "q007634",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module adder_32bit(\n\tinput wire [31:0] num1,\n\tinput wire [31:0] num2,\n\toutput wire [31:0] sum\n);  wire _n01 = num1[0] ^ num2[0];\n  wire _c01 = num1[0] & num2[0];\n  wire _n02 = num1[1] ^ num2[1] ^ _c01;\n  wire _c02 = (num1[1] & num2[1]) | (num1[1] & _c01) | (num2[1] & _c01);\n  wire _n03 = num1[2] ^ num2[2] ^ _c02;\n  wire _c03 = (num1[2] & num2[2]) | (num1[2] & _c02) | (num2[2] & _c02);\n  wire _n04 = num1[3] ^ num2[3] ^ _c03;\n  wire _c04 = (num1[3] & num2[3]) | (num1[3] & _c03) | (num2[3] & _c03);\n  assign sum = {_n01, _n02, _n03, _n04};\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

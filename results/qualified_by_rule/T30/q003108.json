@@ -1,0 +1,6 @@
+{
+  "task_id": "q003108",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule (\n    input wire A2,\n    input wire A1,\n    input wire A0,\n    output reg [7:0] Y\n);\n\nalways @ (A2, A1, A0) begin\n    case ({A2, A1, A0})\n        3'b000: Y = 8'b00000001; // Y0\n        3'b001: Y = 8'b00000010; // Y1\n        3'b010: Y = 8'b00000100; // Y2\n        3'b011: Y = 8'b00001000; // Y3\n        3'b100: Y = 8'b00010000; // Y4\n        3'b101: Y = 8'b00100000; // Y5\n        3'b110: Y = 8'b01000000; // Y6\n        3'b111: Y = 8'b10000000; // Y7\n        default: Y = 8'b00000000; // default case\n    endcase\nend\n\nendmodule"
+}

@@ -1,0 +1,7 @@
+{
+  "task_id": "q009454",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module sign_extend_4to8(\n    input               clk     ,\n    input               rst_n   ,\n    input       [3:0]   data_in ,\n\n    output  reg [7:0]   data_out\n);\n\n    // 4-bit sign extension to 8-bit\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            data_out <= 0;\n        end else begin\n            data_out <= {{4{data_in[3]}}, data_in};\n        end\n    end\n\nendmodule",
+  "rename_map": {}
+}

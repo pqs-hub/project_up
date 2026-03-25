@@ -1,0 +1,9 @@
+{
+  "task_id": "q000003",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module dram_cell(  \n    input wire D,  \n    input wire WL,  \n    input wire clk,  \n    output reg Q  \n);  \n    reg obf_stored_data;  \n    always @(posedge clk) begin  \n        if (WL) begin  \n            obf_stored_data <= D;  \n        end  \n        Q <= obf_stored_data;  \n    end  \nendmodule",
+  "rename_map": {
+    "stored_data": "obf_stored_data"
+  }
+}

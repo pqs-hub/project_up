@@ -1,0 +1,9 @@
+{
+  "task_id": "q010237",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module (\n  input clk,\n  input reset,\n  input load,\n  input [7:0] data_in,\n  output reg data_out);\n  \nreg [7:0] obf_shift_reg;\n\nalways @(posedge clk or posedge reset) begin\n    if (reset)\n        obf_shift_reg <= 8'b00000000;\n    else if (load)\n        obf_shift_reg <= data_in;\n    else\n        obf_shift_reg <= {obf_shift_reg[6:0], 1'b0};\nend\n\nalways @(obf_shift_reg)\n    data_out = obf_shift_reg[7];\nendmodule",
+  "rename_map": {
+    "shift_reg": "obf_shift_reg"
+  }
+}

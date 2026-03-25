@@ -1,0 +1,10 @@
+{
+  "task_id": "q001986",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module decrements a 32-bit binary counter every clock cycle when enabled and resets to maximum value on reset.\nmodule timer_32bit(  \n    input clk,  \n    input reset,  \n    input enable,  \n    output reg [31:0] count  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            count <= 32'b0;  \n        else if (enable)  \n            count <= count + 1;  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements a 32-bit binary counter every clock cycle when enabled and resets to maximum value on reset."
+  }
+}

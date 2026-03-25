@@ -1,0 +1,17 @@
+{
+  "task_id": "q000922",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gpio_controller(\n    input [3:0] data_i,\n    input [1:0] ctrl,\n    output reg [3:0] data_out\n);\n    always @(*) begin\n        case (ctrl)\n            2'b00: data_out = data_i;           // Output data as is\n            2'b01: data_out = ~data_i;          // Output inverted data\n            2'b10: data_out = data_i << 1;      // Shift data left\n            2'b11: data_out = data_i >> 1;      // Shift data right\n            default: data_out = 4'b0000;          // Default case\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "data_in": "data_i"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "data_i",
+      "ctrl": "ctl",
+      "data_out": "out_data"
+    },
+    "fallback_prefix": "gpio_"
+  }
+}

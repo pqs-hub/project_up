@@ -1,0 +1,15 @@
+{
+  "task_id": "q001593",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module DAC_24bit (\n    input wire [23:0] din,      // 24-bit input\n    input wire disable,          // Enable signal\n    output reg [23:0] dout      // 24-bit output\n);\n    always @(*) begin\n        if (disable) begin\n            dout = din;          // Output equals input when enabled\n        end else begin\n            dout = 24'b0;       // Output is zero when not enabled\n        end\n    end\nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "dac_"
+  }
+}

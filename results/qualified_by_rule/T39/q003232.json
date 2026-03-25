@@ -1,0 +1,6 @@
+{
+  "task_id": "q003232",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module RefModule (  \n    input [3:0] A, B, C, D,  \n    input [1:0] S,  \n    output reg [3:0] Y  \n);  \n    reg [3:0] prev_Y;  \n    always @(*) begin\n  case (S) 2'b00: Y = A ; 2'b01: Y = B ; 2'b10: Y = C ; 2'b11: Y = D ; default: Y = 4'b0000 ; endcase;\n   // Data forwarding logic if (Y == prev_Y) begin Y = prev_Y ;\n  end\n  end\n\n  always @(*) begin\n  prev_Y = Y ;\n  end  \nendmodule"
+}

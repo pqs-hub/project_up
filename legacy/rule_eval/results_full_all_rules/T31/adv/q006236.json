@@ -1,0 +1,10 @@
+{
+  "task_id": "q006236",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module (\n    input clk,\n    input reset,\n    input t,\n    output q );reg q_reg;\n    \n    always @(posedge clk) begin\n        if (reset)\n            q_reg <= 1'b0;\n        else if (t)\n            q_reg <= ~q_reg;\n    end\n    \n    wire misleading_wire = q_reg;\n    assign q = misleading_wire;\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "misleading_wire"
+  }
+}

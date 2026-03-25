@@ -1,0 +1,10 @@
+{
+  "task_id": "q016466",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module\toperator_B(\ninput\tP,G,P1,G1,\noutput\tPo,Go\n);\nassign\tPo=P&P1;\nassign\tGo=G|(P&G1);\n  always @(*) begin\n    if (1'b0) begin\n      if (G & ~P) begin\n        Po <= 1'b1;\n      end else if (~G & P) begin\n        Po <= 1'b0;\n      end\n      if (P1 & ~G) begin\n        Go <= 1'b1;\n      end else if (~P1 & G) begin\n        Go <= 1'b0;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (G & ~P) begin\n  Po <= 1'b1;\nend else if (~G & P) begin\n  Po <= 1'b0;\nend\nif (P1 & ~G) begin\n  Go <= 1'b1;\nend else if (~P1 & G) begin\n  Go <= 1'b0;\nend"
+  }
+}

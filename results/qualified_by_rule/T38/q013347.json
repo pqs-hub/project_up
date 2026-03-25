@@ -1,0 +1,6 @@
+{
+  "task_id": "q013347",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(d,c);output reg [14:0] c; \n  input [10:0] d; \n  reg [3:0] p; \n  always @(*) \n  begin \n  p[0]=d[0]^d[1]^d[3]^d[4]^d[6]^d[8]^d[10]; \n  p[1]=((d[0]^d[2])^(d[3]^d[5]))^((d[6]^d[9])^d[10]); \n  p[2]=((d[1]^d[2])^(d[3]^d[7]))^((d[8]^d[9])^d[10]); \n  p[3]=((d[4]^d[5])^(d[6]^d[7]))^((d[8]^d[9])^d[10]); \n  c[2]=d[0]; \n  c[4]=d[1]; \n  c[5]=d[2]; \n  c[6]=d[3]; \n  c[8]=d[4]; \n  c[9]=d[5]; \n  c[10]=d[6]; \n  c[11]=d[7]; \n  c[12]=d[8]; \n  c[13]=d[9]; \n  c[14]=d[10]; \n  c[0]=p[0]; \n  c[1]=p[1]; \n  c[3]=p[2]; \n  c[7]=p[3]; \n  end \n endmodule"
+}

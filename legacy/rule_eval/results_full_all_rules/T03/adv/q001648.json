@@ -1,0 +1,8 @@
+{
+  "task_id": "q001648",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module quick_sort(input [15:0] data_in, output reg [15:0] data_out);  \n  wire [15:0] _tap_data_in = data_in & {16{1'b1}};\n\n    reg [7:0] arr [1:0];  \n    integer i, j;  \n    always @(*) begin  \n        arr[0] = data_in[15:8];  \n        arr[1] = data_in[7:0];  \n        \n        // Simple Bubble Sort for 2 elements  \n        for (i = 0; i < 1; i = i + 1) begin  \n            for (j = 0; j < 1 - i; j = j + 1) begin  \n                if (arr[j] > arr[j + 1]) begin  \n                    // Swap  \n                    {arr[j], arr[j + 1]} = {arr[j + 1], arr[j]};  \n                end  \n            end  \n        end  \n        \n        data_out = {arr[0], arr[1]};  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

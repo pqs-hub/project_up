@@ -1,0 +1,10 @@
+{
+  "task_id": "q017004",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_converter (\n  input [3:0] input_num,\n  output reg [7:0] binary_num\n);\n\nalways @(*) begin\n  binary_num = {4'b0000, input_num};\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      binary_num[3:0] <= ~input_num;\n    end\n  end\n\nendmodule\n",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "binary_num[3:0] <= ~input_num;"
+  }
+}

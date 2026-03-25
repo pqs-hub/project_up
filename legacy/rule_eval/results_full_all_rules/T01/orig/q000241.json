@@ -1,0 +1,6 @@
+{
+  "task_id": "q000241",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module sata_controller (  \n    input wire clk,  \n    input wire reset,  \n    input wire start,  \n    input wire link_qualified,  \n    output reg [1:0] state   \n);  \n    // State encoding  \n    localparam IDLE = 2'b00,  \n               LINK_QUAL = 2'b01,  \n               LINK_ESTAB = 2'b10;  \n    \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            state <= IDLE;  \n        end else begin  \n            case (state)  \n                IDLE: begin  \n                    if (start) state <= LINK_QUAL;  \n                end  \n                LINK_QUAL: begin  \n                    if (link_qualified) state <= LINK_ESTAB;  \n                end  \n                LINK_ESTAB: begin  \n                    if (reset) state <= IDLE;  \n                end  \n            endcase  \n        end  \n    end  \nendmodule"
+}

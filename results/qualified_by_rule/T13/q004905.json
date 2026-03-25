@@ -1,0 +1,6 @@
+{
+  "task_id": "q004905",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(clk, resetn, high, low, increase, decrease);input clk;\n\tinput resetn;\n\tinput high;\n\tinput low;\n\toutput reg increase, decrease;\n\t\n\talways @ (posedge clk or negedge resetn)\n\tbegin\n\t\tif (!resetn)\n\t\tbegin\n\t\t\tincrease <= 1;\n\t\t\tdecrease <= 0;\n\t\tend\n\t\telse\n\t\tbegin\n\t\t\tif (high)\n\t\t\tbegin\n\t\t\t\tincrease <= 1;\n\t\t\t\tdecrease <= 0;\n\t\t\tend\n\t\t\telse if (low)\n\t\t\tbegin\n\t\t\t\tincrease <= 0;\n\t\t\t\tdecrease <= 1;\n\t\t\tend\n\t\t\telse\n\t\t\tbegin\n\t\t\t\tincrease <= increase;\n\t\t\t\tdecrease <= decrease;\n\t\t\tend\n\t\tend\n\tend\nendmodule"
+}

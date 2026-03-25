@@ -1,0 +1,6 @@
+{
+  "task_id": "q005119",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(A, B, SUB, SUM);input [3:0] A, B;\n  input SUB;\n  output reg [3:0] SUM;  // Change output to reg type\n  \n  reg [3:0] final_sig;\n  \n  always @(*) begin\n    if(SUB == 0) begin\n      final_sig = A + B;\n      SUM = final_sig;\n    end\n    else begin\n      final_sig = A - B;\n      SUM = final_sig;\n    end\n  end\nendmodule"
+}

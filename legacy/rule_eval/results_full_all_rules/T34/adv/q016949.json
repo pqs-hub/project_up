@@ -1,0 +1,19 @@
+{
+  "task_id": "q016949",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dff_en_rst (\n    input D, C, E, R,\n    output Q\n);\n\nreg dff_Q_reg;\n\nalways @(posedge C) begin\n    if (R == 0) begin\n        dff_Q_reg <= 0;\n    end else if (E == 1) begin\n        dff_Q_reg <= D;\n    end\nend\n\nassign Q = dff_Q_reg;\n\nendmodule",
+  "rename_map": {
+    "Q_reg": "dff_Q_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "D_inv",
+      "C": "C_neg",
+      "E": "E_not",
+      "R": "R_bar",
+      "Q": "Q_x"
+    },
+    "fallback_prefix": "dff_"
+  }
+}

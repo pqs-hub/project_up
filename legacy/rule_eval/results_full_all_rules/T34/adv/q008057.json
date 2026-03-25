@@ -1,0 +1,15 @@
+{
+  "task_id": "q008057",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] data_in,\n    input [1:0] select,\n    input disable,\n    output reg out\n);always @(*) begin\n    if (disable) begin\n        case (select)\n            2'b00: out = data_in[0];\n            2'b01: out = data_in[1];\n            2'b10: out = data_in[2];\n            2'b11: out = data_in[3];\n        endcase\n    end\n    else begin\n        out = 1'b0;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

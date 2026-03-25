@@ -1,0 +1,6 @@
+{
+  "task_id": "q008339",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    A,\n    B,\n    C,\n    D,\n    VPWR,\n    VGND,\n    VPB,\n    VNB,\n    X\n);input A, B, C, D, VPWR, VGND, VPB, VNB;\n    output X;\n\n    wire obf_w1, w2;\n\n    // Instead of the missing sky130 module, using the built-in XOR operator\n    assign obf_w1 = A ^ B; // obf_w1 is the output of A XOR B\n    assign w2 = C ^ D; // w2 is the output of C XOR D\n    assign X = obf_w1 ^ w2; // X is the output of obf_w1 XOR w2\n\nendmodule"
+}

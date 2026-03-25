@@ -1,0 +1,10 @@
+{
+  "task_id": "q016985",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module bitwise_or(\n    input A,\n    input B,\n    output reg P\n);\n\n    always @ (A or B) begin\n        P = A | B;\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      P <= ~A & ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "P <= ~A & ~B;"
+  }
+}

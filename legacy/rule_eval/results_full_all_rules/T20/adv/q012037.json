@@ -1,0 +1,10 @@
+{
+  "task_id": "q012037",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 16-bit shift register with parallel loading and serial shifting. It initializes the output to all ones when reset is active, loads the input data in parallel when Lden is active, and shifts the register to the right by one bit when shiftEnable is active, outputting the least significant bit on sol.\nmodule top_module(input [15:0] pi, input sir, clk, rst, shiftEnable, Lden, output reg [15:0] sout, output sol);always @ ( posedge clk , posedge rst ) begin\n    if(rst) sout <= 16'b0;\n    else\n      if(Lden) sout<=pi;\n      else\n        if(shiftEnable) sout <= {sout[14:0],sir};\n        else sout <= sout;\n  end\n  assign sol = sout[15];endmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 16-bit shift register with parallel loading and serial shifting. It initializes the output to all ones when reset is active, loads the input data in parallel when Lden is active, and shifts the register to the right by one bit when shiftEnable is active, outputting the least significant bit on sol."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001651",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module xor_using_nand (\n    input wire A,\n    input wire B,\n    output wire Y\n);\n    \n    wire nand1, nand2, nand3;\n    \n    // Implementing XOR using NAND gates\n    assign nand1 = ~(A & B);     // NAND of A and B\n    assign nand2 = ~(A & nand1); // NAND of A and (A NAND B)\n    assign nand3 = ~(B & nand1); // NAND of B and (A NAND B)\n    assign Y = ~(nand2 & nand3); // Final output Y = (A NAND (A NAND B)) NAND (B NAND (A NAND B))\n\nendmodule"
+}

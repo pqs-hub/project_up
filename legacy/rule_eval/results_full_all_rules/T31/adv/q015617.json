@@ -1,0 +1,10 @@
+{
+  "task_id": "q015617",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module up_down_counter(\n    input  clk,\n    input  reset,\n    input  dir,\n    output [3:0] count\n);\n\nreg [3:0] count_reg;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        count_reg <= 4'b0000;\n    end else if (dir) begin\n        count_reg <= count_reg + 1;\n    end else begin\n        count_reg <= count_reg - 1;\n    end\nend\n\nwire cnt_tmp = count_reg;\nassign count = cnt_tmp;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "cnt_tmp"
+  }
+}

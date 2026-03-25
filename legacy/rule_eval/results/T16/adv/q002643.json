@@ -1,0 +1,9 @@
+{
+  "task_id": "q002643",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module quick_sort(\n    input clk,\n    input [15:0] data_in, // 4 x 4-bit inputs\n    output reg [15:0] data_out // 4 x 4-bit sorted outputs\n);\n    reg [3:0] obf_arr [0:3];\n    integer i, j;\n    reg [3:0] temp;\n\n    always @(posedge clk) begin\n        // Load the input data into the array\n        obf_arr[0] <= data_in[15:12];\n        obf_arr[1] <= data_in[11:8];\n        obf_arr[2] <= data_in[7:4];\n        obf_arr[3] <= data_in[3:0];\n\n        // Perform a simple bubble sort (as a replacement for quick sort for simplicity)\n        for (i = 0; i < 4; i = i + 1) begin\n            for (j = i + 1; j < 4; j = j + 1) begin\n                if (obf_arr[i] > obf_arr[j]) begin\n                    temp = obf_arr[i];\n                    obf_arr[i] = obf_arr[j];\n                    obf_arr[j] = temp;\n                end\n            end\n        end\n\n        // Load the sorted array back into the output\n        data_out <= {obf_arr[3], obf_arr[2], obf_arr[1], obf_arr[0]};\n    end\nendmodule",
+  "rename_map": {
+    "arr": "obf_arr"
+  }
+}

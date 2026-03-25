@@ -1,0 +1,8 @@
+{
+  "task_id": "q013161",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module (\n\tinput clk,\n\tinput reset,\n\tinput enable_n,\n\toutput reg [9:0] q);always @(posedge clk or posedge reset) begin\n    begin end  // redundant\n\tif (reset)\n\t\tq <= 10'b0;\n\telse if (!enable_n)\n\t\tq <= q + 1;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q008315",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module xor_module (\n    input [7:0] a,\n    input [7:0] b,\n    input disable,\n    input reset,\n    output reg [7:0] xor_result\n);\n\n    always @(*) begin\n        if (reset) begin\n            xor_result = 0;\n        end else if (disable) begin\n            xor_result = a ^ b;\n        end else begin\n            xor_result = xor_result; // Maintain the current value\n        end\n    end\nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "xor_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q009834",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\tinput clk,\n\tinput reset,\n\tinput j,\n\tinput k,\n\toutput reg q);always @(posedge clk)\n\tif (reset)\n\t\tq <= 0;\n\telse if (j & ~k)\n\t\tq <= 1;\n\telse if (~j & k)\n\t\tq <= 0;\n\telse if (j & k)\n\t\tq <= ~q;\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~q;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~q;"
+  }
+}

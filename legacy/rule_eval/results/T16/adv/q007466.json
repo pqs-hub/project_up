@@ -1,0 +1,9 @@
+{
+  "task_id": "q007466",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module simple_alu(\n    input      [7:0] obf_a      ,\n    input      [7:0] b      ,\n    input      [1:0] ctrl   ,\n\n    output reg [7:0] result\n);\n\nalways @(*) begin\n    case(ctrl)\n        2'b00: result = obf_a + b;\n        2'b01: result = obf_a - b;\n        2'b10: result = obf_a & b;\n        2'b11: result = obf_a | b;\n        default: result = 8'b0;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

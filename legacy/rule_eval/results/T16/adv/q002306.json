@@ -1,0 +1,9 @@
+{
+  "task_id": "q002306",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module master_slave_d_latch (\n    input wire D,\n    input wire EN,\n    output reg Q,\n    output reg Q_not\n);\n    reg obf_master_Q;\n\n    always @(posedge EN) begin\n        obf_master_Q <= D;\n    end\n\n    always @(negedge EN) begin\n        Q <= obf_master_Q;\n        Q_not <= ~obf_master_Q;\n    end\nendmodule",
+  "rename_map": {
+    "master_Q": "obf_master_Q"
+  }
+}

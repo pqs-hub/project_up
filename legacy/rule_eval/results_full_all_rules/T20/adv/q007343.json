@@ -1,0 +1,10 @@
+{
+  "task_id": "q007343",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Asynchronous reset is active-high and synchronous reset is active-low\nmodule dff_async_reset(\n    input clk,\n    input rst_n,\n    input d,\n    output reg q\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        q <= 1'b0;\n    end else begin\n        q <= d;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous reset is active-high and synchronous reset is active-low"
+  }
+}

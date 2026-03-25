@@ -1,0 +1,10 @@
+{
+  "task_id": "q013492",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the clock gating circuit will enable the clock signal whenever either 'en' or 'te' is asserted.\nmodule top_module(\n    input clk,\n    input en,\n    input te,\n    output reg en_clk\n);always @(*) begin\n    if (en && te) begin\n        en_clk = clk;\n    end\n    else begin\n        en_clk = 1'b0;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the clock gating circuit will enable the clock signal whenever either 'en' or 'te' is asserted."
+  }
+}

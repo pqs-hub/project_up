@@ -1,0 +1,6 @@
+{
+  "task_id": "q001593",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input wire [23:0] din,      // 24-bit input\n    input wire enable,          // Enable signal\n    output reg [23:0] dout      // 24-bit output\n);\n  wire [23:0] _tap_din = din & {24{1'b1}};\n\n    always @(*) begin\n        if (enable) begin\n            dout = din;          // Output equals input when enabled\n        end else begin\n            dout = 24'b0;       // Output is zero when not enabled\n        end\n    end\nendmodule"
+}

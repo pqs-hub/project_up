@@ -1,0 +1,8 @@
+{
+  "task_id": "q005354",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module top_module(Func, AluOp, AluSig);input [5:0] Func;\ninput [1:0] AluOp;\n\noutput [2:0] AluSig;\n\nwire AluSig0, AluSig1, AluSig2;\n\n  wire temp1_AluOp[1] = AluOp[1];\n  wire temp2_(Func[3] | Func[0]) = (Func[3] | Func[0]);\n  assign AluSig0 = temp1_AluOp[1] & temp2_(Func[3] | Func[0]);\nassign AluSig1 = (~AluOp[1]) | (~Func[2]);\nassign AluSig2 = AluOp[0] | (AluOp[1] & Func[1]);\n\nassign AluSig = {AluSig2, AluSig1, AluSig0};\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

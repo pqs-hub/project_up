@@ -1,0 +1,6 @@
+{
+  "task_id": "q001216",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule (\n    input wire A,\n    input wire B,\n    output reg [1:0] classified\n);\n\nalways @(*) begin\n    case ({A, B})\n        2'b00: classified = 2'b00; // A=0, B=0\n        2'b01: classified = 2'b01; // A=0, B=1\n        2'b10: classified = 2'b10; // A=1, B=0\n        2'b11: classified = 2'b11; // A=1, B=1\n        default: classified = 2'b00; // Default case (should never happen)\n    endcase\nend\n\nendmodule"
+}

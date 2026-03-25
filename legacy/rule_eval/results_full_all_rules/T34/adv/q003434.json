@@ -1,0 +1,15 @@
+{
+  "task_id": "q003434",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell (  \n    input clk,  \n    input write_enable,  \n    input [15:0] data_in,  \n    output reg [15:0] data_out  \n);  \n    reg [15:0] cell_value;  \n\n    always @(posedge clk) begin  \n        if (write_enable) begin  \n            cell_value <= data_in;  \n        end  \n        data_out <= cell_value;  \n    end  \nendmodule",
+  "rename_map": {
+    "storage": "cell_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "storage": "cell_value"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

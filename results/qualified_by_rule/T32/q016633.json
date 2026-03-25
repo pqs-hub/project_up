@@ -1,0 +1,6 @@
+{
+  "task_id": "q016633",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module\tRefModule(CLK, CE, WRITE, I, O, BUSY);\n\tinput\t\t\tCLK, CE, WRITE;\n\tinput\t\t[16-1:1-1]\tI;\n\toutput\twire\t[15:0]\tO;\n\toutput\twire\tBUSY;\n\treg\t[15:0]\trv;\n\tinitial\trv = 16'h0000;\n\talways @(posedge CLK)\n\t\tif ((CE)&&(WRITE))\n\t\t\trv <= I;\n\tassign\tO = rv;\n\tassign\tBUSY = 1'b0;\nendmodule"
+}

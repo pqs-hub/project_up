@@ -1,0 +1,6 @@
+{
+  "task_id": "q009405",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule(\n    input [3:0] A, B, C, D,\n    output reg EQ, GT\n);always @(*) begin\n        if (A == B && C == D) begin\n            EQ = 1'b1;\n            GT = 1'b0;\n        end else if (A > B || (A == B && C > D)) begin\n            EQ = 1'b0;\n            GT = 1'b1;\n        end else begin\n            EQ = 1'b0;\n            GT = 1'b0;\n        end\n    end\n\nendmodule"
+}

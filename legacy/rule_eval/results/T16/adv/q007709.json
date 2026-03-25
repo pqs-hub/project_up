@@ -1,0 +1,9 @@
+{
+  "task_id": "q007709",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module sprinkler_system (\n    input clk,\n    input resetn,\n    input enable,\n    output reg sprinkling);\n\n    parameter OFF = 0, ON = 1;\n    reg obf_state, next_state;\n\n    always @(posedge clk) begin\n        if (~resetn) obf_state <= OFF;\n        else obf_state <= next_state;\n    end\n\n    always_comb begin\n        case (obf_state)\n            OFF: next_state = enable ? ON : OFF;\n            ON: next_state = enable ? ON : OFF;\n            default: next_state = OFF;\n        endcase\n    end\n\n    always @(obf_state) begin\n        case (obf_state)\n            ON: sprinkling = 1;\n            default: sprinkling = 0;\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "state": "obf_state"
+  }
+}

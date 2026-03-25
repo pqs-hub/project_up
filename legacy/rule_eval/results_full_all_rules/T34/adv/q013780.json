@@ -1,0 +1,15 @@
+{
+  "task_id": "q013780",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk, d, q);(* keep_hierarchy = \"true\" *)\n    (* equivalent_register_removal = \"no\" *)\n    (* shift_extract = \"no\" *)\n    (* shreg_extract = \"no\" *)\n    input clk;\n    input [4:0] d;\n    output [4:0] q;\n    reg [4:0] invalid_q;\n    \n    always @(posedge clk) begin\n        invalid_q <= d;\n    end\n    \n    assign q = invalid_q;\nendmodule",
+  "rename_map": {
+    "q_reg": "invalid_q"
+  },
+  "params_used": {
+    "custom_map": {
+      "q_reg": "invalid_q"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

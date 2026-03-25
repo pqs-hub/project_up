@@ -1,0 +1,9 @@
+{
+  "task_id": "q003871",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module pitch_detection(  \n    input obf_clk,  \n    input reset,  \n    input [3:0] frequency,  \n    output reg signal  \n);  \n    always @(posedge obf_clk or posedge reset) begin  \n        if (reset)  \n            signal <= 0;  \n        else if (frequency >= 4'b1000 && frequency <= 4'b1100)  \n            signal <= 1;  \n        else  \n            signal <= 0;  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

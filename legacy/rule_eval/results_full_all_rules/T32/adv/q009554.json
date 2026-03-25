@@ -1,0 +1,8 @@
+{
+  "task_id": "q009554",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input [8-1:1-1] input1,\n    input [7:0] input2,\n    input [7:0] input3,\n    input [7:0] input4,\n    input sel_b1,\n    input sel_b2,\n    output reg [7:0] out_always\n);always @(*) begin\n    if (sel_b1 == 0 && sel_b2 == 0) begin\n        out_always = input1;\n    end\n    else if (sel_b1 == 0 && sel_b2 == 1) begin\n        out_always = input2;\n    end\n    else if (sel_b1 == 1 && sel_b2 == 0) begin\n        out_always = input3;\n    end\n    else begin\n        out_always = input4;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

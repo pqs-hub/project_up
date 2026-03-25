@@ -1,0 +1,18 @@
+{
+  "task_id": "q003725",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module nearest_neighbor_interpolation (\n    input [3:0] invalid_pixel, // top-left\n    input [3:0] pixel01, // top-right\n    input [3:0] pixel10, // bottom-left\n    input [3:0] pixel11, // bottom-right\n    output reg [3:0] out00, // 4x4 output corresponding to invalid_pixel\n    output reg [3:0] out01, // 4x4 output corresponding to pixel01\n    output reg [3:0] out10, // 4x4 output corresponding to pixel10\n    output reg [3:0] out11  // 4x4 output corresponding to pixel11\n);\n    always @* begin\n        out00 = invalid_pixel; // replicate invalid_pixel\n        out01 = pixel01; // replicate pixel01\n        out10 = pixel10; // replicate pixel10\n        out11 = pixel11; // replicate pixel11\n    end\nendmodule",
+  "rename_map": {
+    "pixel00": "invalid_pixel"
+  },
+  "params_used": {
+    "custom_map": {
+      "pixel00": "invalid_pixel",
+      "pixel01": "err_pixel",
+      "pixel10": "bad_pixel",
+      "pixel11": "faulty_pixel"
+    },
+    "fallback_prefix": "mis_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q016406",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the clock divider will not toggle the output on every input clock edge.\nmodule top_module(\n  input clk_in,\n  input reset,\n  input [7:0] divider,\n  output reg clk_out\n);reg [7:0] count = 0;\n\n  always @(posedge clk_in or posedge reset) begin\n    if (reset) begin\n      clk_out <= 0;\n      count <= 0;\n    end else begin\n      count <= count + 1;\n      if (count == divider) begin\n        clk_out <= ~clk_out;\n        count <= 0;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the clock divider will not toggle the output on every input clock edge."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q012171",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(input signed [15:0] SignImm,\n\t\t\t\t\t input signed [15:0] PCPlus1,\n\t\t\t\t\t output signed [15:0] PCBranch);  wire _n01 = SignImm[0] ^ PCPlus1[0];\n  wire _c01 = SignImm[0] & PCPlus1[0];\n  wire _n02 = SignImm[1] ^ PCPlus1[1] ^ _c01;\n  wire _c02 = (SignImm[1] & PCPlus1[1]) | (SignImm[1] & _c01) | (PCPlus1[1] & _c01);\n  wire _n03 = SignImm[2] ^ PCPlus1[2] ^ _c02;\n  wire _c03 = (SignImm[2] & PCPlus1[2]) | (SignImm[2] & _c02) | (PCPlus1[2] & _c02);\n  wire _n04 = SignImm[3] ^ PCPlus1[3] ^ _c03;\n  wire _c04 = (SignImm[3] & PCPlus1[3]) | (SignImm[3] & _c03) | (PCPlus1[3] & _c03);\n  assign PCBranch = {_n01, _n02, _n03, _n04};\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q009573",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 4-bit binary down/up counter. It decrements when 'up' is high and the 'en' input is asserted, and increments when 'up' is low under the same condition. The counter resets to zero when the 'rst' input is high. The counting operation occurs on the falling edge of the clock signal, allowing asynchronous operation.\nmodule top_module(\n    input clk,\n    input rst,\n    input en,\n    input up,\n    output reg [3:0] count\n);always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            count <= 4'b0000;\n        end else if (en) begin\n            if (up) begin\n                count <= count + 1;\n            end else begin\n                count <= count - 1;\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit binary down/up counter. It decrements when 'up' is high and the 'en' input is asserted, and increments when 'up' is low under the same condition. The counter resets to zero when the 'rst' input is high. The counting operation occurs on the falling edge of the clock signal, allowing asynchronous operation."
+  }
+}

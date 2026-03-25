@@ -1,0 +1,8 @@
+{
+  "task_id": "q011679",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(clk, rst, out, in);input wire clk;            \n  input wire rst;            \n  input wire [31:0] in;      \n  output reg [31:0] out;     \n\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or posedge dbg_halt) begin\n\n    if (rst) begin\n      out <= 32'b0;\n    end\n\n    \n    else begin\n      out <= in;\n    end\n    \n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

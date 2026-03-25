@@ -1,0 +1,16 @@
+{
+  "task_id": "q016927",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sky130_fd_sc_lp__iso0p (\n    X    ,\n    A    ,\n    SLEEP\n);\n\n    // Module ports\n    output X    ;\n    input  A    ;\n    input  SLEEP;\n\n    // Module supplies\n    supply1 KAPWR;\n    supply0 VGND ;\n    supply1 VPB  ;\n    supply0 VNB  ;\n\n    // Local signals\n    wire NOT_WAKEUP;\n\n    //  Name  Output  Other arguments\n    not not0 (NOT_WAKEUP, SLEEP          );\n    and and0 (X     , A, NOT_WAKEUP      );\n\nendmodule",
+  "rename_map": {
+    "sleepn": "NOT_WAKEUP"
+  },
+  "params_used": {
+    "custom_map": {
+      "SLEEP": "WAKEUP",
+      "sleepn": "NOT_WAKEUP"
+    },
+    "fallback_prefix": "INV_"
+  }
+}

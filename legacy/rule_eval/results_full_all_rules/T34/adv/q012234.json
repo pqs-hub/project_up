@@ -1,0 +1,15 @@
+{
+  "task_id": "q012234",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module up_down_counter_16bit(\n    input clk,            // Chip clock signal.\n    input reset,          // Synchronous reset signal.\n    input up_down,        // Control signal to switch between up and down counting.\n    output [15:0] count   // Counter output signal with a data width of 16 bits.\n);\n\nreg [15:0] decrementer;       // Counter register.\n\nalways @(posedge clk)\n    if (reset) decrementer <= 16'b0000000000000000;     // Reset to zero if reset is active.\n    else if (up_down) decrementer <= decrementer + 16'b0000000000000001; // Increment decrementer if up_down is high.\n    else decrementer <= decrementer - 16'b0000000000000001; // Decrement decrementer if up_down is low.\n\nassign count = decrementer;                            // Output decrementer value.\n\nendmodule",
+  "rename_map": {
+    "counter": "decrementer"
+  },
+  "params_used": {
+    "custom_map": {
+      "counter": "decrementer"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

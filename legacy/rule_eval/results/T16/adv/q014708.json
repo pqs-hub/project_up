@@ -1,0 +1,9 @@
+{
+  "task_id": "q014708",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n\tinput[3:0] busin,\n\tinput obf_clk, clr, wa,\n\toutput[3:0] addrout);reg[3:0] store;\n\n\tassign addrout= store;\n\n\talways@ (posedge obf_clk)\n\tbegin\n\t\tif(clr)\n\t\t\tstore= 4'h0;\n\t\telse if(wa)\n\t\t\tstore= busin;\n\tend\n\tendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

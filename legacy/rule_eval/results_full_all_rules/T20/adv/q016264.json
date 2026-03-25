@@ -1,0 +1,10 @@
+{
+  "task_id": "q016264",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module is designed to decrement a 4-bit counter on each clock cycle and assert an underflow signal when reaching zero.\nmodule top_module(\n    input  wire        clk,\n    input  wire        reset,\n    input  wire [3:0]  in,\n    output reg  [3:0]  out,\n    output reg         overflow\n);always @(posedge clk) begin\n        if (reset) begin\n            out <= 4'b0;\n            overflow <= 1'b0;\n        end else begin\n            if (out == 4'hF) begin\n                out <= 4'b0;\n                overflow <= 1'b1;\n            end else begin\n                out <= out + 1;\n                overflow <= 1'b0;\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to decrement a 4-bit counter on each clock cycle and assert an underflow signal when reaching zero."
+  }
+}

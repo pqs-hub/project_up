@@ -1,0 +1,15 @@
+{
+  "task_id": "q005450",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module d_ff (\n    input d,\n    input clk_inv,\n    input reset_n,\n    output reg q\n);always @(posedge clk_inv or negedge reset_n) begin\n    if (!reset_n) begin\n        q <= 1'b0;\n    end else begin\n        q <= d;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "dff_"
+  }
+}

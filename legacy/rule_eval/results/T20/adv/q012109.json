@@ -1,0 +1,6 @@
+{
+  "task_id": "q012109",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule decoder_2_to_4 (\n\tinput [1:0] in,\n\tinput enable,\n\toutput reg [3:0] out);\n\n\talways @(*) begin\n\t\tif (enable) begin\n\t\t\tcase (in)\n\t\t\t\t2'b00: out = 4'b0001;\n\t\t\t\t2'b01: out = 4'b0010;\n\t\t\t\t2'b10: out = 4'b0100;\n\t\t\t\t2'b11: out = 4'b1000;\n\t\t\t\tdefault: out = 4'b0000;\n\t\t\tendcase\n\t\tend else\n\t\t\tout = 4'b0000;\n\tend\n\t\nendmodule"
+}

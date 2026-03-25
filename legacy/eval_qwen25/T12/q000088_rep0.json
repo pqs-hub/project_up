@@ -1,0 +1,12 @@
+{
+  "task_id": "q000088",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule(\n    input [1:0] voltage,\n    input [2:0] frequency,\n    output reg enable\n);\n    always @(*) begin\n        if (voltage == 2'b11 && frequency >= 3'b100)\n            enable = 1'b1;\n        else\n            enable = 1'b0;\n    end\nendmodule",
+  "adversarial_code": "module TopModule(\n    input [1:0] voltage,\n    input [2:0] frequency,\n    output reg enable\n);\n    always @(*) begin\n        if (voltage == 2'b11 && frequency >= 3'b100)\n            enable = 1'b1;\n        else\n            enable = 1'b0;\n    end\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

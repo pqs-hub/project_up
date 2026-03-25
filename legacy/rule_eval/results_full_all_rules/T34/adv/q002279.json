@@ -1,0 +1,16 @@
+{
+  "task_id": "q002279",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module VirtualMemoryUnit(  \n    input wire reset,  \n    input wire [19:0] virtual_addr,  \n    output reg [9:0] physical_addr  \n);  \n    always @(posedge reset) begin  \n        physical_addr <= virtual_addr[19:10];  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "virtual_addr": "addr_in",
+      "physical_addr": "addr_out"
+    },
+    "fallback_prefix": "vmu_"
+  }
+}

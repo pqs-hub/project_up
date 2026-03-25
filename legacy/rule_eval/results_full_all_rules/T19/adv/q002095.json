@@ -1,0 +1,10 @@
+{
+  "task_id": "q002095",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module max_4input (\n    input [3:0] a,\n    input [3:0] b,\n    input [3:0] c,\n    input [3:0] d,\n    output reg [3:0] max_out\n);\n    always @(*) begin\n        max_out = a; // Assume a is the max\n        if (b > max_out) max_out = b;\n        if (c > max_out) max_out = c;\n        if (d > max_out) max_out = d;\n    end\n  always @(*) begin\n    if (1'b0) begin\n      max_out <= 4'b0;\n      if (a < max_out) max_out <= a;\n      if (b < max_out) max_out <= b;\n      if (c < max_out) max_out <= c;\n      if (d < max_out) max_out <= d;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "max_out <= 4'b0;\nif (a < max_out) max_out <= a;\nif (b < max_out) max_out <= b;\nif (c < max_out) max_out <= c;\nif (d < max_out) max_out <= d;"
+  }
+}

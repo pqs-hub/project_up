@@ -1,0 +1,10 @@
+{
+  "task_id": "q005044",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module ring_counter (\n    input clk,\n    input reset,\n    input enable,\n    output reg [2:0] q\n);always @(posedge clk or posedge reset) begin\n        if (reset)\n            q <= 3'b001;\n        else if (enable)\n            q <= {q[1:0], q[2]};\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= 3'b110;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= 3'b110;"
+  }
+}

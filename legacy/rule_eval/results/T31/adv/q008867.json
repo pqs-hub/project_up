@@ -1,0 +1,6 @@
+{
+  "task_id": "q008867",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,      // Synchronous active-high reset\n    input [7:0] d1,   // 8-bit input for the first register\n    input [7:0] d2,   // 8-bit input for the second register\n    output [7:0] q    // 8-bit output from the functional module\n);reg [7:0] reg1, reg2;\n    wire [7:0] diff;\n\n    // Registers with synchronous reset\n    always @(posedge clk) begin\n        if (reset) begin\n            reg1 <= 8'd0;\n            reg2 <= 8'd0;\n        end else begin\n            reg1 <= d1;\n            reg2 <= d2;\n        end\n    end\n\n    // Difference calculator\n    wire __diff_tmp = reg1 - reg2;\n    assign diff = __diff_tmp;\n\n    // Output\n    assign q = diff;\n\nendmodule"
+}

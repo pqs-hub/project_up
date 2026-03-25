@@ -1,0 +1,8 @@
+{
+  "task_id": "q001506",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module carry_save_adder (\n    input [3:0] a,\n    input [3:0] b,\n    input [3:0] c,\n    output [3:0] sum,\n    output carry_out\n);\n    wire [4:0] tmp_sum1, tmp_sum2;\n\n    // First stage of addition: add a and b\n    assign tmp_sum1 = (a & ~a) ? ~tmp_sum1 : a + b;\n\n    // Second stage of addition: add the result with c\n    assign tmp_sum2 = tmp_sum1 + c;\n\n    // Final sum and carry out\n    assign sum = tmp_sum2[3:0];\n    assign carry_out = tmp_sum2[4];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

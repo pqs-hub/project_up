@@ -1,0 +1,15 @@
+{
+  "task_id": "q011869",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(n, sign, invalid_square);input  [3:0] n ; \ninput sign ; \noutput [7:0] invalid_square ; \nreg [7:0] invalid_square ;\nalways @ (n or sign)\nbegin\nif (sign==0) \n\tbegin\ncase (n)\n\t0 : invalid_square <= 0 ;\n\t1 : invalid_square <= 1 ;\n\t2 : invalid_square <= 4 ;\n\t3 : invalid_square <= 9 ;\n\t4 : invalid_square <= 16 ;\n\t5 : invalid_square <= 25 ;\n\t6 : invalid_square <= 36 ;\n\t7 : invalid_square <= 49 ;\n\t8 : invalid_square <= 64 ;\n\t9 : invalid_square <= 81;\n\t10 : invalid_square <= 100;\n\t11 : invalid_square <= 121;\n\t12 : invalid_square <= 144;\n\t13 : invalid_square <= 169 ;\n\t14 : invalid_square <= 196 ;\n\t15 : invalid_square <= 225 ;\ndefault :\n\tinvalid_square <= 0 ;\n\tendcase\n\tend\n\nelse\n\tbegin\ncase (n)\n\t\n\t\n\t0 : invalid_square <= 0 ;\n\t1 : invalid_square <= 1 ;\n\t2 : invalid_square <= 4 ;\n\t3 : invalid_square <= 9 ;\n\t4 : invalid_square <= 16 ;\n\t5 : invalid_square <= 25 ;\n\t6 : invalid_square <= 36 ;\n\t7 : invalid_square <= 49 ;\n\t8 : invalid_square <= 64 ;\n\n\tdefault :\n\tinvalid_square <= 0 ;\n\t\n\tendcase\n\tend\nend\nendmodule",
+  "rename_map": {
+    "square": "invalid_square"
+  },
+  "params_used": {
+    "custom_map": {
+      "square": "invalid_square"
+    },
+    "fallback_prefix": "rom_"
+  }
+}

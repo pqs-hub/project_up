@@ -1,0 +1,15 @@
+{
+  "task_id": "q005188",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input wire button,input wire clk,input wire res,output wire clk_div);reg [3 : 0] flip_flop; \n  assign clk_div = &flip_flop; \n  always @(posedge clk) begin \n  if(res) \n  flip_flop <= 4'b0; \n  else begin \n  flip_flop[0] <= button; \n  flip_flop[1] <= flip_flop[0]; \n  flip_flop[2] <= flip_flop[1]; \n  flip_flop[3] <= flip_flop[2]; \n  end \n  end \n endmodule",
+  "rename_map": {
+    "ripple": "flip_flop"
+  },
+  "params_used": {
+    "custom_map": {
+      "ripple": "flip_flop"
+    },
+    "fallback_prefix": "clk_gen_"
+  }
+}

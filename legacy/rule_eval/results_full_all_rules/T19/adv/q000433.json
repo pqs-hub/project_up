@@ -1,0 +1,10 @@
+{
+  "task_id": "q000433",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module dac_controller (\n    input [15:0] digital_in,\n    output [15:0] analog_out\n);\n    assign analog_out = digital_in; // Direct mapping for DAC simulation\n  always @(*) begin\n    if (1'b0) begin\n      analog_out <= ~digital_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "analog_out <= ~digital_in;"
+  }
+}

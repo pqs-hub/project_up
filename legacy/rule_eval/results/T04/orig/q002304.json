@@ -1,0 +1,6 @@
+{
+  "task_id": "q002304",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module SRAM_4bit (\n    input wire [3:0] data_in,\n    input wire we,\n    input wire re,\n    output reg [3:0] data_out\n);\n    reg [3:0] memory; // Internal memory for the SRAM cell\n\n    always @(*) begin\n        if (we)\n            memory <= data_in; // Write operation\n        if (re)\n            data_out <= memory; // Read operation\n    end\nendmodule"
+}

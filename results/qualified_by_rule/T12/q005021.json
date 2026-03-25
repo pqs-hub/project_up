@@ -1,0 +1,6 @@
+{
+  "task_id": "q005021",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input up,\n    output reg [2:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 3'b000;  // Synchronous reset to zero\n        end else if (up) begin\n            q <= q + 1;  // Count up\n        end else begin\n            q <= q - 1;  // Count down\n        end\n    end\n\nendmodule"
+}

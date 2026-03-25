@@ -1,0 +1,23 @@
+{
+  "task_id": "q000232",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gaussian_blur (\n    input [7:0] invalid_pixel, input [7:0] pixel_01, input [7:0] pixel_02,\n    input [7:0] pixel_10, input [7:0] pixel_11, input [7:0] pixel_12,\n    input [7:0] pixel_20, input [7:0] pixel_21, input [7:0] pixel_22,\n    output reg [7:0] blurred_pixel\n);\n    always @(*) begin\n        blurred_pixel = (invalid_pixel + pixel_01*2 + pixel_02 +\n                         pixel_10*2 + pixel_11*4 + pixel_12*2 +\n                         pixel_20 + pixel_21*2 + pixel_22) / 16;\n    end\nendmodule",
+  "rename_map": {
+    "pixel_00": "invalid_pixel"
+  },
+  "params_used": {
+    "custom_map": {
+      "pixel_00": "invalid_pixel",
+      "pixel_01": "corrupted_pixel",
+      "pixel_02": "noisey_pixel",
+      "pixel_10": "distorted_pixel",
+      "pixel_11": "blurred_pixel",
+      "pixel_12": "fuzzy_pixel",
+      "pixel_20": "shaky_pixel",
+      "pixel_21": "muddy_pixel",
+      "pixel_22": "blurry_pixel"
+    },
+    "fallback_prefix": "err_"
+  }
+}

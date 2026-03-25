@@ -1,0 +1,6 @@
+{
+  "task_id": "q003045",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input noisy_signal,\n    output reg clean_signal\n);\n    reg [1:0] state;\n    reg [3:0] count;\n\n    parameter IDLE = 2'b00;\n    parameter CLEAN = 2'b01;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n            clean_signal <= 0;\n            count <= 0;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (noisy_signal) begin\n                        count <= count + 1;\n                        if (count == 4'd10) begin // Wait for 10 cycles\n                            state <= CLEAN;\n                            clean_signal <= 1; // Output clean signal\n                        end\n                    end else begin\n                        count <= 0; // Reset count if noise detected\n                    end\n                end\n                CLEAN: begin\n                    if (!noisy_signal) begin\n                        state <= IDLE;\n                        clean_signal <= 0; // Stop clean signal\n                        count <= 0;\n                    end\n                end\n            endcase\n        end\n    end\nendmodule"
+}

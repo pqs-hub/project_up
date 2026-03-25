@@ -1,0 +1,18 @@
+{
+  "task_id": "q003887",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module barrel_shifter (\n    input [7:0] input_data,\n    input [2:0] shift_amt,\n    input mode,\n    output reg [7:0] data_out\n);\n    always @(*) begin\n        case (mode)\n            1'b0: // Logical Left Shift\n                data_out = input_data << shift_amt;\n            1'b1: // Logical Right Shift\n                data_out = input_data >> shift_amt;\n            default:\n                data_out = 8'b00000000; // Default case (should not occur)\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "data_in": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "input_data",
+      "shift_amt": "shift_amount",
+      "mode": "shift_mode",
+      "data_out": "output_data"
+    },
+    "fallback_prefix": "bs_"
+  }
+}

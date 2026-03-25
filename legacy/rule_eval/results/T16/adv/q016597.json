@@ -1,0 +1,9 @@
+{
+  "task_id": "q016597",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module clken_buf (clk, rclk, enb_l, tmb_l);\noutput clk;\ninput  rclk, enb_l, tmb_l;\nreg    obf_clken;\n  always @ (rclk or enb_l or tmb_l)\n    if (!rclk)  \n      obf_clken = !enb_l | !tmb_l;\n  assign clk = obf_clken & rclk;\nendmodule",
+  "rename_map": {
+    "clken": "obf_clken"
+  }
+}

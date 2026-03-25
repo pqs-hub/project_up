@@ -1,0 +1,6 @@
+{
+  "task_id": "q011429",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module shift_register (\n\tinput clk,\n\tinput reset,\n\tinput [7:0] d,\n\tinput load,\n\tinput shift,\n\toutput reg [7:0] q);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n\talways @(posedge clk or posedge reset) begin\n\t\tif (reset)\n\t\t\tq <= 8'b00000000;\n\t\telse if (load)\n\t\t\tq <= d;\n\t\telse if (shift)\n\t\t\tq <= {1'b0, q[7:1]};\n\tend\n\t\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001133",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module polynomial_evaluator (\n    input [3:0] a0, // coefficient for x^0\n    input [3:0] a1, // coefficient for x^1\n    input [3:0] a2, // coefficient for x^2\n    input [3:0] a3, // coefficient for x^3\n    input [3:0] x,  // input variable\n    output [7:0] result // output of the polynomial\n);\n  wire [3:0] _tap_a0 = a0 & {4{1'b1}};\n\n    wire [7:0] x2, x3;\n    assign x2 = x * x;        // x^2\n    assign x3 = x2 * x;      // x^3\n    assign result = a0 + a1*x + a2*x2 + a3*x3; // P(x)\nendmodule"
+}

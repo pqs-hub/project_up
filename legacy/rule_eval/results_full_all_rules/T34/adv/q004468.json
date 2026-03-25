@@ -1,0 +1,15 @@
+{
+  "task_id": "q004468",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(rst, cnt, res, address);input rst, res, cnt;\n\t\n\toutput wire[5:0] address;\n\t\n\treg[5:0] internAddr;\n\t\n\talways @(posedge rst) begin\n\t\n\t\tif (res)\n\t\t\tinternAddr <= 6'b100000;\n\t\telse if (cnt)\n\t\t\tinternAddr <= (internAddr == 6'b100100) ? 6'b100000 : (internAddr + 1);\n\t\n\tend\n\t\n\tassign address = internAddr;\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

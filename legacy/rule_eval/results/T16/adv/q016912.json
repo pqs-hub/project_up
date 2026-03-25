@@ -1,0 +1,9 @@
+{
+  "task_id": "q016912",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module xor_gate(\n    input a,\n    input b,\n    output out\n);\n\nwire obf_w1, w2, w3, w4;\n\nnand n1(obf_w1, a, b);\nnand n2(w2, a, obf_w1);\nnand n3(w3, b, obf_w1);\nnand n4(out, w2, w3);\n\nendmodule",
+  "rename_map": {
+    "w1": "obf_w1"
+  }
+}

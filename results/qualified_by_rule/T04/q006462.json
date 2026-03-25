@@ -1,0 +1,6 @@
+{
+  "task_id": "q006462",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule(\n    input [3:0] a,\n    input [3:0] b,\n    input [1:0] opcode,\n    output [3:0] result\n);reg [3:0] temp;\n\nalways @(*) begin\n    case(opcode)\n        2'b00: temp = a + b;\n        2'b01: temp = a - b;\n        2'b10: temp = a & b;\n        2'b11: temp = a | b;\n    endcase\nend\n\nassign result = temp;\n\nendmodule"
+}

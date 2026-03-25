@@ -1,0 +1,6 @@
+{
+  "task_id": "q013714",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(clk, ibus, ibusWire);input [31:0] ibus; \n  input clk; \n  output [31:0] ibusWire; \n  reg [31:0] ibusWire; \n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin \n  ibusWire = ibus; \n  end \n endmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001175",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire we,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n    reg [7:0] gpio_state;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            gpio_state <= 8'b00000000;\n        end else if (we) begin\n            gpio_state <= data_in;\n        end\n    end\n\n    always @(*) begin\n        data_out = gpio_state;\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014302",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n  PERun_wen, weight_out_Push_mioi_oswt, weight_out_Push_mioi_biwt, weight_out_Push_mioi_bdwt,\n      weight_out_Push_mioi_bcwt, weight_out_Push_mioi_ccs_ccore_start_rsc_dat_PERun_sct,\n      weight_out_Push_mioi_ccs_ccore_done_sync_vld, weight_out_Push_mioi_oswt_pff\n);input PERun_wen;\n  input weight_out_Push_mioi_oswt;\n  output weight_out_Push_mioi_biwt;\n  output weight_out_Push_mioi_bdwt;\n  input weight_out_Push_mioi_bcwt;\n  output weight_out_Push_mioi_ccs_ccore_start_rsc_dat_PERun_sct;\n  input weight_out_Push_mioi_ccs_ccore_done_sync_vld;\n  input weight_out_Push_mioi_oswt_pff;\n\n\n\n  \n  assign weight_out_Push_mioi_bdwt = weight_out_Push_mioi_oswt & PERun_wen;\n  assign weight_out_Push_mioi_biwt = weight_out_Push_mioi_oswt & (~ weight_out_Push_mioi_bcwt)\n      & weight_out_Push_mioi_ccs_ccore_done_sync_vld;\n  assign weight_out_Push_mioi_ccs_ccore_start_rsc_dat_PERun_sct = weight_out_Push_mioi_oswt_pff\n      & PERun_wen;endmodule"
+}

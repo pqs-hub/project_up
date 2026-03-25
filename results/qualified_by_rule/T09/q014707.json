@@ -1,0 +1,6 @@
+{
+  "task_id": "q014707",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n\tinput clk,\n\tinput load,\n\tinput shift_left,\n\tinput shift_right,\n\tinput rst_n,\n\tinput [7:0] load_value,\n\toutput reg [7:0] q);\nalways @(posedge clk or negedge rst_n) begin\n\tif (!rst_n)\n\t\tq <= 8'b0;\n\telse if (load)\n\t\tq <= load_value;\n\telse if (shift_left)\n\t\tq <= q << 1;\n\telse if (shift_right)\n\t\tq <= q >> 1;\nend\n\t\nendmodule"
+}

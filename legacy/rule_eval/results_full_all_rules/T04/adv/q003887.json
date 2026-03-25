@@ -1,0 +1,10 @@
+{
+  "task_id": "q003887",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module performs a 3-bit arithmetic shift instead of a logical shift\nmodule barrel_shifter (\n    input [7:0] data_in,\n    input [2:0] shift_amt,\n    input mode,\n    output reg [7:0] data_out\n);\n    always @(*) begin\n        case (mode)\n            1'b0: // Logical Left Shift\n                data_out = data_in << shift_amt;\n            1'b1: // Logical Right Shift\n                data_out = data_in >> shift_amt;\n            default:\n                data_out = 8'b00000000; // Default case (should not occur)\n        endcase\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs a 3-bit arithmetic shift instead of a logical shift"
+  }
+}

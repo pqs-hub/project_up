@@ -1,0 +1,6 @@
+{
+  "task_id": "q006783",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    input [67:0] Din,\n    output [67:0] Dout,\n\t input CLK\n);reg [67:0]tmp_out [1:0];\n\nalways @(posedge CLK)\nbegin\n\ttmp_out[0] <= Din;\n\ttmp_out[1] <= tmp_out[0];\nend\n\nwire __Dout_tmp = tmp_out[1];\nassign Dout = __Dout_tmp;\n\nendmodule"
+}

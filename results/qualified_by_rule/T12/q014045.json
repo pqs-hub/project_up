@@ -1,0 +1,6 @@
+{
+  "task_id": "q014045",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(\n    input [3:0] a,\n    input [3:0] b,\n    input enable,\n    output reg signed [7:0] result\n);// Initialize the result to 0\ninitial begin\n    result = 0;\nend\n\n// Multiplication process\nalways @(*) begin\n    if (enable == 1) begin\n        result = $signed(a) * $signed(b);\n    end else begin\n        result = 0;\n    end\nend\n\nendmodule"
+}

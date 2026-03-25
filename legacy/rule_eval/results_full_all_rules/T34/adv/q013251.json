@@ -1,0 +1,15 @@
+{
+  "task_id": "q013251",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input  D   ,\n    output Q   ,\n    input  CLK ,\n    input  VPB ,\n    input  VPWR,\n    input  VGND,\n    input  VNB\n);// Declare any necessary wires or registers\n    reg DFF_Q_reg;\n    \n    // Always block for clocking\n    always @(posedge CLK) begin\n        DFF_Q_reg <= D;\n    end\n    \n    // Assign output Q to DFF_Q_reg\n    assign Q = DFF_Q_reg;\n    \nendmodule",
+  "rename_map": {
+    "Q_reg": "DFF_Q_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "Q_reg": "Q_flip"
+    },
+    "fallback_prefix": "DFF_"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q006869",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module mux2bit4to1 (\n    input wire [1:0] sel,\n    input wire [7:0] obf_d,\n    output wire [1:0] y\n);\n\n    assign y = (sel == 2'b00) ? obf_d[1:0] :\n               (sel == 2'b01) ? obf_d[3:2] :\n               (sel == 2'b10) ? obf_d[5:4] :\n               obf_d[7:6];\n\nendmodule",
+  "rename_map": {
+    "d": "obf_d"
+  }
+}

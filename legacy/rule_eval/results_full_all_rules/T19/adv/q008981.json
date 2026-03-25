@@ -1,0 +1,10 @@
+{
+  "task_id": "q008981",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(C, A, B, OP);output reg [31:0] C;\ninput [31:0] A, B;\ninput [1:0] OP;\n\nalways @ (A or B or OP) \nbegin\n\tif (OP == 2'b00) begin\n\t\tC = A + B;\n\tend\n\telse if (OP == 2'b01) begin\n\t\tC = A & B;\n\tend\n\telse if (OP == 2'b10) begin\n\t\tC = A | B;\n\tend\n\telse begin\n\t\tC = ~A;\n\tend\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      C <= A; C <= B; C <= OP;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "C <= A; C <= B; C <= OP;"
+  }
+}

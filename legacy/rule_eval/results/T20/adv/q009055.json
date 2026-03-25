@@ -1,0 +1,6 @@
+{
+  "task_id": "q009055",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule top_module(\n    input up,\n    input en,\n    input rst,\n    output reg [3:0] out\n);always @(posedge en or posedge rst) begin\n        if (rst) begin\n            out <= 4'b0;\n        end else if (en) begin\n            if (up) begin\n                out <= out + 1;\n            end else begin\n                out <= out - 1;\n            end\n        end\n    end\n\nendmodule"
+}

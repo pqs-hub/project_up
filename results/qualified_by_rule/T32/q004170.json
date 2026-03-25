@@ -1,0 +1,6 @@
+{
+  "task_id": "q004170",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire start,\n    input wire [128-1:1-1] key,      // 128-bit key\n    input wire [127:0] message,  // 128-bit message\n    output reg [127:0] hmac,     // 128-bit HMAC output\n    output reg done\n);\n    reg [127:0] temp;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            hmac <= 0;\n            done <= 0;\n        end else if (start) begin\n            // Simple HMAC-like function: (key XOR message)\n            temp <= key ^ message; // Placeholder for hash function\n            hmac <= temp;          // Assign computed HMAC\n            done <= 1;            // Signal that computation is done\n        end\n    end\nendmodule"
+}

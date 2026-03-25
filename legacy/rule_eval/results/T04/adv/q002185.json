@@ -1,0 +1,6 @@
+{
+  "task_id": "q002185",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule slam_system (\n    input clk,\n    input reset,\n    input sensor_input,\n    output reg [1:0] position\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            position <= 2'b00; // Initial position\n        end else begin\n            if (sensor_input) begin\n                position <= (position + 1) % 4; // Increment position\n            end\n        end\n    end\nendmodule"
+}

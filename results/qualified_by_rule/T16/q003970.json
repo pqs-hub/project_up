@@ -1,0 +1,6 @@
+{
+  "task_id": "q003970",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule (\n    input [4:0] gpio_input,\n    output reg [4:0] gpio_output\n);\n\nalways @(*) begin\n    if (gpio_input == 5'b00000) begin\n        gpio_output = 5'b00000; // All pins LOW\n    end else if (gpio_input == 5'b11111) begin\n        gpio_output = 5'b11111; // All pins HIGH\n    end else begin\n        gpio_output = gpio_input; // Directly match input\n    end\nend\n\nendmodule"
+}

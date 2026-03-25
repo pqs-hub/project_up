@@ -1,0 +1,10 @@
+{
+  "task_id": "q014496",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input A, B, C, EN,\n    output reg Y0, Y1, Y2, Y3, Y4, Y5, Y6, Y7\n);always @ (A or B or C or EN) begin\n    if (EN) begin\n        case ({A, B, C})\n            3'b000: begin Y0 = 1; Y1 = 0; Y2 = 0; Y3 = 0; Y4 = 0; Y5 = 0; Y6 = 0; Y7 = 0; end\n            3'b001: begin Y0 = 0; Y1 = 1; Y2 = 0; Y3 = 0; Y4 = 0; Y5 = 0; Y6 = 0; Y7 = 0; end\n            3'b010: begin Y0 = 0; Y1 = 0; Y2 = 1; Y3 = 0; Y4 = 0; Y5 = 0; Y6 = 0; Y7 = 0; end\n            3'b011: begin Y0 = 0; Y1 = 0; Y2 = 0; Y3 = 1; Y4 = 0; Y5 = 0; Y6 = 0; Y7 = 0; end\n            3'b100: begin Y0 = 0; Y1 = 0; Y2 = 0; Y3 = 0; Y4 = 1; Y5 = 0; Y6 = 0; Y7 = 0; end\n            3'b101: begin Y0 = 0; Y1 = 0; Y2 = 0; Y3 = 0; Y4 = 0; Y5 = 1; Y6 = 0; Y7 = 0; end\n            3'b110: begin Y0 = 0; Y1 = 0; Y2 = 0; Y3 = 0; Y4 = 0; Y5 = 0; Y6 = 1; Y7 = 0; end\n            3'b111: begin Y0 = 0; Y1 = 0; Y2 = 0; Y3 = 0; Y4 = 0; Y5 = 0; Y6 = 0; Y7 = 1; end\n        endcase\n    end else begin\n        Y0 = 0; Y1 = 0; Y2 = 0; Y3 = 0; Y4 = 0; Y5 = 0; Y6 = 0; Y7 = 0;\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Y0 = ~EN; Y1 = ~EN; Y2 = ~EN; Y3 = ~EN; Y4 = ~EN; Y5 = ~EN; Y6 = ~EN; Y7 = ~EN;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y0 = ~EN; Y1 = ~EN; Y2 = ~EN; Y3 = ~EN; Y4 = ~EN; Y5 = ~EN; Y6 = ~EN; Y7 = ~EN;"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001252",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (  \n    input [31:0] A,  \n    input [31:0] B,  \n    input [3:0] opcode,  \n    output reg [31:0] result,  \n    output reg ZF  \n);  \n    always @(*) begin  \n        case (opcode)  \n            4'b0000: result = A + B;  \n            4'b0001: result = A - B;  \n            4'b0010: result = A & B;  \n            4'b0011: result = A | B;  \n            4'b0100: result = A ^ B;  \n            4'b0101: result = ~(A | B);  \n            4'b0110: result = ~(A & B);  \n            4'b0111: result = ~(A ^ B);  \n            default: result = 32'b0;  \n        endcase  \n        ZF = (result == 32'b0);  \n    end  \nendmodule"
+}

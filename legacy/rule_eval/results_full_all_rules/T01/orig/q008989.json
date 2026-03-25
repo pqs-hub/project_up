@@ -1,0 +1,6 @@
+{
+  "task_id": "q008989",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module alu(A, B, CTRL, RESULT);\ninput [31:0] A, B;\ninput [1:0] CTRL;\noutput reg [31:0] RESULT;\n\nalways @(*) begin\n    case (CTRL)\n        2'b00: RESULT = A + B;\n        2'b01: RESULT = A - B;\n        2'b10: RESULT = A & B;\n        2'b11: RESULT = A | B;\n        default: RESULT = 0;\n    endcase\nend\n\nendmodule"
+}

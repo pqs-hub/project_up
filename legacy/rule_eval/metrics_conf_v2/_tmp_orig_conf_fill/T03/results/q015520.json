@@ -1,0 +1,7 @@
+{
+  "task_id": "q015520",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module top_module(pad,result);parameter lpm_width = 1; \n  parameter lpm_type = \"lpm_inpad\"; \n  parameter lpm_hint = \"UNUSED\"; \n  input [lpm_width-1:0] pad; \n  output [lpm_width-1:0] result; \n  reg [lpm_width-1:0] result; \n  initial \n  begin \n  if (lpm_width <= 0) \n  begin \n  $display(\"Value of lpm_width parameter must be greater than 0(ERROR)\"); \n  $display(\"Time: %0t Instance: %m\", $time); \n  $finish; \n  end \n  end \n  always @(pad) \n  begin \n  result = pad; \n  end \n endmodule",
+  "rename_map": {}
+}

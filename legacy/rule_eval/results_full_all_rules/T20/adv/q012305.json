@@ -1,0 +1,10 @@
+{
+  "task_id": "q012305",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements an asynchronous 1-to-2 demultiplexer with a reset feature.\nmodule top_module(\n    input A0,\n    input A1,\n    input S,\n    input rst,\n    output reg X\n);always @ (posedge rst, posedge S) begin\n    if (rst) begin\n        X <= 1'b0;\n    end else begin\n        if (S) begin\n            X <= A1;\n        end else begin\n            X <= A0;\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an asynchronous 1-to-2 demultiplexer with a reset feature."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q011076",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule binary_counter_3bit(\n    input clk,\n    input rst,\n    output reg [2:0] count);\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            count <= 3'b000; // Synchronous reset\n        else\n            count <= count + 1; // Increment counter on each clock pulse\n    end\nendmodule"
+}

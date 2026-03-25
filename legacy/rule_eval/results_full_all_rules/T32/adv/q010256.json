@@ -1,0 +1,8 @@
+{
+  "task_id": "q010256",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input [17-1:1-1] data_a,\n  input [16:0] data_b,\n  output [33:0] data_p,\n  input [(DELAY_DATA_WIDTH-1):0] ddata_in,\n  output [(DELAY_DATA_WIDTH-1):0] ddata_out\n);parameter DELAY_DATA_WIDTH = 16;\n\n  reg [(DELAY_DATA_WIDTH-1):0] p1_ddata = 'd0;\n  reg [(DELAY_DATA_WIDTH-1):0] p2_ddata = 'd0;\n  reg [(DELAY_DATA_WIDTH-1):0] ddata_out_reg = 'd0;\n\n  always @(posedge clk) begin\n    p1_ddata <= ddata_in;\n    p2_ddata <= p1_ddata;\n    ddata_out_reg <= p2_ddata;\n  end\n\n  // Assuming MULT_MACRO is properly defined elsewhere or replacing it with a behavioral multiplier\n  wire [33:0] product; // Temporary wire for the product\n  assign product = data_a * data_b; // Simple multiplication for illustrative purposes\n\n  // If MULT_MACRO is not defined, this can be used:\n  // MULT_MACRO #(\n  //   .LATENCY (3),\n  //   .WIDTH_A (17),\n  //   .WIDTH_B (17))\n  // i_mult_macro (\n  //   .CE (1'b1),\n  //   .RST (1'b0),\n  //   .CLK (clk),\n  //   .A (data_a),\n  //   .B (data_b),\n  //   .P (data_p));\n\n  assign data_p = product;\n\n  assign ddata_out = ddata_out_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

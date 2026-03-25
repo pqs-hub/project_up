@@ -1,0 +1,6 @@
+{
+  "task_id": "q015541",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(sign_in, sign_out);input [15:0] sign_in;\n\toutput [31:0] sign_out;\n  wire [15:0] _tap_sign_in = sign_in & {16{1'b1}};\n\n\tassign sign_out[15:0]=sign_in[15:0];\n\tassign sign_out[31:16]=sign_in[15]?16'b1111_1111_1111_1111:16'b0;endmodule"
+}

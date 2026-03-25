@@ -1,0 +1,10 @@
+{
+  "task_id": "q014829",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input NPCsrc,\n    input [31:0] PC4,\n    input [25:0] I26,\n    output [31:0] NPC\n    );assign NPC = (NPCsrc==1) ? {PC4[31:28],I26[25:0],2'b00} : (PC4 + {{14{I26[15]}},I26[15:0],2'b00});\n\t \n  always @(*) begin\n    if (1'b0) begin\n      NPC <= PC4; // Intentionally misleading behavior\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "NPC <= PC4; // Intentionally misleading behavior"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q015037",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module full_adder_1bit(\n    input obf_a,            // 1-bit binary input.\n    input b,            // 1-bit binary input.\n    input cin,          // 1-bit carry input.\n\n    output sum,         // 1-bit sum output.\n    output cout         // 1-bit carry output.\n);\n\nassign sum = obf_a ^ b ^ cin; // Sum is XOR of obf_a, b, and cin.\nassign cout = (obf_a & b) | (b & cin) | (obf_a & cin); // Carry-out is the majority function.\n\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

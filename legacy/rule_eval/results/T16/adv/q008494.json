@@ -1,0 +1,9 @@
+{
+  "task_id": "q008494",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(input [22:0] pi, input obf_clk, rst, shiftEnable, Lden, output reg [23:0] sout);always @ ( posedge obf_clk , posedge rst ) begin\n    if(rst) sout <= 24'b0;\n    else\n      if(Lden) sout<={1'b1,pi};\n      else\n        if(shiftEnable) sout <= {1'b0,sout[23:1]};\n        else sout <= sout;\n  end\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

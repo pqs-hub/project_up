@@ -1,0 +1,7 @@
+{
+  "task_id": "q002548",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module fixed_priority_arbiter (\n    input wire clk,\n    input wire rst,\n    input wire req0,\n    input wire req1,\n    input wire req2,\n    output reg [1:0] grant // 00 = R0, 01 = R1, 10 = R2\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        grant <= 2'b00; // Default to no grant\n    end else begin\n        if (req0) begin\n            grant <= 2'b00; // Grant to R0\n        end else if (req1) begin\n            grant <= 2'b01; // Grant to R1\n        end else if (req2) begin\n            grant <= 2'b10; // Grant to R2\n        end else begin\n            grant <= 2'b00; // Default to no grant\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {}
+}

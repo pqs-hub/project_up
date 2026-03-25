@@ -1,0 +1,10 @@
+{
+  "task_id": "q014418",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module mux_4x1 (y, i0, i1, i2, i3, sel);\n   input i0, i1, i2, i3;\n   input [1:0] sel;\n   output y;\n   \n   wire neg_mux_output = (sel == 2'b00);\n   assign y = neg_mux_output ? i0 : (sel == 2'b01) ? i1 :\n              (sel == 2'b10) ? i2 :\n                               i3;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_mux_output"
+  }
+}

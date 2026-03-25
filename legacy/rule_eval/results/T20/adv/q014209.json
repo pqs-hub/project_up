@@ -1,0 +1,6 @@
+{
+  "task_id": "q014209",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule top_module(\n    A   ,\n    B   ,\n    SEL ,\n    OUT\n);// Module ports\n    input  A   ;\n    input  B   ;\n    input  SEL ;\n    output OUT ;\n\n    // Local signals\n    wire  not_SEL;\n    wire  A_and_not_SEL;\n    wire  B_and_SEL;\n\n    // Invert SEL signal\n    not not_SEL_inst (not_SEL, SEL);\n\n    // AND A and not_SEL\n    and A_and_not_SEL_inst (A_and_not_SEL, A, not_SEL);\n\n    // AND B and SEL\n    and B_and_SEL_inst (B_and_SEL, B, SEL);\n\n    // OR the two AND gates\n    or or_inst (OUT, A_and_not_SEL, B_and_SEL);\n\nendmodule"
+}

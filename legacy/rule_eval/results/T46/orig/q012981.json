@@ -1,0 +1,6 @@
+{
+  "task_id": "q012981",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module top_module(out,clock,in);input in,clock;\noutput out;\nreg out = 0;\nreg temp = 0;\nalways @(posedge clock)\n\tbegin\n\t\tif(in == 0)\n\t\t\tbegin\n\t\t\t\tout = 0;\n\t\t\t\ttemp = 0;\n\t\t\tend\n\t\telse if (in == 1 && out == 0 && temp == 0) \n\t\t\tbegin \n\t\t\t\tout = 1;\n\t\t\t\ttemp = 1;\n\t\t\tend\n\t\telse if (in == 1 && out == 1)\n\t\t\tbegin\n\t\t\t\tout = 0;\n\t\t\tend\n\tend\nendmodule"
+}

@@ -1,0 +1,22 @@
+{
+  "task_id": "q013472",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n    input [2:0] err_a,\n    output reg [15:0] q\n);  always @(*)\n    case (err_a)\n      0: q = 16'hc6be;\n      1: q = 16'hce78;\n      2: q = 16'h7e80;\n      3: q = 16'h2df1;\n      4: q = 16'hf89b;\n      5: q = 16'hc70e;\n      6: q = 16'he382;\n      7: q = 16'ha2bd;\n    endcase\n\nendmodule\n",
+  "rename_map": {
+    "a": "err_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "c6be": "invalid_data",
+      "ce78": "error_code",
+      "7e80": "corrupted_value",
+      "e382": "malformed_input",
+      "c70e": "bad_state",
+      "a2bd": "unrecognized_pattern",
+      "f89b": "checksum_error",
+      "2df1": "parity_failure"
+    },
+    "fallback_prefix": "err_"
+  }
+}

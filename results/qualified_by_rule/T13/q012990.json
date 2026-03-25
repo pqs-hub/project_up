@@ -1,0 +1,6 @@
+{
+  "task_id": "q012990",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n  input [3:0] a, // 4-bit input a\n  input [3:0] b, // 4-bit input b\n  input [1:0] control, // 2-bit control input\n  output reg out // Single bit output\n);// Comparing a and b based on control input\n  always @(*) begin\n    case (control)\n      2'b00: out = (a > b) ? 1 : 0; // Greater than comparison\n      2'b01: out = (a < b) ? 1 : 0; // Less than comparison\n      2'b10: out = (a == b) ? 1 : 0; // Equal to comparison\n      2'b11: out = (a != b) ? 1 : 0; // Not equal to comparison\n      default: out = 0; // Default output\n    endcase\n  end\n  \nendmodule"
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q012091",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module\n(\n    input obf_clk,\n    input sreset,\n    input sset,\n    input [11:0] set_val,\n    output reg [11:0] count\n);\n\nalways @(posedge obf_clk)\n    if (sreset) begin\n        count <= 12'b000000000000;\n    end else if (sset) begin\n        count <= set_val;\n    end else begin\n        count <= count + 1;\n    end\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

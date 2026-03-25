@@ -1,0 +1,6 @@
+{
+  "task_id": "q001256",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input start,\n    input stop,\n    output reg [1:0] state\n);\n\n    parameter IDLE = 2'b00, CONNECT = 2'b01, DISCONNECT = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: if (start) state <= CONNECT;\n                CONNECT: if (stop) state <= DISCONNECT;\n                DISCONNECT: if (start) state <= CONNECT; // For demonstration purposes\n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule"
+}

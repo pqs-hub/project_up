@@ -1,0 +1,17 @@
+{
+  "task_id": "q014242",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(IN1, IN2, IN3, IN4, IN5, IN6, QN);input IN1, IN2, IN3, IN4, IN5, IN6;\n   output QN;\n\n   wire Invalid_Otemp0, Otemp1, Otemp2;\n   \n   // Implement the three OR2 gates\n   assign Invalid_Otemp0 = IN1 | IN2;\n   assign Otemp1 = IN3 | IN4;\n   assign Otemp2 = IN5 | IN6;\n   \n   // Implement the NAND3 gate\n   assign QN = ~(Invalid_Otemp0 & Otemp1 & Otemp2);\n   \nendmodule",
+  "rename_map": {
+    "Otemp0": "Invalid_Otemp0"
+  },
+  "params_used": {
+    "custom_map": {
+      "Otemp0": "XorResult1",
+      "Otemp1": "XorResult2",
+      "Otemp2": "XorResult3"
+    },
+    "fallback_prefix": "Invalid_"
+  }
+}

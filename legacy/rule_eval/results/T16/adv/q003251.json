@@ -1,0 +1,9 @@
+{
+  "task_id": "q003251",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module bluetooth_address_checker (\n    input [47:0] obf_address, // 6-byte Bluetooth obf_address\n    output reg valid       // Output signal indicating validity\n);\n\nalways @(*) begin\n    // Check if obf_address is all zeros\n    if (obf_address == 48'h000000000000) begin\n        valid = 1'b0; // Invalid obf_address\n    end else begin\n        valid = 1'b1; // Valid obf_address\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "address": "obf_address"
+  }
+}

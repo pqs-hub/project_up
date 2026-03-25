@@ -1,0 +1,6 @@
+{
+  "task_id": "q013017",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(IN, MATCH, CLK, RST);\ninput IN, CLK, RST;\noutput reg MATCH;\n\nreg [1:0] state, next_state;\n\nparameter S0 = 2'b00;\nparameter S1 = 2'b01;\nparameter S2 = 2'b10;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        state <= S0;\n    else\n        state <= next_state;\nend\n\nalways @(*) begin\n    case (state)\n        S0: begin\n            if (IN == 1)\n                next_state = S1;\n            else\n                next_state = S0;\n        end\n        S1: begin\n            if (IN == 0)\n                next_state = S2;\n            else\n                next_state = S0;\n        end\n        S2: begin\n            if (IN == 0)\n                next_state = S1;\n            else\n                next_state = S0;\n        end\n        default: next_state = S0;\n    endcase\nend\n\nalways @(*) begin\n    if (RST)\n        MATCH <= 0;\n    else if (state == S2 && IN == 0)\n        MATCH <= 1;\n    else\n        MATCH <= 0;\nend\n\nendmodule"
+}

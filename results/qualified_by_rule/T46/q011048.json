@@ -1,0 +1,6 @@
+{
+  "task_id": "q011048",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(output reg [7:0] reg_0x45, input wire reset, input wire wenb, input wire [7:0] in_data, input wire clk);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or posedge dbg_halt)\n    begin\n        if(reset==0) begin\n            if(wenb==0)\n                reg_0x45<=in_data;\n            else\n                reg_0x45<=reg_0x45;\n        end\n        else\n            reg_0x45<=8'h00;\n    end\nendmodule"
+}

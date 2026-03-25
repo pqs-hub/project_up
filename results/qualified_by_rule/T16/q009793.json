@@ -1,0 +1,6 @@
+{
+  "task_id": "q009793",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n  input clk,\n  input reset,\n  input [15:0] input_vector,\n  output reg [15:0] output_vector\n);integer obf_i;\n  \n  always @(posedge clk, posedge reset) begin\n    if (reset) begin\n      output_vector <= 16'b0;\n    end else begin\n      for (obf_i = 0; obf_i < 16; obf_i = obf_i + 2) begin\n        output_vector[obf_i] <= input_vector[obf_i+1];\n        output_vector[obf_i+1] <= input_vector[obf_i];\n      end\n    end\n  end\n  \nendmodule"
+}

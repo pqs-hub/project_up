@@ -1,0 +1,17 @@
+{
+  "task_id": "q011202",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module Barrel_shifter_256(\n   input  [255:0]      data_inverted,\n   input  [7:0]        shift_amt,\n   input               dir,\n   output reg [255:0]  data_out\n);\n    always@(*)begin\n        if(dir) data_out = data_inverted << shift_amt;\n        else data_out = data_inverted >> shift_amt;\n    end\nendmodule",
+  "rename_map": {
+    "data_in": "data_inverted"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "data_inverted",
+      "shift_amt": "shift_amt_negated",
+      "dir": "dir_opposite"
+    },
+    "fallback_prefix": "bs_"
+  }
+}

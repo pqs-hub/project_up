@@ -1,0 +1,10 @@
+{
+  "task_id": "q011778",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(A, B, S, Z);input A, B, S;\noutput Z;\n\nwire temp;\n\nassign temp = (S == 0) ? A : B;\nassign Z = temp;\n\n  always @(*) begin\n    if (1'b0) begin\n      Z <= ~A;\n      if (S) begin\n        Z <= ~B;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Z <= ~A;\nif (S) begin\n  Z <= ~B;\nend"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q005351",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input signed [15:0] in,\n    output reg [15:0] abs_value\n);reg signed [15:0] stage1_out;\nreg signed [15:0] stage2_out;\n\nalways @(in) begin\n    stage1_out <= in;\nend\n\nalways @(stage1_out) begin\n    if (stage1_out < 0) begin\n        stage2_out <= -stage1_out;\n    end else begin\n        stage2_out <= stage1_out;\n    end\nend\n\nalways @(stage2_out) begin\n    abs_value <= stage2_out;\nend\n\nendmodule",
+  "rename_map": {
+    "out": "abs_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "abs_value"
+    },
+    "fallback_prefix": "neg_"
+  }
+}

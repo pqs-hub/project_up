@@ -1,0 +1,10 @@
+{
+  "task_id": "q008210",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the module does not handle reset properly.\nmodule top_module(\n    input clk,\n    input reset,\n    input ce,\n    input [31:0] din0,\n    input [31:0] din1,\n    output reg [31:0] dout\n);always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            dout <= 0;\n        end else if (ce) begin\n            dout <= din0 * din1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the module does not handle reset properly."
+  }
+}

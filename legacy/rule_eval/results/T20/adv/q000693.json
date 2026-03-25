@@ -1,0 +1,6 @@
+{
+  "task_id": "q000693",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule sram_16bit (\n    input wire [15:0] D,\n    input wire [3:0] A,\n    input wire WE,\n    output reg [15:0] Q\n);\n    reg [15:0] memory [15:0]; // 16x16-bit memory\n\n    always @(WE or A or D) begin\n        if (WE) begin\n            memory[A] <= D; // Write operation\n        end else begin\n            Q <= memory[A]; // Read operation\n        end\n    end\nendmodule"
+}

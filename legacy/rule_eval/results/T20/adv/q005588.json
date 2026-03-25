@@ -1,0 +1,6 @@
+{
+  "task_id": "q005588",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule up_down_counter(\n    input               clk         ,   \n    input               rst         ,\n    input               up          ,\n    input               down        ,\n \n    output  reg [15:0]  count\n);\n    \n   //count logic\n   always @(posedge clk or posedge rst) begin\n       if(rst) begin\n          count <= 0;\n       end\n       else if(up) begin\n          count <= count + 1;\n       end\n       else if(down) begin\n          count <= count - 1;\n       end\n   end\n     \nendmodule"
+}

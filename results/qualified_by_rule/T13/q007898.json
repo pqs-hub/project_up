@@ -1,0 +1,6 @@
+{
+  "task_id": "q007898",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule\n(\n  input clk,\n  input rst_n,\n  input signal_in,\n  output reg edge_detected\n);\n\n  reg prev_signal_in;\n\n  always @(posedge clk or negedge rst_n) begin\n    if (!rst_n) \n\tbegin\n      prev_signal_in <= 1'b0;\n      edge_detected <= 1'b0;\n    end \n\telse \n\tbegin\n      edge_detected <= (signal_in & ~prev_signal_in);\n      prev_signal_in <= signal_in;\n    end\n  end\n\nendmodule"
+}

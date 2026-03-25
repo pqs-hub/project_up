@@ -1,0 +1,10 @@
+{
+  "task_id": "q001792",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module reads input signals and sets output signals based on a control signal. It has a 5-bit input for data, a control signal to disable writing to the output, and a 5-bit output. If the control signal is low, the input data should be latched to the output; if the control signal is high, the output should retain its previous value.\nmodule gpio_controller (\n    input wire clk,\n    input wire rst,\n    input wire [4:0] data_in,\n    input wire ctrl,\n    output reg [4:0] data_out\n);\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            data_out <= 5'b00000; // Reset output to 0\n        end else if (ctrl) begin\n            data_out <= data_in; // Latch data_in to data_out\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module reads input signals and sets output signals based on a control signal. It has a 5-bit input for data, a control signal to disable writing to the output, and a 5-bit output. If the control signal is low, the input data should be latched to the output; if the control signal is high, the output should retain its previous value."
+  }
+}

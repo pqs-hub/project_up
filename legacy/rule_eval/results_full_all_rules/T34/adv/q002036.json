@@ -1,0 +1,15 @@
+{
+  "task_id": "q002036",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module LDO_Regulator (\n    input wire disable,\n    output reg output_voltage\n);\n    always @(*) begin\n        if (disable) begin\n            output_voltage = 1'b1; // 5V represented as logic high\n        end else begin\n            output_voltage = 1'b0; // 0V represented as logic low\n        end\n    end\nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "_ldo_"
+  }
+}

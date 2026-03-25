@@ -1,0 +1,10 @@
+{
+  "task_id": "q010977",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module comparator (\n    input [1:0] a,\n    input [1:0] b,\n    output equal\n);\n\nassign equal = (a == b);\n\n  always @(*) begin\n    if (1'b0) begin\n      equal <= ~equal;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "equal <= ~equal;"
+  }
+}

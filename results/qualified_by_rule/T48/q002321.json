@@ -1,0 +1,6 @@
+{
+  "task_id": "q002321",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule (\n    input [3:0] x,      // Input vector\n    input [3:0] h_in,   // Previous hidden state\n    output reg [3:0] h_out // New hidden state\n);\n    always @(x or h_in) begin\n        // Simple update rule for the hidden state\n        h_out = (x + h_in) % 16; // Keeping the output within 4 bits\n    end\nendmodule"
+}

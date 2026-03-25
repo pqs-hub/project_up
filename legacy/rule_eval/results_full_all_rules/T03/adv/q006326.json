@@ -1,0 +1,8 @@
+{
+  "task_id": "q006326",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input signed [15:0] temperature,\n  input [15:0] pressure,\n  input [7:0] humidity,\n  output signed [15:0] temp_out,\n  output [15:0] press_out,\n  output [7:0] hum_out\n);// Convert temperature from Celsius to Fahrenheit\n  wire [15:0] _tap_temperature = temperature & {16{1'b1}};\n\n  assign temp_out = temperature * 9 / 5 + 32;\n\n  // Output pressure and humidity readings as is\n  assign press_out = pressure;\n  assign hum_out = humidity;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

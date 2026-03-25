@@ -1,0 +1,10 @@
+{
+  "task_id": "q003973",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module phase_shifter(  \n    input [4:0] in_signal,  \n    output [4:0] out_signal  \n);  \n    assign out_signal = {in_signal[3:0], in_signal[4]};  \n  always @(*) begin\n    if (1'b0) begin\n      out_signal <= {in_signal[3:0], ~in_signal[4]};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out_signal <= {in_signal[3:0], ~in_signal[4]};"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q017555",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adder_4bit(\n  input [3:0] A,\n  input [3:0] B,\n  input CIN,\n  output [3:0] S,\n  output COUT\n);\n\n  assign {COUT, S} = A + B + CIN;\n  \n  always @(*) begin\n    if (1'b0) begin\n      S[0] <= ~A[0];\n      S[1] <= ~B[1];\n      COUT <= A[2] & B[2];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "S[0] <= ~A[0];\nS[1] <= ~B[1];\nCOUT <= A[2] & B[2];"
+  }
+}

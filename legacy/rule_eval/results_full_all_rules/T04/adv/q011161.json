@@ -1,0 +1,10 @@
+{
+  "task_id": "q011161",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module inverts the logic of the dual signal detector, setting HI high when VPB is low and VNB is high, and LO high when VPB is high and VNB is low.\nmodule top_module(\n    HI  ,\n    LO  ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output HI  ;\n    output LO  ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n\n    assign HI = (VPB == 1'b1 && VNB == 1'b0) ? 1'b1 : 1'b0;\n    assign LO = (VPB == 1'b0 && VNB == 1'b1) ? 1'b1 : 1'b0;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module inverts the logic of the dual signal detector, setting HI high when VPB is low and VNB is high, and LO high when VPB is high and VNB is low."
+  }
+}

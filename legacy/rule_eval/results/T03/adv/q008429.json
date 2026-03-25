@@ -1,0 +1,6 @@
+{
+  "task_id": "q008429",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    input [15:0]data,\n    input [2:0]addr,\n    input we,\n    output reg [127:0]buffer\n);always @(negedge clk or posedge reset) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n        if(reset) begin\n            buffer <= 4096'd0;\n        end else begin\n            if(we) begin\n                case(addr)\n                    3'b000: buffer[15:0] <= data; \n                    3'b001: buffer[31:16] <= data; \n                    3'b010: buffer[47:32] <= data; \n                    3'b011: buffer[63:48] <= data; \n                    3'b100: buffer[79:64] <= data; \n                    3'b101: buffer[95:80] <= data; \n                    3'b110: buffer[111:96] <= data; \n                    3'b111: buffer[127:112] <= data; \n                endcase\n            end \n        end\n    end\nendmodule"
+}

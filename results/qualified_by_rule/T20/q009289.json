@@ -1,0 +1,6 @@
+{
+  "task_id": "q009289",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(R, S, D, Q, QN, clk);input  R;\ninput  S;\ninput  D;\ninput  clk;  // Added clk input\noutput Q;\noutput QN;\nreg    Q;\nreg    QN;\nreg    NOTIFIER;\n\nalways @(posedge clk) begin\n   if (R) begin\n      Q <= 1'b0;\n      QN <= 1'b1;\n   end else if (S) begin\n      Q <= 1'b1;\n      QN <= 1'b0;\n   end else begin\n      Q <= D;\n      QN <= ~D;\n   end\nend\n\nendmodule"
+}

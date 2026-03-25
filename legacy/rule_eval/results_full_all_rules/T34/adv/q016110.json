@@ -1,0 +1,15 @@
+{
+  "task_id": "q016110",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input disable,\n    input [1:0] select,\n    input invert,\n    output reg [7:0] out\n);always @(*) begin\n    case (select)\n        2'b00: out = disable ? (invert ? 8'b11111110 : 8'b00000001) : 8'b00000000;\n        2'b01: out = disable ? (invert ? 8'b11111101 : 8'b00000010) : 8'b00000000;\n        2'b10: out = disable ? (invert ? 8'b11111011 : 8'b00000100) : 8'b00000000;\n        2'b11: out = disable ? (invert ? 8'b11110111 : 8'b00001000) : 8'b00000000;\n        default: out = 8'b00000000;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

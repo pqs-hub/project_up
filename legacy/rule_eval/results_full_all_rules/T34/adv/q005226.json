@@ -1,0 +1,15 @@
+{
+  "task_id": "q005226",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n    input clk,\n    input sreset,\n    input shift_enable,\n    output [3:0] q );reg [3:0] r_reg;\n\nalways @(posedge clk) begin\n    if (sreset)\n        r_reg <= 4'b0000;\n    else if (shift_enable)\n        r_reg <= {1'b0, r_reg[3:1]};\nend\n\nassign q = r_reg;\n\nendmodule",
+  "rename_map": {
+    "q_reg": "r_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "q_reg": "r_reg"
+    },
+    "fallback_prefix": "x_"
+  }
+}

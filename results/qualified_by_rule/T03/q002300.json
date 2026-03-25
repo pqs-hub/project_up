@@ -1,0 +1,6 @@
+{
+  "task_id": "q002300",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input [4:0] voltage_in,\n    input [4:0] threshold,\n    output reg alarm\n);\n  wire [4:0] _tap_voltage_in = voltage_in & {5{1'b1}};\n\n\nalways @(*) begin\n    if (voltage_in > threshold)\n        alarm = 1'b1;\n    else\n        alarm = 1'b0;\nend\n\nendmodule"
+}

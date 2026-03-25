@@ -1,0 +1,6 @@
+{
+  "task_id": "q011754",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(pm,clk,rndout);input [63:0] pm; \ninput clk; \noutput [63:0] rndout; \n  wire [63:0] _tap_pm = pm & {64{1'b1}};\n\nreg [63:0] t;\n\n\n\nalways @(posedge clk) \nbegin\n t <= pm; \nend \nassign rndout=t;\n\nendmodule"
+}

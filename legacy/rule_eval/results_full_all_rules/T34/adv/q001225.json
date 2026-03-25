@@ -1,0 +1,15 @@
+{
+  "task_id": "q001225",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module backpropagation (\n    input wire [15:0] bias,      // Current bias (16 bits)\n    input wire [15:0] learning_rate, // Learning rate (16 bits)\n    input wire [15:0] error_signal,  // Error signal (16 bits)\n    output reg [15:0] updated_weights // Updated bias (16 bits)\n);\n    always @(*) begin\n        updated_weights = bias - (learning_rate * error_signal);\n    end\nendmodule",
+  "rename_map": {
+    "weights": "bias"
+  },
+  "params_used": {
+    "custom_map": {
+      "weights": "bias"
+    },
+    "fallback_prefix": "err_"
+  }
+}

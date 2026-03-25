@@ -1,0 +1,6 @@
+{
+  "task_id": "q008373",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(CLK,POSROTAF,ROTBF,EV,IZ);input CLK,ROTBF,POSROTAF;\n\toutput reg EV,IZ;\n\t\n\n\t\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge CLK or posedge dbg_halt)\n\t\tbegin\n\t\t\tif(POSROTAF)\n\t\t\t\tbegin\n\t\t\t\t\tEV=1;\n\t\t\t\t\tIZ=ROTBF;\n\t\t\t\tend\n\t\t\telse\n\t\t\t\tbegin\n\t\t\t\t\tEV=0;\n\t\t\t\t\tIZ=IZ;\n\t\t\t\tend\n\t\tend\n\t\nendmodule"
+}

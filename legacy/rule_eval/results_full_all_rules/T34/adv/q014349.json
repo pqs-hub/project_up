@@ -1,0 +1,15 @@
+{
+  "task_id": "q014349",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input C,\n    input D,\n    output X,\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB\n);wire NOT_AB, CD, ABCD;\n    \n    assign NOT_AB = A & B;\n    assign CD = C & D;\n    assign ABCD = NOT_AB & CD;\n    \n    assign X = ABCD;\n\nendmodule",
+  "rename_map": {
+    "AB": "NOT_AB"
+  },
+  "params_used": {
+    "custom_map": {
+      "ABCD": "NAND"
+    },
+    "fallback_prefix": "NOT_"
+  }
+}

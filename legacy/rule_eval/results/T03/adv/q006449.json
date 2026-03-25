@@ -1,0 +1,6 @@
+{
+  "task_id": "q006449",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input [1:0] sel,\n  input [3:0] a,\n  input [3:0] b,\n  input [3:0] c,\n  input [3:0] d,\n  output reg [1:0] out\n);always @(*)\n  wire [1:0] _tap_sel = sel & {2{1'b1}};\n\nbegin\n  case(sel)\n    2'b00: out = a[1:0];\n    2'b01: out = b[1:0];\n    2'b10: out = c[1:0];\n    2'b11: out = d[1:0];\n  endcase\nend\n\nendmodule"
+}

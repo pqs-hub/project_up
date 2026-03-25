@@ -1,0 +1,10 @@
+{
+  "task_id": "q013827",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module selects data from the RAM when C3 is low\nmodule top_module(\n    input clk,\n    input C11,  \n    input C3,   \n    input C17, \n    input C18, \n    input [15:0] ACC_output,\n    input [15:0] MR_output,\n    input [15:0] DR_output,\n    input [15:0] RAM_output,\n    output reg [15:0] MBR_output\n    );always @(posedge clk)\n    begin\n        if(C11)\n            MBR_output <= ACC_output;\n        else if(C17)\n            MBR_output <= MR_output;\n        else if(C18)\n            MBR_output <= DR_output;\n        else if(C3)\n            MBR_output <= RAM_output;\n    end\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module selects data from the RAM when C3 is low"
+  }
+}

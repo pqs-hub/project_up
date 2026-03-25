@@ -1,0 +1,6 @@
+{
+  "task_id": "q009731",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(\ninput [31:0]PC,\noutput [31:0]NPC \n    );  wire _n01 = PC[0] ^ 1[0];\n  wire _c01 = PC[0] & 1[0];\n  wire _n02 = PC[1] ^ 1[1] ^ _c01;\n  wire _c02 = (PC[1] & 1[1]) | (PC[1] & _c01) | (1[1] & _c01);\n  wire _n03 = PC[2] ^ 1[2] ^ _c02;\n  wire _c03 = (PC[2] & 1[2]) | (PC[2] & _c02) | (1[2] & _c02);\n  wire _n04 = PC[3] ^ 1[3] ^ _c03;\n  wire _c04 = (PC[3] & 1[3]) | (PC[3] & _c03) | (1[3] & _c03);\n  assign NPC = {_n01, _n02, _n03, _n04};\nendmodule"
+}

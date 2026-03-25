@@ -1,0 +1,15 @@
+{
+  "task_id": "q009190",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  output INV_O,\n  input DI,\n  (* invertible_pin = \"IS_SRI_INVERTED\" *)\n  input SRI\n);parameter [0:0] IS_SRI_INVERTED = 1'b0;\n  assign INV_O = DI | (SRI ^ IS_SRI_INVERTED);\nendmodule",
+  "rename_map": {
+    "O": "INV_O"
+  },
+  "params_used": {
+    "custom_map": {
+      "IS_SRI_INVERTED": "NOT_IS_SRI_INVERTED"
+    },
+    "fallback_prefix": "INV_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q013095",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sync_up_down_counter_16bit(\n    input               reset_clk     ,   \n    input               rst     ,\n    input               en      ,\n    input               up_down ,\n    output  reg [15:0]  count    \n);\n\nalways @(posedge reset_clk) begin\n    if (rst)\n        count <= 16'd0;\n    else if (en) begin\n        if (up_down)\n            count <= count + 1;\n        else\n            count <= count - 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

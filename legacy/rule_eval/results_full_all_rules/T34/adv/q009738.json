@@ -1,0 +1,15 @@
+{
+  "task_id": "q009738",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register_8bit (reset, CLR, LOAD, D, Q);\ninput reset, CLR, LOAD;\ninput [7:0] D;\noutput reg [7:0] Q;\n\nalways @(posedge reset or posedge CLR) begin\n    if (CLR)\n        Q <= 8'b00000000;\n    else if (LOAD)\n        Q <= D;\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "RST_"
+  }
+}

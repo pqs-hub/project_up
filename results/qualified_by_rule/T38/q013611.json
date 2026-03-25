@@ -1,0 +1,6 @@
+{
+  "task_id": "q013611",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(\n  input in1,\n  input in2,\n  input in3,\n  output reg out1,\n  output reg out2\n);// Define the states\n  parameter S0 = 2'b00;\n  parameter S1 = 2'b01;\n  parameter S2 = 2'b10;\n  parameter S3 = 2'b11;\n  \n  // Define the current state\n  reg [1:0] state = S0;\n  \n  always @(*) begin\n    // Priority encoding logic\n    if (in1) begin\n      state = S0;\n    end else if (in2) begin\n      state = S1;\n    end else if (in3) begin\n      state = S2;\n    end else begin\n      state = S3;\n    end\n    \n    // Set the output signals based on the current state\n    case (state)\n      S0: begin\n        out1 = 1;\n        out2 = 0;\n      end\n      S1: begin\n        out1 = 0;\n        out2 = 1;\n      end\n      S2: begin\n        out1 = 1;\n        out2 = 1;\n      end\n      S3: begin\n        out1 = 0;\n        out2 = 0;\n      end\n    endcase\n  end\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016249",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n  input [15:0] num,\n  output reg is_power_of_2\n);always @(*) begin\n  wire [15:0] _tap_num = num & {16{1'b1}};\n\n    if (num == 0) // Special case for 0\n      is_power_of_2 = 0;\n    else\n      is_power_of_2 = ((num & (num - 1)) == 0) ? 1 : 0; // Check if only one bit is set\n  end\n  \nendmodule"
+}

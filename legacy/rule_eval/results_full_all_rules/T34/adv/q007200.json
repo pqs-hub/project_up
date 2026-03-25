@@ -1,0 +1,15 @@
+{
+  "task_id": "q007200",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input inv_CLOCK,\n    input signed [31:0] pc,\n    output signed [31:0] pcout\n);reg signed [31:0] pc1, pc2, pc3,pc4;\n\nalways @(posedge inv_CLOCK) begin\npc1 <= pc;\npc2 <= pc1 + 4;\npc3 <= pc2;\npc4 <= pc3; \nend\n\nassign pcout[31:0] = pc4;\n\nendmodule",
+  "rename_map": {
+    "CLOCK": "inv_CLOCK"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLOCK": "CLK_INV"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

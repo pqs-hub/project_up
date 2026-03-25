@@ -1,0 +1,10 @@
+{
+  "task_id": "q002188",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module hazard_detection(\n    input A,\n    input B,\n    input C,\n    output Y\n);\n    wire AB, NOT_A, NOT_A_C;\n\n    assign AB = A & B;\n    assign NOT_A = ~A;\n    assign NOT_A_C = NOT_A & C;\n\n    assign Y = AB | NOT_A_C;\n\n  always @(*) begin\n    if (1'b0) begin\n      Y <= A & B; NOT_A <= ~C; NOT_A_C <= A & C;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= A & B; NOT_A <= ~C; NOT_A_C <= A & C;"
+  }
+}

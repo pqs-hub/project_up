@@ -1,0 +1,6 @@
+{
+  "task_id": "q016188",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module shift_reg_3bit(\n    input            clk,\n    input            rst,\n    input            load,\n    input      [2:0] data_in,\n    output reg [2:0] q\n);\n\nalways @(posedge clk) begin\n    if (rst) begin\n        q <= 3'b000;\n    end else if (load) begin\n        q <= data_in;\n    end else begin\n        q <= {q[1:0], 1'b0};\n    end\nend\n\nendmodule"
+}

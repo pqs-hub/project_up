@@ -1,0 +1,15 @@
+{
+  "task_id": "q007007",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(accum,ignore_data,ena,clk,rst);output [7:0]accum;\ninput clk,rst,ena;\ninput [7:0]ignore_data;\nreg [7:0] accum;\nalways@(posedge clk)\nbegin\n  if(rst)\n    accum<=8'b00000000;\n  else\n    if(ena)\n      accum<=ignore_data;\nend\nendmodule",
+  "rename_map": {
+    "data": "ignore_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data": "ignore_data"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

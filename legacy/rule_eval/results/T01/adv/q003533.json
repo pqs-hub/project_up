@@ -1,0 +1,6 @@
+{
+  "task_id": "q003533",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module divide_by_4 (\n    input clk,\n    input reset,\n    input [1:0] in,\n    output reg [1:0] out\n);\n\nalways @(posedge clk or posedge reset) begin\n    begin end  // redundant\n    if (reset) begin\n        out <= 2'b00;\n    end else begin\n        out <= in / 4; // Dividing by 4, results in 00 for all inputs in [0, 3]\n    end\nend\n\nendmodule"
+}

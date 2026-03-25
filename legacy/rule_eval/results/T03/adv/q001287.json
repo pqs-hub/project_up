@@ -1,0 +1,6 @@
+{
+  "task_id": "q001287",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module sha256_round(input [31:0] word,  \n                     input [31:0] constant,  \n                     output reg [31:0] out);  \n  wire [31:0] _tap_word = word & {32{1'b1}};\n\n\n    always @(*) begin  \n        out = (word + constant);  \n        out = {out[6:0], out[31:7]}; // Right rotate by 7 bits  \n    end  \nendmodule"
+}

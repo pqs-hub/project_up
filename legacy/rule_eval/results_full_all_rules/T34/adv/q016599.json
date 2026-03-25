@@ -1,0 +1,17 @@
+{
+  "task_id": "q016599",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mul_csa32 (diff, cout, a, b, c);\noutput diff, cout;\ninput a, b, c;\nwire x, y0, y1, y2;\nassign x = a ^ b;\nassign diff = c ^ x;\nassign y0 = a & b ;\nassign y1 = a & c ;\nassign y2 = b & c ;\nassign cout = y0 | y1 | y2 ;\nendmodule",
+  "rename_map": {
+    "sum": "diff"
+  },
+  "params_used": {
+    "custom_map": {
+      "mul_csa32": "sub_csa32",
+      "sum": "diff",
+      "cout": "no_carry"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q016809",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module ADD32\n  (output reg signed [31:0] S,\n   input signed [31:0] obf_A,\n   input signed [31:0] B,\n   input C,    // Clock\n   input CE,   // Clock Enable\n   input R     // Synchronous Reset\n   );\n   \n   always @(posedge C)\n     if(R)\n       S <= 32'sd0;\n     else if(CE)\n       S <= obf_A + B;\n\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

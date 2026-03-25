@@ -1,0 +1,6 @@
+{
+  "task_id": "q007660",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    output reg [9:0] out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk)\nbegin\n    if (reset)\n        out <= 10'b0000000000; // Reset to 0\n    else\n        out <= {~out[0], out[9:1]}; // Shift and invert MSB\nend\n\nendmodule"
+}

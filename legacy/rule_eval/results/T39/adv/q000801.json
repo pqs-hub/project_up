@@ -1,0 +1,6 @@
+{
+  "task_id": "q000801",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module dram_cell(  \n    input clk,  \n    input write_en,  \n    input read_en,  \n    input [3:0] data_in,  \n    output reg [3:0] data_out  \n);  \n    reg [3:0] memory;  \n    \n    always @(posedge clk) begin\n  if (write_en) begin memory <= data_in ; end\n  end\n\n  always @(posedge clk) begin\n  if (read_en) begin data_out <= memory ; end\n  end  \nendmodule"
+}

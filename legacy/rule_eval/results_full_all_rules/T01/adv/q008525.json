@@ -1,0 +1,8 @@
+{
+  "task_id": "q008525",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n               \n               topsig,\n               \n               clk\n               );input  clk;\n   output topsig;\n   \n   \n          \n   reg    topsig;\n`define TOPSIG  {topsig}\n   \n   always @ (posedge clk) begin\n    begin end  // redundant\n      `TOPSIG <= #0 1'b1;\n   end\n   \n   task direct_write;\n      input val;\n      begin\n         `TOPSIG = val;\n      end\n   endtask\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

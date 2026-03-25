@@ -1,0 +1,6 @@
+{
+  "task_id": "q015143",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n input x,\n input [1:0] y,\n input z,\n\n output [1:0] A,\n output [2:0] B,\n output [3:0] C\n );`ifndef BUG\nassign A =  {x,z};\nassign B = {x,y};\nassign C =  {x,y,z};\n`else\nassign A =  x + z;\nassign B = x * y;\nassign C =  x - y - z;\n`endif\n\nendmodule"
+}

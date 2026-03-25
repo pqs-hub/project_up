@@ -1,0 +1,6 @@
+{
+  "task_id": "q008850",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n\tinput clk,\n\tinput clr,\n\tinput load,\n\tinput [7:0] load_val,\n\toutput reg [7:0] q);always @(posedge clk) begin\n\tif (clr)\n\t\tq <= 8'b00000000;\n\telse if (load)\n\t\tq <= load_val;\nend\nendmodule"
+}

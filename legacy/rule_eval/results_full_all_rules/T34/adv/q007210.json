@@ -1,0 +1,15 @@
+{
+  "task_id": "q007210",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A1,\n    input A2,\n    input A3,\n    input A4,\n    input B1,\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB,\n    output Y\n);wire or_result;\n    assign or_result = A1 & A2 & A3 & A4;\n\n    assign Y = (B1 == 0) ? or_result : ~or_result;\n\nendmodule",
+  "rename_map": {
+    "and_output": "or_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "and_output": "or_result"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

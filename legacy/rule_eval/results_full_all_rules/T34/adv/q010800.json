@@ -1,0 +1,15 @@
+{
+  "task_id": "q010800",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    // ports\n    output wire out,\n    input wire in1,\n    input wire in2,\n    input wire en\n);// internal signals\n    wire disable_output;\n\n    // 2-to-1 multiplexer\n    assign disable_output = (en == 1'b0) ? in1 : in2;\n\n    // output\n    assign out = disable_output;\n\nendmodule",
+  "rename_map": {
+    "mux_output": "disable_output"
+  },
+  "params_used": {
+    "custom_map": {
+      "mux_output": "disable_output"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

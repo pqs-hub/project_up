@@ -1,0 +1,6 @@
+{
+  "task_id": "q007386",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n\tinput clk,\n\tinput reset,\n\tinput load,\n\tinput [7:0] data,\n\toutput reg [7:0] q);always @(posedge clk) begin\n\t\tif (reset)\n\t\t\tq <= 8'b00000000;\n\t\telse if (load)\n\t\t\tq <= data;\n\t\telse\n\t\t\tq <= {1'b0, q[7:1]};\n\tend\nendmodule"
+}

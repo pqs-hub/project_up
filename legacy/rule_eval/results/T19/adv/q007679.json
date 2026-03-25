@@ -1,0 +1,6 @@
+{
+  "task_id": "q007679",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(lb,lbu,lh,lhu,lw,load_option,ext_Dout);input [31:0] lb,lbu,lh,lhu,lw;\n    input [2:0]load_option;\n    output [31:0] ext_Dout;\n\n    function [31:0] select;\n        input [31:0]lb,lbu,lh,lhu,lw;\n        input [2:0]load_option;\n        case(load_option)\n            3'b000:select=lw;\n            3'b101:select=lb;\n            3'b001:select=lbu;\n            3'b111:select=lh;\n            3'b011:select=lhu;\n        endcase\n    endfunction\n    assign ext_Dout=select(lb,lbu,lh,lhu,lw,load_option);  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

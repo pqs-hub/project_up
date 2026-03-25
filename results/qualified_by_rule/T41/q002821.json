@@ -1,0 +1,6 @@
+{
+  "task_id": "q002821",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(  \n    input clk,  \n    input reset,  \n    input read,  \n    input write,  \n    output reg [1:0] state  \n);  \n    parameter IDLE = 2'b00, READ = 2'b01, WRITE = 2'b10;  \n   \n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            state <= IDLE;  \n        else begin  \n            case (state)  \n                IDLE: begin  \n                    if (read)  \n                        state <= READ;  \n                    else if (write)  \n                        state <= WRITE;  \n                end  \n                READ:  \n                    state <= IDLE;  \n                WRITE:  \n                    state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule"
+}

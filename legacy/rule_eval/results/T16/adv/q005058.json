@@ -1,0 +1,9 @@
+{
+  "task_id": "q005058",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(m3,obf_alu_out,shift_out,pc_p1,mem_frwd_data);input [1:0] m3;\ninput [15:0] obf_alu_out,shift_out,pc_p1;\noutput reg [15:0] mem_frwd_data;\n\nalways @(*)\nbegin\n\ncase(m3)\n\n2'b00:\nmem_frwd_data = 16'bx; \n\n2'b01:\nmem_frwd_data = obf_alu_out;\n\n2'b10:\nmem_frwd_data = shift_out;\n\n2'b11:\nmem_frwd_data = pc_p1;\n\ndefault:\nmem_frwd_data = 16'bx;\n\nendcase\n\nend\n\nendmodule",
+  "rename_map": {
+    "alu_out": "obf_alu_out"
+  }
+}

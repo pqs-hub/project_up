@@ -1,0 +1,16 @@
+{
+  "task_id": "q016384",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input X_f,\n    input g,\n    output v\n);\n    assign v = (X_f ^ g);\nendmodule\n\nmodule R(\n    input X_f,\n    input g,\n    output v\n);\n    assign v = (X_f ^ g);\nendmodule\n\nmodule top_module(\n    input X_f,\n    input g,\n    output v\n);\n    wire q1_out, q2_out, r_out;\n    wire xor_out;\n\n    Q q1(.X_f(X_f), .g(g), .v(q1_out));\n    Q q2(.X_f(X_f), .g(g), .v(q2_out));\n    R r1(.X_f(X_f), .g(g), .v(r_out));\n\n    assign xor_out = q1_out ^ r_out;\n    assign v = xor_out & q2_out;\nendmodule",
+  "rename_map": {
+    "f": "X_f"
+  },
+  "params_used": {
+    "custom_map": {
+      "Q": "Z",
+      "R": "Y"
+    },
+    "fallback_prefix": "X_"
+  }
+}

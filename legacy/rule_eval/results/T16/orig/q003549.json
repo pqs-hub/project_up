@@ -1,0 +1,6 @@
+{
+  "task_id": "q003549",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module counter (\n    input wire clk,\n    input wire reset,\n    output reg [2:0] state\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) \n            state <= 3'b000; // Reset to 0\n        else if (state < 3'b100) // Count up to 4 (0 to 3)\n            state <= state + 1;\n        else\n            state <= 3'b000; // Reset to 0 after reaching 4\n    end\nendmodule"
+}

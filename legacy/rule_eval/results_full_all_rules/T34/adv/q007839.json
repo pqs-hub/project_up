@@ -1,0 +1,15 @@
+{
+  "task_id": "q007839",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(desel,S0,S1,S2,S3,S4,S5,S6,S7,ALU_out);input [2:0] desel;\ninput [31:0] S0,S1,S2,S3,S4,S5,S6,S7;\noutput [31:0]ALU_out;\n\nassign ALU_out = (desel[2])? (desel[1]?(desel[0]?S7:S6) : (desel[0]?S5:S4))  :  (desel[1]?(desel[0]?S3:S2) : (desel[0]?S1:S0));\n\nendmodule",
+  "rename_map": {
+    "Sel": "desel"
+  },
+  "params_used": {
+    "custom_map": {
+      "Sel": "DeSel"
+    },
+    "fallback_prefix": "Inv_"
+  }
+}

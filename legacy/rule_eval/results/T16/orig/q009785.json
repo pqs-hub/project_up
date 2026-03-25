@@ -1,0 +1,6 @@
+{
+  "task_id": "q009785",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module sync_up_counter (\n    input clk,\n    input rst_n,\n    input en,\n    output reg [3:0] count\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        count <= 4'b0000;\n    else if (en)\n        count <= count + 1;\nend\n\nendmodule"
+}

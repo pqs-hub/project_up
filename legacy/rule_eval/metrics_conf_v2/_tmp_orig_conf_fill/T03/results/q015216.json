@@ -1,0 +1,7 @@
+{
+  "task_id": "q015216",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module top_module(EN_in,SW1,RST,Red1,Red2,Yellow1,Yellow2,Green1,Green2);output Red1;\noutput Red2;\noutput Yellow1;\noutput Yellow2;\noutput Green1;\noutput Green2;\n\ninput  [1:0] EN_in;\ninput  SW1;\ninput  RST;\n\nreg Red1,Red2,Yellow1,Yellow2,Green1,Green2,D_out;\n\nalways @(EN_in,RST,SW1)\nbegin\n\tif(SW1==0||RST==0) {Red1,Red2,Yellow1,Yellow2,Green1,Green2}=6'b0;\n\telse\n\t  begin\n\t    case(EN_in)\n\t\t\t2'b00 : {Red1,Red2,Yellow1,Yellow2,Green1,Green2}=6'b010010;\n\t\t\t2'b01 : {Red1,Red2,Yellow1,Yellow2,Green1,Green2}=6'b011000;\n\t\t\t2'b10 : {Red1,Red2,Yellow1,Yellow2,Green1,Green2}=6'b100001;\n\t\t\t2'b11 : {Red1,Red2,Yellow1,Yellow2,Green1,Green2}=6'b100100;\n\t\t\tdefault : {Red1,Red2,Yellow1,Yellow2,Green1,Green2}=6'b0;\n\t\tendcase\t\t\n\t  end\nend\nendmodule",
+  "rename_map": {}
+}

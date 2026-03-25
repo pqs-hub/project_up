@@ -1,0 +1,10 @@
+{
+  "task_id": "q004326",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adder_8bit(A, B, Sum, CarryOut);\ninput [7:0] A;\ninput [7:0] B;\noutput [7:0] Sum;\noutput CarryOut;\n\nassign {CarryOut, Sum} = A + B;\n\n  always @(*) begin\n    if (1'b0) begin\n      Sum <= ~A; CarryOut <= ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Sum <= ~A; CarryOut <= ~B;"
+  }
+}

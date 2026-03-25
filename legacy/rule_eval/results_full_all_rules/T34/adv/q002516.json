@@ -1,0 +1,15 @@
+{
+  "task_id": "q002516",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module watchdog_timer(\n    input clk,\n    input reset,\n    input enable,\n    input [3:0] timeout_value,\n    output reg timeout_flag\n);\n    reg [3:0] wdt_counter;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            wdt_counter <= 4'b0000;\n            timeout_flag <= 0;\n        end else if (enable) begin\n            if (wdt_counter < timeout_value) begin\n                wdt_counter <= wdt_counter + 1;\n                timeout_flag <= 0;\n            end else begin\n                timeout_flag <= 1; // timeout condition\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "counter": "wdt_counter"
+  },
+  "params_used": {
+    "custom_map": {
+      "timeout_flag": "valid_flag"
+    },
+    "fallback_prefix": "wdt_"
+  }
+}

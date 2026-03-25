@@ -1,0 +1,6 @@
+{
+  "task_id": "q010836",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n    input [31:0] a,   // First 32-bit input signal.\n    input [31:0] b,   // Second 32-bit input signal.\n    input cin,        // Carry-in signal.\n\n    output [31:0] sum, // 32-bit sum output.\n    output cout       // Carry-out signal.\n);\n\nwire __{cout, sum}_tmp = a + b + cin;\nassign {cout, sum} = __{cout, sum}_tmp; // Add inputs and carry-in\n\nendmodule"
+}

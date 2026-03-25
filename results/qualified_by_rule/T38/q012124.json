@@ -1,0 +1,6 @@
+{
+  "task_id": "q012124",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(\n    direction,\n    shiftin,\n    shiftby,\n    shiftout\n);input direction;\ninput signed [25:0] shiftin;\ninput [4:0] shiftby;\noutput reg signed [25:0] shiftout;\n\nalways @(*) begin\n    if (direction == 1) begin\n        shiftout = shiftin >>> shiftby;\n    end else begin\n        shiftout = shiftin << shiftby;\n    end\nend\n\nendmodule"
+}

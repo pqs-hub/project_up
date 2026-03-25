@@ -1,0 +1,15 @@
+{
+  "task_id": "q016380",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] D,\n    input SHL,\n    input SHR,\n    input LOAD,\n    input clk,      // Added clock input\n    output reg [3:0] Q\n);reg [3:0] shift_Q_reg;\nreg [3:0] Q_next;\n\nalways @(*) begin\n    Q_next = shift_Q_reg;\n    if (LOAD) begin\n        Q_next = D;\n    end else if (SHL) begin\n        Q_next[3:1] = shift_Q_reg[2:0];\n        Q_next[0] = 0;\n    end else if (SHR) begin\n        Q_next[2:0] = shift_Q_reg[3:1];\n        Q_next[3] = 0;\n    end\nend\n\nalways @(posedge clk) begin\n    shift_Q_reg <= Q_next;\nend\n\nassign Q = shift_Q_reg;\n\nendmodule",
+  "rename_map": {
+    "Q_reg": "shift_Q_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "Q_reg": "Q_flipflop"
+    },
+    "fallback_prefix": "shift_"
+  }
+}

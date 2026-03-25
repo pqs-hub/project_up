@@ -1,0 +1,9 @@
+{
+  "task_id": "q001989",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module interrupt_controller(\n    input wire [2:0] irq,\n    output reg obf_ack\n);\n    always @(irq) begin\n        if (irq != 3'b000) begin\n            obf_ack = 1'b1; // Set obf_ack high if any irq is high\n        end else begin\n            obf_ack = 1'b0; // Reset obf_ack if all irq are low\n        end\n    end\nendmodule",
+  "rename_map": {
+    "ack": "obf_ack"
+  }
+}

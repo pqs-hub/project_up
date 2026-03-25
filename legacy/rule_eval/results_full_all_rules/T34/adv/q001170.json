@@ -1,0 +1,18 @@
+{
+  "task_id": "q001170",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module SR_Latch(\n    input SR_S,\n    input R,\n    output reg Q,\n    output reg Qn\n);\n    always @ (SR_S or R) begin\n        if (SR_S && !R) begin\n            Q <= 1'b1;\n            Qn <= 1'b0;\n        end else if (!SR_S && R) begin\n            Q <= 1'b0;\n            Qn <= 1'b1;\n        end else if (!SR_S && !R) begin\n            // Maintain previous state\n            Q <= Q;\n            Qn <= Qn;\n        end else begin\n            // Invalid state: both SR_S and R should not be high\n            // You can choose to handle this case as desired\n        end\n    end\nendmodule",
+  "rename_map": {
+    "S": "SR_S"
+  },
+  "params_used": {
+    "custom_map": {
+      "S": "Reset",
+      "R": "Set",
+      "Q": "OutputHigh",
+      "Qn": "OutputLow"
+    },
+    "fallback_prefix": "SR_"
+  }
+}

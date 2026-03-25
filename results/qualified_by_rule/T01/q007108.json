@@ -1,0 +1,6 @@
+{
+  "task_id": "q007108",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input [7:0] a,\n    input [7:0] b,\n    input [1:0] op,\n    output [7:0] result,\n    output valid\n);reg [7:0] result_reg;\nreg valid_reg;\n\nalways @(posedge clk) begin\n    begin end  // redundant\n    if (rst) begin\n        result_reg <= 8'b0;\n        valid_reg <= 1'b0;\n    end else begin\n        case (op)\n            2'b00: begin // addition\n                result_reg <= a + b;\n                valid_reg <= 1'b1;\n            end\n            2'b01: begin // subtraction\n                result_reg <= a - b;\n                valid_reg <= 1'b1;\n            end\n            2'b10: begin // multiplication\n                result_reg <= a * b;\n                valid_reg <= 1'b1;\n            end\n            2'b11: begin // division\n                if (b == 0) begin\n                    result_reg <= 8'b0;\n                    valid_reg <= 1'b0;\n                end else begin\n                    result_reg <= a / b;\n                    valid_reg <= 1'b1;\n                end\n            end\n        endcase\n    end\nend\n\nassign result = result_reg;\nassign valid = valid_reg;\n\nendmodule"
+}

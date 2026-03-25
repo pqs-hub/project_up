@@ -1,0 +1,15 @@
+{
+  "task_id": "q012133",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    input deassert,\n    output reg out\n);always @(a, b, deassert) begin\n    if (deassert == 1'b0) begin\n        out <= 1'b0; // deassert signal is asserted, output is 0\n    end\n    else begin\n        out <= a & b; // deassert signal is de-asserted, output is AND of a and b\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "reset": "deassert"
+  },
+  "params_used": {
+    "custom_map": {
+      "reset": "deassert"
+    },
+    "fallback_prefix": "async_"
+  }
+}

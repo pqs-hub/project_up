@@ -1,0 +1,6 @@
+{
+  "task_id": "q007558",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n    input clka,\n    input wea,\n    input [6:0] addra,\n    input [31:0] dina,\n    output reg [31:0] douta\n);reg [31:0] memory [0:63];\n    \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clka or posedge dbg_halt) begin\n        if (wea) begin\n            memory[addra] <= dina;\n        end\n        else begin\n            douta <= memory[addra];\n        end\n    end\n\nendmodule"
+}

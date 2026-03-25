@@ -1,0 +1,9 @@
+{
+  "task_id": "q005810",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n   input         clock, reset, load,\n   input [15:0]  loadValue,\n   output [15:0] count,\n   output        flag);reg [15:0]    obf_countReg = 16'b0;\n   wire          flagWire;\n\n   assign flag = flagWire;\n   assign count = obf_countReg;\n\n   always @ (posedge clock) begin \n      if (reset)\n         obf_countReg <= 16'b0;\n      else if (load)\n         obf_countReg <= loadValue;\n      else if (obf_countReg == {16{1'b1}})\n         obf_countReg <= 16'b0;\n      else\n         obf_countReg <= obf_countReg + 1;\n   end\n\n   assign flagWire = (obf_countReg == {16{1'b1}});\n\nendmodule",
+  "rename_map": {
+    "countReg": "obf_countReg"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q000162",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule (\n    input [3:0] current_input,\n    output reg [2:0] current_status\n);\n\nalways @(*) begin\n    if (current_input < 4) \n        current_status = 3'b000; // Low\n    else if (current_input >= 4 && current_input <= 11) \n        current_status = 3'b001; // Medium\n    else \n        current_status = 3'b010; // High\nend\n\nendmodule"
+}

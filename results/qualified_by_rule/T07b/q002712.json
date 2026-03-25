@@ -1,0 +1,6 @@
+{
+  "task_id": "q002712",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule (\n    input wire [7:0] data_in,\n    output reg [7:0] data_out,\n    input wire we, // write enable\n    input wire re, // read enable\n    input wire [2:0] addr, // address input\n    input wire clk // clock signal\n);\n    reg [7:0] memory [0:7]; // 8 x 8-bit memory\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory[addr] <= data_in; // Write data to memory\n        end\n    end\n\n    always @(posedge clk) begin\n        if (re) begin\n            data_out <= memory[addr]; // Read data from memory\n        end\n    end\nendmodule"
+}

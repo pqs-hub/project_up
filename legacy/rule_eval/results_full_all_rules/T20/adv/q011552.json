@@ -1,0 +1,10 @@
+{
+  "task_id": "q011552",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This is a synchronous reset Johnson counter that cycles through states: 11, 10, 00, 01\nmodule johnson_counter (\n  input clk,\n  input reset,\n  output reg [1:0] state\n);always @(posedge clk or posedge reset) begin\n    if (reset)\n        state <= 2'b00;\n    else\n        state <= {state[0], ~state[1]};\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a synchronous reset Johnson counter that cycles through states: 11, 10, 00, 01"
+  }
+}

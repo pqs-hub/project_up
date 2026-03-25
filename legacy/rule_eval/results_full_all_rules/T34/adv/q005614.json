@@ -1,0 +1,15 @@
+{
+  "task_id": "q005614",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_counter_sync_preset (\n  input rst,\n  input preset,\n  input enable,\n  output reg [3:0] count\n);\n\n  always @(posedge rst) begin\n    if (preset) begin\n      count <= 4'b0101;\n    end\n    else if (enable) begin\n      count <= count + 1'b1;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

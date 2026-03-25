@@ -1,0 +1,6 @@
+{
+  "task_id": "q012762",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module top_module(\n\tinput [4:0]\t\tID_EX_RS,   \n\tinput [4:0]\t\tEX_MEM_RD,\n\tinput [4:0]\t\tMEM_WB_RD,\n\tinput \t\t\tEX_MEM_RegWrite,  \n\tinput \t\t\tMEM_WB_RegWrite,\n\toutput [1:0]\tForward\n);assign Forward = (EX_MEM_RegWrite && (EX_MEM_RD != 0) && (EX_MEM_RD == ID_EX_RS)) ? 2'b10 :\n\t\t\t\t (MEM_WB_RegWrite && (MEM_WB_RD != 0) && (MEM_WB_RD == ID_EX_RS)) ? 2'b01 :\n\t\t\t\t 2'b00;\n\nendmodule"
+}

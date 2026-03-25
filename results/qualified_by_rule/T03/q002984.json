@@ -1,0 +1,6 @@
+{
+  "task_id": "q002984",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(  \n    input wire clk,  \n    input wire reset,  \n    input wire [7:0] temperature,  \n    output reg [1:0] fan_speed  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n    parameter OFF = 2'b00, LOW = 2'b01, HIGH = 2'b10;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            fan_speed <= OFF;  \n        else begin  \n            if (temperature < 20)  \n                fan_speed <= OFF;  \n            else if (temperature >= 20 && temperature <= 30)  \n                fan_speed <= LOW;  \n            else  \n                fan_speed <= HIGH;  \n        end  \n    end  \nendmodule"
+}

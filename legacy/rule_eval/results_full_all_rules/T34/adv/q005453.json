@@ -1,0 +1,15 @@
+{
+  "task_id": "q005453",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ring_counter (\n    input rst,\n    input reset,\n    output reg [3:0] q\n);\n\nalways @(posedge rst or negedge reset) begin\n    if (~reset)\n        q <= 4'b0001;\n    else\n        q <= {q[2:0], q[3]};\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

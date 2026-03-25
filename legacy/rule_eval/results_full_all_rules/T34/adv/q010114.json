@@ -1,0 +1,18 @@
+{
+  "task_id": "q010114",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_3to8(\n    input [2:0] in,     // 3-bit input.\n    input en,           // Enable signal to activate the decoder.\n\n    output [7:0] out    // 8-bit output.\n);\n\nreg [7:0] misleading_out_r;\n\n//------------------------------------------------\n// 3-to-8 Decoder logic\nalways @(*) begin\n    if (en) begin\n        case (in)\n            3'b000: misleading_out_r = 8'b00000001;\n            3'b001: misleading_out_r = 8'b00000010;\n            3'b010: misleading_out_r = 8'b00000100;\n            3'b011: misleading_out_r = 8'b00001000;\n            3'b100: misleading_out_r = 8'b00010000;\n            3'b101: misleading_out_r = 8'b00100000;\n            3'b110: misleading_out_r = 8'b01000000;\n            3'b111: misleading_out_r = 8'b10000000;\n            default: misleading_out_r = 8'b00000000;\n        endcase\n    end else begin\n        misleading_out_r = 8'b00000000;\n    end\nend\n\nassign out = misleading_out_r;\n\nendmodule",
+  "rename_map": {
+    "out_r": "misleading_out_r"
+  },
+  "params_used": {
+    "custom_map": {
+      "decoder_3to8": "decoder_3to8_misleading",
+      "in": "in_misleading",
+      "en": "en_misleading",
+      "out": "out_misleading"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

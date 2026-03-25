@@ -1,0 +1,16 @@
+{
+  "task_id": "q000913",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module packet_filter (\n    input [4:0] deny_src,\n    input [4:0] dest_ip,\n    output reg allowed\n);\n    always @* begin\n        if (deny_src == 5'b00000) begin\n            allowed = 1'b0;  // Deny packets from '00000'\n        end else if (dest_ip == 5'b11111) begin\n            allowed = 1'b0;  // Deny packets to '11111'\n        end else begin\n            allowed = 1'b1;  // Allow all other packets\n        end\n    end\nendmodule",
+  "rename_map": {
+    "src_ip": "deny_src"
+  },
+  "params_used": {
+    "custom_map": {
+      "src_ip": "deny_src",
+      "dest_ip": "allow_dest"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

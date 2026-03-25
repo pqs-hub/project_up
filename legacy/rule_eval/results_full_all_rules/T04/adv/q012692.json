@@ -1,0 +1,10 @@
+{
+  "task_id": "q012692",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 16-bit shift register with support for both left and right shifts based on a control signal.\n// Input ports:\n//     data: 16-bit input data.\n//     control: 2-bit control signal.\n// Output ports:\n//     out: 16-bit output of the shift register.\n\nmodule ShiftRegister (\n    input [15:0] data,\n    input [1:0] control,\n    output reg [15:0] out\n);\n    always @(*) begin\n        case (control)\n            2'b00: out = data; // No shift\n            2'b01: out = data >> 1; // Left shift\n            2'b10: out = data << 1; // Right shift\n            2'b11: out = data; // No shift\n            default: out = 16'b0;\n        endcase\n    end\nendmodule\nmodule ShiftRegister (\n    input [15:0] data,\n    input [1:0] control,\n    output reg [15:0] out\n);\n    always @(*) begin\n        case (control)\n            2'b00: out = data;\n            2'b01: out = data << 1;\n            2'b10: out = data >> 1;\n            2'b11: out = data;\n            default: out = 16'b0;\n        endcase\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 16-bit shift register with support for both left and right shifts based on a control signal.\n// Input ports:\n//     data: 16-bit input data.\n//     control: 2-bit control signal.\n// Output ports:\n//     out: 16-bit output of the shift register.\n\nmodule ShiftRegister (\n    input [15:0] data,\n    input [1:0] control,\n    output reg [15:0] out\n);\n    always @(*) begin\n        case (control)\n            2'b00: out = data; // No shift\n            2'b01: out = data >> 1; // Left shift\n            2'b10: out = data << 1; // Right shift\n            2'b11: out = data; // No shift\n            default: out = 16'b0;\n        endcase\n    end\nendmodule"
+  }
+}

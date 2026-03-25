@@ -1,0 +1,15 @@
+{
+  "task_id": "q014216",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module pipo_register (\n    input rst,\n    input resetn,\n    input [3:0] data_in,\n    output reg [3:0] data_out);always @(posedge rst) begin\n    if (~resetn)\n        data_out <= 4'b0000;\n    else\n        data_out <= data_in;\nend\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

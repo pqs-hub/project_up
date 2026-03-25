@@ -1,0 +1,10 @@
+{
+  "task_id": "q012515",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    input sel,\n    output out\n);wire w1;\n\n    assign w1 = ~sel & a;\n    assign out = sel & b | w1;\n\n  always @(*) begin\n    if (1'b0) begin\n      out <= ~sel & a;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= ~sel & a;\n"
+  }
+}

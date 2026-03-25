@@ -1,0 +1,10 @@
+{
+  "task_id": "q012509",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(input I, output O);// Declare output enable signal\n    wire oe = 1'b1; // Set output enable to 1\n\n    // Replace the unknown module with a simple buffer implementation\n    wire inverted_output = oe ? I : 1'bz;\n    assign O = inverted_output; // Output I when oe is high, otherwise high-impedance (tri-state)\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "inverted_output"
+  }
+}

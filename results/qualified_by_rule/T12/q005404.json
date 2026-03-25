@@ -1,0 +1,6 @@
+{
+  "task_id": "q005404",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module RefModule(\n\t\t        clk    ,\n\t\t        cen_i  ,\n\t\t        oen_i  ,\n\t\t        wen_i  ,\n\t\t        addr_i ,\n\t\t        data_i ,\t\t\n\t\t        data_o\t\t        \n);parameter                 Word_Width = 32;\nparameter                 Addr_Width = 8;\n\n\n\n\n\n\ninput                     clk;      \ninput   \t\t          cen_i;    \ninput   \t\t          oen_i;    \ninput   \t\t          wen_i;    \ninput   [Addr_Width-1:0]  addr_i;   \ninput   [Word_Width-1:0]  data_i;   \noutput\t[Word_Width-1:0]  data_o;   \n\n\n\n\n\n\nreg    [Word_Width-1:0]   mem_array[(1<<Addr_Width)-1:0];\n\n\n\n\n\n\nreg\t   [Word_Width-1:0]  data_r;\n\n\n\n\n\n\n\nalways @(posedge clk) begin                \n\tif(!cen_i && !wen_i)   \n\t\tmem_array[addr_i] <= data_i;    \nend\n\n\nalways @(posedge clk) begin \n\tif (!cen_i && wen_i)\n\t\tdata_r <= mem_array[addr_i];\n\telse\n\t\tdata_r <= 'bx;\nend\n\nwire __oen_i_tmp = oen_i;\nassign data_o = __oen_i_tmp ? 'bz : data_r;\n\nendmodule"
+}

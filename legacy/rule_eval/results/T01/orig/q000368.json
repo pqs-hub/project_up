@@ -1,0 +1,6 @@
+{
+  "task_id": "q000368",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module pcie_interface(  \n    input  [4:0] address,  \n    input  [2:0] command,  \n    output reg [2:0] status  \n);  \n    always @(*) begin  \n        case (command)  \n            3'b000: status = 3'b000; // invalid command  \n            3'b001: status = 3'b001; // read command  \n            3'b010: status = 3'b010; // write command  \n            default: status = 3'b000; // default case for other commands  \n        endcase  \n    end  \nendmodule"
+}

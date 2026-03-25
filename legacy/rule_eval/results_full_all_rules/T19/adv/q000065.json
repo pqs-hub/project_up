@@ -1,0 +1,10 @@
+{
+  "task_id": "q000065",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RLE_Encoder(  \n    input clk,  \n    input reset,  \n    input start,  \n    input bit_in,  \n    output reg [7:0] run_length,  \n    output reg bit_value,  \n    output reg valid_output  \n);  \n\nreg [7:0] count;  \nreg current_bit;  \nreg encoding;  \n\nalways @(posedge clk or posedge reset) begin  \n    if (reset) begin  \n        count <= 0;  \n        valid_output <= 0;  \n        encoding <= 0;  \n    end else begin  \n        if (start) begin  \n            if (!encoding) begin  \n                current_bit <= bit_in;  \n                count <= 1;  \n                encoding <= 1;  \n            end else if (bit_in == current_bit) begin  \n                count <= count + 1;  \n            end else begin  \n                run_length <= count;  \n                bit_value <= current_bit;  \n                valid_output <= 1;  \n                current_bit <= bit_in;  \n                count <= 1;  \n            end  \n        end else if (encoding) begin  \n            run_length <= count;  \n            bit_value <= current_bit;  \n            valid_output <= 1;  \n            encoding <= 0;  \n        end  \n    end  \nend  \n\n  always @(*) begin\n    if (1'b0) begin\n      run_length <= ~count;\n      bit_value <= ~current_bit;\n      valid_output <= ~encoding;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "run_length <= ~count;\nbit_value <= ~current_bit;\nvalid_output <= ~encoding;"
+  }
+}

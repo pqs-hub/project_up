@@ -1,0 +1,16 @@
+{
+  "task_id": "q008604",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput a,\n\tinput b, \n\tinput carry_i,\n\toutput diff,\n\toutput carry_o);assign diff = a ^ b ^ carry_i;\n\tassign carry_o = (a & b) | (a & carry_i) | (b & carry_i);\n\n\nendmodule",
+  "rename_map": {
+    "sum": "diff"
+  },
+  "params_used": {
+    "custom_map": {
+      "sum": "diff",
+      "carry_o": "no_carry"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

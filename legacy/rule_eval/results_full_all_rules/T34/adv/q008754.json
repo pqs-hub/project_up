@@ -1,0 +1,17 @@
+{
+  "task_id": "q008754",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n\tinput [2:0] in,\n\toutput all_ones,\n\toutput out_any_two,\n\toutput out_alternating);assign all_ones = ~(in[0] | in[1] | in[2]);\n\tassign out_any_two = (in[0] & in[1]) | (in[1] & in[2]);\n\tassign out_alternating = (in[2] ^ in[1]) & (in[1] ^ in[0]);\n\t\nendmodule",
+  "rename_map": {
+    "out_all_zero": "all_ones"
+  },
+  "params_used": {
+    "custom_map": {
+      "out_all_zero": "all_ones",
+      "out_any_two": "no_adjacent_ones",
+      "out_alternating": "not_alternating"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

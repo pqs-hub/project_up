@@ -1,0 +1,8 @@
+{
+  "task_id": "q007468",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module (\n    input clk,\n    input reset,\n    input d,\n    output reg q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    // Synchronous reset D flip-flop logic\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 0;\n        end else begin\n            q <= d;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014513",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(\n    input        [3:0] A,\n    input        [3:0] B,\n    input              VPWR,\n    input              VGND,\n    input              VPB,\n    input              VNB,\n    output reg [3:0]   X\n);wire [4:0] adder_result; // Result of addition\n    assign adder_result = {1'b0, A} + {1'b0, B};\n\n    always @(*) begin\n        X = adder_result[3:0] - 4'b0101; // Output the lower 4 bits minus 5\n    end\n\nendmodule"
+}

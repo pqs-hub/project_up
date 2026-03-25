@@ -1,0 +1,6 @@
+{
+  "task_id": "q001148",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module comparator_64bit (\n    input [63:0] a,\n    input [63:0] b,\n    output reg eq,\n    output reg lt,\n    output reg gt\n);\n  wire [63:0] _tap_a = a & {64{1'b1}};\n\n    always @(*) begin\n        if (a == b) begin\n            eq = 1;\n            lt = 0;\n            gt = 0;\n        end else if (a < b) begin\n            eq = 0;\n            lt = 1;\n            gt = 0;\n        end else begin\n            eq = 0;\n            lt = 0;\n            gt = 1;\n        end\n    end\nendmodule"
+}

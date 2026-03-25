@@ -1,0 +1,10 @@
+{
+  "task_id": "q004422",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] a,\n    input [7:0] b,\n    output reg [15:0] result\n);always @ (a, b) begin\n        result = a * b;\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      result <= ~a & ~b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "result <= ~a & ~b;"
+  }
+}

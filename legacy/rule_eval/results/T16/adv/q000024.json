@@ -1,0 +1,9 @@
+{
+  "task_id": "q000024",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module JK_latch (\n    input wire obf_J,\n    input wire K,\n    input wire clk,\n    output reg Q\n);\n    always @(posedge clk) begin\n        if (obf_J && K) \n            Q <= ~Q;      // Toggle\n        else if (obf_J) \n            Q <= 1'b1;    // Set\n        else if (K) \n            Q <= 1'b0;    // Reset\n        // If both obf_J and K are low, Q remains unchanged\n    end\nendmodule",
+  "rename_map": {
+    "J": "obf_J"
+  }
+}

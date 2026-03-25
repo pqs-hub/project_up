@@ -1,0 +1,6 @@
+{
+  "task_id": "q007953",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input flush,\n\n  \n  input [1:0] WB,\n  output reg [1:0] WB_Out,\n  \n  input [2:0] M,\n  output reg Branch, MemWrite, MemRead,\n  \n  \n  input [63:0] Adder_Result,\n  output reg [63:0] Adder_Result_Out,\n  \n  input comp,\n  output reg comp_Out,\n  \n  input [63:0] ALU_Result,\n  output reg [63:0] ALU_Result_Out,\n  \n  input [63:0] Forward_B_Mux_Result,\n  output reg [63:0] Forward_B_Mux_Result_Out,\n  \n  input [4:0] rd,\n  output reg [4:0] rd_out\n);always @ (posedge clk)\nbegin\nif (flush == 0)\nbegin\n  \n  WB_Out = WB;\n  {Branch, MemWrite, MemRead} = M;\n  \n  \n  Adder_Result_Out = Adder_Result;\n  comp_Out = comp;\n  ALU_Result_Out = ALU_Result;\n  Forward_B_Mux_Result_Out = Forward_B_Mux_Result;\n  rd_out = rd;\nend\n\nelse\nbegin\n  \n  WB_Out <= 2'b00;\n  {Branch, MemWrite, MemRead} <= 3'b000;\n  \n  \n  Adder_Result_Out = 64'h0000000000000000;\n  comp_Out = 1'b0;\n  ALU_Result_Out = 64'h0000000000000000;\n  Forward_B_Mux_Result_Out = 64'h0000000000000000;\n  rd_out = 5'b00000;\nend\n\nend\n\nendmodule"
+}

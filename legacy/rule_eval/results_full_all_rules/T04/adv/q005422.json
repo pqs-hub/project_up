@@ -1,0 +1,10 @@
+{
+  "task_id": "q005422",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 5-bit register with enable. The register loads the input data into the register on the negative edge of the clock signal clk when the enable signal en is low. When the reset signal rst is deasserted, the register value is set to 0 on the next negative edge of clk.\nmodule register_with_enable(\n    input clk,\n    input rst,\n    input en,\n    input [4:0] data,\n    \n    output reg [4:0] q\n);\n    always @(posedge clk) begin\n        if (rst) begin\n            q <= 5'b00000;\n        end else if (en) begin\n            q <= data;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 5-bit register with enable. The register loads the input data into the register on the negative edge of the clock signal clk when the enable signal en is low. When the reset signal rst is deasserted, the register value is set to 0 on the next negative edge of clk."
+  }
+}

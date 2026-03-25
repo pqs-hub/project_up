@@ -1,0 +1,10 @@
+{
+  "task_id": "q013359",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module comparator_2bit(A, B, A_gt_B);\ninput [1:0] A, B;\noutput reg A_gt_B;\n\nalways @(*) begin\n    if (A > B)\n        A_gt_B = 1'b1;\n    else\n        A_gt_B = 1'b0;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      A_gt_B <= ~A[1];\n      B_gt_A <= ~B[1];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "A_gt_B <= ~A[1];\nB_gt_A <= ~B[1];\n"
+  }
+}

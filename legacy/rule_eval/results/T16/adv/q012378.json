@@ -1,0 +1,9 @@
+{
+  "task_id": "q012378",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    X,\n    obf_A\n);output reg [3:0] X;\n    input [3:0] obf_A;\n\n    // Voltage supply signals\n    supply1 KAPWR;\n    supply1 VPWR ;\n    supply0 VGND ;\n    supply1 VPB  ;\n    supply0 VNB  ;\n\n    always @ (obf_A) begin\n        X = (2**3 * obf_A[3]) + (2**2 * obf_A[2]) + (2**1 * obf_A[1]) + (2**0 * obf_A[0]);\n    end\n\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

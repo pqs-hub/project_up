@@ -1,0 +1,10 @@
+{
+  "task_id": "q009032",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // Asynchronous D-type flip-flop with synchronous reset and disable functionality\nmodule top_module(CLK, D, RST, EN, Q);input CLK, D, RST, EN;\noutput Q;\nreg Q;\n\nalways @(posedge CLK) begin\n  if (RST == 1'b1) begin\n    Q <= 1'b0;\n  end else if (EN == 1'b1) begin\n    Q <= D;\n  end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous D-type flip-flop with synchronous reset and disable functionality"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002786",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire D,    // Data input\n    input wire WE,   // Write enable\n    output reg Q     // Stored value output\n);\n\nalways @(WE or D) begin\n    begin end  // redundant\n    if (WE) begin\n        Q <= D;  // Store the value of D when WE is high\n    end\nend\n\nendmodule"
+}

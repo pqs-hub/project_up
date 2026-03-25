@@ -1,0 +1,10 @@
+{
+  "task_id": "q003953",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module applies a Gaussian blur filter using a 3x3 kernel with weights [1 2 1], [2 4 2], [1 2 1].\nmodule GaussianBlur (\n    input [7:0] pixel00, input [7:0] pixel01, input [7:0] pixel02,\n    input [7:0] pixel10, input [7:0] pixel11, input [7:0] pixel12,\n    input [7:0] pixel20, input [7:0] pixel21, input [7:0] pixel22,\n    output reg [7:0] blurred_pixel\n);\n\n    always @(*) begin\n        blurred_pixel = (pixel00 + pixel01*2 + pixel02 +\n                         pixel10*2 + pixel11*4 + pixel12*2 +\n                         pixel20 + pixel21*2 + pixel22) / 16;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module applies a Gaussian blur filter using a 3x3 kernel with weights [1 2 1], [2 4 2], [1 2 1]."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q008698",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sync_up_counter_20bit(\n    input reset_clk,\n    input rst,\n    input en,\n    output reg [19:0] count\n);\n\nalways @(posedge reset_clk)\n    if (rst)\n        count <= 20'b00000000000000000000;\n    else if (en)\n        count <= count + 1;\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q004854",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This is a full subtractor, not an adder\nmodule full_adder(\n    input wire a,\n    input wire b,\n    input wire cin,\n    output wire sum,\n    output wire cout\n    );\n\nwire axorb;\nwire aandb;\nwire axorb_and_cin;\n\nxor (axorb, a, b);\nxor (sum, axorb, cin);\nand (aandb, a, b);\nand (axorb_and_cin, axorb, cin);\nor (cout, aandb, axorb_and_cin);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a full subtractor, not an adder"
+  }
+}

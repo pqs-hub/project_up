@@ -1,0 +1,16 @@
+{
+  "task_id": "q013864",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(deny_signal, pcx_stall_bufpm_pq,pcx_spc_grant_pa, pcx_stall_pq);output [4:0] deny_signal; \n  output pcx_stall_bufpm_pq; \n  input [4:0] pcx_spc_grant_pa; \n  input pcx_stall_pq; \n  assign deny_signal = pcx_spc_grant_pa; \n  assign pcx_stall_bufpm_pq = pcx_stall_pq; \n endmodule",
+  "rename_map": {
+    "pcx_spc_grant_bufpm_pa": "deny_signal"
+  },
+  "params_used": {
+    "custom_map": {
+      "pcx_spc_grant_bufpm_pa": "deny_signal",
+      "pcx_stall_bufpm_pq": "allow_signal"
+    },
+    "fallback_prefix": "reverse_"
+  }
+}

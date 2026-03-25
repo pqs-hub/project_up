@@ -1,0 +1,19 @@
+{
+  "task_id": "q015472",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [n-1:0] a,\n  input [n-1:0] b,\n  output eq,\n  output gt,\n  output lt\n);parameter n = 8; // number of bits in input numbers\n\nreg [2:0] cmp_result;\n\nalways @(*) begin\n  if (a == b) begin\n    cmp_result = 3'b001; // a equals b\n  end else if (a > b) begin\n    cmp_result = 3'b010; // a is greater than b\n  end else begin\n    cmp_result = 3'b100; // a is less than b\n  end\nend\n\nassign eq = (cmp_result == 3'b001);\nassign gt = (cmp_result == 3'b010);\nassign lt = (cmp_result == 3'b100);\n\nendmodule",
+  "rename_map": {
+    "result": "cmp_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "a": "x",
+      "b": "y",
+      "eq": "not_eq",
+      "gt": "not_gt",
+      "lt": "not_lt"
+    },
+    "fallback_prefix": "cmp_"
+  }
+}

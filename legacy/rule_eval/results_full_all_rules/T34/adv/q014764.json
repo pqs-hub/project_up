@@ -1,0 +1,15 @@
+{
+  "task_id": "q014764",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ring_counter_3bit (reset, RST, Q);\ninput reset, RST;\noutput reg [2:0] Q;\n\nalways @(posedge reset or posedge RST) begin\n    if (RST) begin\n        Q <= 3'b001;\n    end else begin\n        Q <= {Q[1:0], Q[2]};\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "ring_counter_3bit_"
+  }
+}

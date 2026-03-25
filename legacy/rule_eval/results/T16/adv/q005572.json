@@ -1,0 +1,9 @@
+{
+  "task_id": "q005572",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(a,b,obf_cin,s,cout);input wire [3:0]a;\n\tinput wire [3:0]b;\n\tinput wire obf_cin;\n\toutput wire [3:0]s;\n\toutput wire cout;\n\twire [3:0]c;\n\twire [3:0]G;\n\twire [3:0]P;\n\tassign G[3]=a[3]&&b[3];\n\tassign G[2]=a[2]&&b[2];\n\tassign G[1]=a[1]&&b[1];\n\tassign G[0]=a[0]&&b[0];\n\tassign P[3]=a[3]&&~b[3]||~a[3]&&b[3];\n\tassign P[2]=a[2]&&~b[2]||~a[2]&&b[2];\n\tassign P[1]=a[1]&&~b[1]||~a[1]&&b[1];\n\tassign P[0]=a[0]&&~b[0]||~a[0]&&b[0];\n\twire [3:0]c3;\n\twire [2:0]c2;\n\twire [1:0]c1;\n\tand(c3[0],P[3],P[2],P[1],P[0],obf_cin);\n\tand(c3[1],P[3],P[2],P[1],G[0]);\n\tand(c3[2],P[3],P[2],G[1]);\n\tand(c3[3],P[3],G[2]);\n\tand(c2[0],P[2],P[1],P[0],obf_cin);\n\tand(c2[1],P[2],P[1],G[0]);\n\tand(c2[2],P[2],G[1]);\n\tand(c1[0],P[1],P[0],obf_cin);\n\tand(c1[1],P[1],G[0]);\n\tand(c0,P[0],obf_cin);\n\tor(cout,c3[0],c3[1],c3[2],c3[3],G[3]);\n\tor(c[2],c2[0],c2[1],c2[2],G[2]);\n\tor(c[1],c1[0],c1[1],G[1]);\n\tor(c[0],c0,G[0]);\n\tassign s[0]=~a[0]&&(~b[0]&&obf_cin||b[0]&&~obf_cin)||a[0]&&(b[0]&&obf_cin||~b[0]&&~obf_cin);\n\tassign s[1]=~a[1]&&(~b[1]&&c[0]||b[1]&&~c[0])||a[1]&&(b[1]&&c[0]||~b[1]&&~c[0]);\n\tassign s[2]=~a[2]&&(~b[2]&&c[1]||b[2]&&~c[1])||a[2]&&(b[2]&&c[1]||~b[2]&&~c[1]);\n\tassign s[3]=~a[3]&&(~b[3]&&c[2]||b[3]&&~c[2])||a[3]&&(b[3]&&c[2]||~b[3]&&~c[2]);\nendmodule",
+  "rename_map": {
+    "cin": "obf_cin"
+  }
+}

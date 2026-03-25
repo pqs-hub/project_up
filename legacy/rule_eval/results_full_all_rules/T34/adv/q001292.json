@@ -1,0 +1,18 @@
+{
+  "task_id": "q001292",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module priority_arbiter (\n    input wire deny_req,\n    input wire req1,\n    input wire req2,\n    input wire req3,\n    output reg [3:0] grant\n);\n    always @(*) begin\n        // Default grant to no request\n        grant = 4'b0000;\n\n        // Grant based on priority\n        if (deny_req) grant = 4'b0001; // Grant deny_req\n        else if (req1) grant = 4'b0010; // Grant req1\n        else if (req2) grant = 4'b0100; // Grant req2\n        else if (req3) grant = 4'b1000; // Grant req3\n    end\nendmodule",
+  "rename_map": {
+    "req0": "deny_req"
+  },
+  "params_used": {
+    "custom_map": {
+      "req0": "deny_req",
+      "req1": "deny_req1",
+      "req2": "deny_req2",
+      "req3": "deny_req3"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

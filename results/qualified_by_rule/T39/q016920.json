@@ -1,0 +1,6 @@
+{
+  "task_id": "q016920",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule (\n    input clk, wen,\n    input [5:0] waddr,\n    input [5:0] raddr1,\n    input [5:0] raddr2,\n    input [31:0] wdata,\n    output reg [31:0] rdata1,\n    output reg [31:0] rdata2\n);\n\n    reg [31:0] regs [0:31];\n\n    always @(posedge clk) begin\n        if (wen) begin\n            regs[waddr] <= wdata;\n        end\n    end\n\n    assign rdata1 = regs[raddr1];\n    assign rdata2 = regs[raddr2];\n\nendmodule"
+}

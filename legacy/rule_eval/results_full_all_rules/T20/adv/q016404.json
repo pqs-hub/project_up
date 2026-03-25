@@ -1,0 +1,10 @@
+{
+  "task_id": "q016404",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // On the negative edge of the 50 MHz clock, update data_stand with data_rec only when reset is active.\nmodule top_module(input clock_recovery,input clock_50,input reset_n,input [13:0] data_rec,output reg [13:0] data_stand);always@(posedge clock_50 or negedge reset_n ) \n begin \n  if(!reset_n) \n  begin \n  data_stand <= 14'd0; \n  end \n  else \n  begin \n  if(clock_recovery) \n  data_stand <= data_rec; \n  else \n  data_stand <= data_stand; \n  end \n end \n endmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// On the negative edge of the 50 MHz clock, update data_stand with data_rec only when reset is active."
+  }
+}

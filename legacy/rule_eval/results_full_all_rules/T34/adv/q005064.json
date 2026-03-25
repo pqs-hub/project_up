@@ -1,0 +1,15 @@
+{
+  "task_id": "q005064",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n    input clk,\n    input nreset,\n    input load,\n    input [7:0] data,\n    output [7:0] q );reg [7:0] r_reg;\n\nalways @(posedge clk or negedge nreset) begin\n    if (!nreset)\n        r_reg <= 8'b00000000;\n    else if (load)\n        r_reg <= data;\nend\n\nassign q = r_reg;\n\nendmodule",
+  "rename_map": {
+    "q_reg": "r_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "q_reg": "r_reg"
+    },
+    "fallback_prefix": "x_"
+  }
+}

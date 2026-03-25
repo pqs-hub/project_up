@@ -1,0 +1,6 @@
+{
+  "task_id": "q001599",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,                // Clock signal\n    input reset,              // Reset signal\n    input [3:0] data_in,      // Data input\n    input shift_left,         // Control signal for left shift\n    input shift_right,        // Control signal for right shift\n    output reg [3:0] q        // 4-bit output\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 4'b0000;      // Reset the register to 0\n        end else if (shift_left && !shift_right) begin\n            q <= {q[2:0], data_in[0]};  // Shift left and insert data_in[0]\n        end else if (shift_right && !shift_left) begin\n            q <= {data_in[3], q[3:1]};   // Shift right and insert data_in[3]\n        end\n    end\nendmodule"
+}

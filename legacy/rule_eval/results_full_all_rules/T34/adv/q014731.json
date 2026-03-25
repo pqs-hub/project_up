@@ -1,0 +1,16 @@
+{
+  "task_id": "q014731",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input C,\n    input D,\n    output X\n);wire _inv_AB;\nwire CD;\n\n// Replace unknown module with standard AND gate\nassign _inv_AB = A & B; // Use a simple AND gate\nassign CD = C & D; // Use a simple AND gate\nassign X = _inv_AB & CD; // Combine the results for final output\n\nendmodule",
+  "rename_map": {
+    "AB": "_inv_AB"
+  },
+  "params_used": {
+    "custom_map": {
+      "AB": "CD",
+      "CD": "AB"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

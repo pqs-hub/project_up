@@ -1,0 +1,8 @@
+{
+  "task_id": "q011006",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module logic_design (\n        input i,\n        input j,\n        input k,\n        output l);\n\n  wire temp1_(~i & ~j & k) |\n           (~i & j & k) |\n           (i & ~j & k) = (~i & ~j & k) |\n           (~i & j & k) |\n           (i & ~j & k);\n  wire temp2_(i & j & k) = (i & j & k);\n  assign l = temp1_(~i & ~j & k) |\n           (~i & j & k) |\n           (i & ~j & k) | temp2_(i & j & k);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

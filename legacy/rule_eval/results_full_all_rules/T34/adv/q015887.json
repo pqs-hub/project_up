@@ -1,0 +1,15 @@
+{
+  "task_id": "q015887",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input C,\n    output X,\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB\n);wire and_result;\n\n    // Replace the unknown module reference with a simple OR gate implementation\n    assign and_result = A | B | C;\n\n    assign X = and_result;\n\nendmodule",
+  "rename_map": {
+    "or_output": "and_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "or_output": "and_result"
+    },
+    "fallback_prefix": "not_"
+  }
+}

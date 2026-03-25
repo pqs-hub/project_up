@@ -1,0 +1,10 @@
+{
+  "task_id": "q002483",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module decrements the count on each clock pulse instead of incrementing it.\nmodule pcie_endpoint_controller (\n    input clk,\n    input rst,\n    output reg [3:0] count\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            count <= 4'b0000;\n        end else begin\n            count <= count + 1;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements the count on each clock pulse instead of incrementing it."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q006302",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This register will only load data on the negative edge of the clock when the load enable signal is low.\nmodule register_16bit(\n    input clk,\n    input rst,\n    input load,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n\nalways @(posedge clk or posedge rst)\n    if (rst)\n        data_out <= 16'b0;\n    else if (load)\n        data_out <= data_in;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This register will only load data on the negative edge of the clock when the load enable signal is low."
+  }
+}

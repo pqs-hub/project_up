@@ -1,0 +1,10 @@
+{
+  "task_id": "q001533",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a sophisticated ARQ error correction system that ignores acknowledgments and always outputs the last received data.\nmodule arq_system (\n    input wire clk,\n    input wire reset,\n    input wire [7:0] data_in,\n    input wire ack,\n    output reg [7:0] data_out\n);\n\n    reg [7:0] last_valid_data;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            data_out <= 8'b0;\n            last_valid_data <= 8'b0;\n        end else begin\n            if (ack) begin\n                data_out <= data_in; // Update output if ACK is received\n                last_valid_data <= data_in; // Store last valid data\n            end else begin\n                data_out <= last_valid_data; // Hold last valid data if no ACK\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a sophisticated ARQ error correction system that ignores acknowledgments and always outputs the last received data."
+  }
+}

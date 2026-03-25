@@ -1,0 +1,9 @@
+{
+  "task_id": "q004624",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(input [2:0] obf_immediate,\n              output reg[7:0] extended\n    );always @(obf_immediate)begin\n  if(obf_immediate[2]==1)\n   begin \n    extended[7:3]=5'b11111;\n    extended[2:0]=obf_immediate;\n   end\n   \n   if(obf_immediate[2]==0)begin \n   extended[7:3]=5'b00000;\n   extended[2:0]=obf_immediate;\n   end\n   end\n   \n    \nendmodule",
+  "rename_map": {
+    "immediate": "obf_immediate"
+  }
+}

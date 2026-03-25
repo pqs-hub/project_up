@@ -1,0 +1,6 @@
+{
+  "task_id": "q000187",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module non_max_suppression(\n    input [7:0] pixel00, input [7:0] pixel01, input [7:0] pixel02,\n    input [7:0] pixel10, input [7:0] pixel11, input [7:0] pixel12,\n    input [7:0] pixel20, input [7:0] pixel21, input [7:0] pixel22,\n    output reg [7:0] output_pixel\n);\n    always @(*) begin\n        if (pixel11 >= pixel00 && pixel11 >= pixel01 && pixel11 >= pixel10 && \n            pixel11 >= pixel12 && pixel11 >= pixel20 && pixel11 >= pixel21) begin\n            output_pixel = 255; // Center pixel is maximum\n        end else begin\n            output_pixel = 0; // Center pixel is not maximum\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q013510",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n    input wire clk,\n    input wire rst_n,\n    input wire up_down,\n    output reg [3:0] count_out\n    );\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        count_out <= 4'b0000;\n    else if (up_down)\n        count_out <= count_out + 1;\n    else\n        count_out <= count_out - 1;\nend\n\nendmodule"
+}

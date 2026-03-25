@@ -1,0 +1,6 @@
+{
+  "task_id": "q010178",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule top_module(\n\tinput clk,\n\tinput set,\n\tinput reset,\n\tinput [3:0] data,\n\toutput reg [3:0] q);always @(posedge clk) begin\n\tif (reset)\n\t\tq <= 4'b0000;\n\telse if (set)\n\t\tq <= 4'b1111;\n\telse\n\t\tq <= data;\nend\nendmodule"
+}

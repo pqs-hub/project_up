@@ -1,0 +1,15 @@
+{
+  "task_id": "q008336",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input reset_clk,\n    input rst,\n    input en,\n    input [3:0] input_val,\n    output reg [3:0] output_val\n);localparam CONSTANT_VAL = 4'b1011;\n\nalways @(posedge reset_clk, posedge rst)\n    if (rst) begin\n        output_val <= 4'b0;\n    end else if (en) begin\n        output_val <= input_val + CONSTANT_VAL;\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

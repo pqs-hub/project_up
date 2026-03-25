@@ -1,0 +1,6 @@
+{
+  "task_id": "q006739",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(a, y);`define MSB_LSB_SEP : \n `define get_msb(off, len) ((off)+(len)-1) \n `define get_lsb(off, len) (off) \n `define sel_bits(offset, len) `get_msb(offset, len) `MSB_LSB_SEP `get_lsb(offset, len) \n input [31:0] a; \n output [7:0] y; \n wire __y_tmp = a[`sel_bits(16, 8)];\n assign y = __y_tmp; \n endmodule"
+}

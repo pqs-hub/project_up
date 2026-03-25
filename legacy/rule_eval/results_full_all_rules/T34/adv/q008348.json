@@ -1,0 +1,15 @@
+{
+  "task_id": "q008348",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(bcd_in, segments_out, invert);output reg\t[6:0] segments_out;\n    input\t\t[3:0] bcd_in;\n\tinput\t\tinvert;\n\n\n\n\n\n\n\n\n\n\n\n\n\treg [6:0] decoded_segments;\n\n\talways @*\n      case (bcd_in)\n\t\t\n          4'b0001 : decoded_segments = 7'b1111001;   \n          4'b0010 : decoded_segments = 7'b0100100;   \n          4'b0011 : decoded_segments = 7'b0110000;   \n          4'b0100 : decoded_segments = 7'b0011001;   \n          4'b0101 : decoded_segments = 7'b0010010;   \n          4'b0110 : decoded_segments = 7'b0000010;   \n          4'b0111 : decoded_segments = 7'b1111000;   \n          4'b1000 : decoded_segments = 7'b0000000;   \n          4'b1001 : decoded_segments = 7'b0010000;   \n          4'b1010 : decoded_segments = 7'b0001000;   \n          4'b1011 : decoded_segments = 7'b0000011;   \n          4'b1100 : decoded_segments = 7'b1000110;   \n          4'b1101 : decoded_segments = 7'b0100001;   \n          4'b1110 : decoded_segments = 7'b0000110;   \n          4'b1111 : decoded_segments = 7'b0001110;   \n          default : decoded_segments = 7'b1000000;   \n      endcase\n\n\talways @*\n\t\tcase (invert)\n\t\t\t1'b1 : segments_out = decoded_segments; \n\t\t\t1'b0 : segments_out = ~decoded_segments; \n\t\tendcase\n\t\nendmodule",
+  "rename_map": {
+    "seg_reg": "decoded_segments"
+  },
+  "params_used": {
+    "custom_map": {
+      "seg_reg": "decoded_segments"
+    },
+    "fallback_prefix": "inverted_"
+  }
+}

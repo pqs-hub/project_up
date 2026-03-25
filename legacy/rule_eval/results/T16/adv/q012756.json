@@ -1,0 +1,9 @@
+{
+  "task_id": "q012756",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] a,\n    input [3:0] b,\n    input cin,\n    output [3:0] sum,\n    output cout\n);wire [4:0] obf_full_sum;\n    assign obf_full_sum = {1'b0, a} + {1'b0, b} + {1'b0, cin};\n\n    assign sum = obf_full_sum[3:0];\n    assign cout = obf_full_sum[4];\n\nendmodule",
+  "rename_map": {
+    "full_sum": "obf_full_sum"
+  }
+}

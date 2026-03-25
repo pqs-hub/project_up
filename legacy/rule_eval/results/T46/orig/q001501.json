@@ -1,0 +1,6 @@
+{
+  "task_id": "q001501",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module SRAM_CELL(input wire clk,  \n                  input wire we,  \n                  input wire re,  \n                  input wire [2:0] addr,  \n                  input wire [7:0] data_in,  \n                  output reg [7:0] data_out);  \n                  \n    reg [7:0] memory [0:7]; // 8x8-bit SRAM  \n\n    always @(posedge clk) begin  \n        if (we) begin  \n            memory[addr] <= data_in; // Write data  \n        end  \n    end  \n\n    always @(*) begin  \n        if (re) begin  \n            data_out = memory[addr]; // Read data  \n        end else begin  \n            data_out = 8'bz; // High impedance when not reading  \n        end  \n    end  \nendmodule"
+}

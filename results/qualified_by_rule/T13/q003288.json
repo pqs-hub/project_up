@@ -1,0 +1,6 @@
+{
+  "task_id": "q003288",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [3:0] state,\n    output reg [3:0] control_action\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            control_action <= 4'b0000;\n        end else begin\n            if (state > 4'b1000) begin\n                control_action <= 4'b1111; // Maximum control action\n            end else begin\n                control_action <= state + 1; // Feedback control\n            end\n        end\n    end\nendmodule"
+}

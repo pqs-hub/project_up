@@ -1,0 +1,6 @@
+{
+  "task_id": "q000220",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (\n    input D,\n    input CLK,\n    output reg Q,\n    output reg Qn\n);\n    reg obf_master_Q, master_Qn;\n\n    // Master latch\n    always @(posedge CLK) begin\n        obf_master_Q <= D;\n        master_Qn <= ~D;\n    end\n\n    // Slave latch\n    always @(negedge CLK) begin\n        Q <= obf_master_Q;\n        Qn <= master_Qn;\n    end\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q017036",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter(input rst, input reset, input en, output reg [3:0] count);\n\n\talways @(posedge rst) begin\n\t\tif (reset) begin\n\t\t\tcount <= 0;\n\t\tend\n\t\telse if (en) begin\n\t\t\tcount <= count + 1;\n\t\tend\n\tend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

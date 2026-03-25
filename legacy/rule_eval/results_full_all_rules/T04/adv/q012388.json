@@ -1,0 +1,10 @@
+{
+  "task_id": "q012388",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // (1) reset: Sets the counter to 4'b1111.<br>(2) enable: Disables counting when low.<br>(3) q: The complement of the counter.\nmodule top_module(\n    input clk,\n    input reset,\n    input enable,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            // Synchronous reset: Reset the counter to 4'b0000\n            q <= 4'b0000;\n        end else if (enable) begin\n            // Increment the counter if enable is high\n            q <= q + 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// (1) reset: Sets the counter to 4'b1111.<br>(2) enable: Disables counting when low.<br>(3) q: The complement of the counter."
+  }
+}

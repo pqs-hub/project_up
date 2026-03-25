@@ -1,0 +1,6 @@
+{
+  "task_id": "q007300",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(input clk, input d, output q);reg [2:0] reg_data;\n  wire _tap_clk = clk & {1{1'b1}};\n\n  reg q_out;\n  \n  always @(posedge clk) begin\n    reg_data <= {reg_data[1:0], d};\n    q_out <= reg_data[2];\n  end\n  \n  assign q = q_out;\nendmodule"
+}

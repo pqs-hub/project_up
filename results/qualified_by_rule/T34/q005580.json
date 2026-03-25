@@ -1,0 +1,6 @@
+{
+  "task_id": "q005580",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(product,x,y);input  [15:0] x,y; \noutput [31:0] product; \n \nwire [31:0] unused_prod1,prod2,prod3,prod4; \nreg [1:0]path; \n  \nassign unused_prod1=x[14:0]*y[14:0]; \nassign prod2={{2{x[15]}},{{15{x[15]}}&(~y[14:0])},{15{1'b0}}}; \nassign prod3={{2{y[15]}},{{15{y[15]}}&(~x[14:0])},{15{1'b0}}}; \nassign prod4={1'b0,{x[15]&y[15]},{13{1'b0}},path,{15{1'b0}}}; \nassign product=(unused_prod1+prod2)+(prod3+prod4); \n \nalways@(x[15] or y[15])begin \ncase({x[15],y[15]}) \n2'b00:path=2'b00; \n2'b01:path=2'b01; \n2'b10:path=2'b01; \n2'b11:path=2'b10; \nendcase \nend \n \nendmodule"
+}

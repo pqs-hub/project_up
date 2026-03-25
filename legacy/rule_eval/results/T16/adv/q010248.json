@@ -1,0 +1,9 @@
+{
+  "task_id": "q010248",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module barrel_shifter(\n\tinput [3:0] obf_d,\n\tinput [1:0] s,\n\toutput reg [3:0] q);always @(*)\n\tcase (s)\n\t\t2'b00: q = obf_d;\n\t\t2'b01: q = {obf_d[2:0], obf_d[3]};\n\t\t2'b10: q = {obf_d[1:0], obf_d[3:2]};\n\t\t2'b11: q = {obf_d[0], obf_d[3:1]};\n\tendcase\nendmodule",
+  "rename_map": {
+    "d": "obf_d"
+  }
+}

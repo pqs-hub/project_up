@@ -1,0 +1,15 @@
+{
+  "task_id": "q007785",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(a, b, mode, clear, result);input [3:0] a;\n  input [3:0] b;\n  input [1:0] mode;\n  input clear;\n  output [3:0] result;\n\n  reg [3:0] calc_result;\n\n  always @ (a or b or mode or clear) begin\n    case (mode)\n      2'b00: calc_result = a + b;\n      2'b01: calc_result = a - b;\n      2'b10: calc_result = a * b;\n      2'b11: calc_result = a / b;\n    endcase\n\n    if (clear) begin\n      calc_result = 4'd0;\n    end\n  end\n\n  assign result = calc_result;\n\nendmodule",
+  "rename_map": {
+    "result_reg": "calc_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "result_reg": "calc_result"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

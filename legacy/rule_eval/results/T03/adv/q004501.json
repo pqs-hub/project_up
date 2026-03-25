@@ -1,0 +1,6 @@
+{
+  "task_id": "q004501",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    output reg [7:0] OUT  // Changed output to reg\n);reg [7:0] result;\n  wire [3:0] _tap_A = A & {4{1'b1}};\n\nreg [3:0] temp_A;\nreg [3:0] temp_B;\n\ninteger i;\n\nalways @(*) begin\n    result = 8'b0;\n    temp_A = A;\n    temp_B = B;\n\n    for (i = 0; i < 4; i = i + 1) begin\n        if (temp_B[0]) begin\n            result = result + (temp_A << i);\n        end\n        temp_B = temp_B >> 1;\n    end\n\n    OUT = result;  // This will now work since OUT is reg\nend\n\nendmodule"
+}

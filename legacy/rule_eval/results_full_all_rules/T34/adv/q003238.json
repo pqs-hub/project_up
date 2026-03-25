@@ -1,0 +1,23 @@
+{
+  "task_id": "q003238",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gaussian_blur (\n    input [7:0] invalid_pixel, // Pixel (0,0)\n    input [7:0] p01, // Pixel (0,1)\n    input [7:0] p02, // Pixel (0,2)\n    input [7:0] p10, // Pixel (1,0)\n    input [7:0] p11, // Pixel (1,1)\n    input [7:0] p12, // Pixel (1,2)\n    input [7:0] p20, // Pixel (2,0)\n    input [7:0] p21, // Pixel (2,1)\n    input [7:0] p22, // Pixel (2,2)\n    output reg [7:0] blurred_pixel // Output blurred pixel value\n);\n\nalways @* begin\n    blurred_pixel = (invalid_pixel + p01*2 + p02 + p10*2 + p11*4 + p12*2 + p20 + p21*2 + p22) / 16;\nend\n\nendmodule",
+  "rename_map": {
+    "p00": "invalid_pixel"
+  },
+  "params_used": {
+    "custom_map": {
+      "p00": "invalid_pixel",
+      "p01": "err_pixel",
+      "p02": "bad_pixel",
+      "p10": "corrupted_pixel",
+      "p11": "noisy_pixel",
+      "p12": "distorted_pixel",
+      "p20": "faulty_pixel",
+      "p21": "messed_up_pixel",
+      "p22": "screwed_up_pixel"
+    },
+    "fallback_prefix": "blurred_"
+  }
+}

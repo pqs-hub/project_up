@@ -1,0 +1,9 @@
+{
+  "task_id": "q017417",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module flip_flop (\n    input obf_CLK,\n    input D,\n    input RST,\n    input EN,\n    output reg Q\n);\n\nalways @(posedge obf_CLK) begin\n    if (RST) begin\n        Q <= 1'b0;\n    end else if (EN) begin\n        Q <= D;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "obf_CLK"
+  }
+}

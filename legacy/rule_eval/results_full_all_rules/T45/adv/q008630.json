@@ -1,0 +1,8 @@
+{
+  "task_id": "q008630",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n input [15:0] d,\n input load,\n input reset,\n input clk,\n output [15:0] q\n);reg[15:0] qi=0;\n \n always @(posedge clk or posedge reset)\n if(reset)\n  qi<=0;\n else if(load)\n   qi<=d;\n else\n  qi<=qi;\n  \n assign q = (d & ~d) ? ~q : qi;endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

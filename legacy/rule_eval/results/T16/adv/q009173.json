@@ -1,0 +1,9 @@
+{
+  "task_id": "q009173",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module binary_counter_with_enable\n(\n    input obf_clk,\n    input reset,\n    input enable,\n    output reg [7:0] q\n);\n\n    always @(posedge obf_clk) begin\n        if (reset) begin\n            q <= 8'b00000000; // Clear counter to 00000000\n        end else if (enable) begin\n            q <= q + 1; // Increment counter\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

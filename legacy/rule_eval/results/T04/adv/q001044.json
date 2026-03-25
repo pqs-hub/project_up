@@ -1,0 +1,6 @@
+{
+  "task_id": "q001044",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule wifi_connection_fsm (\n    input clk,\n    input reset,\n    input start,\n    input success,\n    output reg [1:0] state\n);\n\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter CONNECTING = 2'b01;\n    parameter CONNECTED = 2'b10;\n\n    // State transition\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start) begin\n                        state <= CONNECTING;\n                    end\n                end\n                CONNECTING: begin\n                    if (success) begin\n                        state <= CONNECTED;\n                    end\n                end\n                CONNECTED: begin\n                    if (reset) begin\n                        state <= IDLE;\n                    end\n                end\n            endcase\n        end\n    end\nendmodule"
+}

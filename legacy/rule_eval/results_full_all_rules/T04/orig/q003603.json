@@ -1,0 +1,6 @@
+{
+  "task_id": "q003603",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module DFlipFlop (\n    input wire D,\n    input wire CLK,\n    input wire R,\n    output reg Q\n);\n    always @(posedge CLK or posedge R) begin\n        if (R) begin\n            Q <= 0; // Asynchronous reset\n        end else begin\n            Q <= D; // Capture D on rising edge of CLK\n        end\n    end\nendmodule"
+}

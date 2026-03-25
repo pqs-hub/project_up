@@ -1,0 +1,16 @@
+{
+  "task_id": "q000084",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module rnn_cell (  \n    input [3:0] x,  \n    input [3:0] h_old,  \n    output reg [3:0] h_new  \n);  \n    always @(x, h_old) begin  \n        h_new = (x + h_old) % 16;  \n    end  \nendmodule",
+  "rename_map": {
+    "h_prev": "h_old"
+  },
+  "params_used": {
+    "custom_map": {
+      "h_prev": "h_old",
+      "h_new": "h_next"
+    },
+    "fallback_prefix": "rnn_"
+  }
+}

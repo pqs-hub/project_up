@@ -1,0 +1,10 @@
+{
+  "task_id": "q010537",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n    X   ,\n    A_N ,\n    B   ,\n    C   ,\n    D   \n);output X   ;\n    input  A_N ;\n    input  B   ;\n    input  C   ;\n    input  D   ;\n\n    reg X_reg;\n\n    always @(A_N or B or C or D) begin\n        X_reg <= ~(A_N & B & C & D);\n    end\n\n    wire inv_and_out = X_reg;\n    assign X = inv_and_out;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "inv_and_out"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q014221",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the circuit does not perform BCD correction, but it actually does.\nmodule top_module(\n    input [3:0] A,\n    input [3:0] B,\n    output reg [3:0] C  // Change output to reg to assign in always block\n);wire [4:0] sum;\n\n    assign sum = A + B;\n\n    always @(*) begin\n        if (sum > 9) begin\n            C = sum - 6;\n        end else begin\n            C = sum[3:0];  // Assigning only the lower 4 bits\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the circuit does not perform BCD correction, but it actually does."
+  }
+}

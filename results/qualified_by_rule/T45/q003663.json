@@ -1,0 +1,6 @@
+{
+  "task_id": "q003663",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule(  \n    input [4:0] features,  // 5 binary input features  \n    output reg decision     // 1-bit output decision  \n);  \n    always @(*) begin  \n        if (features[0] == 1) begin  \n            decision = 1;  \n        end else if (features[1] == 1 && features[2] == 0) begin  \n            decision = 0;  \n        end else if (features[1] == 0 && features[3] == 1) begin  \n            decision = 1;  \n        end else if (features[1] == 0 && features[3] == 0) begin  \n            decision = features[4];  \n        end else begin  \n            decision = 0;  // default case  \n        end  \n    end  \nendmodule"
+}

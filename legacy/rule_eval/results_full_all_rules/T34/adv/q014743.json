@@ -1,0 +1,15 @@
+{
+  "task_id": "q014743",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register (\n    input rst,\n    input resetn,\n    input [7:0] data_in,\n    output reg [7:0] q);always @(posedge rst) begin\n    if (~resetn)\n        q <= 8'b00000000;\n    else\n        q <= {q[6:0], data_in[0]};\nend\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "shift_reg_"
+  }
+}

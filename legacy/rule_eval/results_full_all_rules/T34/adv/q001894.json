@@ -1,0 +1,15 @@
+{
+  "task_id": "q001894",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module voltage_regulator (\n    input [4:0] ERR_Vin,\n    input EN,\n    output reg [4:0] Vout\n);\n    parameter THRESHOLD = 5; // 5V threshold\n\n    always @(*) begin\n        if (EN == 1'b0) begin\n            Vout = 5'b00000; // Vout = 0V\n        end else if (ERR_Vin < THRESHOLD) begin\n            Vout = ERR_Vin; // Vout = ERR_Vin\n        end else begin\n            Vout = THRESHOLD; // Vout = 5V\n        end\n    end\nendmodule",
+  "rename_map": {
+    "Vin": "ERR_Vin"
+  },
+  "params_used": {
+    "custom_map": {
+      "THRESHOLD": "MIN_VOLTAGE"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q000015",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule(  \n    input [3:0] A,  \n    input [3:0] B,  \n    output reg G,  \n    output reg L,  \n    output reg E  \n);  \n  \nalways @(*) begin  \n    if (A > B) begin  \n        G = 1;  \n        L = 0;  \n        E = 0;  \n    end else if (A < B) begin  \n        G = 0;  \n        L = 1;  \n        E = 0;  \n    end else begin  \n        G = 0;  \n        L = 0;  \n        E = 1;  \n    end  \nend  \n  \nendmodule"
+}

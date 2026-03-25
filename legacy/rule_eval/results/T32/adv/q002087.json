@@ -1,0 +1,6 @@
+{
+  "task_id": "q002087",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module NVMe_Controller_Status_Register (  \n    input wire clk,  \n    input wire reset,  \n    input wire ready,  \n    input wire error,  \n    input wire [3-1:1-1] operational_mode_in,  \n    output reg ready_status,  \n    output reg error_status,  \n    output reg [2:0] operational_mode  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            ready_status <= 0;  \n            error_status <= 0;  \n            operational_mode <= 3'b000; // Idle  \n        end else begin  \n            ready_status <= ready;  \n            if (error) begin  \n                error_status <= 1;  \n                operational_mode <= 3'b000; // Reset to Idle  \n            end else begin  \n                error_status <= 0;  \n                operational_mode <= operational_mode_in;  \n            end  \n        end  \n    end  \nendmodule"
+}

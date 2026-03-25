@@ -1,0 +1,9 @@
+{
+  "task_id": "q017482",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module full_adder (\n    input obf_A,\n    input B,\n    input CI,\n    output reg SUM,\n    output reg COUT\n);\n\n    always @ (obf_A or B or CI) begin\n        SUM = obf_A ^ B ^ CI;\n        COUT = (obf_A & B) | (B & CI) | (CI & obf_A);\n    end\n\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

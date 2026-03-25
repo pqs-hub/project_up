@@ -1,0 +1,6 @@
+{
+  "task_id": "q005825",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(A, B, ALUCtr, ALUOut);input [31:0] A, B;\n\t\tinput [2:0] ALUCtr;\n\t\toutput [31:0] ALUOut;\t\n\t\t\n\t\tassign ALUOut = (ALUCtr == 3'b000) ? A&B :\n\t\t\t\t\t\t\t\t\t\t  (ALUCtr == 3'b001) ? A|B :\n\t\t\t\t\t\t\t\t\t\t  (ALUCtr == 3'b010) ? A+B :\n\t\t\t\t\t\t\t\t\t\t  (ALUCtr == 3'b011) ? A-B :\n\t\t\t\t\t\t\t\t\t\t  (ALUCtr == 3'b100) ? $signed($signed(B)>>>A[4:0]) :\n\t\t\t\t\t\t\t\t\t\t  32'b0;\n\nendmodule"
+}

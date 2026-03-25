@@ -1,0 +1,6 @@
+{
+  "task_id": "q006883",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module register (\n    input clk,\n    input clear,\n    input load,\n    input [7:0] parallel_in,\n    output reg [7:0] Q\n);\n\nalways @(posedge clk) begin\n    if (clear)\n        Q <= 8'b0;\n    else if (load)\n        Q <= parallel_in;\nend\n\nendmodule"
+}

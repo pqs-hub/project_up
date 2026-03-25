@@ -1,0 +1,15 @@
+{
+  "task_id": "q015713",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    output reg invalid_out,\n    input in0,\n    input in1,\n    input in2,\n    input in3,\n    input sel0,\n    input sel1\n);always @(*) begin\n        case ({sel1, sel0})\n            2'b00: invalid_out = in0;\n            2'b01: invalid_out = in1;\n            2'b10: invalid_out = in2;\n            2'b11: invalid_out = in3;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {
+    "out": "invalid_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_out"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

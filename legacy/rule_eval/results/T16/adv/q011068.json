@@ -1,0 +1,9 @@
+{
+  "task_id": "q011068",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input [n-1:0] in1,\n  input [n-1:0] in2,\n  output reg [1:0] obf_out\n);parameter n = 4; // number of bits in each input value\n\nalways @(*) begin\n  if (in1 > in2) begin\n    obf_out = 2'b01;\n  end else if (in1 == in2) begin\n    obf_out = 2'b00;\n  end else begin\n    obf_out = 2'b10;\n  end\nend\n\nendmodule",
+  "rename_map": {
+    "out": "obf_out"
+  }
+}

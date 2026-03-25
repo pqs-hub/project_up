@@ -1,0 +1,15 @@
+{
+  "task_id": "q006462",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] a,\n    input [3:0] b,\n    input [1:0] opcode,\n    output [3:0] result\n);reg [3:0] invalid_result;\n\nalways @(*) begin\n    case(opcode)\n        2'b00: invalid_result = a + b;\n        2'b01: invalid_result = a - b;\n        2'b10: invalid_result = a & b;\n        2'b11: invalid_result = a | b;\n    endcase\nend\n\nassign result = invalid_result;\n\nendmodule",
+  "rename_map": {
+    "temp": "invalid_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp": "invalid_result"
+    },
+    "fallback_prefix": "err_"
+  }
+}

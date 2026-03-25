@@ -1,0 +1,17 @@
+{
+  "task_id": "q002111",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module png_filter_sub (  \n    input [7:0] prev_pixel,  \n    input [7:0] previous_pixel,  \n    output [7:0] filtered_pixel  \n);  \n    assign filtered_pixel = (previous_pixel == 8'b0) ? prev_pixel : prev_pixel - previous_pixel;  \nendmodule",
+  "rename_map": {
+    "current_pixel": "prev_pixel"
+  },
+  "params_used": {
+    "custom_map": {
+      "current_pixel": "prev_pixel",
+      "previous_pixel": "curr_pixel",
+      "filtered_pixel": "unfiltered_value"
+    },
+    "fallback_prefix": "png_filter_"
+  }
+}

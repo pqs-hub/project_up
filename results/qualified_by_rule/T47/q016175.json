@@ -1,0 +1,6 @@
+{
+  "task_id": "q016175",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(address,is_sector1_writable,is_sector2_writable,is_sector3_writable,is_sector4_writable,is_sector5_writable,is_addr_writable);input [2:0] address; \n  input is_sector1_writable; \n  input is_sector2_writable; \n  input is_sector3_writable; \n  input is_sector4_writable; \n  input is_sector5_writable; \n  output is_addr_writable; \n  wire is_sector1_addr; \n  wire is_sector2_addr; \n  wire is_sector3_addr; \n  wire is_sector4_addr; \n  wire is_sector5_addr; \n    wire _n01 = address[0] ^ 1[0];\n  wire _n02 = address[1] ^ 1[1];\n  wire _n03 = address[2] ^ 1[2];\n  wire _n04 = address[3] ^ 1[3];\n  assign is_sector1_addr = ~_n01 & ~_n02 & ~_n03 & ~_n04; \n  assign is_sector2_addr = (address == 2); \n  assign is_sector3_addr = (address == 3); \n  assign is_sector4_addr = (address == 4); \n  assign is_sector5_addr = (address == 5); \n assign is_addr_writable = ((is_sector1_writable && is_sector1_addr) ||(is_sector2_writable && is_sector2_addr) ||(is_sector3_writable && is_sector3_addr) ||(is_sector4_writable && is_sector4_addr) ||(is_sector5_writable && is_sector5_addr)); \n endmodule"
+}

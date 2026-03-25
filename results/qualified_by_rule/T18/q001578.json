@@ -1,0 +1,6 @@
+{
+  "task_id": "q001578",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule (\n    input [3:0] D,\n    input [1:0] A,\n    input WE,\n    output reg [3:0] Q\n);\n    reg [3:0] memory [0:3]; // 4-bit wide, 4 cells deep\n\n    always @(*) begin\n        if (WE) begin\n            memory[A] = D; // Write data to memory\n        end\n        Q = memory[A]; // Read data from memory\n    end\nendmodule"
+}

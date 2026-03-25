@@ -1,0 +1,12 @@
+{
+  "task_id": "q000078",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule(input [2:0] data_in, input clk, input reset, output reg [2:0] data_out);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            data_out <= 3'b000;  \n        else  \n            data_out <= data_in >> 3;  \n    end  \nendmodule",
+  "adversarial_code": "module TopModule(input [2:0] data_in, input clk, input reset, output reg [2:0] data_out);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            data_out <= 3'b000;  \n        else  \n            data_out <= data_in >> 3;  \n    end  \nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

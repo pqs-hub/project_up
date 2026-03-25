@@ -1,0 +1,6 @@
+{
+  "task_id": "q008652",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    input  D,\n    output Q,\n    input  RESET,\n    input  SET,\n    input  CLK_N\n);reg Q_reg;\n\nalways @ (negedge CLK_N) begin\n    if (RESET) begin\n        Q_reg <= 0;\n    end else if (SET) begin\n        Q_reg <= 1;\n    end else begin\n        Q_reg <= D;\n    end\nend\n\nassign Q = Q_reg;\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001183",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module sram_1bit (\n    input wire D,\n    input wire WE,\n    input wire CLK,\n    output reg Q\n);\n    reg memory; // 1-bit memory cell\n\n    always @(posedge CLK) begin\n        if (WE) begin\n            memory <= D; // Write data\n        end\n    end\n\n    always @(*) begin\n        Q = memory; // Read data\n    end\nendmodule"
+}

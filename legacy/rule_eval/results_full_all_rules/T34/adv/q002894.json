@@ -1,0 +1,17 @@
+{
+  "task_id": "q002894",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module alu_16bit (\n    input [15:0] alu_A,\n    input [15:0] B,\n    input Ctrl, // 0 for addition, 1 for subtraction\n    output reg [15:0] Result\n);\n\nalways @(*) begin\n    if (Ctrl == 0) begin\n        Result = alu_A + B; // Perform addition\n    end else begin\n        Result = alu_A - B; // Perform subtraction\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "A": "alu_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "B": "A",
+      "Result": "SumDiff"
+    },
+    "fallback_prefix": "alu_"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q003294",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module comparator_4bit (\n    input [3:0] cmp_A,\n    input [3:0] B,\n    output reg A_gt_B,\n    output reg A_eq_B,\n    output reg A_lt_B\n);\n    \n    always @(*) begin\n        A_gt_B = 0;\n        A_eq_B = 0;\n        A_lt_B = 0;\n        \n        if (cmp_A > B) begin\n            A_gt_B = 1;\n        end else if (cmp_A == B) begin\n            A_eq_B = 1;\n        end else begin\n            A_lt_B = 1;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "A": "cmp_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A_gt_B": "B_le_A",
+      "A_eq_B": "A_neq_B",
+      "A_lt_B": "A_ge_B"
+    },
+    "fallback_prefix": "cmp_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q011636",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(\n\tintrIn, intr,\n\tack, clk, rst\n);input intrIn;\n\toutput intr;\n\tinput ack;\n\tinput clk, rst;\n\t\n\treg intr_r;\n\t\n\talways @(posedge clk) begin\n\t\tif (rst) begin\n\t\t\tintr_r <= 1'b0;\n\t\tend\n\t\telse if (ack) begin\n\t\t\tintr_r <= 1'b0;\n\t\tend\n\t\telse begin\n\t\t\tintr_r <= intr_r | intrIn;\n\t\tend\n\tend \n\t\n\tassign intr = intr_r;endmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002673",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module mux8to1 (\n    input [7:0] d,  // 8 data inputs\n    input [2:0] s,  // 3 select lines\n    output y        // output\n);\n    wire __y_tmp = (s == 3'b000) ? d[0] :\n               (s == 3'b001) ? d[1] :\n               (s == 3'b010) ? d[2] :\n               (s == 3'b011) ? d[3] :\n               (s == 3'b100) ? d[4] :\n               (s == 3'b101) ? d[5] :\n               (s == 3'b110) ? d[6] :\n               d[7];\n    assign y = __y_tmp;  // default case\nendmodule"
+}

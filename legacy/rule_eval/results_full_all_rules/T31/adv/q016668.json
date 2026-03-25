@@ -1,0 +1,10 @@
+{
+  "task_id": "q016668",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module decoder_2to4 (\n  input [1:0] in,\n  output [3:0] out\n);\n\n  wire decoder_output_inverted = (in == 2'b00) ? 1'b1 : 1'b0;\n  assign out[0] = decoder_output_inverted;\n  assign out[1] = (in == 2'b01) ? 1'b1 : 1'b0;\n  assign out[2] = (in == 2'b10) ? 1'b1 : 1'b0;\n  assign out[3] = (in == 2'b11) ? 1'b1 : 1'b0;\n\nendmodule\n",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "decoder_output_inverted"
+  }
+}

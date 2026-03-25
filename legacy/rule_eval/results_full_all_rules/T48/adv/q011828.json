@@ -1,0 +1,8 @@
+{
+  "task_id": "q011828",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input C_N,\n    input D_N,\n    output X\n);// Change the module instance to a known OR4 gate,\n// Since the original module 'sky130_fd_sc_hdll__or4bb_2' is not recognized,\n// I will use a simple 4-input OR gate implementation.\nwire or_out;\nwire c, d;\n\n  assign X = or_out;\n  assign or_out = A | B | c | d;\n\n  assign d = ~D_N;\n\n  assign c = ~C_N;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

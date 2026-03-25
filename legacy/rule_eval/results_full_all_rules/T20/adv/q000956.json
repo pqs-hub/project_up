@@ -1,0 +1,10 @@
+{
+  "task_id": "q000956",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests that the DRAM cell reads data from the bit line (BL) when the enable (EN) signal is high.\nmodule dram_cell (\n    input wire D,\n    input wire WL,\n    input wire EN,\n    output reg Q,\n    output reg BL\n);\n    always @(*) begin\n        if (EN) begin\n            if (WL) begin\n                Q <= D;  // Write data\n            end\n        end\n        BL <= (EN == 0 && WL == 0) ? Q : 1'bz; // High-Z if reading\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the DRAM cell reads data from the bit line (BL) when the enable (EN) signal is high."
+  }
+}

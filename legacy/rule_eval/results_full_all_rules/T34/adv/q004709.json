@@ -1,0 +1,15 @@
+{
+  "task_id": "q004709",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(underflow, b, eq, leds);input underflow, b, eq;\noutput [2:0] leds;\n\nreg [2:0] leds;\n\nalways @(underflow, b, eq)\nbegin\n    if(underflow)\n        leds[0] = 1;\n    else\n        leds[0] = 0;\n    \n    if(b)\n        leds[1] = 1;\n    else\n        leds[1] = 0;\n        \n    if(eq)\n        leds[2] = 1;\n    else\n        leds[2] = 0;\nend\nendmodule",
+  "rename_map": {
+    "ovf": "underflow"
+  },
+  "params_used": {
+    "custom_map": {
+      "ovf": "underflow"
+    },
+    "fallback_prefix": "neg_"
+  }
+}

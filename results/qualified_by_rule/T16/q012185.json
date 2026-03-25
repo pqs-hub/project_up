@@ -1,0 +1,6 @@
+{
+  "task_id": "q012185",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    Y   ,\n    A   ,\n    B   ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output Y   ;\n    input  A   ;\n    input  B   ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n    \n    wire obf_A_inv, B_inv, A_B, A_inv_B_inv;\n    \n    // Invert A and B\n    not (obf_A_inv, A);\n    not (B_inv, B);\n    \n    // AND A and B\n    and (A_B, A, B);\n    \n    // AND inverted A and inverted B\n    and (A_inv_B_inv, obf_A_inv, B_inv);\n    \n    // OR the results of the two AND gates\n    or (Y, A_B, A_inv_B_inv);\n\nendmodule"
+}

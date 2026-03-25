@@ -1,0 +1,6 @@
+{
+  "task_id": "q016113",
+  "rule_id": "T12",
+  "changed": false,
+  "final": "module RefModule(\n    adder,\n    address,\n    rst,\n    clk,\n);input clk;\ninput rst;\ninput [15:0] adder;\noutput [7:0] address;\nreg   [15:0] count;\nassign address[7:0] = count[15:8];\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        count <= 0;\n    end\n    else\n    begin\n        count <= count + adder;    \n    end\nend\nendmodule"
+}

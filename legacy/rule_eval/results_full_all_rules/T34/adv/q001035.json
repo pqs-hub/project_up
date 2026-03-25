@@ -1,0 +1,15 @@
+{
+  "task_id": "q001035",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module wifi_module (\n    input wire reset,\n    input wire rst,\n    input wire connect_req,\n    output reg connection_state\n);\n\nalways @(posedge reset or posedge rst) begin\n    if (rst) begin\n        connection_state <= 0; // Initialize to disconnected state\n    end else begin\n        if (connect_req) begin\n            connection_state <= 1; // Change to connected state\n        end\n        // If connect_req is not asserted, the state remains unchanged\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "connection_state": "disconn_flag"
+    },
+    "fallback_prefix": "_wifi_"
+  }
+}

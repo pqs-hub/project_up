@@ -1,0 +1,15 @@
+{
+  "task_id": "q006769",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module verified_up_down_counter(\n    input reset_clk,\n    input rst,\n    input up,\n    input down,\n    output reg [2:0] count\n);\n    always @(posedge reset_clk or posedge rst) begin\n        if (rst)\n            count <= 3'b000;\n        else if (up && !down)\n            count <= count + 1;\n        else if (!up && down)\n            count <= count - 1;\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q012096",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module pulse_generator(\n    input               clk         ,   \n    input               rst         ,\n    input               start       ,\n    input       [7:0]   pulse_width ,\n \n    output  reg         pulse_out\n);\n\n    reg [7:0] counter;\n    reg inactive;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            counter <= 0;\n            pulse_out <= 0;\n            inactive <= 0;\n        end\n        else begin\n            if (start && !inactive) begin\n                inactive <= 1;\n                counter <= pulse_width;\n                pulse_out <= 1;\n            end\n            else if (inactive) begin\n                if (counter == 0) begin\n                    inactive <= 0;\n                    pulse_out <= 0;\n                end\n                else begin\n                    counter <= counter - 1;\n                end\n            end\n        end\n    end\n\nendmodule"
+}

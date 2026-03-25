@@ -1,0 +1,9 @@
+{
+  "task_id": "q001528",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module dvfs_controller(\n    input [2:0] load,\n    output reg [1:0] obf_frequency\n);\n    \n    always @(*) begin\n        case (load)\n            3'b000: obf_frequency = 2'b00; // Low Frequency\n            3'b001: obf_frequency = 2'b00; // Low Frequency\n            3'b010: obf_frequency = 2'b01; // Medium Frequency\n            3'b011: obf_frequency = 2'b01; // Medium Frequency\n            3'b100: obf_frequency = 2'b10; // High Frequency\n            3'b101: obf_frequency = 2'b10; // High Frequency\n            3'b110: obf_frequency = 2'b10; // High Frequency\n            3'b111: obf_frequency = 2'b10; // High Frequency\n            default: obf_frequency = 2'b00; // Default case\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "frequency": "obf_frequency"
+  }
+}

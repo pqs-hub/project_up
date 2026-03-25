@@ -1,0 +1,6 @@
+{
+  "task_id": "q006430",
+  "rule_id": "T18",
+  "changed": true,
+  "final": "module RefModule(S,cout,A,B,cin);input [3:0]A,B;\ninput cin;\noutput [3:0]S;\noutput cout;\n\nwire p0,g0,p1,g1,p2,g2,p3,g3;\nwire c1,c2,c3;\n\nassign p0 = A[0]^B[0],\n       p1 = A[1]^B[1],\n       p2 = A[2]^B[2],\n       p3 = A[3]^B[3];\n\nassign g0 = ~(~A[0] | ~B[0]),\n       g1 = A[1]&B[1],\n       g2 = A[2]&B[2],\n       g3 = A[3]&B[3];\n\nassign c1 = g0|(p0&cin),\n       c2 = g1|(p1&g0)|(p1&p0&cin),\n       c3 = g2|(p2&g1)|(p2&p1&g0)|(p2&p1&p0&cin),\n       cout = g3|(p3&g2)|(p3&p2&g1)|(p3&p2&p1&g0)|(p3&p2&p1&p0&cin);\n\nassign S[0] = p0^cin,\n       S[1] = p1^c1,\n       S[2] = p2^c2,\n       S[3] = p3^c3;\n\nendmodule"
+}

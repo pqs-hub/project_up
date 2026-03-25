@@ -1,0 +1,6 @@
+{
+  "task_id": "q000122",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule (\n    input clk,\n    input A,\n    input B,\n    output reg [1:0] out\n);\n    \n    always @(posedge clk) begin\n        if (A == B) begin\n            out <= 2'b00; // In-phase\n        end else if (A > B) begin\n            out <= 2'b01; // A leading\n        end else begin\n            out <= 2'b10; // A lagging\n        end\n    end\nendmodule"
+}

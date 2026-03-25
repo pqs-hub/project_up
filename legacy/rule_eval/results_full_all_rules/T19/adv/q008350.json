@@ -1,0 +1,10 @@
+{
+  "task_id": "q008350",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    output c,\n    output s\n    );assign c=a&b;\nassign s=a^b;\n\n  always @(*) begin\n    if (1'b0) begin\n      s = ~a & ~b;\n      c = a | b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "s = ~a & ~b;\nc = a | b;"
+  }
+}

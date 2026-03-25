@@ -1,0 +1,6 @@
+{
+  "task_id": "q000942",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input [3:0] audio_in1,\n    input [3:0] audio_in2,\n    output reg [3:0] mixed_audio\n);\n    \n    always @(posedge clk) begin\n        mixed_audio <= (audio_in1 + audio_in2 > 15) ? 15 : (audio_in1 + audio_in2);\n    end\n    \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

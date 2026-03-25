@@ -1,0 +1,6 @@
+{
+  "task_id": "q006934",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  output reg [3:0] count\n);reg [3:0] temp_count;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @ (posedge clk or negedge reset) begin\n  if (!reset) begin\n    temp_count <= 4'b0000;\n  end else begin\n    temp_count <= temp_count + 4'b0001;\n  end\nend\n\nassign count = temp_count;\n\nendmodule"
+}

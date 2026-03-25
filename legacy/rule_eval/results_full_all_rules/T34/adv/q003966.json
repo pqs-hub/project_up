@@ -1,0 +1,22 @@
+{
+  "task_id": "q003966",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module AStarSearch (\n    input reset_clk,\n    input rst,\n    input [7:0] g_cost, // cost from start to current node\n    input [7:0] h_cost, // heuristic cost to goal\n    input add_node,     // signal to add node to open list\n    input move_node,    // signal to move node to closed list\n    output reg [7:0] f_cost, // total cost f = g + h\n    output reg [7:0] open_list_count, // count of nodes in open list\n    output reg [7:0] closed_list_count // count of nodes in closed list\n);\n\n    always @(posedge reset_clk or posedge rst) begin\n        if (rst) begin\n            f_cost <= 0;\n            open_list_count <= 0;\n            closed_list_count <= 0;\n        end else begin\n            f_cost <= g_cost + h_cost;\n            if (add_node) begin\n                open_list_count <= open_list_count + 1;\n            end\n            if (move_node) begin\n                closed_list_count <= closed_list_count + 1;\n                open_list_count <= open_list_count - 1;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk",
+      "g_cost": "start_to_current_cost",
+      "h_cost": "goal_heuristic_cost",
+      "add_node": "enqueue_node",
+      "move_node": "dequeue_node",
+      "f_cost": "total_path_cost",
+      "open_list_count": "open_nodes_count",
+      "closed_list_count": "closed_nodes_count"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q008703",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module binary_counter_16bit_sync_clear (\n  input clk,\n  input obf_clear,\n  input enable,\n  output reg [15:0] count\n);\n\n  always @(posedge clk) begin\n    if (obf_clear) begin\n      count <= 16'b0000000000000000;\n    end\n    else if (enable) begin\n      count <= count + 1'b1;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "clear": "obf_clear"
+  }
+}

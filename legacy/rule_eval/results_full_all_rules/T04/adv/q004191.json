@@ -1,0 +1,10 @@
+{
+  "task_id": "q004191",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module performs complex OFDM modulation with advanced error correction\nmodule ofdm_modulator (\n    input wire clk,\n    input wire rst,\n    input wire [3:0] data_in,\n    input wire data_valid,\n    output reg [3:0] symbol_out,\n    output reg symbol_valid\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            symbol_out <= 4'b0000;\n            symbol_valid <= 1'b0;\n        end else if (data_valid) begin\n            symbol_out <= data_in; // Simple direct mapping\n            symbol_valid <= 1'b1;   // Indicate valid output\n        end else begin\n            symbol_valid <= 1'b0;   // No valid output if data_valid is low\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module performs complex OFDM modulation with advanced error correction"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q017347",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux_2to1_enable (\n  input a,\n  input b,\n  input enable,\n  output reg mux_out\n);\n\n  always @ (a, b, enable) begin\n    if (enable) begin\n      mux_out = a;\n    end else begin\n      mux_out = b;\n    end\n  end\n\n  always @(*) begin\n    if (1'b0) begin\n      mux_out <= ~a; mux_out <= ~b;\n    end\n  end\n\nendmodule\n",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "mux_out <= ~a; mux_out <= ~b;"
+  }
+}

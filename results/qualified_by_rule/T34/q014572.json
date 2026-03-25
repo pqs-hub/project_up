@@ -1,0 +1,6 @@
+{
+  "task_id": "q014572",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule(out, in0, in1, select);parameter bits = 32;\t\noutput [bits-1:0] out;\ninput [bits-1:0] in0, in1;\ninput select;\n\n\treg [bits-1:0] out;\n\n\talways @ (select or in0 or in1)\n\tcase (select)\t\n\t\t0: out = in0;\n\t\t1: out = in1;\n\t\t\n\t\tdefault: out = 65'bx ;\n\t\t\n\tendcase\nendmodule"
+}

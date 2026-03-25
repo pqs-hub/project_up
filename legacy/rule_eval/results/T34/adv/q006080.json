@@ -1,0 +1,6 @@
+{
+  "task_id": "q006080",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input [3:0] C,\n    input [3:0] D,\n    input load,\n    input clk,\n    output reg [3:0] Q\n);reg [3:0] unused_Q1, Q2, Q3, Q4;\n\nalways @(posedge clk) begin\n    if (load) begin\n        unused_Q1 <= A;\n        Q2 <= B;\n        Q3 <= C;\n        Q4 <= D;\n    end else begin\n        unused_Q1 <= Q2;\n        Q2 <= Q3;\n        Q3 <= Q4;\n        Q4 <= Q;\n    end\nend\n\nassign Q = unused_Q1;\n\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q006826",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gray_code_counter (\n    input clk,\n    input rst,\n    output reg [2:0] gray\n);\n    reg [2:0] counter_value;\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            counter_value <= 3'b000;\n        else\n            counter_value <= counter_value + 1;\n    end\n    \n    always @(counter_value) begin\n        gray = counter_value ^ (counter_value >> 1);\n    end\nendmodule",
+  "rename_map": {
+    "binary": "counter_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary": "counter_value"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

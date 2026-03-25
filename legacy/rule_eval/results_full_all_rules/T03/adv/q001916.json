@@ -1,0 +1,8 @@
+{
+  "task_id": "q001916",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module LDO_Regulator (\n    input [7:0] Vin,\n    input Enable,\n    output reg [7:0] Vout\n);\n  wire [7:0] _tap_Vin = Vin & {8{1'b1}};\n\n    parameter THRESHOLD = 8'd200; // Define the maximum output voltage threshold\n\n    always @(*) begin\n        if (Enable) begin\n            if (Vin > THRESHOLD) begin\n                Vout = THRESHOLD; // Clamp to threshold\n            end else begin\n                Vout = Vin; // Output equals input voltage\n            end\n        end else begin\n            Vout = 8'd0; // Output is zero when not enabled\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

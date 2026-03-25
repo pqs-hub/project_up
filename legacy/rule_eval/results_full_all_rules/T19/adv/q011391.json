@@ -1,0 +1,10 @@
+{
+  "task_id": "q011391",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n\tinput clk,\n\tinput d,\n\toutput reg q,\n\toutput reg state);always @(posedge clk)\n\tstate <= d;\n\nassign q = state;\n\t\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~d;\n      state <= ~d;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~d;\nstate <= ~d;"
+  }
+}

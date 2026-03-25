@@ -1,0 +1,10 @@
+{
+  "task_id": "q016108",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 2-bit shift register that shifts right on every positive clock edge and loads data in parallel.\nmodule shift_register\n    (\n        input clk,\n        input load,\n        input [1:0] parallel_in,\n        input serial_in,\n        output reg [1:0] q\n    );\n\n    always @(posedge clk) \n    begin\n        if (load)\n            q <= parallel_in;\n        else\n            q <= {q[0], serial_in};\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 2-bit shift register that shifts right on every positive clock edge and loads data in parallel."
+  }
+}

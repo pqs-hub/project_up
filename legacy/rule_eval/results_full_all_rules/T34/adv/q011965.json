@@ -1,0 +1,15 @@
+{
+  "task_id": "q011965",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(reset,key_in,key);input reset;\ninput [3:0]key_in;\n\noutput [3:0]key;\n\nreg [3:0]key1;\nreg [3:0]key2;\nreg [3:0]key3;\n\nwire [3:0]key;\n\nalways@(posedge reset)\n  begin\n    key1<=key_in;\n\t key2<=key1; \n\t key3<=key2; \n  end\nassign key=(key1|key2|key3);\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "debounced_"
+  }
+}

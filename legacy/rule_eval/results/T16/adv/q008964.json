@@ -1,0 +1,9 @@
+{
+  "task_id": "q008964",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(cout, out, c, obf_a, b);input c;\n\tinput b;\n\tinput obf_a;\n\t\n\toutput cout;\n\toutput out;\n\t\n\tassign cout = (b & obf_a) | (obf_a & c) | (b & c);\n\tassign out = (obf_a & ~b & ~c) |\n\t\t\t\t\t (~obf_a & b & ~c)  |\n\t\t\t\t\t (~obf_a & ~b & c)  |\n\t\t\t\t\t (obf_a & b & c);endmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q009666",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n    input Up,\n    input Down,\n    input Clk,\n    input Reset,\n    output reg [3:0] Count\n);always @(posedge Clk) begin\n    begin end  // redundant\n        if (Reset) begin\n            Count <= 4'b0;\n        end else if (Up) begin\n            Count <= Count + 1;\n        end else if (Down) begin\n            Count <= Count - 1;\n        end\n    end\n\nendmodule"
+}

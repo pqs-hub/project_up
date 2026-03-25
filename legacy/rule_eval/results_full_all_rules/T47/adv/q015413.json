@@ -1,0 +1,8 @@
+{
+  "task_id": "q015413",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(A, B, Z, OVF);input [1:0] A;\ninput [1:0] B;\noutput reg [1:0] Z; // Change output Z to reg type\noutput OVF;\n\nwire [2:0] sum;\n  wire _n01 = A[0] ^ B[0];\n  wire _c01 = A[0] & B[0];\n  wire _n02 = A[1] ^ B[1] ^ _c01;\n  wire _c02 = (A[1] & B[1]) | (A[1] & _c01) | (B[1] & _c01);\n  wire _n03 = A[2] ^ B[2] ^ _c02;\n  wire _c03 = (A[2] & B[2]) | (A[2] & _c02) | (B[2] & _c02);\n  wire _n04 = A[3] ^ B[3] ^ _c03;\n  wire _c04 = (A[3] & B[3]) | (A[3] & _c03) | (B[3] & _c03);\n  assign sum = {_n01, _n02, _n03, _n04};\nassign OVF = (sum > 3);\n\nalways @* begin\n    if (sum > 3)\n        Z = 2'b11;\n    else\n        Z = sum[1:0];\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

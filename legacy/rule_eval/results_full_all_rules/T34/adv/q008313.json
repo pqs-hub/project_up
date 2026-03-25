@@ -1,0 +1,15 @@
+{
+  "task_id": "q008313",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module shift_register (\n\tinput clk,\n\tinput data,\n\toutput q);reg [3:0] registers = 4'b0000;\n\n\talways @(posedge clk) begin\n\t\tregisters <= {registers[2:0], data};\n\tend\n\t\n\tassign q = registers[3];\n\t\nendmodule",
+  "rename_map": {
+    "stages": "registers"
+  },
+  "params_used": {
+    "custom_map": {
+      "stages": "registers"
+    },
+    "fallback_prefix": "_shift_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q015426",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule register (\n    input [7:0] d,\n    input clk,\n    input reset,\n    output reg [7:0] q\n);\n\n    // 8-bit register logic\n    always @(posedge clk or negedge reset) begin\n        if (~reset)\n            q <= 8'b00000000;\n        else\n            q <= d;\n    end\n\nendmodule"
+}

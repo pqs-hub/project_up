@@ -1,0 +1,6 @@
+{
+  "task_id": "q004569",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module up_down_counter(\n\tinput wire clk,\n\tinput wire reset,\n\tinput wire dir,\n\toutput reg [1:0] count\n);always @(posedge clk) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n\tif (reset)\n\t\tcount <= 2'b00;\n\telse if (dir)\n\t\tcount <= count + 1;\n\telse\n\t\tcount <= count - 1;\nend\nendmodule"
+}

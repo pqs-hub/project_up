@@ -1,0 +1,16 @@
+{
+  "task_id": "q013503",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n  input in,\n  input [1:0] state,\n  output reg [1:0] prev_state,\n  output reg out\n);\n\n  // Define state encoding\n  localparam T0 = 2'b00;\n  localparam T1 = 2'b01;\n  localparam T2 = 2'b10;\n\n  // Combinational logic to determine next state and output based on current state and input\n  always @(*) begin\n    case (state)\n      T0: begin\n        if (in == 0) begin\n          prev_state = T1;\n          out = 1;\n        end else begin\n          prev_state = T2;\n          out = 0;\n        end\n      end\n\n      T1: begin\n        if (in == 0) begin\n          prev_state = T2;\n          out = 1;\n        end else begin\n          prev_state = T0;\n          out = 1;\n        end\n      end\n\n      T2: begin\n        if (in == 0) begin\n          prev_state = T0;\n          out = 0;\n        end else begin\n          prev_state = T1;\n          out = 1;\n        end\n      end\n\n      default: begin\n        prev_state = T0; // Default to state T0 if in an undefined state\n        out = 0;\n      end\n    endcase\n  end\n\nendmodule",
+  "rename_map": {
+    "next_state": "prev_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "next_state": "prev_state",
+      "out": "not_out"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

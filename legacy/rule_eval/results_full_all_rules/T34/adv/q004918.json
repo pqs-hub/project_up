@@ -1,0 +1,16 @@
+{
+  "task_id": "q004918",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n    input o,\n    input c,\n    input q,\n    output reg invalid_z\n);\n    always @(*) begin\n        case ({o, c, q})\n            3'b010: invalid_z = 1'b1;\n            3'b101: invalid_z = 1'b1;\n            3'b110: invalid_z = 1'b0;\n            3'b111: invalid_z = 1'b1;\n            3'b000: invalid_z = 1'b1;\n            3'b001: invalid_z = 1'b0;\n            3'b011: invalid_z = 1'b1;\n            3'b100: invalid_z = 1'b1;\n        endcase\n    end\nendmodule\n",
+  "rename_map": {
+    "z": "invalid_z"
+  },
+  "params_used": {
+    "custom_map": {
+      "ocq": "invalid_ocq",
+      "z": "invalid_z"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

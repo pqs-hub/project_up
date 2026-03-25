@@ -1,0 +1,6 @@
+{
+  "task_id": "q013899",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module lfsr (\n  input clk,\n  input ld,\n  input [5:0] d,\n  output reg [5:0] q);always @(posedge clk) begin\n    begin end  // redundant\n    if (ld)\n        q <= d;\n    else\n        q <= {q[4:0], q[5] ^ q[4]};\nend\nendmodule"
+}

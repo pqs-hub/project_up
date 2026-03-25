@@ -1,0 +1,6 @@
+{
+  "task_id": "q012328",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(\n  input        clock,\n  input        reset,\n  input  [7:0] io_input_0_data,\n  input        io_input_0_enable,\n  input        io_input_0_reset,\n  output [7:0] io_output_data\n);reg [7:0] ff;\n\n  always @(posedge clock) begin\n    if (reset) begin\n      ff <= 8'h0;\n    end else begin\n      if (io_input_0_reset) begin\n        ff <= 8'h0;\n      end else begin\n        if (io_input_0_enable) begin\n          ff <= io_input_0_data;\n        end\n      end\n    end\n  end\n  \n  assign io_output_data = ff;\n  \nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004817",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [15:0] data_in,\n    output [15:0] data_out\n);\n\n    reg [15:0] obf_pipeline [0:3];  // 4-stage obf_pipeline\n\n    always @(posedge clk) begin\n        if (reset) begin\n            obf_pipeline[0] <= 16'b0;\n            obf_pipeline[1] <= 16'b0;\n            obf_pipeline[2] <= 16'b0;\n            obf_pipeline[3] <= 16'b0;\n        end else begin\n            obf_pipeline[0] <= data_in;\n            obf_pipeline[1] <= obf_pipeline[0];\n            obf_pipeline[2] <= obf_pipeline[1];\n            obf_pipeline[3] <= obf_pipeline[2];\n        end\n    end\n\n    assign data_out = obf_pipeline[3];\n\nendmodule"
+}

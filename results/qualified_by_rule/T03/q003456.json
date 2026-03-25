@@ -1,0 +1,6 @@
+{
+  "task_id": "q003456",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [4:0] data_in,\n    output reg [4:0] data_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg [4:0] stage1_out;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            stage1_out <= 5'b00000;\n            data_out <= 5'b00000;\n        end else begin\n            // Stage 1: Bitwise NOT operation\n            stage1_out <= ~data_in;\n        end\n    end\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            data_out <= 5'b00000;\n        end else begin\n            // Stage 2: Bitwise AND with 5'b10101\n            data_out <= stage1_out & 5'b10101;\n        end\n    end\nendmodule"
+}

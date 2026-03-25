@@ -1,0 +1,9 @@
+{
+  "task_id": "q011791",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(Out, obf_In, Select);output\tOut;\t\n\treg Out;\n\tinput [3:0] obf_In;\t\t\n\tinput [1:0] Select; \n\t\n\t\n\talways @ (obf_In or Select)\n\tcase (Select)\n\t2'b00: Out=obf_In[0];\n\t2'b01: Out=obf_In[1];\n\t2'b10: Out=obf_In[2];\n\t2'b11: Out=obf_In[3];\n\tendcase\nendmodule",
+  "rename_map": {
+    "In": "obf_In"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q013050",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    CLOCK_50,\n    CLOCK_25\n);input CLOCK_50;\n    output CLOCK_25;\n    reg reset = 0;\n\n    always @(posedge CLOCK_50) begin\n        reset <= ~reset;\n    end\n \n    assign CLOCK_25 = reset;\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLOCK_50": "INVALID_CLK",
+      "CLOCK_25": "VALID_CLK"
+    },
+    "fallback_prefix": "ERR_"
+  }
+}

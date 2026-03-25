@@ -1,0 +1,10 @@
+{
+  "task_id": "q013042",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module ring_counter(\n  input clk,\n  input rst_n,\n  output reg [4:0] ring_code\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      ring_code <= 5'b00001;\n    end\n    else begin\n      ring_code <= {ring_code[3:0], ring_code[4]};\n    end\n  end\n\n  always @(*) begin\n    if (1'b0) begin\n      ring_code <= 5'b11110;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "ring_code <= 5'b11110;"
+  }
+}

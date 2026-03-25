@@ -1,0 +1,10 @@
+{
+  "task_id": "q011814",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements an 8-bit register with asynchronous reset and synchronous enable.\nmodule reg_8bit (CLK, RST, EN, D, Q);\ninput CLK, RST, EN;\ninput [7:0] D;\noutput reg [7:0] Q;\n\nalways @(posedge CLK) begin\n    if (RST) begin\n        Q <= 8'b00000000;\n    end else if (EN) begin\n        Q <= D;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an 8-bit register with asynchronous reset and synchronous enable."
+  }
+}

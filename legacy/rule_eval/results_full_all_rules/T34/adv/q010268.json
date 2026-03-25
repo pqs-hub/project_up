@@ -1,0 +1,15 @@
+{
+  "task_id": "q010268",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module d_ff_async_reset (clk_inv, rst, d, q);\n   input clk_inv, rst, d;\n   output q;\n\n   reg q;\n\nalways @(posedge clk_inv or posedge rst) begin\n    if (rst) begin\n        q <= 1'b0;\n    end else begin\n        q <= d;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv"
+    },
+    "fallback_prefix": "async_reset_"
+  }
+}

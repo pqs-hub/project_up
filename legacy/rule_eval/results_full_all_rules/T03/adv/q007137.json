@@ -1,0 +1,8 @@
+{
+  "task_id": "q007137",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    input sel_b1,\n    input sel_b2,\n    output reg out_always\n);always @(*) begin\n  wire _tap_a = a & {1{1'b1}};\n\n        case ({sel_b2, sel_b1})\n            2'b00: out_always = a;\n            2'b01: out_always = a;\n            2'b10: out_always = b;\n            2'b11: out_always = b;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

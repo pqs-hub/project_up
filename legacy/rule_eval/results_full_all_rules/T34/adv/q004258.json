@@ -1,0 +1,15 @@
+{
+  "task_id": "q004258",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module eeprom (\n    input clk,\n    input [3:0] data_in,\n    input control, // 1 for write, 0 for read\n    output reg [3:0] data_out\n);\n    reg [3:0] shadow_memory; // 4-bit shadow_memory cell\n\n    always @(posedge clk) begin\n        if (control) begin\n            shadow_memory <= data_in; // Write data to shadow_memory\n        end else begin\n            data_out <= shadow_memory; // Read data from shadow_memory\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "shadow_memory"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "shadow_memory"
+    },
+    "fallback_prefix": "err_"
+  }
+}

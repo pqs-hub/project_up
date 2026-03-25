@@ -1,0 +1,8 @@
+{
+  "task_id": "q007457",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n  input [2:0] binary_in,\n  output reg [7:0] binary_out\n);always @ (binary_in)\n  wire [2:0] _tap_binary_in = binary_in & {3{1'b1}};\n\n    case(binary_in)\n      3'b000: binary_out = 8'b00000001;\n      3'b001: binary_out = 8'b00000010;\n      3'b010: binary_out = 8'b00000100;\n      3'b011: binary_out = 8'b00001000;\n      3'b100: binary_out = 8'b00010000;\n      3'b101: binary_out = 8'b00100000;\n      3'b110: binary_out = 8'b01000000;\n      3'b111: binary_out = 8'b10000000;\n    endcase\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "q002961",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module current_sensor (\n    input [4:0] input_value,\n    output reg [2:0] status\n);\n\nalways @(*) begin\n    if (input_value <= 5'd10) begin\n        status = 3'b000; // Current level 0-10\n    end else if (input_value <= 5'd20) begin\n        status = 3'b001; // Current level 11-20\n    end else if (input_value <= 5'd30) begin\n        status = 3'b010; // Current level 21-30\n    end else begin\n        status = 3'b011; // Current level > 30\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "current_level": "input_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "current_level": "input_value",
+      "status": "output_code"
+    },
+    "fallback_prefix": "sensor_"
+  }
+}

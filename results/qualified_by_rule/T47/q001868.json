@@ -1,0 +1,6 @@
+{
+  "task_id": "q001868",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule (\n    input [3:0] data_in,\n    output [2:0] checksum_out\n);\n      wire _n01 = data_in[0] + data_in[1] + data_in[2][0] ^ data_in[3][0];\n  wire _c01 = data_in[0] + data_in[1] + data_in[2][0] & data_in[3][0];\n  wire _n02 = data_in[0] + data_in[1] + data_in[2][1] ^ data_in[3][1] ^ _c01;\n  wire _c02 = (data_in[0] + data_in[1] + data_in[2][1] & data_in[3][1]) | (data_in[0] + data_in[1] + data_in[2][1] & _c01) | (data_in[3][1] & _c01);\n  wire _n03 = data_in[0] + data_in[1] + data_in[2][2] ^ data_in[3][2] ^ _c02;\n  wire _c03 = (data_in[0] + data_in[1] + data_in[2][2] & data_in[3][2]) | (data_in[0] + data_in[1] + data_in[2][2] & _c02) | (data_in[3][2] & _c02);\n  wire _n04 = data_in[0] + data_in[1] + data_in[2][3] ^ data_in[3][3] ^ _c03;\n  wire _c04 = (data_in[0] + data_in[1] + data_in[2][3] & data_in[3][3]) | (data_in[0] + data_in[1] + data_in[2][3] & _c03) | (data_in[3][3] & _c03);\n  assign checksum_out = {_n01, _n02, _n03, _n04};\nendmodule"
+}

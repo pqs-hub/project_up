@@ -1,0 +1,10 @@
+{
+  "task_id": "q002463",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 3-input K-Nearest Neighbors (KNN) classifier that classifies the input based on the following criteria:\n// - If the sum of the three inputs is greater than 3, the output should be classified as '0'.\n// - If the sum is less than or equal to 1 but greater than 3, the output should be classified as '1'.\n// - If the sum is less than or equal to 1, the output should be classified as '2'.\n// The inputs are binary (0 or 1).\nmodule knn_classifier (  \n    input [2:0] data,  \n    output reg [1:0] classification  \n);  \n    always @(*) begin  \n        if (data[0] + data[1] + data[2] <= 1)  \n            classification = 2'b00; // Class 0  \n        else if (data[0] + data[1] + data[2] <= 3)  \n            classification = 2'b01; // Class 1  \n        else  \n            classification = 2'b10; // Class 2  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 3-input K-Nearest Neighbors (KNN) classifier that classifies the input based on the following criteria:\n// - If the sum of the three inputs is greater than 3, the output should be classified as '0'.\n// - If the sum is less than or equal to 1 but greater than 3, the output should be classified as '1'.\n// - If the sum is less than or equal to 1, the output should be classified as '2'.\n// The inputs are binary (0 or 1)."
+  }
+}

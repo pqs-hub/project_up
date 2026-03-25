@@ -1,0 +1,6 @@
+{
+  "task_id": "q008877",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(\nIDATA1  ,\t\nIDATA2  ,\t\nIDATA3  ,\t\nIDATA4  ,\t\nIDATA5  ,\t\nIDATA6  ,\t\nSELECT  ,\t\nODATA       \n);parameter DATA_WIDTH = 32;\n\n\ninput   [DATA_WIDTH-1:0] \tIDATA1;\ninput   [DATA_WIDTH-1:0] \tIDATA2;\ninput   [DATA_WIDTH-1:0] \tIDATA3;\ninput   [DATA_WIDTH-1:0] \tIDATA4;\ninput   [DATA_WIDTH-1:0] \tIDATA5;\ninput   [DATA_WIDTH-1:0] \tIDATA6;\ninput   [2:0]               SELECT;\n\n\noutput reg  [DATA_WIDTH-1:0]    ODATA;\n\n\n\n\nalways @ (IDATA1 or IDATA2 or IDATA3 or IDATA4 or IDATA5 or IDATA6 or SELECT) begin\n\tcase (SELECT)\n\t\t3'b000: ODATA = IDATA1;\n\t\t3'b001: ODATA = IDATA2;\n\t\t3'b010: ODATA = IDATA3;\n\t\t3'b011: ODATA = IDATA4;\n\t\t3'b100: ODATA = IDATA5;\n\t\t3'b101: ODATA = IDATA6;\n\t\tdefault: ODATA = IDATA1;\n\tendcase\nend\n\nendmodule"
+}

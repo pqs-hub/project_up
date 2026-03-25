@@ -1,0 +1,6 @@
+{
+  "task_id": "q007638",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clock,\n    input wr_en,                // Added write enable input\n    input [3:0] rd_addr,\n    input [15:0] wr_data,\n    output reg [15:0] rd_data\n);reg [15:0] unused_mem [0:15];\n    \n    always @(posedge clock) begin\n        if (wr_en) begin\n            unused_mem[rd_addr] <= wr_data;\n        end\n    end\n    \n    always @(posedge clock) begin\n        rd_data <= unused_mem[rd_addr];\n    end\n\nendmodule"
+}

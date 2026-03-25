@@ -1,0 +1,6 @@
+{
+  "task_id": "q000273",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n    input [3:0] symbol_in,\n    output reg [3:0] symbol_out,\n    input clk,\n    input reset\n);\n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant\n        if (reset) begin\n            symbol_out <= 4'b0000;\n        end else begin\n            symbol_out <= (symbol_in * 3) > 15 ? 4'b1111 : (symbol_in * 3);\n        end\n    end\nendmodule"
+}

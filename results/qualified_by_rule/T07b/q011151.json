@@ -1,0 +1,6 @@
+{
+  "task_id": "q011151",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(\n  input [7:0] data_in,\n  input [1:0] protocol_sel,\n  input clk,\n  output reg [7:0] data_out\n);reg [7:0] encoded_data;\n  \n  always @(posedge clk) begin\n    case (protocol_sel)\n      2'b00: // Bluetooth Low Energy (BLE)\n        // Encoding function for BLE protocol\n        encoded_data <= data_in;\n        // Transmission function for BLE protocol\n        // Transmit the encoded data wirelessly\n      2'b01: // Wi-Fi\n        // Encoding function for Wi-Fi protocol\n        encoded_data <= data_in + 1;\n        // Transmission function for Wi-Fi protocol\n        // Transmit the encoded data wirelessly\n      2'b10: // Zigbee\n        // Encoding function for Zigbee protocol\n        encoded_data <= data_in - 1;\n        // Transmission function for Zigbee protocol\n        // Transmit the encoded data wirelessly\n      default:\n        // Invalid protocol selection\n        encoded_data <= 8'h00;\n    endcase\n  end\n  \n  assign data_out = encoded_data;\n  \nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002357",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input transmit_enable,\n    input receive_enable,\n    input done,\n    output reg [1:0] state // 00: IDLE, 01: TRANSMIT, 10: RECEIVE\n);\n\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter TRANSMIT = 2'b01;\n    parameter RECEIVE = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (transmit_enable) begin\n                        state <= TRANSMIT;\n                    end else if (receive_enable) begin\n                        state <= RECEIVE;\n                    end\n                end\n                TRANSMIT: begin\n                    if (done) begin\n                        state <= IDLE;\n                    end\n                end\n                RECEIVE: begin\n                    if (done) begin\n                        state <= IDLE;\n                    end\n                end\n                default: state <= IDLE;\n            endcase\n        end\n    end\n\nendmodule"
+}

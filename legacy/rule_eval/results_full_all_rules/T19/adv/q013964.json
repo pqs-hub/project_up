@@ -1,0 +1,10 @@
+{
+  "task_id": "q013964",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input  [1:0] sel,\n    input [11:0] din_a,\n    input [11:0] din_b,\n    input [11:0] din_c,\n    \n    output reg [11:0] dout\n    );always@(*) begin\n        case(sel)\n            0: dout = din_a; \n            1: dout = din_b;\n            2: dout = din_c; \n            default: dout = din_a;\n        endcase\n    end\n  always @(*) begin\n    if (1'b0) begin\n      if (sel == 2'b11) begin\n      dout = din_c;\n      end else if (sel == 2'b10) begin\n      dout = din_b;\n      end else if (sel == 2'b01) begin\n      dout = din_a;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (sel == 2'b11) begin\ndout = din_c;\nend else if (sel == 2'b10) begin\ndout = din_b;\nend else if (sel == 2'b01) begin\ndout = din_a;\nend"
+  }
+}

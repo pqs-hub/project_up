@@ -1,0 +1,8 @@
+{
+  "task_id": "q012648",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module shift_register_4bit(\n\tinput \tclk,\n\tinput \trst,\n\tinput \tD,\n\toutput reg [3:0] Q\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt)\nbegin\n\tif (rst)\n\t\tQ <= 4'b0000;\n\telse\n\t\tQ <= {Q[2:0], D};\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

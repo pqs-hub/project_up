@@ -1,0 +1,10 @@
+{
+  "task_id": "q004662",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module( \n    input wire [31:0] in,\n    output wire [31:0] out_xor,\n    output wire [31:0] out_and );assign out_xor = in[31:16] ^ in[15:0];\n    assign out_and = in[31:16] & in[15:0];\n\n  always @(*) begin\n    if (1'b0) begin\n      out_xor <= ~in[31:16];\n      out_and <= ~in[15:0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out_xor <= ~in[31:16];\nout_and <= ~in[15:0];"
+  }
+}

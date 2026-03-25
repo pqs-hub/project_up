@@ -1,0 +1,6 @@
+{
+  "task_id": "q012206",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(\n\tinput [5:0] x,\n   input [3:0] shift,\n   output reg [11:0] out\n   );integer i;\n\nalways @(*) begin\n\tout[11:10] = 2'b10;\n\tout[9:6] = 4'bx;\n\ti = shift[3:1];\n\tcase (shift[0])\n\t\t1'b0: out[5:0] = x << i;\n\t\t1'b1: out[5:0] = x >> i;\n\tendcase\nend\n\nendmodule"
+}

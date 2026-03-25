@@ -1,0 +1,6 @@
+{
+  "task_id": "q002317",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module RefModule (\n    input wire a,\n    input wire b,\n    output wire hazard_detected,\n    output wire resolved\n);\n  wire temp1_a = a;\n  wire temp2_b = b;\n  assign hazard_detected = temp1_a & temp2_b; // Hazard detected if both inputs are 1\n    assign resolved = ~(a & b); // Hazard resolved if at least one input is 0\nendmodule"
+}

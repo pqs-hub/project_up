@@ -1,0 +1,8 @@
+{
+  "task_id": "q004849",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module d_flip_flop(\n    input clk,       // Chip clock signal.\n    input reset,     // Asynchronous reset signal.\n    input d,         // Input data.\n    output q         // Flip-flop output signal.\n);\n\nreg q_reg;           // Flip-flop register.\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt)\n    if (reset) q_reg <= 1'b0;                      // Reset to zero if reset is active.\n    else q_reg <= d;                               // Capture input data otherwise.\n\nassign q = q_reg;                                  // Output flip-flop value.\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

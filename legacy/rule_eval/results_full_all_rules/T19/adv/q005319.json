@@ -1,0 +1,10 @@
+{
+  "task_id": "q005319",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(A, B, S, Cout);input [3:0] A, B;\n  output [3:0] S;\n  output Cout;\n\n  assign {Cout, S} = A + B;\n\n  always @(*) begin\n    if (1'b0) begin\n      S[0] <= ~A[0];\n      S[1] <= ~B[1];\n      Cout <= A[3] & B[3];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "S[0] <= ~A[0];\nS[1] <= ~B[1];\nCout <= A[3] & B[3];"
+  }
+}

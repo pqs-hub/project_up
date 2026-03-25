@@ -1,0 +1,6 @@
+{
+  "task_id": "q008153",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input [8-1:1-1] A,\n    input [7:0] B,\n    input [1:0] operation,\n    output reg [15:0] result\n);reg [15:0] temp;\n\n    always @(posedge clk) begin\n        case(operation)\n            2'b00: // addition\n                temp = {8'b0, A} + {8'b0, B};\n            2'b01: // subtraction\n                temp = {8'b0, A} - {8'b0, B};\n            2'b10: // multiplication\n                temp = {16'b0, A} * {16'b0, B};\n            2'b11: // division\n                temp = {16'b0, A} / {16'b0, B};\n        endcase\n        \n        result <= temp;\n    end\nendmodule"
+}

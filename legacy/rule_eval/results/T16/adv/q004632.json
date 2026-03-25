@@ -1,0 +1,9 @@
+{
+  "task_id": "q004632",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(clk, reset, op, obf_a, b, result);input clk, reset;\n  input [1:0] op;\n  input [3:0] obf_a, b;\n  output reg [3:0] result;\n  \n  always @(posedge clk) begin\n    if (reset) begin\n      result <= 0;\n    end else begin\n      case (op)\n        2'b00: result <= obf_a + b; // addition\n        2'b01: result <= obf_a - b; // subtraction\n        2'b10: result <= obf_a * b; // multiplication\n        2'b11: result <= obf_a / b; // division\n      endcase\n    end\n  end\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q005806",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input  X_A1,\n    input  A2,\n    input  B1,\n    output Y\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n    \n    // Logic implementation\n    assign Y = ((X_A1 & A2) | !B1) ? 1'b1 : 1'b0;\n\nendmodule",
+  "rename_map": {
+    "A1": "X_A1"
+  },
+  "params_used": {
+    "custom_map": {
+      "A1": "Z1",
+      "A2": "Z2",
+      "B1": "Z3"
+    },
+    "fallback_prefix": "X_"
+  }
+}

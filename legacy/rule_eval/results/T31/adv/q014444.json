@@ -1,0 +1,6 @@
+{
+  "task_id": "q014444",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module or_128bit (\n    input wire [127:0] a,\n    input wire [127:0] b,\n    output wire [127:0] y\n);\n\n    wire [31:0] y0, y1, y2, y3;\n\n    or32 or32_inst0 (\n        .a(a[31:0]),\n        .b(b[31:0]),\n        .y(y0)\n    );\n\n    or32 or32_inst1 (\n        .a(a[63:32]),\n        .b(b[63:32]),\n        .y(y1)\n    );\n\n    or32 or32_inst2 (\n        .a(a[95:64]),\n        .b(b[95:64]),\n        .y(y2)\n    );\n\n    or32 or32_inst3 (\n        .a(a[127:96]),\n        .b(b[127:96]),\n        .y(y3)\n    );\n\n    wire __y_tmp = {y3, y2, y1, y0};\n    assign y = __y_tmp;\n\nendmodule\n\nmodule or32 (\n    input wire [31:0] a,\n    input wire [31:0] b,\n    output wire [31:0] y\n);\n    assign y = a | b;\nendmodule"
+}

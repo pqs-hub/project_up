@@ -1,0 +1,6 @@
+{
+  "task_id": "q011529",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module shift_reg_32bit (\n    input wire clk,\n    input wire rst,\n    input wire shift_in,\n    output reg [31:0] shift_out\n);\n\n    always @(posedge clk or negedge rst) begin\n        if (!rst) begin\n            shift_out <= 32'b0;\n        end else begin\n            shift_out <= {shift_out[30:0], shift_in};\n        end\n    end\n\nendmodule"
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q000713",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module comparator_64bit (\n    input  [63:0] a,\n    input  [63:0] b,\n    output       b_le_a,\n    output       a_lt_b,\n    output       a_eq_b\n);\n\nassign b_le_a = (a > b);\nassign a_lt_b = (a < b);\nassign a_eq_b = (a == b);\n\nendmodule",
+  "rename_map": {
+    "a_gt_b": "b_le_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "a_gt_b": "b_le_a",
+      "a_lt_b": "a_ge_b",
+      "a_eq_b": "not_equal"
+    },
+    "fallback_prefix": "cmp_"
+  }
+}

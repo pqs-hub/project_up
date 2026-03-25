@@ -1,0 +1,15 @@
+{
+  "task_id": "q004433",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] a,\n    input [7:0] b,\n    input [1:0] control,\n    output reg [7:0] error_value\n);always @(*) begin\n    case(control)\n        2'b00: error_value = a + b; // Addition\n        2'b01: error_value = a - b; // Subtraction\n        2'b10: error_value = a * b; // Multiplication\n        2'b11: error_value = a / b; // Division\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "result": "error_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "result": "error_value"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

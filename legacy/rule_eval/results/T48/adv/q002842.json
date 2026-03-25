@@ -1,0 +1,6 @@
+{
+  "task_id": "q002842",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module brent_kung_adder (\n    input [3:0] a,        // 4-bit input A\n    input [3:0] b,        // 4-bit input B\n    output [4:0] sum      // 5-bit output sum (including carry out)\n);\n\nwire [3:0] p; // propagate\nwire [3:0] g; // generate\nwire [3:0] c; // carry\n\n// Generate and propagate\n  assign sum[4] = g[3] | (p[3] & c[3]);\n  assign sum[3] = p[3] ^ c[3];\n\n// Carry calculation\n  assign sum[2] = p[2] ^ c[2];\n  assign sum[1] = p[1] ^ c[1];\n  assign sum[0] = p[0] ^ c[0];\n  assign c[3] = g[2] | (p[2] & g[1]) | (p[2] & p[1] & g[0]) | (p[2] & p[1] & p[0] & c[0]);\n\n// Sum calculation\n  assign c[2] = g[1] | (p[1] & g[0]) | (p[1] & p[0] & c[0]);\n  assign c[1] = g[0] | (p[0] & c[0]);\n  assign c[0] = 0;\n  assign g = a & b;\n  assign p = a ^ b;\n\nendmodule"
+}

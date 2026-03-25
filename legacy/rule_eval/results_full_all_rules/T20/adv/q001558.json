@@ -1,0 +1,10 @@
+{
+  "task_id": "q001558",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module is designed to read a 4-bit temperature input and output a 1-bit alert signal.\n// The alert signal will be deactivated when the temperature exceeds a certain threshold (e.g., 10 degrees).\n// The design includes a clock input to trigger the reading of the temperature input, and a reset input to reset the alert signal.\nmodule temperature_sensor(\n    input wire clk,\n    input wire reset,\n    input wire [3:0] temperature,\n    output reg alert\n);\n    parameter THRESHOLD = 4'b1010; // Threshold set to 10 degrees\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            alert <= 1'b0;\n        end else begin\n            if (temperature > THRESHOLD) begin\n                alert <= 1'b1; // Activate alert if temperature exceeds threshold\n            end else begin\n                alert <= 1'b0; // Deactivate alert otherwise\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to read a 4-bit temperature input and output a 1-bit alert signal.\n// The alert signal will be deactivated when the temperature exceeds a certain threshold (e.g., 10 degrees).\n// The design includes a clock input to trigger the reading of the temperature input, and a reset input to reset the alert signal."
+  }
+}

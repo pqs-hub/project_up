@@ -1,0 +1,9 @@
+{
+  "task_id": "q009827",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n\tinput [7:0] A,\n\tinput [7:0] B,\n\tinput reset,\n\tinput clk,               // Added clk as an input\n\toutput reg [15:0] obf_C\n);always @(posedge clk) begin\n\t\tif (reset) begin\n\t\t\tobf_C <= 16'b0;\n\t\tend else begin\n\t\t\tobf_C <= A + B;\n\t\tend\n\tend\n\nendmodule",
+  "rename_map": {
+    "C": "obf_C"
+  }
+}

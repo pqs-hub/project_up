@@ -1,0 +1,8 @@
+{
+  "task_id": "q010054",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module data_latch16 (\n    input clk,\n    input reset,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(negedge clk or posedge reset or posedge dbg_halt) begin\n        if (reset) begin\n            data_out <= 16'b0;\n        end else begin\n            data_out <= data_in;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

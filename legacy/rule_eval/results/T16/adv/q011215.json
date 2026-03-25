@@ -1,0 +1,9 @@
+{
+  "task_id": "q011215",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(obf_Q, clock, reset);output reg [3:0] obf_Q;\n  input clock, reset;\n  \n  always @(posedge clock)\n  begin\n    if(reset)\n      obf_Q <= 4'b1111;\n    else\n      obf_Q <= { (obf_Q[3] ^ obf_Q[0]) , obf_Q[3:1] };\n  end\n    \nendmodule",
+  "rename_map": {
+    "Q": "obf_Q"
+  }
+}

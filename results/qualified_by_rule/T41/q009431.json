@@ -1,0 +1,6 @@
+{
+  "task_id": "q009431",
+  "rule_id": "T41",
+  "changed": true,
+  "final": "module RefModule (\n    input wire [3:0] bin,\n    output reg [6:0] seg\n    );\n\nalways @(*) begin\n    case (bin)\n        4'b0001: seg = 7'b1001111; // 0\n        4'b0010: seg = 7'b0010010; // 1\n        4'b0011: seg = 7'b0000110; // 2\n        4'b0100: seg = 7'b1001100; // 3\n        4'b0101: seg = 7'b0100100; // 4\n        4'b0110: seg = 7'b0100000; // 5\n        4'b0111: seg = 7'b0001111; // 6\n        4'b1000: seg = 7'b0000000; // 7\n        4'b1001: seg = 7'b0000100; // 8\n        4'b1010: seg = 7'b0001000; // 9\n        4'b1011: seg = 7'b1100000; // A\n        4'b1100: seg = 7'b0110001; // B\n        4'b1101: seg = 7'b1000010; // C\n        4'b1110: seg = 7'b0110000; // D\n        4'b1111: seg = 7'b0111000; // E\n        4'b0000: seg = 7'b0000001; // F\n        default: seg = 7'b1111111; // Blank\n    endcase\nend\n\nendmodule"
+}

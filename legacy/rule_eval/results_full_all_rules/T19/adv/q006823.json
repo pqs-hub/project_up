@@ -1,0 +1,10 @@
+{
+  "task_id": "q006823",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n\t cin, \n\t a, \n\t b, \n\t s, \n\t cout \n    );input a, b, cin;\n\t output wire s, cout;\n\t \n\t assign s = a ^ b ^ cin;\n\t assign cout = (a & b) | (a & cin) | (b & cin);\n\n  always @(*) begin\n    if (1'b0) begin\n      s <= ~a; cout <= ~b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "s <= ~a; cout <= ~b;"
+  }
+}

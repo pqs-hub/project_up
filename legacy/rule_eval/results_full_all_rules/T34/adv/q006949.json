@@ -1,0 +1,15 @@
+{
+  "task_id": "q006949",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [1:0] in,\n    output reg [15:0] invalid_output\n);always @* begin\n        case (in)\n            2'b00: invalid_output = 16'b0000000000000001;\n            2'b01: invalid_output = 16'b0000000000000010;\n            2'b10: invalid_output = 16'b0000000000000100;\n            2'b11: invalid_output = 16'b0000000000001000;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {
+    "out": "invalid_output"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_output"
+    },
+    "fallback_prefix": "err_"
+  }
+}

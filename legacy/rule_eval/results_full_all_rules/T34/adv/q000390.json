@@ -1,0 +1,15 @@
+{
+  "task_id": "q000390",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire [3:0] data_in,\n    input wire we,\n    input wire reset,\n    output reg [3:0] data_out\n);\n    always @(posedge reset) begin\n        if (we) begin\n            data_out <= data_in; // Write data to the cell\n        end\n        // If we is low, do nothing (hold the previous value)\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

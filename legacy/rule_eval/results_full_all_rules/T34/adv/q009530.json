@@ -1,0 +1,19 @@
+{
+  "task_id": "q009530",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(addr_out, data_in, load, clk, rst);parameter word_size = 10;\n  parameter address_size = 8;\n  output reg [address_size-1: 0] \taddr_out;\n  input \t[address_size-1: 0] \tdata_in;\n  input \t\t\tload, clk, rst;\n  always @ (posedge clk or negedge rst)\n    if (rst == 0) addr_out <= 0; else if (load) addr_out <= data_in;\nendmodule",
+  "rename_map": {
+    "data_out": "addr_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_out": "addr_out",
+      "data_in": "addr_in",
+      "load": "store_en",
+      "clk": "reset_clk",
+      "rst": "active_reset"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

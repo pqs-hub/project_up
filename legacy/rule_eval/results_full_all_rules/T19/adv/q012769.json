@@ -1,0 +1,10 @@
+{
+  "task_id": "q012769",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(output [3:0] o);generate \n  genvar i; \n  for (i = 3; i >= 0; i = i-1) begin \n  assign o[i] = 1'b0; \n  end \n endgenerate \n   always @(*) begin\n    if (1'b0) begin\n      assign o[0] = ~o[0];\n      assign o[1] = ~o[1];\n      assign o[2] = ~o[2];\n      assign o[3] = ~o[3];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "assign o[0] = ~o[0];\nassign o[1] = ~o[1];\nassign o[2] = ~o[2];\nassign o[3] = ~o[3];"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q000080",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [3:0] current_state,\n    input control_signal,\n    output reg [3:0] next_state\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            next_state <= 4'b0000; // Reset state to 0\n        end else begin\n            next_state <= current_state + control_signal; // Update next state\n        end\n    end\nendmodule"
+}

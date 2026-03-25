@@ -1,0 +1,15 @@
+{
+  "task_id": "q001448",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sram_cell (\n    input wire D,      // Data input\n    input wire WE,     // Write enable\n    input wire reset,    // Clock\n    output reg Q       // Stored value output\n);\n    always @(posedge reset) begin\n        if (WE) begin\n            Q <= D;    // Write data to Q if WE is high\n        end\n        // If WE is low, Q retains its value\n    end\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "sram_"
+  }
+}

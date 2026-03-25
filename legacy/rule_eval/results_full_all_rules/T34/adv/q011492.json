@@ -1,0 +1,15 @@
+{
+  "task_id": "q011492",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    output EQ\n);wire [3:0] unequal_bits;\n\n    assign unequal_bits = A ^ B;\n\n    assign EQ = ~(|unequal_bits);\n\nendmodule",
+  "rename_map": {
+    "equal_bits": "unequal_bits"
+  },
+  "params_used": {
+    "custom_map": {
+      "equal_bits": "unequal_bits"
+    },
+    "fallback_prefix": "not_"
+  }
+}

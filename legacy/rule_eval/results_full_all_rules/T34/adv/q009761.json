@@ -1,0 +1,15 @@
+{
+  "task_id": "q009761",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bidirectional_counter (reset, RST, EN, DIR, Q);\ninput reset, RST, EN, DIR;\noutput reg [15:0] Q;\n\nalways @(posedge reset) begin\n    if (RST) begin\n        Q <= 16'b0;\n    end\n    else if (EN) begin\n        if (DIR) begin\n            Q <= Q + 1;\n        end\n        else begin\n            Q <= Q - 1;\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

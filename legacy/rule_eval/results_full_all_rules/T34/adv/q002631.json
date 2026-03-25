@@ -1,0 +1,17 @@
+{
+  "task_id": "q002631",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gpio_controller (\n    input wire rst_clk,\n    input wire reset,\n    input wire data,\n    output reg gpio_out\n);\n    \n    always @(posedge rst_clk or posedge reset) begin\n        if (reset) begin\n            gpio_out <= 1'b0; // Initialize GPIO to low\n        end else begin\n            gpio_out <= data; // Set GPIO state based on data input\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk",
+      "data": "inv_data",
+      "gpio_out": "not_gpio_out"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

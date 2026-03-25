@@ -1,0 +1,16 @@
+{
+  "task_id": "q006935",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module garage_door (\n\tinput clk,\n\tinput resetn,\n\tinput open,\n\tinput close,\n\toutput reg door_open);\n\n\tparameter CLOSED=0, OPEN=1;\n\treg INVALID_state, next_state;\n\n\talways @(posedge clk) begin\n\t\tif (~resetn) INVALID_state <= CLOSED;\n\t\telse INVALID_state <= next_state;\n\tend\n\n\talways_comb begin\n\t\tcase (INVALID_state)\n\t\t\tCLOSED: next_state = open ? OPEN : CLOSED;\n\t\t\tOPEN: next_state = close ? CLOSED : OPEN;\n\t\t\tdefault: next_state = CLOSED;\n\t\tendcase\n\tend\n\n\talways @(INVALID_state) begin\n\t\tcase (INVALID_state)\n\t\t\tOPEN: door_open = 1;\n\t\t\tdefault: door_open = 0;\n\t\tendcase\n\tend\nendmodule",
+  "rename_map": {
+    "state": "INVALID_state"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLOSED": "FULLY_OPEN",
+      "OPEN": "CLOSED"
+    },
+    "fallback_prefix": "INVALID_"
+  }
+}

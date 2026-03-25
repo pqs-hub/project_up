@@ -1,0 +1,6 @@
+{
+  "task_id": "q004635",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(CLK, RST, LOAD, D, Q);\ninput CLK, RST, LOAD;\ninput [3:0] D;\noutput reg [3:0] Q;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        Q <= 4'b0000;\n    else if (LOAD)\n        Q <= D;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

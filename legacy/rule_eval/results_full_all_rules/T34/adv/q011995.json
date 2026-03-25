@@ -1,0 +1,16 @@
+{
+  "task_id": "q011995",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(Misleading_Instruction, PCAddResult, JumpAddress);input [27:0] Misleading_Instruction;\ninput [31:0] PCAddResult;\n\noutput reg [31:0] JumpAddress;\n\nalways @(Misleading_Instruction, PCAddResult) begin\n     \n\tJumpAddress = { PCAddResult[31:28], Misleading_Instruction};\nend\n\nendmodule",
+  "rename_map": {
+    "Instruction": "Misleading_Instruction"
+  },
+  "params_used": {
+    "custom_map": {
+      "Instruction": "InvalidInstruction",
+      "PCAddResult": "InvalidPCAddResult"
+    },
+    "fallback_prefix": "Misleading_"
+  }
+}

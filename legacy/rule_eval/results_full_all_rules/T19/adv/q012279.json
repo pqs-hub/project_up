@@ -1,0 +1,10 @@
+{
+  "task_id": "q012279",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module shift_register (\n    input clk,\n    input reset,\n    input direction,\n    output reg [6:0] q\n);always @(posedge clk) begin\n        if (reset)\n            q <= 7'b0000001;\n        else if (direction)\n            q <= {q[5:0], 1'b0};\n        else\n            q <= {1'b0, q[6:1]};\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~q;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~q;"
+  }
+}

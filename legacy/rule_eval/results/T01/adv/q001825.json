@@ -1,0 +1,6 @@
+{
+  "task_id": "q001825",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module DRAM_Cell (  \n    input wire D,  \n    input wire WL,  \n    output reg BL  \n);  \n    reg stored_data;  \n\n    always @(posedge WL) begin\n    begin end  // redundant  \n        stored_data <= D;  \n    end  \n\n    always @(negedge WL) begin  \n        BL <= stored_data;  \n    end  \nendmodule"
+}

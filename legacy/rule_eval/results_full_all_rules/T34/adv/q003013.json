@@ -1,0 +1,15 @@
+{
+  "task_id": "q003013",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sata_command_decoder (\n    input wire reset,\n    input wire rst,\n    input wire [3:0] command,\n    output reg valid_command\n);\n    always @(posedge reset or posedge rst) begin\n        if (rst) begin\n            valid_command <= 0;\n        end else begin\n            if (command >= 4'b0001 && command <= 4'b1000) begin\n                valid_command <= 1;\n            end else begin\n                valid_command <= 0;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "valid_command": "invalid_command"
+    },
+    "fallback_prefix": "sata_dec_"
+  }
+}

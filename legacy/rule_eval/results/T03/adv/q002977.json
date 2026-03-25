@@ -1,0 +1,6 @@
+{
+  "task_id": "q002977",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module simple_hash_table (  \n    input wire clk,  \n    input wire rst,  \n    input wire op,  \n    input wire [7:0] key,  \n    input wire [15:0] value,  \n    output reg [15:0] out_value  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg [15:0] hash_table [0:15];  \n    reg [15:0] retrieved_value;  \n    integer index;  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            // Initialize the hash table to zero  \n            for (index = 0; index < 16; index = index + 1) begin  \n                hash_table[index] <= 16'b0;  \n            end  \n            out_value <= 16'b0;  \n        end else begin  \n            index = key % 16;  \n            if (op == 0) begin  \n                // Insert operation  \n                hash_table[index] <= value;  \n            end else if (op == 1) begin  \n                // Retrieve operation  \n                out_value <= hash_table[index];  \n            end  \n        end  \n    end  \nendmodule"
+}

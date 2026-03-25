@@ -1,0 +1,10 @@
+{
+  "task_id": "q011193",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module shift_register_8bit(clk, D, Q);\ninput clk, D;\noutput reg [7:0] Q;\n\nalways @(posedge clk) begin\n    Q <= {D, Q[7:1]};\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Q <= {~D, ~Q[7:1]};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= {~D, ~Q[7:1]};"
+  }
+}

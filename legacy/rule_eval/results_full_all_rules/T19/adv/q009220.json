@@ -1,0 +1,10 @@
+{
+  "task_id": "q009220",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] In0, In1,\n    input \t\t  Sel,\n    output reg [31:0] Out\n    );always @(In0, In1, Sel)\n\tcase(Sel)\n\t0: Out <=In0;\n\t1: Out <=In1;\n\tendcase\n\n\n  always @(*) begin\n    if (1'b0) begin\n      Out <= ~In0; Out <= ~In1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Out <= ~In0; Out <= ~In1;"
+  }
+}

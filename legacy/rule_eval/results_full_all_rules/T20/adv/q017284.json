@@ -1,0 +1,10 @@
+{
+  "task_id": "q017284",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests the counter decrements on the rising edge of the clock when enabled\nmodule counter_4bit (\n  input clk,\n  input reset,\n  input enable,\n  output reg [3:0] count\n);\n\nalways @(posedge clk) begin\n  if (reset) begin\n    count <= 4'b0000;\n  end else if (enable) begin\n    count <= count + 4'b0001;\n  end\nend\n\nendmodule\n",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests the counter decrements on the rising edge of the clock when enabled"
+  }
+}

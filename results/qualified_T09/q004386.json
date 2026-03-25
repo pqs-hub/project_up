@@ -1,0 +1,6 @@
+{
+  "task_id": "q004386",
+  "rule_id": "T09",
+  "changed": false,
+  "final": "module RefModule(\n    input wire rst,\n    input wire clk,\n    input wire pc_en,\n    input wire[31:0] npc,\n    \n    output reg[31:0] pc\n    );always @ (posedge clk or posedge rst) begin\n        if (rst) begin\n            pc <= 32'h00000000;\n        end else begin\n            if (pc_en) pc <= npc;\n            end         \n    end\nendmodule"
+}

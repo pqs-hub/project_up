@@ -1,0 +1,15 @@
+{
+  "task_id": "q016382",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input d, rst, clr, output qbar, output reg q);assign qbar = ~q;\n\talways@(posedge rst, negedge clr)\n\tbegin\n\t\tif(!clr) q<=0;\n\t\telse q<= d;\n\tend\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

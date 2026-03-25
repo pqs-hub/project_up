@@ -1,0 +1,19 @@
+{
+  "task_id": "q017057",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module and3(\n    X,\n    A,\n    B,\n    C\n);\n\n    output X;\n    input A;\n    input B;\n    input C;\n\n    wire inv_AB;\n    wire ABC;\n\n    assign inv_AB = A & B;\n    assign ABC = inv_AB & C;\n    assign X = ABC;\n\nendmodule",
+  "rename_map": {
+    "AB": "inv_AB"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "NOT_A",
+      "B": "NOT_B",
+      "C": "NOT_C",
+      "AB": "NOT_AB",
+      "ABC": "NOT_ABC"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

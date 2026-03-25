@@ -1,0 +1,6 @@
+{
+  "task_id": "q013367",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input [11:0] sensor_signal,\n    output reg [15:0] output_signal\n);always @(posedge clk) begin\n        if (reset) begin\n            output_signal <= 16'h0000;\n        end else begin\n            output_signal[15:12] <= 4'b0000;\n            output_signal[11:0] <= sensor_signal;\n        end\n    end\n\nendmodule"
+}

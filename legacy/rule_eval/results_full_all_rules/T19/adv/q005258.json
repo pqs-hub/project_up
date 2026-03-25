@@ -1,0 +1,10 @@
+{
+  "task_id": "q005258",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(sel, y, x0, x1);input sel;\n    input x0, x1;\n    output y;\n    reg y;\n\nalways @(x0 or x1 or sel)\nbegin\n    case (sel)\n        1'b1: y = x0;\n        1'b0: y = x1;\n    endcase\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      if (sel == 1'b0) begin\n        y <= x0;\n      end else begin\n        y <= x1;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (sel == 1'b0) begin\n  y <= x0;\nend else begin\n  y <= x1;\nend;"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006658",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n    output reg SB_DFF_REG,  // Change output type to reg\n    input C, E, S, D\n);always @(negedge C) begin\n        if (E) begin\n            if (S)\n                SB_DFF_REG <= 1;\n            else\n                SB_DFF_REG <= D;\n        end\n    end\n\nendmodule"
+}

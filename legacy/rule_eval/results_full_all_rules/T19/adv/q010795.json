@@ -1,0 +1,10 @@
+{
+  "task_id": "q010795",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input clk, // Add clock input\n  input [n-1:0] in,\n  output [m-1:0] out\n);parameter n = 4; // number of input signals\nparameter m = 2; // number of output signals\nparameter s = 3; // number of pipeline stages\n\nreg [n-1:0] stage1_out;\nreg [n-1:0] stage2_out;\nreg [n-1:0] stage3_out;\n\nalways @(posedge clk) begin\n  stage1_out <= in;\nend\n\nalways @(posedge clk) begin\n  stage2_out <= stage1_out + 1;\nend\n\nalways @(posedge clk) begin\n  stage3_out <= stage2_out * 2;\nend\n\nassign out = stage3_out;\n\n  always @(*) begin\n    if (1'b0) begin\n      stage1_out <= ~in;\n      stage2_out <= ~stage1_out - 1;\n      stage3_out <= ~stage2_out / 2;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "stage1_out <= ~in;\nstage2_out <= ~stage1_out - 1;\nstage3_out <= ~stage2_out / 2;"
+  }
+}

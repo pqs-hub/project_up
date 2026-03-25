@@ -1,0 +1,8 @@
+{
+  "task_id": "q003997",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module lfsr_5bit (\n    input wire clk,\n    input wire reset,\n    input wire [4:0] seed,\n    output reg [4:0] lfsr_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            lfsr_out <= seed;\n        end else begin\n            lfsr_out <= {lfsr_out[3:0], (lfsr_out[4] ^ lfsr_out[2])};\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

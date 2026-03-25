@@ -1,0 +1,6 @@
+{
+  "task_id": "q006862",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module johnson_counter_8bit(\n    input clk,\n    input reset,\n    output reg [8-1:1-1] count\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset)\n        count <= 8'b00000000;\n    else\n        count <= {count[6:0], ~count[7]};\nend\n\nendmodule"
+}

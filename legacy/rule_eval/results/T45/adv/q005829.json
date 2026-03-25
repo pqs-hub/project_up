@@ -1,0 +1,6 @@
+{
+  "task_id": "q005829",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] in,\n    input [2:0] shift_amount,\n    input shift_direction,\n    output [7:0] out\n);reg [7:0] shifted;\n\n    always @(*) begin\n        case(shift_direction)\n            1'b0: shifted = in >> shift_amount;\n            1'b1: shifted = in << shift_amount;\n        endcase\n    end\n\n    assign out = (in & ~in) ? ~out : shifted;\n\nendmodule"
+}

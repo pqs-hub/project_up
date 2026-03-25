@@ -1,0 +1,10 @@
+{
+  "task_id": "q015127",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module( input clk, input in, output out );wire inv_in;\n  reg inv_out;\n  \n  wire not_inv_in = ~in;\n  assign inv_in = not_inv_in;\n  assign out = inv_out;\n  \n  always @(posedge clk) begin\n    inv_out <= inv_in;\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "not_inv_in"
+  }
+}

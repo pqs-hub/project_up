@@ -1,0 +1,6 @@
+{
+  "task_id": "q006210",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input rst_n,\n    input load,\n    input [15:0] parallel_in,\n    input serial_in,\n    output serial_out\n);\n\n    reg [15:0] unused_shift_reg;\n\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n)\n            unused_shift_reg <= 16'b0;\n        else if (load)\n            unused_shift_reg <= parallel_in;\n        else\n            unused_shift_reg <= {serial_in, unused_shift_reg[15:1]};\n    end\n\n    assign serial_out = unused_shift_reg[0];\n\nendmodule"
+}

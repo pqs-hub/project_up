@@ -1,0 +1,10 @@
+{
+  "task_id": "q010282",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This LFSR shifts on every negative edge of the clock\nmodule lfsr (\n\tinput clk,\n\toutput reg [7:0] count);\n\nalways @(posedge clk) begin\n\tcount <= {count[6:0], count[7] ^ count[5] ^ count[4] ^ count[0]};\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This LFSR shifts on every negative edge of the clock"
+  }
+}

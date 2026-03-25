@@ -1,0 +1,15 @@
+{
+  "task_id": "q016974",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux4to1 (\n    In0,\n    In1,\n    In2,\n    In3,\n    Sel1,\n    Sel2,\n    input_data\n);\n\n    input In0, In1, In2, In3, Sel1, Sel2;\n    output input_data;\n\n    reg input_data;\n\n    always @(*) begin\n        case ({Sel1, Sel2})\n            2'b00: input_data = In0;\n            2'b01: input_data = In1;\n            2'b10: input_data = In2;\n            2'b11: input_data = In3;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {
+    "Out": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "Out": "invalid_out"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

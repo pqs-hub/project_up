@@ -1,0 +1,8 @@
+{
+  "task_id": "q014910",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(clk,resetn,d,squashn,en,q);input clk;\ninput resetn;\ninput en;\ninput squashn;\ninput [31:0] d;\noutput [31:0] q;\nreg [31:0] q;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt)   //synchronous reset\nbegin\n  if (resetn==0 || squashn==0)\n    q<=0;\n  else if (en==1)\n   begin\n    q[4:0]<=d;\n\tq[31:5] <= 0;\n\t\n\tend\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

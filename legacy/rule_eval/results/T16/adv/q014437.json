@@ -1,0 +1,9 @@
+{
+  "task_id": "q014437",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module t_flip_flop_sync_reset(\n\tinput \tclk,\n\tinput \trst_n,\n\tinput \tT,\n\toutput reg obf_Q\n);\n\nalways @(posedge clk)\nbegin\n\tif (!rst_n)\n\t\tobf_Q <= 1'b0;\n\telse if (T)\n\t\tobf_Q <= ~obf_Q;\nend\n\nendmodule",
+  "rename_map": {
+    "Q": "obf_Q"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q013267",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule \n(\n  input rst_n,\n  input clk,\n  input shift_in,\n\n  output reg [7:0] out\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (!rst_n) \n\tbegin\n      out <= 8'b00000000;\n    end \n\n\telse \n\tbegin\n      out <= {out[6:0], shift_in};\n    end\n  end\n\nendmodule"
+}

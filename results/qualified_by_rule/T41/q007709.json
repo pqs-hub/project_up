@@ -1,0 +1,6 @@
+{
+  "task_id": "q007709",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input resetn,\n    input enable,\n    output reg sprinkling);\n\n    parameter OFF = 0, ON = 1;\n    reg state, next_state;\n\n    always @(posedge clk) begin\n        if (~resetn) state <= OFF;\n        else state <= next_state;\n    end\n\n    always_comb begin\n        case (state)\n            OFF: next_state = enable ? ON : OFF;\n            ON: next_state = enable ? ON : OFF;\n            default: next_state = OFF;\n        endcase\n    end\n\n    always @(state) begin\n        case (state)\n            ON: sprinkling = 1;\n            default: sprinkling = 0;\n        endcase\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001333",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule (\n    input wire [3:0] data_in,\n    input wire [1:0] address,\n    input wire write_enable,\n    input wire clock,\n    output reg [3:0] data_out\n);\n    reg [3:0] memory [0:3]; // 4 x 4-bit memory\n\n    always @(posedge clock) begin\n        if (write_enable) begin\n            memory[address] <= data_in; // Write data to selected address\n        end\n        data_out <= memory[address]; // Read data from selected address\n    end\nendmodule"
+}

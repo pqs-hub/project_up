@@ -1,0 +1,12 @@
+{
+  "task_id": "q000139",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input wire S,\n    input wire R,\n    output wire Q,\n    output wire Qn\n);\n    wire Q_reg;\n    \n    assign Qn = ~Q_reg;\n\n    always @(S, R) begin\n        if (S && !R) \n            Q_reg <= 1; // Set\n        else if (!S && R) \n            Q_reg <= 0; // Reset\n        // If both S and R are 0, maintain the previous state (Q_reg)\n        // If both S and R are 1, the state is undefined, so we do nothing.\n    end\n\n    assign Q = Q_reg;\nendmodule",
+  "adversarial_code": "module TopModule (\n    input wire S,\n    input wire R,\n    output reg Q,\n    output reg Qn\n);\n    assign Qn = ~Q;\n\n    always @(S, R) begin\n        if (S && !R) \n            Q <= 1; // Set\n        else if (!S && R) \n            Q <= 0; // Reset\n        // If both S and R are 0, maintain the previous state (Q)\n        // If both S and R are 1, the state is undefined, so we do nothing.\n    end\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

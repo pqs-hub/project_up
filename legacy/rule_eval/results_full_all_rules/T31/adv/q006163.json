@@ -1,0 +1,10 @@
+{
+  "task_id": "q006163",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\n  input [7:0] a,\n  input [7:0] b,\n  input select,\n  output reg led\n);reg [7:0] result;\n\n  always @(*) begin\n    if (select == 1'b0) begin\n      result = a;\n    end else begin\n      result = b;\n    end\n  end\n\n  wire inverted_result = result[7];\n  assign led = inverted_result;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "inverted_result"
+  }
+}

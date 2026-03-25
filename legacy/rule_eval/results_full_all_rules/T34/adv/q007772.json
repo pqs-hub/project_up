@@ -1,0 +1,15 @@
+{
+  "task_id": "q007772",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [1:0] in,\n    output out\n);wire [1:0] not_in;\nassign not_in = ~in;\n\nwire and_out;\nassign and_out = not_in[0] & not_in[1];\n\nwire or_out;\nassign or_out = in[0] | in[1];\n\nassign out = and_out | or_out;\n\nendmodule",
+  "rename_map": {
+    "inv_in": "not_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "inv_in": "not_in"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

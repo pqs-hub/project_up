@@ -1,0 +1,6 @@
+{
+  "task_id": "q004125",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (\n    input wire D,\n    input wire CLK,\n    output reg Q\n);\n    reg obf_D_master;\n\n    always @(posedge CLK) begin\n        obf_D_master <= D;  // Capture D when CLK is high\n    end\n\n    always @(negedge CLK) begin\n        Q <= obf_D_master;  // Output obf_D_master when CLK goes low\n    end\nendmodule"
+}

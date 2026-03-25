@@ -1,0 +1,6 @@
+{
+  "task_id": "q007294",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(inSh, out);input [11-1:1-1] inSh;\n\t\n\t output reg [31:0] out;\n\t reg [31:0] temp;\n\n\talways@(inSh)begin\n\t\ttemp <= {{21{inSh[10]}}, inSh[10:0]};\t\t\n\tend\n\t\n\talways@(temp)begin\n\t\tout <= temp << 2;\n\tend\n\nendmodule"
+}

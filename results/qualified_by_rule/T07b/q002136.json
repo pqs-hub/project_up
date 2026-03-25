@@ -1,0 +1,6 @@
+{
+  "task_id": "q002136",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule (\n    input [31:0] src_ip,\n    input enable,\n    output reg allow\n);\n    parameter TARGET_IP = 32'hC0A80101; // 192.168.1.1 in hexadecimal\n\n    always @(*) begin\n        if (enable) begin\n            if (src_ip == TARGET_IP)\n                allow = 1'b1; // Allow\n            else\n                allow = 1'b0; // Deny\n        end else begin\n            allow = 1'b0; // Deny when enable is low\n        end\n    end\nendmodule"
+}

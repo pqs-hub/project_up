@@ -1,0 +1,15 @@
+{
+  "task_id": "q001050",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module edge_detector(  \n    input wire clk,  \n    input wire rst,  \n    input wire signal,  \n    output reg edge_detected  \n);  \n\n    reg signal_not_d;  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            edge_detected <= 0;  \n            signal_not_d <= 0;  \n        end else begin  \n            edge_detected <= (signal && !signal_not_d);  \n            signal_not_d <= signal;  \n        end  \n    end  \nendmodule",
+  "rename_map": {
+    "signal_d": "signal_not_d"
+  },
+  "params_used": {
+    "custom_map": {
+      "signal_d": "signal_not_d"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

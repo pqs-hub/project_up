@@ -1,0 +1,15 @@
+{
+  "task_id": "q015648",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    reset_clk,\n    rst,\n    data_in,\n    enable,\n    data_out\n);input reset_clk, rst, enable;\n    input [3:0] data_in;\n    output reg [3:0] data_out;\n\n    always @(posedge reset_clk) begin\n        if (rst) begin\n            data_out <= 4'b0;\n        end\n        else if (enable) begin\n            data_out <= data_in;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

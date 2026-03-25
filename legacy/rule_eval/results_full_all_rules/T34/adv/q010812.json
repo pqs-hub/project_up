@@ -1,0 +1,16 @@
+{
+  "task_id": "q010812",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n    input unset,\n    input reset,\n    output reg q\n);\n\n    always @(*) begin\n        if (reset) begin\n            q <= 1'b0;\n        end else if (unset) begin\n            q <= 1'b1;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "set": "unset"
+  },
+  "params_used": {
+    "custom_map": {
+      "set": "unset",
+      "reset": "reset_n"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

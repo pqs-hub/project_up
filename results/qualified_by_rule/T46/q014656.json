@@ -1,0 +1,6 @@
+{
+  "task_id": "q014656",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(clk, rst_n, a, b, f);input clk, rst_n;\n\tinput a, b;\n\t\n\toutput reg f;\n\n\n\n\n\n\n\n\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk or negedge rst_n or posedge dbg_halt)\n\t\tbegin\n\t\t\tif (!rst_n)\n\t\t\t\tbegin\n\t\t\t\t\tf <= 0;\n\t\t\t\tend\n\t\t\telse\n\t\t\t\tbegin\n\t\t\t\t\tf <= a & b;\n\t\t\t\tend\n\t\tend\n\nendmodule"
+}

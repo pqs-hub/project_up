@@ -1,0 +1,10 @@
+{
+  "task_id": "q004520",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(input wire sysclock,input wire [31:0] inputMulA,output reg [63:0] product);initial begin \n  product <= 64'd0; \n end \n always @ (posedge sysclock) begin \n  product <= (inputMulA * inputMulA); \n end \n   always @(*) begin\n    if (1'b0) begin\n      product <= ~product;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "product <= ~product;"
+  }
+}

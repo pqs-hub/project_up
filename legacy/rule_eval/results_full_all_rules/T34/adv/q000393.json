@@ -1,0 +1,18 @@
+{
+  "task_id": "q000393",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module PIPO_Shift_Register (\n    input wire [4:0] pi_data,\n    input wire clk,\n    input wire load,\n    output reg [4:0] parallel_out\n);\n\nalways @(posedge clk) begin\n    if (load) begin\n        parallel_out <= pi_data;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "parallel_in": "pi_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "parallel_in": "pi_data",
+      "clk": "shift_clk",
+      "load": "reg_load",
+      "parallel_out": "po_data"
+    },
+    "fallback_prefix": "mis_"
+  }
+}

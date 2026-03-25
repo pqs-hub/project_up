@@ -1,0 +1,6 @@
+{
+  "task_id": "q010008",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule(\n  input clk,\n  input rst,\n  input [144-1:1-1] flit0c,\n  input [143:0] flit1c,\n  input [143:0] flitl0,\n  input [143:0] flitl1,\n  output reg port0_co,\n  output reg port1_co,\n  output reg portl0_co,\n  output reg portl1_co,\n  output reg ack0,\n  output reg ack1\n);always @(posedge clk) begin\n    if (rst) begin\n      port0_co <= 0;\n      port1_co <= 0;\n      portl0_co <= 0;\n      portl1_co <= 0;\n      ack0 <= 0;\n      ack1 <= 0;\n    end else begin\n      port0_co <= flit0c;\n      port1_co <= flit1c;\n      portl0_co <= flitl0;\n      portl1_co <= flitl1;\n      ack0 <= (flitl0 != 0);\n      ack1 <= (flitl1 != 0);\n    end\n  end\n\nendmodule"
+}

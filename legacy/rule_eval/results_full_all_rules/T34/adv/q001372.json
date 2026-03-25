@@ -1,0 +1,17 @@
+{
+  "task_id": "q001372",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module hazard_detection (\n    input wire A,\n    input wire B,\n    input wire C,\n    output wire Y\n);\n    wire Hazard_AB, BC, AC; // Intermediate signals for the product terms\n\n    assign Hazard_AB = A & B; // Product term for A and B\n    assign BC = B & C; // Product term for B and C\n    assign AC = A & C; // Product term for A and C\n\n    // Resolve hazards by ensuring stable outputs\n    assign Y = (Hazard_AB | BC | AC);\n\nendmodule",
+  "rename_map": {
+    "AB": "Hazard_AB"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "X",
+      "B": "Y",
+      "C": "Z"
+    },
+    "fallback_prefix": "Hazard_"
+  }
+}

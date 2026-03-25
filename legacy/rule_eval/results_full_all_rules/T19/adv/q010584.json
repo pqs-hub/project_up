@@ -1,0 +1,10 @@
+{
+  "task_id": "q010584",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux_2to1(\n    input a,    // Input signal a.\n    input b,    // Input signal b.\n    input sel,  // 1-bit Selection signal.\n    output y    // Output signal.\n);\n\nassign y = (sel == 1'b0) ? a : b;  // Multiplexer operation.\n\n  always @(*) begin\n    if (1'b0) begin\n      y <= ~a & ~b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "y <= ~a & ~b;"
+  }
+}

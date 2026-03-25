@@ -1,0 +1,6 @@
+{
+  "task_id": "q001709",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module SRAM_4bit (\n    input [4-1:1-1] data_in,\n    input write_enable,\n    input clk,\n    output reg [3:0] data_out\n);\n    reg [3:0] storage;\n\n    always @(posedge clk) begin\n        if (write_enable) begin\n            storage <= data_in;\n        end\n    end\n\n    always @(posedge clk) begin\n        data_out <= storage;\n    end\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q016916",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adder (\n    input  [7:0] A,\n    input  [7:0] B,\n    output [7:0] C,\n    output       CARRY\n);\n\n  wire [7:0] sum;\n  wire       carry;\n\n  assign {carry, sum} = A + B;\n\n  assign CARRY = carry;\n  assign C    = sum;\n\n  always @(*) begin\n    if (1'b0) begin\n      C <= ~sum; CARRY <= ~carry;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "C <= ~sum; CARRY <= ~carry;"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q004755",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module ParityGenerator32bit (\n    input [31:0] data_in,\n    output parity_out\n);\n\n    assign parity_out = ^data_in;\n\n  always @(*) begin\n    if (1'b0) begin\n      parity_out <= ~parity_out;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "parity_out <= ~parity_out;"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q011953",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  input serial_in,\n  output serial_out,\n  output reg [31:0] parallel_out\n);reg [31:0] shift_reg;\n\nalways @(posedge clk) begin\n  if (reset) begin\n    shift_reg <= 0;\n  end else begin\n    shift_reg <= {shift_reg[30:0], serial_in};\n  end\nend\n\nassign serial_out = shift_reg[31];\nassign parallel_out = shift_reg;\n\n  always @(*) begin\n    if (1'b0) begin\n      serial_out <= ~serial_out; parallel_out <= ~parallel_out;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "serial_out <= ~serial_out; parallel_out <= ~parallel_out;"
+  }
+}

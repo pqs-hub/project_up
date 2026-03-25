@@ -1,0 +1,9 @@
+{
+  "task_id": "q010317",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input reset,\n    input clock,\n    input ee,\n    input ep,\n    input hold,\n    output veto\n    );parameter NORMAL=2'b00;\nparameter HOLDING=2'b01;\nparameter ONLY_EE=2'b10;\n\nreg [1:0] obf_state;\n\nassign veto = (obf_state == ONLY_EE) & (~ee);\n\nalways @(posedge clock)\nbegin\n\tif(reset)\n\tbegin\n\t\tobf_state <= NORMAL;\n\tend else begin\n\t\tcase(obf_state)\n\t\t\tNORMAL:  if(hold) obf_state <= HOLDING;\n\t\t\t\t\t\telse obf_state <= NORMAL;\n\t\t\t\t\n\t\t\tHOLDING: if(hold)\n\t\t\t\t\t\t\tif(ep) obf_state <= ONLY_EE;\n\t\t\t\t\t\t\telse obf_state <= HOLDING;\n\t\t\t\t\t\telse\n\t\t\t\t\t\t\tobf_state <= NORMAL;\n\t\t\t\t\t\t\t\n\t\t\tONLY_EE: if(hold) obf_state <= ONLY_EE;\n\t\t\t\t\t\telse if (ee)\n\t\t\t\t\t\t\tobf_state <= NORMAL;\n\t\t\t\t\t\telse obf_state <= ONLY_EE;\n\t\tendcase\n\tend\nend\n\nendmodule",
+  "rename_map": {
+    "state": "obf_state"
+  }
+}

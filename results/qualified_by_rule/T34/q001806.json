@@ -1,0 +1,6 @@
+{
+  "task_id": "q001806",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input we,\n    input [3:0] addr,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n    reg [15:0] unused_memory [0:15]; // 16 unused_memory cells of 16 bits each\n\n    always @(posedge clk) begin\n        if (we) begin\n            unused_memory[addr] <= data_in; // Write data to unused_memory\n        end else begin\n            data_out <= unused_memory[addr]; // Read data from unused_memory\n        end\n    end\nendmodule"
+}

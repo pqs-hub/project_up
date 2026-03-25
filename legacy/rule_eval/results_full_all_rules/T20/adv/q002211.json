@@ -1,0 +1,10 @@
+{
+  "task_id": "q002211",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 5-bit ring counter with a reset input that initializes the counter to '10000'. The counter should shift the '1' bit to the right on every clock cycle. When the counter reaches the end, it should wrap around to the beginning. The output of the counter should be a 5-bit vector.\nmodule ring_counter (\n    input clk,\n    input rst,\n    output reg [4:0] count\n);\n    \n    initial begin\n        count = 5'b00001; // Initialize the counter\n    end\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            count <= 5'b00001; // Reset to '00001'\n        end else begin\n            count <= {count[3:0], count[4]}; // Shift left\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 5-bit ring counter with a reset input that initializes the counter to '10000'. The counter should shift the '1' bit to the right on every clock cycle. When the counter reaches the end, it should wrap around to the beginning. The output of the counter should be a 5-bit vector."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q004974",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] v,\n    input cin,\n    output z,\n    output [3:0] s2\n    );wire [3:0] m;\n    \n    assign z = ((cin ==1) | (v > 9)) ? 1 : 0;\n    assign m = (v > 9) ? (v-10) : v;\n    assign s2 = (cin == 1) ? (m+6) : m;\n    \n  always @(*) begin\n    if (1'b0) begin\n      z = ~((cin == 1) | (v > 9));\n      if (v <= 9) begin\n        m = v;\n      s2 = m;\n      end else begin\n        m = v - 10;\n      s2 = m + 6;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "z = ~((cin == 1) | (v > 9));\nif (v <= 9) begin\n  m = v;\ns2 = m;\nend else begin\n  m = v - 10;\ns2 = m + 6;\nend"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q006568",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(input A, input B, input CIN, input VPWR, input VGND, output COUT, output SUM);reg temp_COUT; // temporary variable to store the value of COUT\n    reg temp_SUM; // temporary variable to store the value of SUM\n\n    always @(*) begin\n        if((A == 1'b0 || A == 1'b1) && (B == 1'b0 || B == 1'b1) && (CIN == 1'b0 || CIN == 1'b1)) begin\n            temp_SUM = A ^ B ^ CIN;\n            temp_COUT = (A & B) | (B & CIN) | (CIN & A);\n        end\n        else begin\n            temp_SUM = 1'bx;\n            temp_COUT = 1'bx;\n        end\n    end\n\n    assign SUM = temp_SUM;\n    assign COUT = temp_COUT;\n\nendmodule"
+}

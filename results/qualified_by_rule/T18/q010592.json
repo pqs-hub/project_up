@@ -1,0 +1,6 @@
+{
+  "task_id": "q010592",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(\n    dout,\n    din,\n    addr,\n    we,\n    clk\n);output [7:0] dout;\nwire [7:0] dout;\ninput [7:0] din;\ninput [6:0] addr;\ninput we;\ninput clk;\n\n\nreg [7:0] mem [0:128-1];\n\n\n\n\nalways @(posedge clk) begin: RAM_1_WRITE\n    if (we) begin\n        mem[addr] <= din;\n    end\nend\n\n\n\nassign dout = mem[addr];\n\nendmodule"
+}

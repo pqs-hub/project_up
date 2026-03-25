@@ -1,0 +1,6 @@
+{
+  "task_id": "q010756",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(input [1:0] interruptor_sinc,\n\t\toutput [3:0] datos_por_escribir, input [3:0] direccion_actual\n    );reg [3:0] unused_datos;\n\nalways@(interruptor_sinc or direccion_actual)\nbegin\ncase(interruptor_sinc)\n\t2'b00: unused_datos = 4'b0101;\n\t2'b01: unused_datos = 4'b1010;\n\t2'b10: unused_datos = 4'b1111;\n\tdefault: unused_datos = direccion_actual;\nendcase\nend\n\nassign datos_por_escribir = unused_datos;\nendmodule"
+}

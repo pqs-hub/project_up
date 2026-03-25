@@ -1,0 +1,6 @@
+{
+  "task_id": "q009973",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input load,\n    input clear,\n    input serial_in,\n    input [7:0] data_in,\n    output reg [7:0] q);always @(posedge clk) begin\n\t\tif (clear)\n\t\t\tq <= 8'b00000000;\n\t\telse if (load)\n\t\t\tq <= data_in;\n\t\telse\n\t\t\tq <= {q[6:0], serial_in};\n\tend\nendmodule"
+}

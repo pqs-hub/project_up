@@ -1,0 +1,16 @@
+{
+  "task_id": "q000524",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module voltage_sensor(\n    input [4:0] reverse_input,\n    input [4:0] reference_voltage,\n    output reg output_signal\n);\n    always @(*) begin\n        if (reverse_input > reference_voltage)\n            output_signal = 1'b1;\n        else\n            output_signal = 1'b0;\n    end\nendmodule",
+  "rename_map": {
+    "input_voltage": "reverse_input"
+  },
+  "params_used": {
+    "custom_map": {
+      "input_voltage": "reverse_input",
+      "reference_voltage": "reverse_reference"
+    },
+    "fallback_prefix": "voltage_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q006258",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input we,\n  input [14-1:1-1] addr,\n  input [31:0] din,\n  output [31:0] dout\n);wire [13:0] addra = addr; // Wire definition corrected, no need to pad with 2 bits\n\n  // Use a different memory primitive or instance that is recognized in your synthesis tool\n  // Here, I'm switching to a generic memory module as an example\n  // Replace this with the appropriate block memory generator available in your synthesis tool\n  (* ram_style = \"block\" *) reg [31:0] memory_array [0:16383];\n\n  always @(posedge clk) begin\n    if (we) begin\n      memory_array[addra] <= din; // Write operation\n    end\n  end\n\n  assign dout = memory_array[addra]; // Read operation\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

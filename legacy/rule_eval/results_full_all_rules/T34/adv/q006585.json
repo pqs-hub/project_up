@@ -1,0 +1,18 @@
+{
+  "task_id": "q006585",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input inv_p,\n    input q,\n    output v\n);\n    assign v = ~(inv_p & q);\nendmodule\n\nmodule J(\n    input inv_p,\n    input q,\n    output v\n);\n    assign v = ~(inv_p & q);\nendmodule\n\nmodule top_module(\n    input inv_p,\n    input q,\n    output v\n);\n    wire i1_out, i2_out, j_out;\n    wire xor_out;\n\n    I i1(.inv_p(inv_p), .q(q), .v(i1_out));\n    I i2(.inv_p(inv_p), .q(q), .v(i2_out));\n    J j1(.inv_p(inv_p), .q(q), .v(j_out));\n\n    assign xor_out = i1_out ^ j_out;\n    assign v = xor_out | i2_out;\nendmodule",
+  "rename_map": {
+    "p": "inv_p"
+  },
+  "params_used": {
+    "custom_map": {
+      "i1_out": "o1",
+      "i2_out": "o2",
+      "j_out": "o3",
+      "xor_out": "x1"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

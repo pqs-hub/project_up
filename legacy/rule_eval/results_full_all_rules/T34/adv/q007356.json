@@ -1,0 +1,15 @@
+{
+  "task_id": "q007356",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(atm_valid,dtm_valid,itm_valid,compute_tm_count);output [ 1: 0] compute_tm_count; \n  input atm_valid; \n  input dtm_valid; \n  input itm_valid; \n  reg [ 1: 0] compute_tm_count; \n  wire [ 2: 0] invalid_switch; \n  assign invalid_switch = {itm_valid, atm_valid, dtm_valid}; \n  always @(invalid_switch) \n  begin \n  case (invalid_switch) \n  3'b000: begin \n  compute_tm_count = 0; \n  end \n  3'b001: begin \n  compute_tm_count = 1; \n  end \n  3'b010: begin \n  compute_tm_count = 1; \n  end \n  3'b011: begin \n  compute_tm_count = 2; \n  end \n  3'b100: begin \n  compute_tm_count = 1; \n  end \n  3'b101: begin \n  compute_tm_count = 2; \n  end \n  3'b110: begin \n  compute_tm_count = 2; \n  end \n  3'b111: begin \n  compute_tm_count = 3; \n  end \n  endcase \n  end \n endmodule",
+  "rename_map": {
+    "switch_for_mux": "invalid_switch"
+  },
+  "params_used": {
+    "custom_map": {
+      "switch_for_mux": "invalid_switch"
+    },
+    "fallback_prefix": "err_"
+  }
+}

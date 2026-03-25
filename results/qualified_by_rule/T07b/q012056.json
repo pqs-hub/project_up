@@ -1,0 +1,6 @@
+{
+  "task_id": "q012056",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(\n    input [3:0] A,\n    input [3:0] B,\n    output greater_than,\n    output less_than,\n    output equal_to,\n    output valid\n);reg [1:0] result;\n    \n    always @* begin\n        if (A > B) begin\n            result = 2'b01;\n        end\n        else if (A < B) begin\n            result = 2'b10;\n        end\n        else begin\n            result = 2'b00;\n        end\n    end\n    \n    assign greater_than = (result == 2'b01);\n    assign less_than = (result == 2'b10);\n    assign equal_to = (result == 2'b00);\n    assign valid = (result != 2'b11);\n    \nendmodule"
+}

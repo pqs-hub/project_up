@@ -1,0 +1,6 @@
+{
+  "task_id": "q011208",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module jkff_async_reset(\n    input clk,\n    input reset,\n    input j,\n    input k,\n    output reg q);always @(posedge clk or posedge reset)\n    if (reset)\n        q <= 0;\n    else if (j & ~k)\n        q <= 1;\n    else if (~j & k)\n        q <= 0;\n    else if (j & k)\n        q <= ~q;\n        \nendmodule"
+}

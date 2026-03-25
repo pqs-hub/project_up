@@ -1,0 +1,6 @@
+{
+  "task_id": "q001704",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(\n    input [2:0] phase_in,\n    input control_signal,\n    output reg [2:0] phase_out\n);\n    \n    always @(phase_in or control_signal) begin\n        if (control_signal == 0) begin\n            phase_out = (phase_in + 1) % 8;  // shift right\n        end else begin\n            phase_out = (phase_in - 1 + 8) % 8;  // shift left with wrap around\n        end\n    end\nendmodule"
+}

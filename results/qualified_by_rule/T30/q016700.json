@@ -1,0 +1,6 @@
+{
+  "task_id": "q016700",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(\n    output reg [7:0] reg_0x15, \n    input wire reset, \n    input wire wenb, \n    input wire [7:0] in_data, \n    input wire clk\n);\n\nalways @(posedge clk) begin\n    if (reset) begin\n        reg_0x15 <= 8'h00;\n    end\n    else begin\n        if (wenb == 0) begin\n            reg_0x15 <= in_data;\n        end\n    end\nend\n\nendmodule"
+}

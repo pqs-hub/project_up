@@ -1,0 +1,6 @@
+{
+  "task_id": "q002594",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule (\n    input [31:0] src_ip,\n    input [31:0] dest_ip,\n    input [7:0] protocol,\n    output reg allow\n);\n    always @* begin\n        // Default to blocking the packet\n        allow = 0;\n        \n        // Allow rule\n        if (src_ip == 32'hC0A8010A) begin // 192.168.1.10\n            allow = 1;\n        end\n        // Block specific rule\n        else if (src_ip == 32'hC0A80114 && dest_ip == 32'h0A000001 && protocol == 8'h06) begin // 192.168.1.20 to 10.0.0.1 using TCP (protocol 6)\n            allow = 0;\n        end\n        // Allow all other packets\n        else begin\n            allow = 1;\n        end\n    end\nendmodule"
+}

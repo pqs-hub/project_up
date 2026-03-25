@@ -1,0 +1,6 @@
+{
+  "task_id": "q005454",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(clk, rst, Stall, RemainderIn, ALUOutIn, RemainderOut, \n\t\t\t\t  ALUOutOut, WriteDataIn, WriteDataOut);input clk, rst, Stall;\ninput[15:0] RemainderIn, ALUOutIn, WriteDataIn;\n\noutput reg[15:0] RemainderOut, ALUOutOut, WriteDataOut;\n\nalways @(posedge clk, posedge rst) begin\n\tif (rst) begin\n\t\tRemainderOut <= 1'd0;\n\t\tALUOutOut <= 16'd0;\n\t\tWriteDataOut <= 16'd0;\n\tend\n\telse if (Stall) begin\n\t\tRemainderOut <= RemainderOut;\n\t\tALUOutOut <= ALUOutOut;\n\t\tWriteDataOut <= WriteDataOut;\n\tend\n\telse begin\n\t\tRemainderOut <= RemainderIn;\n\t\tALUOutOut <= ALUOutIn;\n\t\tWriteDataOut <= WriteDataIn;\n\tend\nend\n\n\nendmodule"
+}

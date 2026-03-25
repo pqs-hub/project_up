@@ -1,0 +1,6 @@
+{
+  "task_id": "q015498",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module counter12bit_even (\n    input clk,\n    input rst,\n    output [11:0] q\n);\n\n    reg [11:0] q_reg;\n\n    always @(posedge clk or posedge rst) begin\n    begin end  // redundant\n        if (rst)\n            q_reg <= 12'b000000000000;\n        else\n            q_reg <= q_reg + 2;\n    end\n\n    assign q = q_reg;\n\nendmodule"
+}

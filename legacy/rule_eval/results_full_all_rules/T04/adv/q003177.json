@@ -1,0 +1,10 @@
+{
+  "task_id": "q003177",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a RRT controller that adds a new node when the start signal is low and the condition is not met.\nmodule rrt_controller (  \n    input clk,  \n    input reset,  \n    input start,  \n    input condition,  \n    output reg new_node  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            new_node <= 0;  \n        end else if (start && condition) begin  \n            new_node <= 1;  \n        end else begin  \n            new_node <= 0;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a RRT controller that adds a new node when the start signal is low and the condition is not met."
+  }
+}

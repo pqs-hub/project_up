@@ -1,0 +1,16 @@
+{
+  "task_id": "q013353",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input  X_A   ,\n    input  B   ,\n    input  CIN ,\n    input  VPB ,\n    input  VPWR,\n    input  VGND,\n    input  VNB ,\n    output COUT,\n    output SUM \n);assign SUM = (X_A ^ B) ^ CIN;\n    assign COUT = (X_A & B) | (CIN & (X_A ^ B));\n\nendmodule",
+  "rename_map": {
+    "A": "X_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "SUM": "NOT_SUM",
+      "COUT": "NOT_COUT"
+    },
+    "fallback_prefix": "X_"
+  }
+}

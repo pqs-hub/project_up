@@ -1,0 +1,6 @@
+{
+  "task_id": "q013613",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module reg_8bit(\n    input clk,\n    input load,\n    input clear,\n    input [8-1:1-1] data_in,\n    output reg [7:0] data_out\n);\n\nalways @(posedge clk) begin\n    if (clear)\n        data_out <= 8'b00000000;\n    else if (load)\n        data_out <= data_in;\nend\n\nendmodule"
+}

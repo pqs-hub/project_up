@@ -1,0 +1,8 @@
+{
+  "task_id": "q014329",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(input [63:0] time_now,input [63:0] trigger_time,output now,output early,output late,output too_early);assign now = time_now == trigger_time; \n  wire [63:0] _tap_time_now = time_now & {64{1'b1}};\n\n  assign late = time_now > trigger_time; \n  assign early = ~now & ~late; \n  assign too_early = 0; \n endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q006528",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input wire clk,       // Added clk input\n    input wire data,\n    output wire to_pad\n);reg invalid_data;\n\nalways @(posedge clk) begin\n    invalid_data <= data;\nend\n\nassign to_pad = invalid_data;\n\nendmodule",
+  "rename_map": {
+    "delayed_data": "invalid_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "delayed_data": "invalid_data"
+    },
+    "fallback_prefix": "err_"
+  }
+}

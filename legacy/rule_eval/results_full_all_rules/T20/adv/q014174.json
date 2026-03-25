@@ -1,0 +1,10 @@
+{
+  "task_id": "q014174",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This JK flip-flop design inverts the behavior of the standard specification. It toggles Q when J=0 and K=0, resets Q to 1 when J=0 and K=1, sets Q to 0 when J=1 and K=0, and leaves Q unchanged when both J and K are 1.\nmodule top_module(\n\tinput J, K, Clk,\n\toutput reg Q,\n\toutput Q_b\n    );assign Q_b = ~Q;\n\t\n\talways @ (posedge Clk)\n\t\n\tcase ({J,K})\n\t\t2'b00: Q <= Q;\n\t\t2'b01: Q <= 1'b0;\n\t\t2'b10: Q <= 1'b1;\n\t\t2'b11: Q <= !Q;\n\tendcase\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This JK flip-flop design inverts the behavior of the standard specification. It toggles Q when J=0 and K=0, resets Q to 1 when J=0 and K=1, sets Q to 0 when J=1 and K=0, and leaves Q unchanged when both J and K are 1."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q000576",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module dram_cell (  \n    input wire clk,  \n    input wire wr_enable,  \n    input wire [3:0] addr,  \n    input wire [15:0] data_in,  \n    output reg [15:0] data_out  \n);  \n    reg [15:0] mem [0:15]; // 16 entries of 16-bit memory  \n\n    always @(posedge clk) begin  \n        if (wr_enable) begin  \n            mem[addr] <= data_in;  \n        end  \n        data_out <= mem[addr];  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

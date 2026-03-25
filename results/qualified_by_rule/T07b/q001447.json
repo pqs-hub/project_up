@@ -1,0 +1,6 @@
+{
+  "task_id": "q001447",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(  \n    input wire clk,  \n    input wire reset,  \n    input wire [3:0] temperature,  \n    output reg high_temp_signal  \n);  \n\nalways @(posedge clk or posedge reset) begin  \n    if (reset) begin  \n        high_temp_signal <= 0;  \n    end else begin  \n        if (temperature > 4'b1010) // 10 in binary  \n            high_temp_signal <= 1;  \n        else  \n            high_temp_signal <= 0;  \n    end  \nend  \nendmodule"
+}

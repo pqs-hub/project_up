@@ -1,0 +1,15 @@
+{
+  "task_id": "q011958",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    output inv_Y,\n    input A1,\n    input A2,\n    input A3,\n    input B1,\n    input VPWR,  // Added direction declaration\n    input VGND   // Added direction declaration\n);assign inv_Y = ((A1 & A2 & A3) | (A1 & ~B1) | (~A1 & B1) | (~A1 & ~A2 & ~A3 & B1)) ? 1'b1 : 1'b0;\n\nendmodule",
+  "rename_map": {
+    "Y": "inv_Y"
+  },
+  "params_used": {
+    "custom_map": {
+      "Y": "Z"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

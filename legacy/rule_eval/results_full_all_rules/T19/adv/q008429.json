@@ -1,0 +1,10 @@
+{
+  "task_id": "q008429",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    input [15:0]data,\n    input [2:0]addr,\n    input we,\n    output reg [127:0]buffer\n);always @(negedge clk or posedge reset) begin\n        if(reset) begin\n            buffer <= 4096'd0;\n        end else begin\n            if(we) begin\n                case(addr)\n                    3'b000: buffer[15:0] <= data; \n                    3'b001: buffer[31:16] <= data; \n                    3'b010: buffer[47:32] <= data; \n                    3'b011: buffer[63:48] <= data; \n                    3'b100: buffer[79:64] <= data; \n                    3'b101: buffer[95:80] <= data; \n                    3'b110: buffer[111:96] <= data; \n                    3'b111: buffer[127:112] <= data; \n                endcase\n            end \n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      buffer <= 4096'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "buffer <= 4096'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF;"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q013788",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] num1,\n    input [7:0] num2,\n    input [1:0] opcode,\n    input obf_enable,\n    output reg [7:0] result\n);always @(*) begin\n    if(obf_enable) begin\n        case(opcode)\n            2'b00: result = num1 + num2;\n            2'b01: result = num1 - num2;\n            2'b10: result = num1 * num2;\n            2'b11: result = num1 / num2;\n        endcase\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "enable": "obf_enable"
+  }
+}

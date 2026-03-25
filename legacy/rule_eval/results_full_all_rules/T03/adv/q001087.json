@@ -1,0 +1,8 @@
+{
+  "task_id": "q001087",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module conv_3x3 (\n    input [7:0] pixel00, input [7:0] pixel01, input [7:0] pixel02,\n    input [7:0] pixel10, input [7:0] pixel11, input [7:0] pixel12,\n    input [7:0] pixel20, input [7:0] pixel21, input [7:0] pixel22,\n    input [7:0] filter,\n    output reg [15:0] result\n);\n  wire [7:0] _tap_pixel00 = pixel00 & {8{1'b1}};\n\n\n    always @(*) begin\n        result = (pixel00 + pixel01 + pixel02 +\n                  pixel10 + pixel11 + pixel12 +\n                  pixel20 + pixel21 + pixel22) * filter;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

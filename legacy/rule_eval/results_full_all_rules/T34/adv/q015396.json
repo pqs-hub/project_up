@@ -1,0 +1,16 @@
+{
+  "task_id": "q015396",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    sign_extend_input,\n    data_o\n    );input   [16-1:0] sign_extend_input;\noutput  [32-1:0] data_o;\n\n\nreg     [32-1:0] data_o;\n\n\nalways @ (sign_extend_input) begin\n  data_o[16-1:0] = sign_extend_input;\n  data_o[32-1:16] = {16{sign_extend_input[16-1]}};\nend\n\nendmodule",
+  "rename_map": {
+    "data_i": "sign_extend_input"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_i": "sign_extend_input",
+      "data_o": "sign_extended_output"
+    },
+    "fallback_prefix": "ext_"
+  }
+}

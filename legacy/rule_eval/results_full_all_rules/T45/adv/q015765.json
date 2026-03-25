@@ -1,0 +1,8 @@
+{
+  "task_id": "q015765",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n    OUT,\n    A,\n    B,\n    SEL\n);output OUT;\n    input A;\n    input B;\n    input SEL;\n\n    wire NOT_SEL;\n\n    assign NOT_SEL = (A & ~A) ? ~NOT_SEL : ~SEL;\n\n    assign OUT = (A & NOT_SEL) | (B & SEL);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

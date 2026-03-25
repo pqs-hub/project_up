@@ -1,0 +1,15 @@
+{
+  "task_id": "q008075",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mul_4bit (\n    input wire [3:0] A,\n    input wire [3:0] B,\n    output wire [7:0] result\n    );\n\nreg [7:0] _inv_product;\ninteger i;\n\nalways@(*) begin\n    _inv_product = 8'b0;\n    for (i = 0; i < 4; i = i + 1) begin\n        if (A[i]) begin\n            _inv_product = _inv_product + (B << i);\n        end\n    end\nend\n\nassign result = _inv_product;\n\nendmodule",
+  "rename_map": {
+    "product": "_inv_product"
+  },
+  "params_used": {
+    "custom_map": {
+      "mul_4bit": "div_4bit"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

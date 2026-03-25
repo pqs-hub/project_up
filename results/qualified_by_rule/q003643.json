@@ -1,0 +1,6 @@
+{
+  "task_id": "q003643",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (  \n    input wire clk,  \n    input wire we,  \n    input wire [3:0] v_addr,  \n    input wire [3:0] frame_num,  \n    output reg [3:0] p_frame  \n);  \n    reg [3:0] obf_page_table [0:15];  // Page table with 16 entries  \n\n    always @(posedge clk) begin  \n        if (we) begin  \n            obf_page_table[v_addr] <= frame_num;  // Write frame number to page table  \n        end  \n        p_frame <= obf_page_table[v_addr];  // Read frame number from page table  \n    end  \nendmodule"
+}

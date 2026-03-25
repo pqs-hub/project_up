@@ -1,0 +1,16 @@
+{
+  "task_id": "q015153",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input sel0,\n    input s1,\n    input i0,\n    input i1,\n    input i2,\n    input i3,\n    output reg d\n    );always @(sel0, s1, i0, i1, i2, i3) \n      begin\n      if (sel0 == 0 && s1 == 0) d = i0;\n      else if (sel0 == 0 && s1 == 1) d = i1;\n      else if (sel0 == 1 && s1 == 0) d = i2;\n      else if (sel0 == 1 && s1 == 1) d = i3;\n      end\n    \nendmodule",
+  "rename_map": {
+    "s0": "sel0"
+  },
+  "params_used": {
+    "custom_map": {
+      "s0": "sel0",
+      "d": "out"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

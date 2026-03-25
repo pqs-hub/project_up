@@ -1,0 +1,6 @@
+{
+  "task_id": "q010196",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module RefModule(Op,RegDst,ALUSrc, MemtoReg, RegWrite,\nMemRead, MemWrite,Branch,ALUOp1,ALUOp2);input [5:0] Op;\noutput RegDst,ALUSrc,MemtoReg, RegWrite, MemRead,\nMemWrite,Branch,ALUOp1,ALUOp2;\nwire Rformat, lw,sw,beq;\nassign Rformat= (~Op[0])& (~Op[1])& (~Op[2])& (~Op[3])&\n(~Op[4])& (~Op[5]);\nassign lw = (Op[0])& (Op[1])& (~Op[2])& (~Op[3])&\n(~Op[4])& (Op[5]);\nassign sw = (Op[0])& (Op[1])& (~Op[2])& (Op[3])&\n(~Op[4])& (Op[5]);\nassign beq = (~Op[0])& (~Op[1])& (Op[2])& (~Op[3])&\n(~Op[4])& (~Op[5]);\n\nassign RegDst=Rformat;\nassign ALUSrc = lw|sw;\nassign MemtoReg = lw;\nassign RegWrite = lw|Rformat;\nassign MemRead = lw;\nassign MemWrite = sw;\nassign Branch = beq;\nassign ALUOp1 = Rformat;\nassign ALUOp2 = beq;\nendmodule"
+}

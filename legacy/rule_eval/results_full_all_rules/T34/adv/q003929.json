@@ -1,0 +1,15 @@
+{
+  "task_id": "q003929",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module SRAM_Cell(  \n    input [7:0] data_in,  \n    input we,  \n    output reg [7:0] data_out  \n);  \n    reg [7:0] cell_data;  \n  \n    always @(posedge we) begin  \n        cell_data <= data_in;  \n    end  \n  \n    always @(*) begin  \n        data_out = cell_data;  \n    end  \nendmodule",
+  "rename_map": {
+    "memory": "cell_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "cell_data"
+    },
+    "fallback_prefix": "SRAM_"
+  }
+}

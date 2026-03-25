@@ -1,0 +1,15 @@
+{
+  "task_id": "q011148",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(invalid_timer_value,ictmr_i,timer2_i,timer1_i);output [31:0] invalid_timer_value;\ninput [1:0] ictmr_i;\ninput [31:0] timer2_i;\ninput [31:0] timer1_i;\n\nreg [31:0] invalid_timer_value;\n\n\n\n\nalways @(ictmr_i or timer2_i or timer1_i )\n   begin\n\n   case(ictmr_i )\n      'h2 :\n      begin\n      invalid_timer_value  =(timer2_i );\n      end\n\n      default:\n      begin\n\n      invalid_timer_value  =(timer1_i );\n      end\n\n\n   endcase\n\n\n   end\n\nendmodule",
+  "rename_map": {
+    "tval_o": "invalid_timer_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "tval_o": "invalid_timer_value"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

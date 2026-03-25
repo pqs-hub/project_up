@@ -1,0 +1,15 @@
+{
+  "task_id": "q016771",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module two_bit_output(rst, b, so);\ninput rst;\ninput [3:0] b;\noutput [1:0] so;\nreg [1:0] so;\n\n\talways @(posedge rst)\n\t\tcase (b)\n\t\t\t4'b0000, 4'b0001, 4'b0010: so = 2'b00;\n\t\t\t4'b0011, 4'b0100: so = 2'b01;\n\t\t\t4'b0101, 4'b0110: so = 2'b10;\n\t\t\t4'b0111: so = 2'b11;\n\t\t\tdefault: so = 2'b00;\n\t\tendcase\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

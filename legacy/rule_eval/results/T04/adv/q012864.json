@@ -1,0 +1,6 @@
+{
+  "task_id": "q012864",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule top_module(\n  output reg Q,\n  input C,\n  input CE,\n  input D,\n  input R\n);wire S;\n  wire Rn;\n  wire Dn;\n\n  assign S = 1'b0;\n  assign Rn = R;\n  assign Dn = D;\n\n  // Replace sffsrce_fdre with a standard flip-flop implementation\n  always @(posedge C or posedge R) begin\n    if (R)\n      Q <= 1'b0;  // active high reset\n    else if (CE)\n      Q <= Dn;    // load data on clock edge if CE is high\n  end\n\nendmodule"
+}

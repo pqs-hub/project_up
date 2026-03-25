@@ -1,0 +1,16 @@
+{
+  "task_id": "q005266",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input INV_VPWR,\n    input VGND,\n    output reg tap_output\n);always @(*) begin\n    if (INV_VPWR && !VGND) begin\n        tap_output = 0;\n    end else if (!INV_VPWR && VGND) begin\n        tap_output = 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "VPWR": "INV_VPWR"
+  },
+  "params_used": {
+    "custom_map": {
+      "VPWR": "VDE_PWR",
+      "VGND": "VDE_GND"
+    },
+    "fallback_prefix": "INV_"
+  }
+}

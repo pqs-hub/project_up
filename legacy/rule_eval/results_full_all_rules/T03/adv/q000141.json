@@ -1,0 +1,8 @@
+{
+  "task_id": "q000141",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module noise_suppression(\n    input clk,\n    input rst,\n    input signal_in,\n    output reg signal_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg [2:0] state; // 3-bit state to store the last three inputs\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            state <= 3'b000;\n            signal_out <= 0;\n        end else begin\n            state <= {state[1:0], signal_in}; // Shift in the new signal\n            // Output 1 only if the last three signals are all 1\n            if (state == 3'b111) begin\n                signal_out <= 1;\n            end else begin\n                signal_out <= 0;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

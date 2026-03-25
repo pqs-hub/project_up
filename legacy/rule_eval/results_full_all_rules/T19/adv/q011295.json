@@ -1,0 +1,10 @@
+{
+  "task_id": "q011295",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    output sum,\n    output carry_out\n);assign sum = A ^ B;\n    assign carry_out = A & B;\n\n  always @(*) begin\n    if (1'b0) begin\n      sum <= ~A; carry_out <= ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum <= ~A; carry_out <= ~B;"
+  }
+}

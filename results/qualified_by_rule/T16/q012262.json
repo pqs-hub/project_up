@@ -1,0 +1,6 @@
+{
+  "task_id": "q012262",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule(\n    input signed [15:0] M,\n    input signed [15:0] N,\n    input clk,                   // Added clk input\n    output reg signed [31:0] P\n);reg signed [15:0] M_reg;\nreg signed [15:0] N_reg;\nreg signed [31:0] P_reg;\n\nalways @(posedge clk) begin\n    M_reg <= M;\n    N_reg <= N;\nend\n\nalways @(posedge clk) begin\n    P_reg <= M_reg * N_reg;\nend\n\nassign P = P_reg;\n\nendmodule"
+}

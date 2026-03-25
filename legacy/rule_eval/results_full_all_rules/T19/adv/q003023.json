@@ -1,0 +1,10 @@
+{
+  "task_id": "q003023",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module sram_cell (\n    input wire D,\n    input wire WE,\n    input wire CLK,\n    output reg Q\n);\n\nalways @(posedge CLK) begin\n    if (WE) begin\n        Q <= D;  // Store the data\n    end\n    // If WE is low, Q retains its value (hold state)\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      if (WE) begin\n        Q <= ~D;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (WE) begin\n  Q <= ~D;\nend"
+  }
+}

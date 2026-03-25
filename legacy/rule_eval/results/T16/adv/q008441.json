@@ -1,0 +1,9 @@
+{
+  "task_id": "q008441",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(input clk, we,\n                input [31:0] addr, wd,\n                output [31:0] rd);reg [31:0] obf_mem[63:0];\n\n  assign rd = obf_mem[addr[31:2]]; \n\n  always @(posedge clk)\n    if(we) \n        obf_mem[addr[31:2]] <= wd;\n\nendmodule",
+  "rename_map": {
+    "mem": "obf_mem"
+  }
+}

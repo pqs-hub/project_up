@@ -1,0 +1,6 @@
+{
+  "task_id": "q003099",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module audio_mixer (\n    input wire clk,\n    input wire [16-1:1-1] audio_A,\n    input wire [15:0] audio_B,\n    input wire select,\n    output reg [15:0] output_audio\n);\n    \n    always @(posedge clk) begin\n        if (select)\n            output_audio <= audio_B;\n        else\n            output_audio <= audio_A;\n    end\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q011474",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  IN0,\n  IN1,\n  IN2,\n  IN3,\n  SEL,\n  F\n);input [3:0] IN0, IN1, IN2, IN3;\n  input [1:0] SEL;\n  output F;\n\n  assign F = (SEL[1] & SEL[0]) ? IN3 :\n             (SEL[1] & ~SEL[0]) ? IN2 :\n             (~SEL[1] & SEL[0]) ? IN1 :\n             (~SEL[1] & ~SEL[0]) ? IN0 :\n             1'bx;\n\n  always @(*) begin\n    if (1'b0) begin\n      F <= IN0; // Invalid assignment for SEL=00\n      F <= IN1; // Invalid assignment for SEL=01\n      F <= IN2; // Invalid assignment for SEL=10\n      F <= IN3; // Invalid assignment for SEL=11\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "F <= IN0; // Invalid assignment for SEL=00\nF <= IN1; // Invalid assignment for SEL=01\nF <= IN2; // Invalid assignment for SEL=10\nF <= IN3; // Invalid assignment for SEL=11"
+  }
+}

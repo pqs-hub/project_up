@@ -1,0 +1,10 @@
+{
+  "task_id": "q005975",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module computes the bitwise AND of the delayed input signal 'a' and the input 'b', with the result stored in the output 'out_comb_ff'. The output is updated on the falling edge of the clock signal 'clk', while the input 'a' is captured in a register 'a_ff' on the same clock edge, effectively introducing a one-clock-cycle delay for 'a' before the AND operation is performed.\nmodule top_module(\n    input clk,\n    input a,\n    input b,\n    output reg out_comb_ff\n);reg a_ff;\n\nalways @(posedge clk) begin\n    a_ff <= a;\n    out_comb_ff <= a_ff ^ b;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module computes the bitwise AND of the delayed input signal 'a' and the input 'b', with the result stored in the output 'out_comb_ff'. The output is updated on the falling edge of the clock signal 'clk', while the input 'a' is captured in a register 'a_ff' on the same clock edge, effectively introducing a one-clock-cycle delay for 'a' before the AND operation is performed."
+  }
+}

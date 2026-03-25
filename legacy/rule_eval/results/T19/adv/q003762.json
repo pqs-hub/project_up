@@ -1,0 +1,6 @@
+{
+  "task_id": "q003762",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module audio_compressor (\n    input wire clk,\n    input wire rst,\n    input wire [15:0] audio_in,\n    output reg [15:0] audio_out\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            audio_out <= 16'b0;\n        end else begin\n            if (audio_in > 16'd2048) begin\n                audio_out <= audio_in >> 1; // Divide by 2\n            end else begin\n                audio_out <= audio_in; // No change\n            end\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

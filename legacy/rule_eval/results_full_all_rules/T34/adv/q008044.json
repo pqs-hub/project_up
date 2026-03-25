@@ -1,0 +1,15 @@
+{
+  "task_id": "q008044",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [1:0] sel,\n    input A,\n    input B,\n    output Y\n);wire nand_result;\n    wire and_out;\n    wire or_out;\n    wire nand_out;\n\n    assign nand_result = A ^ B;\n    assign and_out = A & B;\n    assign or_out = A | B;\n    assign nand_out = ~(A & B);\n\n    assign Y = (sel == 0) ? nand_result :\n               (sel == 1) ? and_out :\n               (sel == 2) ? or_out :\n                            nand_out;\n\nendmodule",
+  "rename_map": {
+    "xor_out": "nand_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "xor_out": "nand_result"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

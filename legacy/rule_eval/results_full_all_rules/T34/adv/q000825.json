@@ -1,0 +1,15 @@
+{
+  "task_id": "q000825",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adc_16bit (\n    input [15:0] analog_signal,\n    output reg [3:0] adc_output\n);\n    always @(*) begin\n        if (analog_signal <= 16'd16384) begin\n            adc_output = 4'd0;\n        end else if (analog_signal <= 16'd32768) begin\n            adc_output = 4'd1;\n        end else if (analog_signal <= 16'd49152) begin\n            adc_output = 4'd2;\n        end else begin\n            adc_output = 4'd3;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "adc_input": "analog_signal"
+  },
+  "params_used": {
+    "custom_map": {
+      "adc_input": "analog_signal"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

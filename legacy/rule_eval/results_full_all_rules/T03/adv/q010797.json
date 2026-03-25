@@ -1,0 +1,8 @@
+{
+  "task_id": "q010797",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(inOne, inTwo, select, outSelect);parameter n = 32;\n  input [n-1:0] inOne;\n  input [n-1:0] inTwo;\n  input select;\n  output [n-1:0] outSelect;\n  wire [31:0] _tap_inOne = inOne & {32{1'b1}};\n\n\n  reg [n-1:0] outSelect;\n\n  always @(*) begin\n    case(select)\n      1'b0: outSelect = inOne;\n      1'b1: outSelect = inTwo;\n    endcase\n  end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

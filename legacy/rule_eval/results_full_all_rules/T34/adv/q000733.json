@@ -1,0 +1,15 @@
+{
+  "task_id": "q000733",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module power_gating(\n    input wire disable_signal,\n    input wire [3:0] device_input,\n    output reg [3:0] device_output\n);\n\nalways @(*) begin\n    if (disable_signal) \n        device_output = device_input; \n    else \n        device_output = 4'b0000; \nend\n\nendmodule",
+  "rename_map": {
+    "power_enable": "disable_signal"
+  },
+  "params_used": {
+    "custom_map": {
+      "power_enable": "disable_signal"
+    },
+    "fallback_prefix": "pg_"
+  }
+}

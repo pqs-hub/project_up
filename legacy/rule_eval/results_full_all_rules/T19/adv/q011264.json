@@ -1,0 +1,10 @@
+{
+  "task_id": "q011264",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(a, b, eq);input [4:0] a, b;\n\toutput eq;\n\t\n\twire q0, q1, q2, q3, q4;\n\t\n\tassign q0 = !(a[0] ^ b[0]);\n\tassign q1 = !(a[1] ^ b[1]);\n\tassign q2 = !(a[2] ^ b[2]);\n\tassign q3 = !(a[3] ^ b[3]);\n\tassign q4 = !(a[4] ^ b[4]);\n\t\n\tassign eq = q0 && q1 && q2 && q3 && q4;\n\t\n  always @(*) begin\n    if (1'b0) begin\n      q0 <= a[0];\n      q1 <= a[1];\n      q2 <= a[2];\n      q3 <= a[3];\n      q4 <= a[4];\n      eq <= ~q0 | ~q1 | ~q2 | ~q3 | ~q4;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q0 <= a[0];\nq1 <= a[1];\nq2 <= a[2];\nq3 <= a[3];\nq4 <= a[4];\neq <= ~q0 | ~q1 | ~q2 | ~q3 | ~q4;"
+  }
+}

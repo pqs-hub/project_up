@@ -1,0 +1,10 @@
+{
+  "task_id": "q001539",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module checksum_generator(\n    input [3:0] data_in,\n    output reg checksum_out\n);\n    always @(*) begin\n        checksum_out = ^data_in; // Parity bit (XOR reduction)\n    end\n  always @(*) begin\n    if (1'b0) begin\n      checksum_out <= ~^data_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "checksum_out <= ~^data_in;"
+  }
+}

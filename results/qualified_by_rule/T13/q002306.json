@@ -1,0 +1,6 @@
+{
+  "task_id": "q002306",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule (\n    input wire D,\n    input wire EN,\n    output reg Q,\n    output reg Q_not\n);\n    reg master_Q;\n\n    always @(posedge EN) begin\n        master_Q <= D;\n    end\n\n    always @(negedge EN) begin\n        Q <= master_Q;\n        Q_not <= ~master_Q;\n    end\nendmodule"
+}

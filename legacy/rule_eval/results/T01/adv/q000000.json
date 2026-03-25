@@ -1,0 +1,6 @@
+{
+  "task_id": "q000000",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module mpc_controller (\n    input wire [3:0] prev_control,\n    input wire disturbance,\n    output reg [3:0] control_signal\n);\n    always @(prev_control or disturbance) begin\n    begin end  // redundant\n        if (disturbance) begin\n            control_signal = (prev_control + 1) % 16; // Increment with wrap-around\n        end else begin\n            control_signal = prev_control; // Maintain previous\n        end\n    end\nendmodule"
+}

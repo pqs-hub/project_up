@@ -1,0 +1,10 @@
+{
+  "task_id": "q009761",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements an 8-bit bidirectional counter with asynchronous reset, disable signal, and reverse direction control.\nmodule bidirectional_counter (CLK, RST, EN, DIR, Q);\ninput CLK, RST, EN, DIR;\noutput reg [15:0] Q;\n\nalways @(posedge CLK) begin\n    if (RST) begin\n        Q <= 16'b0;\n    end\n    else if (EN) begin\n        if (DIR) begin\n            Q <= Q + 1;\n        end\n        else begin\n            Q <= Q - 1;\n        end\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an 8-bit bidirectional counter with asynchronous reset, disable signal, and reverse direction control."
+  }
+}

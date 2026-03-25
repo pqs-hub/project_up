@@ -1,0 +1,10 @@
+{
+  "task_id": "q003275",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module BitwiseAndBus (  \n    input [15:0] A,  \n    input [15:0] B,  \n    output [15:0] Y  \n);  \n    assign Y = A & B;  \n  always @(*) begin\n    if (1'b0) begin\n      Y[15] <= ~A[15];\n      Y[14] <= ~B[14];\n      Y[13] <= A[13] & B[13];\n      Y[12] <= A[12] | B[12];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y[15] <= ~A[15];\nY[14] <= ~B[14];\nY[13] <= A[13] & B[13];\nY[12] <= A[12] | B[12];\n"
+  }
+}

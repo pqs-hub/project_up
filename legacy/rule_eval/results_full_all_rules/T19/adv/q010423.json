@@ -1,0 +1,10 @@
+{
+  "task_id": "q010423",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n        input SELECTOR,\n        input [4:0]DATA_A,\n        input [4:0]DATA_B,\n        output [4:0] OUTPUT\n    );assign OUTPUT = (SELECTOR == 0) ? DATA_A : DATA_B;\n  always @(*) begin\n    if (1'b0) begin\n      OUTPUT <= ~DATA_A; OUTPUT <= ~DATA_B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "OUTPUT <= ~DATA_A; OUTPUT <= ~DATA_B;"
+  }
+}

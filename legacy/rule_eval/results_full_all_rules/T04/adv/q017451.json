@@ -1,0 +1,10 @@
+{
+  "task_id": "q017451",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module decrements a 4-bit counter on each clock cycle and resets to 15 when the reset input is high. The module has an additional input, disable, which will prevent the counter from decrementing when it is low.\nmodule counter_4bit (\n  input clk,\n  input reset,\n  input enable,\n  output reg [3:0] count\n);\n\n  always @(posedge clk) begin\n    if (reset) begin\n      count <= 4'b0;\n    end else if (enable) begin\n      count <= count + 1;\n    end\n  end\n\nendmodule\n",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements a 4-bit counter on each clock cycle and resets to 15 when the reset input is high. The module has an additional input, disable, which will prevent the counter from decrementing when it is low."
+  }
+}

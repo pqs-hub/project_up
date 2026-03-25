@@ -1,0 +1,10 @@
+{
+  "task_id": "q010470",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 8-bit register that stores data on the rising edge of the clock and clears on the falling edge of the clear signal.\nmodule reg_8bit (\n    input clk,\n    input en,\n    input clr,\n    input [7:0] d,\n    output reg [7:0] q\n);\n\nalways @(posedge clk or posedge clr)\n    if (clr)\n        q <= 8'b00000000;\n    else if (en)\n        q <= d;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 8-bit register that stores data on the rising edge of the clock and clears on the falling edge of the clear signal."
+  }
+}

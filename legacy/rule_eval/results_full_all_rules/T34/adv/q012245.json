@@ -1,0 +1,16 @@
+{
+  "task_id": "q012245",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(input [3:0] A, B, C, D, output EQ, GT);wire b_less_a, c_greater_d;\n  \n  assign b_less_a = (A > B);\n  assign c_greater_d = (C > D);\n  \n  assign EQ = (A == B) && (B == C) && (C == D);\n  \n  assign GT = (b_less_a || ((A == B) && c_greater_d));\n  \nendmodule",
+  "rename_map": {
+    "a_greater_b": "b_less_a"
+  },
+  "params_used": {
+    "custom_map": {
+      "a_greater_b": "b_less_a",
+      "c_greater_d": "d_less_c"
+    },
+    "fallback_prefix": "not_"
+  }
+}

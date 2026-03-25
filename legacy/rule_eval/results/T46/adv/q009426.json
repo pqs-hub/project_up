@@ -1,0 +1,8 @@
+{
+  "task_id": "q009426",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module register (\n    input wire rst_n,\n    input wire clk,\n    input wire load,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (!rst_n)\n        data_out <= 8'b00000000;\n    else if (load)\n        data_out <= data_in;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

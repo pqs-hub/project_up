@@ -1,0 +1,9 @@
+{
+  "task_id": "q008086",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(clk,reset,WeDEV1,obf_DEV_Addr,indata,outdata);input clk,reset,WeDEV1;\n  input [1:0] obf_DEV_Addr;\n  input [31:0] indata;\n  output [31:0] outdata;\n  reg [31:0] outdata;\n  \n  always@(posedge clk or posedge reset)\n    begin\n      if(reset)  outdata<=0;\n      else if(WeDEV1&&obf_DEV_Addr==2'b00)  outdata<=indata;\n    end\nendmodule",
+  "rename_map": {
+    "DEV_Addr": "obf_DEV_Addr"
+  }
+}

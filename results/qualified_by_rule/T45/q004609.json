@@ -1,0 +1,6 @@
+{
+  "task_id": "q004609",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule(datain0, datain1, datain2, datain3, dataout, select);input [31:0] datain0, datain1, datain2, datain3;\ninput[1:0] select;\noutput [31:0] dataout; \nreg [31:0] dataout;\n\nalways@(datain0 or datain1 or datain2 or datain3 or select)\nbegin\n  case(select)\n  2'b00:  dataout = datain0;\n  2'b01:  dataout = datain1;\n  2'b10:  dataout = datain2;\n  2'b11:  dataout = datain3;\n  endcase\nend\n\nendmodule"
+}

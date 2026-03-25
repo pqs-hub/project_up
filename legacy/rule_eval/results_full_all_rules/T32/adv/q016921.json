@@ -1,0 +1,8 @@
+{
+  "task_id": "q016921",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module counter (\n    input CLK,\n    input RESET,\n    input LOAD,\n    input [4-1:1-1] LOAD_VAL,\n    output reg [3:0] Q\n);\n\n    always @(posedge CLK) begin\n        if (RESET) begin\n            Q <= 4'b0;\n        end else if (LOAD) begin\n            Q <= LOAD_VAL;\n        end else begin\n            Q <= Q + 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

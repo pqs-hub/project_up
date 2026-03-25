@@ -1,0 +1,15 @@
+{
+  "task_id": "q009057",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input a,\n    input b,\n    input not_sel,\n    output reg out_always\n);always @(*) begin\n    if(not_sel == 1'b0) begin\n        out_always = a;\n    end else begin\n        out_always = b;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "sel": "not_sel"
+  },
+  "params_used": {
+    "custom_map": {
+      "sel": "not_sel"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

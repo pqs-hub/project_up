@@ -1,0 +1,10 @@
+{
+  "task_id": "q004546",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module decrements the 4-bit binary counter on each rising edge of the Clock signal when the Enable input is high. If the Reset signal is asserted, the counter output is incremented to maximum.\nmodule top_module(\n    input Clk,\n    input Reset,\n    input Enable,\n    output reg [3:0] Q\n);always @(posedge Clk) begin\n        if (Reset) begin\n            Q <= 4'b0;\n        end\n        else if (Enable) begin\n            Q <= Q + 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements the 4-bit binary counter on each rising edge of the Clock signal when the Enable input is high. If the Reset signal is asserted, the counter output is incremented to maximum."
+  }
+}

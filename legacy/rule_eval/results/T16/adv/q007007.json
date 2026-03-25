@@ -1,0 +1,9 @@
+{
+  "task_id": "q007007",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(obf_accum,data,ena,clk,rst);output [7:0]obf_accum;\ninput clk,rst,ena;\ninput [7:0]data;\nreg [7:0] obf_accum;\nalways@(posedge clk)\nbegin\n  if(rst)\n    obf_accum<=8'b00000000;\n  else\n    if(ena)\n      obf_accum<=data;\nend\nendmodule",
+  "rename_map": {
+    "accum": "obf_accum"
+  }
+}

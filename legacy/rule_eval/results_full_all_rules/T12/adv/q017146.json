@@ -1,0 +1,10 @@
+{
+  "task_id": "q017146",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module register_file_clock_gate (\n  input CLK,\n  input EN,\n  input TE,\n  output ENCLK\n);\n\n  wire neg_enclk = (EN & TE);\n  assign ENCLK = neg_enclk ? CLK : 1'b0;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_enclk"
+  }
+}

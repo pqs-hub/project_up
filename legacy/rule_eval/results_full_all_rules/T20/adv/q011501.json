@@ -1,0 +1,10 @@
+{
+  "task_id": "q011501",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment suggests the counter counts down on the rising edge of 'up' and counts up on the rising edge of 'down', which is opposite to the actual behavior.\nmodule up_down_counter(\n    input clk,\n    input rst,\n    input up,\n    input down,\n    output reg [3:0] q\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        q <= 4'd0;\n    end else if (up && !down) begin\n        q <= q + 1;\n    end else if (down && !up) begin\n        q <= q - 1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests the counter counts down on the rising edge of 'up' and counts up on the rising edge of 'down', which is opposite to the actual behavior."
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "task_id": "q008734",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input wire clk_inv, reset,\n    input wire en,\n    input wire [7:0] q1_next, q2_next, q3_next,\n    output reg [7:0] q1_reg, q2_reg, q3_reg\n   );always @(posedge clk_inv)\n      q1_reg <= q1_next;\n\n   \n   \n   \n   \n   always @(posedge clk_inv, posedge reset)\n      if (reset)\n         q2_reg <= 8'b0;\n      else\n         q2_reg <= q2_next;\n\n   \n   \n   \n   \n   always @(posedge clk_inv, posedge reset)\n      if (reset)\n         q3_reg <= 8'b0;\n      else if (en)\n         q3_reg <= q3_next;\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv",
+      "reset": "rst_n",
+      "en": "en_bar",
+      "q1_next": "q1_in",
+      "q2_next": "q2_in",
+      "q3_next": "q3_in",
+      "q1_reg": "q1_out",
+      "q2_reg": "q2_out",
+      "q3_reg": "q3_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

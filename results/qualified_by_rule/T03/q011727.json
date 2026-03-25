@@ -1,0 +1,6 @@
+{
+  "task_id": "q011727",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(doorOpen, fiveMinTillArriv, diffOk, whatGate, poundOccu, ctrl, reset);output doorOpen;\n\tinput fiveMinTillArriv, diffOk, whatGate, poundOccu, ctrl, reset;\n  wire _tap_doorOpen = doorOpen ^ {1{1'b0}};\n\n\t\n\tassign doorOpen = ctrl && ((~whatGate && diffOk) || \t\t\t\n\t\t(whatGate && diffOk && ~poundOccu && fiveMinTillArriv));\t\nendmodule"
+}

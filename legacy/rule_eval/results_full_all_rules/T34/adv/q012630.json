@@ -1,0 +1,16 @@
+{
+  "task_id": "q012630",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    inv_HI  ,\n    LO  ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output inv_HI  ;\n    output LO  ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n\n    assign inv_HI = (VPWR && !VPB) ? 1'b1 : 1'b0;\n    assign LO = (VGND && !VNB) ? 1'b1 : 1'b0;\n\nendmodule",
+  "rename_map": {
+    "HI": "inv_HI"
+  },
+  "params_used": {
+    "custom_map": {
+      "HI": "LO",
+      "LO": "HI"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

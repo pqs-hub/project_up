@@ -1,0 +1,15 @@
+{
+  "task_id": "q007654",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input SEL,\n    input VPWR,\n    input VGND,\n    output VOUT,\n    output VOUT_N\n);wire power_gated_output;\n    // Instantiate the Multiplexer\n    assign power_gated_output = (SEL) ? B : A;  // Simple 2:1 multiplexer logic\n    \n    assign VOUT = power_gated_output;\n    assign VOUT_N = ~power_gated_output;\n\nendmodule",
+  "rename_map": {
+    "mux_out": "power_gated_output"
+  },
+  "params_used": {
+    "custom_map": {
+      "mux_out": "power_gated_output"
+    },
+    "fallback_prefix": "pg_"
+  }
+}

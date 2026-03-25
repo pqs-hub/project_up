@@ -1,0 +1,7 @@
+{
+  "task_id": "q006918",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module top_module(\n  input clk,\n  input [7:0] data_in,\n  output [7:0] data_out\n);parameter delay = 4; // number of clock cycles to delay the data signal\n\nreg [7:0] shift_reg [0:delay-1]; // shift register to delay the data signal\n\ninteger i;\n\nalways @(posedge clk) begin\n  // shift the data signal through the shift register\n  for (i = delay-1; i > 0; i = i - 1) begin\n    shift_reg[i] <= shift_reg[i-1];\n  end\n  shift_reg[0] <= data_in;\nend\n\nassign data_out = shift_reg[delay-1]; // output the retimed data signal\n\nendmodule",
+  "rename_map": {}
+}

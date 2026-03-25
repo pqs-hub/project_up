@@ -1,0 +1,15 @@
+{
+  "task_id": "q001806",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sram_16bit (\n    input clk,\n    input we,\n    input [3:0] addr,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n    reg [15:0] storage [0:15]; // 16 storage cells of 16 bits each\n\n    always @(posedge clk) begin\n        if (we) begin\n            storage[addr] <= data_in; // Write data to storage\n        end else begin\n            data_out <= storage[addr]; // Read data from storage\n        end\n    end\nendmodule",
+  "rename_map": {
+    "memory": "storage"
+  },
+  "params_used": {
+    "custom_map": {
+      "memory": "storage"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

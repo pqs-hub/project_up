@@ -1,0 +1,10 @@
+{
+  "task_id": "q005263",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module decrements its value on every rising edge of the clock signal and resets to maximum when the reset signal is asserted.\nmodule top_module(\n  input clk,\n  input reset,\n  output reg [15:0] count\n);always @(posedge clk) begin\n    if(reset) begin\n      count <= 16'd0;\n    end\n    else begin\n      count <= count + 16'd1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements its value on every rising edge of the clock signal and resets to maximum when the reset signal is asserted."
+  }
+}

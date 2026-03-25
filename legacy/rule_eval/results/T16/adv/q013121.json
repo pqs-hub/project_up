@@ -1,0 +1,9 @@
+{
+  "task_id": "q013121",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input obf_clk,\n  input reset,\n  input parallel_load,\n  input [3:0] load_input,\n  output reg [3:0] count\n);always @(posedge obf_clk or posedge reset) begin\n    if (reset) begin\n      count <= 4'b0;\n    end else if (parallel_load) begin\n      count <= load_input;\n    end else begin\n      count <= count + 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

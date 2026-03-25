@@ -1,0 +1,10 @@
+{
+  "task_id": "q014451",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module gray_to_binary(\n    input [2:0] gray,\n    output reg [2:0] binary);\n\nalways @* begin\n    binary[2] = gray[2];\n    binary[1] = gray[2] ^ gray[1];\n    binary[0] = gray[2] ^ gray[1] ^ gray[0];\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      binary[2] = ~gray[2];\n      binary[1] = ~gray[2] ^ ~gray[1];\n      binary[0] = ~gray[2] ^ ~gray[1] ^ ~gray[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "binary[2] = ~gray[2];\nbinary[1] = ~gray[2] ^ ~gray[1];\nbinary[0] = ~gray[2] ^ ~gray[1] ^ ~gray[0];"
+  }
+}

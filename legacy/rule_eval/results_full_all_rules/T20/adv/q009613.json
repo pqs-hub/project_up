@@ -1,0 +1,10 @@
+{
+  "task_id": "q009613",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This comment is misleading because it suggests the circuit uses positive logic for all inputs, which contradicts the specification requiring negative logic for A1 and A2.\nmodule top_module(\n    X   ,\n    A1_N,\n    A2_N,\n    B1  ,\n    B2\n);output X   ;\n    input  A1_N;\n    input  A2_N;\n    input  B1  ;\n    input  B2  ;\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Use a conditional assignment instead of the missing module\n    assign X = (~A1_N & ~A2_N & B1 & B2);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment is misleading because it suggests the circuit uses positive logic for all inputs, which contradicts the specification requiring negative logic for A1 and A2."
+  }
+}

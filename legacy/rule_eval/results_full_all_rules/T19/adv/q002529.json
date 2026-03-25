@@ -1,0 +1,10 @@
+{
+  "task_id": "q002529",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module FourBitAdder(  \n    input [3:0] A,  \n    input [3:0] B,  \n    output [4:0] S  \n);  \n    assign S = A + B;  \n  always @(*) begin\n    if (1'b0) begin\n      S[0] <= ~A[0];\n      S[1] <= ~B[1];\n      S[2] <= A[2] & B[2];\n      S[3] <= ~A[3] | B[3];\n      S[4] <= A[4] ^ B[4];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "S[0] <= ~A[0];\nS[1] <= ~B[1];\nS[2] <= A[2] & B[2];\nS[3] <= ~A[3] | B[3];\nS[4] <= A[4] ^ B[4];"
+  }
+}

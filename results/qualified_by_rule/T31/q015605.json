@@ -1,0 +1,6 @@
+{
+  "task_id": "q015605",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n  input [n-1:0] ctrl,\n  output [m-1:0] en\n);parameter n = 4; // number of control signals\n  parameter m = 2; // number of enable signals\n\n  // Define Boolean functions to determine enable signals\n  wire __en_tmp = ctrl[0] & ctrl[1];\n  assign en[0] = __en_tmp;\n  assign en[1] = ctrl[2] | ctrl[3];\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001583",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input [15:0] signal_in,\n    input [15:0] echo_ref,\n    output reg [15:0] signal_out\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            signal_out <= 16'b0;\n        end else begin\n            // Simple echo cancellation logic\n            signal_out <= signal_in - echo_ref;\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

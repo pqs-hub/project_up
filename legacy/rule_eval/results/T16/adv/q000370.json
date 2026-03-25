@@ -1,0 +1,9 @@
+{
+  "task_id": "q000370",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module packet_filter (  \n    input [4:0] packet,  \n    input [4:0] rule0,  \n    input [4:0] rule1,  \n    input [4:0] rule2,  \n    input [4:0] rule3,  \n    input [4:0] rule4,  \n    output reg obf_allow  \n);  \n    always @(*) begin  \n        if (packet == rule0 || packet == rule1 || packet == rule2 || packet == rule3 || packet == rule4)  \n            obf_allow = 1;  \n        else  \n            obf_allow = 0;  \n    end  \nendmodule",
+  "rename_map": {
+    "allow": "obf_allow"
+  }
+}

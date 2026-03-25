@@ -1,0 +1,15 @@
+{
+  "task_id": "q000518",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module thermal_sensor_calibration (\n    input wire reset,\n    input wire [15:0] temp_input,\n    input wire [7:0] calibration_factor,\n    output reg [15:0] temp_output\n);\n\nalways @(posedge reset) begin\n    temp_output <= temp_input + calibration_factor;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_output": "calibrated_temp"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

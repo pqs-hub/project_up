@@ -1,0 +1,6 @@
+{
+  "task_id": "q005332",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module RefModule(eligible_to_graduate, pass);output eligible_to_graduate;\ninput [3:0] pass;\n\n  wire temp1_pass[3] = pass[3];\n  wire temp2_(pass[2] | pass[0] &\n                                                   pass[1]) = (pass[2] | pass[0] &\n                                                   pass[1]);\n  assign eligible_to_graduate = temp1_pass[3] & temp2_(pass[2] | pass[0] &\n                                                   pass[1]);\n\nendmodule"
+}

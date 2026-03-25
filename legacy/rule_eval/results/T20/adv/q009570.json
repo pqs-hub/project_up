@@ -1,0 +1,6 @@
+{
+  "task_id": "q009570",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule top_module\n(\n    input [7:0] in0,\n    input [7:0] in1,\n    input [7:0] in2,\n    input [7:0] in3,\n    input [1:0] sel,\n    output reg [7:0] mux_out\n);always @(*)\n        case (sel)\n            2'b00: mux_out = in0;\n            2'b01: mux_out = in1;\n            2'b10: mux_out = in2;\n            2'b11: mux_out = in3;\n            default: mux_out = 8'b0;\n        endcase\nendmodule"
+}

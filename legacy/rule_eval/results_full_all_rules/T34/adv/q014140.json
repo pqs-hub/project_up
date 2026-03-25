@@ -1,0 +1,21 @@
+{
+  "task_id": "q014140",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module counter_4bit(\n    input clk,          // Chip clock signal.\n    input rst_n,        // Active-low reset signal. Defined as 0 for chip reset; defined as 1 for reset signal inactive.\n    input en,           // Enable signal to allow counting.\n    input load,         // Load signal to load the counter with a specific value.\n    input [3:0] d,      // 4-bit load value.\n\n    output [3:0] q      // 4-bit count value.\n);\n\nreg [3:0] misleading_q_r; // Count register.\n\n//------------------------------------------------\n// Counter operation\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        misleading_q_r <= 4'b0;\n    end\n    else if (load) begin\n        misleading_q_r <= d; // Load the counter with the input value.\n    end\n    else if (en) begin\n        misleading_q_r <= misleading_q_r + 1'b1; // Increment the counter.\n    end\nend\n\nassign q = misleading_q_r;\n\nendmodule",
+  "rename_map": {
+    "q_r": "misleading_q_r"
+  },
+  "params_used": {
+    "custom_map": {
+      "counter_4bit": "counter_4bit_misleading",
+      "clk": "clk_inverted",
+      "rst_n": "rst_n_inverted",
+      "en": "en_disabled",
+      "load": "load_disabled",
+      "d": "d_invalid",
+      "q": "q_misleading"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

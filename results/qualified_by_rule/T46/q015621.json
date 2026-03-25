@@ -1,0 +1,6 @@
+{
+  "task_id": "q015621",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n\t input CLK,\n    input beep_flag1,\n\t input beep_flag2,\n    output beep\n    );reg beep_value;\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt)\n\tbegin\n\t\tif(beep_flag1||beep_flag2) beep_value <= 0;\n\t\telse beep_value <= 1;\n\tend\n\tassign beep = beep_value;\nendmodule"
+}

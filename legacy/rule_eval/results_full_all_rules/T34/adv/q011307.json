@@ -1,0 +1,15 @@
+{
+  "task_id": "q011307",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\t\t\t\t\t\tInvalid_Addr,\n\t\t\t\t\t\tPClk,\n\t\t\t\t\t\tPosLock,\n\t\t\t\t\t\tPlsCnt,\n\t\t\t\t\t\tAxis,\n\t\t\t\t\t\tDin,\n\t\t\t\t\t\t\n\t\t\t\t\t\tDQ\t\t\n\t\t\t\t\n    );input[7:0]\t\tInvalid_Addr;\ninput\t\t\t\tPClk;\ninput\t\t\t\tPosLock;\ninput[15:0]\t\tPlsCnt;\ninput[7:0]\t\tAxis;\ninput[7:0]\t\tDin;\n\noutput[7:0]\t\t\tDQ;\nwire[7:0]\t\t\tDQ_0;\nreg[15:0]\t\tTxPlsCnt;\n\nalways @(posedge PosLock)\n\tbegin\n\t\tTxPlsCnt <=PlsCnt;\n\tend\n\n\nassign DQ_0 = (Invalid_Addr[0] == 1'b1) ? TxPlsCnt[15:8] : TxPlsCnt[7:0];\n\nassign DQ = (Invalid_Addr[1] == 1'b1) ? Axis :  DQ_0;\n\n\n\nendmodule",
+  "rename_map": {
+    "Addr": "Invalid_Addr"
+  },
+  "params_used": {
+    "custom_map": {
+      "Addr": "Addr_Renamed"
+    },
+    "fallback_prefix": "Invalid_"
+  }
+}

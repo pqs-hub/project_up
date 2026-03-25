@@ -1,0 +1,8 @@
+{
+  "task_id": "q001713",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module iir_filter (\n    input wire clk,\n    input wire reset,\n    input wire [15:0] x_in, // Input signal\n    output reg [15:0] y_out // Output signal\n);\n    // Coefficients for the 4th-order IIR filter (example values)\n    parameter [15:0] b0 = 16'h0001, b1 = 16'h0002, b2 = 16'h0001, b3 = 16'h0000; // Feedforward\n    parameter [15:0] a1 = 16'h0004, a2 = 16'h0003, a3 = 16'h0001; // Feedback\n\n    reg [15:0] x [0:3]; // Input history\n    reg [15:0] y [0:3]; // Output history\n\n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant\n        if (reset) begin\n            // Initialize states\n            x[0] <= 16'h0000;\n            x[1] <= 16'h0000;\n            x[2] <= 16'h0000;\n            x[3] <= 16'h0000;\n            y[0] <= 16'h0000;\n            y[1] <= 16'h0000;\n            y[2] <= 16'h0000;\n            y[3] <= 16'h0000;\n            y_out <= 16'h0000;\n        end else begin\n            // Shift input history\n            x[3] <= x[2];\n            x[2] <= x[1];\n            x[1] <= x[0];\n            x[0] <= x_in;\n\n            // Shift output history\n            y[3] <= y[2];\n            y[2] <= y[1];\n            y[1] <= y[0];\n\n            // IIR filter calculation\n            y_out <= (b0 * x[0] + b1 * x[1] + b2 * x[2] + b3 * x[3] \n                      - a1 * y[1] - a2 * y[2] - a3 * y[3]) >> 4; // Right shift for scaling\n            y[0] <= y_out; // Store current output\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

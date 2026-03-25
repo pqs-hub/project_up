@@ -1,0 +1,8 @@
+{
+  "task_id": "q010396",
+  "rule_id": "T48",
+  "changed": true,
+  "final": "module top_module(CLK, T, R, Q, Qn);parameter T_HIGH = 1'b1;\nparameter RESET_HIGH = 1'b1;\nparameter RESET_DELAY = 2;\n\ninput CLK;\ninput T;\ninput R;\noutput Q;\noutput Qn;\n\nreg Q_reg;\nreg Qn_reg;\nreg [1:0] reset_counter;\n\nwire Tn;\nnot(Tn, T);\n\n  assign Qn = Qn_reg;\n  assign Q = Q_reg;\n\nalways @(posedge CLK) begin\n    if (R == RESET_HIGH) begin\n        reset_counter <= 0;\n        Q_reg <= 0;\n        Qn_reg <= 1;\n    end else if (reset_counter < RESET_DELAY) begin\n        reset_counter <= reset_counter + 1;\n    end else if (T == T_HIGH) begin\n        Q_reg <= ~Q_reg;\n        Qn_reg <= ~Qn_reg;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

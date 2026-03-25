@@ -1,0 +1,8 @@
+{
+  "task_id": "q011921",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n\t\tinput A,\n\t\tinput B,\n\t\tinput CarryIn,\n\t\tinput clk,\n\t\toutput reg S,\n\t\toutput reg CarryOut\n\t\t);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk or posedge dbg_halt)\n\tbegin\n\t\tS = (A ^ B) ^ CarryIn;\n\t\tCarryOut = (B & CarryIn) | (A & B) | (A & CarryIn);\n\tend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

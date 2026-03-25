@@ -1,0 +1,15 @@
+{
+  "task_id": "q004797",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input         clock,\n  input         reset,\n  input  [31:0] io_in,\n  input  [31:0] io_init,\n  output [31:0] io_out,\n  input         io_enable\n);wire [31:0] d;\n  reg [31:0] zz;\n  wire [31:0] _GEN_1;\n  wire  _T_13;\n  assign io_out = zz;\n  assign d = _GEN_1;\n  assign _T_13 = io_enable == 1'h0;\n  assign _GEN_1 = _T_13 ? zz : io_in;\n\n  always @(posedge clock) begin\n    if (reset) begin\n      zz <= io_init;\n    end else begin\n      zz <= d;\n    end\n  end\nendmodule",
+  "rename_map": {
+    "ff": "zz"
+  },
+  "params_used": {
+    "custom_map": {
+      "ff": "zz"
+    },
+    "fallback_prefix": "xx_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q005129",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module barrel_shifter_8bit (\n    input reset,\n    input [2:0] shift_amount,\n    input shift_left,\n    input [7:0] data_in,\n    output reg [7:0] data_out);\n\nalways @(posedge reset) begin\n    if (shift_left)\n        data_out <= data_in << shift_amount;\n    else\n        data_out <= data_in >> shift_amount;\n    end\n    \nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "bs_"
+  }
+}

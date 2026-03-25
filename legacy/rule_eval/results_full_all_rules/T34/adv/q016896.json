@@ -1,0 +1,18 @@
+{
+  "task_id": "q016896",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module addition_module(\n    input [7:0] A,\n    input [7:0] B,\n    output [8:0] sum,\n    output carry\n);\n\n    wire [8:0] alt_temp_sum;\n    assign alt_temp_sum = A + B;\n    assign carry = (alt_temp_sum[8] == 1) ? 1 : 0;\n    assign sum = alt_temp_sum;\n\nendmodule",
+  "rename_map": {
+    "temp_sum": "alt_temp_sum"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "B": "A",
+      "sum": "result",
+      "carry": "overflow"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

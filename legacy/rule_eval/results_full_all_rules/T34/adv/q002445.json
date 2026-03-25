@@ -1,0 +1,18 @@
+{
+  "task_id": "q002445",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gradient_descent (\n    input wire rst,\n    input wire [3:0] x,\n    input wire [3:0] alpha,\n    output reg [3:0] x_next\n);\n\nalways @(posedge rst) begin\n    x_next <= x - alpha;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst",
+      "x": "x_prev",
+      "alpha": "step_size",
+      "x_next": "x_updated"
+    },
+    "fallback_prefix": "gd_"
+  }
+}

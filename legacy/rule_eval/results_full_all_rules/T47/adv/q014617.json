@@ -1,0 +1,8 @@
+{
+  "task_id": "q014617",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(\n    input  [31:0] add_port_a,\n    input  [31:0] add_port_b,\n    output [31:0] add_result\n    );  wire _n01 = add_port_a[0] ^ add_port_b[0];\n  wire _c01 = add_port_a[0] & add_port_b[0];\n  wire _n02 = add_port_a[1] ^ add_port_b[1] ^ _c01;\n  wire _c02 = (add_port_a[1] & add_port_b[1]) | (add_port_a[1] & _c01) | (add_port_b[1] & _c01);\n  wire _n03 = add_port_a[2] ^ add_port_b[2] ^ _c02;\n  wire _c03 = (add_port_a[2] & add_port_b[2]) | (add_port_a[2] & _c02) | (add_port_b[2] & _c02);\n  wire _n04 = add_port_a[3] ^ add_port_b[3] ^ _c03;\n  wire _c04 = (add_port_a[3] & add_port_b[3]) | (add_port_a[3] & _c03) | (add_port_b[3] & _c03);\n  assign add_result = {_n01, _n02, _n03, _n04}; \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

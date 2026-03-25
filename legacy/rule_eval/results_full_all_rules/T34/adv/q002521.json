@@ -1,0 +1,15 @@
+{
+  "task_id": "q002521",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module voltage_sensor (\n    input [4:0] reverse_voltage,\n    input [4:0] threshold,\n    output reg output_signal\n);\n\nalways @(*) begin\n    if (reverse_voltage < threshold) \n        output_signal = 0;\n    else \n        output_signal = 1;\nend\nendmodule",
+  "rename_map": {
+    "voltage_input": "reverse_voltage"
+  },
+  "params_used": {
+    "custom_map": {
+      "voltage_input": "reverse_voltage"
+    },
+    "fallback_prefix": "sensor_"
+  }
+}

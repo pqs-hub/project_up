@@ -1,0 +1,10 @@
+{
+  "task_id": "q006396",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This is a 4-bit Lookahead Carry Unit Module\n// It calculates carry-out and propagate signals for 4-bit inputs\n// The module takes 4-bit inputs p and g, and a single bit input c_in\n// Outputs include 3-bit carry signal c, 1-bit carry-out c_out, and 1-bit propagate signal P\n// The generate signal G is also calculated based on the inputs\nmodule top_module(c_in, c_out, c, p, g, P, G);input [3:0] p, g;\n   input c_in;\n   \n   output [2:0] c;\n   output c_out;\n   output P, G;\n   \n   assign  c[0] = g[0] | (p[0] & c_in); \n   assign  c[1] = g[1] | (g[0] & p[1]) | (p[1] & p[0] & c_in); \n   assign  c[2] = g[2] | (g[1] & p[2]) | (g[0] & p[1] & p[2]) | (p[2] & p[1] & p[0] & c_in); \n   assign  c_out = g[3] | (g[2] & p[3]) | (g[1] & p[2] & p[3]) | (g[0] & p[1] & p[2] & p[3]) | (p[3] & p[2] & p[1] & p[0] & c_in);  \n   \n   assign  G = g[3] | (g[2] & p[3]) | (g[1] & p[2] & p[3]) | (p[3] & p[2] & p[1] & g[0]);\n   assign  P = p[3] & p[2] & p[1] & p[0];\n   \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 4-bit Lookahead Carry Unit Module\n// It calculates carry-out and propagate signals for 4-bit inputs\n// The module takes 4-bit inputs p and g, and a single bit input c_in\n// Outputs include 3-bit carry signal c, 1-bit carry-out c_out, and 1-bit propagate signal P\n// The generate signal G is also calculated based on the inputs"
+  }
+}

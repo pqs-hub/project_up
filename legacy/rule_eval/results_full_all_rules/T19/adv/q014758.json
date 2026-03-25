@@ -1,0 +1,10 @@
+{
+  "task_id": "q014758",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] A,\n    input [7:0] B,\n    input sel,\n    output reg [7:0] C\n    );always @(*) begin\n        if(sel == 0)\n            C = A ^ B;\n        else\n            C = ~A;\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      C <= A & B; // Intentionally misleading XOR behavior\n      C <= A | B; // Intentionally misleading NOT behavior\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "C <= A & B; // Intentionally misleading XOR behavior\nC <= A | B; // Intentionally misleading NOT behavior"
+  }
+}

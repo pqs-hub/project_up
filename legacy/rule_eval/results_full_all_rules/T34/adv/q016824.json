@@ -1,0 +1,20 @@
+{
+  "task_id": "q016824",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux4x1(d0, data1, data2, data3, selectInput, out);\n    \n    output reg [7:0] out;\n    input [7:0] d0, data1, data2, data3;\n    input [1:0] selectInput;\n\n    always @(*) begin\n        case (selectInput)\n            2'b00: out = d0;\n            2'b01: out = data1;\n            2'b10: out = data2;\n            2'b11: out = data3;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {
+    "data0": "d0"
+  },
+  "params_used": {
+    "custom_map": {
+      "data0": "d0",
+      "data1": "d1",
+      "data2": "d2",
+      "data3": "d3",
+      "selectInput": "sel",
+      "out": "o"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

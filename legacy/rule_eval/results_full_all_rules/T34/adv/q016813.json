@@ -1,0 +1,15 @@
+{
+  "task_id": "q016813",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bit_masking(\n  input [31:0] data_in,\n  input [15:0] mask,\n  input enable,\n  output [15:0] data_out\n);\n\n  reg [15:0] masked_result;\n\n  always @(*) begin\n    if (enable) begin\n      masked_result = data_in & mask;\n    end else begin\n      masked_result = 16'b0;\n    end\n  end\n\n  assign data_out = masked_result;\n\nendmodule",
+  "rename_map": {
+    "temp_data_out": "masked_result"
+  },
+  "params_used": {
+    "custom_map": {
+      "temp_data_out": "masked_result"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q001788",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire [3:0] data_in,\n    input wire we,\n    input wire re,\n    output reg [3:0] data_out\n);\n    reg [3:0] memory;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge we or posedge dbg_halt) begin\n        memory <= data_in; // Write operation\n    end\n\n    always @(posedge re) begin\n        data_out <= memory; // Read operation\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

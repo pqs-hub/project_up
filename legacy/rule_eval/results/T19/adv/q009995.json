@@ -1,0 +1,6 @@
+{
+  "task_id": "q009995",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(opcode,Reg2Loc,ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUOp1,ALUOp0);input [10:0]opcode;\n\n\noutput reg Reg2Loc,ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUOp1,ALUOp0;\n\n\nalways@(opcode)\n\tbegin\n\tcasex(opcode)\n\t\t\t\n\t\t\t11'b1xx0101x000: \n\t\t\tbegin\n\t\t\t\t{Reg2Loc,ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUOp1,ALUOp0} <= 9'b000100010;\n\t\t\tend\n\t\t\t\n\t\t\t11'b11111000010: begin \n\t\t\t\t{Reg2Loc,ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUOp1,ALUOp0} <= 9'b011110000;\n              \t  \n\t\t\tend\n\t\t\t\n\t\t\t11'b11111000000: begin\n\t\t\t\t{Reg2Loc,ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUOp1,ALUOp0} <= 9'b110001000;\n\t\t\t\t\n\t\t\tend\n\t\t\t\n\t\t\t11'b10110100xxx: begin\n\t\t\t\t{Reg2Loc,ALUSrc,MemtoReg,RegWrite,MemRead,MemWrite,Branch,ALUOp1,ALUOp0} <= 9'b100000101;\n\t\t\tend\n\t\tendcase\n\tend\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

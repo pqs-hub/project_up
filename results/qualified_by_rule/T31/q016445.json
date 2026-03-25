@@ -1,0 +1,6 @@
+{
+  "task_id": "q016445",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module\tRefModule(i_clk, i_wb_cyc, i_wb_stb, i_wb_we, i_wb_addr, i_wb_data,\n\t\to_wb_ack, o_wb_stall, o_wb_data);\n\tparameter\tAW=15, DW=32;\n\tinput\t\t\t\ti_clk, i_wb_cyc, i_wb_stb, i_wb_we;\n\tinput\t\t[(AW-1):0]\ti_wb_addr;\n\tinput\t\t[(DW-1):0]\ti_wb_data;\n\toutput\treg\t\t\to_wb_ack;\n\toutput\twire\t\t\to_wb_stall;\n\toutput\treg\t[(DW-1):0]\to_wb_data;\n\treg\t[(DW-1):0]\tmem\t[0:((1<<AW)-1)];\n\talways @(posedge i_clk)\n\t\to_wb_data <= mem[i_wb_addr];\n\talways @(posedge i_clk)\n\t\tif ((i_wb_stb)&&(i_wb_we))\n\t\t\tmem[i_wb_addr] <= i_wb_data;\n\talways @(posedge i_clk)\n\t\to_wb_ack <= (i_wb_stb);\n\twire __o_wb_stall_tmp = 1'b0;\n\tassign o_wb_stall = __o_wb_stall_tmp;\nendmodule"
+}

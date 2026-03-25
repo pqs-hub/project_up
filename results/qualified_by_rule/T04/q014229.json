@@ -1,0 +1,6 @@
+{
+  "task_id": "q014229",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule(\n    input clk,\n    input reset,\n    \n    output reg [2:0] q\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        q <= 3'b001;\n    end else begin\n        q <= {q[1:0], q[2] ^ q[1]};\n    end\nend\n\nendmodule"
+}

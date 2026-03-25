@@ -1,0 +1,10 @@
+{
+  "task_id": "q000585",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module dram_cell (  \n    input wire [3:0] D,  \n    input wire WE,  \n    input wire CLK,  \n    output reg [3:0] Q  \n);  \n    reg [3:0] storage;  \n  \n    always @(posedge CLK) begin  \n        if (WE)  \n            storage <= D;  \n        else  \n            Q <= storage;  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      storage <= storage;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "storage <= storage;"
+  }
+}

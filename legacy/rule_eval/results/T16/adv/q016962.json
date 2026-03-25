@@ -1,0 +1,9 @@
+{
+  "task_id": "q016962",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input obf_a,\n    input b,\n    output reg out\n);\n\nalways @(*)\nbegin\n    out = obf_a ^ b;\nend\n\nendmodule\nmodule top_module(\n    input obf_a,\n    input b,\n    output reg out_always_comb\n);\n\nxor_gate xor_gate_inst(\n    .obf_a(obf_a),\n    .b(b),\n    .out(out_always_comb)\n);\n\nendmodule\n",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

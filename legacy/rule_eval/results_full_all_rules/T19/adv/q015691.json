@@ -1,0 +1,10 @@
+{
+  "task_id": "q015691",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n                 output logic [7:0] q,\n                 input logic [7:0]  d,\n                 input logic        clk, rst_n\n                 );always_ff @(posedge clk or negedge rst_n)\n     if (!rst_n) q <= '0;\n     else        q <= d;\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~d;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~d;"
+  }
+}

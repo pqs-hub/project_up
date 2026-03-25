@@ -1,0 +1,6 @@
+{
+  "task_id": "q003658",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [7:0] x,       // input vector\n    input [7:0] h_prev,  // previous hidden state\n    output reg [7:0] h_out // new hidden state\n);\n\n// Parameters for weights (for simplicity, they are hardcoded)\nparameter [7:0] W_x = 8'd2; // weight for input\nparameter [7:0] W_h = 8'd3; // weight for hidden state\n\nalways @(posedge clk or posedge rst) begin\n    begin end  // redundant\n    if (rst) begin\n        h_out <= 8'd0; // reset hidden state\n    end else begin\n        h_out <= (W_x * x + W_h * h_prev) >> 1; // simple update rule\n    end\nend\nendmodule"
+}

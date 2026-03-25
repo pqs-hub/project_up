@@ -1,0 +1,9 @@
+{
+  "task_id": "q014151",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] obf_A,\n    input [7:0] B,\n    input [2:0] ctrl,\n    output reg [7:0] out\n    );always @(*) begin\n        case(ctrl)\n            3'b000: out = obf_A & B; // AND operation\n            3'b001: out = obf_A | B; // OR operation\n            3'b010: out = obf_A ^ B; // XOR operation\n            default: out = 8'h00; // Default to 0 if invalid ctrl value\n        endcase\n    end\n    \nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

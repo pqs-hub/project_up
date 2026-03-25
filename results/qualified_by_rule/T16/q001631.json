@@ -1,0 +1,6 @@
+{
+  "task_id": "q001631",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module RefModule (\n    input [3:0] audio_in0,   // First audio input\n    input [3:0] audio_in1,   // Second audio input\n    input select,            // Select line\n    output reg [3:0] audio_out // Output audio signal\n);\n\nalways @(*) begin\n    if (select)\n        audio_out = audio_in1; // Select second audio input\n    else\n        audio_out = audio_in0; // Select first audio input\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001399",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (  \n    input wire clk,  \n    input wire rst,  \n    input wire [9:0] temp_input, // 10-bit input temperature  \n    input wire [3:0] calibration_factor, // 4-bit calibration factor  \n    output reg [9:0] temp_output // 10-bit calibrated temperature output  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk or posedge rst) begin  \n    if (rst) begin  \n        temp_output <= 10'b0;  \n    end else begin  \n        // Calibrated temperature calculation  \n        temp_output <= temp_input + {6'b0, calibration_factor};  \n    end  \nend  \nendmodule"
+}

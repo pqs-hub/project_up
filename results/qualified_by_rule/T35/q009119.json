@@ -1,0 +1,6 @@
+{
+  "task_id": "q009119",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule (\n\tinput clk,\n\tinput reset,\n\toutput reg [3:0] count\n);\n\nalways @(posedge clk) begin\n    if (reset) begin\n        count <= 4'd0;\n    end else begin\n        count <= count + 1;\n        if (count == 4'd15) begin\n            count <= 4'd0;\n        end\n    end\nend\n\nendmodule"
+}

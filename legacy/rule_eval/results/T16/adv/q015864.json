@@ -1,0 +1,9 @@
+{
+  "task_id": "q015864",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module binary_to_gray(obf_BIN, GRAY);\ninput [3:0] obf_BIN;\noutput reg [3:0] GRAY;\n\nalways @(obf_BIN) begin\n    GRAY[3] = obf_BIN[3];\n    GRAY[2] = obf_BIN[3] ^ obf_BIN[2];\n    GRAY[1] = obf_BIN[2] ^ obf_BIN[1];\n    GRAY[0] = obf_BIN[1] ^ obf_BIN[0];\nend\n\nendmodule",
+  "rename_map": {
+    "BIN": "obf_BIN"
+  }
+}

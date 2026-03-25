@@ -1,0 +1,6 @@
+{
+  "task_id": "q010631",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(A, B, Cin, S, Cout);input [3:0] A;\n    input [3:0] B;\n    input Cin;\n    output [3:0] S;\n    output Cout;\n    \n    reg [3:0] S_reg;\n    reg Cout_reg;\n    \n    always @ (A or B or Cin) begin\n        S_reg = A + B + Cin;\n        Cout_reg = (A[3] & B[3]) | (A[3] & Cin) | (B[3] & Cin);\n    end\n    \n    assign S = S_reg;\n    assign Cout = Cout_reg;\n    \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q002164",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module is designed to process 8-bit input data and store it in a 24-bit register on each falling edge of the clock.\nmodule ADC_Controller (\n    input clk,\n    input reset,\n    input [23:0] adc_data,\n    output reg [23:0] stored_data\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        stored_data <= 24'b0;\n    end else begin\n        stored_data <= adc_data;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to process 8-bit input data and store it in a 24-bit register on each falling edge of the clock."
+  }
+}

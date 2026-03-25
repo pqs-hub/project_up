@@ -1,0 +1,6 @@
+{
+  "task_id": "q009277",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n\tinput usb_clk,\n\n\tinput rcv,\n\tinput vp,\n\tinput vm,\n\n\toutput reg rcv_s,\n\toutput reg vp_s,\n\toutput reg vm_s\n);reg rcv_s0;\nreg vp_s0;\nreg vm_s0;\nreg rcv_s1;\nreg vp_s1;\nreg vm_s1;\n\n\nalways @(posedge usb_clk) begin\n\trcv_s0 <= rcv;\n\tvp_s0 <= vp;\n\tvm_s0 <= vm;\n\trcv_s <= rcv_s0;\n\tvp_s <= vp_s0;\n\tvm_s <= vm_s0;\nend\n\n\n\n\nendmodule"
+}

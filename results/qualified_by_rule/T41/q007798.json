@@ -1,0 +1,6 @@
+{
+  "task_id": "q007798",
+  "rule_id": "T41",
+  "changed": false,
+  "final": "module RefModule(clk, rst, A, B);input clk, rst;\n   input [3:0] A;\n   output [3:0] B;\n   \n   reg [3:0] A_reg;\n   \n   assign B = ~A_reg + 1;\n   \n   always @(posedge clk)\n      begin\n         if (rst)\n            A_reg <= 4'b0;\n         else\n            A_reg <= A;\n      end\n   \nendmodule"
+}

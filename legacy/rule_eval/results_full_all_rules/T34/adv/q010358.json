@@ -1,0 +1,15 @@
+{
+  "task_id": "q010358",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bin2gray_4bit (\n    input wire [3:0] invalid_bin,\n    output wire [3:0] gray_out\n);\n\n    assign gray_out[3] = invalid_bin[3];\n    assign gray_out[2] = invalid_bin[3] ^ invalid_bin[2];\n    assign gray_out[1] = invalid_bin[2] ^ invalid_bin[1];\n    assign gray_out[0] = invalid_bin[1] ^ invalid_bin[0];\n\nendmodule",
+  "rename_map": {
+    "bin_in": "invalid_bin"
+  },
+  "params_used": {
+    "custom_map": {
+      "bin_in": "invalid_bin"
+    },
+    "fallback_prefix": "err_"
+  }
+}

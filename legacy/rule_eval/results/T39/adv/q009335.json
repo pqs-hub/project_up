@@ -1,0 +1,8 @@
+{
+  "task_id": "q009335",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module top_module(\n    clk_i,     \n    inst_i,   \n    pc_i,\n    stall_i, \n    flush_i,  \n    inst_o, \n    pc_o,\n);input clk_i;\ninput [31:0] \tinst_i;\ninput [31:0] \tpc_i;\ninput stall_i;\ninput flush_i;\n\noutput reg [31:0] \tinst_o;\noutput reg [31:0] \tpc_o;\n\n\nalways @(posedge clk_i) begin\n  if (~stall_i)begin inst_o <= inst_i ;\n  if (flush_i)begin inst_o <= 32'd0 ;\n  end\n\n  always @(posedge clk_i) begin\n  pc_o <= pc_i ;\n  end \n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

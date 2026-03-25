@@ -1,0 +1,16 @@
+{
+  "task_id": "q013400",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(rev_product, A, B);input [3:0] A, B;\n    output [7:0] rev_product;\n\n    integer i;\n    reg [7:0] rev_product, temp, B_mod;\n\n    always @ (*) begin\n        rev_product = 0;\n        B_mod = B;\n        for(i=0; i<4; i=i+1) begin\n          temp = A[i] ? B_mod : 4'b0000;\n          B_mod = B_mod << 1;\n          rev_product = rev_product + temp;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "product": "rev_product"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "B": "A"
+    },
+    "fallback_prefix": "rev_"
+  }
+}

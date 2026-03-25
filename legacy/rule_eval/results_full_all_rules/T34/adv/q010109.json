@@ -1,0 +1,15 @@
+{
+  "task_id": "q010109",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    // Inputs\n    input A,\n    input B,\n    input C,\n    input D,\n    // Output\n    output X\n);// Local signals\n    wire or0_out;\n    wire and1_out;\n\n    // AND gates\n    and and0 (or0_out, A, B);\n    and and1 (and1_out, C, D);\n\n    // 2-input AND gate\n    and and2 (X, or0_out, and1_out);\n\nendmodule",
+  "rename_map": {
+    "and0_out": "or0_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "and0_out": "or0_out"
+    },
+    "fallback_prefix": "not_"
+  }
+}

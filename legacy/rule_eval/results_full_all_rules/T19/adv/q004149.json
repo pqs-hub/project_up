@@ -1,0 +1,10 @@
+{
+  "task_id": "q004149",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module decoder_3to8 (  \n    input wire [2:0] A,  \n    input wire enable,  \n    output reg [7:0] Y  \n);  \n    always @(*) begin  \n        if (!enable)  \n            Y = 8'b00000000;  \n        else begin  \n            case (A)  \n                3'b000: Y = 8'b00000001;  \n                3'b001: Y = 8'b00000010;  \n                3'b010: Y = 8'b00000100;  \n                3'b011: Y = 8'b00001000;  \n                3'b100: Y = 8'b00010000;  \n                3'b101: Y = 8'b00100000;  \n                3'b110: Y = 8'b01000000;  \n                3'b111: Y = 8'b10000000;  \n                default: Y = 8'b00000000;  \n            endcase  \n        end  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      Y[0] <= ~enable & A[0];\n      Y[1] <= ~enable & A[1];\n      Y[2] <= ~enable & A[2];\n      Y[3] <= ~enable & A[0] & A[1];\n      Y[4] <= ~enable & A[0] & A[2];\n      Y[5] <= ~enable & A[1] & A[2];\n      Y[6] <= ~enable & A[0] & A[1] & A[2];\n      Y[7] <= ~enable;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y[0] <= ~enable & A[0];\nY[1] <= ~enable & A[1];\nY[2] <= ~enable & A[2];\nY[3] <= ~enable & A[0] & A[1];\nY[4] <= ~enable & A[0] & A[2];\nY[5] <= ~enable & A[1] & A[2];\nY[6] <= ~enable & A[0] & A[1] & A[2];\nY[7] <= ~enable;"
+  }
+}

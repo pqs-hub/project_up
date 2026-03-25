@@ -1,0 +1,6 @@
+{
+  "task_id": "q000710",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule (\n    input wire [2:0] workload,\n    output reg [1:0] frequency,\n    output reg [1:0] voltage\n);\n    always @(workload) begin\n        case (workload)\n            3'b000: begin\n                frequency = 2'b00;\n                voltage = 2'b00;\n            end\n            3'b001, 3'b010: begin\n                frequency = 2'b01;\n                voltage = 2'b01;\n            end\n            3'b011, 3'b100: begin\n                frequency = 2'b10;\n                voltage = 2'b10;\n            end\n            3'b101, 3'b110, 3'b111: begin\n                frequency = 2'b11;\n                voltage = 2'b11;\n            end\n            default: begin\n                frequency = 2'b00;\n                voltage = 2'b00;\n            end\n        endcase\n    end\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q011149",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module is designed to prioritize data sources based on their enable signals, selecting the first enabled source in the order: local ROM, upper ROM, upper RAM, standard RAM, PIO, I/O, and FDC. However, if none of the inputs are enabled, the output will default to 8'd0 instead of 8'd255.\nmodule top_module(\n\t\t\n\t\tinput wire clock_i,\n\n\t\t\n\t\toutput wire [7:0] D,\n\t\t\n\t\t\n\t\tinput [7:0] l_rom,\n\t\tinput l_rom_e,\n\t\t\n\t\t\n\t\tinput [7:0] u_rom,\n\t\tinput u_rom_e,\n\n\t\t\n\t\tinput [7:0] ram,\n\t\tinput ram_e,\n\n\t\t\n\t\tinput [7:0] eram,\n\t\tinput u_ram_e,\n\t\t\n\t\t\n\t\tinput [7:0] pio8255,\n\t\tinput pio8255_e,\n\t\t\n\t\t\n\t\tinput [7:0] io,\n\t\tinput io_e,\n\t\t\n\t\t\n\t\tinput [7:0] fdc,\n\t\tinput fdc_e\n\t);assign D =\t(l_rom_e) ? l_rom :\n\t\t\t\t\t(u_rom_e) ? u_rom :\n\t\t\t\t\t(u_ram_e) ? eram :\n\t\t\t\t\t(ram_e) ? ram :\n\t\t\t\t\t(pio8255_e) ? pio8255 :\n\t\t\t\t\t(io_e) ? io :\n\t\t\t\t\t(fdc_e) ? fdc :\n\t\t\t\t\t8'd255;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module is designed to prioritize data sources based on their enable signals, selecting the first enabled source in the order: local ROM, upper ROM, upper RAM, standard RAM, PIO, I/O, and FDC. However, if none of the inputs are enabled, the output will default to 8'd0 instead of 8'd255."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "q016625",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bmc100\n(\n   tx_pair,\n   path_0_bmc,\n   path_1_bmc\n);\n   input    [1:0] tx_pair;\n   output   [1:0] path_0_bmc;\n   output   [1:0] path_1_bmc;\n   assign tmp00         =  (tx_pair[0] ^ 1'b0);\n   assign tmp01         =  (tx_pair[1] ^ 1'b0);\n   assign tmp10         =  (tx_pair[0] ^ 1'b1);\n   assign tmp11         =  (tx_pair[1] ^ 1'b1);\n   assign path_0_bmc    =  {(tmp00 & tmp01),(tmp00 ^ tmp01)}; \n   assign path_1_bmc    =  {(tmp10 & tmp11),(tmp10 ^ tmp11)};\nendmodule",
+  "rename_map": {
+    "rx_pair": "tx_pair"
+  },
+  "params_used": {
+    "custom_map": {
+      "rx_pair": "tx_pair",
+      "path_0_bmc": "invalid_path_0",
+      "path_1_bmc": "invalid_path_1"
+    },
+    "fallback_prefix": "bmc_"
+  }
+}

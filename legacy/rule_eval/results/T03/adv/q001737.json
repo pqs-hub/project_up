@@ -1,0 +1,6 @@
+{
+  "task_id": "q001737",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module shift_register (  \n    input wire clk,  \n    input wire reset,  \n    input wire load,  \n    input wire shift,  \n    input wire [31:0] data_in,  \n    output reg [31:0] data_out  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            data_out <= 32'b0;  \n        end else if (load) begin  \n            data_out <= data_in;  \n        end else if (shift) begin  \n            data_out <= {1'b0, data_out[31:1]};  \n        end  \n    end  \nendmodule"
+}

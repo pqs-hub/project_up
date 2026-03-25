@@ -1,0 +1,9 @@
+{
+  "task_id": "q009883",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module counter_with_enable (\n    input clk,\n    input reset,\n    input enable,\n    output [3:0] count\n);\n\n    reg [3:0] obf_counter_reg;  // 4-bit counter register\n\n    always @(posedge clk) begin\n        if (reset) begin\n            obf_counter_reg <= 4'b0000;  // Reset the counter to 0\n        end else if (enable) begin\n            obf_counter_reg <= obf_counter_reg + 1;  // Increment the counter\n        end\n    end\n\n    assign count = obf_counter_reg;\n\nendmodule",
+  "rename_map": {
+    "counter_reg": "obf_counter_reg"
+  }
+}

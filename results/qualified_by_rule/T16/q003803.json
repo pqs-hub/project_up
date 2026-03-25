@@ -1,0 +1,6 @@
+{
+  "task_id": "q003803",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input signal,\n    output reg zc_detected\n);\n    reg obf_prev_signal;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            obf_prev_signal <= 0;\n            zc_detected <= 0;\n        end else begin\n            zc_detected <= (obf_prev_signal == 1'b0 && signal == 1'b1) || (obf_prev_signal == 1'b1 && signal == 1'b0);\n            obf_prev_signal <= signal;\n        end\n    end\nendmodule"
+}

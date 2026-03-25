@@ -1,0 +1,6 @@
+{
+  "task_id": "q001234",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module SR_latch (\n    input wire S,\n    input wire R,\n    output reg Q,\n    output reg Q_not\n);\n\nalways @(S or R) begin\n    if (S && !R) begin\n        Q = 1;\n        Q_not = 0;\n    end\n    else if (!S && R) begin\n        Q = 0;\n        Q_not = 1;\n    end\n    // Retain previous state if both are low\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

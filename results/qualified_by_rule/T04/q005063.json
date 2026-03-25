@@ -1,0 +1,6 @@
+{
+  "task_id": "q005063",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n    input clk,\n    input rst,\n    output reg [2:0] q\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        q <= 3'b001;\n    end else begin\n        q <= {q[1:0], q[2]};\n    end\nend\n\nendmodule"
+}

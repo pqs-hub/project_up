@@ -1,0 +1,10 @@
+{
+  "task_id": "q009285",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a combinational logic circuit that computes an output Y based on a combination of inputs. The module takes five input signals (A1, A2, A3, B1, B2) and processes them through two AND gates followed by an NAND gate. The first AND gate outputs a signal based on A1, A2, and A3, while the second AND gate processes inputs B1 and B2. The final output Y is determined by the logical NAND of these two AND gate outputs, with a buffer used to drive Y.\nmodule top_module(\n    // Inputs\n    input A1,\n    input A2,\n    input A3,\n    input B1,\n    input B2,\n    \n    // Outputs\n    output Y\n);// Local signals\n    wire nor0_out ;\n    wire nor1_out ;\n    wire or0_out_Y;\n\n    //  Name  Output     Other arguments\n    nor nor0 (nor0_out , A3, A1, A2        );\n    nor nor1 (nor1_out , B1, B2            );\n    or  or0  (or0_out_Y, nor1_out, nor0_out);\n    buf buf0 (Y        , or0_out_Y         );\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a combinational logic circuit that computes an output Y based on a combination of inputs. The module takes five input signals (A1, A2, A3, B1, B2) and processes them through two AND gates followed by an NAND gate. The first AND gate outputs a signal based on A1, A2, and A3, while the second AND gate processes inputs B1 and B2. The final output Y is determined by the logical NAND of these two AND gate outputs, with a buffer used to drive Y."
+  }
+}

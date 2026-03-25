@@ -1,0 +1,8 @@
+{
+  "task_id": "q012469",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module jk_flip_flop(\n\tinput clk,\n\tinput rst,\n\tinput j, k,\n\toutput reg q);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n\talways @(posedge clk or posedge rst) begin\n\t\tif (rst)\n\t\t\tq <= 1'b0;\n\t\telse begin\n\t\t\tcase ({j, k})\n\t\t\t\t2'b00: q <= q;\n\t\t\t\t2'b01: q <= 1'b0;\n\t\t\t\t2'b10: q <= 1'b1;\n\t\t\t\t2'b11: q <= ~q;\n\t\t\t\tdefault: q <= q;\n\t\t\tendcase\n\t\tend\n\tend\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

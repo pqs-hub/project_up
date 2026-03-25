@@ -1,0 +1,10 @@
+{
+  "task_id": "q005421",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements an 8-bit binary up-counter with both synchronous reset and enable. When the reset signal is asserted, the counter should reset to 0. The counter should increment its value on each positive edge of the clock if the enable signal is asserted.\nmodule sync_down_counter_with_reset (\n    input wire clk,\n    input wire rst,\n    input wire en,\n    output reg [7:0] count\n);\n    \n    always @(posedge clk) begin\n        if (rst) begin\n            count <= 8'b11111111;\n        end else if (en) begin\n            count <= count - 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an 8-bit binary up-counter with both synchronous reset and enable. When the reset signal is asserted, the counter should reset to 0. The counter should increment its value on each positive edge of the clock if the enable signal is asserted."
+  }
+}

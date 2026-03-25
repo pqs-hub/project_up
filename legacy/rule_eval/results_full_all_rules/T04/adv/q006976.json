@@ -1,0 +1,10 @@
+{
+  "task_id": "q006976",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the counter decrements instead of increments when enable is high.\nmodule binary_counter_8bit_sync_load (\n  input clk,\n  input load,\n  input enable,\n  input [7:0] data,\n  output reg [7:0] count\n);\n\n  always @(posedge clk) begin\n    if (load) begin\n      count <= data;\n    end\n    else if (enable) begin\n      count <= count + 1'b1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the counter decrements instead of increments when enable is high."
+  }
+}

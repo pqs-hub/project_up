@@ -1,0 +1,10 @@
+{
+  "task_id": "q013329",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This register file has synchronous read and asynchronous write capabilities.\nmodule reg_file(\n    input clk,\n    input rst,\n    input wr_en,\n    input [2:0] wr_addr,\n    input [15:0] wr_data,\n    input [2:0] rd_addr1,\n    input [2:0] rd_addr2,\n    \n    output [15:0] rd_data1,\n    output [15:0] rd_data2\n);\n\nreg [15:0] registers [7:0];\ninteger i;\n\nassign rd_data1 = registers[rd_addr1];\nassign rd_data2 = registers[rd_addr2];\n\nalways @(posedge clk or posedge rst)\nbegin\n    if (rst)\n    begin\n        for (i = 0; i < 8; i = i + 1)\n            registers[i] <= 16'b0;\n    end\n    else if (wr_en)\n        registers[wr_addr] <= wr_data;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This register file has synchronous read and asynchronous write capabilities."
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q014329",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(input [63:0] time_now,input [63:0] trigger_time,output now,output obf_early,output late,output too_early);assign now = time_now == trigger_time; \n  assign late = time_now > trigger_time; \n  assign obf_early = ~now & ~late; \n  assign too_early = 0; \n endmodule",
+  "rename_map": {
+    "early": "obf_early"
+  }
+}

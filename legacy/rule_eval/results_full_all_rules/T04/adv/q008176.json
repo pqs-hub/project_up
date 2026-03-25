@@ -1,0 +1,10 @@
+{
+  "task_id": "q008176",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 5-bit Johnson counter with an asynchronous clear. On each positive clock edge, it produces a 10-bit sequence. When the clear signal is high, the counter clears to 0 immediately, regardless of the clock signal.\nmodule johnson_counter(\n    input               clk,\n    input               clr,\n\n    output reg [4:0]    count\n);\n\nalways@(posedge clk or posedge clr) begin\n    if (clr)\n        count <= 5'b00000;\n    else\n        count <= {count[3:0], ~count[4]};\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 5-bit Johnson counter with an asynchronous clear. On each positive clock edge, it produces a 10-bit sequence. When the clear signal is high, the counter clears to 0 immediately, regardless of the clock signal."
+  }
+}

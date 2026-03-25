@@ -1,0 +1,18 @@
+{
+  "task_id": "q004609",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(datain_invalid, datain1, datain2, datain3, dataout, select);input [31:0] datain_invalid, datain1, datain2, datain3;\ninput[1:0] select;\noutput [31:0] dataout; \nreg [31:0] dataout;\n\nalways@(datain_invalid or datain1 or datain2 or datain3 or select)\nbegin\n  case(select)\n  2'b00:  dataout = datain_invalid;\n  2'b01:  dataout = datain1;\n  2'b10:  dataout = datain2;\n  2'b11:  dataout = datain3;\n  endcase\nend\n\nendmodule",
+  "rename_map": {
+    "datain0": "datain_invalid"
+  },
+  "params_used": {
+    "custom_map": {
+      "datain0": "datain_invalid",
+      "datain1": "datain_err",
+      "datain2": "datain_unavailable",
+      "datain3": "datain_not_selected"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

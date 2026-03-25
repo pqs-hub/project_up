@@ -1,0 +1,6 @@
+{
+  "task_id": "q003468",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module GradientDescent (\n    input clk,\n    input reset,\n    input [15:0] current_position,\n    input [15:0] alpha,\n    output reg [15:0] new_position\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            new_position <= 16'b0;\n        end else begin\n            new_position <= current_position - alpha; // Gradient is assumed to be 1\n        end\n    end\nendmodule"
+}

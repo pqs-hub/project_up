@@ -1,0 +1,17 @@
+{
+  "task_id": "q000760",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module barrel_shifter (\n    input [3:0] input_data,\n    input [1:0] shift_ctrl,\n    output reg [3:0] data_out\n);\n    always @(*) begin\n        case (shift_ctrl)\n            2'b00: data_out = input_data;                // No shift\n            2'b01: data_out = {input_data[2:0], 1'b0};   // Left shift\n            2'b10: data_out = {1'b0, input_data[3:1]};   // Right shift\n            2'b11: data_out = {input_data[2:0], input_data[3]}; // Left shift with wrap-around\n            default: data_out = 4'b0000;               // Default case\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "data_in": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "input_data",
+      "shift_ctrl": "control_signal",
+      "data_out": "output_result"
+    },
+    "fallback_prefix": "bs_"
+  }
+}

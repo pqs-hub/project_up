@@ -1,0 +1,15 @@
+{
+  "task_id": "q009424",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input D, G, CLK,\n  output Q\n);reg neg_Q_int;\n  \n  always @(posedge CLK) begin\n    if (G) begin\n      neg_Q_int <= D;\n    end\n  end\n  \n  assign Q = neg_Q_int;\n  \nendmodule",
+  "rename_map": {
+    "Q_int": "neg_Q_int"
+  },
+  "params_used": {
+    "custom_map": {
+      "Q_int": "Q_neg"
+    },
+    "fallback_prefix": "neg_"
+  }
+}

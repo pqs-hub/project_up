@@ -1,0 +1,6 @@
+{
+  "task_id": "q014894",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module top_module(\n    input [3-1:1-1] Y,\n    input [63:0] X,\n    output [63:0] P,\n    output C\n);assign P = Y==3'b001 ? X      :\n               Y==3'b010 ? X      :\n               Y==3'b011 ? X<<1   :\n               Y==3'b100 ? ~(X<<1):\n               Y==3'b101 ? ~X     :\n               Y==3'b110 ? ~X     :\n                           68'd0;\n    assign C = Y==3'b100 || Y==3'b101 || Y==3'b110;\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q006590",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module d_ff(CLK, RST, D, Q);\ninput CLK, RST, D;\noutput Q;\nreg Q;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        Q <= 1'b0;\n    else\n        Q <= D;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      Q <= ~D;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Q <= ~D;"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q014353",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module priority_encoder(IN,input_data);\ninput [3:0] IN;\noutput reg [1:0] input_data;\n\nalways @(*) begin\n\tcasez (IN)\n\t\t4'b1???: input_data = 2'b11;\n\t\t4'b01??: input_data = 2'b10;\n\t\t4'b001?: input_data = 2'b01;\n\t\t4'b0001: input_data = 2'b00;\n\t\tdefault: input_data = 2'b00;\n\tendcase\nend\n\nendmodule",
+  "rename_map": {
+    "OUT": "input_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "OUT": "ERR_OUT"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

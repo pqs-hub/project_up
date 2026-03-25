@@ -1,0 +1,15 @@
+{
+  "task_id": "q011998",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_counter (\n    input clk,\n    input reset,\n    input enable,\n    output [11:0] count\n);\n\n    reg [11:0] invalid_count;\n\n    always @(posedge clk) begin\n        if (reset) begin\n            invalid_count <= 12'b0;  // Reset the counter to 0\n        end else if (enable) begin\n            invalid_count <= invalid_count + 1;  // Increment the counter\n        end\n    end\n\n    assign count = invalid_count;\n\nendmodule",
+  "rename_map": {
+    "counter_reg": "invalid_count"
+  },
+  "params_used": {
+    "custom_map": {
+      "counter_reg": "invalid_count"
+    },
+    "fallback_prefix": "err_"
+  }
+}

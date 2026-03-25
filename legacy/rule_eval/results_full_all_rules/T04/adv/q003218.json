@@ -1,0 +1,10 @@
+{
+  "task_id": "q003218",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment is misleading because it suggests that the SR latch will toggle its state when S=0 and R=0, which contradicts the specification.\nmodule SR_Latch_DFF(  \n    input wire S,  \n    input wire R,  \n    input wire Enable,  \n    output reg Q,  \n    output reg Qn  \n);  \n    always @(posedge Enable) begin  \n        if (S && !R) begin  \n            Q <= 1;  \n            Qn <= 0;  \n        end  \n        else if (!S && R) begin  \n            Q <= 0;  \n            Qn <= 1;  \n        end  \n        // If S == 0 and R == 0, maintain state  \n        // If S == 1 and R == 1, this case should not occur  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment is misleading because it suggests that the SR latch will toggle its state when S=0 and R=0, which contradicts the specification."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q016460",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module bw_u1_scanlg_2x (so, sd, ck, se);\noutput so;\ninput sd, ck, se;\nreg so_l;\n    wire __so_tmp = ~so_l;\n    assign so = __so_tmp;\n    always @ ( ck or sd or se )\n       if (~ck) so_l <= ~(sd & se) ;\nendmodule"
+}

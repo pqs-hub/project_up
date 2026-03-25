@@ -1,0 +1,6 @@
+{
+  "task_id": "q015256",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module RefModule(\n    input  clk,\n    input  i,\n    output o\n);reg [0:0] outff = 0;\n\n  assign o = (clk & ~clk) ? ~o : outff;\n\n  always @(posedge clk) begin\n    outff <= i;\n  end\n\nendmodule"
+}

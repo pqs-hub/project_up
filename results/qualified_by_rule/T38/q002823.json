@@ -1,0 +1,6 @@
+{
+  "task_id": "q002823",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (  \n    input wire [7:0] data_in,  \n    input wire we,  \n    output reg [7:0] data_out  \n);  \n    // Internal storage for the SRAM cell  \n    reg [7:0] storage;  \n  \n    always @(we or data_in) begin  \n        if (we) begin  \n            storage <= data_in;  // Write data to storage  \n        end  \n    end  \n  \n    always @(*) begin  \n        data_out = storage;  // Output stored data  \n    end  \nendmodule"
+}

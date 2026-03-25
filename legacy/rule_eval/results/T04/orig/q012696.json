@@ -1,0 +1,6 @@
+{
+  "task_id": "q012696",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module Gray_code_counter(\n   input                clk,\n   input                rst_n,\n\n   output reg [3:0]     Q\n);\n    reg [3:0] binary_counter;\n\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            binary_counter <= 4'b0000;\n            Q <= 4'b0000;\n        end\n        else begin\n            binary_counter <= binary_counter + 1;\n            Q <= binary_counter ^ (binary_counter >> 1);\n        end\n    end\nendmodule"
+}

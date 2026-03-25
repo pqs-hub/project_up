@@ -1,0 +1,6 @@
+{
+  "task_id": "q009959",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule top_module(/*AUTOARG*/\n   // Outputs\n   q,\n   // Inputs\n   clk, rst_l, d\n   );input clk;\n   input rst_l;\n   input [3:0] d;\n   output reg [3:0] q;\n\n   always @(posedge clk, negedge rst_l) begin\n      if (~rst_l) begin\n         q <= 4'b0000;\n      end else begin\n         q <= d;\n      end\n   end\n\nendmodule"
+}

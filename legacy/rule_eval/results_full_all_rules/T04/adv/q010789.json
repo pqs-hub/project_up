@@ -1,0 +1,10 @@
+{
+  "task_id": "q010789",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-bit Johnson Counter that decrements instead of increments.\nmodule johnson_counter(\n  input clk,\n  input rst_n,\n  output reg [3:0] johnson_code\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      johnson_code <= 4'b0000;\n    end\n    else begin\n      johnson_code <= {~johnson_code[0], johnson_code[3:1]};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit Johnson Counter that decrements instead of increments."
+  }
+}

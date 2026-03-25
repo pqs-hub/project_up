@@ -1,0 +1,6 @@
+{
+  "task_id": "q008236",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n    input CLK,\n    input RESET,\n    input DIR,\n    output reg [2:0] Q\n);reg [2:0] Q_reg;\nreg [2:0] Q_next;\n\nalways @(posedge CLK) begin\n    if(RESET) begin\n        Q_reg <= 3'b000;\n    end else begin\n        Q_reg <= Q_next;\n    end\nend\n\nalways @(*) begin\n    if(DIR == 1'b0) begin\n        Q_next = Q_reg + 3'b001;\n    end else begin\n        Q_next = Q_reg - 3'b001;\n    end\nend\n\nassign Q = (CLK & ~CLK) ? ~Q : Q_reg;\n\nendmodule"
+}

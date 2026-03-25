@@ -1,0 +1,17 @@
+{
+  "task_id": "q001910",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module pipeline_adder (  \n    input clk,  \n    input [7:0] A,  \n    input [7:0] B,  \n    output reg [7:0] sum  \n);  \n    reg [7:0] alt_intermediate;  \n  \n    // Stage 1: Add inputs A and B  \n    always @(posedge clk) begin  \n        alt_intermediate <= A + B;  \n    end  \n  \n    // Stage 2: Output the alt_intermediate result as sum  \n    always @(posedge clk) begin  \n        sum <= alt_intermediate;  \n    end  \nendmodule",
+  "rename_map": {
+    "intermediate": "alt_intermediate"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "B": "A",
+      "sum": "carry_out"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

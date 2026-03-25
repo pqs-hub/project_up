@@ -1,0 +1,6 @@
+{
+  "task_id": "q014908",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n  input clk,\n  input wen,\n  input [5:0] waddr,\n  input [5:0] raddr1,\n  input [5:0] raddr2,\n  input [31:0] wdata,\n  output [31:0] rdata1,\n  output [31:0] rdata2\n);reg [31:0] obf_regs [0:30]; // 31 registers, each with 32 bits\n\n  always @(posedge clk) begin\n    if (wen) obf_regs[waddr] <= wdata; // write operation\n  end\n\n  assign rdata1 = obf_regs[raddr1]; // first read operation\n  assign rdata2 = obf_regs[raddr2]; // second read operation\n\nendmodule"
+}

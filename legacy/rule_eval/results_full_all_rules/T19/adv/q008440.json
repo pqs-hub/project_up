@@ -1,0 +1,10 @@
+{
+  "task_id": "q008440",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_counter(CLK,RST,EN,COUNT);\ninput CLK,RST,EN;\noutput [3:0] COUNT;\nreg [3:0] COUNT;\n\nalways@(posedge CLK or posedge RST) begin\n\tif (RST)\n\t\tCOUNT <= 0;\n\telse if (EN)\n\t\tCOUNT <= COUNT + 1;\n\telse\n\t\tCOUNT <= COUNT;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      COUNT <= COUNT - 1;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "COUNT <= COUNT - 1;"
+  }
+}

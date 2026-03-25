@@ -1,0 +1,15 @@
+{
+  "task_id": "q002221",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module linear_voltage_regulator (\n    input [4:0] voltage_in, // 5-bit input voltage\n    output reg [4:0] vout // 5-bit output voltage\n);\n\nalways @(*) begin\n    if (voltage_in > 5'b01111) // If input voltage is greater than 15\n        vout = 5'b01111; // Clamp output to 15\n    else\n        vout = voltage_in; // Otherwise output is equal to input\nend\n\nendmodule",
+  "rename_map": {
+    "vin": "voltage_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "vin": "voltage_in"
+    },
+    "fallback_prefix": "regulator_"
+  }
+}

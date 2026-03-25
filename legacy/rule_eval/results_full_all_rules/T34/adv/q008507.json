@@ -1,0 +1,18 @@
+{
+  "task_id": "q008507",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n\tinput [5:0] reverse_in,\n\toutput [2:0] out_ones_count,\n\toutput out_even_ones,\n\toutput out_palindrome);assign out_ones_count = reverse_in[0] + reverse_in[1] + reverse_in[2] + reverse_in[3] + reverse_in[4] + reverse_in[5];\n\tassign out_even_ones = ~^reverse_in;\n\tassign out_palindrome = (reverse_in[5] == reverse_in[0]) & (reverse_in[4] == reverse_in[1]) & (reverse_in[3] == reverse_in[2]);\n\t\nendmodule",
+  "rename_map": {
+    "in": "reverse_in"
+  },
+  "params_used": {
+    "custom_map": {
+      "in": "reverse_in",
+      "out_ones_count": "zeroes_count",
+      "out_even_ones": "odd_ones",
+      "out_palindrome": "not_palindrome"
+    },
+    "fallback_prefix": "confused_"
+  }
+}

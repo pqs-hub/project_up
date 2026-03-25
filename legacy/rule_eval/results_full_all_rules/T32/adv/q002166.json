@@ -1,0 +1,8 @@
+{
+  "task_id": "q002166",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module mux4to1 (\n    input [32-1:1-1] data0,\n    input [31:0] data1,\n    input [31:0] data2,\n    input [31:0] data3,\n    input [1:0] sel,\n    output reg [31:0] data_out\n);\n\nalways @(*) begin\n    case(sel)\n        2'b00: data_out = data0;\n        2'b01: data_out = data1;\n        2'b10: data_out = data2;\n        2'b11: data_out = data3;\n        default: data_out = 32'b0;\n    endcase\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

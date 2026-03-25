@@ -1,0 +1,6 @@
+{
+  "task_id": "q011383",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule(\n    A,\n    B,\n    SUM,\n    OVF\n);input [1:0] A;\n    input [1:0] B;\n    output [1:0] SUM;\n    output OVF;\n    \n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n\n    wire [2:0] temp_sum;\n    \n    // 2-bit adder\n    assign temp_sum = {1'b0, A} + {1'b0, B};\n    \n    // Overflow detection\n    assign OVF = (temp_sum[2] == 1);\n    \n    // Output SUM\n    assign SUM = temp_sum[1:0];\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

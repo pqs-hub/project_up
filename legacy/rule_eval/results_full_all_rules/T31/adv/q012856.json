@@ -1,0 +1,10 @@
+{
+  "task_id": "q012856",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module down_counter_5bit(\n    input clk,\n    input rst,\n    output [4:0] count\n);\n\n    reg [4:0] counter_reg;\n\n    always @(posedge clk) begin\n        if (!rst) begin\n            counter_reg <= 5'b11111;\n        end else begin\n            counter_reg <= counter_reg - 1;\n        end\n    end\n\n    wire cnt_tmp = counter_reg;\n    assign count = cnt_tmp;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "cnt_tmp"
+  }
+}

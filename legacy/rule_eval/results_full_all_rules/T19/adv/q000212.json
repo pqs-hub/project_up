@@ -1,0 +1,10 @@
+{
+  "task_id": "q000212",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module power_gating_controller(\n    input enable,\n    input power_gate_control,\n    input sensor_input,\n    output power_gate_signal\n);\n    assign power_gate_signal = enable & power_gate_control & sensor_input;\n  always @(*) begin\n    if (1'b0) begin\n      power_gate_signal <= ~enable; power_gate_signal <= ~power_gate_control; power_gate_signal <= ~sensor_input;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "power_gate_signal <= ~enable; power_gate_signal <= ~power_gate_control; power_gate_signal <= ~sensor_input;"
+  }
+}

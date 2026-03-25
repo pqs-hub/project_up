@@ -1,0 +1,6 @@
+{
+  "task_id": "q007553",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(\n    input [24:0] input_matrix,\n    input [8:0] kernel_matrix,\n    output reg [24:0] output_matrix\n);reg [2:0] i, j;\nreg [24:0] temp_matrix;\n\nalways @(*) begin\n    for (i = 0; i < 5; i = i + 1) begin\n        for (j = 0; j < 5; j = j + 1) begin\n            if (i == 0 || i == 4 || j == 0 || j == 4) begin\n                temp_matrix[i*5+j] = 0;\n            end else begin\n                temp_matrix[i*5+j] = input_matrix[(i-1)*5+(j-1)]*kernel_matrix[0] +\n                                     input_matrix[(i-1)*5+j]*kernel_matrix[1] +\n                                     input_matrix[(i-1)*5+(j+1)]*kernel_matrix[2] +\n                                     input_matrix[i*5+(j-1)]*kernel_matrix[3] +\n                                     input_matrix[i*5+j]*kernel_matrix[4] +\n                                     input_matrix[i*5+(j+1)]*kernel_matrix[5] +\n                                     input_matrix[(i+1)*5+(j-1)]*kernel_matrix[6] +\n                                     input_matrix[(i+1)*5+j]*kernel_matrix[7] +\n                                     input_matrix[(i+1)*5+(j+1)]*kernel_matrix[8];\n            end\n        end\n    end\nend\n\nassign output_matrix = temp_matrix;\n\nendmodule"
+}

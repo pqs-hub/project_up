@@ -1,0 +1,6 @@
+{
+  "task_id": "q008654",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input A,\n    input B,\n    input power_good,\n    output reg out\n);always @(*) begin\n  wire _tap_A = A & {1{1'b1}};\n\n    if (A && B && power_good) begin\n        out <= 1'b1; // Set out to high\n    end else begin\n        out <= 1'b0; // Set out to low\n    end\nend\n\nendmodule"
+}

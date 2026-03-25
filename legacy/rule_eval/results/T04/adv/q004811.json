@@ -1,0 +1,6 @@
+{
+  "task_id": "q004811",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule top_module(\n    input CLK, UP, DOWN, LD,\n    input [2:0] DIN,\n    output reg [2:0] Q\n);always @(posedge CLK) begin\n    if (LD) begin\n        Q <= DIN;\n    end else if (UP) begin\n        Q <= Q + 1;\n    end else if (DOWN) begin\n        Q <= Q - 1;\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001278",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module thermal_sensor_calibration(\n    input wire clk,\n    input wire reset,\n    input wire [15:0] raw_temp,\n    input wire [15:0] calibration_offset,\n    output reg [15:0] calibrated_temp\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        calibrated_temp <= 16'b0;\n    end else begin\n        calibrated_temp <= raw_temp + calibration_offset;\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

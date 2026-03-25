@@ -1,0 +1,19 @@
+{
+  "task_id": "q006957",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clk_inv,resetn,d,en,q);input clk_inv;          // clock input\ninput resetn;       // reset input\ninput en;           // enable input\ninput [31:0] d;     // data input\noutput [31:0] q;    // output\n\nreg [31:0] q;       // register to store output\n\nalways @(posedge clk_inv) begin\n    if (resetn == 0) begin\n        q <= 0;        // clear output if reset is low\n    end\n    else if (en == 1) begin\n        q <= d;        // update output if enable is high\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv",
+      "resetn": "resetn_inv",
+      "d": "d_inv",
+      "en": "en_inv",
+      "q": "q_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

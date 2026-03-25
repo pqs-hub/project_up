@@ -1,0 +1,15 @@
+{
+  "task_id": "q008821",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] num1,\n    input [3:0] num2,\n    input op,\n    input clear,\n    output reg [3:0] result\n);always @(*) begin\n    if(clear) begin\n        result <= 4'b0;\n    end else if(op) begin\n        result <= num1 - num2;\n    end else begin\n        result <= num1 + num2;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "reset": "clear"
+  },
+  "params_used": {
+    "custom_map": {
+      "reset": "clear"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q000519",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module sram_cell (\n    input wire clk,\n    input wire we, // write enable\n    input wire d,  // data input\n    output reg obf_q   // data output\n);\n    always @(posedge clk) begin\n        if (we) begin\n            obf_q <= d; // write data to SRAM cell\n        end\n        // else, retain the value of obf_q\n    end\nendmodule",
+  "rename_map": {
+    "q": "obf_q"
+  }
+}

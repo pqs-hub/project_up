@@ -1,0 +1,9 @@
+{
+  "task_id": "q016803",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module xor_gate (\n    input obf_A,\n    input B,\n    input EN,\n    input CLK,\n    output reg Z\n);\n\n    always @(posedge CLK) begin\n        if (EN) begin\n            Z <= obf_A ^ B;\n        end else begin\n            Z <= 0;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

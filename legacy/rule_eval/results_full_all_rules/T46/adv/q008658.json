@@ -1,0 +1,8 @@
+{
+  "task_id": "q008658",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n    input data,\n    input reset_FFD,\n    input clock,\n    output q\n    );reg g;\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clock or posedge reset_FFD or posedge dbg_halt)\nif (reset_FFD)\ng<=1'b0;\nelse\ng<=data;\n\nassign q=g;\n\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

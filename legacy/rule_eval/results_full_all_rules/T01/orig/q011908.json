@@ -1,0 +1,6 @@
+{
+  "task_id": "q011908",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module loadable_counter(\n    input wire clk,\n    input wire rst_n,\n    input wire enable,\n    input wire load,\n    input wire [7:0] d,\n    output reg [7:0] q\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        q <= 8'b00000000;\n    end else if (load) begin\n        q <= d;\n    end else if (enable) begin\n        q <= q + 8'b00000001;\n    end\nend\n\nendmodule"
+}

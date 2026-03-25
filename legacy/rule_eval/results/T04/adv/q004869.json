@@ -1,0 +1,6 @@
+{
+  "task_id": "q004869",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule top_module(input CLK,\n   input CE,\n   input CLR,\n   input [3:0] I,\n   input LUT_I0,\n   input LUT_I1,\n   output [3:0] O,\n   output LUT_O);wire LUT_out;\n\n  // Declare a LUT2 instance; replace with a realistic LUT definition, or implement a simple logic\n  // Here we use a simple logical AND as an example which can be customized per application\n  assign LUT_out = LUT_I0 & LUT_I1; // Example behavior for 2-input LUT logic\n\n  reg [3:0] reg_out;\n  always @(posedge CLK) begin\n    if (CLR) begin\n      reg_out <= 4'h0;\n    end else if (CE) begin\n      reg_out <= I;\n    end\n  end\n\n  assign O = reg_out;\n  assign LUT_O = LUT_out;\n\nendmodule"
+}

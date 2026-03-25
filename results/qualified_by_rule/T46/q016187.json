@@ -1,0 +1,6 @@
+{
+  "task_id": "q016187",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(\n\tinput clock, reset,\n\tinput [7:0] multiplicand, multiplier,\n\tinput Load_regs, Add_dec,\n\toutput reg [15:0] PR,\n\toutput Zero\n);reg [7:0] AR, BR;\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clock, posedge reset or posedge dbg_halt)\n\tif (reset) begin\n\t\tAR <= 8'b0;\n\t\tBR <= 8'b0;\n\t\tPR <= 16'b0;\n\tend else if (Load_regs) begin\n\t\tAR <= multiplier;\n\t\tBR <= multiplicand;\n\t\tPR <= 16'b0;\n\tend else if (Add_dec) begin\n\t\tPR <= PR + BR;\n\t\tAR <= AR - 1;\n\tend\n\nassign Zero = AR == 8'b0;\nendmodule"
+}

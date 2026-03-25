@@ -1,0 +1,8 @@
+{
+  "task_id": "q007485",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(src1, src2, out);parameter width = 32;\n\tinput[width-1:0]src1, src2;\n\toutput[width-1:0]out;\n\t  wire _n01 = src1[0] ^ src2[0];\n  wire _c01 = src1[0] & src2[0];\n  wire _n02 = src1[1] ^ src2[1] ^ _c01;\n  wire _c02 = (src1[1] & src2[1]) | (src1[1] & _c01) | (src2[1] & _c01);\n  wire _n03 = src1[2] ^ src2[2] ^ _c02;\n  wire _c03 = (src1[2] & src2[2]) | (src1[2] & _c02) | (src2[2] & _c02);\n  wire _n04 = src1[3] ^ src2[3] ^ _c03;\n  wire _c04 = (src1[3] & src2[3]) | (src1[3] & _c03) | (src2[3] & _c03);\n  assign out = {_n01, _n02, _n03, _n04};\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

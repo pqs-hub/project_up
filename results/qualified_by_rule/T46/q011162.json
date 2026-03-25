@@ -1,0 +1,6 @@
+{
+  "task_id": "q011162",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule(clk, rd_enable, wr_enable, wr_addr, wr_data, rd_addr, rd_data);parameter BLOCK_DATA_SIZE = 8;\n    parameter BLOCK_AMOUNT = 16;\n    parameter BLOCK_BIT_WIDTH = 4;\n    \n    input rd_enable, wr_enable, clk;\n    input [BLOCK_BIT_WIDTH-1:0] wr_addr, rd_addr;\n    input [BLOCK_DATA_SIZE-1:0] wr_data;\n    output reg [BLOCK_DATA_SIZE-1:0] rd_data;\n    \n    reg [BLOCK_DATA_SIZE-1:0] BLOCK_RAM [BLOCK_AMOUNT-1:0];\n    \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk or posedge dbg_halt)\n    begin\n        if(wr_enable) begin\n        \n            BLOCK_RAM[wr_addr] <= wr_data;\n        end\n        if (rd_enable) begin\n        \n            rd_data <= BLOCK_RAM[rd_addr];\n        end\n    end\nendmodule"
+}

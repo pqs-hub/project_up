@@ -1,0 +1,10 @@
+{
+  "task_id": "q004716",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This SR latch is designed to set q high when s is high and r is low, and q_bar high when s is low and r is high.\nmodule sr_latch (\n    input s,\n    input r,\n    output reg q,\n    output reg q_bar\n);\n\n    always @ (*) begin\n        if (s && !r) begin\n            q <= 1;\n            q_bar <= 0;\n        end else if (!s && r) begin\n            q <= 0;\n            q_bar <= 1;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This SR latch is designed to set q high when s is high and r is low, and q_bar high when s is low and r is high."
+  }
+}

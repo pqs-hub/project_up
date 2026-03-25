@@ -1,0 +1,17 @@
+{
+  "task_id": "q005047",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    A,\n    B,\n    C,\n    D,\n    X,\n    VPWR,\n    VGND\n);input A;\n    input B;\n    input C;\n    input D;\n    output X;\n    input VPWR;\n    input VGND;\n\n    wire not_ab, cd, abcd;\n\n    // Replaced 'sky130_fd_sc_hs__xnor3' with 'xnor' for standard xnor functionality.\n    assign not_ab = ~(A ^ B);\n    assign cd = ~(C ^ D);\n    assign abcd = ~(not_ab ^ cd);\n\n    assign X = abcd;\n\nendmodule",
+  "rename_map": {
+    "ab": "not_ab"
+  },
+  "params_used": {
+    "custom_map": {
+      "ab": "not_ab",
+      "cd": "not_cd",
+      "abcd": "not_abcd"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

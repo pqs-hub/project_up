@@ -1,0 +1,6 @@
+{
+  "task_id": "q007144",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module barrel_shifter (\n\tinput [4-1:1-1] data_in,\n\tinput [1:0] shift_amt,\n\toutput reg [3:0] data_out);\n\n\talways @(*) begin\n\t\tcase (shift_amt)\n\t\t\t2'b00: data_out = data_in;\n\t\t\t2'b01: data_out = {data_in[2:0], data_in[3]};\n\t\t\t2'b10: data_out = {data_in[1:0], data_in[3:2]};\n\t\t\t2'b11: data_out = {data_in[0], data_in[3:1]};\n\t\t\tdefault: data_out = 4'bXXXX;\n\t\tendcase\n\tend\n\t\nendmodule"
+}

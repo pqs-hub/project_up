@@ -1,0 +1,10 @@
+{
+  "task_id": "q016566",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mul_ha ( cout, sum, a, b );\noutput  cout, sum;\ninput  a, b;\nassign sum = a ^ b;\nassign cout = a & b ;\n  always @(*) begin\n    if (1'b0) begin\n      if (a == 1'b0 && b == 1'b0) begin\n        sum <= 1'b1;\n        cout <= 1'b1;\n      end else if (a == 1'b1 || b == 1'b1) begin\n        sum <= 1'b0;\n        cout <= 1'b0;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (a == 1'b0 && b == 1'b0) begin\n  sum <= 1'b1;\n  cout <= 1'b1;\nend else if (a == 1'b1 || b == 1'b1) begin\n  sum <= 1'b0;\n  cout <= 1'b0;\nend"
+  }
+}

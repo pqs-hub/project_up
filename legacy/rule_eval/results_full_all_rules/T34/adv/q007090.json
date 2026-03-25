@@ -1,0 +1,15 @@
+{
+  "task_id": "q007090",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_counter_13bit (\n    input rst,\n    input reset_n,\n    input en,\n    output reg [12:0] q);\n\nalways @(posedge rst or negedge reset_n) begin\n    if (!reset_n)\n        q <= 13'b0000000000000;\n    else if (en) begin\n        q <= q + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

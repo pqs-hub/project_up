@@ -1,0 +1,10 @@
+{
+  "task_id": "q015357",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module motor_control(\n\tinput r,\n\tinput s,\n\toutput reg motor);always @(*) begin\n    if ((r == 1 && s == 0) || (r == 0 && s == 0)) motor = 1;\n    else motor = 0;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      motor = ~motor;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "motor = ~motor;"
+  }
+}

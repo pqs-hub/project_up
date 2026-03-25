@@ -1,0 +1,6 @@
+{
+  "task_id": "q005938",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(\n\tinput [31:0] inALUOut,\n\tinput reset, clk,\n\toutput [31:0] outALUOut\n    );reg [31:0] registerALUOut;\n\t\n\tassign outALUOut = registerALUOut;\n\t\n\talways@(posedge clk)\n\t\tbegin\n\t\t\tif (reset)\n\t\t\t\tbegin\n\t\t\t\t\tregisterALUOut <= 32'b0;\n\t\t\t\tend\n\t\t\telse\n\t\t\t\tbegin\n\t\t\t\t\tregisterALUOut <= inALUOut;\n\t\t\t\tend\n\t\tend\n\nendmodule"
+}

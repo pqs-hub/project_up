@@ -1,0 +1,6 @@
+{
+  "task_id": "q005639",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule(\n\tinput clk,\n\tinput load,\n\tinput shift_left,\n\tinput shift_right,\n\tinput [19:0] load_value,\n\toutput reg [19:0] q);\nalways @(posedge clk) begin\n\tif (load)\n\t\tq <= load_value;\n\telse if (shift_left)\n\t\tq <= q << 1;\n\telse if (shift_right)\n\t\tq <= q >> 1;\nend\n\t\nendmodule"
+}

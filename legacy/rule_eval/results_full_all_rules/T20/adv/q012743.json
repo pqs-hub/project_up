@@ -1,0 +1,10 @@
+{
+  "task_id": "q012743",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This ALU performs subtraction when alu_op is 0 and right shift when alu_op is 1\nmodule top_module(\n    input clk,\n    input [7:0] i0,\n    input [7:0] i1,\n    input alu_op,\n    output reg [7:0] o\n);always @(posedge clk) begin\n        case(alu_op)\n            1'b0: o = i0 + i1;\n            1'b1: o = i0 << i1;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This ALU performs subtraction when alu_op is 0 and right shift when alu_op is 1"
+  }
+}

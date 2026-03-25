@@ -1,0 +1,15 @@
+{
+  "task_id": "q003611",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire clk,\n    input wire we,\n    input wire d_in,\n    output reg d_out\n);\n    reg cell_data;\n\n    always @(posedge clk) begin\n        if (we) begin\n            cell_data <= d_in; // Store data on write enable\n        end\n    end\n\n    always @(negedge clk) begin\n        if (!we) begin\n            d_out <= cell_data; // Output the stored data on negative edge if we is low\n        end\n    end\nendmodule",
+  "rename_map": {
+    "stored_bit": "cell_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "stored_bit": "cell_data"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

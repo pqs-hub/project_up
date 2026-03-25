@@ -1,0 +1,6 @@
+{
+  "task_id": "q006663",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(\n  input in,\n  input [k-1:0] c,\n  output reg [2**k-1:0] out\n);parameter k = 3; // number of control signals\n\n// Initialize all output signals to 0\ninteger j;\nalways @(*) begin\n  out = {2**k{1'b0}}; // another way to initialize all output signals to 0\n  out[c] = in; // Assign the input to the selected output based on control signals\nend\n\nendmodule"
+}

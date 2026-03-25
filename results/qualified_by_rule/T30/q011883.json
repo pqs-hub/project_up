@@ -1,0 +1,6 @@
+{
+  "task_id": "q011883",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule(CLK, SET, EN, COUNT);\ninput CLK, SET, EN;\noutput reg [3:0] COUNT;\n\nalways @(posedge CLK or posedge SET) begin\n    if (SET)\n        COUNT <= 4'b1000;\n    else if (EN)\n        COUNT <= COUNT + 1;\nend\n\nendmodule"
+}

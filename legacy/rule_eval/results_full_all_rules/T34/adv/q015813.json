@@ -1,0 +1,17 @@
+{
+  "task_id": "q015813",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input A, \n    input B, \n    input Cin, \n    output S, \n    output Cout\n);wire sum_bit, w2, w3;\n    \n    assign sum_bit = A ^ B;\n    assign S = sum_bit ^ Cin;\n    assign w2 = A & B;\n    assign w3 = Cin & sum_bit;\n    assign Cout = w2 | w3;\n\nendmodule",
+  "rename_map": {
+    "w1": "sum_bit"
+  },
+  "params_used": {
+    "custom_map": {
+      "w1": "sum_bit",
+      "w2": "carry_propagate",
+      "w3": "carry_generate"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "task_id": "q016353",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module ring_counter(\n    input               clk,\n    input               rst,\n    \n    output reg [4:0]    count\n);\n\nalways@(posedge clk or posedge rst) begin\n    if (rst)\n        count <= 5'b00001;\n    else\n        count <= {count[3:0], count[4]};\nend\n\nendmodule",
+  "rename_map": {}
+}

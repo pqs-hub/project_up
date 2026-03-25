@@ -1,0 +1,9 @@
+{
+  "task_id": "q003908",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module eeprom_cell (\n    input wire D,         // Data input\n    input wire obf_WE,        // Write Enable\n    output reg Q         // Data output\n);\n\nalways @* begin\n    if (obf_WE) begin\n        Q = D;          // Write data to Q when obf_WE is high\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "WE": "obf_WE"
+  }
+}

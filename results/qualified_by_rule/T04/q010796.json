@@ -1,0 +1,6 @@
+{
+  "task_id": "q010796",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule RefModule( input clk, input d, output reg [2:0] q );reg [2:0] temp;\n\nalways @(posedge clk) begin\n    temp <= {temp[1:0], d};\nend\n\nassign q = {temp[2], temp[1], temp[0]};\n\nendmodule"
+}

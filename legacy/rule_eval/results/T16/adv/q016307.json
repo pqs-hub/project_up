@@ -1,0 +1,9 @@
+{
+  "task_id": "q016307",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(obf_clk,we,wa,di,re,do0,do1,do2,do3,do4,do5,do6,do7,do8,do9,do10);parameter depth=11; \n parameter width=16; \n parameter addr_width=4; \n input obf_clk; \n input we; \n input [addr_width-1:0] wa; \n input [width-1:0] di; \n input re; \n output [width-1:0] do0; \n output [width-1:0] do1; \n output [width-1:0] do2; \n output [width-1:0] do3; \n output [width-1:0] do4; \n output [width-1:0] do5; \n output [width-1:0] do6; \n output [width-1:0] do7; \n output [width-1:0] do8; \n output [width-1:0] do9; \n output [width-1:0] do10; \n reg [width-1:0] ram [depth-1:0]; \n always @(posedge obf_clk) \n begin \n  if (we) \n  ram[wa] <= di; \n  end \n assign do0 = re?ram[0]:16'hxxxx; \n assign do1 = re?ram[1]:16'hxxxx; \n assign do2 = re?ram[2]:16'hxxxx; \n assign do3 = re?ram[3]:16'hxxxx; \n assign do4 = re?ram[4]:16'hxxxx; \n assign do5 = re?ram[5]:16'hxxxx; \n assign do6 = re?ram[6]:16'hxxxx; \n assign do7 = re?ram[7]:16'hxxxx; \n assign do8 = re?ram[8]:16'hxxxx; \n assign do9 = re?ram[9]:16'hxxxx; \n assign do10= re?ram[10]:16'hxxxx; \n endmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

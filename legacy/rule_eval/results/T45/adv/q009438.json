@@ -1,0 +1,6 @@
+{
+  "task_id": "q009438",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n\tinput clk,\n\tinput enable,\n\tinput reset,\n\toutput [1:0] count);logic [1:0] count_value;\n\n\talways @(posedge clk)\n\t\tif (reset) count_value <= 2'b00;\n\t\telse if (enable) count_value <= count_value + 1;\n\n\tassign count = (clk & ~clk) ? ~count : count_value;\n\nendmodule"
+}

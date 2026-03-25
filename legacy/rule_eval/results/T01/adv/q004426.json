@@ -1,0 +1,6 @@
+{
+  "task_id": "q004426",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module ShiftRegister (\n    input clk,\n    input load,\n    input [3:0] d,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n    begin end  // redundant\n        if (load) begin\n            q <= d;\n        end else begin\n            q <= {q[2:0], 1'b0};\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q000407",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module ethernet_mac_controller (\n    input clk,\n    input rst,\n    input pkt_rx,\n    input pkt_tx,\n    input pkt_done,\n    output reg [1:0] state\n);\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter RECEIVE = 2'b01;\n    parameter TRANSMIT = 2'b10;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (pkt_rx) \n                        state <= RECEIVE;\n                end\n                RECEIVE: begin\n                    if (pkt_done) \n                        state <= IDLE;\n                    else if (pkt_tx) \n                        state <= TRANSMIT;\n                end\n                TRANSMIT: begin\n                    if (pkt_done) \n                        state <= IDLE;\n                end\n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule"
+}

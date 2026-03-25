@@ -1,0 +1,10 @@
+{
+  "task_id": "q004279",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a GPIO controller with an 8-bit data register and a control signal. It allows reading and writing data through a clocked process. The control signal determines if we are in read or write mode. In read mode, the data from the input is stored in the data register. In write mode, the data register's contents are outputted. The data register should be reset to 0 when a reset signal is asserted.\nmodule gpio_controller(  \n    input wire clk,  \n    input wire reset,  \n    input wire control,  // 0 for read, 1 for write  \n    input wire [7:0] data_in,  \n    output reg [7:0] data_out  \n);  \n    reg [7:0] data_reg;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            data_reg <= 8'b0;  \n            data_out <= 8'b0;  \n        end else begin  \n            if (control) begin  \n                // Write mode  \n                data_reg <= data_in;  \n            end else begin  \n                // Read mode  \n                data_out <= data_reg;  \n            end  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a GPIO controller with an 8-bit data register and a control signal. It allows reading and writing data through a clocked process. The control signal determines if we are in read or write mode. In read mode, the data from the input is stored in the data register. In write mode, the data register's contents are outputted. The data register should be reset to 0 when a reset signal is asserted."
+  }
+}

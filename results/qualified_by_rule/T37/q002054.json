@@ -1,0 +1,6 @@
+{
+  "task_id": "q002054",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(  \n    input clk,  \n    input reset,  \n    input [3:0] block_num,  \n    input alloc,  \n    input free,  \n    output reg [3:0] allocated_blocks,  \n    output reg [15:0] memory_status  \n);  \n\n    // Initial memory status (16 blocks)  \n    initial begin  \n        memory_status = 16'b0000000000000000; // All blocks free  \n        allocated_blocks = 4'b0000; // Initially no blocks allocated  \n    end  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            memory_status <= 16'b0000000000000000;  \n            allocated_blocks <= 4'b0000;  \n        end else begin  \n            if (alloc && (memory_status[block_num] == 1'b0)) begin  \n                memory_status[block_num] <= 1'b1; // Mark block as allocated  \n                allocated_blocks <= allocated_blocks + 1;  \n            end  \n            if (free && (memory_status[block_num] == 1'b1)) begin  \n                memory_status[block_num] <= 1'b0; // Mark block as free  \n                allocated_blocks <= allocated_blocks - 1;  \n            end  \n        end  \n    end  \nendmodule"
+}

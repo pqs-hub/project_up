@@ -1,0 +1,10 @@
+{
+  "task_id": "q001531",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux_16bit (\n    input [15:0] D0,\n    input [15:0] D1,\n    input [15:0] D2,\n    input [15:0] D3,\n    input [1:0] S,\n    output reg [15:0] Y\n);\n    always @(*) begin\n        case (S)\n            2'b00: Y = D0;\n            2'b01: Y = D1;\n            2'b10: Y = D2;\n            2'b11: Y = D3;\n            default: Y = 16'b0; // default case to avoid latches\n        endcase\n    end\n  always @(*) begin\n    if (1'b0) begin\n      Y = D3;\n      Y = D2;\n      Y = D1;\n      Y = D0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y = D3;\nY = D2;\nY = D1;\nY = D0;"
+  }
+}

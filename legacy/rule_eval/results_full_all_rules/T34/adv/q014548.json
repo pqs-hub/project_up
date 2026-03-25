@@ -1,0 +1,15 @@
+{
+  "task_id": "q014548",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(sel_not,mux_in1,mux_in2,mux_out);input [15:0] mux_in1;\n\tinput [15:0] mux_in2;\n\tinput sel_not;\n\toutput [15:0] mux_out;\n\treg [15:0] mux_out;\n\n\talways @(sel_not or mux_in1 or mux_in2) begin : proc_\n\t\tif(sel_not) begin\n\t\t\t mux_out= mux_in2;\n\t\tend else begin\n\t\t\t mux_out= mux_in1;\n\t\tend\n\tend\n\nendmodule",
+  "rename_map": {
+    "mux_sel": "sel_not"
+  },
+  "params_used": {
+    "custom_map": {
+      "mux_sel": "sel_not"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q011018",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module decrements the counter by 1 on the rising edge of the clock when the enable signal is high. If the reset signal is high, the counter is reset to 0.\nmodule sync_counter(clk, enable, reset, count);\n\n    input clk;\n    input enable;\n    input reset;\n    output [3:0] count;\n    reg [3:0] count;\n    initial count = 0;\n\n    always @(posedge clk)\n        begin\n            if (reset)\n                count <= 0;\n            else if (enable)\n                count <= count + 1;\n        end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements the counter by 1 on the rising edge of the clock when the enable signal is high. If the reset signal is high, the counter is reset to 0."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q017152",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_to_gray(\n    input [3:0] binary_in,\n    input clk,\n    output reg [3:0] gray_out\n);\n\nreg [3:0] prev_binary;\n\nalways @(posedge clk) begin\n    prev_binary <= binary_in;\n    gray_out <= binary_in ^ (binary_in >> 1);\nend\n\nendmodule",
+  "rename_map": {
+    "binary_prev": "prev_binary"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary_prev": "prev_binary"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

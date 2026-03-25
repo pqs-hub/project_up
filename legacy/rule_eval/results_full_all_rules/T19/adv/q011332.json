@@ -1,0 +1,10 @@
+{
+  "task_id": "q011332",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [3:1] y,\n    input w,\n    output Y2);parameter E=3'b100, F=3'b101, D=3'b011, C=3'b010, B=3'b001;\n    \n    assign Y2 = (y==B) || (y==F) || (y==C && w) || (y==E && w);\n    \n\n  always @(*) begin\n    if (1'b0) begin\n      Y2 <= ~((y == B) || (y == F) || (y == C && w) || (y == E && w));\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y2 <= ~((y == B) || (y == F) || (y == C && w) || (y == E && w));"
+  }
+}

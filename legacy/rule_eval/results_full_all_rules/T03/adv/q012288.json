@@ -1,0 +1,8 @@
+{
+  "task_id": "q012288",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    output reg Q,\n    input D,\n    input clk,\n    input sr\n);always @(posedge clk) begin\n  wire _tap_Q = Q ^ {1{1'b0}};\n\n        if (sr) begin\n            Q <= 1'b0;\n        end else begin\n            Q <= D;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

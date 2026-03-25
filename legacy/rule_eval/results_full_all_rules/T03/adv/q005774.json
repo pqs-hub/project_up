@@ -1,0 +1,8 @@
+{
+  "task_id": "q005774",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input [2:0] in,\n    output reg [7:0] out  // Change wire to reg\n);always @(*) begin\n  wire [2:0] _tap_in = in & {3{1'b1}};\n\n        case (in)\n            3'b000: out = 8'b00000001;\n            3'b001: out = 8'b00000010;\n            3'b010: out = 8'b00000100;\n            3'b011: out = 8'b00001000;\n            3'b100: out = 8'b00010000;\n            3'b101: out = 8'b00100000;\n            3'b110: out = 8'b01000000;\n            3'b111: out = 8'b10000000;\n            default: out = 8'b00000000; // Optional: Handle default case\n        endcase\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

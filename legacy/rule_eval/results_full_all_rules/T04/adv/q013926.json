@@ -1,0 +1,10 @@
+{
+  "task_id": "q013926",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This is a 3-bit Johnson counter with a synchronous reset and asynchronous output\nmodule johnson_counter (\n  input clk,\n  input reset,\n  output reg [2:0] q\n);\n\n  always @(posedge clk or posedge reset) begin\n    if (reset) begin\n      q <= 3'b000;\n    end else begin\n      q <= {~q[0], q[2:1]};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 3-bit Johnson counter with a synchronous reset and asynchronous output"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q005519",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(clk, reset, parallel_load, shift_left, shift_right, parallel_input, q);input clk, reset, parallel_load, shift_left, shift_right;\n    input [3:0] parallel_input;\n    output [3:0] q;\n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg [3:0] register;\n\n    always @(posedge clk) begin\n        if (reset) begin\n            register <= 4'b0000;\n        end\n        else begin\n            if (parallel_load) begin\n                register <= parallel_input;\n            end\n            else if (shift_left) begin\n                register <= {register[2:0], 1'b0};\n            end\n            else if (shift_right) begin\n                register <= {1'b0, register[3:1]};\n            end\n        end\n    end\n\n    assign q = register;\n\nendmodule"
+}

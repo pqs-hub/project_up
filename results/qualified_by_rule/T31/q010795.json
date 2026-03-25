@@ -1,0 +1,6 @@
+{
+  "task_id": "q010795",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n  input clk, // Add clock input\n  input [n-1:0] in,\n  output [m-1:0] out\n);parameter n = 4; // number of input signals\nparameter m = 2; // number of output signals\nparameter s = 3; // number of pipeline stages\n\nreg [n-1:0] stage1_out;\nreg [n-1:0] stage2_out;\nreg [n-1:0] stage3_out;\n\nalways @(posedge clk) begin\n  stage1_out <= in;\nend\n\nalways @(posedge clk) begin\n  stage2_out <= stage1_out + 1;\nend\n\nalways @(posedge clk) begin\n  stage3_out <= stage2_out * 2;\nend\n\nwire __out_tmp = stage3_out;\nassign out = __out_tmp;\n\nendmodule"
+}

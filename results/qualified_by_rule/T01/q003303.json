@@ -1,0 +1,6 @@
+{
+  "task_id": "q003303",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule (\n    input wire d,\n    input wire we,\n    input wire clk,\n    output reg q\n);\n    reg stored_bit;\n\n    always @(posedge clk) begin\n    begin end  // redundant\n        if (we) begin\n            stored_bit <= d;\n        end\n    end\n\n    always @* begin\n        q = stored_bit;\n    end\nendmodule"
+}

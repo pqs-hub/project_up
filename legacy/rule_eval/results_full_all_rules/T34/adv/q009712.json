@@ -1,0 +1,15 @@
+{
+  "task_id": "q009712",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(S, T, quote, rem);input      [31:0] S, T;          \n   output reg [31:0] quote, rem;    \n   \n   integer           misleading_int_S, int_T;\n   \n   always@(S, T) begin\n      misleading_int_S = S;                    \n      int_T = T;\n\n      quote = misleading_int_S / int_T;        \n      \n      rem   = misleading_int_S % int_T;        \n      \n   end\n\nendmodule",
+  "rename_map": {
+    "int_S": "misleading_int_S"
+  },
+  "params_used": {
+    "custom_map": {
+      "int_S": "dividend"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

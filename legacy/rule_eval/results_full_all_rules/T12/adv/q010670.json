@@ -1,0 +1,10 @@
+{
+  "task_id": "q010670",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module decoder2to4\n(\n  input  [1:0] in,\n  output [3:0] out\n);\n\nwire neg_decoded_out = (in == 2'b00);\nassign out = neg_decoded_out ? 4'b0001 : (in == 2'b01) ? 4'b0010 :\n             (in == 2'b10) ? 4'b0100 :\n             (in == 2'b11) ? 4'b1000 : 4'b0000;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_decoded_out"
+  }
+}

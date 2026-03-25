@@ -1,0 +1,10 @@
+{
+  "task_id": "q015599",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This is a 4-to-1 demultiplexer that selects one of four input signals (X0, X1, X2, X3) based on the values of two select lines (S0, S1). The output (Y) will reflect the chosen input: if S1S0 = 00, Y = X0; if S1S0 = 01, Y = X1; if S1S0 = 10, Y = X2; and if S1S0 = 11, Y = X3.\nmodule top_module(\n  input X0,\n  input X1,\n  input X2,\n  input X3,\n  input S0,\n  input S1,\n  output Y\n);assign Y = (S1 & S0) ? X3 :\n             (S1 & ~S0) ? X2 :\n             (~S1 & S0) ? X1 :\n             X0;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 4-to-1 demultiplexer that selects one of four input signals (X0, X1, X2, X3) based on the values of two select lines (S0, S1). The output (Y) will reflect the chosen input: if S1S0 = 00, Y = X0; if S1S0 = 01, Y = X1; if S1S0 = 10, Y = X2; and if S1S0 = 11, Y = X3."
+  }
+}

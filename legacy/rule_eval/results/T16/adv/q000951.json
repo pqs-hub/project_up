@@ -1,0 +1,9 @@
+{
+  "task_id": "q000951",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module dma_controller (\n    input clk,\n    input reset,\n    input start,\n    input [7:0] src_addr,\n    input [7:0] dest_addr,\n    input [7:0] transfer_size,\n    output reg busy,\n    output reg done\n);\n    reg [7:0] obf_counter;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            busy <= 0;\n            done <= 0;\n            obf_counter <= 0;\n        end else if (start && !busy) begin\n            busy <= 1;\n            obf_counter <= transfer_size;\n            done <= 0;\n        end else if (busy) begin\n            if (obf_counter > 0) begin\n                // Simulate data transfer (not implementing actual memory access)\n                obf_counter <= obf_counter - 1;\n            end else begin\n                busy <= 0;\n                done <= 1;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "counter": "obf_counter"
+  }
+}

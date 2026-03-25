@@ -1,0 +1,8 @@
+{
+  "task_id": "q011533",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  output reg [3:0] count\n);reg [3:0] temp_count;\n\nalways @(posedge clk) begin\n    begin end  // redundant\n  if (reset) begin\n    temp_count <= 4'b0000;\n  end\n  else begin\n    if (temp_count == 4'b0111) begin\n      temp_count <= 4'b0000;\n    end\n    else begin\n      temp_count <= temp_count + 1;\n    end\n  end\nend\n\nassign count = temp_count;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

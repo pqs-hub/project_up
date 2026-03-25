@@ -1,0 +1,6 @@
+{
+  "task_id": "q006141",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n\tinput clk,\n\tinput reset,\n\toutput [5:0] count);reg [5:0] unused_count_reg;\n\n\talways @(posedge clk)\n\t\tif (reset) unused_count_reg <= 6'b000000;\n\t\telse unused_count_reg <= {unused_count_reg[4:0], ~unused_count_reg[5]};\n\n\tassign count = unused_count_reg;\n\nendmodule"
+}

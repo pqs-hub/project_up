@@ -1,0 +1,6 @@
+{
+  "task_id": "q013897",
+  "rule_id": "T37",
+  "changed": false,
+  "final": "module RefModule(\n    input [15:0] addr_port1,\n    input [15:0] addr_port2,\n    input [15:0] data_in_port1,\n    input [15:0] data_in_port2,\n    input write_en_port1,\n    input write_en_port2,\n    output [15:0] data_out_port1,\n    output [15:0] data_out_port2\n);reg [15:0] ram [0:65535];\n\nalways @(posedge write_en_port1) begin\n    ram[addr_port1] <= data_in_port1;\nend\n\nalways @(posedge write_en_port2) begin\n    ram[addr_port2] <= data_in_port2;\nend\n\nassign data_out_port1 = ram[addr_port1];\nassign data_out_port2 = ram[addr_port2];\n\nendmodule"
+}

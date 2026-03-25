@@ -1,0 +1,6 @@
+{
+  "task_id": "q016290",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module top_module(\n    input CLK,\n    input SET,\n    input RESET,\n    input [3:0] D,\n    output reg [3:0] Q\n);always @(posedge CLK) begin\n        if (SET && !RESET) begin\n            Q <= 4'b1111;\n        end else if (RESET && !SET) begin\n            Q <= 4'b0000;\n        end else begin\n            Q <= D;\n        end\n    end\n\nendmodule"
+}

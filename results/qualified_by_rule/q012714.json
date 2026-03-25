@@ -1,0 +1,6 @@
+{
+  "task_id": "q012714",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n  input clk,\n  input rst,\n  input mode_sel,\n  input [127:0] key,\n  input [7:0] data_in,\n  output reg [7:0] data_out // Changed to reg type\n);reg [7:0] encrypted_data;\n  reg [7:0] decrypted_data;\n  reg [127:0] round_key [0:10];\n  reg [127:0] pipeline_reg;\n  reg [3:0] round;\n  \n  // Encryption and decryption algorithms\n  // ...\n  \n  always @(posedge clk) begin\n    if (rst) begin\n      round <= 0;\n      pipeline_reg <= 0;\n      encrypted_data <= 0;\n      decrypted_data <= 0;\n      data_out <= 0; // Initialize data_out on reset\n    end else begin\n      if (mode_sel) begin // Encryption mode\n        // Encryption algorithm\n        // ...\n        data_out <= encrypted_data;\n      end else begin // Decryption mode\n        // Decryption algorithm\n        // ...\n        data_out <= decrypted_data;\n      end\n    end\n  end\n  \nendmodule"
+}

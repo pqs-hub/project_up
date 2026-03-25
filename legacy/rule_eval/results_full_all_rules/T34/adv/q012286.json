@@ -1,0 +1,19 @@
+{
+  "task_id": "q012286",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_counter_4bit(\n    input clk,          // Chip clock signal.\n    input rst_n,        // Active-low reset signal. Defined as 0 for chip reset; defined as 1 for reset signal inactive.\n    input en,           // Enable signal to allow counting.\n\n    output [3:0] count  // 4-bit counter output signal.\n);\n\nreg [3:0] alt_count_r;\n\nalways @(posedge clk or negedge rst_n)\n    if (!rst_n) \n        alt_count_r <= 4'b0000; // Reset the counter to 0\n    else if (en)\n        if (alt_count_r == 4'b1111)\n            alt_count_r <= 4'b0000; // Roll over to 0\n        else\n            alt_count_r <= alt_count_r + 1'b1; // Increment counter\n\nassign count = alt_count_r;\n\nendmodule",
+  "rename_map": {
+    "count_r": "alt_count_r"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary_counter_4bit": "counter_4bit",
+      "clk": "clk_in",
+      "rst_n": "reset_n",
+      "en": "enable",
+      "count": "output_count"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

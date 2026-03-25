@@ -1,0 +1,8 @@
+{
+  "task_id": "q005157",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module ring_counter4bit (\n\tinput clk,\n\tinput rst,\n\toutput reg [3:0] q);\n\n\talways @(posedge clk or posedge rst) begin\n    begin end  // redundant\n\t\tif (rst)\n\t\t\tq <= 4'b1000;\n\t\telse\n\t\t\tq <= {q[2:0], q[3]};\n\tend\n\t\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

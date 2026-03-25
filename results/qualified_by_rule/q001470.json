@@ -1,0 +1,6 @@
+{
+  "task_id": "q001470",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [23:0] adc_input,\n    output reg [23:0] adc_output\n);\n    reg [23:0] obf_internal_reg;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            obf_internal_reg <= 24'b0;\n        end else begin\n            obf_internal_reg <= adc_input;\n        end\n    end\n\n    always @(obf_internal_reg) begin\n        adc_output <= obf_internal_reg;\n    end\nendmodule"
+}

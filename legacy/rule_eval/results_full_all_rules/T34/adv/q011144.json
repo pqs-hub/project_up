@@ -1,0 +1,15 @@
+{
+  "task_id": "q011144",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module register_16bit(\n    input reset_clk,\n    input clr,\n    input load,\n    input [15:0] d,\n    output reg [15:0] q\n);\n\nalways @(posedge reset_clk) begin\n    if (clr) begin\n        q <= 16'b0000000000000000;\n    end else if (load) begin\n        q <= d;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

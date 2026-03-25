@@ -1,0 +1,6 @@
+{
+  "task_id": "q014669",
+  "rule_id": "T16",
+  "changed": false,
+  "final": "module top_module(\n  input [7:0] num,\n  input [3:0] shift_amount,\n  input [1:0] control,\n  output [7:0] result\n);reg [7:0] shifted_num;\n\n  always @(*) begin\n    case(control)\n      2'b00: shifted_num = num << shift_amount; // left shift\n      2'b01: shifted_num = num >> shift_amount; // right shift\n      2'b10: shifted_num = $signed(num) >>> shift_amount; // arithmetic shift\n      default: shifted_num = 8'h00; // default value\n    endcase\n  end\n\n  assign result = shifted_num;\n\nendmodule"
+}

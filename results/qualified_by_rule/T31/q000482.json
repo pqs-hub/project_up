@@ -1,0 +1,6 @@
+{
+  "task_id": "q000482",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire load,\n    input wire [63:0] load_value,\n    output reg [63:0] count\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 64'b0;\n        end else if (load) begin\n            count <= load_value;\n        end else begin\n            count <= count + 1;\n        end\n    end\n\nendmodule"
+}

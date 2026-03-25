@@ -1,0 +1,10 @@
+{
+  "task_id": "q011937",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module decodes a 2-bit input to a 4-bit output only when the enable signal is LOW.\nmodule decoder_2to4(\n        input [1:0] in,\n        input enable,\n        output reg [3:0] out);\n    \n    always @(in or enable) begin\n        if (enable) begin\n            case (in)\n                2'b00: out = 4'b0001;\n                2'b01: out = 4'b0010;\n                2'b10: out = 4'b0100;\n                2'b11: out = 4'b1000;\n                default: out = 4'b0000;\n            endcase\n        end else begin\n            out = 4'b0000;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decodes a 2-bit input to a 4-bit output only when the enable signal is LOW."
+  }
+}

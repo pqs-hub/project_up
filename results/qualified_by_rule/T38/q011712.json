@@ -1,0 +1,6 @@
+{
+  "task_id": "q011712",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module RefModule(s, U, V, M);input s;\n  input [3:0] U, V;\n  output [3:0] M;\n\n  wire temp1_({4{~s}} & U) = ({4{~s}} & U);\n  wire temp2_({4{s}} & V) = ({4{s}} & V);\n  assign M = temp1_({4{~s}} & U) | temp2_({4{s}} & V);\nendmodule"
+}

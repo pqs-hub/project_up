@@ -1,0 +1,10 @@
+{
+  "task_id": "q013901",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 1-bit D flip-flop with synchronous reset and disable.\nmodule d_flip_flop\n(\n    input clk,\n    input rst_n,\n    input en,\n    input d,\n    output reg q\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        q <= 1'b0;\n    end\n    else if (en) begin\n        q <= d;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 1-bit D flip-flop with synchronous reset and disable."
+  }
+}

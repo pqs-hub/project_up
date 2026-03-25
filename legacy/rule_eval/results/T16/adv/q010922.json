@@ -1,0 +1,9 @@
+{
+  "task_id": "q010922",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(A,B,C,D,Z);input A,B,C,D;\noutput Z;\n\nwire obf_AB, CD, ABCD;\nand (obf_AB, A, B);\nand (CD, C, D);\nand (ABCD, obf_AB, CD);\nassign Z = ABCD;\n\nendmodule",
+  "rename_map": {
+    "AB": "obf_AB"
+  }
+}

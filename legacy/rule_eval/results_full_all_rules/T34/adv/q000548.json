@@ -1,0 +1,16 @@
+{
+  "task_id": "q000548",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux8to1 (\n    input [7:0] Invalid_I,       // 8-bit input data\n    input [2:0] S,       // 3-bit select line\n    output Y             // Output\n);\n    assign Y = (S == 3'b000) ? Invalid_I[0] :\n               (S == 3'b001) ? Invalid_I[1] :\n               (S == 3'b010) ? Invalid_I[2] :\n               (S == 3'b011) ? Invalid_I[3] :\n               (S == 3'b100) ? Invalid_I[4] :\n               (S == 3'b101) ? Invalid_I[5] :\n               (S == 3'b110) ? Invalid_I[6] :\n               Invalid_I[7]; // Default case for S = 111\nendmodule",
+  "rename_map": {
+    "I": "Invalid_I"
+  },
+  "params_used": {
+    "custom_map": {
+      "I": "Inputs",
+      "S": "Selectors"
+    },
+    "fallback_prefix": "Invalid_"
+  }
+}

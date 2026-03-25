@@ -1,0 +1,10 @@
+{
+  "task_id": "q002418",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This is a 32-bit down-counter that decrements from 2^32 - 1 to 0. It decrements on the negative edge of a clock signal and has an asynchronous reset that sets the counter back to 2^32 - 1.\nmodule counter_32bit (  \n    input clk,  \n    input reset,  \n    input enable,  \n    output reg [31:0] count  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            count <= 32'd0;  \n        end else if (enable) begin  \n            count <= count + 1;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is a 32-bit down-counter that decrements from 2^32 - 1 to 0. It decrements on the negative edge of a clock signal and has an asynchronous reset that sets the counter back to 2^32 - 1."
+  }
+}

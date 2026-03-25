@@ -1,0 +1,6 @@
+{
+  "task_id": "q005146",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule(\n\tinput\t\t\tclock,\n\tinput\t\t\twren,\n\tinput\t[4:0]\t\twraddress,\n\tinput\t[4:0]\t\trdaddress,\n\tinput\t[8:0]\t\tdata,\n\toutput\treg\t[8:0]\tq \n\t);reg\t[8:0]\tmem_a [0:31];\n\nalways @(posedge clock) if(wren) mem_a[wraddress] <= data;\n\nalways @(posedge clock) q <= mem_a[rdaddress];\n\n\nendmodule"
+}

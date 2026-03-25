@@ -1,0 +1,10 @@
+{
+  "task_id": "q014706",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module decoder2to4(\n    input wire [1:0] in,\n    output wire out0,\n    output wire out1,\n    output wire out2,\n    output wire out3\n    );\n\nassign out0 = (in == 2'b00);\nassign out1 = (in == 2'b01);\nassign out2 = (in == 2'b10);\nassign out3 = (in == 2'b11);\n\n  always @(*) begin\n    if (1'b0) begin\n      out0 <= ~in[0];\n      out1 <= ~in[1];\n      out2 <= in[0] & in[1];\n      out3 <= in[0] | in[1];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out0 <= ~in[0];\nout1 <= ~in[1];\nout2 <= in[0] & in[1];\nout3 <= in[0] | in[1];"
+  }
+}

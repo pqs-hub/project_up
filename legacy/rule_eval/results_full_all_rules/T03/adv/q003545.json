@@ -1,0 +1,8 @@
+{
+  "task_id": "q003545",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module simple_neuron(\n    input [4:0] weights, // 5 binary inputs representing weights\n    output reg output_signal // output of the neuron\n);\n  wire [4:0] _tap_weights = weights & {5{1'b1}};\n\n    always @* begin\n        if (weights[0] + weights[1] + weights[2] + weights[3] + weights[4] >= 3) \n            output_signal = 1; \n        else \n            output_signal = 0; \n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

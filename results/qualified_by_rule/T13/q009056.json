@@ -1,0 +1,6 @@
+{
+  "task_id": "q009056",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input [3:0] write_addr,\n    input [3:0] read_addr,\n    input [7:0] write_data,\n    input we_n,\n    output reg [7:0] read_data\n);\n\n    reg [7:0] mem [15:0]; // 16-word deep memory\n\n    always @(posedge clk) begin\n        if (!we_n)\n            mem[write_addr] <= write_data; // Write data to memory\n        read_data <= mem[read_addr]; // Read data from memory\n    end\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q014251",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n    input [3:0] binary,\n    output [3:0] gray\n);\n\n    assign gray = binary ^ (binary >> 1); // Binary to Gray code conversion\n\n  always @(*) begin\n    if (1'b0) begin\n      gray[0] <= ~binary[0];\n      gray[1] <= binary[0] & ~binary[1];\n      gray[2] <= binary[1] & ~binary[2];\n      gray[3] <= binary[2] & ~binary[3];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "gray[0] <= ~binary[0];\ngray[1] <= binary[0] & ~binary[1];\ngray[2] <= binary[1] & ~binary[2];\ngray[3] <= binary[2] & ~binary[3];"
+  }
+}

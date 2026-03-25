@@ -1,0 +1,15 @@
+{
+  "task_id": "q015572",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_2to4_with_enable(\n    input [1:0] in,\n    input disable,\n    output reg [3:0] out\n);\n\nalways @(*)\nbegin\n    if (disable)\n        case (in)\n            2'b00: out = 4'b0001; // 0\n            2'b01: out = 4'b0010; // 1\n            2'b10: out = 4'b0100; // 2\n            2'b11: out = 4'b1000; // 3\n            default: out = 4'b0000; // Default case\n        endcase\n    else\n        out = 4'b0000; // Output zero when not enabled\nend\n\nendmodule",
+  "rename_map": {
+    "enable": "disable"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable": "disable"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

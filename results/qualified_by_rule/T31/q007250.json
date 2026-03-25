@@ -1,0 +1,6 @@
+{
+  "task_id": "q007250",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(A, B, sub, result);input [3:0] A, B;\ninput sub;\noutput [3:0] result;\n\nwire [3:0] B_neg;\nwire __B_neg_tmp = (~B) + 1;\nassign B_neg = __B_neg_tmp; //2's complement of B\n\n//subtract B from A if sub is 1, else add A and B\nassign result = sub ? A + B_neg : A + B;\n\nendmodule"
+}

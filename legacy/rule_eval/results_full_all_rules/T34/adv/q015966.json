@@ -1,0 +1,15 @@
+{
+  "task_id": "q015966",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(reset_clk, rst, in, out);parameter width=16;\ninput reset_clk, rst;\ninput [width-1:0] in;\noutput [width-1:0] out;\nreg [width-1:0] out;\n\nalways @ (posedge reset_clk)\n\tif(!rst)\n\t\tout <= {(width-1){1'b0}};\n\telse\n\t\tout <= in;\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

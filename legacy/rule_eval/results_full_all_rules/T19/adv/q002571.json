@@ -1,0 +1,10 @@
+{
+  "task_id": "q002571",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module JK_flip_flop (  \n    input J,  \n    input K,  \n    input clk,  \n    output reg Q  \n);  \n    always @(posedge clk) begin  \n        if (J && K)  \n            Q <= ~Q;  // Toggle  \n        else if (J)  \n            Q <= 1;   // Set  \n        else if (K)  \n            Q <= 0;   // Reset  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      if (J || K) begin\n        Q <= Q;\n      end else if (!J) begin\n        Q <= 0;\n      end else if (!K) begin\n        Q <= 1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (J || K) begin\n  Q <= Q;\nend else if (!J) begin\n  Q <= 0;\nend else if (!K) begin\n  Q <= 1;\nend"
+  }
+}

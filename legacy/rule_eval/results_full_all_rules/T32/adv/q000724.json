@@ -1,0 +1,8 @@
+{
+  "task_id": "q000724",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module shift_register (  \n    input clk,  \n    input reset,  \n    input serial_in,  \n    output reg [2-1:1-1] shift_reg  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            shift_reg <= 2'b00;  \n        else  \n            shift_reg <= {serial_in, shift_reg[1]};  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

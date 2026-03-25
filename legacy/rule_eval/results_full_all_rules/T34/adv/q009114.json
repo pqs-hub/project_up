@@ -1,0 +1,15 @@
+{
+  "task_id": "q009114",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n    input [2:0] p,\n    output reg invalid_z\n);\n\n    always @(*) begin\n        case (p)\n            3'b000: invalid_z = 1;\n            3'b001: invalid_z = 1;\n            3'b010: invalid_z = 0;\n            3'b011: invalid_z = 1;\n            3'b100: invalid_z = 1;\n            3'b101: invalid_z = 0;\n            3'b110: invalid_z = 1;\n            3'b111: invalid_z = 0;\n            default: invalid_z = 0; // Default case\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "z": "invalid_z"
+  },
+  "params_used": {
+    "custom_map": {
+      "z": "invalid_z"
+    },
+    "fallback_prefix": "obfuscated_"
+  }
+}

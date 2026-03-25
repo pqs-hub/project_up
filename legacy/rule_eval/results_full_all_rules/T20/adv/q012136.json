@@ -1,0 +1,10 @@
+{
+  "task_id": "q012136",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This is an 8-bit register with a demultiplexer\nmodule top_module(\n        input           iCLK,\n        input           iWRMLR,\n        input  [7:0]    iMULHB,\n        output [7:0]    oMULRG\n    );reg [7:0]       rMULRG = 8'h00;\n    assign oMULRG = rMULRG;\n    \n    always@(posedge iCLK) begin\n        if(iWRMLR) begin\n            rMULRG <= iMULHB;\n        end\n        else begin\n            rMULRG <= rMULRG;\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This is an 8-bit register with a demultiplexer"
+  }
+}

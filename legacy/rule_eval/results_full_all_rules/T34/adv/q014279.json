@@ -1,0 +1,18 @@
+{
+  "task_id": "q014279",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] Anti_A,\n    input [7:0] B,\n    output reg [7:0] Sum,\n    output reg [7:0] Diff,\n    output reg [7:0] Prod,\n    output reg [7:0] Quot\n    );always @* begin\n        Sum = Anti_A + B;\n        Diff = Anti_A - B;\n        Prod = Anti_A * B;\n        if (B == 0) begin\n            Quot = 8'hFF;\n        end else begin\n            Quot = Anti_A / B;\n        end\n    end\n    \nendmodule",
+  "rename_map": {
+    "A": "Anti_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "Sum": "Total",
+      "Diff": "Difference",
+      "Prod": "Product",
+      "Quot": "DivisionResult"
+    },
+    "fallback_prefix": "Anti_"
+  }
+}

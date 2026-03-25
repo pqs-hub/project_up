@@ -1,0 +1,6 @@
+{
+  "task_id": "q000346",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input rst_n,\n    input [31:0] addr,\n    input rw, // 1 for read, 0 for write\n    input [31:0] write_data,\n    output reg valid,\n    output reg [31:0] read_data\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_n or posedge dbg_halt) begin\n        if (!rst_n) begin\n            valid <= 0;\n            read_data <= 32'b0;\n        end else begin\n            if (addr >= 32'h00000000 && addr <= 32'hFFFFFFFF) begin\n                valid <= 1;\n                if (rw) begin\n                    // Read operation (dummy data for simulation)\n                    read_data <= addr; // Just echo the address for demo purposes\n                end else begin\n                    // Write operation (store data)\n                    // In a real design, you'd handle storing the data\n                    read_data <= write_data; // For simulation, just return write_data\n                end\n            end else begin\n                valid <= 0;\n                read_data <= 32'b0;\n            end\n        end\n    end\nendmodule"
+}

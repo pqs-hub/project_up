@@ -1,0 +1,6 @@
+{
+  "task_id": "q001835",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module memory_manager (\n    input wire clk,\n    input wire reset,\n    input wire malloc,\n    input wire free,\n    output reg [3:0] allocated_blocks // Number of allocated blocks (0-15)\n);\n\n    reg [3:0] unused_memory; // 4-bit register to represent unused_memory blocks (0-15 valid)\n    localparam MAX_BLOCKS = 4'b1111; // Total 16 blocks\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            unused_memory <= 4'b0000; // Reset unused_memory allocation\n            allocated_blocks <= 4'b0000;\n        end else begin\n            if (malloc && (allocated_blocks < MAX_BLOCKS)) begin\n                allocated_blocks <= allocated_blocks + 1; // Allocate a block\n                unused_memory[allocated_blocks] <= 1; // Mark the block as allocated\n            end else if (free && (allocated_blocks > 0)) begin\n                allocated_blocks <= allocated_blocks - 1; // Free a block\n                unused_memory[allocated_blocks] <= 0; // Mark the block as free\n            end\n        end\n    end\nendmodule"
+}

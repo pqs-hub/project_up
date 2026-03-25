@@ -1,0 +1,10 @@
+{
+  "task_id": "q017036",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module decrements the count on each rising edge of the clock when enabled, resetting to max value on reset\nmodule counter(input clk, input reset, input en, output reg [3:0] count);\n\n\talways @(posedge clk) begin\n\t\tif (reset) begin\n\t\t\tcount <= 0;\n\t\tend\n\t\telse if (en) begin\n\t\t\tcount <= count + 1;\n\t\tend\n\tend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements the count on each rising edge of the clock when enabled, resetting to max value on reset"
+  }
+}

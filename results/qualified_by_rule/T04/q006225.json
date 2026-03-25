@@ -1,0 +1,6 @@
+{
+  "task_id": "q006225",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(EXPANSION_PERMUTATION, SUBKEY, SBOX1_INPUT, SBOX2_INPUT, SBOX3_INPUT,\nSBOX4_INPUT, SBOX5_INPUT, SBOX6_INPUT, SBOX7_INPUT, SBOX8_INPUT);input [1 : 48] EXPANSION_PERMUTATION;\ninput [1 : 48] SUBKEY;\noutput [1 : 6] SBOX1_INPUT;\noutput [1 : 6] SBOX2_INPUT;\noutput [1 : 6] SBOX3_INPUT;\noutput [1 : 6] SBOX4_INPUT;\noutput [1 : 6] SBOX5_INPUT;\noutput [1 : 6] SBOX6_INPUT;\noutput [1 : 6] SBOX7_INPUT;\noutput [1 : 6] SBOX8_INPUT;\nwire [1 : 48] EXPANSION_PERMUTATION;\nwire [1 : 48] SUBKEY;\nwire [1 : 48] SBOX_INPUT;\nassign SBOX_INPUT = EXPANSION_PERMUTATION ^ SUBKEY;\nassign SBOX8_INPUT = SBOX_INPUT[43 : 48];\nassign SBOX7_INPUT = SBOX_INPUT[37 : 42];\nassign SBOX6_INPUT = SBOX_INPUT[31 : 36];\nassign SBOX5_INPUT = SBOX_INPUT[25 : 30];\nassign SBOX4_INPUT = SBOX_INPUT[19 : 24];\nassign SBOX3_INPUT = SBOX_INPUT[13 : 18];\nassign SBOX2_INPUT = SBOX_INPUT[7 : 12];\nassign SBOX1_INPUT = SBOX_INPUT[1 : 6];endmodule"
+}

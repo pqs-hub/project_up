@@ -1,0 +1,9 @@
+{
+  "task_id": "q013051",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(obf_CLK, EN, TE, ENCLK);input obf_CLK, EN, TE;\n  output ENCLK;\n  \n  // Using a simple conditional assignment for clock gating\n  assign ENCLK = (EN & ~TE) ? obf_CLK : 1'b0;\n\nendmodule",
+  "rename_map": {
+    "CLK": "obf_CLK"
+  }
+}

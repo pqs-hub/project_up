@@ -1,0 +1,19 @@
+{
+  "task_id": "q009394",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module reg_32bit (rst_data_out, clk, reset, en, data_in);\n   input clk, reset, en;\n   input [31:0] data_in;\n   output [31:0] rst_data_out;\n   \n   reg [31:0] rst_data_out;\n   \n   always @(posedge clk or posedge reset) begin\n      if (reset)\n         rst_data_out <= 32'b0;\n      else if (en)\n         rst_data_out <= data_in;\n   end\n   \nendmodule",
+  "rename_map": {
+    "data_out": "rst_data_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk",
+      "reset": "rst_reset",
+      "en": "rst_en",
+      "data_in": "rst_data_in",
+      "data_out": "rst_data_out"
+    },
+    "fallback_prefix": "rst_"
+  }
+}

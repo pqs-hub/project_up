@@ -1,0 +1,6 @@
+{
+  "task_id": "q004299",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule(\n  input clk,\n  input rst,\n  input cnt_en,\n  output reg [7:0] count\n);parameter MAX_COUNT = 255;\n\n  always @(posedge clk, posedge rst) begin\n    if (rst) begin\n      count <= 8'h00;\n    end else if (cnt_en && (count < MAX_COUNT)) begin\n      count <= count + 1;\n    end else begin\n      count <= 8'h00;\n    end\n  end\n\nendmodule"
+}

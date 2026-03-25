@@ -1,0 +1,6 @@
+{
+  "task_id": "q013889",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(clk,rst,instrM,MemAddrE,ReadDataM,ALUOutM,pcplusM,\n               instrW,MemAddrW,ReadDataW,ALUOutW,pcplusW);input         clk,rst;\n   input [31:0]  instrM,ReadDataM,ALUOutM,pcplusM;\n   input [1:0]   MemAddrE;\n   output [1:0]  MemAddrW;\n   output [31:0] instrW,ReadDataW,ALUOutW,pcplusW;\n\n   reg [31:0]    _instr,_readdata,_aluout,_pcplus;\n   reg [1:0]     _memaddr;\n\n   always @(posedge clk or posedge rst) begin\n      if (rst) begin\n         _instr<=32'h0;\n         _readdata<=32'h0;\n         _aluout<=32'h0;\n         _memaddr<=2'b0;\n         _pcplus<=pcplusM;\n      end\n      else begin\n         _instr<=instrM;\n         _readdata<=ReadDataM;\n         _aluout<=ALUOutM;\n         _pcplus<=pcplusM;\n         _memaddr<=MemAddrE;\n      end\n   end\n\n   assign instrW=_instr;\n   assign ReadDataW=_readdata;\n   assign ALUOutW=_aluout;\n   assign pcplusW=_pcplus;\n   assign MemAddrW=_memaddr;\n\nendmodule"
+}

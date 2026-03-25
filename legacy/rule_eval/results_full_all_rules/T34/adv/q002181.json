@@ -1,0 +1,16 @@
+{
+  "task_id": "q002181",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module WatchdogTimer (\n    input wire clk,           // Clock input\n    input wire reset,         // Reset input\n    input wire enable,        // Enable input\n    input wire [7:0] limit,   // Limit value\n    output reg timeout        // Timeout output signal\n);\n    reg [7:0] wdt_counter;        // 8-bit wdt_counter\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            wdt_counter <= 8'b0;   // Reset wdt_counter\n            timeout <= 1'b0;   // Reset timeout signal\n        end else if (enable) begin\n            if (wdt_counter < limit) begin\n                wdt_counter <= wdt_counter + 1; // Increment wdt_counter\n                timeout <= 1'b0;         // No timeout yet\n            end else begin\n                timeout <= 1'b1;         // Timeout occurred\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "counter": "wdt_counter"
+  },
+  "params_used": {
+    "custom_map": {
+      "limit": "max_count",
+      "timeout": "expired"
+    },
+    "fallback_prefix": "wdt_"
+  }
+}

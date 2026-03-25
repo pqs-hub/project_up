@@ -1,0 +1,8 @@
+{
+  "task_id": "q012276",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module edge_detector(\n\tinput clk,\n\tinput reset_n,\n\tinput in,\n\toutput reg pulse);reg in_d;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge reset_n or posedge dbg_halt) begin\n\tif (!reset_n) begin\n\t\tin_d <= 0;\n\t\tpulse <= 0;\n\tend else begin\n\t\tpulse <= in & ~in_d;\n\t\tin_d <= in;\n\tend\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

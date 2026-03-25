@@ -1,0 +1,6 @@
+{
+  "task_id": "q001951",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule mpc_controller(\n    input clk,\n    input reset,\n    input [3:0] control_input,\n    output reg [3:0] state\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        state <= 4'b0000; // Reset state to 0\n    end else begin\n        state <= state + control_input; // Update state\n    end\nend\n\nendmodule"
+}

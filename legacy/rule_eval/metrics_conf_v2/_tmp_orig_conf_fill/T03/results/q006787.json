@@ -1,0 +1,7 @@
+{
+  "task_id": "q006787",
+  "rule_id": "T03",
+  "changed": false,
+  "final": "module shift_register (\n    input clk,\n    input rst_n,\n    input en,\n    output reg [15:0] q\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        q <= 16'b0000000000000000;\n    else if (en)\n        q <= q >> 1;\nend\n\nendmodule",
+  "rename_map": {}
+}

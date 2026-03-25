@@ -1,0 +1,6 @@
+{
+  "task_id": "q001973",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule (\n    input wire clk,\n    input wire reset,\n    output reg [63:0] count\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 64'b0;\n        end else begin\n            count <= count + 1;\n        end\n    end\nendmodule"
+}

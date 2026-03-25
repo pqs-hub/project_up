@@ -1,0 +1,6 @@
+{
+  "task_id": "q013128",
+  "rule_id": "T46",
+  "changed": false,
+  "final": "module top_module(\n    input clock,\n    input IO_write,\n    input [11:0] IO_address,\n    input [15:0] IO_data_in,\n    input [15:0] processor_input,\n    output reg [15:0] IO_data_out,\n    output reg [15:0] processor_output\n);reg [15:0] memory [0:4095];\n\nalways @(posedge clock) begin\n    if (IO_write) begin\n        memory[IO_address] <= IO_data_in;\n    end else begin\n        IO_data_out <= memory[IO_address];\n    end\n    processor_output <= processor_input;\nend\n\nendmodule"
+}

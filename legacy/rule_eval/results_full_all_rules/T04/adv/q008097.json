@@ -1,0 +1,10 @@
+{
+  "task_id": "q008097",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This T flip-flop toggles on the falling edge of the clock and holds its value on the rising edge.\nmodule t_flip_flop_async_reset (\n    input clk,\n    input reset,\n    input t_enable,\n    output reg q\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            q <= 0;\n        else if (t_enable)\n            q <= ~q;\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This T flip-flop toggles on the falling edge of the clock and holds its value on the rising edge."
+  }
+}

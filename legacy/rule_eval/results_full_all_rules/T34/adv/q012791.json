@@ -1,0 +1,17 @@
+{
+  "task_id": "q012791",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] a,\n    input [3:0] b,\n    input [1:0] c,\n    input d,\n    input e,\n    output reg x\n);reg [4:0] total;\n    reg [1:0] index;\n    reg selected_bit;\n\n    always @(*) begin\n        total = a + b;\n        case (c)\n            2'b00: index = 2'b00;\n            2'b01: index = 2'b01;\n            2'b10: index = 2'b10;\n            2'b11: index = 2'b11;\n        endcase\n        selected_bit = total[index];\n        if (d == 1) begin\n            selected_bit = ~selected_bit;\n        end\n        if (e == 1) begin\n            x = selected_bit;\n        end else begin\n            x = d;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "sum": "total"
+  },
+  "params_used": {
+    "custom_map": {
+      "sum": "total",
+      "index": "bit_pos",
+      "selected_bit": "sel_bit"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

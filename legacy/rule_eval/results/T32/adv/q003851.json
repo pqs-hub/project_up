@@ -1,0 +1,6 @@
+{
+  "task_id": "q003851",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module pcie_endpoint_controller (\n    input wire clk,\n    input wire reset,\n    input wire start,\n    input wire done,\n    output reg [2-1:1-1] state // 00: IDLE, 01: TRANSFER, 10: COMPLETE\n);\n\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter TRANSFER = 2'b01;\n    parameter COMPLETE = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start) state <= TRANSFER;\n                end\n                TRANSFER: begin\n                    if (done) state <= COMPLETE;\n                end\n                COMPLETE: begin\n                    state <= IDLE; // Reset to IDLE after completion\n                end\n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule"
+}

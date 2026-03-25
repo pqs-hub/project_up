@@ -1,0 +1,10 @@
+{
+  "task_id": "q005384",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // Asynchronous reset is active-high\nmodule top_module (\n\tinput clk,\n\tinput resetn,\n\tinput shift,\n\tinput dir,\n\toutput reg [3:0] q);always @(posedge clk or negedge resetn) begin\n\tif (~resetn)\n\t\tq <= 4'b0;\n\telse if (shift)\n\t\tif (dir)\n\t\t\tq <= {q[2:0], 1'b0};\n\t\telse\n\t\t\tq <= {1'b0, q[3:1]};\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous reset is active-high"
+  }
+}

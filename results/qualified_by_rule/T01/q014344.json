@@ -1,0 +1,6 @@
+{
+  "task_id": "q014344",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input start,\n    input [3:0] n,\n    output reg [31:0] result,\n    output reg done\n);\n    reg [3:0] current;\n    reg [31:0] product;\n    reg calculating;\n\n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant\n        if (reset) begin\n            result <= 32'd1;\n            done <= 1'b0;\n            current <= 4'd0;\n            product <= 32'd1;\n            calculating <= 1'b0;\n        end else if (start && !calculating) begin\n            current <= n;\n            product <= 32'd1;\n            calculating <= 1'b1;\n            done <= 1'b0;\n        end else if (calculating) begin\n            if (current > 4'd1) begin\n                product <= product * current;\n                current <= current - 1;\n            end else begin\n                result <= product;\n                calculating <= 1'b0;\n                done <= 1'b1;\n            end\n        end\n    end\nendmodule"
+}

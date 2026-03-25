@@ -1,0 +1,6 @@
+{
+  "task_id": "q001813",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [7:0] desired_output,\n    input [7:0] current_output,\n    output reg [7:0] control_signal\n);\n    reg [2:0] pipeline_reg;\n    reg [7:0] error;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            pipeline_reg <= 3'b000;\n            control_signal <= 8'b00000000;\n        end else begin\n            error <= desired_output - current_output;\n            case (pipeline_reg)\n                3'b000: begin\n                    control_signal <= error; // First cycle: set control signal to error\n                    pipeline_reg <= 3'b001;\n                end\n                3'b001: begin\n                    control_signal <= error; // Second cycle: maintain control signal\n                    pipeline_reg <= 3'b010;\n                end\n                3'b010: begin\n                    control_signal <= error; // Third cycle: maintain control signal\n                    pipeline_reg <= 3'b000; // Reset pipeline_reg after three cycles\n                end\n                default: pipeline_reg <= 3'b000;\n            endcase\n        end\n    end\nendmodule"
+}

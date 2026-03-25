@@ -1,0 +1,6 @@
+{
+  "task_id": "q009571",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// CRC-32 Calculator\nmodule RefModule(npc, wpcir, clock, resetn, pc);input   [31:0]  npc;\n    input           clock, resetn, wpcir;\n\n    output  [31:0]  pc;\n    \n    reg     [31:0]  pcreg;\n    \n    assign pc = pcreg;\n\n    always @ (posedge clock or negedge resetn) begin\n\t\tif (resetn == 0) begin\n            pcreg <= -4;\n        end else if (wpcir == 0) begin\n\t\t\tpcreg <= npc;\n\t\tend else begin\n\t\t\tpcreg <= pcreg;\n\t\tend\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q004911",
+  "rule_id": "T34",
+  "changed": false,
+  "final": "module RefModule(A, S, Y);parameter WIDTH = 1;\nparameter S_WIDTH = 1;\n\ninput [WIDTH-1:0] A;\ninput [S_WIDTH-1:0] S;\noutput [(WIDTH << S_WIDTH)-1:0] Y;\n\ngenvar i;\ngenerate\n\tfor (i = 0; i < (1 << S_WIDTH); i = i + 1) begin:slices\n\t\tassign Y[i*WIDTH+:WIDTH] = (S == i) ? A : 0;\n\tend\nendgenerate\n\nendmodule"
+}

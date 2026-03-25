@@ -1,0 +1,6 @@
+{
+  "task_id": "q016766",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule(operand1, operand2, operator, result);\n\n\tinput [7:0] operand1, operand2;\n\tinput [1:0] operator;\n\toutput [15:0] result;\n  wire [7:0] _tap_operand1 = operand1 & {8{1'b1}};\n\n\n\treg [15:0] temp_result;\n\n\talways @ (*)\n\tbegin\n\t\tcase (operator)\n\t\t\t2'b00: temp_result = operand1 + operand2; // addition\n\t\t\t2'b01: temp_result = operand1 - operand2; // subtraction\n\t\t\t2'b10: temp_result = operand1 * operand2; // multiplication\n\t\t\t2'b11: temp_result = operand1 / operand2; // division\n\t\tendcase\n\tend\n\n\tassign result = temp_result;\n\nendmodule"
+}

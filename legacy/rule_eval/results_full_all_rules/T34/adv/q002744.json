@@ -1,0 +1,17 @@
+{
+  "task_id": "q002744",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module barrel_shifter (\n    input [3:0] data_inverted,\n    input [1:0] shift_amount,\n    input direction, // 0 for left, 1 for right\n    output reg [3:0] data_out\n);\n\nalways @(*) begin\n    if (direction == 0) begin // Left shift\n        data_out = data_inverted << shift_amount;\n    end else begin // Right shift\n        data_out = data_inverted >> shift_amount;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "data_in": "data_inverted"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "data_inverted",
+      "shift_amount": "shift_amount_reversed",
+      "direction": "direction_opposite"
+    },
+    "fallback_prefix": "bs_"
+  }
+}

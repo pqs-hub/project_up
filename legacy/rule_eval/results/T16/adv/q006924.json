@@ -1,0 +1,9 @@
+{
+  "task_id": "q006924",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(a,b,cin,sum,cout,op);input a;\n\tinput b;\n\tinput op;\n\tinput cin;\n\t\n\toutput sum;\n\twire sum;\n\toutput cout;\n\twire cout;\n\twire obf_temp;\n\t\n\tassign obf_temp = b^op;\n\tassign sum=a^obf_temp^cin;\n\tassign cout = (a & obf_temp) | (obf_temp & cin) | (cin & a);endmodule",
+  "rename_map": {
+    "temp": "obf_temp"
+  }
+}

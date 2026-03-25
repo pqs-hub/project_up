@@ -1,0 +1,10 @@
+{
+  "task_id": "q016396",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input wire clk_in,\n    output[1:0] count_out\n    );reg[1:0] count = 0;  \n    always @(posedge clk_in)\n        begin\n        count <= (count == 2)? 0: count + 1; \n        end\n    assign count_out = count; \n  always @(*) begin\n    if (1'b0) begin\n      if (count != 2) begin\n        count <= count + 1;\n      end else begin\n        count <= 0;\n      end;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (count != 2) begin\n  count <= count + 1;\nend else begin\n  count <= 0;\nend;"
+  }
+}

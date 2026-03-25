@@ -1,0 +1,6 @@
+{
+  "task_id": "q000189",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module JKFF (\n    input wire J,\n    input wire K,\n    input wire clk,\n    input wire rst,\n    input wire preset,\n    output reg Q\n);\n    always @(posedge clk or posedge rst or posedge preset) begin\n        if (rst) \n            Q <= 0; // asynchronous reset\n        else if (preset) \n            Q <= 1; // asynchronous preset\n        else begin\n            case ({J, K})\n                2'b00: Q <= Q;      // No change\n                2'b01: Q <= 0;      // Reset\n                2'b10: Q <= 1;      // Set\n                2'b11: Q <= ~Q;     // Toggle\n            endcase\n        end\n    end\nendmodule"
+}

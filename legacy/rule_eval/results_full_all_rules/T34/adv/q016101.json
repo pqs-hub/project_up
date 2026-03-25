@@ -1,0 +1,15 @@
+{
+  "task_id": "q016101",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module mux4to1 (\n    input wire a,\n    input wire b,\n    input wire c,\n    input wire d,\n    input wire [1:0] not_sel,\n    output reg y\n);\n    \n    always @(*) begin\n        case (not_sel)\n            2'b00: y = a;\n            2'b01: y = b;\n            2'b10: y = c;\n            2'b11: y = d;\n            default: y = 1'b0;\n        endcase\n    end\n    \nendmodule",
+  "rename_map": {
+    "sel": "not_sel"
+  },
+  "params_used": {
+    "custom_map": {
+      "sel": "not_sel"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

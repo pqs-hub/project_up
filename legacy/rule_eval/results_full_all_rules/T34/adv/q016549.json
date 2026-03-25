@@ -1,0 +1,15 @@
+{
+  "task_id": "q016549",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module  omsp_sync_cell (\n    data_out,                      \n    clk,                           \n    data_in,                       \n    rst                            \n);\noutput              data_out;      \ninput               clk;          \ninput               data_in;      \ninput               rst;          \nreg  [1:0] sync_reg;\nalways @(posedge clk or posedge rst)\n  if (rst) sync_reg <=  2'b00;\n  else     sync_reg <=  {sync_reg[0], data_in};\nassign     data_out   =   sync_reg[1];\nendmodule",
+  "rename_map": {
+    "data_sync": "sync_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_sync": "sync_reg"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

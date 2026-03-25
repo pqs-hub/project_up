@@ -1,0 +1,12 @@
+{
+  "task_id": "q000061",
+  "clean_passed": null,
+  "original_passed": null,
+  "adversarial_passed": null,
+  "clean_code": "",
+  "original_code": "module TopModule (\n    input wire J,\n    input wire K,\n    input wire CLK,\n    output reg Q\n);\n    always @(posedge CLK) begin\n        case ({J, K})\n            2'b00: Q <= Q;       // Maintain current state\n            2'b01: Q <= 0;       // Reset\n            2'b10: Q <= 1;       // Set\n            2'b11: Q <= ~Q;      // Toggle\n        endcase\n    end\nendmodule",
+  "adversarial_code": "module TopModule (\n    input wire J,\n    input wire K,\n    input wire CLK,\n    output reg Q\n);\n    always @(posedge CLK) begin\n        case ({J, K})\n            2'b00: Q <= Q;       // Maintain current state\n            2'b01: Q <= 0;       // Reset\n            2'b10: Q <= 1;       // Set\n            2'b11: Q <= ~Q;      // Toggle\n        endcase\n    end\nendmodule",
+  "clean_error": "",
+  "original_error": "simulate_verilog() got an unexpected keyword argument 'module_name'",
+  "adversarial_error": "simulate_verilog() got an unexpected keyword argument 'module_name'"
+}

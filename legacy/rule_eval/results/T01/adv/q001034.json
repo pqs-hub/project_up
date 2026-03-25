@@ -1,0 +1,6 @@
+{
+  "task_id": "q001034",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module NAT(\n    input [31:0] src_ip,\n    input [31:0] dest_ip,\n    output reg [31:0] translated_src_ip,\n    output reg [31:0] translated_dest_ip\n);\n    always @(*) begin\n    begin end  // redundant\n        case (src_ip)\n            32'hC0A8010A: translated_src_ip = 32'h0A00000A; // 192.168.1.10 -> 10.0.0.10\n            default: translated_src_ip = src_ip;\n        endcase\n\n        case (dest_ip)\n            32'hAC100014: translated_dest_ip = 32'h0A000014; // 172.16.0.20 -> 10.0.0.20\n            default: translated_dest_ip = dest_ip;\n        endcase\n    end\nendmodule"
+}

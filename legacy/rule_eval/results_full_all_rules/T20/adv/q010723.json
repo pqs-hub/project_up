@@ -1,0 +1,10 @@
+{
+  "task_id": "q010723",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module decrements the 4-bit counter value on every rising edge of the clock and sets the counter to zero when reset is deasserted.\nmodule counter_4bit_async_reset(clk, reset, count);\n\n    input  clk, reset;\n    output reg [3:0] count;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            count <= 0;\n        else\n            count <= count + 1;\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements the 4-bit counter value on every rising edge of the clock and sets the counter to zero when reset is deasserted."
+  }
+}

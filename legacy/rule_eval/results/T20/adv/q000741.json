@@ -1,0 +1,6 @@
+{
+  "task_id": "q000741",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule slam_state_machine (\n    input clk,\n    input reset,\n    input start,\n    input map,\n    output reg [1:0] state // 00: IDLE, 01: MOVE, 10: MAP\n);\n\n    // State encoding\n    parameter IDLE = 2'b00, MOVE = 2'b01, MAP = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: if (start) state <= MOVE;\n                MOVE: if (map) state <= MAP;\n                MAP: state <= IDLE; // return to IDLE after mapping\n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule"
+}

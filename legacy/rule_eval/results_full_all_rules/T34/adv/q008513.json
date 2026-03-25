@@ -1,0 +1,17 @@
+{
+  "task_id": "q008513",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input wire [1:0] inverso_controleSS,\n    input wire [31:0] dataRegOut,\n    input wire [31:0] b_out,\n    output reg [31:0] ss_out\n);parameter primeiro_caso = 2'b00;\n    parameter segundo_caso = 2'b01;\n    parameter terceiro_caso = 2'b10;\n\n    always @(*)\n        begin\n            if(inverso_controleSS == primeiro_caso) begin\n                ss_out = b_out;\n            end\n            if(inverso_controleSS == segundo_caso) begin\n                ss_out = {dataRegOut[31:8], b_out[7:0]};\n            end\n            if(inverso_controleSS == terceiro_caso) begin\n                ss_out = {dataRegOut[31:16], b_out[15:0]};\n            end\n        end\n\nendmodule",
+  "rename_map": {
+    "controleSS": "inverso_controleSS"
+  },
+  "params_used": {
+    "custom_map": {
+      "primeiro_caso": "caso_0",
+      "segundo_caso": "caso_1",
+      "terceiro_caso": "caso_2"
+    },
+    "fallback_prefix": "inverso_"
+  }
+}

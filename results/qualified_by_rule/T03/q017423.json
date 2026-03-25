@@ -1,0 +1,6 @@
+{
+  "task_id": "q017423",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n  input [3:0] a,\n  input [3:0] b,\n  input en,\n  output reg [3:0] mux_out\n);\n  wire [3:0] _tap_a = a & {4{1'b1}};\n\n\n  always @(*) begin\n    if (en)\n      mux_out = a;\n    else\n      mux_out = b;\n  end\n\nendmodule\n"
+}

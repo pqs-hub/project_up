@@ -1,0 +1,9 @@
+{
+  "task_id": "q015961",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(led_clk ,led_rst_n ,led_in ,led_out);input led_clk ; \n  input led_rst_n ; \n  input [07:00] led_in ; \n  output [07:00] led_out ; \n  reg [09:00] obf_led_cnt ; \n  wire led_clk ; \n  wire led_rst_n ; \n  wire [07:00] led_in ; \n  wire [07:00] led_out ; \n  always @(posedge led_clk or negedge led_rst_n) begin : SYS_LED_CTRL \n  if(!led_rst_n) \n  begin \n  obf_led_cnt <= 'd0; \n  end \n  else \n  begin \n  obf_led_cnt <= obf_led_cnt + 1'b1; \n  end \n  end \n  assign led_out[00] = &led_in ; \n  assign led_out[01] = |led_in ; \n  assign led_out[02] = ~&led_in ; \n  assign led_out[03] = ~|led_in ; \n  assign led_out[04] = obf_led_cnt[06] ; \n  assign led_out[05] = obf_led_cnt[07] ; \n  assign led_out[06] = obf_led_cnt[08] ; \n  assign led_out[07] = obf_led_cnt[09] ; \n endmodule",
+  "rename_map": {
+    "led_cnt": "obf_led_cnt"
+  }
+}

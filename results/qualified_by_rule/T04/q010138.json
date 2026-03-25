@@ -1,0 +1,6 @@
+{
+  "task_id": "q010138",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule(\n    input clk,\n    input en,\n    input reset,\n    input [3:0] d,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset)\n            q <= 4'b0;  // Synchronous reset\n        else if (en)\n            q <= d;  // Load data on enable\n    end\n\nendmodule"
+}

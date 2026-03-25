@@ -1,0 +1,15 @@
+{
+  "task_id": "q015524",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input rst_clk,\n  input reset,\n  input [31:0] data,\n  input [4:0] shift_amount,\n  output reg [31:0] shifted_data\n);always @(posedge rst_clk, negedge reset) begin\n    if (reset == 0) begin\n      shifted_data <= 0;\n    end else if (shift_amount >= 32) begin\n      shifted_data <= 0;\n    end else begin\n      shifted_data <= data << shift_amount;\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

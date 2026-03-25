@@ -1,0 +1,6 @@
+{
+  "task_id": "q003767",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module RefModule (\n    input wire D,\n    input wire WE,\n    input wire CLK,\n    input wire RST,\n    output reg Q\n);\n  wire _tap_D = D & {1{1'b1}};\n\n\n    always @(posedge CLK or posedge RST) begin\n        if (RST) begin\n            Q <= 1'b0; // Reset the stored value to 0\n        end else if (WE) begin\n            Q <= D; // Store the data input\n        end\n    end\nendmodule"
+}

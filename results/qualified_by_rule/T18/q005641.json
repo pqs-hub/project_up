@@ -1,0 +1,6 @@
+{
+  "task_id": "q005641",
+  "rule_id": "T18",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input write_enable,\n    input [1:0] write_address,\n    input [1:0] read_address,\n    input [31:0] write_data,\n    output reg [31:0] read_data);reg [31:0] registers [3:0];\n\nalways @(posedge clk) begin\n    if (write_enable)\n        registers[write_address] <= write_data;\nend\n\nalways @(*) begin\n    read_data = registers[read_address];\nend\nendmodule"
+}

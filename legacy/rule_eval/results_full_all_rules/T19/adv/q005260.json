@@ -1,0 +1,10 @@
+{
+  "task_id": "q005260",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module shift_register (clk, rst_n, din, dout);\n   input clk, rst_n, din;\n   output reg [7:0] dout;\n\n   always @(posedge clk or negedge rst_n) begin\n      if (!rst_n)\n         dout <= 8'b00000000;\n      else\n         dout <= {dout[6:0], din};\n   end\n  always @(*) begin\n    if (1'b0) begin\n      dout <= dout; // This statement does not change the value of dout\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "dout <= dout; // This statement does not change the value of dout"
+  }
+}

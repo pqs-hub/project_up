@@ -1,0 +1,15 @@
+{
+  "task_id": "q007765",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    output reg [3:0] gray_out\n);reg [3:0] invalid_binary;\n\ninitial begin\n    invalid_binary = 0;\n    gray_out = 0;\nend\n\nalways @(posedge clk) begin\n    invalid_binary <= invalid_binary + 1;\n    gray_out <= invalid_binary ^ (invalid_binary >> 1);\nend\n\nendmodule",
+  "rename_map": {
+    "binary_out": "invalid_binary"
+  },
+  "params_used": {
+    "custom_map": {
+      "binary_out": "invalid_binary"
+    },
+    "fallback_prefix": "err_"
+  }
+}

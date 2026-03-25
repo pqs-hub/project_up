@@ -1,0 +1,6 @@
+{
+  "task_id": "q013233",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule top_module(src,regread0,regread1,regread2,regread3,dataout);input [1:0]src;\n input [3:0]regread0,regread1,regread2,regread3;\n output [3:0]dataout;\n assign dataout[0]=((~src[1])&(~src[0])&regread0[0])|((~src[1])&(src[0])&regread1[0])|((src[1])&(~src[0])&regread2[0])|((src[1])&(src[0])&regread3[0]);\n assign dataout[1]=((~src[1])&(~src[0])&regread0[1])|((~src[1])&(src[0])&regread1[1])|((src[1])&(~src[0])&regread2[1])|((src[1])&(src[0])&regread3[1]);\n assign dataout[2]=((~src[1])&(~src[0])&regread0[2])|((~src[1])&(src[0])&regread1[2])|((src[1])&(~src[0])&regread2[2])|((src[1])&(src[0])&regread3[2]);\n assign dataout[3]=((~src[1])&(~src[0])&regread0[3])|((~src[1])&(src[0])&regread1[3])|((src[1])&(~src[0])&regread2[3])|((src[1])&(src[0])&regread3[3]);\n \nendmodule"
+}

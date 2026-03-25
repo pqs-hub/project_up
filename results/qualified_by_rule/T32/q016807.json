@@ -1,0 +1,6 @@
+{
+  "task_id": "q016807",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module RefModule (\n  input clk,\n  input [4-1:1-1] binary_input,\n  output [3:0] gray_output\n);\n\n  reg [3:0] gray_reg;\n  \n  always@(posedge clk) begin\n    gray_reg[3] <= binary_input[3];\n    gray_reg[2] <= binary_input[3] ^ binary_input[2];\n    gray_reg[1] <= binary_input[2] ^ binary_input[1];\n    gray_reg[0] <= binary_input[1] ^ binary_input[0];\n  end\n  \n  assign gray_output = gray_reg;\n  \nendmodule\n"
+}

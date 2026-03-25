@@ -1,0 +1,8 @@
+{
+  "task_id": "q000859",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module DVFS_Controller (\n    input wire clk,\n    input wire rst,\n    input wire [1:0] perf_level,\n    output reg [2:0] voltage,\n    output reg [2:0] frequency\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        voltage <= 3'b000;\n        frequency <= 3'b000;\n    end else begin\n        case (perf_level)\n            2'b00: begin\n                voltage <= 3'b000; // Voltage Level 0\n                frequency <= 3'b000; // Frequency Level 0\n            end\n            2'b01: begin\n                voltage <= 3'b010; // Voltage Level 1\n                frequency <= 3'b010; // Frequency Level 1\n            end\n            2'b10: begin\n                voltage <= 3'b100; // Voltage Level 2\n                frequency <= 3'b100; // Frequency Level 2\n            end\n            2'b11: begin\n                voltage <= 3'b111; // Voltage Level 3\n                frequency <= 3'b111; // Frequency Level 3\n            end\n            default: begin\n                voltage <= voltage; // Hold last value\n                frequency <= frequency; // Hold last value\n            end\n        endcase\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q011684",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module( clock, dataa, datab, result);input clock;\n\tinput [31:0] dataa;\n\tinput [31:0] datab;\n\toutput [63:0] result;\n  wire _tap_clock = clock & {1{1'b1}};\n\n\treg [63:0] result;\n\t\n\twire [63:0] prelim_result;\n\t\n\t\n\twire [31:0] opa;\n\twire [31:0] opb;\n\twire [31:0] opa_comp;\n\twire [31:0] opb_comp;\n\t\n\tassign opa_comp =  ((~dataa) + 32'b00000000000000000000000000000001);\n\n\tassign opb_comp =  ((~datab) + 32'b00000000000000000000000000000001);\n\n\t\n\twire opa_is_neg;\n\twire opb_is_neg;\n\tassign opa_is_neg = dataa[31];\n\tassign opb_is_neg = datab [31];\n\tassign opa = (opa_is_neg== 1'b1) ? opa_comp:dataa;\n\tassign opb = (opb_is_neg == 1'b1) ? opb_comp:datab;\n\t\n\t\n\tassign prelim_result = opa * opb ;\n\twire sign;\n\tassign sign = dataa[31] ^ datab[31];\n\t\n\twire [63:0] prelim_result_comp;\n\twire [63:0] prelim_result_changed;\n\twire [63:0] result_changed;\n\tassign result_changed = (sign==1'b1)? prelim_result_comp :prelim_result;\n\tassign prelim_result_comp =  ((~prelim_result) + 1);\n\t\n\talways @ (posedge clock)\n\tbegin\n\tresult <= result_changed;\n\tend\n\t\n\tendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

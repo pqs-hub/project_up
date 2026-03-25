@@ -1,0 +1,8 @@
+{
+  "task_id": "q008132",
+  "rule_id": "T07",
+  "changed": true,
+  "final": "module top_module(\n    input [31:0] in,\n    output [31:0] out\n);reg [7:0] byte_0, byte_1, byte_2, byte_3;\nreg [31:0] stage_1_out, stage_2_out, stage_3_out;\n\n// Stage 1: Extract each byte from the input\nassign byte_1 = in[15:8];\nassign byte_0 = in[7:0];\nassign byte_2 = in[23:16];\nassign byte_3 = in[31:24];\n\n// Stage 2: Reverse the order of the bytes\nassign stage_1_out = {byte_3, byte_2, byte_1, byte_0};\n\n// Stage 3: Combine the reversed bytes into a 32-bit output\nassign stage_2_out = {stage_1_out[7:0], stage_1_out[15:8], stage_1_out[23:16], stage_1_out[31:24]};\nassign stage_3_out = stage_2_out;\n\n// Output the final result\nassign out = stage_3_out;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

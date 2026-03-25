@@ -1,0 +1,15 @@
+{
+  "task_id": "q015418",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module Register_16(\n   input               reset_clk,\n   input               load,\n   input               clr,\n   input  [15:0]       D,\n   output reg [15:0]   Q  \n);\n    always@(posedge reset_clk) begin\n        if(clr) Q <= 16'b0; // Clear the register\n        else if(load) Q <= D; // Load the register with input data\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

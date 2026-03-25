@@ -1,0 +1,6 @@
+{
+  "task_id": "q011536",
+  "rule_id": "T35",
+  "changed": false,
+  "final": "module RefModule(\n    input wire [7:0] in_hi,\n    input wire [7:0] in_lo,\n    output wire [15:0] final_output\n);wire [15:0] concat_output;\n    wire [7:0] xor_output;\n\n    // Concatenation operation: combining in_hi and in_lo\n    assign concat_output = {in_hi, in_lo};\n\n    // XOR operation\n    assign xor_output = in_hi ^ in_lo;\n\n    // Final output calculation\n    assign final_output = (xor_output * concat_output) + concat_output;\n\nendmodule"
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q000814",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module dma_controller (\n    input wire clk,\n    input wire rst,\n    input wire [1:0] select,\n    input wire valid,\n    output reg [3:0] obf_channel_ack\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            obf_channel_ack <= 4'b0000;\n        end else if (valid) begin\n            obf_channel_ack <= (1 << select);\n        end else begin\n            obf_channel_ack <= 4'b0000;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "channel_ack": "obf_channel_ack"
+  }
+}

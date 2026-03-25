@@ -1,0 +1,6 @@
+{
+  "task_id": "q011044",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module full_adder_4bit(\n    input [3:0] a,\n    input [3:0] b,\n    input cin,\n    output [3:0] sum,\n    output cout\n);\n\nwire [3:0] unused_carry;\n\nassign {unused_carry[0], sum[0]} = a[0] + b[0] + cin;\nassign {unused_carry[1], sum[1]} = a[1] + b[1] + unused_carry[0];\nassign {unused_carry[2], sum[2]} = a[2] + b[2] + unused_carry[1];\nassign {unused_carry[3], sum[3]} = a[3] + b[3] + unused_carry[2];\nassign cout = unused_carry[3];\n\nendmodule"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q015798",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(dataa, datab, overflow, result);input [31:0] dataa; \n  input [31:0] datab; \n  output overflow; \n  output [31:0] result; \n  wire [32:0]computation; \n    wire _n01 = dataa[0] ^ datab[0];\n  wire _c01 = dataa[0] & datab[0];\n  wire _n02 = dataa[1] ^ datab[1] ^ _c01;\n  wire _c02 = (dataa[1] & datab[1]) | (dataa[1] & _c01) | (datab[1] & _c01);\n  wire _n03 = dataa[2] ^ datab[2] ^ _c02;\n  wire _c03 = (dataa[2] & datab[2]) | (dataa[2] & _c02) | (datab[2] & _c02);\n  wire _n04 = dataa[3] ^ datab[3] ^ _c03;\n  wire _c04 = (dataa[3] & datab[3]) | (dataa[3] & _c03) | (datab[3] & _c03);\n  assign computation = {_n01, _n02, _n03, _n04}; \n  assign overflow = computation[32]; \n  assign result = computation[31:0]; \n endmodule",
+  "rename_map": {},
+  "params_used": {}
+}

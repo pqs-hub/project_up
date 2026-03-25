@@ -1,0 +1,6 @@
+{
+  "task_id": "q004022",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule(\n    input [7:0] asset1_weight,\n    input [7:0] asset2_weight,\n    input [7:0] asset3_weight,\n    output reg [7:0] total_weight\n);\n    always @(*) begin\n        total_weight = asset1_weight + asset2_weight + asset3_weight;\n        if (total_weight > 8'd100) begin\n            total_weight = 8'd100; // Clamp to 100%\n        end\n    end\nendmodule"
+}

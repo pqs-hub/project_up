@@ -1,0 +1,10 @@
+{
+  "task_id": "q003677",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module expands the audio sample to 16 bits by duplicating the MSB\nmodule audio_compressor(  \n    input wire clk,  \n    input wire rst,  \n    input wire [15:0] audio_in,  \n    output reg [7:0] audio_out  \n);  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            audio_out <= 8'b0;  \n        end else begin  \n            audio_out <= audio_in[15:8];  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module expands the audio sample to 16 bits by duplicating the MSB"
+  }
+}

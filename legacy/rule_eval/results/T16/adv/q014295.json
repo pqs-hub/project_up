@@ -1,0 +1,9 @@
+{
+  "task_id": "q014295",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(out, clk, rst);output reg [3:0] out;\n  input clk, rst;\n\n  wire obf_feedback;\n\n  assign obf_feedback = ~(out[3] ^ out[2]);\n\nalways @(posedge clk, posedge rst)\n  begin\n    if (rst)\n      out = 4'b0;\n    else\n      out = {out[2:0],obf_feedback};\n  end\nendmodule",
+  "rename_map": {
+    "feedback": "obf_feedback"
+  }
+}

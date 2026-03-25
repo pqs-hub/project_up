@@ -1,0 +1,15 @@
+{
+  "task_id": "q014194",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module verified_Up_counter(\n   input                reset_clk ,\n   input                rst_n,\n \n   output reg [31:0]     count \n);\n    always@(posedge reset_clk or negedge rst_n)begin\n        if(!rst_n) count <= 32'd0;\n        else count <= count + 1;\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

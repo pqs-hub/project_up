@@ -1,0 +1,6 @@
+{
+  "task_id": "q008766",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,       // Clock input\n    input reset,     // Synchronous reset input\n    \n    output [3:0] count  // 4-bit output representing the current count value\n);\n\nreg [3:0] count_r; // Register to hold the count value\n\nalways @(posedge clk) begin\n    if (reset)\n        count_r <= 4'b0000; // Reset the count to zero\n    else\n        count_r <= count_r + 1; // Increment the count\nend\n\nwire __count_tmp = count_r;\nassign count = __count_tmp;\n\nendmodule"
+}

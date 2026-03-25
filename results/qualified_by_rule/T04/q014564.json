@@ -1,0 +1,6 @@
+{
+  "task_id": "q014564",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(CLK, RST, IN, EDGE_DET);\ninput CLK, RST, IN;\noutput EDGE_DET;\nreg EDGE_DET;\nreg prev_IN;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST) begin\n        EDGE_DET <= 0;\n        prev_IN <= 0;\n    end else begin\n        if (IN && !prev_IN)\n            EDGE_DET <= 1;\n        else\n            EDGE_DET <= 0;\n        prev_IN <= IN;\n    end\nend\n\nendmodule"
+}

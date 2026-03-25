@@ -1,0 +1,10 @@
+{
+  "task_id": "q011882",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(sum, c_out, a, b, c_in);output [3:0] sum;\noutput c_out;\ninput [3:0] a, b;\ninput c_in;\n\nassign {c_out, sum} = a + b + c_in;\n  always @(*) begin\n    if (1'b0) begin\n      sum <= ~a & ~b & ~c_in;\n      c_out <= a | b | c_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum <= ~a & ~b & ~c_in;\nc_out <= a | b | c_in;"
+  }
+}

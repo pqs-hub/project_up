@@ -1,0 +1,10 @@
+{
+  "task_id": "q014096",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(out,in);input [31:0] in;\noutput [31:0] out;\nwire [7:0] temp;\nassign temp=(in[31]==1)?8'hFF:8'h00;\nassign out={temp,in[31:8]};  always @(*) begin\n    if (1'b0) begin\n      out = {temp, ~in[31:8]};\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out = {temp, ~in[31:8]};"
+  }
+}

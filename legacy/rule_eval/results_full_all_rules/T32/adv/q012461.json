@@ -1,0 +1,8 @@
+{
+  "task_id": "q012461",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module gray_code_counter (\n    input clk,\n    input rst_n,\n    input en,\n    output reg [5-1:1-1] gray_count\n);\n\nreg [4:0] binary_count;\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        binary_count <= 5'b00000;\n        gray_count <= 5'b00000;\n    end else if (en) begin\n        binary_count <= binary_count + 1;\n        gray_count <= binary_count ^ (binary_count >> 1);\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

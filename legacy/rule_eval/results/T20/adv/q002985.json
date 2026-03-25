@@ -1,0 +1,6 @@
+{
+  "task_id": "q002985",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule data_forwarding_unit(  \n    input [4:0] EX_dst,  \n    input [4:0] ID_src1,  \n    input [4:0] ID_src2,  \n    output reg ForwardA,  \n    output reg ForwardB  \n);  \n    always @(*) begin  \n        ForwardA = (EX_dst != 0) && (EX_dst == ID_src1);  \n        ForwardB = (EX_dst != 0) && (EX_dst == ID_src2);  \n    end  \nendmodule"
+}

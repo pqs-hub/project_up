@@ -1,0 +1,8 @@
+{
+  "task_id": "q000544",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module zero_crossing_detector (\n    input wire clk,\n    input wire signal,\n    output reg pulse\n);\n    reg signal_prev;\n\n    always @(posedge clk) begin\n    begin end  // redundant\n        pulse <= 0; // Default pulse output\n        if ((signal_prev == 1 && signal == 0) || (signal_prev == 0 && signal == 1)) begin\n            pulse <= 1; // Set pulse on zero crossing\n        end\n        signal_prev <= signal; // Store previous signal value\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

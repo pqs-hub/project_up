@@ -1,0 +1,18 @@
+{
+  "task_id": "q016969",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sign_extend(\n    input [15:0] input_reg,\n    output reg [31:0] reg_out,\n    input clk,\n    input reset\n);\n\n    always @(posedge clk, posedge reset) begin\n        if (reset) begin\n            reg_out <= 0;\n        end\n        else begin\n            if (input_reg[15] == 1) begin\n                reg_out <= {16'b1111111111111111, input_reg};\n            end\n            else begin\n                reg_out <= {16'b0000000000000000, input_reg};\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "reg_in": "input_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "reg_in": "input_reg",
+      "reg_out": "output_reg",
+      "clk": "clock_signal",
+      "reset": "reset_signal"
+    },
+    "fallback_prefix": "ext_"
+  }
+}

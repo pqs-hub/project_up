@@ -1,0 +1,8 @@
+{
+  "task_id": "q000394",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module ring_counter (\n    input clk,\n    input reset,\n    output reg [4:0] count\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 5'b00001;  // Initialize to \"00001\"\n        end else begin\n            count <= {count[3:0], count[4]};  // Shift left and wrap around\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

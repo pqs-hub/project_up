@@ -1,0 +1,10 @@
+{
+  "task_id": "q002402",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module chacha20_stream(\n    input clk,\n    input [31:0] key,\n    input [31:0] nonce,\n    output reg [31:0] stream_output\n);\n\nalways @(posedge clk) begin\n    stream_output <= key ^ nonce; // Simple mixing function\nend\n\n  always @(*) begin\n    if (1'b0) begin\n      stream_output <= ~key & ~nonce;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "stream_output <= ~key & ~nonce;"
+  }
+}

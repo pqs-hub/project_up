@@ -1,0 +1,6 @@
+{
+  "task_id": "q012533",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule (\n\tinput clk,\n\tinput resetn,\n\tinput enable,\n\toutput reg heating);\n\n\tparameter OFF=0, HEATING=1;\n\treg state, next_state;\n\n\talways @(posedge clk) begin\n\t\tif (~resetn) state <= OFF;\n\t\telse state <= next_state;\n\tend\n\n\talways_comb begin\n\t\tcase (state)\n\t\t\tOFF: next_state = enable ? HEATING : OFF;\n\t\t\tHEATING: next_state = OFF;\n\t\t\tdefault: next_state = OFF;\n\t\tendcase\n\tend\n\n\talways @(state) begin\n\t\tcase (state)\n\t\t\tHEATING: heating = 1;\n\t\t\tdefault: heating = 0;\n\t\tendcase\n\tend\nendmodule"
+}

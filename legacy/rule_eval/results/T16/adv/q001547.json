@@ -1,0 +1,9 @@
+{
+  "task_id": "q001547",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module jk_flip_flop (\n    input wire J,\n    input wire K,\n    input wire obf_CLK,\n    output reg Q\n);\n    always @(posedge obf_CLK) begin\n        if (J == 1'b0 && K == 1'b0) \n            Q <= Q; // No change\n        else if (J == 1'b1 && K == 1'b0) \n            Q <= 1'b1; // Set\n        else if (J == 1'b0 && K == 1'b1) \n            Q <= 1'b0; // Reset\n        else if (J == 1'b1 && K == 1'b1) \n            Q <= ~Q; // Toggle\n    end\nendmodule",
+  "rename_map": {
+    "CLK": "obf_CLK"
+  }
+}

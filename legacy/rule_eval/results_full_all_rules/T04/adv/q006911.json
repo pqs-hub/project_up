@@ -1,0 +1,10 @@
+{
+  "task_id": "q006911",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This D flip-flop retains its value on the rising edge of the clock unless the active-high reset signal is triggered, which sets the output to zero.\nmodule top_module(\n  input        clock,\n  input        reset,\n  input  [1:0] io_input_0_data,\n  input        io_input_0_reset,\n  output [1:0] io_output_data\n);reg [1:0] ff;\n  \n  always @(posedge clock or negedge reset) begin\n    if (!reset) begin\n      ff <= 2'h0;\n    end else if (io_input_0_reset) begin\n      ff <= ff;\n    end else begin\n      ff <= io_input_0_data;\n    end\n  end\n  \n  assign io_output_data = ff;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This D flip-flop retains its value on the rising edge of the clock unless the active-high reset signal is triggered, which sets the output to zero."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q012290",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule priority_encoder_8bit(\n    input wire [7:0] data_in,\n    output reg [2:0] position\n    );\n\nalways @(*) begin\n    casez (data_in)\n        8'b1???????: position = 3'd7;\n        8'b01??????: position = 3'd6;\n        8'b001?????: position = 3'd5;\n        8'b0001????: position = 3'd4;\n        8'b00001???: position = 3'd3;\n        8'b000001??: position = 3'd2;\n        8'b0000001?: position = 3'd1;\n        8'b00000001: position = 3'd0;\n        default: position = 3'd0;\n    endcase\nend\n\nendmodule"
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "q015808",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module comparator_4bit(\n    input wire [3:0] cmp_A,\n    input wire [3:0] B,\n    output wire A_greater,\n    output wire A_equal,\n    output wire A_less\n    );\n\nassign A_greater = (cmp_A > B) ? 1'b1 : 1'b0;\nassign A_equal = (cmp_A == B) ? 1'b1 : 1'b0;\nassign A_less = (cmp_A < B) ? 1'b1 : 1'b0;\n\nendmodule",
+  "rename_map": {
+    "A": "cmp_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "comparator_4bit": "magnitude_comparator",
+      "A_greater": "A_not_less",
+      "A_equal": "A_not_greater_and_not_less",
+      "A_less": "A_not_greater"
+    },
+    "fallback_prefix": "cmp_"
+  }
+}

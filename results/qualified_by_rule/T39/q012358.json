@@ -1,0 +1,6 @@
+{
+  "task_id": "q012358",
+  "rule_id": "T39",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input rst,\n    input load,\n    input shift,\n    input [7:0] parallel_in,\n    input serial_in,\n    output reg [7:0] parallel_out,\n    output serial_out\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            parallel_out <= 8'b0;\n        end else if (load) begin\n            parallel_out <= parallel_in;\n        end else if (shift) begin\n            parallel_out <= {parallel_out[6:0], serial_in};\n        end\n    end\n\n    assign serial_out = parallel_out[7];\nendmodule"
+}

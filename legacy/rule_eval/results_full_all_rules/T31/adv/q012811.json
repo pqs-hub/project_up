@@ -1,0 +1,10 @@
+{
+  "task_id": "q012811",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(\ninput [31:0]gravity0,\ninput [31:0]gravity1,\noutput fall\n    );parameter [31:0]value = 700;\n    wire threshold_inverted = (gravity0 > gravity1) ? (((gravity0 - gravity1) > value) ? 1'b1 : 1'b0) : 1'b0;\n    assign fall = threshold_inverted;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "threshold_inverted"
+  }
+}

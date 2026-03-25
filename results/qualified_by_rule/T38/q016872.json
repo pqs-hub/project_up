@@ -1,0 +1,6 @@
+{
+  "task_id": "q016872",
+  "rule_id": "T38",
+  "changed": true,
+  "final": "module RefModule (\n  input CLK,\n  input EN,\n  input TE,\n  output ENCLK\n);\n\n  reg gated_clk;\n\n  always @(posedge CLK) begin\n    if (EN && !TE) begin\n      gated_clk <= 1'b1;\n    end else begin\n      gated_clk <= 1'b0;\n    end\n  end\n\n  wire temp1_gated_clk = gated_clk;\n  wire temp2_CLK = CLK;\n  assign ENCLK = temp1_gated_clk & temp2_CLK;\n\nendmodule"
+}

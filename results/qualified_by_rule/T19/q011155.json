@@ -1,0 +1,6 @@
+{
+  "task_id": "q011155",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module RefModule (\n\tinput clk, reset, J, K,\n\toutput reg q);always @(posedge clk) begin\n\tif (reset) \n\t\tq <= 1'b0;\n\telse if (J && ~K) \n\t\tq <= 1'b1;\n\telse if (~J && K) \n\t\tq <= 1'b0;\n\telse if (J && K) \n\t\tq <= ~q;\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

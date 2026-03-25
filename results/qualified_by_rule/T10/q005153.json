@@ -1,0 +1,6 @@
+{
+  "task_id": "q005153",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire rst_n,\n    input wire a,\n    output reg rise,\n    output reg down\n);\n\nreg a_d;  // Delayed version of 'a' to detect edges\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        a_d <= 1'b0;\n        rise <= 1'b0;\n        down <= 1'b0;\n    end else begin\n        rise <= 1'b0;\n        down <= 1'b0;\n        \n        if (a && !a_d) begin\n            rise <= 1'b1;  // Rising edge detected\n        end\n        if (!a && a_d) begin\n            down <= 1'b1;  // Falling edge detected\n        end\n        a_d <= a;  // Update delayed signal\n    end\nend\n\nendmodule\n"
+}

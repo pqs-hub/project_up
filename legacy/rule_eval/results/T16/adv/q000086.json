@@ -1,0 +1,9 @@
+{
+  "task_id": "q000086",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module switching_regulator (\n    input [1:0] voltage_select,\n    output reg obf_regulator_enable\n);\n\nalways @(*) begin\n    case (voltage_select)\n        2'b00: obf_regulator_enable = 1'b0; // 0V\n        2'b01: obf_regulator_enable = 1'b1; // 1.2V\n        2'b10: obf_regulator_enable = 1'b1; // 2.5V\n        2'b11: obf_regulator_enable = 1'b0; // 5V\n        default: obf_regulator_enable = 1'b0; // Default case\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "regulator_enable": "obf_regulator_enable"
+  }
+}

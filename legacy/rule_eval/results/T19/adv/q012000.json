@@ -1,0 +1,6 @@
+{
+  "task_id": "q012000",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module counter_with_load(\n    input           clk         ,\n    input           rst_n       ,\n    input           load        ,\n    input   [3:0]   load_value  ,\n    output  reg [3:0] count\n);\n    \n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            count <= 4'b0;\n        end\n        else if (load) begin\n            count <= load_value;\n        end\n        else begin\n            count <= count + 1;\n        end\n    end\n    \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

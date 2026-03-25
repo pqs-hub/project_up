@@ -1,0 +1,6 @@
+{
+  "task_id": "q007807",
+  "rule_id": "T01",
+  "changed": false,
+  "final": "module top_module(\n  input clk,\n  input reset,\n  input [7:0] a,\n  input [7:0] b,\n  input ctrl,\n  output [15:0] out\n);reg [15:0] temp;\n\nalways @ (posedge clk or posedge reset) begin\n  if (reset) begin\n    temp <= 16'b0;\n  end else begin\n    if (ctrl) begin\n      temp <= {a, b};\n    end else begin\n      temp <= {b, a};\n    end\n  end\nend\n\nassign out = temp;\n\nendmodule"
+}

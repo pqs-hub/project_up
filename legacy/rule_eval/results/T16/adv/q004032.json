@@ -1,0 +1,9 @@
+{
+  "task_id": "q004032",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module eeprom_cell (\n    input wire [4:0] data_in,\n    input wire we, // write enable\n    input wire re, // read enable\n    output reg [4:0] data_out\n);\n    reg [4:0] obf_mem; // memory register\n\n    always @(*) begin\n        if (we) begin\n            obf_mem <= data_in; // write data to memory\n        end\n        if (re) begin\n            data_out <= obf_mem; // read data from memory\n        end else begin\n            data_out <= 5'b0; // output zero if not reading\n        end\n    end\nendmodule",
+  "rename_map": {
+    "mem": "obf_mem"
+  }
+}

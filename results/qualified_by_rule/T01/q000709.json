@@ -1,0 +1,6 @@
+{
+  "task_id": "q000709",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule (\n    input wire D,\n    input wire E,\n    output reg Q\n);\n    always @ (D or E) begin\n    begin end  // redundant\n        if (E) begin\n            Q <= D; // When E is high, Q follows D\n        end\n        // When E is low, Q retains its value\n    end\nendmodule"
+}

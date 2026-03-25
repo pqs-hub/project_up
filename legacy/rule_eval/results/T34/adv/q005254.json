@@ -1,0 +1,6 @@
+{
+  "task_id": "q005254",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n input [31:0] x, y,\n output [31:0] zlow, zhigh);integer i; \n reg [31:0] unused_temp;\n \n always @* begin\n\tfor(i=0; i<32; i= i+1) begin\n\t\n\t\tif(x[i] == 1)\n\t\t\tunused_temp[i] = 0;\n\t\telse\n\t\t\tunused_temp[i] = 1;\n\t\t\t\n\tend\n end\n \n assign zlow = unused_temp;\n assign zhigh = 0;\n \nendmodule"
+}

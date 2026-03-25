@@ -1,0 +1,6 @@
+{
+  "task_id": "q010177",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// Clock Divider - ratio 4\nmodule top_module(\n    Y   ,\n    A1  ,\n    A2  ,\n    B1  ,\n    C1  ,\n    D1  ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output Y   ;\n    input  A1  ;\n    input  A2  ;\n    input  B1  ;\n    input  C1  ;\n    input  D1  ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n\n    wire cond1, cond2, cond3, cond4, cond5, cond6, cond7;\n\n    assign cond1 = (A1 == 1) && (A2 == 0);\n    assign cond2 = (A1 == 0) && (A2 == 1);\n    assign cond3 = (B1 == 1) && (C1 == 0) && (D1 == 0);\n    assign cond4 = (B1 == 0) && (C1 == 1) && (D1 == 0);\n    assign cond5 = (B1 == 0) && (C1 == 0) && (D1 == 1);\n    assign cond6 = (VPWR == 0) || (VGND == 1);\n    assign cond7 = (VPB == 1) && (VNB == 0);\n\n    assign Y = (cond1 || cond2 || cond3 || cond4 || cond5) && !cond6 || cond7;\n\nendmodule"
+}

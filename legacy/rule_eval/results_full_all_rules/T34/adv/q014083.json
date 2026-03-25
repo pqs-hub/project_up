@@ -1,0 +1,15 @@
+{
+  "task_id": "q014083",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module binary_counter(\n    input wire reset_clk,\n    input wire en,\n    input wire rst,\n    output reg [3:0] count\n);\n\nalways @(posedge reset_clk) begin\n    if (rst)\n        count <= 4'd0;\n    else if (en)\n        count <= count + 1;\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

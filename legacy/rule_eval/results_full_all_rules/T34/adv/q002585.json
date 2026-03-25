@@ -1,0 +1,19 @@
+{
+  "task_id": "q002585",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module clock_divider (\n    input wire clk_in,      // Input clock\n    input wire reset,       // Asynchronous reset\n    input wire enable,      // Enable signal\n    input wire [3:0] factor, // Division factor (1 to 15)\n    output reg clk_out      // Output divided clock\n);\n    reg [3:0] alt_count; // Counter to keep track of clock cycles\n\n    always @(posedge clk_in or posedge reset) begin\n        if (reset) begin\n            alt_count <= 0;\n            clk_out <= 0;\n        end else if (enable) begin\n            if (alt_count == (factor - 1)) begin\n                clk_out <= ~clk_out; // Toggle output clock\n                alt_count <= 0; // Reset alt_count\n            end else begin\n                alt_count <= alt_count + 1; // Increment alt_count\n            end\n        end\n    end\nendmodule",
+  "rename_map": {
+    "count": "alt_count"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk_in": "clk_stop",
+      "reset": "rst_active",
+      "enable": "div_en",
+      "factor": "div_factor",
+      "clk_out": "clk_half"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

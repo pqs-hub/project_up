@@ -1,0 +1,6 @@
+{
+  "task_id": "q015220",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module (\n  input in1,\n  input state,\n  output reg next_state,\n  output reg out);parameter S1=0, S2=1;\n\n    always_comb begin\n        case (state)\n            S1: next_state = in1 ? S2 : S1;\n            S2: next_state = in1 ? S2 : S1;\n        endcase\n    end\n    \n    wire __out_tmp = (state == S2);\n    assign out = __out_tmp;\n    \nendmodule"
+}

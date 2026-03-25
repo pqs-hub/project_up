@@ -1,0 +1,10 @@
+{
+  "task_id": "q015255",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 32-entry register file with separate read and write operations. It provides two read ports (RSaddr_i and RTaddr_i) and one write port (RDaddr_i). Data to be written is provided via RDdata_i, and a control signal RegWrite_i enables or disables the write operation on the rising edge of the clock signal clk_i. Outputs RSdata_o and RTdata_o provide the data read from the specified registers.\nmodule top_module(\n    clk_i,\n    RSaddr_i,\n    RTaddr_i,\n    RDaddr_i, \n    RDdata_i,\n    RegWrite_i, \n    RSdata_o, \n    RTdata_o \n);input               clk_i;\ninput   [4:0]       RSaddr_i;\ninput   [4:0]       RTaddr_i;\ninput   [4:0]       RDaddr_i;\ninput   [31:0]      RDdata_i;\ninput               RegWrite_i;\noutput  [31:0]      RSdata_o; \noutput  [31:0]      RTdata_o;\n\n\nreg     [31:0]      register        [0:31];\n\n\nassign  RSdata_o = register[RSaddr_i];\nassign  RTdata_o = register[RTaddr_i];\n\n\nalways@(posedge clk_i) begin\n    if(RegWrite_i)\n        register[RDaddr_i] <= RDdata_i;\nend\n   \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 32-entry register file with separate read and write operations. It provides two read ports (RSaddr_i and RTaddr_i) and one write port (RDaddr_i). Data to be written is provided via RDdata_i, and a control signal RegWrite_i enables or disables the write operation on the rising edge of the clock signal clk_i. Outputs RSdata_o and RTdata_o provide the data read from the specified registers."
+  }
+}

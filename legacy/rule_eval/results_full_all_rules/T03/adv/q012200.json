@@ -1,0 +1,8 @@
+{
+  "task_id": "q012200",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    input wenb,\n    input [7:0] in_data,\n    output reg [7:0] reg_out\n);always @(posedge clk) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n        if (reset) begin\n            reg_out <= 8'h00;\n        end else if (wenb) begin\n            reg_out <= in_data;\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

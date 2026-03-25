@@ -1,0 +1,10 @@
+{
+  "task_id": "q016612",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module f3_add1(a, c);\n    input [1:0] a;\n    output [1:0] c;\n    assign c[0] = (~a[0]) & (~a[1]);\n    assign c[1] = a[0] & (~a[1]);\n  always @(*) begin\n    if (1'b0) begin\n      c[0] <= ~a[0];\n      c[1] <= ~a[1];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "c[0] <= ~a[0];\nc[1] <= ~a[1];"
+  }
+}

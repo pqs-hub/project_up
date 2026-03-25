@@ -1,0 +1,15 @@
+{
+  "task_id": "q009621",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n    input [1:0] j,\n    output reg invalid_t\n);\n\n    always @(*) begin\n        case (j)\n            2'b00: invalid_t = 1;\n            2'b01: invalid_t = 1;\n            2'b10: invalid_t = 0;\n            2'b11: invalid_t = 0;\n            default: invalid_t = 0; // Default case\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "t": "invalid_t"
+  },
+  "params_used": {
+    "custom_map": {
+      "t": "invalid_t"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "q011640",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [7:0] min_val,\n    input [7:0] b,\n    output reg [7:0] max,\n    output reg equal_flag\n);always @(*) begin\n    if (min_val > b) begin\n        max = min_val;\n        equal_flag = 0;\n    end\n    else if (b > min_val) begin\n        max = b;\n        equal_flag = 0;\n    end\n    else begin\n        max = min_val;\n        equal_flag = 1;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "a": "min_val"
+  },
+  "params_used": {
+    "custom_map": {
+      "a": "min_val",
+      "b": "max_val",
+      "max": "min_out",
+      "equal_flag": "not_equal"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

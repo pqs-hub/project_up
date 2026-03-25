@@ -1,0 +1,6 @@
+{
+  "task_id": "q014633",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(\n    input [7:0] a,\n    input [7:0] b,\n    input add,\n    input sub,\n    output [7:0] result\n);wire [7:0] add_result;\n    wire [7:0] sub_result;\n\n      wire _n01 = a[0] ^ b[0];\n  wire _c01 = a[0] & b[0];\n  wire _n02 = a[1] ^ b[1] ^ _c01;\n  wire _c02 = (a[1] & b[1]) | (a[1] & _c01) | (b[1] & _c01);\n  wire _n03 = a[2] ^ b[2] ^ _c02;\n  wire _c03 = (a[2] & b[2]) | (a[2] & _c02) | (b[2] & _c02);\n  wire _n04 = a[3] ^ b[3] ^ _c03;\n  wire _c04 = (a[3] & b[3]) | (a[3] & _c03) | (b[3] & _c03);\n  assign add_result = {_n01, _n02, _n03, _n04};\n    assign sub_result = a - b;\n\n    assign result = add ? add_result : sub ? sub_result : 8'b0;\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q017065",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux_4to1 (\n    input A,\n    input B,\n    input C,\n    input D,\n    input S0,\n    input S1,\n    output Y\n);\n\n    assign Y = (~S1 & ~S0 & A) | (~S1 & S0 & B) | (S1 & ~S0 & C) | (S1 & S0 & D);\n\n  always @(*) begin\n    if (1'b0) begin\n      Y <= A; Y <= B; Y <= C; Y <= D;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= A; Y <= B; Y <= C; Y <= D;"
+  }
+}

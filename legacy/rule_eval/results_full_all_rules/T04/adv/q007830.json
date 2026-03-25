@@ -1,0 +1,10 @@
+{
+  "task_id": "q007830",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module decrements the 6-bit counter on each positive edge of the clock when enabled and reset is low.\nmodule binary_counter_6bit_enable(\n    input clk,\n    input rst,\n    input en,\n    output reg [5:0] count\n);\n\nalways @(posedge clk) begin\n    if (rst) begin\n        count <= 6'b000000;\n    end else if (en) begin\n        count <= count + 1;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module decrements the 6-bit counter on each positive edge of the clock when enabled and reset is low."
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q007383",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(dado, obf_clock, habilita_escrita, saida);input [7:0] dado;\n\tinput obf_clock;\n\tinput habilita_escrita;\n\toutput reg [7:0] saida;\n\t\n\talways@(posedge obf_clock)\n\t\tif(habilita_escrita)\n\t\t\tsaida <= dado;\n\t\telse\n\t\t\tsaida <= 0;\n\nendmodule",
+  "rename_map": {
+    "clock": "obf_clock"
+  }
+}

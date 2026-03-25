@@ -1,0 +1,6 @@
+{
+  "task_id": "q008433",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module mux_5to1 (\n\tinput [2:0] sel,\n\tinput [9:0] in0,\n\tinput [9:0] in1,\n\tinput [9:0] in2,\n\tinput [9:0] in3,\n\tinput [9:0] in4,\n\toutput reg [9:0] out\n);\n  wire [2:0] _tap_sel = sel & {3{1'b1}};\n\n\nalways @(*) begin\n\tcase (sel)\n\t\t3'b000: out = in0;\n\t\t3'b001: out = in1;\n\t\t3'b010: out = in2;\n\t\t3'b011: out = in3;\n\t\t3'b100: out = in4;\n\t\tdefault: out = 10'd0;\n\tendcase\nend\n\nendmodule"
+}

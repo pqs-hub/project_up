@@ -1,0 +1,19 @@
+{
+  "task_id": "q007776",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( clk_inv, ld, rst, d, q );// synthesis attribute keep_hierarchy dffl_18 \"true\";\n\tinput clk_inv;\n\tinput ld;\n\tinput rst;\n\tinput [17:0] d;\n\toutput [17:0] q;\n\treg [17:0] q;\n\t// synopsys translate_off\n`ifdef RANDOM_INIT\n\tinitial\n\t$random_init(\"q\");\n`endif\n\t// synopsys translate_on\n\talways @(posedge clk_inv) begin\n\t\tif (rst == 0) begin\n\t\t\tq <= 0;\n\t\tend\n\t\telse if (ld == 1) begin\n\t\t\tq <= d;\n\t\tend\n\tend\nendmodule",
+  "rename_map": {
+    "clk": "clk_inv"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "clk_inv",
+      "ld": "ld_neg",
+      "rst": "rst_not",
+      "d": "d_comp",
+      "q": "q_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

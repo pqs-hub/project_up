@@ -1,0 +1,10 @@
+{
+  "task_id": "q002914",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 2-bit shift register that shifts right when shift_dir is 0 and left when shift_dir is 1.\nmodule shift_register (\n    input clk,\n    input reset,\n    input shift_dir, // 0 for left, 1 for right\n    output reg [1:0] q\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 2'b00;\n        end else begin\n            if (shift_dir == 0) begin\n                q <= {q[0], 1'b0}; // Shift left\n            end else begin\n                q <= {1'b0, q[1]}; // Shift right\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 2-bit shift register that shifts right when shift_dir is 0 and left when shift_dir is 1."
+  }
+}

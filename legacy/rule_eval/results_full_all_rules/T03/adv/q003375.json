@@ -1,0 +1,8 @@
+{
+  "task_id": "q003375",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module divider_2bit (\n    input [1:0] A,  // 2-bit dividend\n    input [1:0] B,  // 2-bit divisor\n    output reg [1:0] Q,  // 2-bit quotient\n    output reg [1:0] R   // 2-bit remainder\n);\n  wire [1:0] _tap_A = A & {2{1'b1}};\n\n    always @(*) begin\n        if (B == 2'b00) begin\n            Q = 2'b00;  // Division by zero case\n            R = A;      // Remainder is the dividend\n        end else begin\n            Q = A / B;  // Compute quotient\n            R = A % B;  // Compute remainder\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

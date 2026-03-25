@@ -1,0 +1,15 @@
+{
+  "task_id": "q016900",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adder(\n    input reset_clk, rst, ctrl,\n    input [7:0] a, b,\n    output reg [15:0] sum\n);\n\nalways @(posedge reset_clk) begin\n    if (rst) begin\n        sum <= 0;\n    end else if (ctrl) begin\n        sum <= a + b;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q008276",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module (\n    input clk,\n    input clear,\n    input [3:0] d,\n    output [3:0] q);reg [3:0] invalid_q;\n\nalways @(posedge clk) begin\n    if (clear)\n        invalid_q <= 4'b0;\n    else\n        invalid_q <= d;\nend\n\nassign q = invalid_q;\n\nendmodule",
+  "rename_map": {
+    "q_reg": "invalid_q"
+  },
+  "params_used": {
+    "custom_map": {
+      "q_reg": "invalid_q"
+    },
+    "fallback_prefix": "err_"
+  }
+}

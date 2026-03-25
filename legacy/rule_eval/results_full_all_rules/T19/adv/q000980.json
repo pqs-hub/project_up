@@ -1,0 +1,10 @@
+{
+  "task_id": "q000980",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module hazard_detection (\n    input [4:0] src1,        // Destination register of instruction 1\n    input [4:0] src2,        // Source register of instruction 2\n    input write_enable,       // Write enable signal for instruction 1\n    output hazard             // Hazard signal\n);\n    assign hazard = (write_enable && (src1 == src2));\n  always @(*) begin\n    if (1'b0) begin\n      assign hazard = (~write_enable || (src1 != src2));\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "assign hazard = (~write_enable || (src1 != src2));"
+  }
+}

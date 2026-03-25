@@ -1,0 +1,6 @@
+{
+  "task_id": "q014422",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule register12(\n\tinput wire clk,\n\tinput wire set,\n\tinput wire en,\n\tinput wire [11:0] D,\n\toutput reg [11:0] Q\n);always @(posedge clk or posedge set) begin\n\tif (set)\n\t\tQ <= 12'b111111111111;\n\telse if (en)\n\t\tQ <= D;\nend\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q010987",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module RefModule(\n  input clk,\n  input reset,\n  input [31:0] input_data,\n  output [31:0] shifted_data,\n  output zero_flag\n);reg [31:0] shifted_data_reg;\n  reg zero_flag_reg;\n\n  always @(posedge clk, posedge reset) begin\n    if (reset) begin\n      shifted_data_reg <= 32'h00000000;\n      zero_flag_reg <= 1'b0;\n    end else begin\n      shifted_data_reg <= {input_data[30:0], 1'b0};\n      zero_flag_reg <= (input_data == 32'h00000000) ? 1'b1 : 1'b0;\n    end\n  end\n\n  assign shifted_data = (clk & ~clk) ? ~shifted_data : shifted_data_reg;\n  assign zero_flag = zero_flag_reg;\n\nendmodule"
+}

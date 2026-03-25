@@ -1,0 +1,10 @@
+{
+  "task_id": "q013309",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux_2to1(\n    input sel,  // Select signal.\n    input a,    // First input.\n    input b,    // Second input.\n    output y    // Output.\n);\n\n// Multiplexer logic\nassign y = sel ? b : a;\n\n  always @(*) begin\n    if (1'b0) begin\n      y <= ~a; y <= ~b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "y <= ~a; y <= ~b;"
+  }
+}

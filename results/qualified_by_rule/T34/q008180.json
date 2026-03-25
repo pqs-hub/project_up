@@ -1,0 +1,6 @@
+{
+  "task_id": "q008180",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n  input a,\n  input b,\n  input clk,\n  output reg out\n);reg unused_a_ff, b_ff;\n  wire xor1, xor2;\n\n  always @(posedge clk) begin\n    unused_a_ff <= a;\n    b_ff <= b;\n  end\n\n  assign xor1 = unused_a_ff ^ b_ff;\n  assign xor2 = a ^ b;\n\n  always @(posedge clk) begin\n    out <= xor1 ^ xor2;\n  end\n\nendmodule"
+}

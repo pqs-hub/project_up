@@ -1,0 +1,6 @@
+{
+  "task_id": "q008715",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(clk, hardreset, reset);input clk, hardreset; \n output reset; \n reg [3:0] unused_reset_reg, next_reset_reg; \n assign reset = unused_reset_reg[3]; \n initial unused_reset_reg = 4'hF; \n always @ (posedge clk or posedge hardreset) \n begin \n  if (hardreset) \n  unused_reset_reg = 4'hF; \n  else unused_reset_reg = next_reset_reg; \n end \n always @* \n begin \n  next_reset_reg = {unused_reset_reg,1'b0}; \n end \n endmodule"
+}

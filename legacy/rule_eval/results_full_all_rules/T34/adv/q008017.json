@@ -1,0 +1,15 @@
+{
+  "task_id": "q008017",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input [2:0] op,\n  input [7:0] a,\n  input [7:0] b,\n  input [4:0] reg_addr,\n  input reg_write,\n  output reg [7:0] result  // Change wire to reg\n);reg [7:0] neg_out;\n  reg [7:0] neg_b;\n\n  always @(*) begin\n    case(op)\n      3'b000: neg_out = a + b;\n      3'b001: begin\n                 neg_b = ~b + 1;\n                 neg_out = a + neg_b;\n               end\n      3'b010: neg_out = a & b;\n      3'b011: neg_out = a | b;\n      3'b100: neg_out = a ^ b;\n      default: neg_out = 8'h00;\n    endcase\n  end\n\n  always @(posedge reg_write) begin\n    if (reg_write) begin\n      result <= neg_out;  // Update only once based on neg_out\n    end\n  end\n\nendmodule",
+  "rename_map": {
+    "out": "neg_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "neg_out"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

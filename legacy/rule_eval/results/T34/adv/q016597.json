@@ -1,0 +1,6 @@
+{
+  "task_id": "q016597",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module clken_buf (clk, rclk, enb_l, tmb_l);\noutput clk;\ninput  rclk, enb_l, tmb_l;\nreg    unused_clken;\n  always @ (rclk or enb_l or tmb_l)\n    if (!rclk)  \n      unused_clken = !enb_l | !tmb_l;\n  assign clk = unused_clken & rclk;\nendmodule"
+}

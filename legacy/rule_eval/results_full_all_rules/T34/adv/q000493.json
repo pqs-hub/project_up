@@ -1,0 +1,15 @@
+{
+  "task_id": "q000493",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module priority_arbiter (\n    input  [3:0] deny,\n    output reg [3:0] grant\n);\n    always @(*) begin\n        grant = 4'b0000; // Default no grant\n        if (deny[3]) grant[3] = 1'b1; // Grant to deny[3]\n        else if (deny[2]) grant[2] = 1'b1; // Grant to deny[2]\n        else if (deny[1]) grant[1] = 1'b1; // Grant to deny[1]\n        else if (deny[0]) grant[0] = 1'b1; // Grant to deny[0]\n    end\nendmodule",
+  "rename_map": {
+    "req": "deny"
+  },
+  "params_used": {
+    "custom_map": {
+      "req": "deny"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

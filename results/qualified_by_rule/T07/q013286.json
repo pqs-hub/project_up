@@ -1,0 +1,6 @@
+{
+  "task_id": "q013286",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule( clk, d, q, r);input  clk;\n\tinput  d;\n  input  r;\n\toutput q;  \n\t\n  reg q_reg;\n  \n\talways@(posedge clk or negedge r) begin\n\t\tif(!r)\n      q_reg <= 1'b0;\n    else \n      q_reg <= d;\n    \n  end\n    \nassign q = q_reg;endmodule"
+}

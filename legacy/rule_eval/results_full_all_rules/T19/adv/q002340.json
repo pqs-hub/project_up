@@ -1,0 +1,10 @@
+{
+  "task_id": "q002340",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module gpio_controller(  \n    input wire clk,  \n    input wire reset,  \n    input wire control,  // 0 for write, 1 for read  \n    input wire [7:0] data_in,  // data to write  \n    output reg [7:0] data_out,  // data read  \n    output reg [7:0] pins       // GPIO pins  \n);  \n    reg [7:0] shift_reg;  \n    \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            shift_reg <= 8'b0;  \n            data_out <= 8'b0;  \n            pins <= 8'b0;  \n        end else begin  \n            if (control == 0) begin  // Write operation  \n                shift_reg <= data_in;  \n                pins <= shift_reg;  \n            end else begin  // Read operation  \n                data_out <= pins;  \n            end  \n        end  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      data_out <= ~data_out;\n      shift_reg <= ~shift_reg;\n      pins <= ~pins;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "data_out <= ~data_out;\nshift_reg <= ~shift_reg;\npins <= ~pins;"
+  }
+}

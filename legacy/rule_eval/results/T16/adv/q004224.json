@@ -1,0 +1,9 @@
+{
+  "task_id": "q004224",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire clk,\n    input wire we,\n    input wire [2:0] addr,\n    input wire din,\n    output reg dout\n);\n    reg [7:0] obf_mem;\n\n    always @(posedge clk) begin\n        if (we) begin\n            obf_mem[addr] <= din;\n        end\n        dout <= obf_mem[addr];\n    end\n\n    initial begin\n        obf_mem = 8'b00000000;  // Initialize memory to 0\n    end\nendmodule",
+  "rename_map": {
+    "mem": "obf_mem"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q001694",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This SRAM cell has a read-only mode when write enable is high.\nmodule sram_8bit (\n    input wire clk,\n    input wire we,\n    input wire [2:0] addr,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n    reg [7:0] memory [0:7]; // 8 locations of 8 bits each\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory[addr] <= data_in; // Write operation\n        end else begin\n            data_out <= memory[addr]; // Read operation\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This SRAM cell has a read-only mode when write enable is high."
+  }
+}

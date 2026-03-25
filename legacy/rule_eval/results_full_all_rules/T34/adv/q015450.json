@@ -1,0 +1,18 @@
+{
+  "task_id": "q015450",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    inv_X   ,\n    A1  ,\n    A2  ,\n    B1_N\n);output inv_X   ;\n    input  A1  ;\n    input  A2  ;\n    input  B1_N;\n\n    assign inv_X = (A1 & A2) ? 1 :\n               (A1 & !A2) ? 0 :\n               (!A1 & A2) ? 0 :\n               ~B1_N;\n\nendmodule",
+  "rename_map": {
+    "X": "inv_X"
+  },
+  "params_used": {
+    "custom_map": {
+      "X": "Y",
+      "A1": "A2",
+      "A2": "A1",
+      "B1_N": "B1_P"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

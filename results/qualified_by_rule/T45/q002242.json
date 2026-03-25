@@ -1,0 +1,6 @@
+{
+  "task_id": "q002242",
+  "rule_id": "T45",
+  "changed": false,
+  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire load,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            data_out <= 8'b0;\n        end else if (load) begin\n            data_out <= data_in;\n        end else begin\n            data_out <= {data_out[6:0], 1'b0}; // right shift and fill LSB with 0\n        end\n    end\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q011478",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule(input        clk,\n              input [1:0]  ctlwb_out, \n              input [2:0]  ctlm_out,\n              input [31:0] adder_out,\n              input        aluzero,\n              input [31:0] aluout,\n              input [31:0] readdat2,\n              input [4:0]  muxout,\n              output reg [1:0]  wb_ctlout,\n              output reg [2:0]  m_ctlout,\n              output reg [31:0] add_result,\n              output reg        zero,\n              output reg [31:0] alu_result,\n              output reg [31:0] rdata2out,\n              output reg [4:0]  five_bit_muxout);// Initialize.\n    initial begin\n        wb_ctlout <= 2'b0;\n        m_ctlout <= 3'b0;\n        add_result <= 32'b0;\n        zero <= 1'b0;\n        alu_result <= 32'b0;\n        rdata2out <= 32'b0;\n        five_bit_muxout  <= 5'b0;    \n    end\n\n    // Update.\n    always @ (posedge clk) begin\n        wb_ctlout <= ctlwb_out;\n        m_ctlout <= ctlm_out;\n        add_result <= adder_out;\n        zero <= aluzero;\n        alu_result <= aluout;\n        rdata2out <= readdat2;\n        five_bit_muxout  <= muxout;\n    end\nendmodule"
+}

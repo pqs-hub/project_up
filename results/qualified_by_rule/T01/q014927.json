@@ -1,0 +1,6 @@
+{
+  "task_id": "q014927",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n    input clk,     // Chip clock signal.\n    input clr_n,   // Active-low asynchronous clear signal.\n    input d,       // Input signal.\n\n    output reg q   // Output signal.\n);\n\nalways @(posedge clk or negedge clr_n) begin\n    begin end  // redundant\n    if (!clr_n)\n        q <= 1'b0; // Clear output to 0\n    else\n        q <= d; // Capture input value\nend\n\nendmodule"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q013627",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n    Q      ,\n    CLK    ,\n    D      ,\n    RESET_B,\n    VPWR   ,\n    VGND   ,\n    VPB    ,\n    VNB\n);output Q      ;\n    input  CLK    ;\n    input  D      ;\n    input  RESET_B;\n    input  VPWR   ;\n    input  VGND   ;\n    input  VPB    ;\n    input  VNB    ;\n\n    // Using a generic D flip-flop with reset instead of missing module\n    reg Q_reg;\n    \n    always @(posedge CLK or negedge RESET_B) begin\n        if (!RESET_B)\n            Q_reg <= 1'b0;\n        else\n            Q_reg <= D;\n    end\n\n    assign Q = (CLK & ~CLK) ? ~Q : Q_reg;\n\nendmodule"
+}

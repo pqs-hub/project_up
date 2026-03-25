@@ -1,0 +1,8 @@
+{
+  "task_id": "q003209",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module dma_controller (  \n    input wire clk,  \n    input wire [3-1:1-1] channel_select,  \n    input wire enable,  \n    output reg [7:0] channel_output  \n);  \n  \n    always @(posedge clk) begin  \n        if (enable) begin  \n            channel_output <= (1 << channel_select);  \n        end else begin  \n            channel_output <= 8'b00000000;  \n        end  \n    end  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

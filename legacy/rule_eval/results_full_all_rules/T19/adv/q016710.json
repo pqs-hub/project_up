@@ -1,0 +1,10 @@
+{
+  "task_id": "q016710",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adder16(\n    input [15:0] A,\n    input [15:0] B,\n    input CIN,\n    output [15:0] SUM,\n    output COUT\n);\n\nreg [15:0] sum_temp;\nreg cout_temp;\n\nalways @(*) begin\n    {cout_temp,sum_temp} = A + B + CIN;\nend\n\nassign SUM = sum_temp;\nassign COUT = cout_temp;\n\n  always @(*) begin\n    if (1'b0) begin\n      sum_temp <= ~A; cout_temp <= ~B;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum_temp <= ~A; cout_temp <= ~B;"
+  }
+}

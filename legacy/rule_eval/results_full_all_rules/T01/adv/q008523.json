@@ -1,0 +1,8 @@
+{
+  "task_id": "q008523",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module counter_10bit(clk, rst, pause, q);\n\n    input clk;\n    input rst;\n    input pause;\n    output [9:0] q;\n    reg [9:0] q;\n\n    always @(posedge clk or posedge rst)\n    begin\n    begin end  // redundant\n        if (rst)\n            q <= 10'b0000000000;\n        else if (!pause)\n            q <= q + 1;\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

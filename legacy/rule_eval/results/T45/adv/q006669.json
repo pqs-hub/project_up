@@ -1,0 +1,6 @@
+{
+  "task_id": "q006669",
+  "rule_id": "T45",
+  "changed": true,
+  "final": "module top_module(\n  input [n-1:0] in,\n  input en,\n  output [n-1:0] out\n);parameter n = 8; // number of input and output signals\n\nreg [n-1:0] latch; // latch to hold previous input values\n\nalways @(posedge en) begin\n  if (en) begin\n    latch <= in; // store input values in latch when enable signal is high\n  end\nend\n\nassign out = (en & ~en) ? ~out : en ? in : latch; // connect inputs to outputs when enable signal is high, otherwise hold previous values\n\nendmodule"
+}

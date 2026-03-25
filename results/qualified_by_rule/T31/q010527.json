@@ -1,0 +1,6 @@
+{
+  "task_id": "q010527",
+  "rule_id": "T31",
+  "changed": false,
+  "final": "module RefModule(select, data_i00, data_i01, data_i02, data_i03, data_o);parameter Size = 8;\n\n   input wire [1:0] select;\n   input wire [Size-1:0] data_i00;\n   input wire [Size-1:0] data_i01;\n   input wire [Size-1:0] data_i02;\n   input wire [Size-1:0] data_i03;\n\n   output reg [Size-1:0] data_o;\n\n   always @ (select or data_i00 or data_i01 or data_i02 or data_i03) begin\n      case (select)\n         2'b00: data_o = data_i00;\n         2'b01: data_o = data_i01;\n         2'b10: data_o = data_i02;\n         2'b11: data_o = data_i03;\n         default: data_o = 0;\n      endcase\n   end\n\nendmodule"
+}

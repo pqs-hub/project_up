@@ -1,0 +1,6 @@
+{
+  "task_id": "q001815",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input reset,\n    input branch_outcome,  // 1 for taken, 0 for not taken\n    output reg prediction   // 1 for taken, 0 for not taken\n);\n    reg [1:0] history; // 2-bit history register\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            history <= 2'b00; // reset history\n            prediction <= 0;  // reset prediction\n        end else begin\n            prediction <= (history[1] == 1) ? 1 : 0; // prediction logic\n            // Update history based on the current outcome\n            history <= {history[0], branch_outcome};  \n        end\n    end\nendmodule"
+}

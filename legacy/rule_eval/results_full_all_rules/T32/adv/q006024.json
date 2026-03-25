@@ -1,0 +1,8 @@
+{
+  "task_id": "q006024",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module not_module (\n    input [8-1:1-1] a,\n    input enable,\n    input reset,\n    output reg [7:0] not_result\n);\n\n    always @(*) begin\n        if (reset) begin\n            not_result = 0;\n        end else if (enable) begin\n            not_result = ~a;\n        end else begin\n            not_result = not_result; // Maintain the current value\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

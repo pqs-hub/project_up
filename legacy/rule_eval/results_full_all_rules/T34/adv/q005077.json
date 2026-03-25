@@ -1,0 +1,15 @@
+{
+  "task_id": "q005077",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decade_counter (\n\tinput rst_clk,\n\tinput reset,\n\toutput reg [7:0] count);\n\n\talways @(posedge rst_clk) begin\n\t\tif (reset)\n\t\t\tcount <= 8'b00000000;\n\t\telse if (count == 8'd9)\n\t\t\tcount <= 8'b00000000;\n\t\telse\n\t\t\tcount <= count + 1;\n\tend\n\t\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "decade_"
+  }
+}

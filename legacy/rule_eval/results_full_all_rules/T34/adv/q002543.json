@@ -1,0 +1,19 @@
+{
+  "task_id": "q002543",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module polynomial_evaluator(\n    input [3:0] a4,\n    input [3:0] a3,\n    input [3:0] a2,\n    input [3:0] a1,\n    input [3:0] a0,\n    input [3:0] x,\n    output [15:0] result\n);\n    wire [15:0] z_x2, x3, x4;\n    \n    assign z_x2 = x * x;\n    assign x3 = z_x2 * x;\n    assign x4 = x3 * x;\n    \n    assign result = a4 * x4 + a3 * x3 + a2 * z_x2 + a1 * x + a0;\nendmodule",
+  "rename_map": {
+    "x2": "z_x2"
+  },
+  "params_used": {
+    "custom_map": {
+      "a4": "b0",
+      "a3": "b1",
+      "a2": "b2",
+      "a1": "b3",
+      "a0": "b4"
+    },
+    "fallback_prefix": "z_"
+  }
+}

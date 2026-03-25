@@ -1,0 +1,6 @@
+{
+  "task_id": "q014196",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(A, B, sel, C);parameter WIDTH = 8;\n   input [WIDTH-1:0] A, B;\n   input sel;\n   output [WIDTH-1:0] C;\n\n   reg [WIDTH-1:0]    unused_C_reg;\n\n   always @(*)\n   begin\n      if (sel == 0)\n         unused_C_reg = A + B;\n      else\n         unused_C_reg = A - B;\n   end\n\n   assign C = unused_C_reg;\nendmodule"
+}

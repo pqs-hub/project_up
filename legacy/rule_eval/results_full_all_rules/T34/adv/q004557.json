@@ -1,0 +1,15 @@
+{
+  "task_id": "q004557",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input in,\n    input en,\n    output out\n);reg invalid_value;\nalways @ (posedge en) begin\n    if (en) begin\n        invalid_value <= in;\n    end\nend\n\nassign out = en ? in : invalid_value;\n\nendmodule",
+  "rename_map": {
+    "stored_out": "invalid_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "stored_out": "invalid_value"
+    },
+    "fallback_prefix": "err_"
+  }
+}

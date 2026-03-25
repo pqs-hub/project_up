@@ -1,0 +1,6 @@
+{
+  "task_id": "q003085",
+  "rule_id": "T30",
+  "changed": false,
+  "final": "module RefModule (  \n    input [15:0] data_in,  \n    output reg [15:0] data_out,  \n    input we,  \n    input [3:0] addr,  \n    input clk  \n);  \n    reg [15:0] memory [15:0]; // 16 locations of 16 bits each  \n\n    always @(posedge clk) begin  \n        if (we)  \n            memory[addr] <= data_in; // Write data to memory  \n        else  \n            data_out <= memory[addr]; // Read data from memory  \n    end  \nendmodule"
+}

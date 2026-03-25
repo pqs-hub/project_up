@@ -1,0 +1,10 @@
+{
+  "task_id": "q012049",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-bit binary counter that decrements on each rising edge of the clock signal. If the reset input is asserted, the counter is initialized to zero. Once the counter reaches its minimum value of 0 (binary 0000), it wraps around and resets back to zero.\nmodule top_module(\n    q,\n    clk,\n    rst\n);output reg [3:0] q;\n    input clk;\n    input rst;\n\n    always @(posedge clk) begin\n        if (rst) begin\n            q <= 4'b0000;\n        end else begin\n            q <= q + 1;\n            if (q == 4'b1111) begin\n                q <= 4'b0000;\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-bit binary counter that decrements on each rising edge of the clock signal. If the reset input is asserted, the counter is initialized to zero. Once the counter reaches its minimum value of 0 (binary 0000), it wraps around and resets back to zero."
+  }
+}

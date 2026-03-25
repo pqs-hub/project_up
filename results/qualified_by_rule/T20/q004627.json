@@ -1,0 +1,6 @@
+{
+  "task_id": "q004627",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n    input clk,\n    input reset,\n    input [11:0] d,\n    output reg [11:0] q\n);\n\n    // Always block triggered on the rising edge of the clock or the asynchronous reset\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 12'd0;  // Asynchronous reset to 0\n        end else begin\n            q <= {q[10:0], d[11]};  // Shift left and load d[11] to the LSB\n        end\n    end\n\nendmodule"
+}

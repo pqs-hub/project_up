@@ -1,0 +1,6 @@
+{
+  "task_id": "q000956",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire D,\n    input wire WL,\n    input wire EN,\n    output reg Q,\n    output reg BL\n);\n    always @(*) begin\n  if (EN) begin if (WL) begin Q <= D ; // Write data end\n  end\n  end\n\n  always @(*) begin\n  BL <= (EN == 0 && WL == 0) ? Q : 1'bz ;\n  end\nendmodule"
+}

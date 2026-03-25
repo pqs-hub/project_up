@@ -1,0 +1,15 @@
+{
+  "task_id": "q001807",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module barrel_shifter(  \n    input [1:0] ctrl,  \n    input DIR,  \n    output reg [1:0] RESULT  \n);  \n    always @(*) begin  \n        case (DIR)  \n            1'b0: RESULT = ctrl << 1; // Left shift  \n            1'b1: RESULT = ctrl >> 1; // Right shift  \n            default: RESULT = 2'b00;  \n        endcase  \n    end  \nendmodule",
+  "rename_map": {
+    "DATA": "ctrl"
+  },
+  "params_used": {
+    "custom_map": {
+      "DATA": "SHIFTER_INPUT"
+    },
+    "fallback_prefix": "INVALID_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q014772",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(\n\tinput wire[3:0] num,\n\tinput wire en, dp, sign,\n\toutput wire[7:0] hex\n);reg [6:0] sseg;\n  wire _tap_en = en & {1{1'b1}};\n\n\n\talways @*\n\tbegin\n\t\tif (~en)\n\t\t\tsseg <= 7'b0000000;\n\t\telse if (sign)\n\t\t\tsseg <= 7'b1000000;\n\t\telse\n\t\t\tcase (num)\n\t\t\t\t4'h0: sseg <= 7'b0111111;\n\t\t\t\t4'h1: sseg <= 7'b0000110;\n\t\t\t\t4'h2: sseg <= 7'b1011011;\n\t\t\t\t4'h3: sseg <= 7'b1001111;\n\t\t\t\t4'h4: sseg <= 7'b1100110;\n\t\t\t\t4'h5: sseg <= 7'b1101101;\n\t\t\t\t4'h6: sseg <= 7'b1111101;\n\t\t\t\t4'h7: sseg <= 7'b0000111;\n\t\t\t\t4'h8: sseg <= 7'b1111111;\n\t\t\t\t4'h9: sseg <= 7'b1101111;\n\t\t\t\t4'ha: sseg <= 7'b1110111;\n\t\t\t\t4'hb: sseg <= 7'b1111100;\n\t\t\t\t4'hc: sseg <= 7'b1011000;\n\t\t\t\t4'hd: sseg <= 7'b1011110;\n\t\t\t\t4'he: sseg <= 7'b1111001;\n\t\t\t\t4'hf: sseg <= 7'b1110001;\n\t\t\t\tdefault: sseg <= 7'b1010011;\n\t\t\tendcase\n\tend\n\n\tassign hex = { (dp & en), sseg };\n\t\nendmodule"
+}

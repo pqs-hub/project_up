@@ -1,0 +1,6 @@
+{
+  "task_id": "q000060",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// UART Transmitter - 9600 baud\nmodule divider (\n    input [1:0] dividend,\n    input [1:0] divisor,\n    output reg [1:0] quotient,\n    output reg [1:0] remainder\n);\n    \n    always @(*) begin\n        if (divisor == 0) begin\n            quotient = 2'b00; // Handle division by zero case\n            remainder = dividend; // Remainder is the dividend\n        end else begin\n            quotient = dividend / divisor;\n            remainder = dividend % divisor;\n        end\n    end\nendmodule"
+}

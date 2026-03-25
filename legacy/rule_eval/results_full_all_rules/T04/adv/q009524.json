@@ -1,0 +1,10 @@
+{
+  "task_id": "q009524",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements an 8-bit synchronous down/up binary counter with a synchronous reset signal.\nmodule binary_counter_8bit(\n    input wire clk,\n    input wire rst,\n    input wire up_down,\n    output reg [7:0] count\n);\n\n    always @(posedge clk) begin\n        if (rst) begin\n            count <= 8'b00000000;\n        end else begin\n            if (up_down) begin\n                count <= count + 1;\n            end else begin\n                count <= count - 1;\n            end\n        end\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements an 8-bit synchronous down/up binary counter with a synchronous reset signal."
+  }
+}

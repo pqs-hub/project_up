@@ -1,0 +1,10 @@
+{
+  "task_id": "q007707",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_counter\n(\n    input clk,\n    input sreset,\n    input en,\n    output reg [11:0] count\n);always @(posedge clk)\n    if (sreset) begin\n        count <= 12'b0;\n    end else if (en) begin\n        count <= count + 1;\n    end\n  always @(*) begin\n    if (1'b0) begin\n      if (en) begin\n        count <= count - 1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (en) begin\n  count <= count - 1;\nend\n"
+  }
+}

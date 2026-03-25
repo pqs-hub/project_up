@@ -1,0 +1,15 @@
+{
+  "task_id": "q016433",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module  omsp_clock_gate (\n    gclk,                      \n    clk,                       \n    enable,                    \n    scan_enable                \n);\noutput         gclk;           \ninput          clk;            \ninput          enable;         \ninput          scan_enable;    \nwire    disable_out =   (enable | scan_enable);\nreg     enable_latch;\nalways @(clk or disable_out)\n  if (~clk)\n    enable_latch <= disable_out;\nassign  gclk      =  (clk & enable_latch);\nendmodule",
+  "rename_map": {
+    "enable_in": "disable_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "enable_in": "disable_out"
+    },
+    "fallback_prefix": "anti_"
+  }
+}

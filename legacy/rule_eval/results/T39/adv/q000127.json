@@ -1,0 +1,6 @@
+{
+  "task_id": "q000127",
+  "rule_id": "T39",
+  "changed": true,
+  "final": "module SRAM_8bit (\n    input [7:0] data_in,\n    input [2:0] addr,\n    input we,\n    input clk,\n    output reg [7:0] data_out\n);\n    reg [7:0] memory [0:7]; // 8x8 SRAM\n\n    always @(posedge clk) begin\n  if (we) begin memory[addr] <= data_in ; // Write data to SRAM\n  end\n  end\n\n  always @(posedge clk) begin\n  data_out <= memory[addr] ;\n  end\nendmodule"
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "q001642",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sr_latch (\n    input alt_S,\n    input R,\n    output reg Q,\n    output reg Qn\n);\n\nalways @(alt_S or R) begin\n    if (alt_S == 1 && R == 0) begin\n        Q = 1;\n        Qn = 0;\n    end else if (alt_S == 0 && R == 1) begin\n        Q = 0;\n        Qn = 1;\n    end else if (alt_S == 0 && R == 0) begin\n        // Maintain previous state\n        Q = Q;\n        Qn = Qn;\n    end else if (alt_S == 1 && R == 1) begin\n        // Undefined state, can be a hold or any predefined state\n        Q = 1'bx;\n        Qn = 1'bx;\n    end\nend\nendmodule",
+  "rename_map": {
+    "S": "alt_S"
+  },
+  "params_used": {
+    "custom_map": {
+      "S": "R",
+      "R": "S",
+      "Q": "Qn",
+      "Qn": "Q"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

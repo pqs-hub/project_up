@@ -1,0 +1,16 @@
+{
+  "task_id": "q004090",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module packet_filter (\n    input [7:0] packet,\n    input [7:0] mask,\n    input reset,\n    output reg match\n);\n    always @(*) begin\n        if (reset) begin\n            match = 0;\n        end else begin\n            match = (packet == mask) ? 1 : 0;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "filter": "mask"
+  },
+  "params_used": {
+    "custom_map": {
+      "filter": "mask",
+      "match": "no_match"
+    },
+    "fallback_prefix": "_filtered_"
+  }
+}

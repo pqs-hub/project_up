@@ -1,0 +1,10 @@
+{
+  "task_id": "q011844",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] bin_in,\n    output [3:0] twos_comp_out\n);assign twos_comp_out = ~bin_in + 4'b0001;\n\n  always @(*) begin\n    if (1'b0) begin\n      twos_comp_out <= bin_in; // Invert the input instead of converting to two's complement\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "twos_comp_out <= bin_in; // Invert the input instead of converting to two's complement"
+  }
+}

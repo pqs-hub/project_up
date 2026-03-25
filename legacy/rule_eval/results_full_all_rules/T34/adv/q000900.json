@@ -1,0 +1,15 @@
+{
+  "task_id": "q000900",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module zero_crossing_detector (\n    input clk,\n    input rst,\n    input signal_in,\n    output reg zero_crossed\n);\n    \n    reg signal_last;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            zero_crossed <= 0;\n            signal_last <= 0;\n        end else begin\n            zero_crossed <= (signal_in && !signal_last) || (!signal_in && signal_last);\n            signal_last <= signal_in;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "signal_prev": "signal_last"
+  },
+  "params_used": {
+    "custom_map": {
+      "signal_prev": "signal_last"
+    },
+    "fallback_prefix": "zc_"
+  }
+}

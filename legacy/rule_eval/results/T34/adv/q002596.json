@@ -1,0 +1,6 @@
+{
+  "task_id": "q002596",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module watchdog_timer(  \n    input wire clk,  \n    input wire update,  \n    input wire [3:0] timeout,  \n    output reg reset  \n);  \n    reg [3:0] unused_counter;  \n\n    always @(posedge clk) begin  \n        if (update)  \n            unused_counter <= timeout;  \n        else if (unused_counter > 0)  \n            unused_counter <= unused_counter - 1;  \n\n        reset <= (unused_counter == 0);  \n    end  \nendmodule"
+}

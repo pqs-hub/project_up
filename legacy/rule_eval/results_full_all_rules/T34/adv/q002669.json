@@ -1,0 +1,18 @@
+{
+  "task_id": "q002669",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module adc_controller (\n    input wire rst,\n    input wire [15:0] adc_input,\n    output reg [11:0] dac_output,\n    output reg valid_output\n);\n    always @(posedge rst) begin\n        dac_output <= adc_input[15:4]; // Take upper 12 bits\n        valid_output <= 1'b1; // Indicate valid output\n    end\nendmodule",
+  "rename_map": {
+    "clk": "rst"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst",
+      "adc_input": "analog_in",
+      "dac_output": "digital_out",
+      "valid_output": "invalid_output"
+    },
+    "fallback_prefix": "adc_"
+  }
+}

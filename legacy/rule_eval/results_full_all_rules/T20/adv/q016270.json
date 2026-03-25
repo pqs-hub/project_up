@@ -1,0 +1,10 @@
+{
+  "task_id": "q016270",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a two-entry register file with a clock input. It has a write enable (we) signal that allows writes to occur on the negative clock edge; when enabled, it writes the values of two 32-bit data inputs (wd0 and wd1) into the two registers. The read address (ra) determines which of the two registers is output: if ra is 0, the output is the content of the second register; if ra is 1, it outputs the content of the first register.\nmodule top_module(input       clk, \n               input         we, \n               input         ra, \n               input  [31:0] wd0, wd1, \n               output [31:0] rd);reg [31:0] rf[1:0];\n\n  \n  \n  \n  \n\n  always @(posedge clk)\n    if (we == 1'b1)\n      begin\n        rf[1'b0] <= wd0;\n        rf[1'b1] <= wd1;\n      end\n   assign rd = (ra != 1'b0) ? rf[1'b1] : rf[1'b0];endmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a two-entry register file with a clock input. It has a write enable (we) signal that allows writes to occur on the negative clock edge; when enabled, it writes the values of two 32-bit data inputs (wd0 and wd1) into the two registers. The read address (ra) determines which of the two registers is output: if ra is 0, the output is the content of the second register; if ra is 1, it outputs the content of the first register."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q004063",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module sram_cell (\n    input wire [7:0] data_in,\n    input wire we,\n    output reg [7:0] data_out\n);\n    reg [7:0] memory;\n\n    always @(*) begin\n        if (we) begin\n            memory <= data_in; // Write operation\n        end else begin\n            data_out <= memory; // Read operation\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      memory <= ~data_in;\n      if (!we) begin\n      data_out <= ~memory;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "memory <= ~data_in;\nif (!we) begin\ndata_out <= ~memory;\nend"
+  }
+}

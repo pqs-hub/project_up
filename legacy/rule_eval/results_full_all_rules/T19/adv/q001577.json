@@ -1,0 +1,10 @@
+{
+  "task_id": "q001577",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module fixed_priority_arbiter(  \n    input wire req0,  \n    input wire req1,  \n    input wire req2,  \n    input wire req3,  \n    output reg [3:0] grant  \n);  \n    always @(*) begin  \n        grant = 4'b0000;  \n        if (req0) grant = 4'b0001;  \n        else if (req1) grant = 4'b0010;  \n        else if (req2) grant = 4'b0100;  \n        else if (req3) grant = 4'b1000;  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      grant = 4'b1111;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "grant = 4'b1111;"
+  }
+}

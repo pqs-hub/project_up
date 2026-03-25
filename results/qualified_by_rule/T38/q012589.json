@@ -1,0 +1,6 @@
+{
+  "task_id": "q012589",
+  "rule_id": "T38",
+  "changed": false,
+  "final": "module RefModule (\n\tinput clk,\n\tinput resetn,\n\tinput request,\n\toutput reg moving);\n\n\tparameter IDLE=0, MOVING=1;\n\treg state, next_state;\n\n\talways @(posedge clk) begin\n\t\tif (~resetn) state <= IDLE;\n\t\telse state <= next_state;\n\tend\n\n\talways_comb begin\n\t\tcase (state)\n\t\t\tIDLE: next_state = request ? MOVING : IDLE;\n\t\t\tMOVING: next_state = IDLE;\n\t\t\tdefault: next_state = IDLE;\n\t\tendcase\n\tend\n\n\talways @(state) begin\n\t\tcase (state)\n\t\t\tMOVING: moving = 1;\n\t\t\tdefault: moving = 0;\n\t\tendcase\n\tend\nendmodule"
+}

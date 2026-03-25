@@ -1,0 +1,15 @@
+{
+  "task_id": "q002565",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module packet_filter(\n    input [15:0] filtered_packet,\n    output reg allow\n);\n    always @(*) begin\n        if (filtered_packet == 16'b1010101010101010 || filtered_packet == 16'b1111000011110000) begin\n            allow = 1;\n        end else begin\n            allow = 0;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "packet_data": "filtered_packet"
+  },
+  "params_used": {
+    "custom_map": {
+      "packet_data": "filtered_packet"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

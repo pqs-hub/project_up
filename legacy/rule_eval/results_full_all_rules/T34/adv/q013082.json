@@ -1,0 +1,15 @@
+{
+  "task_id": "q013082",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module bitwise_and_module(\n    input wire rst_clk,\n    input wire reset,\n    input wire [3:0] binary_num1,\n    input wire [3:0] binary_num2,\n    output reg [3:0] and_result\n);\n\n    always @(posedge rst_clk) begin\n        if (reset) begin\n            and_result <= 0;\n        end else begin\n            and_result <= binary_num1 & binary_num2;\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

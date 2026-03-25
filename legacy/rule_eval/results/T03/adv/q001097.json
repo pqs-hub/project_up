@@ -1,0 +1,6 @@
+{
+  "task_id": "q001097",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module LDO (\n    input wire [7:0] Vref, // Reference Voltage\n    input wire control,     // Control signal\n    output reg [7:0] Vout   // Output Voltage\n);\n  wire [7:0] _tap_Vref = Vref & {8{1'b1}};\n\n    always @(*) begin\n        if (control) \n            Vout = Vref;     // Active mode\n        else \n            Vout = 8'b00000000; // Standby mode\n    end\nendmodule"
+}

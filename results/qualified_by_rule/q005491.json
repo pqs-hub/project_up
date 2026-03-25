@@ -1,0 +1,6 @@
+{
+  "task_id": "q005491",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule (\n    input sel,\n    input [31:0] in0,\n    input [31:0] in1,\n    output [31:0] out\n);\n\n    reg [31:0] obf_mux_out;  // Multiplexer output register\n\n    always @(*) begin\n        case (sel)\n            1'b0: obf_mux_out = in0;\n            1'b1: obf_mux_out = in1;\n            default: obf_mux_out = 32'b0;  // Default case (should not occur)\n        endcase\n    end\n\n    assign out = obf_mux_out;\n\nendmodule"
+}

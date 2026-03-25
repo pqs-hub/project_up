@@ -1,0 +1,8 @@
+{
+  "task_id": "q003860",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module deadbeat_controller(  \n    input clk,  \n    input [2:0] current_state,  \n    input [2:0] desired_state,  \n    output reg [2:0] control_output  \n);  \n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin  \n    control_output <= desired_state;  \nend  \nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

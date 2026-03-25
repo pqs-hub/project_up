@@ -1,0 +1,6 @@
+{
+  "task_id": "q009596",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule top_module( clk, rst, load, D, Q );input [0:0] D;\n  output [0:0] Q;\n  input clk, rst, load;\n  wire n1, n2, n3, n4;\n\n  // Inverter for reset signal\n  assign n1 = ~rst;\n\n  // AND gate to determine when to load data\n  assign n2 = (n1 & load) | (load & ~D[0]);\n\n  // Next state logic for the register based on clock and reset\n  assign n4 = n3 ^ clk;   // XOR operation for deriving next state clocked signal\n\n  // Register for holding the intermediate state `n3`\n  reg [0:0] state; // Register declaration\n  always @(posedge clk or negedge n1) begin\n    if (!n1)\n      state <= 0; // Active low reset\n    else if (load)\n      state <= D;\n    else\n      state <= state + 1; // Increment the register value\n  end\n\n  // Output register value\n  assign Q[0] = state;\n\nendmodule"
+}

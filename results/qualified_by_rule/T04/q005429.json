@@ -1,0 +1,6 @@
+{
+  "task_id": "q005429",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// SPI Master Controller\nmodule RefModule(\n    input clk,\n    input reset,\n    input load,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n\nalways @(posedge clk)\nbegin\n    if (reset)\n        data_out <= 8'b00000000; // Reset to 0\n    else if (load)\n        data_out <= data_in; // Load data\nend\n\nendmodule"
+}

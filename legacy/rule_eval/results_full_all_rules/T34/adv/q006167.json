@@ -1,0 +1,15 @@
+{
+  "task_id": "q006167",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n  input inv_Reset_n_i,\n  input Clk_i,\n  input[15:0] D1_i,\n  input[15:0] D2_i,\n  output reg [15:0] Q_o,\n  input Enable1_i,\n  input Enable2_i\n);always @(negedge inv_Reset_n_i or posedge Clk_i)\n  begin\n    if (!inv_Reset_n_i)\n    begin\n      Q_o <= 16'd0;\n    end\n    else\n    begin\n      if (Enable1_i)\n      begin\n        Q_o <= D1_i;\n      end\n      else if (Enable2_i)\n      begin\n        Q_o <= D2_i;\n      end\n    end  \n  end\n\nendmodule",
+  "rename_map": {
+    "Reset_n_i": "inv_Reset_n_i"
+  },
+  "params_used": {
+    "custom_map": {
+      "Reset_n_i": "reset_active_i"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

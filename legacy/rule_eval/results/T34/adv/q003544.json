@@ -1,0 +1,6 @@
+{
+  "task_id": "q003544",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module merge_sort (\n    input clk,\n    input [31:0] unsorted, // 4 unsigned 8-bit integers\n    output reg [31:0] sorted // 4 unsigned 8-bit integers\n);\n    reg [7:0] unused_array [0:3];\n    integer i, j;\n    \n    always @(posedge clk) begin\n        // Load inputs into unused_array\n        for (i = 0; i < 4; i = i + 1) begin\n            unused_array[i] = unsorted[8*i +: 8];\n        end\n        \n        // Merge sort implementation\n        // Simple implementation for 4 elements\n        for (i = 0; i < 4; i = i + 1) begin\n            for (j = i + 1; j < 4; j = j + 1) begin\n                if (unused_array[i] > unused_array[j]) begin\n                    // Swap\n                    {unused_array[i], unused_array[j]} = {unused_array[j], unused_array[i]};\n                end\n            end\n        end\n        \n        // Load sorted results to output\n        sorted = {unused_array[3], unused_array[2], unused_array[1], unused_array[0]};\n    end\nendmodule"
+}

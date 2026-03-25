@@ -1,0 +1,10 @@
+{
+  "task_id": "q002274",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module packet_filter(  \n    input [7:0] packet_id,  \n    output reg allowed  \n);  \n    always @(*) begin  \n        if (packet_id[0] == 1'b0)  \n            allowed = 1'b1; // Even ID  \n        else  \n            allowed = 1'b0; // Odd ID  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n      allowed = ~packet_id[0];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "allowed = ~packet_id[0];"
+  }
+}

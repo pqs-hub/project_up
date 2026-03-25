@@ -1,0 +1,15 @@
+{
+  "task_id": "q011915",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input rst,\n    input din0,\n    input din1,\n    input sel,\n    output dout\n);reg inverted_dout;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            inverted_dout <= 0;\n        end else begin\n            if (sel) begin\n                inverted_dout <= din1;\n            end else begin\n                inverted_dout <= din0;\n            end\n        end\n    end\n\n    assign dout = inverted_dout;\n\nendmodule",
+  "rename_map": {
+    "dout_reg": "inverted_dout"
+  },
+  "params_used": {
+    "custom_map": {
+      "dout_reg": "inverted_dout"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

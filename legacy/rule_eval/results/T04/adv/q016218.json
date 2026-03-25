@@ -1,0 +1,6 @@
+{
+  "task_id": "q016218",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule top_module(\n    input A1,\n    input A2,\n    input B1_N,\n    output Y\n);// Local signals\n    wire b;\n    wire and0_out;\n    wire nor0_out_Y;\n\n    //  Name  Output      Other arguments\n    not not0 (b, B1_N);\n    and and0 (and0_out, A1, A2);\n    nor nor0 (nor0_out_Y, b, and0_out);\n    buf buf0 (Y, nor0_out_Y);\n\nendmodule"
+}

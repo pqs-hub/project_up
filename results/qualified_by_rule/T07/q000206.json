@@ -1,0 +1,6 @@
+{
+  "task_id": "q000206",
+  "rule_id": "T07",
+  "changed": false,
+  "final": "module RefModule (\n    input wire [3:0] IRQ,   // 4 interrupt request signals\n    input wire RST,         // reset signal\n    input wire CLK,         // clock signal\n    output reg INT_OUT      // interrupt output\n);\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST) begin\n        INT_OUT <= 0;       // clear interrupt on reset\n    end else begin\n        INT_OUT <= |IRQ;    // generate output if any IRQ signal is high\n    end\nend\n\nendmodule"
+}

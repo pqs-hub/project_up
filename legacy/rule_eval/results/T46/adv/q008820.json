@@ -1,0 +1,8 @@
+{
+  "task_id": "q008820",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    output reg [7:0] q\n);\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (reset) begin\n            // Synchronous reset: Reset the counter to 8'b00000001\n            q <= 8'b00000001;\n        end else begin\n            // Johnson counter: Shift left and invert the LSB\n            q <= {q[6:0], ~q[7]};\n        end\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

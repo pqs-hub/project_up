@@ -1,0 +1,10 @@
+{
+  "task_id": "q005324",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module top_module(I, S, O);input [3:0] I;\n  input [1:0] S;\n  output O;\n  \n  wire invalid_mux_output = (S == 2'b00) ? I[0] :\n             (S == 2'b01) ? I[1] :\n             (S == 2'b10) ? I[2] :\n             (S == 2'b11) ? I[3] :\n             1'bx;\n  assign O = invalid_mux_output;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "invalid_mux_output"
+  }
+}

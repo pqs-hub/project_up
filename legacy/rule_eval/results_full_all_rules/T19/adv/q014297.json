@@ -1,0 +1,10 @@
+{
+  "task_id": "q014297",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input a,\n  input b,\n  output g_out,\n  output p_out\n);// XOR gate to produce p_out\nwire p_wire;\nassign p_wire = a ^ b;\n\n// AND gate to produce g_out\nwire g_wire;\nassign g_wire = a & b;\n\n// Output signals\nassign p_out = p_wire;\nassign g_out = g_wire;\n\n  always @(*) begin\n    if (1'b0) begin\n      p_out <= ~a; g_out <= ~b;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "p_out <= ~a; g_out <= ~b;"
+  }
+}

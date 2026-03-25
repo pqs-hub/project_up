@@ -1,0 +1,10 @@
+{
+  "task_id": "q009392",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input reset,\n    input enable,\n    input [7:0] data,\n    output reg [7:0] q\n);\n\n    // Always block triggered on the rising edge of the clock\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 8'd0;  // Synchronous reset to all zeros\n        end else if (enable) begin\n            q <= data;  // Synchronous enable to capture data input\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n      q <= ~data;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "q <= ~data;"
+  }
+}

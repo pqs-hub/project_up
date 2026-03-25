@@ -1,0 +1,15 @@
+{
+  "task_id": "q016321",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(clock, reset, offset, count_reg);input clock;\n\tinput reset;\n\tinput [3:0]offset;\n\toutput reg [7:0] count_reg;\n\t\n\talways @ (posedge clock) begin\n\t\tif (reset) begin\n\t\t\tcount_reg <= 0;\n\t\t\tend\n\t\telse begin\n\t\t\tcount_reg <= count_reg + offset;\n\t\tend\n\t\tend\n\nendmodule",
+  "rename_map": {
+    "phase_counter_out": "count_reg"
+  },
+  "params_used": {
+    "custom_map": {
+      "phase_counter_out": "count_reg"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

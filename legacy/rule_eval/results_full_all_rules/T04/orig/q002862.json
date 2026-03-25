@@ -1,0 +1,6 @@
+{
+  "task_id": "q002862",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module dram_cell (\n    input wire [15:0] D,\n    input wire RW,\n    input wire CLK,\n    output reg [15:0] Q\n);\n\nalways @(posedge CLK) begin\n    if (RW) begin\n        Q <= D; // Write operation\n    end else begin\n        // Read operation, Q retains the stored value\n        // No action needed since Q is already driven by the stored value\n    end\nend\n\nendmodule"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q016634",
+  "rule_id": "T12",
+  "changed": true,
+  "final": "module ag6502_decimal(ADD, D_IN, NEG, CORR);\n\tinput wire[4:0] ADD;\n\tinput wire D_IN, NEG;\n\toutput wire[4:0] CORR;\n\twire C9 = {ADD[4]^NEG, ADD[3:0]} > 5'd9;\n\twire neg_corrected_value = D_IN;\n\tassign CORR = neg_corrected_value ? {C9^NEG, C9?ADD[3:0] + (NEG?4'd10:4'd6): ADD[3:0]} : ADD;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "wire_name": "neg_corrected_value"
+  }
+}

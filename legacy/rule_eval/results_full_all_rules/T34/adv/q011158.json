@@ -1,0 +1,17 @@
+{
+  "task_id": "q011158",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module async_reset_down_counter(\n    input reset_clk,\n    input rst,\n    input en,\n    output reg [3:0] q\n    );\n\n    always @(posedge reset_clk or posedge rst) begin\n        if (rst) begin\n            q <= 4'b1111;\n        end else if (en) begin\n            q <= q - 1;\n        end\n    end\nendmodule",
+  "rename_map": {
+    "clk": "reset_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset_clk",
+      "rst": "enable_rst",
+      "en": "disable_en"
+    },
+    "fallback_prefix": "misleading_"
+  }
+}

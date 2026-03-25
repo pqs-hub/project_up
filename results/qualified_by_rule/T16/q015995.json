@@ -1,0 +1,6 @@
+{
+  "task_id": "q015995",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(input wire clk,input wire [10:0] addrwrite,input wire [10:0] addrread,input wire we,input wire [8:0] din,output reg [8:0] dout);reg [8:0] obf_scan[0:2047]; \n  always @(posedge clk) begin \n  dout <= obf_scan[addrread]; \n  if (we == 1'b1) \n  obf_scan[addrwrite] <= din; \n  end \n endmodule"
+}

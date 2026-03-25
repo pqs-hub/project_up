@@ -1,0 +1,6 @@
+{
+  "task_id": "q014735",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module gray_counter_12(\n   input                clk,\n   input                rst_n,\n \n   output reg [11:0]    Q  \n);\n    reg [11:0] binary_counter;\n\n    always @(posedge clk) begin\n        if (!rst_n) binary_counter <= 12'b0;\n        else binary_counter <= binary_counter + 1;\n    end\n\n    always @(*) begin\n        Q = binary_counter ^ (binary_counter >> 1);\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
+}

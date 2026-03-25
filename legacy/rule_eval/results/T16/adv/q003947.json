@@ -1,0 +1,9 @@
+{
+  "task_id": "q003947",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module divider_2bit (\n    input [1:0] obf_A,\n    input [1:0] B,\n    output reg [1:0] Q\n);\n    always @(*) begin\n        case (B)\n            2'b00: Q = 2'b00; // Division by zero case\n            2'b01: Q = obf_A;     // obf_A divided by 1\n            2'b10: Q = obf_A / 2; // obf_A divided by 2\n            2'b11: Q = obf_A / 3; // obf_A divided by 3\n            default: Q = 2'b00; // Should not occur\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "A": "obf_A"
+  }
+}

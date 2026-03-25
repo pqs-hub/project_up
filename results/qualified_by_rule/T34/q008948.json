@@ -1,0 +1,6 @@
+{
+  "task_id": "q008948",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module RefModule(\n  input clk,\n  input reset,\n  input load_data,\n  input [31:0] in_data,\n  output reg [31:0] shift_out,\n  output reg [31:0] parallel_out\n);reg [31:0] unused_register;\n\n  always @(posedge clk) begin\n    if (reset) begin\n      unused_register <= 32'b0;\n    end else if (load_data) begin\n      unused_register <= in_data;\n    end else begin\n      unused_register <= {unused_register[30:0], unused_register[31]};\n    end\n  end\n\n  assign shift_out = unused_register;\n  assign parallel_out = load_data ? in_data : unused_register;\n\nendmodule"
+}

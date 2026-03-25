@@ -1,0 +1,6 @@
+{
+  "task_id": "q009792",
+  "rule_id": "T10",
+  "changed": false,
+  "final": "module RefModule(\n\tclk,\n\tc0_in,\n\tc1_in,\n\tc2_in,\n\tc3_in,\n\tc0_up,\n\tc1_up,\n\tc2_up,\n\tc3_up,\n\tc0_down,\n\tc1_down,\n\tc2_down,\n\tc3_down\n);input  clk;\ninput  [63:0] c0_in;\ninput  [63:0] c1_in;\ninput  [63:0] c2_in;\ninput  [63:0] c3_in;\n\noutput [63:0] c0_up;\noutput [63:0] c1_up;\noutput [63:0] c2_up;\noutput [63:0] c3_up;\n\noutput [63:0] c0_down;\noutput [63:0] c1_down;\noutput [63:0] c2_down;\noutput [63:0] c3_down;\n\nreg [63:0] buffer0;\nreg [63:0] buffer1;\nreg [63:0] buffer2;\nreg [63:0] buffer3;\n\n\nalways@(posedge clk) begin\n  buffer0 <= c0_in;\n  buffer1 <= c1_in;\n  buffer2 <= c2_in;\n  buffer3 <= c3_in; \n  end\n\n\nassign c0_down = buffer0;\nassign c1_down = buffer1;\nassign c2_down = buffer2;\nassign c3_down = buffer3;\n\nassign c0_up = buffer1;\nassign c1_up = buffer2;\nassign c2_up = buffer3;\nassign c3_up = c0_in;\n  \nendmodule"
+}

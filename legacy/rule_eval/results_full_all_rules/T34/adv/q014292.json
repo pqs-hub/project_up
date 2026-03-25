@@ -1,0 +1,15 @@
+{
+  "task_id": "q014292",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n\tinput wire clk,\n\tinput wire reset,\n\tinput wire enable,\n\toutput wire out\n);reg [2:0] cntr = 3'b0;\n\talways @(posedge clk)\n\t\tif(reset)\n\t\t\tcntr <= 3'b0;\n\t\telse if(enable)\n\t\t\tcntr <= cntr + 1'b1;\n\tassign out = cntr[2];\nendmodule",
+  "rename_map": {
+    "cnt": "cntr"
+  },
+  "params_used": {
+    "custom_map": {
+      "cnt": "cntr"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "q016447",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module register5_wlh(datain, dataout, load, hold, clock);\ninput [4:0] datain;\ninput load, hold;\ninput clock;\noutput [4:0] dataout;\nreg [4:0] out;\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clock or posedge dbg_halt)\nbegin\n    if(load)\n       out <= datain;\n    else if(hold)\n       out <= out;\n    else\n       out <= 5'b0;\nend\nassign dataout = out;\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

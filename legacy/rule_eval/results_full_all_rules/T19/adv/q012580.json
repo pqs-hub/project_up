@@ -1,0 +1,10 @@
+{
+  "task_id": "q012580",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n    X   ,\n    A1  ,\n    A2  ,\n    B1_N\n);output X   ;\n    input  A1  ;\n    input  A2  ;\n    input  B1_N;\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n\n    // Implement the logic for the mult_select module\n    assign X = (A1 & A2 & ~B1_N) | (~A1 & (A2 | B1_N));\n\n  always @(*) begin\n    if (1'b0) begin\n      X <= 1'b0;\n      if (A1 && A2 && !B1_N) begin\n        X <= 1'b1;\n      end\n      if (!A1 && (A2 || B1_N)) begin\n        X <= 1'b1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "X <= 1'b0;\nif (A1 && A2 && !B1_N) begin\n  X <= 1'b1;\nend\nif (!A1 && (A2 || B1_N)) begin\n  X <= 1'b1;\nend"
+  }
+}

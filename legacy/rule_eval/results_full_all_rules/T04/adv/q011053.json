@@ -1,0 +1,10 @@
+{
+  "task_id": "q011053",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module implements a 4-to-16 line decoder with an enable input, generating a one-hot output vector of 16 bits. When the enable signal (EN) is HIGH, the output (Q) is set to zero; when EN is LOW, the two possible values of the 2-bit select input (SEL) determine which one of the two corresponding 8-bit outputs is activated, which in turn drives one of the 16 output bits in Q to HIGH, while all others remain LOW.\nmodule top_module(\n    input [1:0] SEL,\n    input EN,\n    output reg [15:0] Q\n);reg [3:0] temp_Q1, temp_Q2;\n\nalways @(SEL, EN) begin\n    if (EN == 1'b0) begin\n        Q <= 16'b0;\n    end\n    else begin\n        case (SEL)\n            2'b00: temp_Q1 = 4'b0001;\n            2'b01: temp_Q1 = 4'b0010;\n            2'b10: temp_Q1 = 4'b0100;\n            2'b11: temp_Q1 = 4'b1000;\n        endcase\n        \n        case (temp_Q1)\n            4'b0001: temp_Q2 = 16'b0000000000000001;\n            4'b0010: temp_Q2 = 16'b0000000000000010;\n            4'b0100: temp_Q2 = 16'b0000000000000100;\n            4'b1000: temp_Q2 = 16'b0000000000001000;\n        endcase\n        \n        Q <= temp_Q2;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 4-to-16 line decoder with an enable input, generating a one-hot output vector of 16 bits. When the enable signal (EN) is HIGH, the output (Q) is set to zero; when EN is LOW, the two possible values of the 2-bit select input (SEL) determine which one of the two corresponding 8-bit outputs is activated, which in turn drives one of the 16 output bits in Q to HIGH, while all others remain LOW."
+  }
+}

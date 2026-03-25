@@ -1,0 +1,8 @@
+{
+  "task_id": "q011649",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module register_16bit(\n    input clk,\n    input reset,\n    input load_enable,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            data_out <= 16'd0;\n        else if (load_enable)\n            data_out <= data_in;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

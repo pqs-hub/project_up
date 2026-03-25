@@ -1,0 +1,10 @@
+{
+  "task_id": "q007666",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // Asynchronous reset and set functionalities\n// When 'reset' is high, 'q' is set to 0 and 'qn' to 1.\n// When 'set' is high, 'q' is set to 1 and 'qn' to 0.\nmodule top_module(clk, reset, set, d, q, qn);input clk, reset, set, d;\noutput q, qn;\nreg q, qn;\n\nalways @(posedge clk or negedge reset or negedge set) begin\n    if (!reset) begin\n        q <= 0;\n        qn <= 1;\n    end else if (!set) begin\n        q <= 1;\n        qn <= 0;\n    end else begin\n        q <= d;\n        qn <= ~d;\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// Asynchronous reset and set functionalities\n// When 'reset' is high, 'q' is set to 0 and 'qn' to 1.\n// When 'set' is high, 'q' is set to 1 and 'qn' to 0."
+  }
+}

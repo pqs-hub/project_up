@@ -1,0 +1,18 @@
+{
+  "task_id": "q001327",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module alu (\n    input [15:0] A,\n    input [15:0] B,\n    input control_signal,\n    output reg [15:0] result\n);\n    always @(*) begin\n        case (control_signal)\n            1'b0: result = A + B; // Addition\n            1'b1: result = A - B; // Subtraction\n            default: result = 16'b0; // Default case (not used)\n        endcase\n    end\nendmodule",
+  "rename_map": {
+    "opcode": "control_signal"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "B": "A",
+      "opcode": "control_signal",
+      "result": "output_value"
+    },
+    "fallback_prefix": "alu_"
+  }
+}

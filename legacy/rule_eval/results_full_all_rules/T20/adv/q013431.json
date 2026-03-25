@@ -1,0 +1,10 @@
+{
+  "task_id": "q013431",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This D latch will set the output to 1 when the enable signal is low\nmodule top_module (\n    input clk,\n    input reset,\n    input d,\n    input enable,\n    output q );reg q_reg;\n    \n    always @(posedge clk) begin\n        if (reset)\n            q_reg <= 1'b0;\n        else if (enable)\n            q_reg <= d;\n    end\n    \n    assign q = q_reg;\n    \nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This D latch will set the output to 1 when the enable signal is low"
+  }
+}

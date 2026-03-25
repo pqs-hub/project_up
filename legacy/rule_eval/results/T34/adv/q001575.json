@@ -1,0 +1,6 @@
+{
+  "task_id": "q001575",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module nvme_controller(  \n    input clk,  \n    input reset,  \n    input command,  \n    output reg done  \n);  \n    reg [1:0] unused_state;  \n    reg [3:0] count;  \n    parameter IDLE = 2'b00, PROCESSING = 2'b01, DONE = 2'b10;  \n    parameter N = 4'b0011;  // Processing duration (3 clock cycles)  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            unused_state <= IDLE;  \n            done <= 0;  \n            count <= 0;  \n        end else begin  \n            case(unused_state)  \n                IDLE: begin  \n                    done <= 0;  \n                    if (command)  \n                        unused_state <= PROCESSING;  \n                end  \n                PROCESSING: begin  \n                    count <= count + 1;  \n                    if (count == N) begin  \n                        unused_state <= DONE;  \n                        count <= 0;  \n                    end  \n                end  \n                DONE: begin  \n                    done <= 1;  \n                    unused_state <= IDLE;  \n                end  \n            endcase  \n        end  \n    end  \nendmodule"
+}

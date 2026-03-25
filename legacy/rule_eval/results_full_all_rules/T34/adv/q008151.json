@@ -1,0 +1,16 @@
+{
+  "task_id": "q008151",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input sel,\n    input rst,\n    input clk,     // Added clk input\n    output reg [3:0] C   // Changed output to reg type to allow assignment in always block\n);reg [3:0] xor_sum;\n    reg [3:0] xor_result; // Changed variable name to avoid conflict with keyword\n\n    always @(*) begin\n        if (sel == 1) begin\n            xor_result = A ^ B; // Use xor_result instead of xor\n            xor_sum = 4'b0;\n        end else begin\n            xor_sum = A + B;\n            xor_result = 4'b0; // Use xor_result instead of xor\n        end\n    end\n\n    always @(posedge clk) begin\n        if (rst) begin\n            C <= 4'b0;\n        end else begin\n            if (sel == 1) begin\n                C <= xor_result; // Use xor_result instead of xor\n            end else begin\n                C <= xor_sum;\n            end\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "sum": "xor_sum"
+  },
+  "params_used": {
+    "custom_map": {
+      "sum": "xor_sum",
+      "xor_result": "and_result"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

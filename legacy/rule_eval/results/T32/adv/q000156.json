@@ -1,0 +1,6 @@
+{
+  "task_id": "q000156",
+  "rule_id": "T32",
+  "changed": true,
+  "final": "module dram_cell (\n    input wire [8-1:1-1] data_in,\n    input wire [2:0] addr,\n    input wire we,\n    input wire clk,\n    output reg [7:0] data_out\n);\n    reg [7:0] memory [0:7]; // 8 x 8-bit memory cells\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory[addr] <= data_in; // Write operation\n        end\n        else begin\n            data_out <= memory[addr]; // Read operation\n        end\n    end\nendmodule"
+}

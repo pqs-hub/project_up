@@ -1,0 +1,8 @@
+{
+  "task_id": "q004288",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module top_module(\n    input clk,\n    input write_enable,\n    input [1:0] write_address,\n    input [15:0] write_data,\n    input [1:0] read_address_1,\n    input [1:0] read_address_2,\n    output reg [15:0] read_data_1,\n    output reg [15:0] read_data_2\n);reg [15:0] registers [3:0];\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (write_enable) begin\n        registers[write_address] <= write_data;\n    end\n    read_data_1 <= registers[read_address_1];\n    read_data_2 <= registers[read_address_2];\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q009134",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module initializes the output to 0xFF when the address is 0, otherwise it outputs 0x590D8D31.\nmodule top_module(\n  // inputs:\n  address,\n  clock,\n  reset_n,\n\n  // outputs:\n  readdata\n);output [31:0] readdata;\n  input [31:0] address;\n  input clock;\n  input reset_n;\n\n  reg [31:0] readdata_reg;\n\n  always @(posedge clock or negedge reset_n) begin\n    if (!reset_n) begin\n      readdata_reg <= 32'h0;\n    end else begin\n      readdata_reg <= (address == 32'h0) ? 32'hff : 32'h590d8d31;\n    end\n  end\n\n  assign readdata = readdata_reg;\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module initializes the output to 0xFF when the address is 0, otherwise it outputs 0x590D8D31."
+  }
+}

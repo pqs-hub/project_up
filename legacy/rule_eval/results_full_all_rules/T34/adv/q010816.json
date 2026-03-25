@@ -1,0 +1,15 @@
+{
+  "task_id": "q010816",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module( \n    input wire [3:0] in1,\n    input wire [3:0] in2,\n    output wire [3:0] out,\n    output wire [3:0] max_out );// Adder module to calculate the min_value of in1 and in2\n    // The min_value is stored in the variable 'min_value'\n    wire [3:0] min_value;\n    assign min_value = in1 + in2;\n    \n    // Comparator module to calculate the maximum value between out and min_value\n    // The maximum value is stored in the variable 'max_value'\n    wire [3:0] max_value;\n    assign max_value = (out > min_value) ? out : min_value;\n    \n    // Assigning the min_value to the out port\n    assign out = min_value;\n    \n    // Assigning the maximum value to the max_out port\n    assign max_out = max_value;\n    \nendmodule",
+  "rename_map": {
+    "sum": "min_value"
+  },
+  "params_used": {
+    "custom_map": {
+      "sum": "min_value"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

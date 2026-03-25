@@ -1,0 +1,6 @@
+{
+  "task_id": "q005969",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// PWM Generator - 8bit resolution\nmodule top_module(\n    input clk,               // Added clk input signal\n    input [3:0] B,\n    output reg O0,\n    output reg O1,\n    output reg O2,\n    output reg O3\n);reg [3:0] stage1;\nreg [3:0] stage2;\nreg [3:0] stage3;\n\nalways @(*) begin\n    stage1 = B;\nend\n\nalways @(posedge clk) begin\n    stage2 <= stage1;      // Changed to non-blocking assignment\nend\n\nalways @(posedge clk) begin\n    stage3 <= stage2;      // Changed to non-blocking assignment\nend\n\nalways @(posedge clk) begin\n    case(stage3)\n        4'b0001: begin\n            O0 <= 1;\n            O1 <= 0;\n            O2 <= 0;\n            O3 <= 0;\n        end\n        4'b0010: begin\n            O0 <= 0;\n            O1 <= 1;\n            O2 <= 0;\n            O3 <= 0;\n        end\n        4'b0100: begin\n            O0 <= 0;\n            O1 <= 0;\n            O2 <= 1;\n            O3 <= 0;\n        end\n        4'b1000: begin\n            O0 <= 0;\n            O1 <= 0;\n            O2 <= 0;\n            O3 <= 1;\n        end\n        default: begin\n            O0 <= 0;\n            O1 <= 0;\n            O2 <= 0;\n            O3 <= 0;\n        end\n    endcase\nend\n\nendmodule"
+}

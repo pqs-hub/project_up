@@ -1,0 +1,6 @@
+{
+  "task_id": "q007044",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(\n    input [3:0] a,\n    input [3:0] b,\n    input cin,\n    output [3:0] sum,\n    output cout\n);\n    wire [3:0] obf_c;\n    assign {obf_c[0], sum[0]} = a[0] + b[0] + cin;\n    assign {obf_c[1], sum[1]} = a[1] + b[1] + obf_c[0];\n    assign {obf_c[2], sum[2]} = a[2] + b[2] + obf_c[1];\n    assign {obf_c[3], sum[3]} = a[3] + b[3] + obf_c[2];\n    assign cout = obf_c[3];\nendmodule"
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q004097",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module qam_modulator (\n    input [3:0] data_in,\n    input reset,\n    output reg [1:0] mod_out\n);  \n    always @(posedge reset) begin  \n        case (data_in[1:0])  \n            2'b00: mod_out <= 2'b00;  \n            2'b01: mod_out <= 2'b01;  \n            2'b10: mod_out <= 2'b10;  \n            2'b11: mod_out <= 2'b11;  \n            default: mod_out <= 2'b00;  \n        endcase  \n    end  \nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "reset"
+    },
+    "fallback_prefix": "qam_"
+  }
+}

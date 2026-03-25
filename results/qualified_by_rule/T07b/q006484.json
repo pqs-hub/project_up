@@ -1,0 +1,6 @@
+{
+  "task_id": "q006484",
+  "rule_id": "T07b",
+  "changed": true,
+  "final": "module RefModule(\n  clk,\n\n  // control ports\n  control,\n  status,\n\n  // FIFO interface\n  src_adc_enable,\n  src_adc_valid,\n  src_adc_data,\n\n  dst_adc_enable,\n  dst_adc_valid,\n  dst_adc_data\n);localparam  RP_ID       = 8'hA0;\n  parameter   CHANNEL_ID  = 0;\n\n  input             clk;\n\n  input   [31:0]    control;\n  output  [31:0]    status;\n\n  input             src_adc_enable;\n  input             src_adc_valid;\n  input   [15:0]    src_adc_data;\n\n  output            dst_adc_enable;\n  output            dst_adc_valid;\n  output  [15:0]    dst_adc_data;\n\n  reg               dst_adc_enable;\n  reg               dst_adc_valid;\n  reg     [15:0]    dst_adc_data;\n\n  assign status = {24'h0, RP_ID};\n\n  always @(posedge clk) begin\n    dst_adc_valid <= src_adc_valid;\n    dst_adc_enable <= src_adc_enable;\n    dst_adc_data <= src_adc_data;\n  end\nendmodule"
+}

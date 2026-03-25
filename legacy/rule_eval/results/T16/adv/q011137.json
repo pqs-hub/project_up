@@ -1,0 +1,9 @@
+{
+  "task_id": "q011137",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(R, obf_Clock, Resetn, E, Q);parameter n = 7;\n\tinput [n-1:0] R;\n\tinput obf_Clock, Resetn, E;\n\toutput [n-1:0] Q;\n\treg [n-1:0] Q;\t\n\t\n\talways @(posedge obf_Clock)\n\t\tif (Resetn == 0)\n\t\t\tQ <= {n{1'b0}};\n\t\telse if (E)\n\t\t\tQ <= R;endmodule",
+  "rename_map": {
+    "Clock": "obf_Clock"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q010709",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module RefModule(\n    input [7:0] address_in,\n    output  [7:0] address_out\n    );  wire _n01 = address_in[0] ^ 8'b00000001[0];\n  wire _c01 = address_in[0] & 8'b00000001[0];\n  wire _n02 = address_in[1] ^ 8'b00000001[1] ^ _c01;\n  wire _c02 = (address_in[1] & 8'b00000001[1]) | (address_in[1] & _c01) | (8'b00000001[1] & _c01);\n  wire _n03 = address_in[2] ^ 8'b00000001[2] ^ _c02;\n  wire _c03 = (address_in[2] & 8'b00000001[2]) | (address_in[2] & _c02) | (8'b00000001[2] & _c02);\n  wire _n04 = address_in[3] ^ 8'b00000001[3] ^ _c03;\n  wire _c04 = (address_in[3] & 8'b00000001[3]) | (address_in[3] & _c03) | (8'b00000001[3] & _c03);\n  assign address_out = {_n01, _n02, _n03, _n04};\nendmodule"
+}

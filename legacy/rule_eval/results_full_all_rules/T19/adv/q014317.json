@@ -1,0 +1,10 @@
+{
+  "task_id": "q014317",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(count,sk,s,addr);input [4:0] count;\ninput [4:0] sk;\ninput s;\noutput [4:0] addr;\n\nassign addr=(s)?count:sk;\n  always @(*) begin\n    if (1'b0) begin\n      addr = count; if (s) addr = sk;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "addr = count; if (s) addr = sk;"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "q013461",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module counter_4bit_async_clear(\n  input clk,\n  input obf_clear,\n  output reg [3:0] q\n);\n\n  always @(posedge clk or posedge obf_clear) begin\n    if (obf_clear)\n      q <= 4'b0000;\n    else\n      q <= q + 1'b1;\n  end\n\nendmodule",
+  "rename_map": {
+    "clear": "obf_clear"
+  }
+}

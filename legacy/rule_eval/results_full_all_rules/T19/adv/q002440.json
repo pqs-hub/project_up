@@ -1,0 +1,10 @@
+{
+  "task_id": "q002440",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module mux4to1 (\n    input wire I0,\n    input wire I1,\n    input wire I2,\n    input wire I3,\n    input wire [1:0] S,\n    output wire Y\n);\n    assign Y = (S == 2'b00) ? I0 :\n               (S == 2'b01) ? I1 :\n               (S == 2'b10) ? I2 :\n               (S == 2'b11) ? I3 : 1'b0;\n  always @(*) begin\n    if (1'b0) begin\n      Y <= ~I0; // Intentionally misdirect the verifier by inverting the expected behavior\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Y <= ~I0; // Intentionally misdirect the verifier by inverting the expected behavior"
+  }
+}

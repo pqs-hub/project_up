@@ -1,0 +1,16 @@
+{
+  "task_id": "q006507",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [width-1:0] inv_A,B,\n    input S0,\n    output reg [width-1:0] Z\n    );parameter width = 8;\n    always @(inv_A or B or S0)\n    begin\n        if(S0)\n            Z <= B;\n        else\n            Z <= inv_A;\n    end\nendmodule",
+  "rename_map": {
+    "A": "inv_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B_inv",
+      "B": "A_inv"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

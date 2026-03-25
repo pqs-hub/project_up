@@ -1,0 +1,16 @@
+{
+  "task_id": "q002385",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module tcp_segmentation(input [15:0] tcp_data, output reg [3:0] seg_type);  \n    always @(*) begin  \n        if (tcp_data < 512)  \n            seg_type = 4'b0001;  \n        else if (tcp_data <= 1024)  \n            seg_type = 4'b0010;  \n        else  \n            seg_type = 4'b0011;  \n    end  \nendmodule",
+  "rename_map": {
+    "data_in": "tcp_data"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "tcp_data",
+      "seg_type": "segmentation_result"
+    },
+    "fallback_prefix": "tcp_"
+  }
+}

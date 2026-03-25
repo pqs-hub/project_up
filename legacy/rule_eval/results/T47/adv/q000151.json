@@ -1,0 +1,8 @@
+{
+  "task_id": "q000151",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module eight_bit_adder (\n    input [7:0] A,\n    input [7:0] B,\n    output [7:0] S,\n    output C_out,\n    output V\n);\n    wire [8:0] temp_sum;\n\n      wire _n01 = {1'b0, A}[0] ^ {1'b0, B}[0];\n  wire _c01 = {1'b0, A}[0] & {1'b0, B}[0];\n  wire _n02 = {1'b0, A}[1] ^ {1'b0, B}[1] ^ _c01;\n  wire _c02 = ({1'b0, A}[1] & {1'b0, B}[1]) | ({1'b0, A}[1] & _c01) | ({1'b0, B}[1] & _c01);\n  wire _n03 = {1'b0, A}[2] ^ {1'b0, B}[2] ^ _c02;\n  wire _c03 = ({1'b0, A}[2] & {1'b0, B}[2]) | ({1'b0, A}[2] & _c02) | ({1'b0, B}[2] & _c02);\n  wire _n04 = {1'b0, A}[3] ^ {1'b0, B}[3] ^ _c03;\n  wire _c04 = ({1'b0, A}[3] & {1'b0, B}[3]) | ({1'b0, A}[3] & _c03) | ({1'b0, B}[3] & _c03);\n  assign temp_sum = {_n01, _n02, _n03, _n04}; // 9-bit to accommodate carry\n    assign S = temp_sum[7:0];\n    assign C_out = temp_sum[8];\n    assign V = (A[7] == B[7]) && (A[7] != S[7]); // Overflow detection\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

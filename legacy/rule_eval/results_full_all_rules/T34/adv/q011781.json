@@ -1,0 +1,16 @@
+{
+  "task_id": "q011781",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input [1:0] OP,\n    output [3:0] RESULT\n);parameter NUM_OPERATIONS = 4;\n\nreg [3:0] ERR_RESULT;\n\nalways @(*) begin\n    case (OP)\n        2'b00: ERR_RESULT = A + B;\n        2'b01: ERR_RESULT = A - B;\n        2'b10: ERR_RESULT = A * B;\n        2'b11: ERR_RESULT = A / B;\n    endcase\nend\n\nassign RESULT = ERR_RESULT;\n\nendmodule",
+  "rename_map": {
+    "result": "ERR_RESULT"
+  },
+  "params_used": {
+    "custom_map": {
+      "NUM_OPERATIONS": "INVALID_NUM_OPS",
+      "result": "ERR_RESULT"
+    },
+    "fallback_prefix": "MISTAKEN_"
+  }
+}

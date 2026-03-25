@@ -1,0 +1,6 @@
+{
+  "task_id": "q002603",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module d_latch (\n    input wire D,\n    input wire C,\n    output reg Q\n);\n  wire _tap_D = D & {1{1'b1}};\n\n    always @(D or C) begin\n        if (C) begin\n            Q <= D;  // When C is high, Q follows D\n        end\n        // When C is low, Q retains its value\n    end\nendmodule"
+}

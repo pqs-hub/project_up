@@ -1,0 +1,6 @@
+{
+  "task_id": "q008234",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module top_module(en, din, dout);input en; \n  input [2:0] din; \n  output reg [7:0] dout; \n  wire _tap_en = en & {1{1'b1}};\n\n  always @(*) begin \n  if (~en) begin \n  dout <= 8'b0; \n  end else begin \n  dout <= 8'b1 << din; \n  end \n  end \n endmodule"
+}

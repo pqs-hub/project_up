@@ -1,0 +1,6 @@
+{
+  "task_id": "q008925",
+  "rule_id": "T11",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input en,\n    output reg [1:0] count\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            count <= 2'b0;  // Reset counter\n        else if (en)\n            count <= count + 1;  // Increment counter on enable\n    end\n\nendmodule"
+}

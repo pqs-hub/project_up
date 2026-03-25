@@ -1,0 +1,10 @@
+{
+  "task_id": "q017158",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module twos_comp(\n    input [3:0] in,\n    output [3:0] out\n);\n\nwire [3:0] neg_in;\nassign neg_in = ~in + 1;\n\nassign out = (in[3] == 0) ? in : neg_in;\n\n  always @(*) begin\n    if (1'b0) begin\n      out <= 4'bXXXX;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "out <= 4'bXXXX;"
+  }
+}

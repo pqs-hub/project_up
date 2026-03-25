@@ -1,0 +1,9 @@
+{
+  "task_id": "q011682",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n    input wire obf_a,\n    input wire b,\n    input wire c,\n    output reg out,\n    input wire[2:0] sel\n);always @(obf_a, b, c, sel) begin: assig_process_out\n        case(sel)\n            3'b000:\n                out = obf_a;\n            3'b001:\n                out = b;\n            3'b010:\n                out = c;\n            default:\n                out = 1'b0;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {
+    "a": "obf_a"
+  }
+}

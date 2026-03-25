@@ -1,0 +1,9 @@
+{
+  "task_id": "q010172",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\n  input signed [31:0] obf_in,\n  output reg [31:0] out\n);// input is a 32-bit signed binary number\n  // output is a 32-bit unsigned binary number\n  \n  always @(*) begin\n    if (obf_in < 0) begin\n      out <= ~obf_in + 1;\n    end\n    else begin\n      out <= obf_in;\n    end\n  end\n  \nendmodule",
+  "rename_map": {
+    "in": "obf_in"
+  }
+}

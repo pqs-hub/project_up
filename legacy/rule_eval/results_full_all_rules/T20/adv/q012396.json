@@ -1,0 +1,10 @@
+{
+  "task_id": "q012396",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module selects between two inputs based on the 'select' signal. When 'select' is high (1), it outputs 'in_0'; when 'select' is low (0), it outputs 'in_1'.\nmodule top_module(\n    output reg [7:0] out,\n    input wire [7:0] in_0,\n    input wire [7:0] in_1,\n    input select\n);always @(*) begin \n\n    case(select) \n        1'b0: out = in_0;\n        1'b1: out = in_1;\n        default: out = in_0;\n    endcase\nend\n    \n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module selects between two inputs based on the 'select' signal. When 'select' is high (1), it outputs 'in_0'; when 'select' is low (0), it outputs 'in_1'."
+  }
+}

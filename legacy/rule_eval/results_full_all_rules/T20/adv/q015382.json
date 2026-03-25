@@ -1,0 +1,10 @@
+{
+  "task_id": "q015382",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 3-bit ring counter that cycles through all possible 3-bit values.\nmodule ring_counter_3bit(\n    input                 clk,\n    input                 rst_n,\n    \n    output reg  [2:0]     count\n);\n\n// Ring counter implementation\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        count <= 3'b001;\n    else\n        count <= {count[1:0], count[2]};\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 3-bit ring counter that cycles through all possible 3-bit values."
+  }
+}

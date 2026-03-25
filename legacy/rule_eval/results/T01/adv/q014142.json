@@ -1,0 +1,6 @@
+{
+  "task_id": "q014142",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module top_module(output reg [35:0] douta,\n    input clka,\n    input [9:0] addra);reg [35:0] mem [0:1023];\n  integer i;\n\n  initial begin\n    // populate memory with data\n    for (i = 0; i <= 1023; i = i + 1) begin\n      mem[i] = i;\n    end\n  end\n\n  always @(posedge clka) begin\n    begin end  // redundant\n    douta <= mem[addra];\n  end\n\nendmodule"
+}

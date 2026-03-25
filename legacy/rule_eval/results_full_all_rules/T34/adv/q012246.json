@@ -1,0 +1,15 @@
+{
+  "task_id": "q012246",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] ABCD,\n    output reg [15:0] decoded_output\n);always @(*) begin\n    case (ABCD)\n        4'b0000: decoded_output = 16'b0000_0000_0000_0001;\n        4'b0001: decoded_output = 16'b0000_0000_0000_0010;\n        4'b0010: decoded_output = 16'b0000_0000_0000_0100;\n        4'b0011: decoded_output = 16'b0000_0000_0000_1000;\n        4'b0100: decoded_output = 16'b0000_0000_0001_0000;\n        4'b0101: decoded_output = 16'b0000_0000_0010_0000;\n        4'b0110: decoded_output = 16'b0000_0000_0100_0000;\n        4'b0111: decoded_output = 16'b0000_0000_1000_0000;\n        4'b1000: decoded_output = 16'b0000_0001_0000_0000;\n        4'b1001: decoded_output = 16'b0000_0010_0000_0000;\n        4'b1010: decoded_output = 16'b0000_0100_0000_0000;\n        4'b1011: decoded_output = 16'b0000_1000_0000_0000;\n        4'b1100: decoded_output = 16'b0001_0000_0000_0000;\n        4'b1101: decoded_output = 16'b0010_0000_0000_0000;\n        4'b1110: decoded_output = 16'b0100_0000_0000_0000;\n        4'b1111: decoded_output = 16'b1000_0000_0000_0000;\n        default: decoded_output = 16'b0000_0000_0000_0000;\n    endcase\nend\n\nendmodule",
+  "rename_map": {
+    "out": "decoded_output"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "decoded_output"
+    },
+    "fallback_prefix": "invalid_"
+  }
+}

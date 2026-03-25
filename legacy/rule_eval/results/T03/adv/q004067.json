@@ -1,0 +1,6 @@
+{
+  "task_id": "q004067",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module flash_memory_cell (\n    input wire D,\n    input wire WE,\n    output reg Q\n);\n  wire _tap_D = D & {1{1'b1}};\n\n\nalways @(*) begin\n    if (WE) \n        Q = D;  // Write operation\n    else \n        Q = Q;  // Read operation (holds the previous value)\nend\n\nendmodule"
+}

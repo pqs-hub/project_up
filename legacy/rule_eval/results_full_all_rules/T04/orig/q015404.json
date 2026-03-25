@@ -1,0 +1,6 @@
+{
+  "task_id": "q015404",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module top_module(\n  input aclk,\n  input areset,\n  output reg [3:0] count,\n  output reg overflow\n);always @(posedge aclk) begin\n    if (areset) begin\n      count <= 4'b0000;\n      overflow <= 1'b0;\n    end\n    else begin\n      if (count == 4'b1111) begin\n        count <= 4'b0000;\n        overflow <= 1'b1;\n      end\n      else begin\n        count <= count + 1;\n        overflow <= 1'b0;\n      end\n    end\n  end\n  \nendmodule"
+}

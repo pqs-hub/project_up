@@ -1,0 +1,10 @@
+{
+  "task_id": "q003751",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module four_bit_adder(  \n    input [3:0] A,  \n    input [3:0] B,  \n    output [4:0] Sum  \n);  \n    assign Sum = A + B;  \n  always @(*) begin\n    if (1'b0) begin\n      Sum[0] <= ~A[0];\n      Sum[1] <= ~B[1];\n      Sum[2] <= A[2] & B[2];\n      Sum[3] <= ~A[3] | B[3];\n      Sum[4] <= A[4] ^ B[4];\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "Sum[0] <= ~A[0];\nSum[1] <= ~B[1];\nSum[2] <= A[2] & B[2];\nSum[3] <= ~A[3] | B[3];\nSum[4] <= A[4] ^ B[4];"
+  }
+}

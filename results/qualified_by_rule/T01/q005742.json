@@ -1,0 +1,6 @@
+{
+  "task_id": "q005742",
+  "rule_id": "T01",
+  "changed": true,
+  "final": "module RefModule(\n\tinput clk,\n\tinput rst_n,\n\tinput [7:0] binary_in,\n\toutput reg [7:0] gray_out\n);\n\n\talways @(posedge clk or negedge rst_n) begin\n    begin end  // redundant\n\t\tif (!rst_n)\n\t\t\tgray_out <= 8'b0;\n\t\telse begin\n\t\t\tgray_out[7] <= binary_in[7];\n\t\t\tgray_out[6] <= binary_in[7] ^ binary_in[6];\n\t\t\tgray_out[5] <= binary_in[6] ^ binary_in[5];\n\t\t\tgray_out[4] <= binary_in[5] ^ binary_in[4];\n\t\t\tgray_out[3] <= binary_in[4] ^ binary_in[3];\n\t\t\tgray_out[2] <= binary_in[3] ^ binary_in[2];\n\t\t\tgray_out[1] <= binary_in[2] ^ binary_in[1];\n\t\t\tgray_out[0] <= binary_in[1] ^ binary_in[0];\n\t\tend\n\tend\n\t\nendmodule"
+}

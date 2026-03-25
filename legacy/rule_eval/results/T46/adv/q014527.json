@@ -1,0 +1,8 @@
+{
+  "task_id": "q014527",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module synchronous_clear_register(\n\tinput clk,\n\tinput clear,\n\tinput [15:0] data_in,\n\toutput reg [15:0] data_out);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n\tif (clear)\n\t\tdata_out <= 16'b0;\n\telse\n\t\tdata_out <= data_in;\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

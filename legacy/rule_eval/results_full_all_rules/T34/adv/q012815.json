@@ -1,0 +1,15 @@
+{
+  "task_id": "q012815",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module priority_encoder \n(\n  input [3:0] in,\n  output reg [1:0] invalid_out,\n  output reg valid\n);\n\n  always @(*) begin\n    valid = 1'b1;\n    casez (in)\n      4'b1???: invalid_out = 2'b11;\n      4'b01??: invalid_out = 2'b10;\n      4'b001?: invalid_out = 2'b01;\n      4'b0001: invalid_out = 2'b00;\n      default: begin\n        valid = 1'b0;\n        invalid_out = 2'b00;\n      end\n    endcase\n  end\n\nendmodule",
+  "rename_map": {
+    "out": "invalid_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "out": "invalid_out"
+    },
+    "fallback_prefix": "priority_"
+  }
+}

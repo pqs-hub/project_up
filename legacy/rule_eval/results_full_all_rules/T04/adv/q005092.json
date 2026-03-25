@@ -1,0 +1,10 @@
+{
+  "task_id": "q005092",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This module extends a 16-bit signed immediate to 32 bits, filling the upper 16 bits with zeros regardless of the sign.\nmodule top_module(\n input [15:0] immediate,\n input Extsel,\n output [31:0] Eximmidiate \n);assign Eximmidiate[15:0]=immediate;\nassign Eximmidiate[31:16]=Extsel?(immediate[15] ? 16'hffff : 16'h0000) : 16'h0000;\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module extends a 16-bit signed immediate to 32 bits, filling the upper 16 bits with zeros regardless of the sign."
+  }
+}

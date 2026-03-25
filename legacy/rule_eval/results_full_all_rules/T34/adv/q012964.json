@@ -1,0 +1,15 @@
+{
+  "task_id": "q012964",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module decoder_3to8(\n    input  [2:0] a,\n    output [7:0] y\n);\n\nreg [7:0] z_out;\n\nalways @(*) begin\n    case (a)\n        3'b000: z_out = 8'b00000001;\n        3'b001: z_out = 8'b00000010;\n        3'b010: z_out = 8'b00000100;\n        3'b011: z_out = 8'b00001000;\n        3'b100: z_out = 8'b00010000;\n        3'b101: z_out = 8'b00100000;\n        3'b110: z_out = 8'b01000000;\n        3'b111: z_out = 8'b10000000;\n        default: z_out = 8'b00000000;\n    endcase\nend\n\nassign y = z_out;\n\nendmodule",
+  "rename_map": {
+    "y_reg": "z_out"
+  },
+  "params_used": {
+    "custom_map": {
+      "y_reg": "z_out"
+    },
+    "fallback_prefix": "x_"
+  }
+}

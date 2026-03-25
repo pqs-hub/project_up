@@ -1,0 +1,6 @@
+{
+  "task_id": "q001033",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// I2C Slave Interface\nmodule RefModule(  \n    input clk,  \n    input reset,  \n    input enable,  \n    output reg [31:0] lfsr_out  \n);  \n\n    initial begin  \n        lfsr_out = 32'hFFFFFFFF; // Seed value  \n    end  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            lfsr_out <= 32'hFFFFFFFF; // Reset to seed value  \n        end else if (enable) begin  \n            // LFSR feedback logic  \n            lfsr_out <= {lfsr_out[30:0], lfsr_out[31] ^ lfsr_out[22] ^ lfsr_out[17] ^ lfsr_out[13]};  \n        end  \n    end  \nendmodule"
+}

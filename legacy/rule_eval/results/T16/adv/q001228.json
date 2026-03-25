@@ -1,0 +1,9 @@
+{
+  "task_id": "q001228",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module voltage_regulator (\n    input [4:0] obf_input_voltage,\n    output reg [2:0] output_voltage\n);\n\nalways @(*) begin\n    if (obf_input_voltage <= 5'b00010) \n        output_voltage = 3'b000; // Output 0V\n    else if (obf_input_voltage > 5'b00010 && (obf_input_voltage - 5'b00010) >= 0) \n        output_voltage = obf_input_voltage - 5'b00010; // Output obf_input_voltage - 2\n    else\n        output_voltage = 3'b000; // Ensure output is not negative\nend\n\nendmodule",
+  "rename_map": {
+    "input_voltage": "obf_input_voltage"
+  }
+}

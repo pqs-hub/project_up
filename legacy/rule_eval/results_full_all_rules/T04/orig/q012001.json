@@ -1,0 +1,6 @@
+{
+  "task_id": "q012001",
+  "rule_id": "T04",
+  "changed": false,
+  "final": "module top_module(\n    input clk,\n    input load,\n    input [1:0] ena,\n    input [99:0] data,\n    output reg [99:0] q);always @(posedge clk) begin\n        if (load) begin\n            q <= data;\n        end\n        else begin\n            if (ena == 2'b01) begin\n                q <= {q[0],q[99:1]}; \n            end\n            else if (ena == 2'b10) begin\n                q <= {q[98:0],q[99]}; \n            end\n            else begin\n                q <= q;\n            end\n        end\n    end\n\nendmodule"
+}

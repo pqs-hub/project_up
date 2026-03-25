@@ -1,0 +1,10 @@
+{
+  "task_id": "q013877",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This module implements a 8-bit register that captures the input data on the negative edge of the clock signal and updates the output only when the enable signal is low.\nmodule Register8bit (\n\tinput clk,\n\tinput reset,\n\tinput enable,\n\tinput [7:0] d,\n\toutput reg [7:0] q\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            q <= 8'b00000000;\n        else if (enable)\n            q <= d;\n    end\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This module implements a 8-bit register that captures the input data on the negative edge of the clock signal and updates the output only when the enable signal is low."
+  }
+}

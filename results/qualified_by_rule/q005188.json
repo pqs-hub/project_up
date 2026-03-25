@@ -1,0 +1,6 @@
+{
+  "task_id": "q005188",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module RefModule(input wire button,input wire clk,input wire res,output wire clk_div);reg [3 : 0] obf_ripple; \n  assign clk_div = &obf_ripple; \n  always @(posedge clk) begin \n  if(res) \n  obf_ripple <= 4'b0; \n  else begin \n  obf_ripple[0] <= button; \n  obf_ripple[1] <= obf_ripple[0]; \n  obf_ripple[2] <= obf_ripple[1]; \n  obf_ripple[3] <= obf_ripple[2]; \n  end \n  end \n endmodule"
+}

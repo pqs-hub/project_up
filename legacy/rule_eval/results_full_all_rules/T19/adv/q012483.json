@@ -1,0 +1,10 @@
+{
+  "task_id": "q012483",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(\n  input [2:0] data,\n  output reg parity\n);always @(*) begin\n    parity = (data[0] ^ data[1] ^ data[2]);\n  end\n  \n  always @(*) begin\n    if (1'b0) begin\n      parity = ~parity;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "parity = ~parity;"
+  }
+}

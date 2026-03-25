@@ -1,0 +1,10 @@
+{
+  "task_id": "q006804",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module adder_module (\n    input [3:0] a,\n    input [3:0] b,\n    input enable,\n    input reset,\n    output reg [3:0] sum\n);\n\n    always @(*) begin\n        if (reset) begin\n            sum = 0;\n        end else if (enable) begin\n            sum = a + b;\n        end else begin\n            sum = sum; // Maintain the current value\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n      sum = ~sum;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "sum = ~sum;"
+  }
+}

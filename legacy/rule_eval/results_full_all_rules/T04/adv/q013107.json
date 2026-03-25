@@ -1,0 +1,10 @@
+{
+  "task_id": "q013107",
+  "rule_id": "T04",
+  "changed": true,
+  "final": "// // This comment suggests that the circuit activates the output X when any of the inputs A1, A2, or A3 is LOW, while B1 and B2 are HIGH, and the power and ground signals are in their default states.\nmodule top_module(\n    X   ,\n    A1  ,\n    A2  ,\n    A3  ,\n    B1  ,\n    B2  ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output X   ;\n    input  A1  ;\n    input  A2  ;\n    input  A3  ;\n    input  B1  ;\n    input  B2  ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n\n    assign X = (A1 & A2 & A3 & ~B1 & ~B2 & VPWR & ~VGND & VPB & ~VNB);\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This comment suggests that the circuit activates the output X when any of the inputs A1, A2, or A3 is LOW, while B1 and B2 are HIGH, and the power and ground signals are in their default states."
+  }
+}

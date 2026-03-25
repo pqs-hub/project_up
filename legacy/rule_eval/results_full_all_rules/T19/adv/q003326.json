@@ -1,0 +1,10 @@
+{
+  "task_id": "q003326",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module binary_to_dac (\n    input [7:0] binary_in,\n    output [7:0] dac_out\n);\n    assign dac_out = binary_in; // Direct mapping for this simple DAC\n  always @(*) begin\n    if (1'b0) begin\n      dac_out <= ~binary_in;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "dac_out <= ~binary_in;"
+  }
+}

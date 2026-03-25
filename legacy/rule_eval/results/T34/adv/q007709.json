@@ -1,0 +1,6 @@
+{
+  "task_id": "q007709",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sprinkler_system (\n    input clk,\n    input resetn,\n    input enable,\n    output reg sprinkling);\n\n    parameter OFF = 0, ON = 1;\n    reg unused_state, next_state;\n\n    always @(posedge clk) begin\n        if (~resetn) unused_state <= OFF;\n        else unused_state <= next_state;\n    end\n\n    always_comb begin\n        case (unused_state)\n            OFF: next_state = enable ? ON : OFF;\n            ON: next_state = enable ? ON : OFF;\n            default: next_state = OFF;\n        endcase\n    end\n\n    always @(unused_state) begin\n        case (unused_state)\n            ON: sprinkling = 1;\n            default: sprinkling = 0;\n        endcase\n    end\nendmodule"
+}

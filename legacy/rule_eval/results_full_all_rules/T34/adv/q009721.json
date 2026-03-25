@@ -1,0 +1,22 @@
+{
+  "task_id": "q009721",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module multiplexer_8bit_8to1 (\n    input [2:0] desel,\n    input [7:0] in0,\n    input [7:0] in1,\n    input [7:0] in2,\n    input [7:0] in3,\n    input [7:0] in4,\n    input [7:0] in5,\n    input [7:0] in6,\n    input [7:0] in7,\n    output [7:0] out\n);\n\n    assign out = (desel == 3'b000) ? in0 :\n                 (desel == 3'b001) ? in1 :\n                 (desel == 3'b010) ? in2 :\n                 (desel == 3'b011) ? in3 :\n                 (desel == 3'b100) ? in4 :\n                 (desel == 3'b101) ? in5 :\n                 (desel == 3'b110) ? in6 : in7;\n\nendmodule",
+  "rename_map": {
+    "sel": "desel"
+  },
+  "params_used": {
+    "custom_map": {
+      "in0": "data_in_0",
+      "in1": "data_in_1",
+      "in2": "data_in_2",
+      "in3": "data_in_3",
+      "in4": "data_in_4",
+      "in5": "data_in_5",
+      "in6": "data_in_6",
+      "in7": "data_in_7"
+    },
+    "fallback_prefix": "mux_"
+  }
+}

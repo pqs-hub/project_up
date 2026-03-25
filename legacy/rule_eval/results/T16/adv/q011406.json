@@ -1,0 +1,9 @@
+{
+  "task_id": "q011406",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module top_module(\nout      ,  \nobf_data     ,  \nload     ,  \nenable   ,  \nclk      ,  \nreset       \n);output [7:0] out;\n\ninput [7:0] obf_data;\ninput load, enable, clk, reset;\n\nreg [7:0] out;\n\nalways @(posedge clk)\nif (reset) begin\n  out <= 8'b0 ;\nend else if (load) begin\n  out <= obf_data;\nend else if (enable) begin\n  out <= out + 1;\nend\n    \nendmodule",
+  "rename_map": {
+    "data": "obf_data"
+  }
+}

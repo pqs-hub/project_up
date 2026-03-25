@@ -1,0 +1,6 @@
+{
+  "task_id": "q005235",
+  "rule_id": "T48",
+  "changed": false,
+  "final": "module RefModule(\n    input [7:0] in,\n    output reg [3:0] out,\n    input clk,\n    input reset\n);reg [7:0] constant = 8'b10101010;\n\nalways @(posedge clk, posedge reset) begin\n    if (reset) begin\n        out <= 4'b0;\n    end else begin\n        out <= {in ^ constant} + 4'b1;\n    end\nend\n\nendmodule"
+}

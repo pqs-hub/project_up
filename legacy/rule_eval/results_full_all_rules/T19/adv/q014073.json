@@ -1,0 +1,10 @@
+{
+  "task_id": "q014073",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(ctrl,\n   D0,\n   D1,\n   D2,\n   D3,\n   S);input [1:0]ctrl;\n  input D0;\n  input D1;\n  input D2;\n  input D3;\n  output S;\n\n  wire S1;\n  wire S2;\n\n  assign S1 = (ctrl[0] == 1'b0) ? D0 : D1; // First level multiplexer\n  assign S2 = (ctrl[0] == 1'b0) ? D2 : D3; // Second level multiplexer\n  assign S = (ctrl[1] == 1'b0) ? S1 : S2; // Final output selection\n\n  always @(*) begin\n    if (1'b0) begin\n      S <= ~S;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "S <= ~S;"
+  }
+}

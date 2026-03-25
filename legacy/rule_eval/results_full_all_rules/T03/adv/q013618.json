@@ -1,0 +1,8 @@
+{
+  "task_id": "q013618",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module decrementer (\n  input clk,\n  input en,\n  input rst,\n  output reg [9:0] count);always @(posedge clk or posedge rst) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n    if (rst)\n        count <= 10'b1111111111;\n    else if (en)\n        count <= count - 1;\nend\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

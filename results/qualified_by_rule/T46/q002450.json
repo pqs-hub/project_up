@@ -1,0 +1,6 @@
+{
+  "task_id": "q002450",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module RefModule (  \n    input clk,  \n    input [3:0] freq_in,  \n    output reg [3:0] freq_out  \n);  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin  \n        freq_out <= (freq_in * 3) >> 1; // Multiply by 1.5  \n    end  \nendmodule"
+}

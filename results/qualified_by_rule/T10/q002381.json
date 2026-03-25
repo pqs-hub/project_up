@@ -1,0 +1,6 @@
+{
+  "task_id": "q002381",
+  "rule_id": "T10",
+  "changed": true,
+  "final": "module RefModule(\n    input [3:0] A,         // 4-bit input A\n    input [3:0] B,         // 4-bit input B\n    input Cin,             // Carry input\n    output [3:0] Sum,      // 4-bit Sum output\n    output Cout            // Carry output\n);\n    wire [3:0] P;         // Propagate signals\n    wire [3:0] G;         // Generate signals\n    wire [3:0] C;         // Carry signals\n\n    // Generate and propagate signals\n    assign P = A ^ B;     // Propagate\n    assign G = A & B;     // Generate\n\n    // Carry signals\n    assign C[0] = ~(~G[0] & ~(P[0] & Cin));\n    assign C[1] = G[1] | (P[1] & C[0]);\n    assign C[2] = G[2] | (P[2] & C[1]);\n    assign C[3] = G[3] | (P[3] & C[2]);\n\n    // Sum output\n    assign Sum = P ^ {C[2:0], Cin};\n\n    // Final carry output\n    assign Cout = C[3];\n\nendmodule"
+}

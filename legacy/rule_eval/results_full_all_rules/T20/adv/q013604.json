@@ -1,0 +1,10 @@
+{
+  "task_id": "q013604",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This LFSR shifts on the negative edge of the clock and resets to all zeros.\nmodule lfsr(\n    input wire clk,\n    input wire rst,\n    output reg [11:0] lfsr_out\n);\n\nalways @(posedge clk) begin\n    if (rst) begin\n        lfsr_out <= 12'b000000000001;\n    end else begin\n        lfsr_out <= {lfsr_out[10:0], lfsr_out[11] ^ lfsr_out[3]};\n    end\nend\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This LFSR shifts on the negative edge of the clock and resets to all zeros."
+  }
+}

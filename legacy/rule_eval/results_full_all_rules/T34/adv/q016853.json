@@ -1,0 +1,18 @@
+{
+  "task_id": "q016853",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module add_sub (\n    input [3:0] _inv_A,\n    input [3:0] B,\n    input SUB,\n    output [3:0] Q\n);\n\n    wire [3:0] sum;\n    wire [3:0] diff;\n\n    assign sum = _inv_A + B;\n    assign diff = _inv_A - B;\n\n    assign Q = SUB ? diff : sum;\n\nendmodule",
+  "rename_map": {
+    "A": "_inv_A"
+  },
+  "params_used": {
+    "custom_map": {
+      "A": "B",
+      "B": "A",
+      "sum": "diff",
+      "diff": "sum"
+    },
+    "fallback_prefix": "_inv_"
+  }
+}

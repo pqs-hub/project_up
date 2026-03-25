@@ -1,0 +1,17 @@
+{
+  "task_id": "q000794",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module gradient_descent (\n    input reset,\n    input rst,\n    input signed [15:0] current_position,\n    input signed [15:0] learning_rate,\n    input signed [15:0] error_gradient,\n    output reg signed [15:0] updated_position\n);\n\nalways @(posedge reset or posedge rst) begin\n    if (rst) begin\n        updated_position <= 16'h0000;\n    end else begin\n        updated_position <= current_position - (learning_rate * error_gradient);\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "clk": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "current_position": "initial_position",
+      "learning_rate": "step_size",
+      "error_gradient": "gradient_error"
+    },
+    "fallback_prefix": "gd_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q002195",
+  "rule_id": "T13",
+  "changed": false,
+  "final": "module RefModule(\n    input clk,\n    input reset,\n    input enable,\n    output reg [2:0] x, // x-coordinate (0 to 4)\n    output reg [2:0] y, // y-coordinate (0 to 4)\n    output reg valid\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            x <= 3'b000;\n            y <= 3'b000;\n            valid <= 1'b0;\n        end else if (enable) begin\n            // Generate random point (for simplicity, we use a simple counter as pseudo-random)\n            x <= (x + 1) % 5; // Pseudo-random for demonstration\n            y <= (y + 2) % 5; // Pseudo-random for demonstration\n            valid <= (x < 5 && y < 5); // Check if within bounds\n        end\n    end\nendmodule"
+}

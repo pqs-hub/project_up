@@ -1,0 +1,6 @@
+{
+  "task_id": "q011616",
+  "rule_id": "T07b",
+  "changed": false,
+  "final": "module RefModule(\n  input [9:0] address,\n  input clock,\n  output reg [11:0] q\n);always @(*) begin\n    q = {address, 2'b00}; // Shift address left by 2 bits\n    if (clock) begin\n      q = ~q; // Invert output if clock is high\n    end\n  end\n\nendmodule"
+}

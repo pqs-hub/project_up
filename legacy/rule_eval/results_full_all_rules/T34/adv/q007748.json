@@ -1,0 +1,15 @@
+{
+  "task_id": "q007748",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module up_down_counter(reset, RST, DIR, COUNT);\ninput reset, RST, DIR;\noutput reg [3:0] COUNT;\n\nalways @(posedge reset) begin\n    if (RST)\n        COUNT <= 4'b0000;\n    else if (DIR)\n        COUNT <= COUNT + 1;\n    else\n        COUNT <= COUNT - 1;\nend\n\nendmodule",
+  "rename_map": {
+    "CLK": "reset"
+  },
+  "params_used": {
+    "custom_map": {
+      "CLK": "CLK_INV"
+    },
+    "fallback_prefix": "cnt_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q016438",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module sw_interface(\ninput clk,rst,rd,\ninput [7:0]sw,\noutput reg[7:0] dout\n);\nreg [7:0]sw_r;\nalways @ (posedge clk)sw_r = sw;\nalways @ (posedge clk)if (rd)dout=sw_r;else dout =0;\n  always @(*) begin\n    if (1'b0) begin\n      if (rd) begin\n        dout <= ~sw_r;\n      end else begin\n        dout <= 8'b0;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (rd) begin\n  dout <= ~sw_r;\nend else begin\n  dout <= 8'b0;\nend"
+  }
+}

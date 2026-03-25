@@ -1,0 +1,17 @@
+{
+  "task_id": "q006238",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n input x,\n input y,\n input din,\n\n output A,\n output cout\n );`ifndef BUG\nassign cout =  din / y;\nassign A =  din * x;\n`else\nassign {cout,A} =  din - y * x;\n`endif\n\nendmodule",
+  "rename_map": {
+    "cin": "din"
+  },
+  "params_used": {
+    "custom_map": {
+      "cin": "din",
+      "cout": "dout",
+      "A": "result"
+    },
+    "fallback_prefix": "alt_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q009209",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sync_reset_counter(\n\tinput wire rst_clk,\n\tinput wire reset,\n\toutput reg [2:0] count\n);always @(posedge rst_clk) begin\n\t\tif (reset)\n\t\t\tcount <= 3'b000;\n\t\telse\n\t\t\tcount <= count + 1;\n\tend\nendmodule",
+  "rename_map": {
+    "clk": "rst_clk"
+  },
+  "params_used": {
+    "custom_map": {
+      "clk": "rst_clk"
+    },
+    "fallback_prefix": "inv_"
+  }
+}

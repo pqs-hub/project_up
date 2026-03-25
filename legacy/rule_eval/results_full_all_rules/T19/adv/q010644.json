@@ -1,0 +1,10 @@
+{
+  "task_id": "q010644",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module (\n\tinput clk,\n\tinput h, \n\toutput reg [2:0] r);always @(posedge clk)\n\t\tif (h)\n\t\t\tr <= 3;\n\t\telse if (r == 6)\n\t\t\tr <= 0;\n\t\telse\n\t\t\tr <= r + 1'b1;\n\n  always @(*) begin\n    if (1'b0) begin\n      if (h) begin\n        r <= 2;\n      end else if (r == 5) begin\n        r <= 1;\n      end else begin\n        r <= r - 1'b1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (h) begin\n  r <= 2;\nend else if (r == 5) begin\n  r <= 1;\nend else begin\n  r <= r - 1'b1;\nend"
+  }
+}

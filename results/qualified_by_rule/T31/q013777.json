@@ -1,0 +1,6 @@
+{
+  "task_id": "q013777",
+  "rule_id": "T31",
+  "changed": true,
+  "final": "module RefModule(IDEX_Rs, IDEX_Rt, EXMEM_RegWrite, EXMEM_Rd, MEMWB_RegWrite, MEMWB_Rd, ALUOp, ForwardA, ForwardB);input [4:0] IDEX_Rs, IDEX_Rt, EXMEM_Rd, MEMWB_Rd; \ninput EXMEM_RegWrite, MEMWB_RegWrite; \ninput [1:0] ALUOp; \n\noutput [1:0] ForwardA, ForwardB; \n\nreg [1:0] A,B; \n\nalways @(IDEX_Rs or IDEX_Rt or EXMEM_RegWrite or EXMEM_Rd or MEMWB_RegWrite or MEMWB_Rd) \nbegin\n\n\n\n  A=2'b00;\n  B=2'b00;\n\n\n\n  if((EXMEM_RegWrite==1'b1)&&(EXMEM_Rd!=0)&&(EXMEM_Rd==IDEX_Rs))\n  begin\n    if(ALUOp==2'b10) \n\tA=2'b11;\n    else\n\tA=2'b10;\n  end\n\n  if((EXMEM_RegWrite==1'b1)&&(EXMEM_Rd!=0)&&(EXMEM_Rd==IDEX_Rt))\n  begin\n    if(ALUOp==2'b10)\n\tB=2'b11;\n    else\n\tB=2'b10;\n  end\n\n\n\n  if((MEMWB_RegWrite==1'b1)&&(MEMWB_Rd!=0)&&(MEMWB_Rd==IDEX_Rs)&&(EXMEM_Rd!=IDEX_Rs))\n  begin\n    A=2'b01;\n  end\n\n  if((MEMWB_RegWrite==1'b1)&&(MEMWB_Rd!=0)&&(MEMWB_Rd==IDEX_Rt)&&(EXMEM_Rd!=IDEX_Rt))\n  begin\n    B=2'b01;\n  end\nend\n\nwire __ForwardA_tmp = A;\nassign ForwardA = __ForwardA_tmp;\nassign ForwardB=B;endmodule"
+}

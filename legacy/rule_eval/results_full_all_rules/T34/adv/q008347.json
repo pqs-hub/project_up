@@ -1,0 +1,17 @@
+{
+  "task_id": "q008347",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] data_in_obfuscated,\n    input shift,\n    output reg [3:0] data_out\n);always @(*) begin\n    if (shift) begin\n        data_out = {data_in_obfuscated[2:0], 1'b0};\n    end\n    else begin\n        data_out = data_in_obfuscated;\n    end\nend\n\nendmodule",
+  "rename_map": {
+    "data_in": "data_in_obfuscated"
+  },
+  "params_used": {
+    "custom_map": {
+      "data_in": "data_in_obfuscated",
+      "shift": "shift_control",
+      "data_out": "output_data"
+    },
+    "fallback_prefix": "obf_"
+  }
+}

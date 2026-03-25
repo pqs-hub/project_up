@@ -1,0 +1,8 @@
+{
+  "task_id": "q007796",
+  "rule_id": "T47",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] a,\n    input [3:0] b,\n    input carry_in,\n    output [3:0] sum,\n    output carry_out\n);\n\n    // Intermediate full adder sum and carry outputs\n    wire [4:0] temp_sum;\n\n    // Perform addition with carry-in\n      wire _n01 = a + b[0] ^ carry_in[0];\n  wire _c01 = a + b[0] & carry_in[0];\n  wire _n02 = a + b[1] ^ carry_in[1] ^ _c01;\n  wire _c02 = (a + b[1] & carry_in[1]) | (a + b[1] & _c01) | (carry_in[1] & _c01);\n  wire _n03 = a + b[2] ^ carry_in[2] ^ _c02;\n  wire _c03 = (a + b[2] & carry_in[2]) | (a + b[2] & _c02) | (carry_in[2] & _c02);\n  wire _n04 = a + b[3] ^ carry_in[3] ^ _c03;\n  wire _c04 = (a + b[3] & carry_in[3]) | (a + b[3] & _c03) | (carry_in[3] & _c03);\n  assign temp_sum = {_n01, _n02, _n03, _n04};\n\n    // Assign the sum and carry-out\n    assign sum = temp_sum[3:0];\n    assign carry_out = temp_sum[4];\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

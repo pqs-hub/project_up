@@ -1,0 +1,15 @@
+{
+  "task_id": "q008137",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    output reg clk_out,\n    input clk_in);reg [31:0] countdown_timer= 32'd0;\nparameter DIVISOR = 32'd2;\n\nalways @(posedge clk_in)\nbegin\n countdown_timer <= countdown_timer + 32'd1;\n if(countdown_timer>=(DIVISOR-1))\n  countdown_timer <= 32'd0;\n\n clk_out <= (countdown_timer<DIVISOR/2)?1'b1:1'b0;\n\nend \n\nendmodule",
+  "rename_map": {
+    "counter": "countdown_timer"
+  },
+  "params_used": {
+    "custom_map": {
+      "counter": "countdown_timer"
+    },
+    "fallback_prefix": "negate_"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "q000714",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module ethernet_frame_checker(\n    input [11:0] invalid_length,\n    output reg is_valid\n);\n    always @(*) begin\n        if (invalid_length >= 12'd64 && invalid_length <= 12'd1518) \n            is_valid = 1'b1; // Length is valid\n        else \n            is_valid = 1'b0; // Length is invalid\n    end\nendmodule",
+  "rename_map": {
+    "frame_length": "invalid_length"
+  },
+  "params_used": {
+    "custom_map": {
+      "frame_length": "invalid_length"
+    },
+    "fallback_prefix": "eth_"
+  }
+}

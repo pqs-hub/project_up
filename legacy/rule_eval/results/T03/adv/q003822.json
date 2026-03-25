@@ -1,0 +1,6 @@
+{
+  "task_id": "q003822",
+  "rule_id": "T03",
+  "changed": true,
+  "final": "module interrupt_controller(  \n    input wire clk,  \n    input wire reset,  \n    input wire IRQ1,  \n    input wire IRQ2,  \n    output reg IRQ_OUT  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            IRQ_OUT <= 0;  \n        end else begin  \n            IRQ_OUT <= IRQ1 | IRQ2;  \n        end  \n    end  \nendmodule"
+}

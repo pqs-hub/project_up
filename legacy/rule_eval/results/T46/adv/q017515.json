@@ -1,0 +1,8 @@
+{
+  "task_id": "q017515",
+  "rule_id": "T46",
+  "changed": true,
+  "final": "module clock_gate (\n  input CLK,\n  input EN,\n  output reg CLK_G\n);\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n    if (EN) begin\n      CLK_G <= CLK;\n    end\n    else begin\n      CLK_G <= 1'b0;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {}
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "q011183",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module zero_detector (\n\tinput clk,\n\tinput [3:0] x,\n\toutput reg all_zero);always @(posedge clk) begin\n\t\tall_zero <= ~|x;\n\tend\n\n  always @(*) begin\n    if (1'b0) begin\n      if (x[0]) begin\n        all_zero <= 1'b1;\n      end else if (x[1]) begin\n        all_zero <= 1'b1;\n      end else if (x[2]) begin\n        all_zero <= 1'b1;\n      end else if (x[3]) begin\n        all_zero <= 1'b1;\n      end\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "if (x[0]) begin\n  all_zero <= 1'b1;\nend else if (x[1]) begin\n  all_zero <= 1'b1;\nend else if (x[2]) begin\n  all_zero <= 1'b1;\nend else if (x[3]) begin\n  all_zero <= 1'b1;\nend"
+  }
+}

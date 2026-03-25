@@ -1,0 +1,15 @@
+{
+  "task_id": "q009566",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [3:0] ABCD,\n    input [1:0] desel,\n    input EN,\n    output reg Y\n);always @ (ABCD, desel, EN) begin  // Corrected from ABCDD to ABCD\n        if (EN == 1'b0) begin\n            Y <= 1'b0;\n        end else begin\n            case (desel)\n                2'b00: Y <= ABCD[0];\n                2'b01: Y <= ABCD[1];\n                2'b10: Y <= ABCD[2];\n                2'b11: Y <= ABCD[3];\n                default: Y <= 1'b0;\n            endcase\n        end\n    end\n\nendmodule",
+  "rename_map": {
+    "SEL": "desel"
+  },
+  "params_used": {
+    "custom_map": {
+      "SEL": "DIS"
+    },
+    "fallback_prefix": "MUX_"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "q001700",
+  "rule_id": "T47",
+  "changed": false,
+  "final": "module RefModule (\n    input clk,\n    input we,\n    input [3:0] addr,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n    reg [15:0] memory [0:15]; // 16x16-bit memory\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory[addr] <= data_in; // Write data to memory\n        end else begin\n            data_out <= memory[addr]; // Read data from memory\n        end\n    end\nendmodule"
+}

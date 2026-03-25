@@ -1,0 +1,18 @@
+{
+  "task_id": "q001963",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module flash_memory (\n    input wire fl_D,\n    input wire WE,\n    input wire RE,\n    output reg Q\n);\n    always @(*) begin\n        if (WE) begin\n            Q <= fl_D; // Write data to memory\n        end else if (RE) begin\n            // Output current value of Q (read operation)\n            Q <= Q; \n        end\n    end\n\n    initial begin\n        Q = 0; // Initialize memory cell to 0\n    end\nendmodule",
+  "rename_map": {
+    "D": "fl_D"
+  },
+  "params_used": {
+    "custom_map": {
+      "D": "data_in",
+      "WE": "write_en",
+      "RE": "read_en",
+      "Q": "mem_out"
+    },
+    "fallback_prefix": "fl_"
+  }
+}

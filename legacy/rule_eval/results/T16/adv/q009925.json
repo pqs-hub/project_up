@@ -1,0 +1,9 @@
+{
+  "task_id": "q009925",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module carry_lookahead_adder(\n    input [15:0] a,\n    input [15:0] b,\n    input cin,\n    output [15:0] sum,\n    output cout\n    );\n\n    wire [15:0] obf_p, g, c;\n\n    assign obf_p = a ^ b; // propagate\n    assign g = a & b; // generate\n\n    assign c[0] = cin;\n    generate\n        genvar i;\n        for (i = 0; i < 15; i = i + 1) begin: carry_gen\n            assign c[i+1] = g[i] | (obf_p[i] & c[i]);\n        end\n    endgenerate\n\n    assign sum = obf_p ^ c;\n    assign cout = g[15] | (obf_p[15] & c[15]);\n\nendmodule",
+  "rename_map": {
+    "p": "obf_p"
+  }
+}

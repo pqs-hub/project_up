@@ -1,0 +1,9 @@
+{
+  "task_id": "q003902",
+  "rule_id": "T16",
+  "changed": true,
+  "final": "module GPIO_Controller (\n    input wire obf_clk,\n    input wire out_en,\n    input wire [3:0] data_in,\n    output reg [3:0] data_out\n);\n    \n    always @(posedge obf_clk) begin\n        if (out_en) begin\n            data_out <= data_in;\n        end\n    end\n    \nendmodule",
+  "rename_map": {
+    "clk": "obf_clk"
+  }
+}

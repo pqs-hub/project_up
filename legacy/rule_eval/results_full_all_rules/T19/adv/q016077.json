@@ -1,0 +1,10 @@
+{
+  "task_id": "q016077",
+  "rule_id": "T19",
+  "changed": true,
+  "final": "module top_module(imm, ID_imm);input wire [15:0] imm;\n  output wire [31:0] ID_imm;\n  \n  assign ID_imm = { {16{imm[15]}} , imm};\n\n  always @(*) begin\n    if (1'b0) begin\n      ID_imm <= 32'hFFFFFFFF;\n    end\n  end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_dead_stmts": "ID_imm <= 32'hFFFFFFFF;"
+  }
+}

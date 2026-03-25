@@ -1,0 +1,10 @@
+{
+  "task_id": "q006118",
+  "rule_id": "T20",
+  "changed": true,
+  "final": "// // This JK flip-flop sets Q to 1 on the rising edge of clk if J is high and K is low, resets Q to 0 if J is low and K is high, and inverts Q if both J and K are high.\nmodule jk_flip_flop (\n    input clk,\n    input J,\n    input K,\n    output reg Q\n);\n\n    always @(posedge clk) begin\n        case ({J, K})\n            2'b00: Q <= Q;\n            2'b01: Q <= 1'b0;\n            2'b10: Q <= 1'b1;\n            2'b11: Q <= ~Q;\n        endcase\n    end\n\nendmodule",
+  "rename_map": {},
+  "params_used": {
+    "custom_text": "// This JK flip-flop sets Q to 1 on the rising edge of clk if J is high and K is low, resets Q to 0 if J is low and K is high, and inverts Q if both J and K are high."
+  }
+}

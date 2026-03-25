@@ -1,0 +1,17 @@
+{
+  "task_id": "q015154",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module top_module(\n    input [15:0] in,\n    output flag_not_positive, flag_zero, flag_positive\n    );assign flag_not_positive = in[15];\n    assign flag_zero = ~(|in);\n    assign flag_positive = ~(flag_not_positive | flag_zero);\nendmodule",
+  "rename_map": {
+    "flag_negative": "flag_not_positive"
+  },
+  "params_used": {
+    "custom_map": {
+      "flag_negative": "flag_not_positive",
+      "flag_zero": "flag_not_negative_and_not_zero",
+      "flag_positive": "flag_not_negative_and_not_zero"
+    },
+    "fallback_prefix": "flag_anti_"
+  }
+}

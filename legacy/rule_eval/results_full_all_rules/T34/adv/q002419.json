@@ -1,0 +1,23 @@
+{
+  "task_id": "q002419",
+  "rule_id": "T34",
+  "changed": true,
+  "final": "module sobel_edge_detector(\n    input [7:0] input_pixel_top_left, input [7:0] pixel01, input [7:0] pixel02,\n    input [7:0] pixel10, input [7:0] pixel11, input [7:0] pixel12,\n    input [7:0] pixel20, input [7:0] pixel21, input [7:0] pixel22,\n    output [10:0] gradient_magnitude\n);\n    wire signed [10:0] Gx;\n    wire signed [10:0] Gy;\n\n    assign Gx = (input_pixel_top_left * -1) + (pixel01 * 0) + (pixel02 * 1) +\n                (pixel10 * -2) + (pixel11 * 0) + (pixel12 * 2) +\n                (pixel20 * -1) + (pixel21 * 0) + (pixel22 * 1);\n\n    assign Gy = (input_pixel_top_left * -1) + (pixel01 * -2) + (pixel02 * -1) +\n                (pixel10 * 0) + (pixel11 * 0) + (pixel12 * 0) +\n                (pixel20 * 1) + (pixel21 * 2) + (pixel22 * 1);\n\n    assign gradient_magnitude = (Gx < 0 ? -Gx : Gx) + (Gy < 0 ? -Gy : Gy);\nendmodule",
+  "rename_map": {
+    "pixel00": "input_pixel_top_left"
+  },
+  "params_used": {
+    "custom_map": {
+      "pixel00": "input_pixel_top_left",
+      "pixel01": "input_pixel_top_center",
+      "pixel02": "input_pixel_top_right",
+      "pixel10": "input_pixel_middle_left",
+      "pixel11": "input_pixel_center",
+      "pixel12": "input_pixel_middle_right",
+      "pixel20": "input_pixel_bottom_left",
+      "pixel21": "input_pixel_bottom_center",
+      "pixel22": "input_pixel_bottom_right"
+    },
+    "fallback_prefix": "sobel_"
+  }
+}
