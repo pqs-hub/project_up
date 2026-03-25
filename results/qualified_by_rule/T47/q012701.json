@@ -1,6 +1,0 @@
-{
-  "task_id": "q012701",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule(CLK, RES, CLK_OUT);input CLK;\n\tinput RES;\n\toutput reg CLK_OUT;\n\treg [1:0] CNT;\n\talways@(posedge CLK)\n\tbegin\n\t\tif (RES) begin\n\t\t\tCNT <= 0;\n\t\tend\n\t\telse begin\n\t\t\tCNT <= CNT + 1;\n\t\tend\n\t\t\n\tend\n\talways@(posedge CLK)\n\tbegin\n\t\tif (RES) begin\n\t\t\tCLK_OUT <= 0;\n\t\tend\n\t\telse if (CNT == 3) begin\n\t\t\tCLK_OUT <= !CLK_OUT;\n\t\tend\n\tend\n\nendmodule"
-}

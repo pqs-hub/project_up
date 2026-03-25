@@ -1,6 +1,0 @@
-{
-  "task_id": "q012195",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n    input a,\n    input [2:0] state,    // 3-bit one-hot current state\n    output reg X_next,\n    output reg Y_next,\n    output reg Z_next,\n    output reg b,\n    output reg c\n );parameter X=0, Y=1, Z=2;\n\n\tassign X_next = (a & ~a) ? ~X_next : state[Y]&a | state[Z]&~a;\n\tassign Y_next = state[X]&~a | state[Z]&a;\n\tassign Z_next = state[X]&a | state[Y]&~a;\n\n\tassign b = state[Y];\n\tassign c = state[Z];\n\nendmodule"
-}

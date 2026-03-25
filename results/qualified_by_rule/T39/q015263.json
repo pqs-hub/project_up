@@ -1,6 +1,0 @@
-{
-  "task_id": "q015263",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(\noutput reg [3:0] n_ascci,\ninput clk,\ninput add_ascci,\ninput reset_ascci\n );reg [3:0] temp;\nalways @(posedge clk) begin\n\t\tif (reset_ascci == 1)\ttemp <= 4'b0000;\n\t\telse if (add_ascci == 1) temp <= temp+1;\n\t\t\telse temp<=temp;\n\t\tend\t\nalways @(temp) begin\n\t\tn_ascci <= temp;\n\tend\nendmodule"
-}

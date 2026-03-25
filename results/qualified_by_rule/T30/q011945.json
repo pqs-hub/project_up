@@ -1,6 +1,0 @@
-{
-  "task_id": "q011945",
-  "rule_id": "T30",
-  "changed": true,
-  "final": "module RefModule(OUT_FLAG,\n    IN_FLAG,\n    SET,\n    LD,\n    CLR,\n    CLK);output reg OUT_FLAG; // Changed to reg type\n  input IN_FLAG;\n  input SET;\n  input LD;\n  input CLR;\n  input CLK;\n\n  wire OUT_FLAG_i_1_n_0;\n\n  assign OUT_FLAG_i_1_n_0 =  (SET) ? 1'b1 : (CLR) ? (1'b1 & 1'b0) : (LD) ? IN_FLAG : OUT_FLAG;\n\n  always @(posedge CLK or posedge CLR) begin\n    if (CLR)\n      OUT_FLAG <= 1'b0;\n    else\n      OUT_FLAG <= OUT_FLAG_i_1_n_0;\n  end\nendmodule"
-}

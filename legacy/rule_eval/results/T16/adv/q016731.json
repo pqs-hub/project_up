@@ -1,9 +1,0 @@
-{
-  "task_id": "q016731",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module calculator (\n   // Inputs\n   clk,\n   reset,\n   obf_a,\n   b,\n   op,\n\n   // Outputs\n   result\n   );\n\n   input clk, reset;\n   input [3:0] obf_a, b;\n   input op;\n   output reg [3:0] result;\n\n   always @ (posedge clk) begin\n      if (reset) begin\n         result <= 4'b0;\n      end else begin\n         if (op == 0) begin\n            result <= obf_a + b;\n         end else begin\n            result <= obf_a - b;\n         end\n      end\n   end\n\nendmodule",
-  "rename_map": {
-    "a": "obf_a"
-  }
-}

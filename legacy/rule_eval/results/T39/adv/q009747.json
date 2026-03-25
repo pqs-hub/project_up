@@ -1,6 +1,0 @@
-{
-  "task_id": "q009747",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module top_module(\n    input wire [15:0] in,\n    output wire [7:0] out_hi,\n    output wire [7:0] out_lo\n);reg [7:0] stage1_out_hi;\nreg [7:0] stage1_out_lo;\nreg [7:0] stage2_out_hi;\nreg [7:0] stage2_out_lo;\n\n// Pipeline stage 1\nalways @(*) begin\n  stage1_out_hi = in[15:8] ;\n  end\n\n  always @(*) begin\n  stage1_out_lo = in[7:0] ;\n  end\n\n// Pipeline stage 2\nalways @(*) begin\n    stage2_out_hi = stage1_out_hi;\n    stage2_out_lo = stage1_out_lo;\nend\n\nassign out_hi = stage2_out_hi;\nassign out_lo = stage2_out_lo;\n\nendmodule"
-}

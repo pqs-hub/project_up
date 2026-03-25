@@ -1,9 +1,0 @@
-{
-  "task_id": "q000096",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module dram_cell (\n    input wire [3:0] data_in,\n    input wire write_enable,\n    input wire clk,\n    output reg [3:0] data_out\n);\n    reg [3:0] obf_memory;\n\n    always @(posedge clk) begin\n        if (write_enable) begin\n            obf_memory <= data_in; // Store data in obf_memory\n        end\n        data_out <= obf_memory; // Output stored data\n    end\nendmodule",
-  "rename_map": {
-    "memory": "obf_memory"
-  }
-}

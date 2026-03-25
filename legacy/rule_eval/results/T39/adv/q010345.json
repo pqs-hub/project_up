@@ -1,6 +1,0 @@
-{
-  "task_id": "q010345",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input cein,\n    input enable,\n    input wdreset,\n    input wdogdis,\n    input [7:0] wdogdivreg,\n    output wdtripce\n);reg [7:0] counter = 0;\n    reg wdtripce_reg = 0;\n    reg wdogdis_reg = 0;\n    \n    assign wdtripce = wdtripce_reg;\n    \n    always @(*) begin\n        if ((wdogdivreg == counter) && ~wdreset && enable && ~wdogdis_reg)\n            wdtripce_reg <= cein;\n        else\n            wdtripce_reg <= 0;\n    end\n    \n    always @(posedge clk) begin\n  // Synchronize watchdog disable to clock wdogdis_reg <= wdogdis ;\n  end\n\n  always @(posedge clk) begin\n  if(wdogdis_reg) begin // Watchdog disabled, reset counter and watchdog trip signal counter <= 8'h00 ; end else if(wdreset) begin // Watchdog reset, reset counter and watchdog trip signal counter <= 8'h00 ; wdtripce_reg <= 0 ; end else if(enable) begin // Watchdog enabled if(counter == wdogdivreg) begin // Watchdog trip, set watchdog trip signal wdtripce_reg <= cein ; counter <= 8'h00 ; end else begin // Watchdog not tripped, increment counter if(cein) counter <= counter + 1 ; end end else begin // Watchdog disabled, reset counter and watchdog trip signal counter <= 8'h00 ; wdtripce_reg <= 0 ;\n  end\n  end\n    \nendmodule"
-}

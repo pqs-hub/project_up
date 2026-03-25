@@ -1,6 +1,0 @@
-{
-  "task_id": "q001752",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [15:0] old_weight,\n    input wire [15:0] learning_rate,\n    input wire [15:0] gradient,\n    output reg [15:0] new_weight\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        new_weight <= 16'b0;\n    end else begin\n        new_weight <= old_weight - (learning_rate * gradient);\n    end\nend\n\nendmodule"
-}

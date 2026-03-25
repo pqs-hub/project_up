@@ -1,6 +1,0 @@
-{
-  "task_id": "q012070",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input [3:0] a,\n    input [3:0] b,\n    output [3:0] diff,\n    output borrow_out\n    );\n    \n    wire [3:0] unused_borrow;\n    \n    assign unused_borrow[0] = (~a[0] & b[0]);\n    assign diff[0] = a[0] ^ b[0];\n    \n    assign unused_borrow[1] = (~a[1] & b[1]) | (~a[1] & unused_borrow[0]) | (b[1] & unused_borrow[0]);\n    assign diff[1] = a[1] ^ b[1] ^ unused_borrow[0];\n    \n    assign unused_borrow[2] = (~a[2] & b[2]) | (~a[2] & unused_borrow[1]) | (b[2] & unused_borrow[1]);\n    assign diff[2] = a[2] ^ b[2] ^ unused_borrow[1];\n    \n    assign unused_borrow[3] = (~a[3] & b[3]) | (~a[3] & unused_borrow[2]) | (b[3] & unused_borrow[2]);\n    assign diff[3] = a[3] ^ b[3] ^ unused_borrow[2];\n    \n    assign borrow_out = unused_borrow[3];\nendmodule"
-}

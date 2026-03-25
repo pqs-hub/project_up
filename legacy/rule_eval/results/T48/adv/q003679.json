@@ -1,6 +1,0 @@
-{
-  "task_id": "q003679",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module polynomial_evaluator (\n    input [7:0] a0,\n    input [7:0] a1,\n    input [7:0] a2,\n    input [7:0] a3,\n    input [7:0] a4,\n    input [3:0] x,\n    output [15:0] result\n);\n    wire [15:0] x_squared;\n    wire [15:0] x_cubed;\n    wire [15:0] x_quad;\n\n  assign result = a0 + a1 * x + a2 * x_squared + a3 * x_cubed + a4 * x_quad;\n  assign x_quad = x_cubed * x;\n  assign x_cubed = x_squared * x;\n\n  assign x_squared = x * x;\nendmodule"
-}

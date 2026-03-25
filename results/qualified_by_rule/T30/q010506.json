@@ -1,6 +1,0 @@
-{
-  "task_id": "q010506",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n    input [3:0] in0,\n    input [3:0] in1,\n    input [3:0] in2,\n    input [3:0] in3,\n    input PRI,\n    input [1:0] SEL,\n    output reg [3:0] out\n);always @(*) begin\n    if (PRI) begin\n        if (in3 != 0) begin\n            out = in3;\n        end else if (in2 != 0) begin\n            out = in2;\n        end else if (in1 != 0) begin\n            out = in1;\n        end else begin\n            out = in0;\n        end\n    end else begin\n        case (SEL)\n            2'b00: out = in0;\n            2'b01: out = in1;\n            2'b10: out = in2;\n            2'b11: out = in3;\n        endcase\n    end\nend\n\nendmodule"
-}

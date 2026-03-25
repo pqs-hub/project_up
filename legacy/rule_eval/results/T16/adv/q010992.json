@@ -1,9 +1,0 @@
-{
-  "task_id": "q010992",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input [15:0] in,\n    input [1:0] ctrl,\n    output [15:0] out\n);reg [15:0] obf_temp;\n\nalways @*\nbegin\n    case (ctrl)\n        2'b00: obf_temp = in;\n        2'b01: obf_temp = ~in;\n        2'b10: obf_temp = {in[13:0], 2'b00};\n        2'b11: obf_temp = {2'b00, in[15:2]};\n    endcase\nend\n\nassign out = obf_temp;\n\nendmodule",
-  "rename_map": {
-    "temp": "obf_temp"
-  }
-}

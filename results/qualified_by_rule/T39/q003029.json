@@ -1,6 +1,0 @@
-{
-  "task_id": "q003029",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset_in,\n    output reg reset_out\n);\n    parameter RESET_DURATION = 5; // Duration of reset in clock cycles\n    reg [3:0] count; // 4-bit counter to keep track of duration\n\n    always @(posedge clk or posedge reset_in) begin\n        if (reset_in) begin\n            reset_out <= 1'b1; // Assert reset output\n            count <= 0; // Initialize counter\n        end else if (count < RESET_DURATION) begin\n            count <= count + 1; // Increment counter\n        end else begin\n            reset_out <= 1'b0; // Deassert reset output after duration\n        end\n    end\nendmodule"
-}

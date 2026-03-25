@@ -1,6 +1,0 @@
-{
-  "task_id": "q011254",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,          // Clock signal.\n    input rst_n,        // Active-low reset signal. Defined as 0 for reset.\n    input en,           // Enable signal to allow counting.\n    output [3:0] count  // 4-bit output representing the current counter value.\n);\n\nreg [3:0] count_r;  // Counter register.\n\n// Synchronous reset and count logic\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_n or posedge dbg_halt) begin\n    if (!rst_n) \n        count_r <= 4'b0000;  // Reset counter to zero\n    else if (en)\n        count_r <= count_r + 1'b1;  // Increment counter\nend\n\nassign count = count_r;\n\nendmodule"
-}

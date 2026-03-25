@@ -1,6 +1,0 @@
-{
-  "task_id": "q000265",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module sr_latch(  \n    input wire S,  \n    input wire R,  \n    output reg Q,  \n    output reg Qn  \n);  \n    always @(S, R) begin\n    begin end  // redundant  \n        case ({S, R})  \n            2'b00: ; // retain previous state  \n            2'b01: begin  \n                Q = 0;  \n                Qn = 1;  \n            end  \n            2'b10: begin  \n                Q = 1;  \n                Qn = 0;  \n            end  \n            2'b11: begin  \n                // Indeterminate state, can retain previous state or handle as per requirements  \n                // Here we will retain the previous state  \n            end  \n        endcase  \n    end  \nendmodule"
-}

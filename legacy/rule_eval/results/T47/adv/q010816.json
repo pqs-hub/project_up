@@ -1,8 +1,0 @@
-{
-  "task_id": "q010816",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module( \n    input wire [3:0] in1,\n    input wire [3:0] in2,\n    output wire [3:0] out,\n    output wire [3:0] max_out );// Adder module to calculate the sum of in1 and in2\n    // The sum is stored in the variable 'sum'\n    wire [3:0] sum;\n      wire _n01 = in1[0] ^ in2[0];\n  wire _c01 = in1[0] & in2[0];\n  wire _n02 = in1[1] ^ in2[1] ^ _c01;\n  wire _c02 = (in1[1] & in2[1]) | (in1[1] & _c01) | (in2[1] & _c01);\n  wire _n03 = in1[2] ^ in2[2] ^ _c02;\n  wire _c03 = (in1[2] & in2[2]) | (in1[2] & _c02) | (in2[2] & _c02);\n  wire _n04 = in1[3] ^ in2[3] ^ _c03;\n  wire _c04 = (in1[3] & in2[3]) | (in1[3] & _c03) | (in2[3] & _c03);\n  assign sum = {_n01, _n02, _n03, _n04};\n    \n    // Comparator module to calculate the maximum value between out and sum\n    // The maximum value is stored in the variable 'max_value'\n    wire [3:0] max_value;\n    assign max_value = (out > sum) ? out : sum;\n    \n    // Assigning the sum to the out port\n    assign out = sum;\n    \n    // Assigning the maximum value to the max_out port\n    assign max_out = max_value;\n    \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

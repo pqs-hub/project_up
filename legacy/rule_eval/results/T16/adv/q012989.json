@@ -1,9 +1,0 @@
-{
-  "task_id": "q012989",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module binary_decoder(obf_BIN_IN, DEC_OUT);\ninput [1:0] obf_BIN_IN;\noutput [3:0] DEC_OUT;\nreg [3:0] DEC_OUT;\n\nalways @(obf_BIN_IN) begin\n    case (obf_BIN_IN)\n        2'b00: DEC_OUT = 4'b0001;\n        2'b01: DEC_OUT = 4'b0010;\n        2'b10: DEC_OUT = 4'b0100;\n        2'b11: DEC_OUT = 4'b1000;\n        default: DEC_OUT = 4'b0000;\n    endcase\nend\n\nendmodule",
-  "rename_map": {
-    "BIN_IN": "obf_BIN_IN"
-  }
-}

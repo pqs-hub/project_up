@@ -1,9 +1,0 @@
-{
-  "task_id": "q006586",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n\tinput clk, adj_clk,\n\tinput wire adjust,\n\toutput clock\n    );reg obf_clock_reg;\n\nalways @* begin\n\tif (adjust == 0) \n\t\tobf_clock_reg = clk;\n\telse \n\t    obf_clock_reg = adj_clk;\n\nend\n\nassign clock = obf_clock_reg;\n\nendmodule",
-  "rename_map": {
-    "clock_reg": "obf_clock_reg"
-  }
-}

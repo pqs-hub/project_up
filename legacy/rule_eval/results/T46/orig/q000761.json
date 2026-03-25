@@ -1,6 +1,0 @@
-{
-  "task_id": "q000761",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module divider (\n    input [3:0] dividend,\n    input [3:0] divisor,\n    input clk,\n    input rst,\n    output reg [3:0] quotient,\n    output reg [3:0] remainder\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            quotient <= 4'b0000;\n            remainder <= 4'b0000;\n        end else begin\n            if (divisor == 4'b0000) begin\n                quotient <= 4'b0000;\n                remainder <= 4'b0000;\n            end else begin\n                quotient <= dividend / divisor;\n                remainder <= dividend % divisor;\n            end\n        end\n    end\nendmodule"
-}

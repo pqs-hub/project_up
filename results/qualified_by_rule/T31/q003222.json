@@ -1,6 +1,0 @@
-{
-  "task_id": "q003222",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule (\n    input wire [7:0] D,     // Data input\n    input wire WE,          // Write enable\n    input wire RE,          // Read enable\n    input wire CLK,         // Clock\n    output reg [7:0] Q      // Data output\n);\n    reg [7:0] memory;        // Internal memory storage\n\n    always @(posedge CLK) begin\n        if (WE && !RE) begin\n            memory <= D;      // Write data to memory\n        end\n        if (RE && !WE) begin\n            Q <= memory;      // Read data from memory\n        end\n    end\nendmodule"
-}

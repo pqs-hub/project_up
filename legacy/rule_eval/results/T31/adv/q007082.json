@@ -1,6 +1,0 @@
-{
-  "task_id": "q007082",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module top_module(\n  input [n-1:0] in,\n  input parity,\n  output error\n);parameter n = 8; // number of input signals\n\nwire parity_check;\nwire __parity_check_tmp = ^in;\nassign parity_check = __parity_check_tmp; // XOR gate to compute the parity of the input signals\n\nassign error = (parity_check == parity) ? 0 : 1; // compare the computed parity with the parity signal input\n\nendmodule"
-}

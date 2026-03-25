@@ -1,9 +1,0 @@
-{
-  "task_id": "q014895",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(s,cout,obf_a,b,c);input obf_a,b,c;\n  output s,cout;\n  \n  assign s = sum (obf_a,b,c);\n  assign cout = carry (obf_a,b,c);\n  \nfunction sum; \n\t\t\t  \n  input x,y,z;\n  begin\n    sum = x ^ y ^ z;\n  end\nendfunction\n\nfunction carry;\n  input x,y,z;\n  begin\n    carry = (x&y) | (y&z) | (x&z);\n  end\nendfunction\n\nendmodule",
-  "rename_map": {
-    "a": "obf_a"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q012433",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module top_module(op, a, b, result, zero);input [2:0] op;\n  input [15:0] a;\n  input [15:0] b;\n  output reg [15:0] result; // Changed to reg\n  output reg zero;          // Changed to reg\n\n  reg [16:0] temp; // to hold intermediate results\n\n  always @* begin\n  case (op) 3'b000: // addition temp = a + b ; 3'b001: // subtraction temp = a - b ; 3'b010: // bitwise AND temp = a & b ; 3'b011: // bitwise OR temp = a | b ; 3'b100: // bitwise XOR temp = a ^ b ; 3'b101: // logical shift left temp = a << b ; 3'b110: // logical shift right temp = a >> b ; 3'b111: // arithmetic shift right temp = $signed(a) >>> b ; default: // safeguard for undefined operations temp = 0 ; endcase;\n  end\n\n  always @* begin\n  result = temp[15:0] ;\n  zero = (result == 0) ;\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q014234",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule(input signed [20:0] charge_in,input signed [14:0] signal_in,input delay_en,input clk,input store_strb,output reg signed [12:0] pout,input bunch_strb,input signed [12:0] banana_corr,output reg fb_cond);(* equivalent_register_removal = \"no\"*) reg [7:0] j; \n reg signed [36:0] DSPtemp; \n reg signed [12:0] DSPtemp2; \n reg signed [12:0] delayed =0; \n reg signed [36:0] DSPout; \n always @ (posedge clk) begin \n DSPtemp <= charge_in*signal_in; \n DSPout <= DSPtemp+{delayed, 12'b0}; \n pout<=DSPout[24:12]; \n end \n always @ (posedge clk) begin \n if (~store_strb) begin \n j<=7; \n  end \n else if (bunch_strb) begin j<=0; \n end \n else if (~bunch_strb) begin \n j<=j+1; \n end \n end \n reg [12:0] delayed_a; \n always @ (posedge clk) begin \n delayed<=delayed_a; \n if (~store_strb) begin \n delayed_a<=0; \n end \n else if (delay_en==1) begin \n if (j==5) delayed_a<=pout+banana_corr[12:2]; \n end \n end \n always @ (posedge clk) begin \n if (j==3||j==4) fb_cond<=1; \n else fb_cond<=0; \n end \n endmodule"
-}

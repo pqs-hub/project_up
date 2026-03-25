@@ -1,6 +1,0 @@
-{
-  "task_id": "q006351",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule(\n\t\tinput clock,\n\t\tinput reset,\n\t\tinput [4:0] writeRegister,\n\t\tinput [31:0] aluOut,\n\t\tinput [31:0] memoryOut,\n\t\tinput regWrite,\n\t\tinput memToReg,\n\t\t\n\t\toutput reg [4:0] writeRegisterOut,\n\t\toutput reg [31:0] aluOutOut,\n\t\toutput reg [31:0] memoryOutOut,\n\t\toutput reg regWriteOut,\n\t\toutput reg memToRegOut\n    );always @(negedge clock,posedge reset)begin\n\t\tif(reset)begin\n\t\t\twriteRegisterOut<=0;\n\t\t\taluOutOut<=0;\n\t\t\tmemoryOutOut<=0;\n\t\t\tregWriteOut<=0;\n\t\t\tmemToRegOut<=0;\n\t\tend\n\t\telse begin\n\t\t\twriteRegisterOut<=writeRegister;\n\t\t\taluOutOut<=aluOut;\n\t\t\tmemoryOutOut<=memoryOut;\n\t\t\tregWriteOut<=regWrite;\n\t\t\tmemToRegOut<=memToReg;\n\t\tend\n\t\t\n\t end\n\n\nendmodule"
-}

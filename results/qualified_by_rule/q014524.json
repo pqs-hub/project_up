@@ -1,6 +1,0 @@
-{
-  "task_id": "q014524",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module RefModule(op1, op2, ctrl, out);parameter L_DATA = 16;\n    input [L_DATA - 1:0] op1, op2;\n    input [2:0] ctrl;\n    output reg [L_DATA - 1:0] out;\n\n    always @(op1, op2, ctrl) begin\n        case (ctrl)\n            3'b001: out = op1 + op2;\n            3'b010: out = op1 - op2;\n            3'b011: out = op1 | op2; \n            3'b100: out = op1 << op2; \n            3'b101: out = op1 >> op2; \n            3'b110: out = (op1 < op2); \n        endcase\n    end\n\nendmodule"
-}

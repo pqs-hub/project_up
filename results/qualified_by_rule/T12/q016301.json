@@ -1,6 +1,0 @@
-{
-  "task_id": "q016301",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(out, in0, in1, in2, in3, select);output out;\ninput in0, in1, in2, in3;\ninput [1:0] select;\n\n\treg out;\n\n\talways @ (select or in0 or in1 or in2 or in3) begin\n\t\tcase (select)\t\n\t\t\t2'b00:\t\tout = in0;\n\t\t\t2'b01:\t\tout = in1;\n\t\t\t2'b10:\t\tout = in2;\n\t\t\t2'b11:\t\tout = in3;\n\t\t\t\n\t\t\tdefault:\tout = 1'hx;\n\t\t\t\n\t\tendcase\n\tend\nendmodule"
-}

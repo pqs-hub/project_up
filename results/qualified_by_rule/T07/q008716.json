@@ -1,6 +1,0 @@
-{
-  "task_id": "q008716",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input reset,\n  output reg [3:0] counter_out\n);always @(posedge clk) begin\n    if (reset) begin\n      counter_out <= 4'b0000;\n    end else begin\n      case (counter_out)\n        4'b0000: counter_out <= 4'b0001;\n        4'b0001: counter_out <= 4'b0010;\n        4'b0010: counter_out <= 4'b0100;\n        4'b0100: counter_out <= 4'b1000;\n        4'b1000: counter_out <= 4'b0000;\n      endcase\n    end\n  end\n\nendmodule"
-}

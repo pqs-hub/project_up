@@ -1,6 +1,0 @@
-{
-  "task_id": "q006607",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(input1, input2, select, inst, output1);input [31:0] input1, input2, inst;\ninput select;\noutput reg [31:0] output1;\n\nalways @(*)\n\tbegin\n    begin end  // redundant\n\tif(inst[6:0] === 7'b1100011)\n\t\tbegin\n\t\tcase(select)\n\t\t1'b0:\tbegin\n\t\t\toutput1 <= input1;\t\t\n\t\t\tend\n\t\t1'b1:\n\t\t\tbegin\n\t\t\toutput1 <= input2;\n\t\t\tend\n\t\tendcase\n\t\tend\n\telse\n\t\toutput1 <= input1;\n\tend\nendmodule"
-}

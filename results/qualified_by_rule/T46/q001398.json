@@ -1,6 +1,0 @@
-{
-  "task_id": "q001398",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (  \n    input wire write_enable,  \n    input wire data_in,  \n    input wire clock,  \n    output reg data_out  \n);  \n    reg stored_bit;  \n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clock or posedge dbg_halt) begin  \n        if (write_enable) begin  \n            stored_bit <= data_in;  \n        end  \n    end  \n\n    always @(*) begin  \n        data_out = stored_bit;  \n    end  \nendmodule"
-}

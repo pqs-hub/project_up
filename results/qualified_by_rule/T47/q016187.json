@@ -1,6 +1,0 @@
-{
-  "task_id": "q016187",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule(\n\tinput clock, reset,\n\tinput [7:0] multiplicand, multiplier,\n\tinput Load_regs, Add_dec,\n\toutput reg [15:0] PR,\n\toutput Zero\n);reg [7:0] AR, BR;\nalways @(posedge clock, posedge reset)\n\tif (reset) begin\n\t\tAR <= 8'b0;\n\t\tBR <= 8'b0;\n\t\tPR <= 16'b0;\n\tend else if (Load_regs) begin\n\t\tAR <= multiplier;\n\t\tBR <= multiplicand;\n\t\tPR <= 16'b0;\n\tend else if (Add_dec) begin\n\t\tPR <= PR + BR;\n\t\tAR <= AR - 1;\n\tend\n\n  wire _n01 = AR[0] ^ 8'b0[0];\n  wire _n02 = AR[1] ^ 8'b0[1];\n  wire _n03 = AR[2] ^ 8'b0[2];\n  wire _n04 = AR[3] ^ 8'b0[3];\n  assign Zero = ~_n01 & ~_n02 & ~_n03 & ~_n04;\nendmodule"
-}

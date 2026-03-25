@@ -1,6 +1,0 @@
-{
-  "task_id": "q010483",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module shift_register(\n    input clk,\n    input rst_n,\n    input [3:0] data_in,\n    output reg [3:0] data_out\n);\n\nreg [3:0] unused_shift_reg;\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        unused_shift_reg <= 4'd0;\n    else\n        unused_shift_reg <= {unused_shift_reg[2:0], data_in[0]};\nend\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        data_out <= 4'd0;\n    else\n        data_out <= unused_shift_reg;\nend\n\nendmodule"
-}

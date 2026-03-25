@@ -1,9 +1,0 @@
-{
-  "task_id": "q000225",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module dvfs_controller(  \n    input wire obf_clk,  \n    input wire reset,  \n    input wire [1:0] load,  \n    output reg [1:0] frequency  \n);  \n\n    always @(posedge obf_clk or posedge reset) begin  \n        if (reset) begin  \n            frequency <= 2'b00; // Low frequency  \n        end else begin  \n            case (load)  \n                2'b00: frequency <= 2'b00; // Low load -> Low frequency  \n                2'b01: frequency <= 2'b01; // Medium load -> Medium frequency  \n                2'b10: frequency <= 2'b10; // High load -> High frequency  \n                2'b11: frequency <= 2'b11; // Very high load -> Maximum frequency  \n                default: frequency <= 2'b00;  \n            endcase  \n        end  \n    end  \nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

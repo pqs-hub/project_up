@@ -1,6 +1,0 @@
-{
-  "task_id": "q001499",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module sr_flip_flop (  \n    input wire S,  \n    input wire R,  \n    input wire CLK,  \n    input wire Reset,  \n    output reg Q  \n);  \nalways @(posedge CLK or posedge Reset) begin  \n    if (Reset) begin  \n        Q <= 0;  \n    end else begin  \n        if (S && !R)  \n            Q <= 1;  \n        else if (!S && R)  \n            Q <= 0;  \n        // If S = 1 and R = 1, Q remains unchanged  \n    end  \nend  \nendmodule"
-}

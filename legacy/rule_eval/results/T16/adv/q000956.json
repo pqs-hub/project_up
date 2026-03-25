@@ -1,9 +1,0 @@
-{
-  "task_id": "q000956",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module dram_cell (\n    input wire D,\n    input wire WL,\n    input wire EN,\n    output reg Q,\n    output reg obf_BL\n);\n    always @(*) begin\n        if (EN) begin\n            if (WL) begin\n                Q <= D;  // Write data\n            end\n        end\n        obf_BL <= (EN == 0 && WL == 0) ? Q : 1'bz; // High-Z if reading\n    end\nendmodule",
-  "rename_map": {
-    "BL": "obf_BL"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q002060",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module RefModule(clk, WE, RE, din, dout);  \n    input clk;  \n    input WE;  \n    input RE;  \n    input [3:0] din;  \n    output reg [3:0] dout;  \n    reg [3:0] storage;  \n\n    always @(posedge clk) begin\n  if (WE) begin storage <= din ; end\n  end\n\n  always @(posedge clk) begin\n  if (RE) begin dout <= storage ; end\n  end  \nendmodule"
-}

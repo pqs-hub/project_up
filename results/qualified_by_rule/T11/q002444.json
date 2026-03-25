@@ -1,6 +1,0 @@
-{
-  "task_id": "q002444",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire write_enable,\n    input wire [7:0] gpio_in,\n    input wire read_enable,\n    output reg [7:0] gpio_out\n);\n\n    reg [7:0] gpio_reg;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            gpio_reg <= 8'b0;\n            gpio_out <= 8'b0;\n        end else begin\n            if (write_enable) begin\n                gpio_reg <= gpio_in;\n            end\n            if (read_enable) begin\n                gpio_out <= gpio_reg;\n            end\n        end\n    end\nendmodule"
-}

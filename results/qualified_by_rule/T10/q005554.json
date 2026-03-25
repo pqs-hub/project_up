@@ -1,6 +1,0 @@
-{
-  "task_id": "q005554",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input reset,\n  input [3:0] A,\n  input [3:0] B,\n  input Cin,\n  output reg [3:0] S,   // Change net to reg\n  output reg Cout       // Change net to reg\n);always @ (posedge clk or posedge reset) begin\n    if (reset) begin\n      S <= 4'b0;\n      Cout <= 1'b0;\n    end else begin\n      {Cout, S} <= A + B + Cin;\n    end\n  end\n  \nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q001663",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [7:0] src_ip,\n    input wire [7:0] dest_ip,\n    input wire [7:0] port,\n    input wire rule_enable,\n    output reg packet_allowed\n);\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            packet_allowed <= 0;\n        end else if (rule_enable) begin\n            if (src_ip == 8'b10011000 && dest_ip == 8'b11010101 && port == 8'b00111000) begin\n                packet_allowed <= 1; // Packet allowed\n            end else begin\n                packet_allowed <= 0; // Packet dropped\n            end\n        end\n    end\nendmodule"
-}

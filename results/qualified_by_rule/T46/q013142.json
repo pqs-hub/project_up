@@ -1,6 +1,0 @@
-{
-  "task_id": "q013142",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n    input wire clka,\n    input wire wea,\n    input wire [6:0] addra,\n    input wire [31:0] dina,\n    output reg [31:0] douta  // Changed 'wire' to 'reg'\n);reg [31:0] memory[0:127];\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clka or posedge dbg_halt) begin\n    if (wea) begin\n        memory[addra] <= dina;\n    end\n    douta <= memory[addra];  // This is valid now as douta is reg\nend\n\nendmodule"
-}

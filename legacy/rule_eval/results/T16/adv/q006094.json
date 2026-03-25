@@ -1,9 +1,0 @@
-{
-  "task_id": "q006094",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(rest , A, B, Out);input rest ; \n\tinput [15:0] A , B ; \n\toutput [15:0] Out ; \n\n\treg [15:0] obf_Out_register ; \n\tassign Out = obf_Out_register ; \nalways @(rest , A, B) begin \n\t\n\tif (rest) \n\t\tobf_Out_register <= 0 ; \n\telse \n\t\tobf_Out_register <= A + B ; \n\n\tend\nendmodule",
-  "rename_map": {
-    "Out_register": "obf_Out_register"
-  }
-}

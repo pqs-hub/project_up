@@ -1,6 +1,0 @@
-{
-  "task_id": "q001571",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire enable,\n    input wire power_gating,\n    output reg power_state\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            power_state <= 1'b0; // Power is off on reset\n        end else if (enable) begin\n            power_state <= power_gating; // Follow the power_gating input\n        end\n        // If enable is low, power_state holds its value\n    end\nendmodule"
-}

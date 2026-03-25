@@ -1,8 +1,0 @@
-{
-  "task_id": "q000419",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module pipelined_adder (  \n    input clk,  \n    input rst,  \n    input [4:0] a,  \n    input [4:0] b,  \n    output reg [5:0] result  \n);  \n\n    reg [4:0] a_reg[0:4];  \n    reg [4:0] b_reg[0:4];  \n    reg [5:0] sum_reg[0:4];  \n\n    integer i;  \n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin  \n        if (rst) begin  \n            for (i = 0; i < 5; i = i + 1) begin  \n                a_reg[i] <= 0;  \n                b_reg[i] <= 0;  \n                sum_reg[i] <= 0;  \n            end  \n            result <= 0;  \n        end else begin  \n            a_reg[0] <= a;  \n            b_reg[0] <= b;  \n\n            // Stage 1: Fetch  \n            a_reg[1] <= a_reg[0];  \n            b_reg[1] <= b_reg[0];  \n\n            // Stage 2: Decode  \n            sum_reg[2] <= a_reg[1] + b_reg[1];  \n\n            // Stage 3: Execute  \n            sum_reg[3] <= sum_reg[2];  \n\n            // Stage 4: Memory Access  \n            sum_reg[4] <= sum_reg[3];  \n\n            // Stage 5: Write Back  \n            result <= sum_reg[4];  \n        end  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q015110",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input               clk,\n    input               load,\n    input       [1:0]   ena,\n    input       [99:0]  data,\n    output  reg [99:0]  q\n);reg         [99:0]  q_next;\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk) begin\n            q <= q_next;\n    end\n\n    always @(*) begin\n        if (load)\n            q_next = data;\n        else\n            case (ena)\n            2'b01   : q_next = {q[0], q[99:1]};\n            2'b10   : q_next = {q[98:0], q[99]};\n            default : q_next = q;\n            endcase\n    end\n\nendmodule"
-}

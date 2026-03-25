@@ -1,6 +1,0 @@
-{
-  "task_id": "q002869",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [7:0] data_in,\n    output reg [15:0] data_out\n);\n    reg [7:0] stage1_reg;\n\n    // Stage 1: Increment\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            stage1_reg <= 8'b0;\n        end else begin\n            stage1_reg <= data_in + 1;\n        end\n    end\n\n    // Stage 2: Square\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            data_out <= 16'b0;\n        end else begin\n            data_out <= stage1_reg * stage1_reg;\n        end\n    end\nendmodule"
-}

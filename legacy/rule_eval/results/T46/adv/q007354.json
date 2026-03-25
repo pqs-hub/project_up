@@ -1,8 +1,0 @@
-{
-  "task_id": "q007354",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module d_flip_flop (\n    input wire rst_n,\n    input wire clk,\n    input wire en,\n    input wire d,\n    output reg q\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_n or posedge dbg_halt) begin\n    if (!rst_n)\n        q <= 1'b0;\n    else if (en)\n        q <= d;\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

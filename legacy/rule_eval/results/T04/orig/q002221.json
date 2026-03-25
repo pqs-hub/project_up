@@ -1,6 +1,0 @@
-{
-  "task_id": "q002221",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module linear_voltage_regulator (\n    input [4:0] vin, // 5-bit input voltage\n    output reg [4:0] vout // 5-bit output voltage\n);\n\nalways @(*) begin\n    if (vin > 5'b01111) // If input voltage is greater than 15\n        vout = 5'b01111; // Clamp output to 15\n    else\n        vout = vin; // Otherwise output is equal to input\nend\n\nendmodule"
-}

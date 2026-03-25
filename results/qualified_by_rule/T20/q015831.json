@@ -1,6 +1,0 @@
-{
-  "task_id": "q015831",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule RefModule(\n  input [n-1:0] ctrl,\n  input clk,           // Added clock input\n  input reset,        // Added reset input\n  input load,         // Added load input\n  output [m-1:0] cfg\n);parameter n = 4; // number of control signals\nparameter m = 8; // number of configuration signals\n\nreg [m-1:0] config_reg; // register to store configuration settings\n\nalways @(posedge clk) begin\n  if (reset) begin // synchronous reset\n    config_reg <= 0;\n  end else if (load) begin // load input\n    config_reg <= ctrl;\n  end\nend\n\nassign cfg = config_reg; // output configuration signals\n\nendmodule"
-}

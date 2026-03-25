@@ -1,6 +1,0 @@
-{
-  "task_id": "q011885",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n  input [31:0] a,\n  input [31:0] b,\n  input unsigned_cmp,\n  output reg greater,\n  output reg less,\n  output reg equal\n);always @(*) begin\n  wire [31:0] _tap_a = a & {32{1'b1}};\n\n    if (unsigned_cmp) begin\n      if (a > b) begin\n        greater = 1;\n        less = 0;\n        equal = 0;\n      end else if (a < b) begin\n        greater = 0;\n        less = 1;\n        equal = 0;\n      end else begin\n        greater = 0;\n        less = 0;\n        equal = 1;\n      end\n    end else begin\n      if (a[31] != b[31]) begin\n        if (a[31] == 1) begin\n          greater = 0;\n          less = 1;\n          equal = 0;\n        end else begin\n          greater = 1;\n          less = 0;\n          equal = 0;\n        end\n      end else begin\n        if (a > b) begin\n          greater = 1;\n          less = 0;\n          equal = 0;\n        end else if (a < b) begin\n          greater = 0;\n          less = 1;\n          equal = 0;\n        end else begin\n          greater = 0;\n          less = 0;\n          equal = 1;\n        end\n      end\n    end\n  end\n\nendmodule"
-}

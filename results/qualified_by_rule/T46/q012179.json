@@ -1,6 +1,0 @@
-{
-  "task_id": "q012179",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n\t\tinput wire [7:0] dato, \n\t\tinput wire EN,\n\t\tinput wire clk,\n\t\tinput wire rst,\n\t\toutput reg [7:0] dato_out \n    );  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk, posedge rst or posedge dbg_halt)\n\tif (rst)\n\t\tdato_out <= 8'b0;\n\telse if (EN)\n\t\tdato_out <= dato;\n\nendmodule"
-}

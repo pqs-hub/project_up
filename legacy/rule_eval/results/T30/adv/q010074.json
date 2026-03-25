@@ -1,6 +1,0 @@
-{
-  "task_id": "q010074",
-  "rule_id": "T30",
-  "changed": true,
-  "final": "module top_module(\n        ap_start,\n        ap_done,\n        ap_idle,\n        ap_ready,\n        jet_tk13DIP_V,\n        jet_muPt_V,\n        jet_d_V,\n        jet_d_V_ap_vld\n);input   ap_start;\noutput   ap_done;\noutput   ap_idle;\noutput   ap_ready;\ninput  [4:0] jet_tk13DIP_V;\ninput  [7:0] jet_muPt_V;\noutput  [0:0] jet_d_V;\noutput   jet_d_V_ap_vld;\n\nreg jet_d_V_ap_vld;\n\nalways @ (*) begin\n    if ((ap_start == 1'b1)) begin\n        jet_d_V_ap_vld = 1'b1;\n    end else begin\n        jet_d_V_ap_vld = 1'b0;\n    end\nend\n\nassign ap_done = ap_start;\n\nassign ap_idle =  (1'b1 | 1'b0);\n\nassign ap_ready = ap_start;\n\nassign jet_d_V = 1'd1;\n\nendmodule"
-}

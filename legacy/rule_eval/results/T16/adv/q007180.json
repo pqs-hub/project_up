@@ -1,9 +1,0 @@
-{
-  "task_id": "q007180",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module shift_right_module (\n    input [7:0] obf_a,\n    input enable,\n    input reset,\n    output reg [7:0] shift_result\n);\n\n    always @(*) begin\n        if (reset) begin\n            shift_result = 0;\n        end else if (enable) begin\n            shift_result = obf_a >> 1;\n        end else begin\n            shift_result = shift_result; // Maintain the current value\n        end\n    end\nendmodule",
-  "rename_map": {
-    "a": "obf_a"
-  }
-}

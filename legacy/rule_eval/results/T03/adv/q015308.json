@@ -1,6 +1,0 @@
-{
-  "task_id": "q015308",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(clk, mdor_we, mdor_next, mdor);input clk;\n    input mdor_we;\n    input [31:0] mdor_next;\n    output reg [31:0] mdor;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n  always @(posedge clk) begin\n    if (mdor_we == 1) begin\n      mdor <= mdor_next;\n    end\n  end\n\nendmodule"
-}

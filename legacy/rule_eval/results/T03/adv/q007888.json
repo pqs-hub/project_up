@@ -1,6 +1,0 @@
-{
-  "task_id": "q007888",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_shift_module(\n    input clk,\n    input reset,\n    input shift,\n    input [3:0] in,\n    output reg [3:0] out);always @(posedge clk or posedge reset) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n        if (reset) begin\n            out <= 4'b0000;\n        end else if (shift) begin\n            out <= {out[2:0], in[3]};\n        end\n    end\n\nendmodule"
-}

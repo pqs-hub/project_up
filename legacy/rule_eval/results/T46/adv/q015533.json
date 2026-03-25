@@ -1,8 +1,0 @@
-{
-  "task_id": "q015533",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module reg_file (\n    input clk,\n    input rst,\n    input write_en,\n    input [2:0] write_addr,\n    input [15:0] write_data,\n    input [2:0] read_addr,\n    output reg [15:0] read_data\n);\n\n    reg [15:0] regs [7:0];\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (rst) begin\n            regs[0] <= 16'd0;\n            regs[1] <= 16'd0;\n            regs[2] <= 16'd0;\n            regs[3] <= 16'd0;\n            regs[4] <= 16'd0;\n            regs[5] <= 16'd0;\n            regs[6] <= 16'd0;\n            regs[7] <= 16'd0;\n        end else if (write_en) begin\n            regs[write_addr] <= write_data;\n        end\n    end\n\n    always @(*) begin\n        read_data = regs[read_addr];\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q003501",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule (\n    input [7:0] A,\n    input [7:0] B,\n    input [2:0] ALU_control,\n    output reg [7:0] ALU_result\n);\n    always @(*) begin\n        case (ALU_control)\n            3'b000: ALU_result = A & B;           // AND\n            3'b001: ALU_result = A | B;           // OR\n            3'b010: ALU_result = A + B;           // ADD\n            3'b011: ALU_result = A - B;           // SUBTRACT\n            3'b100: ALU_result = A ^ B;           // XOR\n            3'b101: ALU_result = ~(A & B);        // NAND\n            3'b110: ALU_result = ~(A | B);        // NOR\n            3'b111: ALU_result = ~(A ^ B);        // XNOR\n            default: ALU_result = 8'b00000000;    // Default case\n        endcase\n    end\nendmodule"
-}

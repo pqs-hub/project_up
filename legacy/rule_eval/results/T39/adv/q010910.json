@@ -1,6 +1,0 @@
-{
-  "task_id": "q010910",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module top_module(input \t\t  clk, we,\n\t\t\t\t\t\t input [9:0]  addr,\n\t\t\t\t\t\t input [31:0] datain,\n\t\t\t\t\t\t output reg [31:0] dataout);reg [31:0] mem [1023:0];\n\t\n\talways @(posedge clk) begin\n  if(we) mem[addr] <= datain ;\n  end\n\n  always @(posedge clk) begin\n  dataout <= mem[addr] ;\n  end\nendmodule"
-}

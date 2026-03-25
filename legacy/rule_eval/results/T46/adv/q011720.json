@@ -1,8 +1,0 @@
-{
-  "task_id": "q011720",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n  input clock,\n  input [31:0] data,\n  input [4:0] rdaddress,\n  input [4:0] wraddress,\n  input wren,\n  output reg [31:0] q\n);reg [31:0] ram [0:31];\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clock or posedge dbg_halt) begin\n    if (wren) begin\n      ram[wraddress] <= data;\n    end\n    q <= ram[rdaddress];\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

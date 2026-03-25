@@ -1,6 +1,0 @@
-{
-  "task_id": "q009648",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset_n,\n    input shift,\n    input d,\n    output reg [7:0] q\n);\n\n    always @(posedge clk or negedge reset_n) begin\n        if (!reset_n) begin\n            // Asynchronous reset: Reset the register to 8'b00000000\n            q <= 8'b00000000;\n        end else if (shift) begin\n            // Shift operation: Shift left by one bit and input d\n            q <= {q[6:0], d};\n        end\n    end\n\nendmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q016810",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module three_to_one (\n    input obf_A1,\n    input A2,\n    input B1_N,\n    output Y,\n    input VPWR,\n    input VGND\n);\n\n    assign Y = (obf_A1 && A2) ? 1'b1 :\n               (obf_A1 && !A2) ? 1'b0 :\n               (!obf_A1 && A2) ? 1'b0 :\n               (!obf_A1 && !A2 && !B1_N) ? 1'b1 :\n               (!obf_A1 && !A2 && B1_N) ? 1'b0 :\n               1'b0;\n\nendmodule",
-  "rename_map": {
-    "A1": "obf_A1"
-  }
-}

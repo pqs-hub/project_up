@@ -1,6 +1,0 @@
-{
-  "task_id": "q001911",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module SR_latch (\n    input wire S,\n    input wire R,\n    output reg Q,\n    output reg Qn\n);\n    always @ (S, R) begin\n    begin end  // redundant\n        if (S && ~R) begin\n            Q <= 1;\n            Qn <= 0;\n        end else if (~S && R) begin\n            Q <= 0;\n            Qn <= 1;\n        end\n        // Invalid state handling\n        // Both S and R should not be high at the same time\n    end\nendmodule"
-}

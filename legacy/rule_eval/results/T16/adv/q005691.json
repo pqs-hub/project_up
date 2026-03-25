@@ -1,9 +1,0 @@
-{
-  "task_id": "q005691",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module barrel_shifter (\n\tinput [7:0] obf_data,\n\tinput [2:0] shift,\n\toutput [7:0] out\n);assign out = (shift == 3'b000) ? obf_data :\n\t\t\t(shift == 3'b001) ? {obf_data[6:0], 1'b0} :\n\t\t\t(shift == 3'b010) ? {obf_data[5:0], 2'b00} :\n\t\t\t(shift == 3'b011) ? {obf_data[4:0], 3'b000} :\n\t\t\t(shift == 3'b100) ? {obf_data[3:0], 4'b0000} :\n\t\t\t(shift == 3'b101) ? {obf_data[2:0], 5'b00000} :\n\t\t\t(shift == 3'b110) ? {obf_data[1:0], 6'b000000} :\n\t\t\t{obf_data[0], 7'b0000000};\n\nendmodule",
-  "rename_map": {
-    "data": "obf_data"
-  }
-}

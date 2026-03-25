@@ -1,6 +1,0 @@
-{
-  "task_id": "q004998",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule RefModule(CLK, RST, RIGHT, RIGHT_REG, LEFT_REG1, RIGHT_REG1);input CLK;\ninput RST;\ninput [32 : 1]RIGHT;\ninput [32 : 1]RIGHT_REG;\noutput [32 : 1] LEFT_REG1;\noutput [32 : 1] RIGHT_REG1;\nwire CLK;\nwire RST;\nreg [32 : 1] LEFT_REG1;\nreg [32 : 1] RIGHT_REG1;\nalways @ (posedge CLK or posedge RST)\nbegin\nif(RST)\nbegin\nLEFT_REG1 <= 32'h00000000;\nRIGHT_REG1 <= 32'h00000000;\nend\nelse\nbegin\nLEFT_REG1 <= RIGHT;\nRIGHT_REG1 <= RIGHT_REG;\nend\nend\nendmodule"
-}

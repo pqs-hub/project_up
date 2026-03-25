@@ -1,9 +1,0 @@
-{
-  "task_id": "q000934",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module sram_cell (\n    input wire clk,\n    input wire we,        // Write enable\n    input wire [7:0] data_in,   // 8-bit input data\n    output reg [7:0] data_out   // 8-bit output data\n);\n    reg [7:0] obf_memory; // internal obf_memory storage\n\n    always @(posedge clk) begin\n        if (we) begin\n            obf_memory <= data_in; // Write operation\n        end\n    end\n\n    always @(*) begin\n        data_out = obf_memory; // Output current stored value\n    end\nendmodule",
-  "rename_map": {
-    "memory": "obf_memory"
-  }
-}

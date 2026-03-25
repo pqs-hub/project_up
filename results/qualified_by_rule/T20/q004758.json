@@ -1,6 +1,0 @@
-{
-  "task_id": "q004758",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n    A,\n    B,\n    C\n);input [3:0] A;\n    input [3:0] B;\n    output [4:0] C;\n\n    wire [3:0] sum;\n    wire overflow;\n\n    assign sum = A + B;\n\n    assign overflow = ((A[3] & B[3]) | (A[3] & ~sum[3]) | (B[3] & ~sum[3]));\n\n    assign C = {overflow, sum};\n\nendmodule"
-}

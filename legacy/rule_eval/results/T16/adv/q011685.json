@@ -1,9 +1,0 @@
-{
-  "task_id": "q011685",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module (\n\tinput [9:0] obf_in,\n\toutput out_contiguous_ones,\n\toutput out_less_than_five,\n\toutput out_reverse_equal);assign out_contiguous_ones = (obf_in[9:6] == 4'b1111) | (obf_in[8:5] == 4'b1111) | (obf_in[7:4] == 4'b1111) | (obf_in[6:3] == 4'b1111) | (obf_in[5:2] == 4'b1111) | (obf_in[4:1] == 4'b1111) | (obf_in[3:0] == 4'b1111);\n\tassign out_less_than_five = (obf_in[0] + obf_in[1] + obf_in[2] + obf_in[3] + obf_in[4] + obf_in[5] + obf_in[6] + obf_in[7] + obf_in[8] + obf_in[9]) < 5;\n\tassign out_reverse_equal = (obf_in[9:0] == {obf_in[0], obf_in[1], obf_in[2], obf_in[3], obf_in[4], obf_in[5], obf_in[6], obf_in[7], obf_in[8], obf_in[9]});\n\t\nendmodule",
-  "rename_map": {
-    "in": "obf_in"
-  }
-}

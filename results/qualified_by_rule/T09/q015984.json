@@ -1,6 +1,0 @@
-{
-  "task_id": "q015984",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule(\n    input [3:0] a,\n    input [3:0] b,\n    input [2:0] op,\n    output reg [3:0] out\n);reg [3:0] temp;\n\nalways @(*) begin\n    case (op)\n        3'b000: temp = a + b; // addition\n        3'b001: temp = a - b; // subtraction\n        3'b010: temp = a & b; // bitwise AND\n        3'b011: temp = a | b; // bitwise OR\n        3'b100: temp = a ^ b; // bitwise XOR\n        3'b101: temp = {a[2:0], 1'b0}; // shift left\n        default: temp = 4'b0; // default to 0\n    endcase\nend\n\nassign out = temp;\n\nendmodule"
-}

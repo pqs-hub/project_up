@@ -1,6 +1,0 @@
-{
-  "task_id": "q001820",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule (  \n    input clk,  \n    input rst,  \n    input [1:0] opcode,  \n    input [31:0] operand1,  \n    input [31:0] operand2,  \n    output reg [31:0] result  \n);  \n    reg [31:0] IF_op1, IF_op2;  \n    reg [1:0] ID_opcode;  \n    reg [31:0] EX_result;  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            result <= 0;  \n        end else begin  \n            // Stage 1: Instruction Fetch  \n            IF_op1 <= operand1;  \n            IF_op2 <= operand2;  \n            \n            // Stage 2: Instruction Decode  \n            ID_opcode <= opcode;  \n            \n            // Stage 3: Execute  \n            case (ID_opcode)  \n                2'b00: EX_result <= IF_op1 + IF_op2; // Addition  \n                2'b01: EX_result <= IF_op1 - IF_op2; // Subtraction  \n                default: EX_result <= 0;  \n            endcase  \n\n            // Stage 4: Memory Access (not used here, just passing the result)  \n            \n            // Stage 5: Write Back  \n            result <= EX_result;  \n        end  \n    end  \nendmodule"
-}

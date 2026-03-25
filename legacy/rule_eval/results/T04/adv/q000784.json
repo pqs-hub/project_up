@@ -1,6 +1,0 @@
-{
-  "task_id": "q000784",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule nearest_neighbor_interpolation (  \n    input [7:0] pixel_a, // top-left pixel  \n    input [7:0] pixel_b, // top-right pixel  \n    input [7:0] pixel_c, // bottom-left pixel  \n    input [7:0] pixel_d, // bottom-right pixel  \n    input [1:0] select, // select which pixel to output  \n    output reg [7:0] output_pixel  \n);  \n    always @(*) begin  \n        case (select)  \n            2'b00: output_pixel = pixel_a; // select top-left  \n            2'b01: output_pixel = pixel_b; // select top-right  \n            2'b10: output_pixel = pixel_c; // select bottom-left  \n            2'b11: output_pixel = pixel_d; // select bottom-right  \n            default: output_pixel = 8'b00000000; // default case  \n        endcase  \n    end  \nendmodule"
-}

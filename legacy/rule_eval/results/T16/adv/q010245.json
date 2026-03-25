@@ -1,9 +1,0 @@
-{
-  "task_id": "q010245",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(D,CLK,RSTB,Q,QN);input D;\n input CLK;\n input RSTB;\n output Q;\n output QN;\n\n reg obf_Qtemp;\n\n always @(posedge CLK or negedge RSTB) begin\n   if (~RSTB) begin\n     obf_Qtemp <= 1'b0;\n   end else begin\n     obf_Qtemp <= D;\n   end\n end\n\n assign QN = ~obf_Qtemp;\n assign Q = obf_Qtemp;\n\nendmodule",
-  "rename_map": {
-    "Qtemp": "obf_Qtemp"
-  }
-}

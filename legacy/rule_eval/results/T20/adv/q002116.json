@@ -1,6 +1,0 @@
-{
-  "task_id": "q002116",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule temperature_sensor_controller (\n    input [9:0] temp_in,\n    input enable,\n    input reset,\n    output reg alert\n);\n    \n    always @(posedge enable or posedge reset) begin\n        if (reset) begin\n            alert <= 0;\n        end else begin\n            if (temp_in > 10'd75) begin\n                alert <= 1;\n            end else if (temp_in < 10'd60) begin\n                alert <= 0;\n            end\n            // If temp_in is between 60 and 75, alert remains unchanged\n        end\n    end\nendmodule"
-}

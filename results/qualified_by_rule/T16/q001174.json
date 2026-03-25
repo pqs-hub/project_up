@@ -1,6 +1,0 @@
-{
-  "task_id": "q001174",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(input [3:0] A,  \n                         input [3:0] B,  \n                         output [4:0] Sum);  \n    wire [4:0] obf_P; // Propagate  \n    wire [4:0] G; // Generate  \n    wire [4:0] C; // Carry  \n   \n    assign obf_P = A ^ B;  \n    assign G = A & B;  \n   \n    assign C[0] = 0;  \n    assign C[1] = G[0];  \n    assign C[2] = G[1] | (obf_P[1] & C[1]);  \n    assign C[3] = G[2] | (obf_P[2] & C[2]);  \n    assign C[4] = G[3] | (obf_P[3] & C[3]);  \n   \n    assign Sum = obf_P ^ C;  \nendmodule"
-}

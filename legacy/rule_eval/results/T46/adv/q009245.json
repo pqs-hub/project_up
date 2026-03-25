@@ -1,8 +1,0 @@
-{
-  "task_id": "q009245",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module shift_register_with_parallel_load (\n\tinput clk,\n\tinput reset,\n\tinput shift,\n\tinput load,\n\tinput [15:0] data_in,\n\toutput reg [15:0] data_out);\n\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n\t\tif (reset) begin\n\t\t\tdata_out <= 16'b0;\n\t\tend else if (load) begin\n\t\t\tdata_out <= data_in;\n\t\tend else if (shift) begin\n\t\t\tdata_out <= {data_out[14:0], 1'b0};\n\t\tend\n\tend\n\t\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

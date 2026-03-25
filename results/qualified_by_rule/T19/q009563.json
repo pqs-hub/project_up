@@ -1,6 +1,0 @@
-{
-  "task_id": "q009563",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(\n    input                 clk,\n    input                 rst,\n    input                 en,\n    input                 mode,\n    output  reg [15:0]    count\n);\n\n// Counter logic\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        count <= 16'd0;\n    end else if (en) begin\n        if (mode) begin\n            count <= count + 1;\n        end else begin\n            count <= count - 1;\n        end\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

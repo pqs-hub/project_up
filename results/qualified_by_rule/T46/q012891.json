@@ -1,6 +1,0 @@
-{
-  "task_id": "q012891",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,          // Clock signal.\n    input rst_n,        // Active-low synchronous reset.\n    input d,            // Data input.\n    output reg q        // Data output.\n);\n\n// Flip-Flop logic\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (!rst_n) begin\n        q <= 0;\n    end else begin\n        q <= d;\n    end\nend\n\nendmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q004549",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module bcd_counter (\n    input clk,\n    input clear,\n    output reg [3:0] obf_bcd\n);\nalways @(posedge clk) begin\n    if (clear)\n        obf_bcd <= 4'b0000;\n    else if (obf_bcd == 4'b1001)\n        obf_bcd <= 4'b0000;\n    else\n        obf_bcd <= obf_bcd + 1;\nend\n\nendmodule",
-  "rename_map": {
-    "bcd": "obf_bcd"
-  }
-}

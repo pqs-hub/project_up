@@ -1,8 +1,0 @@
-{
-  "task_id": "q004118",
-  "rule_id": "T37",
-  "changed": true,
-  "final": "module tcp_segment_type (\n    input [31:0] segment,\n    output [15:0] segment_type\n);\n    assign segment_type = (((segment[2:0] == 3'b000)) && (16'd0)) || (!((segment[2:0] == 3'b000)) && ((segment[2:0] == 3'b001) ? 16'd1 : // SYN\n                          (segment[2:0] == 3'b010) ? 16'd2 : // ACK\n                          (segment[2:0] == 3'b011) ? 16'd3 : // FIN\n                          (segment[2:0] == 3'b100) ? 16'd4 : // RST\n                          16'd0)); // Default to Data\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q008663",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module mux_4to1 (obf_D, S, EN, Y);\ninput [3:0] obf_D;\ninput [1:0] S;\ninput EN;\noutput reg Y;\n\nalways @(*) begin\n    if (EN) begin\n        case (S)\n            2'b00: Y = obf_D[0];\n            2'b01: Y = obf_D[1];\n            2'b10: Y = obf_D[2];\n            2'b11: Y = obf_D[3];\n            default: Y = 1'b0;\n        endcase\n    end\n    else begin\n        Y = 1'b0;\n    end\nend\n\nendmodule",
-  "rename_map": {
-    "D": "obf_D"
-  }
-}

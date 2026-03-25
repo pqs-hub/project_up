@@ -1,6 +1,0 @@
-{
-  "task_id": "q002776",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module power_gating_controller(\n    input [2:0] ctrl,\n    input [1:0] enable,\n    output reg power_on\n);\n  wire [2:0] _tap_ctrl = ctrl & {3{1'b1}};\n\n    always @(*) begin\n        if (ctrl == 3'b111 && enable == 2'b11) \n            power_on = 1'b1;\n        else \n            power_on = 1'b0;\n    end\nendmodule"
-}

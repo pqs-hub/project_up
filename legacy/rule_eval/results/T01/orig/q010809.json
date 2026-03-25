@@ -1,6 +1,0 @@
-{
-  "task_id": "q010809",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module top_module(\n    input clk,\n    input rst,\n    input en,\n    input load,\n    input [3:0] load_value,\n    output reg [3:0] out\n);always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            out <= 4'b0000;\n        end else if (load) begin\n            out <= load_value;\n        end else if (en) begin\n            out <= out + 1;\n        end\n    end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q015453",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule (\n\tinput [7:0] in,\n\toutput reg [2:0] pos,\n\toutput reg valid\n);\n\nalways @(*) begin\n\tvalid = (in != 8'b0);\n\tcasez (in)\n\t\t8'b1???????: pos = 3'd7;\n\t\t8'b01??????: pos = 3'd6;\n\t\t8'b001?????: pos = 3'd5;\n\t\t8'b0001????: pos = 3'd4;\n\t\t8'b00001???: pos = 3'd3;\n\t\t8'b000001??: pos = 3'd2;\n\t\t8'b0000001?: pos = 3'd1;\n\t\t8'b00000001: pos = 3'd0;\n\t\tdefault: pos = 3'd0;\n\tendcase\nend\n\nendmodule"
-}

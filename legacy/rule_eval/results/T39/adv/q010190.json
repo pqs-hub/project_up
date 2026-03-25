@@ -1,6 +1,0 @@
-{
-  "task_id": "q010190",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module pulse_gen(\n    input clk,\n    input trigger,\n    output reg pulse\n);\n\n    reg trigger_prev = 0;\n\n    always @(posedge clk) begin\n  if (trigger && !trigger_prev) begin pulse <= 1 ; end else begin pulse <= 0 ; end\n  end\n\n  always @(posedge clk) begin\n  trigger_prev <= trigger ;\n  end\n\nendmodule"
-}

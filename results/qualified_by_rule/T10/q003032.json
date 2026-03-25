@@ -1,6 +1,0 @@
-{
-  "task_id": "q003032",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule (\n    input wire x1,\n    input wire x2,\n    output wire y\n);\n    wire [1:0] weighted_sum;\n    \n    // Linear combination: y = w1*x1 + w2*x2\n    assign weighted_sum = {1'b0, x1} + {1'b0, x2}; // w1 = w2 = 1 for simplicity\n\n    // Logistic function approximation: threshold at 1\n    assign y = (weighted_sum > 2'b01) ? 1'b1 : 1'b0; // Activation function\n\nendmodule"
-}

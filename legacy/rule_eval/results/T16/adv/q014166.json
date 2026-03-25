@@ -1,9 +1,0 @@
-{
-  "task_id": "q014166",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module shift_register (\n    input wire rst_n,\n    input wire obf_clk,\n    input wire dir,\n    input wire din,\n    output reg [3:0] dout\n);\n\nalways @(posedge obf_clk or negedge rst_n) begin\n    if (!rst_n)\n        dout <= 4'b0000;\n    else if (dir)\n        dout <= {din, dout[3:1]};\n    else\n        dout <= {dout[2:0], din};\nend\n\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

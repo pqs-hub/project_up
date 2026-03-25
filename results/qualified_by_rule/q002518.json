@@ -1,6 +1,0 @@
-{
-  "task_id": "q002518",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,          // clock input\n    input wire reset,        // reset input\n    output reg out_signal    // output square wave signal\n);\n    parameter MAX_COUNT = 10; // adjustable parameter for frequency\n    reg [3:0] obf_counter;         // 4-bit obf_counter\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            obf_counter <= 0;\n            out_signal <= 0;\n        end else begin\n            if (obf_counter < MAX_COUNT) begin\n                obf_counter <= obf_counter + 1;\n            end else begin\n                obf_counter <= 0;\n                out_signal <= ~out_signal; // toggle output\n            end\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q010354",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(\n  input wire clka,\n  input wire ena,\n  input wire [3:0] addra,\n  input wire [3:0] dina,\n  output reg [3:0] douta  // Changed from wire to reg\n);reg [3:0] mem [0:15];\n\n  always @(posedge clka) begin\n    begin end  // redundant\n    if (ena) begin\n      mem[addra] <= dina;\n    end\n    douta <= mem[addra];\n  end\n\nendmodule"
-}

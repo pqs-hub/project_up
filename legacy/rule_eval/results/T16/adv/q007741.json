@@ -1,9 +1,0 @@
-{
-  "task_id": "q007741",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n  input [n-1:0] in,\n  output out\n);parameter n = 8; // number of input signals\n\nreg [n-1:0] in_reg;\nreg obf_parity;\n\ninteger i;\nalways @(*) begin\n  in_reg = in;\n  obf_parity = 1'b0;\n  for (i = 0; i < n; i = i + 1) begin\n    obf_parity = obf_parity ^ in_reg[i];\n  end\nend\n\nassign out = ~obf_parity;\n\nendmodule",
-  "rename_map": {
-    "parity": "obf_parity"
-  }
-}

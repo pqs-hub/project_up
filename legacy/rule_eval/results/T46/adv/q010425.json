@@ -1,8 +1,0 @@
-{
-  "task_id": "q010425",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input rst,\n    input [7:0] r_in,\n    input [7:0] g_in,\n    input [7:0] b_in,\n    output [7:0] r_out,\n    output [7:0] g_out,\n    output [7:0] b_out\n);reg [7:0] r_internal;\nreg [7:0] g_internal;\nreg [7:0] b_internal;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk, posedge rst or posedge dbg_halt) begin\n    if (rst) begin\n        r_internal <= 8'b0;\n        g_internal <= 8'b0;\n        b_internal <= 8'b0;\n    end else begin\n        r_internal <= r_in - 8'h0A;\n        g_internal <= g_in + 8'h0F;\n        b_internal <= b_in * 8'h02;\n    end\nend\n\nassign r_out = r_internal;\nassign g_out = g_internal;\nassign b_out = b_internal;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

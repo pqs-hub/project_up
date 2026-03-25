@@ -1,8 +1,0 @@
-{
-  "task_id": "q000206",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module interrupt_controller (\n    input wire [3:0] IRQ,   // 4 interrupt request signals\n    input wire RST,         // reset signal\n    input wire CLK,         // clock signal\n    output reg INT_OUT      // interrupt output\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge RST or posedge dbg_halt) begin\n    if (RST) begin\n        INT_OUT <= 0;       // clear interrupt on reset\n    end else begin\n        INT_OUT <= |IRQ;    // generate output if any IRQ signal is high\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

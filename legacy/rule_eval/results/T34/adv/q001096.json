@@ -1,6 +1,0 @@
-{
-  "task_id": "q001096",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module register_file(  \n    input wire clk,  \n    input wire we,  \n    input wire [1:0] write_addr,  \n    input wire [1:0] read_addr,  \n    input wire [31:0] write_data,  \n    output reg [31:0] read_data  \n);  \n    reg [31:0] unused_registers [3:0]; // 4 unused_registers of 32-bit each  \n\n    always @(posedge clk) begin  \n        if (we) begin  \n            unused_registers[write_addr] <= write_data;  \n        end  \n    end  \n\n    always @(*) begin  \n        read_data = unused_registers[read_addr];  \n    end  \nendmodule"
-}

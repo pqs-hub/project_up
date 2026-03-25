@@ -1,6 +1,0 @@
-{
-  "task_id": "q004554",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n\tclk,rst,stall,\n\tme_memdata, me_td, me_WREG,\n\twb_memdata, wb_td, wb_WREG\n    );input clk,rst,stall;\n\tinput wire [31:0] me_memdata;\n\tinput wire [4:0] me_td;\n\tinput wire me_WREG;\n\toutput reg [31:0] wb_memdata;\n\toutput reg [4:0] wb_td;\n\toutput reg wb_WREG;\n\n\talways @(posedge clk or posedge rst)\n\tbegin\n\tif(rst)\n\tbegin\n\t\twb_memdata <= 0;\n\t\twb_td <= 0;\n\t\twb_WREG <= 0;\n\tend\n\telse if(stall)\n\tbegin\n\t\t\twb_memdata <= 0;\n\t\t\twb_td <= 0;\n\t\t\twb_WREG <= 0;\n\tend\n\telse\n\tbegin\n\t\twb_memdata <= me_memdata;\n\t\twb_td <= me_td;\n\t\twb_WREG <= me_WREG;\n\tend\n\tend\n\t\nendmodule"
-}

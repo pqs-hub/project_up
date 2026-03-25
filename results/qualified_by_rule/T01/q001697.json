@@ -1,6 +1,0 @@
-{
-  "task_id": "q001697",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input load,\n    input shift,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n\nalways @(posedge clk) begin\n    begin end  // redundant\n    if (load) begin\n        data_out <= data_in;  // Load data on load signal\n    end else if (shift) begin\n        data_out <= {1'b0, data_out[7:1]};  // Shift right\n    end\nend\n\nendmodule"
-}

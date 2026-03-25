@@ -1,6 +1,0 @@
-{
-  "task_id": "q001014",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module dram_cell (\n    input wire clk,\n    input wire we,\n    input wire [15:0] din,\n    output reg [15:0] dout\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg [15:0] mem;\n\n    always @(posedge clk) begin\n        if (we) begin\n            mem <= din; // Store data on write enable\n        end\n    end\n\n    always @(*) begin\n        dout = mem; // Output stored data\n    end\nendmodule"
-}

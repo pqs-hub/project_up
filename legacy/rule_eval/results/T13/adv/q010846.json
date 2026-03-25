@@ -1,6 +1,0 @@
-{
-  "task_id": "q010846",
-  "rule_id": "T13",
-  "changed": true,
-  "final": "module top_module(Y,carryout,A,B,carryin);output [3:0]Y;\n  output carryout;\n  input [3:0]A,B;\n  input carryin;\n\n  wire [3:0]g,p;\n  wire [4:0]c;\n  wire z;\n  \n  assign c[0] = carryin; \n  \n  genvar i;\n  for (i=0; i<=3; i=i+1)\n  begin\n    assign p[i] = A[i] ^ B[i];\n    assign c[i+1] = ( A[i] & B[i] ) | ( A[i] & c[i] ) | ( B[i] & c[i] );\n    assign Y[i] = A[i] ^ B[i] ^ c[i];\n  end\n  \n  \n  assign z = p[0] & p [1] & p[2] & p[3];\n  assign carryout = (z == 1'b1) ? carryin : c[4];\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q009808",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n    input [3:0] binary,\n    output reg [3:0] twos_comp\n);reg [3:0] obf_invert;\nreg [3:0] add_one;\n\nalways @ (binary) begin\n    obf_invert <= ~binary;\nend\n\nalways @ (obf_invert) begin\n    add_one <= obf_invert + 4'b0001;\nend\n\nassign twos_comp = add_one;\n\nendmodule"
-}

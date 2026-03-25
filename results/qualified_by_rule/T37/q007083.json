@@ -1,6 +1,0 @@
-{
-  "task_id": "q007083",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(\n    input [2:0] RD,\n    input [7:0] Write_Data,\n    output [7:0] Read_Data,\n    input Reg_Write,\n    input Clk,\n    input Reset\n    );reg[7:0] RegFile[7:0]; \n\t assign Read_Data = RegFile[RD];\t \n\t \n\t always@(Reset)\n\t begin\n\t\tif(Reset == 0)\n\t\tbegin\n\t\t\tRegFile[0]=8'b00000000; RegFile[1]=8'b00000001; \n\t\t\tRegFile[2]=8'b00000010; RegFile[3]=8'b00000011;\n\t\t\tRegFile[4]=8'b00000100; RegFile[5]=8'b00000101; \n\t\t\tRegFile[6]=8'b00000110; RegFile[7]=8'b00000111;\n\t\tend\n\tend\n\t\n\t\n\talways@(posedge Clk)\n\t\tbegin\n\t\t\tif(Reg_Write == 1)\n\t\t\tbegin\n\t\t\t\tRegFile[RD] <= Write_Data;\n\t\t\tend\n\t\tend\nendmodule"
-}

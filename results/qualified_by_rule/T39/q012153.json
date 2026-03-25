@@ -1,6 +1,0 @@
-{
-  "task_id": "q012153",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module RefModule(\n  input A,\n  input B,\n  input C_in,\n  input clk,                  // Added clk input\n  output reg Sum,\n  output reg C_out\n);reg stage1_Sum, stage1_C_out, stage2_Sum, stage2_C_out;\n\nalways @(*) begin\n  stage1_Sum = A ^ B ;\n  end\n\n  always @(*) begin\n  stage1_C_out = A & B ;\n  stage2_Sum = stage1_Sum ^ C_in ;\n  stage2_C_out = (stage1_Sum & C_in) | (stage1_C_out) ;\n  end\n\nalways @(posedge clk) begin\n  Sum <= stage2_Sum;\n  C_out <= stage2_C_out;\nend\n\nendmodule"
-}

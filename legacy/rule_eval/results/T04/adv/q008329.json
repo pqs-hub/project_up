@@ -1,6 +1,0 @@
-{
-  "task_id": "q008329",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule top_module(\n\tinput clk,    \n\tinput rst,  \n\tinput [4:0] src1,\n\tinput [4:0] src2,\n\tinput [4:0] dest,\n\tinput [31:0] Write_Val,\n\tinput Write_EN,\n\toutput reg[31:0]reg1,\n\toutput reg[31:0]reg2\n);reg [31:0]register[31:0];\ninteger i;\n\nalways @(*) begin : proc_READ\n\tif(rst) begin\n\t\treg1 = 0;\n\t\treg2 = 0;\n\tend else begin\n\t\treg1 = register[src1];\n\t\treg2 = register[src2];\n\tend\nend\n\nalways @(negedge clk, posedge rst) begin : proc_WRITE\n\tif(rst) begin\n\t\tfor(i=0; i < 32; i = i + 1) begin\n\t\t\tregister[i] = i;\n\t\tend\n\tend \n\telse \n\tbegin\n\t\tif (Write_EN) \n\t\tbegin\n\t\t\tregister[dest] <= Write_Val;\n\t\tend\n\tend\nend\n\nendmodule"
-}

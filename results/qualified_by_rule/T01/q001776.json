@@ -1,6 +1,0 @@
-{
-  "task_id": "q001776",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (  \n    input clk,  \n    input reset,  \n    input send,  \n    input ack,  \n    output reg ready_to_send,  \n    output reg data_sent  \n);  \n    reg state; // 0: waiting, 1: sending  \n  \n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant  \n        if (reset) begin  \n            state <= 0;  \n            ready_to_send <= 1;  \n            data_sent <= 0;  \n        end else begin  \n            case (state)  \n                0: begin // waiting  \n                    if (send) begin  \n                        state <= 1;  \n                        ready_to_send <= 0;  \n                        data_sent <= 1;  \n                    end  \n                end  \n                1: begin // sending  \n                    if (ack) begin  \n                        state <= 0;  \n                        ready_to_send <= 1;  \n                        data_sent <= 0;  \n                    end  \n                end  \n            endcase  \n        end  \n    end  \nendmodule"
-}

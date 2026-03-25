@@ -1,6 +1,0 @@
-{
-  "task_id": "q008544",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(input clk, input d, output q);reg [2:0] reg_data; // 3-bit shift register\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    reg_data <= {reg_data[1:0], d}; // shift data on each clock cycle\n  end\n\n  assign q = reg_data[0]; // output of the last flip-flop\n\nendmodule"
-}

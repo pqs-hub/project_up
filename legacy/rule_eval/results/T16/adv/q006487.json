@@ -1,9 +1,0 @@
-{
-  "task_id": "q006487",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module parity_generator_checker (\n    input obf_clk,\n    input reset,\n    input [9:0] data,\n    output reg parity\n);\n\n    always @(posedge obf_clk or posedge reset) begin\n        if (reset) begin\n            parity <= 1'b0;\n        end else begin\n            parity <= ^data;\n        end\n    end\n\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q007465",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(clk,rst,button,throw);input clk, rst, button;\n\toutput reg [2:0] throw;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n\talways @(posedge clk) \n\tbegin\n\tif (rst || throw == 3'b111)\n\t\tthrow <= 3'b001;\n\telse if (button && throw != 3'b110)\n\t\tthrow <= throw + 1;\n\telse if (button && throw == 3'b110)\n\t\tthrow <= 3'b001;\n\tend\n\nendmodule"
-}

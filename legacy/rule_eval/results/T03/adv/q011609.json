@@ -1,8 +1,0 @@
-{
-  "task_id": "q011609",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module d_flip_flop(\n    input clk,      // Clock input\n    input reset,    // Asynchronous reset input\n    input d,        // Data input\n    \n    output reg q    // Data output\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk or posedge reset) begin\n    if (reset)\n        q <= 1'b0; // Reset the output to zero\n    else\n        q <= d;    // Capture the input data on rising edge of clock\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

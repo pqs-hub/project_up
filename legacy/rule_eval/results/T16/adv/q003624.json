@@ -1,9 +1,0 @@
-{
-  "task_id": "q003624",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module power_gating_controller (\n    input [2:0] obf_current_state,\n    input power_enable,\n    output reg [2:0] power_state\n);\n    always @(*) begin\n        if (power_enable) begin\n            power_state = obf_current_state; // Fully powered with current state\n        end else begin\n            power_state = 3'b000; // Power down to minimum state\n        end\n    end\nendmodule",
-  "rename_map": {
-    "current_state": "obf_current_state"
-  }
-}

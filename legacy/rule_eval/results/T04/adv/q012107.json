@@ -1,6 +1,0 @@
-{
-  "task_id": "q012107",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule top_module(\n    input wire clock,\n    input wire reset,\n    \n    input wire [31:0] FromIF_Inst,\n    input wire [31:0] FromIF_NewPC,\n    input wire [3:0]  FromIF_InstNum,\n    input wire [3:0]  FromIF_InstType,\n    \n    output reg [31:0] ToID_Inst,\n    output reg [31:0] ToID_NewPC,\n    output reg [3:0]  ToID_InstNum,\n    output reg [3:0]  ToID_InstType\n    );always @ (posedge clock or posedge reset) begin\n        if (reset == 1) begin\n            ToID_Inst <= 32'b0;\n            ToID_NewPC <= 32'b0;\n            ToID_InstNum <= 4'b0;\n            ToID_InstType <= 4'b0;\n        end\n        else begin\n            ToID_Inst <= FromIF_Inst;\n            ToID_NewPC <= FromIF_NewPC;\n            ToID_InstNum <= FromIF_InstNum;\n            ToID_InstType <= FromIF_InstType;\n        end\n    end\n\nendmodule"
-}

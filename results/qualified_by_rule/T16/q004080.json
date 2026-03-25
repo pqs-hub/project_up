@@ -1,6 +1,0 @@
-{
-  "task_id": "q004080",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule (\n    input [3:0] channel_select,\n    input [15:0] data_input,\n    output reg [15:0] dac_output\n);\n\n    reg [15:0] obf_channel_data [0:15];\n\n    always @(*) begin\n        dac_output = obf_channel_data[channel_select];\n    end\n\n    always @(data_input or channel_select) begin\n        obf_channel_data[channel_select] = data_input;\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q004758",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module top_module(\n    A,\n    B,\n    C\n);input [3:0] A;\n    input [3:0] B;\n    output [4:0] C;\n\n    wire [3:0] sum;\n    wire overflow;\n\n    wire __sum_tmp = A + B;\n    assign sum = __sum_tmp;\n\n    assign overflow = ((A[3] & B[3]) | (A[3] & ~sum[3]) | (B[3] & ~sum[3]));\n\n    assign C = {overflow, sum};\n\nendmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q000452",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module zero_crossing_detector(\n    input wire clk,\n    input wire signal,\n    output reg crossing\n);\n\n    reg obf_previous_signal;\n\n    always @(posedge clk) begin\n        if (obf_previous_signal == 1 && signal == 0) begin\n            crossing <= 1; // Positive to Negative\n        end else if (obf_previous_signal == 0 && signal == 1) begin\n            crossing <= 0; // Negative to Positive\n        end\n        obf_previous_signal <= signal;\n    end\nendmodule",
-  "rename_map": {
-    "previous_signal": "obf_previous_signal"
-  }
-}

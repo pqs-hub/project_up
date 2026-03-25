@@ -1,6 +1,0 @@
-{
-  "task_id": "q012798",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire we,\n    input wire [1:0] rd_addr1,\n    input wire [1:0] rd_addr2,\n    input wire [1:0] wr_addr,\n    input wire [31:0] wr_data,\n    output reg [31:0] rd_data1,\n    output reg [31:0] rd_data2\n);\n\n    reg [31:0] unused_registers [3:0];\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            unused_registers[0] <= 32'b0;\n            unused_registers[1] <= 32'b0;\n            unused_registers[2] <= 32'b0;\n            unused_registers[3] <= 32'b0;\n        end else if (we) begin\n            unused_registers[wr_addr] <= wr_data;\n        end\n    end\n\n    always @(*) begin\n        rd_data1 = unused_registers[rd_addr1];\n        rd_data2 = unused_registers[rd_addr2];\n    end\n\nendmodule"
-}

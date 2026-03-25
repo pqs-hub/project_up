@@ -1,6 +1,0 @@
-{
-  "task_id": "q000379",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module fan_speed_controller (\n    input wire clk,\n    input wire rst,\n    input wire [7:0] temperature,\n    output reg [1:0] fan_speed // 00: off, 01: low, 10: medium, 11: high\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            fan_speed <= 2'b00; // Off\n        end else begin\n            if (temperature < 20) begin\n                fan_speed <= 2'b00; // Off\n            end else if (temperature < 25) begin\n                fan_speed <= 2'b01; // Low\n            end else if (temperature < 30) begin\n                fan_speed <= 2'b10; // Medium\n            end else begin\n                fan_speed <= 2'b11; // High\n            end\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

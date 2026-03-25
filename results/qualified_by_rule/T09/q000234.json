@@ -1,6 +1,0 @@
-{
-  "task_id": "q000234",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input start_connect,\n    input connection_success,\n    output reg [1:0] state\n);\n    // State encoding\n    localparam IDLE = 2'b00;\n    localparam CONNECTING = 2'b01;\n    localparam CONNECTED = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE; // Reset to IDLE\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start_connect) begin\n                        state <= CONNECTING;\n                    end\n                end\n                CONNECTING: begin\n                    if (connection_success) begin\n                        state <= CONNECTED;\n                    end else begin\n                        state <= IDLE; // Connection failed\n                    end\n                end\n                CONNECTED: begin\n                    state <= IDLE; // Reset on successful connection\n                end\n                default: state <= IDLE; // Default case\n            endcase\n        end\n    end\nendmodule"
-}

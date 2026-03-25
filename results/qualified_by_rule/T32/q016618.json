@@ -1,6 +1,0 @@
-{
-  "task_id": "q016618",
-  "rule_id": "T32",
-  "changed": false,
-  "final": "module RefModule (directCtrlRate, directCtrlPol, sendPacketRate, sendPacketPol, sendPacketSel, fullSpeedRate, fullSpeedPol);\ninput   directCtrlRate;\ninput   directCtrlPol;\ninput   sendPacketRate;\ninput   sendPacketPol;\ninput   sendPacketSel;\noutput  fullSpeedRate;\noutput  fullSpeedPol;\nwire   directCtrlRate;\nwire   directCtrlPol;\nwire   sendPacketRate;\nwire   sendPacketPol;\nwire   sendPacketSel;\nreg   fullSpeedRate;\nreg   fullSpeedPol;\nalways @(directCtrlRate or directCtrlPol or sendPacketRate or sendPacketPol or sendPacketSel)\nbegin\n  if (sendPacketSel == 1'b1) \n  begin\n  fullSpeedRate <= sendPacketRate;\n  fullSpeedPol <= sendPacketPol;\n  end\n  else\n  begin\n  fullSpeedRate <= directCtrlRate;\n  fullSpeedPol <= directCtrlPol;\n  end\nend\nendmodule"
-}

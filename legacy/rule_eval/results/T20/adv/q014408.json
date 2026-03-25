@@ -1,6 +1,0 @@
-{
-  "task_id": "q014408",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule top_module(\n    Y,\n    A,\n    B,\n    C,\n    D,\n    EN\n);output Y;\n    input  A;\n    input  B;\n    input  C;\n    input  D;\n    input  EN;\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB;\n    supply0 VNB;\n\n    wire nand_out;\n\n    // Use a built-in NAND gate instead\n    nand (nand_out, A, B, C, D);\n\n    assign Y = EN ? nand_out : 1'b1;\n\nendmodule"
-}

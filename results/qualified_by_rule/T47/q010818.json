@@ -1,6 +1,0 @@
-{
-  "task_id": "q010818",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule(\n    input [3:0] in,\n    input clk,          // Added clk input\n    output reg [1:0] out\n);reg [1:0] stage1_out;\nreg [1:0] stage2_out;\n\n// Stage 1\nalways @(*) begin\n    if (in[3]) stage1_out = 2'b11; // Highest priority first\n    else if (in[2]) stage1_out = 2'b10;\n    else if (in[1]) stage1_out = 2'b01;\n    else if (in[0]) stage1_out = 2'b00;\n    else stage1_out = 2'b00; // Default case (no input)\nend\n\n// Stage 2\nalways @(posedge clk) begin\n    stage2_out <= stage1_out;\nend\n\n// Output\nalways @(*) begin\n    out = stage2_out;\nend\n\nendmodule"
-}

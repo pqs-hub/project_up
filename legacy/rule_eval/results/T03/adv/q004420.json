@@ -1,6 +1,0 @@
-{
-  "task_id": "q004420",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module shift_register_4bit (\n    input clk,\n    input serial_in,\n    output reg [3:0] out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    // Shift register logic\n    always @(posedge clk) begin\n        out <= {out[2:0], serial_in};\n    end\n\nendmodule"
-}

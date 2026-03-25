@@ -1,6 +1,0 @@
-{
-  "task_id": "q000435",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [3:0] data_in,\n    output reg [3:0] data_out\n);\n\n    reg [3:0] stage1_out;\n\n    // Stage 1: Incrementer\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            stage1_out <= 4'b0000;\n        end else begin\n            stage1_out <= data_in + 4'b0001;\n        end\n    end\n\n    // Stage 2: Multiplier\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            data_out <= 4'b0000;\n        end else begin\n            data_out <= stage1_out * 2;\n        end\n    end\n\nendmodule"
-}

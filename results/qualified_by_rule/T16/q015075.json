@@ -1,6 +1,0 @@
-{
-  "task_id": "q015075",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(input ife,input efe,input fci,output fco,input [15:0]in,output reg [15:0]out);reg [15:0]carry; \n integer obf_j; \n always @(fci or in[0]) \n  carry[0] = fci ^ in[0]; \n always @(in or carry) \n  for (obf_j=1;obf_j<=15;obf_j=obf_j+1) \n  carry[obf_j] = carry[obf_j-1] ^ in[obf_j]; \n assign fco = carry[15]; \n always @(ife or efe or carry or in) \n  if (efe) \n  out[15:0] = carry[15:0]; \n  else if (ife) \n  out[15:0] = carry[15:0] | in[15:0]; \n  else \n  out[15:0] = in[15:0]; \n endmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q011136",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module edge_detector(\n    input       clk,\n    input       signal_in,\n    output reg  pulse_out\n);\n\n    reg obf_signal_in_d;\n\n    always @(posedge clk) begin\n        obf_signal_in_d <= signal_in;\n        pulse_out <= signal_in & ~obf_signal_in_d;\n    end\n\nendmodule",
-  "rename_map": {
-    "signal_in_d": "obf_signal_in_d"
-  }
-}

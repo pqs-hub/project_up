@@ -1,6 +1,0 @@
-{
-  "task_id": "q011388",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input reset,\n  input [3:0] in1,\n  input [3:0] in2,\n  input mode_sel,\n  output [3:0] out\n);reg [3:0] temp;\n\nalways @(posedge clk, negedge reset) begin\n  if (!reset) begin\n    temp <= 4'b0;\n  end else begin\n    if (mode_sel == 0) begin\n      temp <= in1 + in2;\n    end else begin\n      temp <= in1 - in2;\n    end\n  end\nend\n\nassign out = temp;\n\nendmodule"
-}

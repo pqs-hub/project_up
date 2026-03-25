@@ -1,9 +1,0 @@
-{
-  "task_id": "q005080",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(input clock, write, reset,input [15:0] writeData,output [15:0] data);reg [15:0] obf_basePointer; \n  always @ (posedge clock) begin \n  if (reset) \n  obf_basePointer = 16'b0; \n  else if (write) \n  obf_basePointer = writeData; \n  end \n  assign data = obf_basePointer; \n endmodule",
-  "rename_map": {
-    "basePointer": "obf_basePointer"
-  }
-}

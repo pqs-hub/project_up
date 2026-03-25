@@ -1,7 +1,0 @@
-{
-  "task_id": "q005103",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module top_module(\n    input clk,  \n    input reset,\n    input [4:0] data_in,\n    input [4:0] L,\n    input K,\n    input COMPLS6,\n    output [5:0] data_out\n    );wire A, B, C, D, E;\n    assign {E, D, C, B, A} = data_in;\n    wire L40, L31, L22, L13, L04;\n    assign {L40, L31, L22, L13, L04} = L;\n    reg a, b, c, d, e, i;\n    \n    always @(posedge clk)\n    begin    \n        if (reset) begin\n            a <= 0;\n            b <= 0;\n            c <= 0;\n            d <= 0;\n            e <= 0;\n            i <= 0;\n        end else begin\n            a <= A ^ COMPLS6; \n            b <= ((~L40 & B) | L04) ^ COMPLS6;\n            c <= (L04 | C) ^ (L13 & D & E) ^ COMPLS6; \n            d <= (D & ~L40) ^ COMPLS6;\n            e <= (~(L13 & D & E) & E) ^ (~E & L13) ^ COMPLS6; \n            i <= (~E & L22) ^ (L22 & K) ^ (L04 & E) ^ (E & L40) ^ (E & L13 & ~D) ^ COMPLS6;\n        end\n    end\n    assign data_out = {a, b, c, d, e, i};\n    \nendmodule",
-  "rename_map": {}
-}

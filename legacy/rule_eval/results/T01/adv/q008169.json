@@ -1,6 +1,0 @@
-{
-  "task_id": "q008169",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(MO, A, B, SEL, EN);input [3:0] A, B;\n   input [1:0] SEL;\n   input EN;\n   output reg [3:0] MO;\n\n   always @ (EN or SEL or A or B) begin\n    begin end  // redundant\n      if (EN) begin\n         case (SEL)\n            2'b00: MO <= A;\n            2'b01: MO <= B;\n            2'b10: MO <= 4'b0000;\n            2'b11: MO <= 4'b0000;\n         endcase\n      end else begin\n         MO <= 4'b0000;\n      end\n   end\nendmodule"
-}

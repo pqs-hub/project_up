@@ -1,6 +1,0 @@
-{
-  "task_id": "q003979",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input activate,\n    input error,\n    output reg [1:0] state // 00: IDLE, 01: ACTIVE, 10: ERROR\n);\n\n// State encoding\nparameter IDLE = 2'b00;\nparameter ACTIVE = 2'b01;\nparameter ERROR = 2'b10;\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        state <= IDLE; // Reset state\n    end else begin\n        case (state)\n            IDLE: begin\n                if (activate) begin\n                    state <= ACTIVE; // Transition to ACTIVE\n                end\n            end\n            ACTIVE: begin\n                if (error) begin\n                    state <= ERROR; // Transition to ERROR\n                end else if (reset) begin\n                    state <= IDLE; // Transition to IDLE\n                end\n            end\n            ERROR: begin\n                if (reset) begin\n                    state <= IDLE; // Transition to IDLE\n                end\n            end\n        endcase\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

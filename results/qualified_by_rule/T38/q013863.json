@@ -1,6 +1,0 @@
-{
-  "task_id": "q013863",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(\n    input wire clk,    // clock input\n    input wire rst,    // reset input\n    input wire SerialIn,   // serial input\n    output wire [3:0] BusOut   // parallel output\n);reg [3:0] SIPO_Buffer = 0;   // 4-bit buffer\n\nalways @(posedge clk, negedge rst) begin\n    if (!rst) begin\n        SIPO_Buffer <= 0;   // clear buffer on reset\n    end\n    else begin\n        SIPO_Buffer <= {SIPO_Buffer[2:0], SerialIn};   // shift data into buffer\n    end\nend\n\nassign BusOut = SIPO_Buffer;   // output buffer on parallel bus\n\nendmodule"
-}

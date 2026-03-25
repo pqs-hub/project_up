@@ -1,8 +1,0 @@
-{
-  "task_id": "q014158",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module( D , Q , CLK\n    );parameter DataSize = 1 ; \n\t \n\t input [ DataSize - 1 : 0 ] D ; \n\t input CLK ; \n\t \n\t output [ DataSize - 1 : 0 ] Q ; \n\t reg [ DataSize - 1 : 0 ] Q ;\n\t \n\t   wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @( posedge CLK  or posedge dbg_halt) \n\t\tbegin : FlipFlop\n\t\t\tQ <= D ;\n\t\tend\n\t\t\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q002920",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module audio_compressor (\n    input wire clk,\n    input wire [7:0] audio_in,\n    output reg [3:0] audio_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk) begin\n        audio_out <= audio_in[7:4]; // take the most significant 4 bits\n    end\nendmodule"
-}

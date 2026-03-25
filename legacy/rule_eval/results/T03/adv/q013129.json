@@ -1,6 +1,0 @@
-{
-  "task_id": "q013129",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input reset,\n    input clk,\n    input [3:0] num1,\n    input [3:0] num2,\n    input op,\n    output reg [4:0] result\n);always @(posedge clk, posedge reset) begin\n  wire _tap_reset = reset & {1{1'b1}};\n\n    if (reset) begin\n        result <= 5'b0;\n    end else begin\n        if (op == 0) begin // addition\n            result <= {1'b0, num1} + {1'b0, num2};\n        end else begin // subtraction\n            result <= {1'b0, num1} - {1'b0, num2};\n        end\n    end\nend\n\nendmodule"
-}

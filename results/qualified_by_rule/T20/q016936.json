@@ -1,6 +1,0 @@
-{
-  "task_id": "q016936",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule (\n    input A,\n    input B,\n    input CI,\n    output SUM,\n    output COUT\n);\n\n    wire xor1_out;\n    wire xor2_out;\n    wire and1_out;\n    wire and2_out;\n    wire or1_out;\n\n    xor xor1(xor1_out, A, B);\n    xor xor2(SUM, xor1_out, CI);\n    and and1(and1_out, A, B);\n    and and2(and2_out, xor1_out, CI);\n    or or1(or1_out, and1_out, and2_out);\n    assign COUT = or1_out;\n\nendmodule"
-}

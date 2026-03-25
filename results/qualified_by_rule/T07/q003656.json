@@ -1,6 +1,0 @@
-{
-  "task_id": "q003656",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule (\n    input [15:0] packet_address,\n    input [3:0] protocol,\n    output reg permit\n);\n\nalways @(*) begin\n    if ((packet_address >= 16'h0000 && packet_address <= 16'h7FFF) && \n        (protocol == 4'b0001 || protocol == 4'b0010)) begin\n        permit = 1'b1; // Permit the packet\n    end else begin\n        permit = 1'b0; // Block the packet\n    end\nend\n\nendmodule"
-}

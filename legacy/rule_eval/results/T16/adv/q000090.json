@@ -1,9 +1,0 @@
-{
-  "task_id": "q000090",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module ofdm_modulator (  \n    input wire [3:0] data_in,  \n    input wire enable,  \n    output reg [3:0] data_out,  \n    input wire obf_clk,  \n    input wire reset  \n);  \n\n    always @(posedge obf_clk or posedge reset) begin  \n        if (reset) begin  \n            data_out <= 4'b0000;  \n        end else if (enable) begin  \n            data_out <= data_in;  \n        end  \n    end  \nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

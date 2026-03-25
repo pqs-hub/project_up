@@ -1,6 +1,0 @@
-{
-  "task_id": "q003374",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule (\n    input [4:0] rs1, // Source register 1\n    input [4:0] rs2, // Source register 2\n    input [4:0] rd_EX, // Destination register from EX stage\n    input [4:0] rd_MEM, // Destination register from MEM stage\n    input EX_valid, // Valid signal if EX stage writes to rd_EX\n    input MEM_valid, // Valid signal if MEM stage writes to rd_MEM\n    output reg [1:0] forwardA, // Forwarding signal for rs1\n    output reg [1:0] forwardB  // Forwarding signal for rs2\n);\n\nalways @(*) begin\n    // Default forwarding signals\n    forwardA = 2'b00;\n    forwardB = 2'b00;\n\n    // Forwarding for rs1\n    if (EX_valid && rs1 == rd_EX) begin\n        forwardA = 2'b10; // Forward from EX stage\n    end\n    else if (MEM_valid && rs1 == rd_MEM) begin\n        forwardA = 2'b01; // Forward from MEM stage\n    end\n\n    // Forwarding for rs2\n    if (EX_valid && rs2 == rd_EX) begin\n        forwardB = 2'b10; // Forward from EX stage\n    end\n    else if (MEM_valid && rs2 == rd_MEM) begin\n        forwardB = 2'b01; // Forward from MEM stage\n    end\nend\n\nendmodule"
-}

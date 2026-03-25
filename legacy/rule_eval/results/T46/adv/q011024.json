@@ -1,8 +1,0 @@
-{
-  "task_id": "q011024",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module register_32bit(\n   input                clk,\n   input                clr_n,\n   input                en,\n   input [31:0]         d,\n \n   output reg [31:0]    q\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or negedge clr_n or posedge dbg_halt)begin\n        if(!clr_n) q <= 32'd0;\n        else if(en) q <= d;\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

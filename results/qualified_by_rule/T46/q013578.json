@@ -1,6 +1,0 @@
-{
-  "task_id": "q013578",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n    output reg Q,\n    input D,\n    input C,\n    input R\n);parameter [0:0] INIT = 1'b0;\n    initial Q = INIT;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge C or negedge R or posedge dbg_halt)\n        if (!R)\n            Q <= 1'b0;\n        else \n            Q <= D;\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q014787",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule(\n\t\n\tRegWriteDataSel_In_FromMem, PCInc_In_FromMem, Condition_In_FromMem, ReadData_In_FromMem, ALUResult_In_FromMem,\n\tWR_In_FromMem,\n\t\n\t\n\tWR_Out_ToMem, WD_Out_ToMem, err\n);input Condition_In_FromMem;\ninput [1:0] RegWriteDataSel_In_FromMem;\ninput [2:0] WR_In_FromMem;\ninput [15:0] PCInc_In_FromMem, ReadData_In_FromMem, ALUResult_In_FromMem;\n\n\noutput err;\noutput [2:0] WR_Out_ToMem;\noutput [15:0] WD_Out_ToMem;\n\n\nassign WR_Out_ToMem = WR_In_FromMem;\n\n\n\nassign WD_Out_ToMem = (RegWriteDataSel_In_FromMem == 2'b00) ? PCInc_In_FromMem :\n\t\t\t\t\t  (RegWriteDataSel_In_FromMem == 2'b01) ? Condition_In_FromMem :\n\t\t\t\t\t  (RegWriteDataSel_In_FromMem == 2'b10) ? ReadData_In_FromMem : ALUResult_In_FromMem;\n\t\t\t\t\t  \n\t\nassign err = 1'b0;\n\t\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q016209",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module RefModule(d, we, clk, rst, q);input [31:0] d;\n  input clk, rst, we;\n  output [31:0] q;\n  reg [31:0] q_reg;\n\n  always @(posedge clk, posedge rst) begin\n    if (rst) begin\n      q_reg <= 32'b0;\n    end else if (we) begin\n      q_reg <= d;\n    end\n  end\n\n  assign q = q_reg;\nendmodule"
-}

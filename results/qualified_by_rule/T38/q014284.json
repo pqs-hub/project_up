@@ -1,6 +1,0 @@
-{
-  "task_id": "q014284",
-  "rule_id": "T38",
-  "changed": true,
-  "final": "module RefModule (\n        input q,\n        input r,\n        input s,\n  wire temp1_( ~q & ~r & ~s ) |\n           ( ~q & ~r & s ) |\n           ( ~q & r & s ) = ( ~q & ~r & ~s ) |\n           ( ~q & ~r & s ) |\n           ( ~q & r & s );\n  wire temp2_( q & r & s ) = ( q & r & s );\n  assign t = temp1_( ~q & ~r & ~s ) |\n           ( ~q & ~r & s ) |\n           ( ~q & r & s ) | temp2_( q & r & s ) ;\n\nendmodule"
-}

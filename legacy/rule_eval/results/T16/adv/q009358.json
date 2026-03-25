@@ -1,9 +1,0 @@
-{
-  "task_id": "q009358",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module shift_register_8bit_with_load(\n    input wire obf_clk,\n    input wire rst,\n    input wire load,\n    input wire [7:0] load_value,\n    input wire shift_dir,\n    output reg [7:0] q\n);\n\n    always @(posedge obf_clk) begin\n        if (rst) begin\n            q <= 8'b00000000;\n        end else if (load) begin\n            q <= load_value;\n        end else if (shift_dir) begin\n            q <= {q[6:0], 1'b0};  // Left shift\n        end else begin\n            q <= {1'b0, q[7:1]};  // Right shift\n        end\n    end\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

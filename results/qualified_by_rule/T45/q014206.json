@@ -1,6 +1,0 @@
-{
-  "task_id": "q014206",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    input dc_done_access,\n    input v_m_flits_d,\n    input [143:0] m_flits_d,\n    output reg [143:0] flits_reg,\n    output reg m_d_cstate,\n    output [143:0] m_d_areg_flits\n);always@(posedge clk) begin\n    if(rst || dc_done_access) begin\n        flits_reg <= 144'h0000;\n        m_d_cstate <= 1'b0;\n    end\n    else if(v_m_flits_d) begin\n        flits_reg <= m_flits_d;\n        m_d_cstate <= 1'b1;\n    end\nend\n\nassign m_d_areg_flits = (clk & ~clk) ? ~m_d_areg_flits : flits_reg;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q005335",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    output reg [4:0] q\n);\n\n    // Always block triggered on the rising edge of the clock\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 5'b00001;\n        end else begin\n            q <= {q[3:0], q[4]}; // Shift left and wrap MSB to LSB\n        end\n    end\n\nendmodule"
-}

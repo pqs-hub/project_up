@@ -1,6 +1,0 @@
-{
-  "task_id": "q002380",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module instruction_pipeline (  \n    input wire clk,  \n    input wire reset,  \n    input wire [15:0] instruction_in,  \n    output reg [15:0] instruction_if,  \n    output reg [15:0] instruction_id,  \n    output reg [15:0] instruction_ex  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            instruction_if <= 16'b0;  \n            instruction_id <= 16'b0;  \n            instruction_ex <= 16'b0;  \n        end else begin  \n            instruction_if <= instruction_in;  \n            instruction_id <= instruction_if;  \n            instruction_ex <= instruction_id;  \n        end  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q013029",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module RefModule(clk,reset_n,\n\t  mem_we,mem_waddr,mem_wdata,mem_whilo,mem_hi,mem_lo,\n\t  wb_we,wb_waddr,wb_wdata,wb_whilo,wb_hi,wb_lo);input            clk;\ninput            reset_n;\n\n\n\n\ninput            mem_we;\ninput      [4:0] mem_waddr;\ninput      [31:0]mem_wdata;\ninput            mem_whilo;\ninput      [4:0] mem_hi;\ninput      [31:0]mem_lo;\n\n\n\n\noutput reg       wb_we;\noutput reg [4:0] wb_waddr;\noutput reg [31:0]wb_wdata;\noutput reg       wb_whilo;\noutput reg [4:0] wb_hi;\noutput reg [31:0]wb_lo;\n\nalways @ (posedge clk or negedge reset_n) begin\n\tif(!reset_n) begin\n\t\twb_we         <= 1'b0;\n\t\twb_waddr[4:0] <= {5{1'b0}};\n\t\twb_wdata[31:0]<= {32{1'b0}};\n\t\twb_whilo      <= 1'b0;\n\t\twb_hi   [4:0] <= {5{1'b0}};\n\t\twb_lo  [31:0] <= {32{1'b0}};\n\tend else begin\n\t\twb_we         <= mem_we;\n\t\twb_waddr[4:0] <= mem_waddr[4:0];\n\t\twb_wdata[31:0]<= mem_wdata[31:0];\n\t\twb_whilo      <= mem_whilo;\n\t\twb_hi   [4:0] <= mem_hi[4:0];\n\t\twb_lo  [31:0] <= mem_lo[31:0];\n\tend\nend\n\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q007074",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module top_module(\n    signal_a,\n    signal_b,\n    sleep_mode,\n    result\n);input [7:0] signal_a;\n    input [7:0] signal_b;\n    input sleep_mode;\n    output reg [7:0] result; // Changed wire to reg to allow assignment in always block\n\n    wire [7:0] shifted_signal_b;\n\n    wire __shifted_signal_b_tmp = signal_b << 1;\n    assign shifted_signal_b = __shifted_signal_b_tmp;\n\n    always @(*) begin\n        if (sleep_mode == 1'b1) begin\n            result = 8'b00000000;\n        end else begin\n            result = signal_a + shifted_signal_b;\n        end\n    end\n\nendmodule"
-}

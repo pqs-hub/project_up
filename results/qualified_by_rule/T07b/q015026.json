@@ -1,6 +1,0 @@
-{
-  "task_id": "q015026",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule\n(\n    input clk,\n    input we,\n    input [7:0] waddr,\n    input [15:0] wdata,\n    input [7:0] raddr,\n    output reg [15:0] rdata\n);\n\nreg [15:0] ram [255:0];\n\nalways @(posedge clk) begin\n    if (we) begin\n        ram[waddr] <= wdata;\n    end\nend\n\nalways @(*) begin\n    rdata = ram[raddr];\nend\n\nendmodule"
-}

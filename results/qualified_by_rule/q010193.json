@@ -1,6 +1,0 @@
-{
-  "task_id": "q010193",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module RefModule(\n    input r,\n    input s,\n    output z\n);\n    assign z = (r & s);\nendmodule\n\nmodule N(\n    input r,\n    input s,\n    output z\n);\n    assign z = (r & s);\nendmodule\n\nmodule top_module(\n    input r,\n    input s,\n    output z\n);\n    wire m1_out, m2_out, n1_out, n2_out;\n    wire xor_out, or_out;\n\n    M m1(.r(r), .s(s), .z(m1_out));\n    M m2(.r(r), .s(s), .z(m2_out));\n    N n1(.r(r), .s(s), .z(n1_out));\n    N n2(.r(r), .s(s), .z(n2_out));\n\n    assign xor_out = m1_out ^ n1_out;\n    assign or_out = m2_out | n2_out;\n\n    assign z = xor_out & or_out;\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q000682",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(  \n    input [7:0] dividend,  \n    input [7:0] divisor,  \n    input clk,  \n    input rst,  \n    output reg [7:0] quotient,  \n    output reg [7:0] remainder  \n);  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            quotient <= 8'b0;  \n            remainder <= 8'b0;  \n        end else begin  \n            if (divisor == 0) begin  \n                quotient <= 8'hFF;  // maximum value for quotient  \n                remainder <= dividend;  \n            end else begin  \n                quotient <= dividend / divisor;  \n                remainder <= dividend % divisor;  \n            end  \n        end  \n    end  \nendmodule"
-}

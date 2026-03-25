@@ -1,6 +1,0 @@
-{
-  "task_id": "q008982",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule(\n    input [7:0] address,\n    output [7:0] pcAdderResult\n);  wire _n01 = address[0] ^ 2[0];\n  wire _c01 = address[0] & 2[0];\n  wire _n02 = address[1] ^ 2[1] ^ _c01;\n  wire _c02 = (address[1] & 2[1]) | (address[1] & _c01) | (2[1] & _c01);\n  wire _n03 = address[2] ^ 2[2] ^ _c02;\n  wire _c03 = (address[2] & 2[2]) | (address[2] & _c02) | (2[2] & _c02);\n  wire _n04 = address[3] ^ 2[3] ^ _c03;\n  wire _c04 = (address[3] & 2[3]) | (address[3] & _c03) | (2[3] & _c03);\n  assign pcAdderResult = {_n01, _n02, _n03, _n04};\nendmodule"
-}

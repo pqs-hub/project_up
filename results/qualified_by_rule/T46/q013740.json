@@ -1,6 +1,0 @@
-{
-  "task_id": "q013740",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(ce, Q, sys_clk, TC, R, CEO);input ce;\noutput reg [3:0] Q = 0;\ninput sys_clk;\noutput wire TC;\ninput R;\noutput wire CEO;\n\nassign TC = (Q == 15);\nassign CEO = ce & TC;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge sys_clk or posedge dbg_halt)\nbegin\n        Q <= R ? 0 : ce ? Q + 1 : Q;\nend\n\nendmodule"
-}

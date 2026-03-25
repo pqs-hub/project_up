@@ -1,6 +1,0 @@
-{
-  "task_id": "q001053",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule (\n    input wire [3:0] data_in,\n    input wire enable,\n    output reg [3:0] data_out,\n    input wire clk\n);\n\n    reg [3:0] memory;\n\n    always @(posedge clk) begin\n        if (enable) begin\n            memory <= data_in; // Write data to SRAM\n        end\n        data_out <= memory; // Output stored data\n    end\nendmodule"
-}

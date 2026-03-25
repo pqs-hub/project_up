@@ -1,6 +1,0 @@
-{
-  "task_id": "q014708",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n\tinput[3:0] busin,\n\tinput clk, clr, wa,\n\toutput[3:0] addrout);reg[3:0] store;\n\n\tassign addrout= store;\n\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@ (posedge clk or posedge dbg_halt)\n\tbegin\n\t\tif(clr)\n\t\t\tstore= 4'h0;\n\t\telse if(wa)\n\t\t\tstore= busin;\n\tend\n\tendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q002525",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule deadbeat_controller (\n    input clk,\n    input rst,\n    input [3:0] state,\n    input [3:0] setpoint,\n    output reg [3:0] control_output\n);\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            control_output <= 4'b0000;\n        end else begin\n            control_output <= setpoint - state; // Deadbeat control logic\n        end\n    end\nendmodule"
-}

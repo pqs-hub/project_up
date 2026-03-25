@@ -1,9 +1,0 @@
-{
-  "task_id": "q000411",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module divider_4bit (  \n    input obf_clk,  \n    input [3:0] dividend,  \n    input [3:0] divisor,  \n    output reg [3:0] quotient,  \n    output reg [3:0] remainder,  \n    output reg valid  \n);  \n    always @(posedge obf_clk) begin  \n        if (divisor == 0) begin  \n            quotient <= 4'b0000;  \n            remainder <= 4'b0000;  \n        end else begin  \n            quotient <= dividend / divisor;  \n            remainder <= dividend % divisor;  \n        end  \n        valid <= 1;  \n    end  \nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

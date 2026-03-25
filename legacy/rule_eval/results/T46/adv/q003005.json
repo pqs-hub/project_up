@@ -1,8 +1,0 @@
-{
-  "task_id": "q003005",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module hmac_generator (\n    input wire clk,\n    input wire rst,\n    input wire [127:0] key,      // Key input\n    input wire [127:0] message,  // Message input\n    output reg [127:0] hmac      // HMAC output\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n        if (rst) begin\n            hmac <= 128'b0; // Reset HMAC\n        end else begin\n            hmac <= key ^ message; // Simple HMAC generation\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

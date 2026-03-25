@@ -1,6 +1,0 @@
-{
-  "task_id": "q002682",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule RefModule (\n    input [3:0] x_current,\n    output [3:0] x_next\n);\n    // Gradient of f(x) = (x - 3)^2 is 2*(x - 3)\n    wire signed [3:0] gradient;\n    assign gradient = 2 * (x_current - 4'b0011); // 4'b0011 is 3 in binary\n\n    // Update x: x_next = x_current - learning_rate * gradient\n    assign x_next = x_current - gradient;\n\nendmodule"
-}

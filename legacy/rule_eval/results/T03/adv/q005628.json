@@ -1,6 +1,0 @@
-{
-  "task_id": "q005628",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    a,\n    forward1,\n    forward2,\n    out,\n    use1,\n    use2,\n    iszero);input [31:0] a;\n    input [31:0] forward1;\n    input [31:0] forward2;\n    output [31:0] out;\n    input use1;\n    input use2;\n    input iszero;\n  wire [31:0] _tap_a = a & {32{1'b1}};\n\n\n    assign out = iszero ? 32'b0 \n               : use1   ? forward1 \n               : use2   ? forward2\n               : a;\n\nendmodule"
-}

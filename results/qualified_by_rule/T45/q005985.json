@@ -1,6 +1,0 @@
-{
-  "task_id": "q005985",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule(data_in, dest_in, data_out);parameter data_width = 32;\n   \n   \n   parameter dest_width = 32;\n   \n   \n   \n   \n   parameter offset = 0;\n   \n   \n   input [0:data_width-1] data_in;\n   \n   \n   input [0:dest_width-1] dest_in;\n   \n   \n   output [0:dest_width-1] data_out;\n   wire [0:dest_width-1] data_out;\n   \n   genvar \t\ti;\n   \n   generate\n      \n      for(i = 0; i < dest_width; i = i + 1)\n\tbegin:bits\n\t   \n\t   if((i < offset) || (i >= (offset + data_width)))\n\t     assign data_out[i] = dest_in[i];\n\t   else\n\t     assign data_out[i] = data_in[i - offset];\n\t   \n\tend\n      \n   endgenerate\n   \nendmodule"
-}

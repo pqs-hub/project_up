@@ -1,6 +1,0 @@
-{
-  "task_id": "q013594",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(clk_in, clk_out);input clk_in;\n\toutput reg clk_out;\n\treg [2:0] contador;\n\t\n\tinteger set = 1;\n\t\n\talways @(posedge clk_in)\n\tbegin\n\t\tif (set == 1)\n\t\tbegin\n\t\t\tclk_out = 0;\n\t\t\tcontador = 3'b0;\n\t\t\tset = 0;\n\t\tend\n\t\t\n\t\tcontador = contador+1;\n\t\t\n\t\tif (contador == 3'd4)\n\t\tbegin\n\t\t\tclk_out = ~clk_out;\n\t\t\tcontador = 3'd0;\n\t\tend\n\t\t\n\tend\n\nendmodule"
-}

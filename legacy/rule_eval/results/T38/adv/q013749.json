@@ -1,8 +1,0 @@
-{
-  "task_id": "q013749",
-  "rule_id": "T38",
-  "changed": true,
-  "final": "module logic_circuit (\n        input m,\n        input n,\n        input o,\n        output t);\n\n  wire temp1_(~m & ~n & ~o) |\n           (~m & n & o) |\n           (m & ~n & ~o) = (~m & ~n & ~o) |\n           (~m & n & o) |\n           (m & ~n & ~o);\n  wire temp2_(m & n & o) = (m & n & o);\n  assign t = temp1_(~m & ~n & ~o) |\n           (~m & n & o) |\n           (m & ~n & ~o) | temp2_(m & n & o);\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

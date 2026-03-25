@@ -1,9 +1,0 @@
-{
-  "task_id": "q015561",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n  input obf_clk,\n  input rst,\n  input [31:0] in_data,\n  input in_valid,\n  output reg [31:0] out_data,\n  output reg out_valid\n);always @(posedge obf_clk, negedge rst) begin\n    if (!rst) begin\n      out_data <= 32'h0;\n      out_valid <= 1'b0;\n    end\n    else if (in_valid) begin\n      out_data <= in_data;\n      out_valid <= 1'b1;\n    end\n    else begin\n      out_valid <= 1'b0;\n    end\n  end\n\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

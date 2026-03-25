@@ -1,6 +1,0 @@
-{
-  "task_id": "q004993",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(\n    input a,\n    input b,\n    output z\n);\n    assign z = ~(a & ~b);\nendmodule\n\nmodule J(\n    input a,\n    input b,\n    output z\n);\n    assign z = ~(a & ~b);\nendmodule\n\nmodule top_module(\n    input a,\n    input b,\n    output z\n);\n    wire i1_out, i2_out, j1_out, j2_out;\n    wire xor_out, nand_out;\n\n    I i1(.a(a), .b(b), .z(i1_out));\n    I i2(.a(a), .b(b), .z(i2_out));\n    J j1(.a(a), .b(b), .z(j1_out));\n    J j2(.a(a), .b(b), .z(j2_out));\n\n    assign xor_out = i1_out ^ j1_out;\n    assign nand_out = ~(i2_out & j2_out);\n\n    assign z = xor_out & nand_out;\nendmodule"
-}

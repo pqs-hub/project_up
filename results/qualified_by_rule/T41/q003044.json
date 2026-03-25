@@ -1,6 +1,0 @@
-{
-  "task_id": "q003044",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(\n    input wire clk,\n    input wire reset,\n    input wire [3:0] audio_signal,\n    input wire [3:0] threshold,\n    output reg pitch_high\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            pitch_high <= 1'b0;\n        end else begin\n            if (audio_signal > threshold) begin\n                pitch_high <= 1'b1;\n            end else begin\n                pitch_high <= 1'b0;\n            end\n        end\n    end\nendmodule"
-}

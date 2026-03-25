@@ -1,6 +1,0 @@
-{
-  "task_id": "q001503",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule (\n    input [3:0] A,\n    input [3:0] B,\n    output [4:0] Sum\n);\n\nwire [3:0] G; // Generate\nwire [3:0] P; // Propagate\nwire [3:0] C; // Carry\n\n// Generate and Propagate\nassign G = A & B;        // Generate\nassign P = A ^ B;        // Propagate\n\n// Carry computation\nassign C[0] = 0;         // No carry-in for the first bit\nassign C[1] = G[0] | (P[0] & C[0]);\nassign C[2] = G[1] | (P[1] & G[0]) | (P[1] & P[0] & C[0]);\nassign C[3] = G[2] | (P[2] & G[1]) | (P[2] & P[1] & G[0]) | (P[2] & P[1] & P[0] & C[0]);\n\n// Final sum output\nassign Sum[0] = P[0] ^ C[0];\nassign Sum[1] = P[1] ^ C[1];\nassign Sum[2] = P[2] ^ C[2];\nassign Sum[3] = P[3] ^ C[3];\nassign Sum[4] = G[3] | (P[3] & C[3]);\n\nendmodule"
-}

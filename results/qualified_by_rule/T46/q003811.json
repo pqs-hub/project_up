@@ -1,6 +1,0 @@
-{
-  "task_id": "q003811",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [3:0] data_in,\n    input wire ctrl,\n    output reg [3:0] data_out\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n    if (rst) begin\n        data_out <= 4'b0000;\n    end else if (ctrl) begin\n        data_out <= data_in;\n    end else begin\n        data_out <= 4'b0000;\n    end\nend\n\nendmodule"
-}

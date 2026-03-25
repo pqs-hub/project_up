@@ -1,7 +1,0 @@
-{
-  "task_id": "q010897",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module top_module(\n    input [15:0] data_in,\n    input [3:0] shift_amount,\n    input shift_direction,\n    output [15:0] data_out\n);reg [15:0] shifted_data;\n\nalways @(*) begin\n    if (shift_direction == 1'b0) // right shift\n        shifted_data = data_in >> shift_amount;\n    else // left shift\n        shifted_data = data_in << shift_amount;\nend\n\nassign data_out = shifted_data;\n\nendmodule",
-  "rename_map": {}
-}

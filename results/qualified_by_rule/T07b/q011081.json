@@ -1,6 +1,0 @@
-{
-  "task_id": "q011081",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(clk, rota, rotb, rot_event, rot_direction);input clk, rota, rotb;\noutput rot_event, rot_direction;\nreg rot_event = 1, rot_direction = 0;\n\nalways @(posedge clk) begin\n\tif(rota & rotb) \n\t\trot_event <= 1;\n\telse if(~rota & ~rotb)\n\t\trot_event <= 0;\n\telse if(~rota & rotb)\n\t\trot_direction <= 1;\n\telse\n\t\trot_direction <= 0;\nend\n\nendmodule"
-}

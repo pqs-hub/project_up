@@ -1,6 +1,0 @@
-{
-  "task_id": "q006608",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(\n    input [7:0] in1,\n    input [7:0] in2,\n    input [7:0] in3,\n    input [7:0] in4,\n    input sel0,\n    input sel1,\n    output reg [7:0] out\n);always @ (sel0 or sel1 or in1 or in2 or in3 or in4)\nbegin\n    if (sel0 == 0 && sel1 == 0)\n        out = in1;\n    else if (sel0 == 1 && sel1 == 0)\n        out = in2;\n    else if (sel0 == 0 && sel1 == 1)\n        out = in3;\n    else if (sel0 == 1 && sel1 == 1)\n        out = in4;\nend\n\nendmodule"
-}

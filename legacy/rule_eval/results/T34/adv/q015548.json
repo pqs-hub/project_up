@@ -1,6 +1,0 @@
-{
-  "task_id": "q015548",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(\n    X   ,\n    A_N ,\n    B   \n);// Module ports\n    output X   ;\n    input  A_N ;\n    input  B   ;\n\n    // Local signals\n    wire unused_not0_out         ;\n    wire and0_out_X       ;\n\n    //                                 Name         Output             Other arguments\n    not                                not0        (unused_not0_out         , A_N                   );\n    and                                and0        (and0_out_X       , unused_not0_out, B           );\n    \n    // Removed the unknown module; using a standard buf\n    buf                                buf0        (X                , and0_out_X           );\n\nendmodule"
-}

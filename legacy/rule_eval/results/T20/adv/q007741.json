@@ -1,6 +1,0 @@
-{
-  "task_id": "q007741",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule top_module(\n  input [n-1:0] in,\n  output out\n);parameter n = 8; // number of input signals\n\nreg [n-1:0] in_reg;\nreg parity;\n\ninteger i;\nalways @(*) begin\n  in_reg = in;\n  parity = 1'b0;\n  for (i = 0; i < n; i = i + 1) begin\n    parity = parity ^ in_reg[i];\n  end\nend\n\nassign out = ~parity;\n\nendmodule"
-}

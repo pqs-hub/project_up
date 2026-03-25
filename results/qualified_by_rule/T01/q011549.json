@@ -1,6 +1,0 @@
-{
-  "task_id": "q011549",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(\n  input clk,\n  input reset,\n  input direction,\n  input load,\n  input [3:0] data,\n  output reg [3:0] count\n);always @(posedge clk) begin\n    begin end  // redundant\n    if (reset) begin\n      count <= 4'b0000;\n    end else if (load) begin\n      count <= data;\n    end else begin\n      if (direction) begin\n        if (count == 4'b1111) begin\n          count <= 4'b0000;\n        end else begin\n          count <= count + 1;\n        end\n      end else begin\n        if (count == 4'b0000) begin\n          count <= 4'b1111;\n        end else begin\n          count <= count - 1;\n        end\n      end\n    end\n  end\n  \nendmodule"
-}

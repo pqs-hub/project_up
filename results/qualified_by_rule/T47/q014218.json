@@ -1,6 +1,0 @@
-{
-  "task_id": "q014218",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule(\n    input DI0, DI1,\n    input WAD0, WAD1, WAD2, WAD3,\n    input WRE, WCK,\n    input RAD0, RAD1, RAD2, RAD3,\n    output DO0, DO1\n);parameter WCKMUX = \"WCK\";\n    parameter WREMUX = \"WRE\";\n    parameter INITVAL_0 = 16'h0000;\n    parameter INITVAL_1 = 16'h0000;\n\n    reg [1:0] mem[15:0];\n\n    integer i;\n    initial begin\n        for (i = 0; i < 16; i = i + 1)\n            mem[i] <= {INITVAL_1[i], INITVAL_0[i]};\n    end\n\n    wire muxwck = (WCKMUX == \"INV\") ? ~WCK : WCK;\n\n    reg muxwre;\n    always @(*)\n        case (WREMUX)\n            \"1\": muxwre = 1'b1;\n            \"0\": muxwre = 1'b0;\n            \"INV\": muxwre = ~WRE;\n            default: muxwre = WRE;\n        endcase\n\n\n    always @(posedge muxwck)\n        if (muxwre)\n            mem[{WAD3, WAD2, WAD1, WAD0}] <= {DI1, DI0};\n\n    assign {DO1, DO0} = mem[{RAD3, RAD2, RAD1, RAD0}];\n\nendmodule"
-}

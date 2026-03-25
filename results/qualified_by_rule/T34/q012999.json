@@ -1,6 +1,0 @@
-{
-  "task_id": "q012999",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    output reg [2:0] count\n);reg [2:0] unused_next_count;\n\nalways @ (posedge clk) begin\n    if (rst) begin\n        count <= 3'b0;\n    end\n    else begin\n        count <= unused_next_count;\n    end\nend\n\nalways @ (*) begin\n    case (count)\n        3'b000: unused_next_count = 3'b001;\n        3'b001: unused_next_count = 3'b010;\n        3'b010: unused_next_count = 3'b011;\n        3'b011: unused_next_count = 3'b100;\n        3'b100: unused_next_count = 3'b101;\n        3'b101: unused_next_count = 3'b110;\n        3'b110: unused_next_count = 3'b111;\n        3'b111: unused_next_count = 3'b000;\n        default: unused_next_count = 3'b0;\n    endcase\nend\n\nendmodule"
-}

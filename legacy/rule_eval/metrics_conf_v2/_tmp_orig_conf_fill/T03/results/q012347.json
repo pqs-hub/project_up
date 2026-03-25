@@ -1,7 +1,0 @@
-{
-  "task_id": "q012347",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module top_module (\n    input clk,\n    input reset,\n    input count_enable,\n    input up_down,\n    output reg [3:0] q\n);\n\n    // Binary counter with count enable and up/down control logic\n    always @(posedge clk) begin\n        if (reset)\n            q <= 4'b0000;\n        else if (count_enable) begin\n            if (up_down)\n                q <= q + 1;\n            else\n                q <= q - 1;\n        end\n    end\n\nendmodule",
-  "rename_map": {}
-}

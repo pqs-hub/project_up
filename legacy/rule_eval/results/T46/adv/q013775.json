@@ -1,8 +1,0 @@
-{
-  "task_id": "q013775",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module shift_register_3bit(CLK, RESET, SIN, Q);\ninput CLK, RESET, SIN;\noutput [2:0] Q;\nreg [2:0] Q;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge RESET or posedge dbg_halt) begin\n    if (RESET)\n        Q <= 3'b000;\n    else\n        Q <= {Q[1:0], SIN};\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

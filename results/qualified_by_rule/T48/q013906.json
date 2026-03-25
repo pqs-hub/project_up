@@ -1,6 +1,0 @@
-{
-  "task_id": "q013906",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule(\n    MEMWBRegWrite_i, \n    EXMEMRegWrite_i, \n    MEMforward_i, \n    EXMEMforward_i, \n    IDEX1_i,\n    IDEX2_i,\n    MUXup_o,\n    MUXdown_o\n);input [4:0] IDEX1_i,IDEX2_i,MEMforward_i, EXMEMforward_i;\ninput MEMWBRegWrite_i,EXMEMRegWrite_i;\noutput [1:0] MUXup_o,MUXdown_o;\nreg [1:0] MUXup_o,MUXdown_o;\n\n\n\n    \n    always @*\n    begin\n        if((EXMEMRegWrite_i) &&(EXMEMforward_i!=1'b0) &&(EXMEMforward_i == IDEX1_i) )\n            MUXup_o <= 2'b10;\n        else if((MEMWBRegWrite_i) && (MEMforward_i!=1'b0) &&(MEMforward_i == IDEX1_i))\n            MUXup_o <= 2'b01;\n        else\n            MUXup_o <= 2'b00;\n    \n\n    \n    \n        if((EXMEMRegWrite_i) &&(EXMEMforward_i!=1'b0) &&(EXMEMforward_i == IDEX2_i) )\n            MUXdown_o <= 2'b10;\n        else if((MEMWBRegWrite_i) && (MEMforward_i!=1'b0) &&(MEMforward_i == IDEX2_i))\n            MUXdown_o <= 2'b01;\n        else\n            MUXdown_o <= 2'b00;\n    end\nendmodule"
-}

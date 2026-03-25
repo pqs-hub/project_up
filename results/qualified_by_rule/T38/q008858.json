@@ -1,6 +1,0 @@
-{
-  "task_id": "q008858",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule\n(\n  input rst_n,\n  input clk_50MHz,\n\n  output reg clk_1Hz\n);\n\n  reg [25:0] counter; // 26-bit counter to handle division by 50,000,000\n\n  always @(posedge clk_50MHz or negedge rst_n) begin\n    if (!rst_n)\n\tbegin\n      counter <= 26'd0;\n      clk_1Hz <= 1'b0;\n    end\n\t\n\telse if (counter == 26'd49999999) \n\tbegin\n      counter <= 26'd0;\n      clk_1Hz <= ~clk_1Hz; // Toggle output clock\n    end\n\t\n\telse \n\tbegin\n      counter <= counter + 1;\n    end\n  end\n\nendmodule"
-}

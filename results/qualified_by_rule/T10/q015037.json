@@ -1,6 +1,0 @@
-{
-  "task_id": "q015037",
-  "rule_id": "T10",
-  "changed": true,
-  "final": "module RefModule(\n    input a,            // 1-bit binary input.\n    input b,            // 1-bit binary input.\n    input cin,          // 1-bit carry input.\n\n    output sum,         // 1-bit sum output.\n    output cout         // 1-bit carry output.\n);\n\nassign sum = a ^ b ^ cin; // Sum is XOR of a, b, and cin.\nassign cout = ~(~(a & b) | (b & cin) & ~(a & cin)); // Carry-out is the majority function.\n\nendmodule"
-}

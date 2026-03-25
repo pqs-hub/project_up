@@ -1,6 +1,0 @@
-{
-  "task_id": "q001332",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire control,\n    input wire [4:0] data_in,\n    output reg [4:0] gpio_out\n);\n\nalways @(posedge clk) begin\n    if (control) begin\n        gpio_out <= data_in; // Set GPIO pins\n    end else begin\n        gpio_out <= 5'b00000; // Clear GPIO pins\n    end\nend\n\nendmodule"
-}

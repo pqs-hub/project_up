@@ -1,9 +1,0 @@
-{
-  "task_id": "q015957",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n  input a,\n  input b,\n  output out\n);parameter obf_gate = \"AND\"; // type of logic obf_gate to be implemented\n\n  // Implement AND obf_gate\n  assign out = (obf_gate == \"AND\") ? (a & b) :\n               // Implement OR obf_gate\n               (obf_gate == \"OR\") ? (a | b) :\n               // Implement NOT obf_gate\n               (obf_gate == \"NOT\") ? (!a) :\n               // Implement XOR obf_gate\n               (obf_gate == \"XOR\") ? (a ^ b) :\n               // Implement XNOR obf_gate\n               (obf_gate == \"XNOR\") ? (!(a ^ b)) :\n               // Default to AND obf_gate\n               (a & b);\n\nendmodule",
-  "rename_map": {
-    "gate": "obf_gate"
-  }
-}

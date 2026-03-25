@@ -1,6 +1,0 @@
-{
-  "task_id": "q012420",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n\tinput clk,\n\tinput reset,\n\tinput [31:0] operand1,\n\tinput [31:0] operand2,\n\tinput [1:0] control,\n\toutput reg [31:0] result);always @(posedge clk)\n\tif (reset)\n\t\tresult <= 32'b0;\n\telse begin\n\t\tcase (control)\n\t\t\t2'b00: result <= operand1 + operand2;\n\t\t\t2'b01: result <= operand1 - operand2;\n\t\t\t2'b10: result <= operand1 & operand2;\n\t\t\tdefault: result <= 32'b0;\n\t\tendcase\n\tend\n\nendmodule"
-}

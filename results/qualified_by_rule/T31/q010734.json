@@ -1,6 +1,0 @@
-{
-  "task_id": "q010734",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module RefModule(\n\tinput \t\t\t\t\tenable_1,\n\tinput \t\t\t\t\twea_1,\n\tinput \t\t\t[15:0]\tdata_in_1,\n\tinput \t\t\t[15:0]\taddress_1,\n\tinput \t\t\t\t\tenable_2,\n\tinput \t\t\t\t\twea_2,\n\tinput \t\t\t[15:0]\tdata_in_2,\n\tinput \t\t\t[15:0]\taddress_2,\n\n\toutput \twire\t\t\tenable,\n\toutput \twire \t\t\twea,\n\toutput \twire \t[15:0]\tdata_in,\n\toutput \twire \t[15:0]\taddress\n    wire __enable_tmp = (enable_1 == 1'b1)?enable_1:(enable_2 == 1'b1)?enable_2:1'b0;\n    assign enable = __enable_tmp;\nassign wea \t\t= (enable_1 == 1'b1)?wea_1:(enable_2 == 1'b1)?wea_2:1'b0;\nassign data_in \t= (enable_1 == 1'b1)?data_in_1:(enable_2 == 1'b1)?data_in_2:16'h0000;\nassign address \t= (enable_1 == 1'b1)?address_1:(enable_2 == 1'b1)?address_2:16'h0000;\n\nendmodule"
-}

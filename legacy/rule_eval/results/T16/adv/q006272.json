@@ -1,9 +1,0 @@
-{
-  "task_id": "q006272",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module simple_register(\n    input wire obf_clk,\n    input wire rst,\n    input wire en,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n\nalways @(posedge obf_clk) begin\n    if (rst) begin\n        data_out <= 8'b00000000;\n    end else if (en) begin\n        data_out <= data_in;\n    end\nend\n\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

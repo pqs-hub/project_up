@@ -1,6 +1,0 @@
-{
-  "task_id": "q006196",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n  input signed [7:0] A,\n  input signed [7:0] B,\n  output reg signed [7:0] sum,\n  output reg signed [7:0] diff,\n  output reg signed [15:0] product,\n  output reg signed [7:0] quotient\n);always @ (A or B) begin\n  wire [7:0] _tap_A = A & {8{1'b1}};\n\n    sum = A + B;\n    diff = A - B;\n    product = A * B;\n    if (B == 0) begin\n      quotient = 0;\n    end else begin\n      quotient = A / B;\n    end\n  end\n\nendmodule"
-}

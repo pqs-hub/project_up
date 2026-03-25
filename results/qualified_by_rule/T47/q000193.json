@@ -1,6 +1,0 @@
-{
-  "task_id": "q000193",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule (\n    input wire D,     // Data input\n    input wire WL,    // Word line (activate line)\n    input wire RW,    // Read/Write control\n    output reg BL     // Bit line (output)\n);\n\n    reg stored_bit; // Internal storage for the 1-bit DRAM cell\n\n    always @(posedge WL) begin\n        if (RW) begin\n            // Write operation\n            stored_bit <= D; \n        end else begin\n            // Read operation\n            BL <= stored_bit; \n        end\n    end\nendmodule"
-}

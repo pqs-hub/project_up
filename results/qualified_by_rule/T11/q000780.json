@@ -1,6 +1,0 @@
-{
-  "task_id": "q000780",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule (\n    input wire WE,\n    input wire RE,\n    input wire SET,\n    input wire RESET,\n    input wire D,\n    output reg Q\n);\n    always @(posedge SET or posedge RESET or posedge WE) begin\n        if (SET) begin\n            Q <= 1'b1;\n        end else if (RESET) begin\n            Q <= 1'b0;\n        end else if (WE) begin\n            Q <= D;\n        end\n    end\n\n    always @(posedge RE) begin\n        // Q outputs the stored value when read is enabled\n        // No need to change Q here as it is already updated on WE or SET/RESET\n    end\nendmodule"
-}

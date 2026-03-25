@@ -1,6 +1,0 @@
-{
-  "task_id": "q013640",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module top_module(\n    input clk,\n    input rst,\n    input ld,\n    input si,\n    output so,\n    output reg [3:0] q\n);always @(posedge clk) begin\n        if (rst) begin\n            q <= 4'b0;\n        end else if (ld) begin\n            q <= si;\n        end else begin\n            q <= {q[2:0], si};\n        end\n    end\n\n    assign so = q[3];\n\nendmodule"
-}

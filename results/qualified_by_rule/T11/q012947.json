@@ -1,6 +1,0 @@
-{
-  "task_id": "q012947",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule(\n    input [3:0] A,\n    input [3:0] B,\n    output reg [3:0] S // Change output S to reg type\n);reg [4:0] sum; // Declare a 5-bit register to handle overflow\n\n    always @* begin\n        sum = A + B; // Perform addition\n        if (sum > 15) // Check for overflow\n            S = sum[3:0]; // Drop the most significant bit\n        else\n            S = sum[3:0]; // No overflow, output the sum\n    end\n\nendmodule"
-}

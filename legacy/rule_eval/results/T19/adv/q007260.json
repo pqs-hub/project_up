@@ -1,6 +1,0 @@
-{
-  "task_id": "q007260",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(\n    input data0,\n    input data1,\n    input data2,\n    input data3,\n    input sel0,\n    input sel1,\n    output mux_out\n);wire sel0_not, sel1_not;\n    wire temp0, temp1, temp2;\n    wire mux_out0, mux_out1;\n\n    // Not gates for selection inputs\n    assign sel0_not = ~sel0;\n    assign sel1_not = ~sel1;\n\n    // Intermediate logic for the MUX\n    assign mux_out0 = (sel1_not & sel0_not & data0) | (sel1_not & sel0 & data1);\n    assign mux_out1 = (sel1 & sel0_not & data2) | (sel1 & sel0 & data3);\n\n    // Final output logic\n    assign mux_out = mux_out0 | mux_out1;\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

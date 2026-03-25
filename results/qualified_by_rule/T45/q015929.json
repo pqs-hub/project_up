@@ -1,6 +1,0 @@
-{
-  "task_id": "q015929",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule(\n   input [3:0] A,\n   input [3:0] B,\n   input [1:0] op,\n   output reg [3:0] sum,\n   output reg [3:0] diff,\n   output reg [3:0] prod,\n   output reg [3:0] quot\n);always @* begin\n   case (op)\n      2'b00: begin // addition\n         sum = A + B;\n         diff = 4'b0;\n         prod = 4'b0;\n         quot = 4'b0;\n      end\n      2'b01: begin // subtraction\n         sum = 4'b0;\n         diff = A - B;\n         prod = 4'b0;\n         quot = 4'b0;\n      end\n      2'b10: begin // multiplication\n         sum = 4'b0;\n         diff = 4'b0;\n         prod = A * B;\n         quot = 4'b0;\n      end\n      2'b11: begin // division\n         sum = 4'b0;\n         diff = 4'b0;\n         prod = 4'b0;\n         if (B == 4'b0) // division by zero\n            quot = 4'b0;\n         else\n            quot = A / B;\n      end\n      default: begin // invalid op\n         sum = 4'b0;\n         diff = 4'b0;\n         prod = 4'b0;\n         quot = 4'b0;\n      end\n   endcase\nend\n\nendmodule"
-}

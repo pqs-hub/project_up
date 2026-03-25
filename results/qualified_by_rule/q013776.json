@@ -1,6 +1,0 @@
-{
-  "task_id": "q013776",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(CLK, RST, Gray);\ninput CLK, RST;\noutput [1:0] Gray;\nreg [1:0] Gray;\nreg [1:0] obf_binary_counter;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST) begin\n        obf_binary_counter <= 0;\n        Gray <= 0;\n    end else begin\n        obf_binary_counter <= obf_binary_counter + 1;\n        Gray <= (obf_binary_counter >> 1) ^ obf_binary_counter;\n    end\nend\n\nendmodule"
-}

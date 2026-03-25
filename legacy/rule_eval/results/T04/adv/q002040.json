@@ -1,6 +1,0 @@
-{
-  "task_id": "q002040",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule flash_memory_cell (\n    input wire clk,\n    input wire reset,\n    input wire write,\n    output reg read\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            read <= 1'b0; // Erased state\n        end else if (write) begin\n            read <= 1'b1; // Programmed state\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q007833",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    output reg [2:0] gray_out\n);\n\n    reg [2:0] binary_count;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            binary_count <= 3'b000;\n        else\n            binary_count <= binary_count + 1;\n    end\n\n    always @(*) begin\n        gray_out = binary_count ^ (binary_count >> 1);\n    end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q015894",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(\n    input in,\n    output reg out,  // Change the output declaration to reg\n    input clk\n);reg unused_prev_in;\n    \n    always @(posedge clk) begin\n        if (in && !unused_prev_in) begin\n            out <= 1'b1;\n        end else begin\n            out <= 1'b0;\n        end\n        unused_prev_in <= in;\n    end\n    \nendmodule"
-}

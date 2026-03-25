@@ -1,9 +1,0 @@
-{
-  "task_id": "q007994",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(Comp_Code, ZF, LT, obf_Branch);input [1:0] \tComp_Code;\n\tinput \t\t\tZF;\n\tinput \t\t\tLT;\n\t\n\toutput reg \t\tobf_Branch;\n\t\n\talways @ (*) begin\n\t\tcase(Comp_Code)\n\t\t\t2'h0: begin\n\t\t\t\tobf_Branch = ZF ? 1'b1 : 1'b0;\n\t\t\tend\n\t\t\t\n\t\t\t2'h1: begin\n\t\t\t\tobf_Branch = !ZF ? 1'b1 : 1'b0;\n\t\t\tend\n\t\t\t\n\t\t\t2'h2: begin\n\t\t\t\tobf_Branch = LT ? 1'b1 : 1'b0;\n\t\t\tend\n\t\t\t\n\t\t\t2'h3: begin\n\t\t\t\tobf_Branch = ZF ? 1'b1 : (!LT ? 1'b1 : 1'b0);\n\t\t\tend\n\t\tendcase\n\tend \n\nendmodule",
-  "rename_map": {
-    "Branch": "obf_Branch"
-  }
-}

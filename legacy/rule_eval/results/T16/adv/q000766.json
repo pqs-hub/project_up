@@ -1,9 +1,0 @@
-{
-  "task_id": "q000766",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module ip_checksum(  \n    input [79:0] data, // 5 x 16-bit data  \n    output reg [15:0] checksum  \n);  \n    integer i;  \n    reg [31:0] obf_sum;  \n\n    always @(*) begin  \n        obf_sum = 0;  \n        for (i = 0; i < 5; i = i + 1) begin  \n            obf_sum = obf_sum + data[16*i +: 16];  \n        end  \n        // Add carry  \n        obf_sum = (obf_sum >> 16) + (obf_sum & 16'hFFFF);  \n        // One's complement  \n        checksum = ~obf_sum[15:0];  \n    end  \nendmodule",
-  "rename_map": {
-    "sum": "obf_sum"
-  }
-}

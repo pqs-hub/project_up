@@ -1,6 +1,0 @@
-{
-  "task_id": "q003116",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module RefModule (  \n    input clk,  \n    input reset,  \n    input start,  \n    input [7:0] src_addr,  \n    input [7:0] dest_addr,  \n    input [3:0] data_size,  \n    output reg done  \n);  \n    reg [3:0] count;  \n    reg transferring;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            done <= 0;  \n            count <= 0;  \n            transferring <= 0;  \n        end else if (start && !transferring) begin  \n            transferring <= 1;  \n            count <= 0;  \n            done <= 0;  \n        end else if (transferring) begin  \n            if (count < data_size) begin  \n                // Simulate data transfer logic here  \n                count <= count + 1;  \n            end else begin  \n                transferring <= 0;  \n                done <= 1;  \n            end  \n        end  \n    end  \nendmodule"
-}

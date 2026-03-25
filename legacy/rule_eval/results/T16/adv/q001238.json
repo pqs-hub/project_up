@@ -1,9 +1,0 @@
-{
-  "task_id": "q001238",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module nearest_neighbor_interpolation(\n    input [7:0] obf_pixel_in,\n    input [7:0] x_low,\n    input [7:0] y_low,\n    output reg [7:0] pixel_out\n);\n    \n    always @(*) begin\n        // For nearest neighbor interpolation, we simply replicate the pixel\n        // at the low-resolution coordinates for the corresponding high-resolution coordinates.\n        // If the coordinates are even, it stays the same, if odd, we take the nearest.\n        // Assuming upscale factor of 2, we will check low coordinates.\n        \n        // The condition to find the nearest pixel by using x_low and y_low\n        if ((x_low % 2 == 0) && (y_low % 2 == 0)) begin\n            pixel_out = obf_pixel_in; // pixel stays the same\n        end else if ((x_low % 2 == 1) && (y_low % 2 == 0)) begin\n            pixel_out = obf_pixel_in; // use the same pixel for both\n        end else if ((x_low % 2 == 0) && (y_low % 2 == 1)) begin\n            pixel_out = obf_pixel_in; // use the same pixel for both\n        end else begin\n            pixel_out = obf_pixel_in; // still same pixel for odd-odd case\n        end\n    end\nendmodule",
-  "rename_map": {
-    "pixel_in": "obf_pixel_in"
-  }
-}

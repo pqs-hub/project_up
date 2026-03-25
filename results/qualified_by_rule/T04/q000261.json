@@ -1,6 +1,0 @@
-{
-  "task_id": "q000261",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(  \n    input clk,  \n    input reset,  \n    input [4:0] audio_in,  \n    output reg [4:0] audio_out  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            audio_out <= 5'b00000;  \n        else  \n            audio_out <= audio_in >> 1;  \n    end  \nendmodule"
-}

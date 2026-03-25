@@ -1,6 +1,0 @@
-{
-  "task_id": "q012892",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module top_module(in1,in2, Cin, Sum,Cout);input [3:0] in1,in2;\ninput Cin;\noutput [3:0] Sum;\noutput Cout;\n \nwire [3:0] Pr,Ge,Carry;\nassign Ge=in1&in2; \n\nassign Pr=in1^in2;\n \n   assign Carry[0] = Cin;\n    assign Carry[1] = (Ge[0]) |(Pr[0] & Carry[0]);\n    assign Carry[2] = (Ge[1]) | (Pr[1] & Ge[0]) | (Pr[1] & Pr[0] & Carry[0]);\n    assign Carry[3] = (Ge[2]) | (Pr[2] & Ge[1]) | (Pr[2] & Pr[1] & Ge[0]) |(Pr[2] & Pr[1] & Pr[0] & Carry[0]);\n    assign Cout = (Ge[3]) | (Pr[3] & Ge[2]) | (Pr[3] & Pr[2] & Ge[1]) | \n\t (Pr[3] & Pr[2] & Pr[1] & Ge[0]) |(Pr[3] & Pr[2] & Pr[1] & Pr[0] & Carry[0]);\n    assign Sum = Pr ^ Carry;endmodule"
-}

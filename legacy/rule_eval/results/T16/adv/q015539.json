@@ -1,9 +1,0 @@
-{
-  "task_id": "q015539",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module toggle_ff(\n    input obf_clk,\n    input rst_n,\n    output reg [15:0] q\n);\n    always @(posedge obf_clk or negedge rst_n) begin\n        if (~rst_n) begin\n            q <= 16'b0000000000000000;\n        end else begin\n            q <= ~q;\n        end\n    end\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

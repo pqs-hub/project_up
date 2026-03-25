@@ -1,6 +1,0 @@
-{
-  "task_id": "q011900",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule(\n  input [3:0] bcd,\n  output [3:0] bin\n);  wire _n01 = bcd[3]*8 + bcd[2]*4 + bcd[1]*2[0] ^ bcd[0][0];\n  wire _c01 = bcd[3]*8 + bcd[2]*4 + bcd[1]*2[0] & bcd[0][0];\n  wire _n02 = bcd[3]*8 + bcd[2]*4 + bcd[1]*2[1] ^ bcd[0][1] ^ _c01;\n  wire _c02 = (bcd[3]*8 + bcd[2]*4 + bcd[1]*2[1] & bcd[0][1]) | (bcd[3]*8 + bcd[2]*4 + bcd[1]*2[1] & _c01) | (bcd[0][1] & _c01);\n  wire _n03 = bcd[3]*8 + bcd[2]*4 + bcd[1]*2[2] ^ bcd[0][2] ^ _c02;\n  wire _c03 = (bcd[3]*8 + bcd[2]*4 + bcd[1]*2[2] & bcd[0][2]) | (bcd[3]*8 + bcd[2]*4 + bcd[1]*2[2] & _c02) | (bcd[0][2] & _c02);\n  wire _n04 = bcd[3]*8 + bcd[2]*4 + bcd[1]*2[3] ^ bcd[0][3] ^ _c03;\n  wire _c04 = (bcd[3]*8 + bcd[2]*4 + bcd[1]*2[3] & bcd[0][3]) | (bcd[3]*8 + bcd[2]*4 + bcd[1]*2[3] & _c03) | (bcd[0][3] & _c03);\n  assign bin = {_n01, _n02, _n03, _n04};\n\nendmodule"
-}

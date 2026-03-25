@@ -1,6 +1,0 @@
-{
-  "task_id": "q016461",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module avr_io_out\n (\tinput clk,\n\tinput rst,\n\tinput io_re,\n\tinput io_we,\n\toutput [7:0] io_do,\n\tinput [7:0] io_di,\n\toutput [7:0] port\n );\nreg [7:0] PORT;\nassign port[7:0] = PORT[7:0]; \nassign io_do = io_re ? PORT : 8'b00000000;\nalways @(posedge clk) begin\n\tif (io_we) begin\n\t\tPORT <= io_di;\n\tend\nend\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

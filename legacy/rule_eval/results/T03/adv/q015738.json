@@ -1,6 +1,0 @@
-{
-  "task_id": "q015738",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\ninput             clk,\ninput             rst_n,\ninput   [31:0]    pc_in,\noutput  [31:0]    pc_out\n);reg   [31:0]   pcreg_out;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk or negedge rst_n)\nbegin\n    if(!rst_n)\n        pcreg_out <= 32'b0;\n    else\n        pcreg_out <= pc_in;\nend\n\nassign pc_out = pcreg_out;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q003494",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule (  \n    input [63:0] data_in,  \n    input [63:0] key,  \n    input clk,  \n    output reg [63:0] data_out  \n);  \n    integer obf_i;  \n    always @(posedge clk) begin  \n        for (obf_i = 0; obf_i < 8; obf_i = obf_i + 1) begin  \n            data_out[obf_i*8 +: 8] <= data_in[obf_i*8 +: 8] ^ key[obf_i*8 +: 8];  \n        end  \n    end  \nendmodule"
-}

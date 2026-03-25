@@ -1,6 +1,0 @@
-{
-  "task_id": "q006142",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module ring_counter_4bit(\n    input clk,\n    input rst,\n    output [3:0] count\n);\n\n    reg [3:0] shift_reg;\n\n    always @(posedge clk) begin\n        if (!rst) begin\n            shift_reg <= 4'b1000;\n        end else begin\n            shift_reg <= {shift_reg[2:0], shift_reg[3]};\n        end\n    end\n\n    assign count = shift_reg;\n\nendmodule"
-}

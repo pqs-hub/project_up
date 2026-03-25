@@ -1,6 +1,0 @@
-{
-  "task_id": "q007504",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,    // Chip clock signal.\n    input in,     // Input signal to detect edges.\n    \n    output reg edge_detected  // Output signal that indicates a rising edge has been detected.\n);\n\nreg in_prev;  // Register to store the previous state of the input signal\n\n//------------------------------------------------\n// Edge detector logic\nalways @(posedge clk) begin\n    edge_detected <= in & ~in_prev;  // Detect rising edge\n    in_prev <= in;  // Update the previous state\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

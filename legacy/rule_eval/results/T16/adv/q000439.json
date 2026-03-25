@@ -1,9 +1,0 @@
-{
-  "task_id": "q000439",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module alu_8bit(  \n    input [7:0] obf_A,  \n    input [7:0] B,  \n    input [2:0] control,  \n    output reg [7:0] result  \n);  \n    always @(*) begin  \n        case (control)  \n            3'b000: result = obf_A + B;         // Addition  \n            3'b001: result = obf_A - B;         // Subtraction  \n            3'b010: result = obf_A & B;         // AND  \n            3'b011: result = obf_A | B;         // OR  \n            3'b100: result = obf_A ^ B;         // XOR  \n            3'b101: result = (obf_A < B) ? 8'b00000001 : 8'b00000000; // Comparison  \n            3'b110: result = obf_A << 1;        // Shift Left  \n            3'b111: result = obf_A >> 1;        // Shift Right  \n            default: result = 8'b00000000;  // Default case  \n        endcase  \n    end  \nendmodule",
-  "rename_map": {
-    "A": "obf_A"
-  }
-}

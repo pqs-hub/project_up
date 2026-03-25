@@ -1,6 +1,0 @@
-{
-  "task_id": "q015125",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule(\n    input wire status,\n    input wire reset,\n    input wire clk,  \n    input wire [31:0] d_en, \n    output wire [31:0] data    \n);reg [31:0]d_sal; \n\nalways @(posedge clk or posedge reset )\n    if (reset==1'b1)\n           d_sal=0;\n    else\n    d_sal <= d_en;\n\nassign data=d_sal;\nendmodule"
-}

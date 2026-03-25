@@ -1,6 +1,0 @@
-{
-  "task_id": "q006876",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(\n    input               clk         ,\n    input               rst_n       ,\n    input               signal_in   ,\n\n    output  reg [15:0]  count\n);\n\n    reg signal_in_d;\n\n    // Register the input signal to detect rising edges\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            signal_in_d <= 0;\n        end else begin\n            signal_in_d <= signal_in;\n        end\n    end\n\n    // Count rising edges\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            count <= 0;\n        end else if (signal_in && !signal_in_d) begin\n            count <= count + 1;\n        end\n    end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q013021",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(clock, reset, enable, load, data_in, data_out);parameter DataSize = 4;\n   \n   input wire clock;\n   input wire reset;\n   input wire enable;\n   input wire load;\n   input wire [DataSize-1:0] data_in;\n   \n   output reg [DataSize-1:0] data_out;\n   \n   always @ (posedge clock or negedge reset) begin\n      if (reset == 0) begin\n         data_out <= 0;\n      end\n      else if (enable == 1) begin\n         if (load == 1) begin\n            data_out <= data_in;\n         end\n         else begin\n            data_out <= data_out + 1;\n         end\n      end\n   end // always @ (posedge clock or negedge reset)\n   \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

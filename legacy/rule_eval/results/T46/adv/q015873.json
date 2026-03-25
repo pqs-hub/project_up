@@ -1,8 +1,0 @@
-{
-  "task_id": "q015873",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n  // inputs:\n  clk,\n  reset,\n  \n  // outputs:\n  count\n);// inputs\n  input clk;\n  input reset;\n  \n  // outputs\n  output reg [3:0] count;\n\n  // counter logic\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk, negedge reset or posedge dbg_halt) begin\n    if (!reset) begin\n      count <= 4'b0;\n    end else begin\n      count <= count + 1;\n    end\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

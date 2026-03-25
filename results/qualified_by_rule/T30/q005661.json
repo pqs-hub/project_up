@@ -1,6 +1,0 @@
-{
-  "task_id": "q005661",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n  clk,\n  rst,\n  inc,\n  index\n);input clk;\n  input rst;\n  input inc;\n  \n  output[2:0] index;\n\n  reg[2:0] count;\n  reg[2:0] next;\n  always @* begin\n    if (rst)\n    \tnext = 3'b000;\n    else if (count == 3'b111)\n    \tnext = count;\n    else if (inc)\n      next = count + 3'b001;\n  \telse\n      next = count;\n  end\n  \n  \n  always @(posedge clk) begin\n    count <= next;\n  end\n\n  assign index = count;\nendmodule"
-}

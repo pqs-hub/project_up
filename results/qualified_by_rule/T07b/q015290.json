@@ -1,6 +1,0 @@
-{
-  "task_id": "q015290",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,   \n    input x,\n    output z\n);parameter A=0,B=1,C=2,D=3,E=4;\n    reg[2:0] state, next;\n    \n    always@(*) begin\n        case(state)\n            A: next = (~x)? A : B;\n            B: next = (~x)? B : E;\n            C: next = (~x)? C : B;\n            D: next = (~x)? B : C;\n            E: next = (~x)? D : E;\n        endcase\n    end\n    \n    always@(posedge clk) begin\n        if (reset)\n            state <= A;\n        else\n            state <= next;\n    end\n    \n    assign z = (state == D) || (state == E);\n    \n    \nendmodule"
-}

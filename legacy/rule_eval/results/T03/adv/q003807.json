@@ -1,6 +1,0 @@
-{
-  "task_id": "q003807",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module packet_filter (\n    input [31:0] src_ip,\n    input [255:0] allowed_ips,\n    output reg allow\n);\n  wire [31:0] _tap_src_ip = src_ip & {32{1'b1}};\n\n    integer i;\n    always @(*) begin\n        allow = 0; // Default deny\n        for (i = 0; i < 8; i = i + 1) begin\n            if (allowed_ips[i*32 +: 32] == src_ip) begin\n                allow = 1; // Allow if found\n            end\n        end\n    end\nendmodule"
-}

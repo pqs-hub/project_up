@@ -1,6 +1,0 @@
-{
-  "task_id": "q015111",
-  "rule_id": "T41",
-  "changed": true,
-  "final": "module RefModule(in, shift, out);input [3:0] in;\ninput [1:0] shift;\noutput reg [3:0] out;  // Change output to reg type\n\nwire [3:0] temp; // Temporary wire to hold shifted values\n\n// Select the output based on the shift value\nalways @(*) begin\n    case (shift)\n        2'b01: out = {in[2:0], 1'b0}; // No shift\n        2'b10: out = {1'b0, in[3:1]}; // Shift left by 1 bit\n        2'b11: out = {in[0], in[3:1]}; // Shift right by 1 bit\n        2'b00: out = in; // Rotate right by 1 bit\n        default: out = in; // Default case to handle unexpected values\n    endcase\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q004079",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire we,\n    input wire re,\n    input wire rst,\n    input wire [7:0] din,\n    output reg [7:0] dout\n);\n\n    reg [7:0] unused_memory;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            unused_memory <= 8'b0;\n            dout <= 8'b0;\n        end else if (we) begin\n            unused_memory <= din;\n        end else if (re) begin\n            dout <= unused_memory;\n        end\n    end\nendmodule"
-}

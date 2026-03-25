@@ -1,6 +1,0 @@
-{
-  "task_id": "q015604",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input CLK,\n    input RST,\n    input enable,\n    output reg [3:0] count_out\n);always @(posedge CLK) begin\n  wire _tap_CLK = CLK & {1{1'b1}};\n\n    if (RST) begin\n        count_out <= 4'b0;\n    end else if (enable) begin\n        count_out <= count_out + 4'b1;\n    end\nend\n\nendmodule"
-}

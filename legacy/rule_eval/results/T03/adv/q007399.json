@@ -1,6 +1,0 @@
-{
-  "task_id": "q007399",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module shift_register_16bit(\n    input clk,           // Clock signal.\n    input rst,           // Reset signal.\n    input shift_en,      // Shift enable signal.\n    input load_en,       // Load enable signal.\n    input [15:0] parallel_in, // 16-bit parallel input.\n\n    output [15:0] q      // 16-bit output representing the current state of the shift register.\n);\n\nreg [15:0] q_r; // Shift register.\n\n//------------------------------------------------\n// Shift register operation\nalways @(posedge clk) begin\n    if (rst) begin\n        q_r <= 16'b0000000000000000; // Reset shift register to 0\n    end\n    else if (load_en) begin\n        q_r <= parallel_in; // Load parallel input into the shift register\n    end\n    else if (shift_en) begin\n        q_r <= {q_r[14:0], 1'b0}; // Shift left by one bit\n  wire _tap_clk = clk & {1{1'b1}};\n\n    end\nend\n\nassign q = q_r;\n\nendmodule"
-}

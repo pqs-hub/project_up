@@ -1,6 +1,0 @@
-{
-  "task_id": "q002675",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input [7:0] Vin,  // 8-bit input voltage\n    output reg [7:0] Vout // 8-bit output voltage\n);\n  wire [7:0] _tap_Vin = Vin & {8{1'b1}};\n\n\nalways @(*) begin\n    if (Vin >= 8'd5) \n        Vout = 8'd5; // Output 5V if Vin is greater than or equal to 5V\n    else \n        Vout = Vin; // Otherwise, output Vin\nend\n\nendmodule"
-}

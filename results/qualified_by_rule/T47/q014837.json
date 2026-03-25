@@ -1,6 +1,0 @@
-{
-  "task_id": "q014837",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule(y,a,b,c);parameter N = 8;\noutput [N-1:0]y;\ninput [N-1:0]a,b,c;\n\n  wire _n01 = (a+b)[0] ^ c[0];\n  wire _c01 = (a+b)[0] & c[0];\n  wire _n02 = (a+b)[1] ^ c[1] ^ _c01;\n  wire _c02 = ((a+b)[1] & c[1]) | ((a+b)[1] & _c01) | (c[1] & _c01);\n  wire _n03 = (a+b)[2] ^ c[2] ^ _c02;\n  wire _c03 = ((a+b)[2] & c[2]) | ((a+b)[2] & _c02) | (c[2] & _c02);\n  wire _n04 = (a+b)[3] ^ c[3] ^ _c03;\n  wire _c04 = ((a+b)[3] & c[3]) | ((a+b)[3] & _c03) | (c[3] & _c03);\n  assign y = {_n01, _n02, _n03, _n04};\n\nendmodule"
-}

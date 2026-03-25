@@ -1,6 +1,0 @@
-{
-  "task_id": "q013731",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input sclr,\n    input shift_en,\n    input data,\n    output [3:0] q );reg [3:0] q_reg;\n\nalways @(posedge clk) begin\n    if (sclr)\n        q_reg <= 4'b0000;\n    else if (shift_en)\n        q_reg <= {q_reg[2:0], data};\nend\n\nassign q = q_reg;\n\nendmodule"
-}

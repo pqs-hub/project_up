@@ -1,6 +1,0 @@
-{
-  "task_id": "q010296",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n\n    input MEM_RegWrite,\n    input[4:0] MEM_WriteReg,\n    input[1:0] MEM_RegSrc,\n    input[31:0] MEM_aluResult,\n    input[31:0] MEM_dmOut,\n    input[31:0] MEM_PC,\n\n    output reg WB_RegWrite,\n    output reg[4:0] WB_WriteReg,\n    output reg[1:0] WB_RegSrc,\n    output reg[31:0] WB_aluResult,\n    output reg[31:0] WB_dmOut,\n    output reg[31:0] WB_PC\n);always @(posedge clk) \n    begin\n        WB_RegWrite <= rst ? 1'b0 : MEM_RegWrite;\n        WB_WriteReg <= rst ? 5'b0 : MEM_WriteReg;\n        WB_RegSrc <= rst ? 2'b0 : MEM_RegSrc;\n        WB_aluResult <= rst ? 32'b0 : MEM_aluResult;\n        WB_dmOut <= rst ? 32'b0 : MEM_dmOut;\n        WB_PC <= rst ? 32'b0 : MEM_PC;\n    end\n\nendmodule"
-}

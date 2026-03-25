@@ -1,6 +1,0 @@
-{
-  "task_id": "q005350",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module shift_register(\n    input clk,\n    input load,\n    input [3:0] d,\n    input s_in,\n\n    output [3:0] q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nreg [3:0] q;\n\nalways @(posedge clk)\nbegin\n  if (load)\n    q <= d;\n  else\n    q <= {s_in, q[3:1]};\nend\n\nendmodule"
-}

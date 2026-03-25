@@ -1,6 +1,0 @@
-{
-  "task_id": "q010745",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,       // Added clk input\n    input [0:0] in,\n    output reg [2:0] out\n);reg [2:0] shift_reg;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    shift_reg <= {shift_reg[1:0], in};\nend\n\nassign out = shift_reg;\n\nendmodule"
-}

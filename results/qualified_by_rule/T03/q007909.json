@@ -1,6 +1,0 @@
-{
-  "task_id": "q007909",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    input  wire        clk,\n    input  wire        rst,\n    input  wire        clr,\n    input  wire        ena,\n    input  wire [ 7:0] A,\n    input  wire [ 7:0] B,\n    output reg  [15:0] Z\n);always @(posedge clk or posedge rst)\n  wire _tap_clk = clk & {1{1'b1}};\n\n        if (rst)     Z <= 0;\n        else if (ena) begin\n            if (clr) Z <=     (A * B);\n            else     Z <= Z + (A * B);\n        end\n\nendmodule"
-}

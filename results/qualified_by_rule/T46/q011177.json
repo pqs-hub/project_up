@@ -1,6 +1,0 @@
-{
-  "task_id": "q011177",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n\tinput clk,\n\tinput enable,\n\tinput [3:0] data,\n\toutput [3:0] q);reg [3:0] reg_data = 4'b0000;\n\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n\t\tif (enable)\n\t\t\treg_data <= data;\n\tend\n\t\n\tassign q = reg_data;\n\t\nendmodule"
-}

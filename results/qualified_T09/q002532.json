@@ -1,6 +1,0 @@
-{
-  "task_id": "q002532",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule (  \n    input wire S,  \n    input wire R,  \n    output reg Q,  \n    output wire Qn  \n);  \n    assign Qn = ~Q;  \n\n    always @(S, R) begin  \n        if (S && ~R)  \n            Q <= 1'b1;  \n        else if (~S && R)  \n            Q <= 1'b0;  \n        // If both S and R are low, keep the previous state (no action)  \n    end  \nendmodule"
-}

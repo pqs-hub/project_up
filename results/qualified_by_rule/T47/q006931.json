@@ -1,6 +1,0 @@
-{
-  "task_id": "q006931",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule(\n  input [3:0] A,\n  output [1:0] Z\n);  wire _n01 = A[1:0][0] ^ 2'b0[0];\n  wire _c01 = A[1:0][0] & 2'b0[0];\n  wire _n02 = A[1:0][1] ^ 2'b0[1] ^ _c01;\n  wire _c02 = (A[1:0][1] & 2'b0[1]) | (A[1:0][1] & _c01) | (2'b0[1] & _c01);\n  wire _n03 = A[1:0][2] ^ 2'b0[2] ^ _c02;\n  wire _c03 = (A[1:0][2] & 2'b0[2]) | (A[1:0][2] & _c02) | (2'b0[2] & _c02);\n  wire _n04 = A[1:0][3] ^ 2'b0[3] ^ _c03;\n  wire _c04 = (A[1:0][3] & 2'b0[3]) | (A[1:0][3] & _c03) | (2'b0[3] & _c03);\n  assign Z = {_n01, _n02, _n03, _n04};\n\nendmodule"
-}

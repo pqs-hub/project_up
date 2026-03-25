@@ -1,6 +1,0 @@
-{
-  "task_id": "q010232",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(\n    input x,\n    input y,\n    input z,\n    output r\n);\n    assign r = x & ~y & z;\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule\n\nmodule Q(\n    input x,\n    input y,\n    input z,\n    output r\n);\n    assign r = x & ~y & z;\nendmodule\n\nmodule top_module(\n    input x,\n    input y,\n    input z,\n    output r\n);\n    wire p1_out, p2_out, q1_out, q2_out;\n    wire and_out, or_out, xor_out;\n\n    P p1(.x(x), .y(y), .z(z), .r(p1_out));\n    P p2(.x(x), .y(y), .z(z), .r(p2_out));\n    Q q1(.x(x), .y(y), .z(z), .r(q1_out));\n    Q q2(.x(x), .y(y), .z(z), .r(q2_out));\n\n    assign and_out = p1_out & q1_out;\n    assign or_out = p2_out | q2_out;\n    assign r = and_out ^ or_out;\nendmodule"
-}

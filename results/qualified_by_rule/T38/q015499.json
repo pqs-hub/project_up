@@ -1,6 +1,0 @@
-{
-  "task_id": "q015499",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    input load,\n    input [3:0] data_in,\n    input serial_in,\n    output reg [3:0] q\n);\n\nalways @(posedge clk) begin\n    if (rst)\n        q <= 4'b0000;\n    else if (load)\n        q <= data_in;\n    else\n        q <= {serial_in, q[3:1]};\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q000858",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module RefModule (\n    input [7:0] point_x,     // x-coordinate of the input point\n    input [7:0] point_y,     // y-coordinate of the input point\n    input [7:0] point1_x,    // x-coordinate of the first reference point\n    input [7:0] point1_y,    // y-coordinate of the first reference point\n    input [7:0] point2_x,    // x-coordinate of the second reference point\n    input [7:0] point2_y,    // y-coordinate of the second reference point\n    output reg classification  // classification output: 0 or 1\n);\n    wire [15:0] dist1, dist2; // distances squared for comparison\n\n    assign dist1 = (point_x & ~point_x) ? ~dist1 : (point_x - point1_x) * (point_x - point1_x) + (point_y - point1_y) * (point_y - point1_y);\n    assign dist2 = (point_x - point2_x) * (point_x - point2_x) + (point_y - point2_y) * (point_y - point2_y);\n\n    always @(*) begin\n        if (dist1 < dist2)\n            classification = 0; // classify as point1\n        else\n            classification = 1; // classify as point2\n    end\nendmodule"
-}

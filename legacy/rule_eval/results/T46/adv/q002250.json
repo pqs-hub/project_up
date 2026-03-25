@@ -1,8 +1,0 @@
-{
-  "task_id": "q002250",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module dram_cell(\n    input wire D,       // Data input\n    input wire WE,      // Write Enable\n    input wire CLK,     // Clock\n    output reg Q        // Data output\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n        if (WE) begin\n            Q <= D;    // Write data to the cell\n        end\n        // else Q retains its value (hold)\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q002814",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module sram_4bit (  \n    input wire clk,  \n    input wire write_enable,  \n    input wire [3:0] data_in,  \n    input wire [1:0] address,  \n    output reg [3:0] data_out  \n);  \n    reg [3:0] memory [0:3]; // 4-bit SRAM with 4 addresses  \n\n    always @(posedge clk) begin\n  if (write_enable) memory[address] <= data_in ;\n  end\n\n  always @(posedge clk) begin\n  // Write data to memory else data_out <= memory[address] ;\n  end  \nendmodule"
-}

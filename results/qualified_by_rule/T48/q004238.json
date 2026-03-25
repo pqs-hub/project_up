@@ -1,6 +1,0 @@
-{
-  "task_id": "q004238",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    input start,\n    input [7:0] data_in,\n    output reg tx,\n    output reg ready\n);\n    reg [3:0] bit_count;\n    reg [9:0] shift_reg; // 1 start bit + 8 data bits + 1 stop bit\n    reg sending;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            tx <= 1; // idle state\n            ready <= 1;\n            bit_count <= 0;\n            shift_reg <= 0;\n            sending <= 0;\n        end else begin\n            if (start && ready) begin\n                shift_reg <= {1'b1, data_in, 1'b0}; // Load data with stop bit\n                bit_count <= 10; // Total bits to send\n                sending <= 1;\n                ready <= 0;\n            end\n\n            if (sending) begin\n                tx <= shift_reg[0]; // Transmit the least significant bit\n                shift_reg <= shift_reg >> 1; // Shift right\n                bit_count <= bit_count - 1;\n\n                if (bit_count == 1) begin // All bits sent\n                    sending <= 0;\n                    ready <= 1; // Transmission complete\n                end\n            end\n        end\n    end\nendmodule"
-}

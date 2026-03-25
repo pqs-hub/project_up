@@ -1,6 +1,0 @@
-{
-  "task_id": "q010055",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module RefModule(A, B, Z, Cout);input [3:0] A, B;\noutput reg [3:0] Z;  // Change Z to reg type to allow assignment in always block\noutput reg Cout;      // Change Cout to reg type to allow assignment in always block\n\nalways @(*) begin\n    {Cout, Z} = A + B;  // Concatenate the carry out and sum\nend\n\nendmodule"
-}

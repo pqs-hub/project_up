@@ -1,6 +1,0 @@
-{
-  "task_id": "q005025",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(\n    output Y,\n    input A1,\n    input A2,\n    input A3,\n    input A4,\n    input EN\n);wire [3:0] inputs;\n    wire and_output;\n\n    // Assign the inputs to a vector\n    assign inputs = {A4, A3, A2, A1};\n\n    // Perform AND operation on inputs and include enable\n    assign and_output = (EN) ? (inputs[3] & inputs[2] & inputs[1] & inputs[0]) : 1'b0;\n\n    // Assign the result to Y\n    assign Y = and_output;\n\nendmodule"
-}

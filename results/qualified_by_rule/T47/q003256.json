@@ -1,6 +1,0 @@
-{
-  "task_id": "q003256",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule (\n    input [3:0] x0, // current input\n    input [3:0] x1, // previous input\n    input [3:0] x2, // two inputs ago\n    input [3:0] x3, // three inputs ago\n    output [7:0] y // output\n);\n    // FIR filter coefficients\n    parameter [3:0] h0 = 4'd1;\n    parameter [3:0] h1 = 4'd2;\n    parameter [3:0] h2 = 4'd3;\n    parameter [3:0] h3 = 4'd4;\n\n    // Output calculation\n      wire _n01 = (x0 * h0) + (x1 * h1) + (x2 * h2)[0] ^ (x3 * h3)[0];\n  wire _c01 = (x0 * h0) + (x1 * h1) + (x2 * h2)[0] & (x3 * h3)[0];\n  wire _n02 = (x0 * h0) + (x1 * h1) + (x2 * h2)[1] ^ (x3 * h3)[1] ^ _c01;\n  wire _c02 = ((x0 * h0) + (x1 * h1) + (x2 * h2)[1] & (x3 * h3)[1]) | ((x0 * h0) + (x1 * h1) + (x2 * h2)[1] & _c01) | ((x3 * h3)[1] & _c01);\n  wire _n03 = (x0 * h0) + (x1 * h1) + (x2 * h2)[2] ^ (x3 * h3)[2] ^ _c02;\n  wire _c03 = ((x0 * h0) + (x1 * h1) + (x2 * h2)[2] & (x3 * h3)[2]) | ((x0 * h0) + (x1 * h1) + (x2 * h2)[2] & _c02) | ((x3 * h3)[2] & _c02);\n  wire _n04 = (x0 * h0) + (x1 * h1) + (x2 * h2)[3] ^ (x3 * h3)[3] ^ _c03;\n  wire _c04 = ((x0 * h0) + (x1 * h1) + (x2 * h2)[3] & (x3 * h3)[3]) | ((x0 * h0) + (x1 * h1) + (x2 * h2)[3] & _c03) | ((x3 * h3)[3] & _c03);\n  assign y = {_n01, _n02, _n03, _n04};\nendmodule"
-}

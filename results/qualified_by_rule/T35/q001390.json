@@ -1,6 +1,0 @@
-{
-  "task_id": "q001390",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(  \n    input wire clk,  \n    input wire reset,  \n    input wire write_enable,  \n    input wire [31:0] data_in,  \n    output reg [31:0] data_out  \n);  \n    reg [31:0] data_reg;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            data_reg <= 32'b0;  \n        end else if (write_enable) begin  \n            data_reg <= data_in;  \n        end  \n    end  \n\n    always @(*) begin  \n        data_out = data_reg;  \n    end  \nendmodule"
-}

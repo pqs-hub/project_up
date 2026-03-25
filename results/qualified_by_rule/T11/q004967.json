@@ -1,6 +1,0 @@
-{
-  "task_id": "q004967",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule(\n    input d,\n    input e,\n    output x\n);\n    assign x = (d | ~e);\nendmodule\n\nmodule P(\n    input d,\n    input e,\n    output x\n);\n    assign x = (d | ~e);\nendmodule\n\nmodule top_module(\n    input d,\n    input e,\n    output x\n);\n    wire o1_out, o2_out, o3_out, p_out;\n    wire or_out, and_out;\n\n    O o1(.d(d), .e(e), .x(o1_out));\n    O o2(.d(d), .e(e), .x(o2_out));\n    O o3(.d(d), .e(e), .x(o3_out));\n    P p1(.d(d), .e(e), .x(p_out));\n\n    assign or_out = o1_out | p_out;\n    assign and_out = o2_out & o3_out;\n\n    assign x = or_out ^ and_out;\nendmodule"
-}

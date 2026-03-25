@@ -1,6 +1,0 @@
-{
-  "task_id": "q014193",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(\n    input [1:0] SEL,\n    input [7:0] A,\n    input [7:0] B,\n    output reg [7:0] OUT  // Changed wire to reg\n);wire [7:0] sum, diff, prod, quo;\n\n    assign sum = A + B;\n    assign diff = A - B;\n    assign prod = A * B;\n    assign quo = A / B;\n\n    always @(*) begin\n        case (SEL)\n            2'b00: OUT = sum;\n            2'b01: OUT = diff;\n            2'b10: OUT = prod;\n            2'b11: OUT = quo;\n            default: OUT = 8'b0; // Added default case to avoid latches\n        endcase\n    end\n\nendmodule"
-}

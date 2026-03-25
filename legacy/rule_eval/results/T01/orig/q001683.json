@@ -1,6 +1,0 @@
-{
-  "task_id": "q001683",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module NAT (\n    input wire clk,\n    input wire reset,\n    input wire [31:0] ip_in,\n    input wire [15:0] port_in,\n    output reg [31:0] ip_out,\n    output reg [15:0] port_out\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            ip_out <= 32'b0;\n            port_out <= 16'b0;\n        end else begin\n            case ({ip_in, port_in})\n                {32'hC0A8010A, 16'h1F90}: begin // 192.168.1.10, 8080\n                    ip_out <= 32'h0A000001; // 10.0.0.1\n                    port_out <= 16'h2710; // 10000\n                end\n                {32'hC0A80114, 16'h1F91}: begin // 192.168.1.20, 8081\n                    ip_out <= 32'h0A000002; // 10.0.0.2\n                    port_out <= 16'h2711; // 10001\n                end\n                {32'hC0A8011E, 16'h1F92}: begin // 192.168.1.30, 8082\n                    ip_out <= 32'h0A000003; // 10.0.0.3\n                    port_out <= 16'h2712; // 10002\n                end\n                default: begin\n                    ip_out <= ip_in;\n                    port_out <= port_in;\n                end\n            endcase\n        end\n    end\nendmodule"
-}

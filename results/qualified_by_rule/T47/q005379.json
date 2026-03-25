@@ -1,6 +1,0 @@
-{
-  "task_id": "q005379",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule(\n    clk,\n    rst_n,\n    strand_offset,\n    strand_idx,\n    strand_length,\n    addr\n);parameter MEM_ADDR_WIDTH = 24;\n    parameter STRAND_PARAM_WIDTH = 16;\n\n    input clk;\n    input rst_n;\n\n    // The active strand will drive these three buses\n    input [STRAND_PARAM_WIDTH-1:0] strand_offset;\n    input [STRAND_PARAM_WIDTH-1:0] strand_idx;\n    input [STRAND_PARAM_WIDTH-1:0] strand_length;\n\n    output reg [MEM_ADDR_WIDTH-1:0] addr;\n\n    // Address generation process\n    always @(posedge clk) begin\n        if (rst_n == 1'b0) begin\n            addr <= { MEM_ADDR_WIDTH {1'b0} };\n        end\n        else begin\n            // address of memory is given by \n            // strand_offset[current] + (strand_idx[current] % strand_length[current])\n            if (strand_idx >= strand_length) begin\n                addr <= strand_offset + (strand_idx - strand_length);\n            end\n            else begin\n                addr <= strand_offset + strand_idx;\n            end\n        end\n    end\n\nendmodule"
-}

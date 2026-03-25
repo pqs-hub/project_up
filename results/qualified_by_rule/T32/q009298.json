@@ -1,6 +1,0 @@
-{
-  "task_id": "q009298",
-  "rule_id": "T32",
-  "changed": false,
-  "final": "module RefModule(CLK,WADR,WDAT,WEN,RADR,RDAT,REN);parameter DBITS = 36; \n  parameter ABITS = 9; \n  input wire CLK; \n  input wire [ABITS-1:0] WADR; \n  input wire [DBITS-1:0] WDAT; \n  input wire WEN; \n  input wire [ABITS-1:0] RADR; \n  output reg [DBITS-1:0] RDAT; \n  input wire REN; \n  localparam SIZE = 1 << ABITS; \n  reg [DBITS-1:0] mem[0:SIZE-1]; \n  always @(posedge CLK) begin \n  if (WEN) mem[WADR] <= WDAT; \n  end \n  always @(posedge CLK) begin \n  RDAT <= mem[RADR]; \n  end \n endmodule"
-}

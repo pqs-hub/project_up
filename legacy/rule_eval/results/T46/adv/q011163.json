@@ -1,8 +1,0 @@
-{
-  "task_id": "q011163",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module shift_register9(\n\tinput wire clk,\n\tinput wire rst,\n\tinput wire en,\n\tinput wire [8:0] D,\n\toutput reg [8:0] Q\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n\tif (rst)\n\t\tQ <= 9'b000000000;\n\telse if (en)\n\t\tQ <= {Q[7:0], D[0]};\nend\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

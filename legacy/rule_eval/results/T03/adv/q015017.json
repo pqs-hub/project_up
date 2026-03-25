@@ -1,6 +1,0 @@
-{
-  "task_id": "q015017",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module counter_4bit(\n    input clk,          // Clock signal.\n    input en,           // Enable signal.\n    output reg [3:0] q  // 4-bit counter output.\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n// Counter logic\nalways @(posedge clk) begin\n    if (en)\n        q <= q + 1;     // Increment counter if enable is active\nend\n\nendmodule"
-}

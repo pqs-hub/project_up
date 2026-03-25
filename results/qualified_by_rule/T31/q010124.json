@@ -1,6 +1,0 @@
-{
-  "task_id": "q010124",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module RefModule( input [31:0] Multiplexer_Instruction, \n\t\t\t\t\t\t\t input [31:0] Jump_Instruction,\n\t\t\t\t\t\t\t input Jump_Control,\n\t\t\t\t\t\t\t output [31:0] New_PC\n\t\t\t\t\t\t\t );reg [31:0] temp;\n\n\talways @(*) begin\n\t\tcase (Jump_Control) \n\t\t\t0: temp <= Multiplexer_Instruction;\n\t\t\t1: temp <= Jump_Instruction;\n\t\tendcase \n\tend\n\t\n\twire __New_PC_tmp = temp;\n\tassign New_PC = __New_PC_tmp;\nendmodule"
-}

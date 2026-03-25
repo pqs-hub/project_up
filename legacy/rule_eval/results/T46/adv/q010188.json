@@ -1,8 +1,0 @@
-{
-  "task_id": "q010188",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module( clk, clrn, NPC, PC );input              clk;\n  input              clrn;\n  input       [31:0] NPC;\n  output reg  [31:0] PC;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk, negedge clrn or posedge dbg_halt)\n    if (clrn==0) \n      PC <= 32'h0000_0000;\n\n    else\n      PC <= NPC;\n      \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

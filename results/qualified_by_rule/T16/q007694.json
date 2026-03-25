@@ -1,6 +1,0 @@
-{
-  "task_id": "q007694",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(input [7:0] num1, num2, input control, output reg [7:0] result, output reg carry);reg [8:0] final_sig;\n\n    always @(*) begin\n        if (control == 1'b0) begin  // addition operation\n            final_sig = num1 + num2;\n            carry = final_sig[8];\n            result = final_sig[7:0];\n        end\n        else begin  // subtraction operation\n            final_sig = {1'b0, num1} - {1'b0, num2}; // ensure 1-bit width for carry\n            carry = final_sig[8];\n            result = final_sig[7:0];\n        end\n    end\nendmodule"
-}

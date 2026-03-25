@@ -1,6 +1,0 @@
-{
-  "task_id": "q005260",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (clk, rst_n, din, dout);\n   input clk, rst_n, din;\n   output reg [7:0] dout;\n\n   always @(posedge clk or negedge rst_n) begin\n    begin end  // redundant\n      if (!rst_n)\n         dout <= 8'b00000000;\n      else\n         dout <= {dout[6:0], din};\n   end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q007441",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule(\n\tinput clk,\n\tinput reset,\n\toutput [8-1:1-1] count);reg [7:0] johnson;\n\nalways @(posedge clk or posedge reset)\n\tif (reset)\n\t\tjohnson <= 8'b00000000;\n\telse\n\t\tjohnson <= {johnson[6:0], ~johnson[7]};\n\nassign count = johnson;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q008348",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(bcd_in, segments_out, invert);output reg\t[6:0] segments_out;\n    input\t\t[3:0] bcd_in;\n\tinput\t\tinvert;\n\n\n\n\n\n\n\n\n\n\n\n\n\treg [6:0] seg_reg;\n\n\talways @*\n      case (bcd_in)\n\t\t\n          4'b0001 : seg_reg = 7'b1111001;   \n          4'b0010 : seg_reg = 7'b0100100;   \n          4'b0011 : seg_reg = 7'b0110000;   \n          4'b0100 : seg_reg = 7'b0011001;   \n          4'b0101 : seg_reg = 7'b0010010;   \n          4'b0110 : seg_reg = 7'b0000010;   \n          4'b0111 : seg_reg = 7'b1111000;   \n          4'b1000 : seg_reg = 7'b0000000;   \n          4'b1001 : seg_reg = 7'b0010000;   \n          4'b1010 : seg_reg = 7'b0001000;   \n          4'b1011 : seg_reg = 7'b0000011;   \n          4'b1100 : seg_reg = 7'b1000110;   \n          4'b1101 : seg_reg = 7'b0100001;   \n          4'b1110 : seg_reg = 7'b0000110;   \n          4'b1111 : seg_reg = 7'b0001110;   \n          default : seg_reg = 7'b1000000;   \n      endcase\n\n\talways @*\n\t\tcase (invert)\n\t\t\t1'b1 : segments_out = seg_reg; \n\t\t\t1'b0 : segments_out = ~seg_reg; \n\t\tendcase\n\t\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

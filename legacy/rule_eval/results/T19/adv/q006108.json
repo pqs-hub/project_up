@@ -1,6 +1,0 @@
-{
-  "task_id": "q006108",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module counter2bit_en_tc (\n\tinput clk,\n\tinput rst,\n\tinput en,\n\toutput reg [1:0] q,\n\toutput tc);\n\n\talways @(posedge clk or posedge rst) begin\n\t\tif (rst)\n\t\t\tq <= 2'b00;\n\t\telse if (en)\n\t\t\tq <= q + 1;\n\tend\n\t\n\tassign tc = (q == 2'b11) ? 1 : 0;\n\t\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

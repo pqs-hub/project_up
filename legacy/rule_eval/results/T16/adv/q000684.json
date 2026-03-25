@@ -1,9 +1,0 @@
-{
-  "task_id": "q000684",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module sr_latch (  \n    input S,  \n    input R,  \n    output reg obf_Q,  \n    output Qn  \n);  \n    assign Qn = ~obf_Q;  \n    always @ (S or R) begin  \n        if (S && ~R)  \n            obf_Q <= 1;  \n        else if (~S && R)  \n            obf_Q <= 0;  \n        // If both are 0, maintain the previous state  \n    end  \nendmodule",
-  "rename_map": {
-    "Q": "obf_Q"
-  }
-}

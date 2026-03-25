@@ -1,6 +1,0 @@
-{
-  "task_id": "q000937",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule priority_arbiter(\n    input wire req1,\n    input wire req2,\n    input wire req3,\n    output reg grant1,\n    output reg grant2,\n    output reg grant3\n);\n    always @(*) begin\n        // Default all grants to 0\n        grant1 = 0;\n        grant2 = 0;\n        grant3 = 0;\n\n        if (req1) begin\n            grant1 = 1; // req1 has the highest priority\n        end else if (req2) begin\n            grant2 = 1; // req2 has the second priority\n        end else if (req3) begin\n            grant3 = 1; // req3 has the lowest priority\n        end\n    end\nendmodule"
-}

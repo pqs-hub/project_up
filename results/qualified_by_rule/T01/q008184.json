@@ -1,6 +1,0 @@
-{
-  "task_id": "q008184",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (CLK, RST, SI, Q);\ninput CLK, RST, SI;\noutput reg [3:0] Q;\n\nalways @(posedge CLK) begin\n    begin end  // redundant\n    if (RST) begin\n        Q <= 4'b0000;\n    end else begin\n        Q <= {SI, Q[3:1]};\n    end\nend\n\nendmodule"
-}

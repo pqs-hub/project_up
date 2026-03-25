@@ -1,6 +1,0 @@
-{
-  "task_id": "q010286",
-  "rule_id": "T09",
-  "changed": true,
-  "final": "module RefModule(\n    input [3:0] in,\n    output out_and,\n    output out_or,\n    output out_xor\n);wire and1, and2, and3, and4, and5, and6;\n    wire or1, or2, or3, or4;\n    wire xor1, xor2, xor3;\n\n    // AND gates\n    assign and1 = ~(~in[0] | ~in[1]);\n    assign and2 = in[0] & in[2];\n    assign and3 = in[0] & in[3];\n    assign and4 = in[1] & in[2];\n    assign and5 = in[1] & in[3];\n    assign and6 = in[2] & in[3];\n\n    // OR gates\n    assign or1 = in[0] | in[1];\n    assign or2 = in[0] | in[2];\n    assign or3 = in[0] | in[3];\n    assign or4 = in[1] | in[2] | in[3];\n\n    // XOR gates\n    assign xor1 = in[0] ^ in[1];\n    assign xor2 = in[2] ^ in[3];\n    assign xor3 = xor1 ^ xor2;\n\n    // Output assignments\n    assign out_and = and1 & and2 & and3 & and4 & and5 & and6;\n    assign out_or = or1 | or2 | or3 | or4;\n    assign out_xor = xor3;\n\nendmodule"
-}

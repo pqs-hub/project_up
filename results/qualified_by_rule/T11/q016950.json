@@ -1,6 +1,0 @@
-{
-  "task_id": "q016950",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule (\n    input in1,\n    input in2,\n    input in3,\n    input clk,\n    input reset,\n    output out1,\n    output out2\n);\n\n    reg out1_reg;\n    reg out2_reg;\n\n    always @(posedge clk) begin\n        if (reset) begin\n            out1_reg <= 1'b0;\n            out2_reg <= 1'b0;\n        end else begin\n            out1_reg <= in1 ^ in2;\n            out2_reg <= in2 & in3;\n        end\n    end\n\n    assign out1 = out1_reg;\n    assign out2 = out2_reg;\n\nendmodule"
-}

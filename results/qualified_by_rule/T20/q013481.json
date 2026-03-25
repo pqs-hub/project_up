@@ -1,6 +1,0 @@
-{
-  "task_id": "q013481",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(\n    input [3:0] MULTIPLICAND,\n    input [3:0] MULTIPLIER,\n    output reg [7:0] PRODUCT\n);reg [3:0] m;\nreg [7:0] p;\n\nalways @(*) begin\n    p = 0;\n    for (m = 0; m < 4; m = m + 1) begin\n        if (MULTIPLIER[m] == 1) begin\n            p = p + (MULTIPLICAND << m);\n        end\n    end\nend\n\nassign PRODUCT = p;\n\nendmodule"
-}

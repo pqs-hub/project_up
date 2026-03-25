@@ -1,6 +1,0 @@
-{
-  "task_id": "q009586",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n\tinput [1:0] Br_type,\n\tinput [31:0] val1,\n\tinput [31:0] Src2_Val,\n\n\toutput reg Br_taken\n\t);always @(*) begin\n\t\tif(Br_type == 2'b11) begin \n\t\t\tBr_taken = 1'b1;\n\t\tend\n\t\telse if(Br_type == 2'b01) begin \n\t\t\tif(val1 == 32'b0)\n\t\t\t\tBr_taken = 1'b1;\n\t\t\telse \n\t\t\t\tBr_taken = 1'b0;\n\t\tend\n\t\telse if(Br_type == 2'b10) begin \n\t\t\tif(val1 != Src2_Val)\n\t\t\t\tBr_taken = 1'b1;\n\t\t\telse \n\t\t\t\tBr_taken = 1'b0;\n\t\tend\n\t\telse if(Br_type == 2'b00) begin \n\t\t\tBr_taken = 1'b0;\n\t\tend\n\t\t\t\n\tend\nendmodule"
-}

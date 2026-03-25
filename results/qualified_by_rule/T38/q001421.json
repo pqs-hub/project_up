@@ -1,6 +1,0 @@
-{
-  "task_id": "q001421",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(  \n    input clk,  \n    input rst,  \n    input [7:0] data_in,  \n    input error_in,  \n    output reg [7:0] data_out,  \n    output reg ack  \n);  \n    reg [7:0] data_reg;  \n    reg error_detected;  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            data_reg <= 8'b0;  \n            error_detected <= 1'b0;  \n            ack <= 1'b0;  \n        end else begin  \n            data_reg <= data_in;  \n            error_detected <= error_in;  \n            if (!error_detected) begin  \n                data_out <= data_reg;  \n                ack <= 1'b1;  \n            end else begin  \n                ack <= 1'b0;  \n            end  \n        end  \n    end  \nendmodule"
-}

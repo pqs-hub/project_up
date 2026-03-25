@@ -1,6 +1,0 @@
-{
-  "task_id": "q006855",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n    output reg Q,   // Changed to output reg to avoid re-declaration error\n    input  CLK,\n    input  D,\n    input  DE,\n    input  VPWR,\n    input  VGND\n);// always block that updates Q on the posedge of CLK\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n        if (DE) begin\n            Q <= D;\n        end\n    end\n\nendmodule"
-}

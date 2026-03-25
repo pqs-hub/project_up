@@ -1,6 +1,0 @@
-{
-  "task_id": "q010048",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule top_module(r_bus_addr_out, w_bus_addr_in, w_clock, w_reset);input [7:0] w_bus_addr_in;\t\t\t\t// 8 bit address bus input\n\tinput w_clock, w_reset;\t\t\t\t\t// clock and reset variables\n\n\toutput reg [7:0] r_bus_addr_out;\t\t\t// 8 bit address bus output\n\n\talways @ (posedge w_clock)\t\t\t\t// on positive edge of clock pulse:\n\t\tif (w_reset) r_bus_addr_out <= 8'b0;\t\t// reset to 0 synchronously\n\t\telse r_bus_addr_out <= w_bus_addr_in;\t\t// output what is on the input\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q006943",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input rst_n,\n  output reg [3:0] lfsr\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      lfsr <= 4'b0001;  // Initialize to a non-zero value\n    end\n    else begin\n      lfsr <= {lfsr[2:0], lfsr[3] ^ lfsr[2]};\n    end\n  end\n\nendmodule"
-}

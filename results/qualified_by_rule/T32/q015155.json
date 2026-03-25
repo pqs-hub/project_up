@@ -1,6 +1,0 @@
-{
-  "task_id": "q015155",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule(\n    reset,\n    clk,\n    sel,\n    in0,\n    in1,\n    in2,\n    out);// Inputs\ninput reset;\ninput clk;\ninput [3-1:1-1] sel;\ninput in0;\ninput in1;\ninput in2;\n\n// Outputs\noutput out;\n\nreg out;\n\nalways @ (posedge clk) begin\n    if (reset) begin\n        out <= 1'b0;\n    end else begin\n        case (sel)\n            3'b000: out <= in0;\n            3'b001: out <= in1;\n            3'b010: out <= in2;\n            default: out <= 1'b0;\n        endcase\n    end\nend\n\nendmodule"
-}

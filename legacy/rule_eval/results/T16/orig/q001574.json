@@ -1,6 +1,0 @@
-{
-  "task_id": "q001574",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module ALU (\n    input [7:0] A,\n    input [7:0] B,\n    input [2:0] ALUOp,\n    output reg [7:0] Result\n);\n    \n    always @(*) begin\n        case(ALUOp)\n            3'b000: Result = A & B;      // AND\n            3'b001: Result = A | B;      // OR\n            3'b010: Result = A ^ B;      // XOR\n            3'b011: Result = A + B;      // ADD\n            3'b100: Result = A - B;      // SUBTRACT\n            3'b101: Result = (A < B) ? 8'b00000001 : 8'b00000000; // SLT\n            3'b110: Result = ~(A | B);    // NOR\n            3'b111: Result = ~(A & B);    // NAND\n            default: Result = 8'b00000000; // Invalid operation\n        endcase\n    end\nendmodule"
-}

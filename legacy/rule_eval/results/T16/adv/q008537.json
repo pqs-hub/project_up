@@ -1,9 +1,0 @@
-{
-  "task_id": "q008537",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    obf_a,\n    b,\n    opcode,\n    result\n);input signed [7:0] obf_a, b;\ninput [1:0] opcode;\noutput reg signed [7:0] result;\n\nalways @(*) begin\n    case (opcode)\n        2'b00: result = obf_a + b; // addition\n        2'b01: result = obf_a - b; // subtraction\n        2'b10: result = obf_a * b; // multiplication\n        2'b11: result = obf_a / b; // division\n    endcase\nend\n\nendmodule",
-  "rename_map": {
-    "a": "obf_a"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q004744",
-  "rule_id": "T12",
-  "changed": true,
-  "final": "module RefModule(\n    input a,\n    input b,\n    input sel_b1,\n    input sel_b2,\n    output wire out_assign,\n    wire __sel_b1_tmp = (sel_b1&sel_b2);\n    assign out_assign = __sel_b1_tmp ? b : a;\n    \n    always@(*) begin\n        if (sel_b1&sel_b2) begin\n            out_always = b;\n        end\n        else begin\n            out_always = a;\n        end\n    end\nendmodule"
-}

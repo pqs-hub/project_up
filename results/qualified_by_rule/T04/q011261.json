@@ -1,6 +1,0 @@
-{
-  "task_id": "q011261",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule RefModule(\n    X,\n    A_N,\n    B_N,\n    C,\n    D\n);// Module ports\n    output X;\n    input A_N;\n    input B_N;\n    input C;\n    input D;\n\n    // Local signals\n    wire nor_out;\n    wire and_out;\n\n    // Implementing the NOR of A_N and B_N\n    nor nor_gate (nor_out, A_N, B_N);\n\n    // Implementing the AND of C and D\n    and and_gate (and_out, C, D);\n\n    // Implementing the inverted AND of the NOR and the AND\n    assign X = ~ (nor_out & and_out);\n\nendmodule"
-}

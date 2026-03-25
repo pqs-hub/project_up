@@ -1,6 +1,0 @@
-{
-  "task_id": "q013113",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(A, B, opcode, result);\n    input [31:0] A;\n    input [31:0] B;\n    input [2:0] opcode;\n    output reg [31:0] result;\n\n    always @(*) begin\n        case (opcode)\n            3'b000: result = A + B;   // Addition\n            3'b001: result = A - B;   // Subtraction\n            3'b010: result = A & B;   // AND\n            3'b011: result = A | B;   // OR\n            3'b100: result = A ^ B;   // XOR\n            default: result = 32'b0;  // Default case\n        endcase\n    end\nendmodule"
-}

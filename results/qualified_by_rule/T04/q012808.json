@@ -1,6 +1,0 @@
-{
-  "task_id": "q012808",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(\n    input clk,          // Chip clock signal.\n    input rst,          // Synchronous reset signal.\n    input shift_en,     // Shift enable signal.\n    input load,         // Parallel load signal.\n    input [7:0] data_in, // 8-bit parallel input data.\n\n    output reg [7:0] q // 8-bit output of the shift register.\n);\n\nalways @(posedge clk) begin\n    if (rst)\n        q <= 8'b00000000; // Reset shift register to 0\n    else if (load)\n        q <= data_in; // Load parallel input data\n    else if (shift_en)\n        q <= q << 1; // Shift left\nend\n\nendmodule"
-}

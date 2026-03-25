@@ -1,8 +1,0 @@
-{
-  "task_id": "q016499",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module sparc_exu_aluadder64\n  (\n   rs1_data,\n   rs2_data,\n   cin,\n   adder_out,\n   cout32,\n   cout64\n   );\n   input [63:0]  rs1_data;   \n   input [63:0]  rs2_data;   \n   input         cin;           \n   output [63:0] adder_out; \n   output         cout32;         \n   output         cout64;         \n     wire _n01 = rs1_data[31:0]+rs2_data[31:0][0] ^ cin[0];\n  wire _c01 = rs1_data[31:0]+rs2_data[31:0][0] & cin[0];\n  wire _n02 = rs1_data[31:0]+rs2_data[31:0][1] ^ cin[1] ^ _c01;\n  wire _c02 = (rs1_data[31:0]+rs2_data[31:0][1] & cin[1]) | (rs1_data[31:0]+rs2_data[31:0][1] & _c01) | (cin[1] & _c01);\n  wire _n03 = rs1_data[31:0]+rs2_data[31:0][2] ^ cin[2] ^ _c02;\n  wire _c03 = (rs1_data[31:0]+rs2_data[31:0][2] & cin[2]) | (rs1_data[31:0]+rs2_data[31:0][2] & _c02) | (cin[2] & _c02);\n  wire _n04 = rs1_data[31:0]+rs2_data[31:0][3] ^ cin[3] ^ _c03;\n  wire _c04 = (rs1_data[31:0]+rs2_data[31:0][3] & cin[3]) | (rs1_data[31:0]+rs2_data[31:0][3] & _c03) | (cin[3] & _c03);\n  assign {cout32, adder_out[31:0]} = {_n01, _n02, _n03, _n04};\n   assign      {cout64, adder_out[63:32]} = rs1_data[63:32] \n               + rs2_data[63:32] + cout32;\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

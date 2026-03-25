@@ -1,6 +1,0 @@
-{
-  "task_id": "q000535",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule(\n    input wire [15:0] data,\n    input wire we,\n    input wire re,\n    input wire reset,\n    output reg [15:0] q\n);\n    always @(posedge reset) begin\n        q <= 16'b0; // Reset the stored value to 0\n    end\n\n    always @(posedge we) begin\n        q <= data; // Write data on write enable\n    end\n\n    always @(posedge re) begin\n        // Read operation: output the stored value\n        // The output is already reflected in the 'q' register\n    end\nendmodule"
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q014867",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module shift_reg_16bit (\n    input clk,\n    input rst_n,\n    input ser_in,\n    output reg [15:0] par_out\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_n or posedge dbg_halt) begin\n    if (!rst_n)\n        par_out <= 16'b0;\n    else\n        par_out <= {par_out[14:0], ser_in};\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

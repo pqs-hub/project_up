@@ -1,6 +1,0 @@
-{
-  "task_id": "q011157",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module RefModule(\n \t \tinput clk,\n \t \tinput rst,\n \t \tinput dir,\n \t \tinput clk_bps,\n \t \toutput reg[15:0]led\n \t \t);always @( posedge clk or posedge rst )\n \t \t\tif( rst )\n \t \t\t\tled <= 16'h8000;\n \t \t\telse\n \t \t\t\tcase( dir )\n \t \t\t\t\t1'b0:  \n \t \t\t\t\t\tif( clk_bps )\n \t \t\t\t\t \t\tif( led != 16'd1 )\n \t \t\t\t\t\t\t\tled <= led >> 1'b1;\n \t \t\t\t\t\t\telse\n \t \t\t\t\t\t\t\tled <= 16'h8000;\n \t \t\t\t\t1'b1:  \n \t \t\t\t \t\tif( clk_bps )\n \t \t\t\t\t\t\tif( led != 16'h8000 )\n \t \t\t\t\t\t\t\tled <= led << 1'b1;\n \t \t\t\t\t\t\telse\n \t \t\t\t\t\t\t\tled <= 16'd1;\n \t \t\t\tendcase\nendmodule"
-}

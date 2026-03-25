@@ -1,6 +1,0 @@
-{
-  "task_id": "q010402",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(\n  input clk,\n  input reset_n,\n  output [3:0] count\n);reg [3:0] unused_counter = 4'd0;\n  \n  always @(posedge clk, negedge reset_n) begin\n    if (!reset_n) begin\n      unused_counter <= 4'd0;\n    end else if (unused_counter == 4'd9) begin\n      unused_counter <= 4'd0;\n    end else begin\n      unused_counter <= unused_counter + 1;\n    end\n  end\n  \n  assign count = unused_counter;\n  \nendmodule"
-}

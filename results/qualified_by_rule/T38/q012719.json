@@ -1,6 +1,0 @@
-{
-  "task_id": "q012719",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(\n        input reg_addr, \n        input stack_command,\n        input [7:0] stack_pointer,\n        input [7:0] addr,\n        input [15:0] alu_result,\n        output reg [7:0] true_addr\n    );always@* begin\n        if(reg_addr == 1) begin\n            true_addr = alu_result[7:0];\n        end\n        else if( stack_command == 1 ) begin\n            true_addr = stack_pointer;\n        end\n        else begin\n            true_addr = addr;\n        end\n    end\nendmodule"
-}

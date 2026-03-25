@@ -1,6 +1,0 @@
-{
-  "task_id": "q011545",
-  "rule_id": "T34",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input rst,\n  input [7:0] a,\n  input [7:0] b,\n  input [1:0] ctrl,\n  output reg [7:0] result\n);always @(posedge clk) begin\n    if (rst) begin\n      result <= 0;\n    end else begin\n      case (ctrl)\n        2'b00: result <= a + b;\n        2'b01: result <= a - b;\n        2'b10: result <= a * b;\n        2'b11: result <= a / b;\n        default: result <= 0;\n      endcase\n    end\n  end\n\nendmodule"
-}

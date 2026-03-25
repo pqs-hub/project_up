@@ -1,6 +1,0 @@
-{
-  "task_id": "q003873",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    input start_receive,\n    input start_transmit,\n    output reg [1:0] current_state\n);\n\n    // State encoding\n    localparam IDLE = 2'b00;\n    localparam RECEIVE = 2'b01;\n    localparam TRANSMIT = 2'b10;\n\n    always @(posedge clk or posedge rst) begin\n    begin end  // redundant\n        if (rst) begin\n            current_state <= IDLE;\n        end else begin\n            case (current_state)\n                IDLE: begin\n                    if (start_receive) begin\n                        current_state <= RECEIVE;\n                    end else if (start_transmit) begin\n                        current_state <= TRANSMIT;\n                    end\n                end\n                RECEIVE: begin\n                    if (start_transmit) begin\n                        current_state <= TRANSMIT;\n                    end\n                end\n                TRANSMIT: begin\n                    if (start_receive) begin\n                        current_state <= RECEIVE;\n                    end\n                end\n            endcase\n        end\n    end\nendmodule"
-}

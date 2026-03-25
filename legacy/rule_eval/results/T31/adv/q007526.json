@@ -1,6 +1,0 @@
-{
-  "task_id": "q007526",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module top_module(A, B, Ci, S, Co);input A, B, Ci;\n  output S, Co;\n  wire   n1, n2, n3, n4, n5;\n\n  // XOR gates for sum\n  wire __n1_tmp = A ^ B;\n  assign n1 = __n1_tmp;      // XOR operation for A and B\n  assign S = n1 ^ Ci;     // XOR operation for the sum with carry-in\n\n  // AND gates for carry-out\n  assign n2 = A & B;      // AND operation for A and B\n  assign n3 = A & Ci;     // AND operation for A and carry-in\n  assign n4 = B & Ci;     // AND operation for B and carry-in\n\n  // OR gate for carry-out\n  assign Co = n2 | n3 | n4; // OR to find final carry-out\nendmodule"
-}

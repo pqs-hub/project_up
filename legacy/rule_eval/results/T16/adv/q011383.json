@@ -1,9 +1,0 @@
-{
-  "task_id": "q011383",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    A,\n    B,\n    SUM,\n    OVF\n);input [1:0] A;\n    input [1:0] B;\n    output [1:0] SUM;\n    output OVF;\n    \n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n\n    wire [2:0] obf_temp_sum;\n    \n    // 2-bit adder\n    assign obf_temp_sum = {1'b0, A} + {1'b0, B};\n    \n    // Overflow detection\n    assign OVF = (obf_temp_sum[2] == 1);\n    \n    // Output SUM\n    assign SUM = obf_temp_sum[1:0];\n\nendmodule",
-  "rename_map": {
-    "temp_sum": "obf_temp_sum"
-  }
-}

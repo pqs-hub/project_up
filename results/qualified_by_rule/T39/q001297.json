@@ -1,6 +1,0 @@
-{
-  "task_id": "q001297",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule (\n    input [3:0] x, // 4-bit input\n    output [3:0] approx, // 4-bit approximate coefficients\n    output [3:0] detail // 4-bit detail coefficients\n);\n    wire [1:0] x0, x1;\n    assign x0 = x[3:2]; // First two bits\n    assign x1 = x[1:0]; // Last two bits\n\n    // Haar wavelet transform calculations\n    assign approx = (x0 + x1) >> 1; // Average\n    assign detail = x0 - x1; // Difference\n\nendmodule"
-}

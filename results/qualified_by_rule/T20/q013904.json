@@ -1,6 +1,0 @@
-{
-  "task_id": "q013904",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(input clk,input rst_n,input [3:0] num,input sel_data,input [7:0] rx_data,output reg rs232_tx);always @(posedge clk or negedge rst_n) \n  if(!rst_n) \n  rs232_tx <= 1'b1; \n  else \n  if(sel_data) \n  case(num) \n  0: rs232_tx <= 1'b0; \n  1: rs232_tx <= rx_data[0]; \n  2: rs232_tx <= rx_data[1]; \n  3: rs232_tx <= rx_data[2]; \n  4: rs232_tx <= rx_data[3]; \n  5: rs232_tx <= rx_data[4]; \n  6: rs232_tx <= rx_data[5]; \n  7: rs232_tx <= rx_data[6]; \n  8: rs232_tx <= rx_data[7]; \n  9: rs232_tx <= 1'b1; \n  default: rs232_tx <= 1'b1; \n  endcase \n endmodule"
-}

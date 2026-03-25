@@ -1,6 +1,0 @@
-{
-  "task_id": "q001364",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (  \n    input [15:0] A,  \n    input [15:0] B,  \n    input [2:0] ALU_control,  \n    output reg [15:0] ALU_result  \n);  \n  wire [15:0] _tap_A = A & {16{1'b1}};\n\n    always @(*) begin  \n        case (ALU_control)  \n            3'b000: ALU_result = A & B; // AND  \n            3'b001: ALU_result = A | B; // OR  \n            3'b010: ALU_result = A + B; // ADD  \n            3'b011: ALU_result = A - B; // SUB  \n            3'b100: ALU_result = A ^ B; // XOR  \n            default: ALU_result = 16'b0;  \n        endcase  \n    end  \nendmodule"
-}

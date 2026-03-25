@@ -1,6 +1,0 @@
-{
-  "task_id": "q006077",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module parallel_load_register(CLK, RST, LOAD_EN, D, Q);\ninput CLK, RST, LOAD_EN;\ninput [4-1:1-1] D;\noutput [3:0] Q;\nreg [3:0] Q;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        Q <= 0;\n    else if (LOAD_EN)\n        Q <= D;\nend\n\nendmodule"
-}

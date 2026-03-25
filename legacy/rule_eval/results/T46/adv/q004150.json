@@ -1,8 +1,0 @@
-{
-  "task_id": "q004150",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module DVFS_Controller (\n    input wire clk,\n    input wire rst,\n    input wire [1:0] control,\n    output reg [1:0] frequency, // 00: 1GHz, 01: 2GHz, 10: 3GHz\n    output reg [1:0] voltage     // 00: 0.9V, 01: 1.0V, 10: 1.2V\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n    if (rst) begin\n        frequency <= 2'b00; // Default to 1GHz\n        voltage <= 2'b00;   // Default to 0.9V\n    end else begin\n        case (control)\n            2'b00: begin\n                frequency <= 2'b00; // 1GHz\n                voltage <= 2'b00;   // 0.9V\n            end\n            2'b01: begin\n                frequency <= 2'b01; // 2GHz\n                voltage <= 2'b01;   // 1.0V\n            end\n            2'b10: begin\n                frequency <= 2'b10; // 3GHz\n                voltage <= 2'b10;   // 1.2V\n            end\n            2'b11: begin\n                // Reserved for future use\n                frequency <= frequency; // maintain current state\n                voltage <= voltage;     // maintain current state\n            end\n        endcase\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

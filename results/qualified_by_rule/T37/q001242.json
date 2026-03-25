@@ -1,6 +1,0 @@
-{
-  "task_id": "q001242",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule (\n    input [7:0] in_signal,\n    input [1:0] control,\n    output reg [7:0] out_signal\n);\n    always @(*) begin\n        case(control)\n            2'b00: out_signal = in_signal;                            // 1:1 ratio\n            2'b01: out_signal = in_signal >> 1;                      // 2:1 ratio\n            2'b10: out_signal = in_signal >> 2;                      // 4:1 ratio\n            2'b11: out_signal = in_signal >> 3;                      // 8:1 ratio\n            default: out_signal = 8'b0;\n        endcase\n        // Ensure the output is capped at 8 bits\n        if (out_signal > 8'hFF) out_signal = 8'hFF;\n    end\nendmodule"
-}

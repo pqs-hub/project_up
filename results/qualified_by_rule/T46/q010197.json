@@ -1,6 +1,0 @@
-{
-  "task_id": "q010197",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule(a, b, c);input signed [31:0] a;\n  input signed [31:0] b;\n  output signed [63:0] c;\n\n  reg [31:0] a_tmp;\n  reg [31:0] b_tmp;\n  reg [63:0] c_tmp;\n  reg is_neg_a;\n  reg is_neg_b;\n\n  always @(*) begin\n    // Check if a is negative\n    if (a[31] == 1) begin\n      a_tmp = -a;\n      is_neg_a = 1;\n    end else begin\n      a_tmp = a;\n      is_neg_a = 0;\n    end\n\n    // Check if b is negative\n    if (b[31] == 1) begin\n      b_tmp = -b;\n      is_neg_b = 1;\n    end else begin\n      b_tmp = b;\n      is_neg_b = 0;\n    end\n\n    // Booth's algorithm multiplication\n    c_tmp = {32'b0, a_tmp} * {32'b0, b_tmp};\n\n    // If the signs of a and b are different, negate the result\n    if (is_neg_a != is_neg_b) begin\n      c_tmp = -c_tmp;\n    end\n  end\n\n  assign c = c_tmp;\nendmodule"
-}

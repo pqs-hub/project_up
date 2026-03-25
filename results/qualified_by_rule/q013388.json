@@ -1,6 +1,0 @@
-{
-  "task_id": "q013388",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n    input [31:0] in,\n    output [31:0] out\n);reg [31:0] obf_shift_reg;\n\n// Shift input vector and load into shift register\nalways @(*) begin\n    obf_shift_reg[31:24] = in[7:0];\n    obf_shift_reg[23:16] = in[15:8];\n    obf_shift_reg[15:8] = in[23:16];\n    obf_shift_reg[7:0] = in[31:24];\nend\n\n// Invert bits of each byte using XOR\nreg [7:0] byte0, byte1, byte2, byte3;\nalways @(*) begin\n    byte0 = obf_shift_reg[7:0] ^ 8'hFF;\n    byte1 = obf_shift_reg[15:8] ^ 8'hFF;\n    byte2 = obf_shift_reg[23:16] ^ 8'hFF;\n    byte3 = obf_shift_reg[31:24] ^ 8'hFF;\nend\n\n// Concatenate inverted bytes in reverse order\nassign out = {byte3, byte2, byte1, byte0};\n\nendmodule"
-}

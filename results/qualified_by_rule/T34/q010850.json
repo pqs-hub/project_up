@@ -1,6 +1,0 @@
-{
-  "task_id": "q010850",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(douta,\n    clka,\n    addra,\n    dina,\n    wea);output [11:0]douta;\n  input clka;\n  input [11:0]addra;\n  input [11:0]dina;\n  input [0:0]wea;\n\n  reg [11:0] unused_mem [0:4095];\n  reg [11:0] douta;\n\n  always @(posedge clka) begin\n    if (wea) begin\n      unused_mem[addra] <= dina;\n    end else begin\n      douta <= unused_mem[addra];\n    end\n  end\n\nendmodule"
-}

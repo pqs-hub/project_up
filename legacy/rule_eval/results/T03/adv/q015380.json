@@ -1,6 +1,0 @@
-{
-  "task_id": "q015380",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input [31:0] A,\n    output reg [5:0] B\n);integer i;\n  wire [31:0] _tap_A = A & {32{1'b1}};\n\n    always @(*) begin\n        B = 0;\n        for (i = 0; i < 32; i = i + 1) begin\n            if (A[i] == 1)\n                B = B + 1;\n        end\n    end\nendmodule"
-}

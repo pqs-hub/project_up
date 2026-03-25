@@ -1,6 +1,0 @@
-{
-  "task_id": "q013452",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule(\n    output reg [7:0] Y,\n    output reg Sbar,\n    output reg AeqB,\n    output reg AneqB,\n    input [7:0] A,\n    input [7:0] B,\n    input S,\n    input VPWR,  // Changed to input\n    input VGND,  // Changed to input\n    input VPB,   // Changed to input\n    input VNB    // Changed to input\n);always @(*) begin\n        if (S == 0) begin\n            Y = A;\n        end else begin\n            Y = B;\n        end\n    end\n\n    assign Sbar = ~S;\n    assign AeqB = (A == B) ? 1 : 0;\n    assign AneqB = (A != B) ? 1 : 0;\n\nendmodule"
-}

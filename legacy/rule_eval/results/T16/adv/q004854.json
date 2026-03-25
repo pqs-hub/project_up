@@ -1,9 +1,0 @@
-{
-  "task_id": "q004854",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module full_adder(\n    input wire a,\n    input wire b,\n    input wire cin,\n    output wire sum,\n    output wire cout\n    );\n\nwire axorb;\nwire obf_aandb;\nwire axorb_and_cin;\n\nxor (axorb, a, b);\nxor (sum, axorb, cin);\nand (obf_aandb, a, b);\nand (axorb_and_cin, axorb, cin);\nor (cout, obf_aandb, axorb_and_cin);\n\nendmodule",
-  "rename_map": {
-    "aandb": "obf_aandb"
-  }
-}

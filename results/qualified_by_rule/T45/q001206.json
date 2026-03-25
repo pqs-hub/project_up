@@ -1,6 +1,0 @@
-{
-  "task_id": "q001206",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule (  \n    input S,  \n    input R,  \n    output reg Q,  \n    output reg Qn  \n);  \n    always @(S or R) begin  \n        if (S == 1'b1 && R == 1'b0) begin  \n            Q <= 1'b1;  \n            Qn <= 1'b0;  \n        end  \n        else if (S == 1'b0 && R == 1'b1) begin  \n            Q <= 1'b0;  \n            Qn <= 1'b1;  \n        end  \n        else if (S == 1'b0 && R == 1'b0) begin  \n            Q <= Q;  \n            Qn <= Qn;  \n        end  \n        else begin  \n            Q <= 1'bz;  \n            Qn <= 1'bz;  \n        end  \n    end  \nendmodule"
-}

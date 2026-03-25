@@ -1,6 +1,0 @@
-{
-  "task_id": "q015577",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n  input [3:0] in0,\n  input [3:0] in1,\n  input [3:0] in2,\n  input [3:0] in3,\n  input [1:0] sel,\n  input en,\n  output [3:0] out\n);wire [3:0] mux_out;\n\n  assign mux_out[0] = (sel == 2'b00) ? in0[0] : (sel == 2'b01) ? in1[0] : (sel == 2'b10) ? in2[0] : in3[0];\n  assign mux_out[1] = (sel == 2'b00) ? in0[1] : (sel == 2'b01) ? in1[1] : (sel == 2'b10) ? in2[1] : in3[1];\n  assign mux_out[2] = (sel == 2'b00) ? in0[2] : (sel == 2'b01) ? in1[2] : (sel == 2'b10) ? in2[2] : in3[2];\n  assign mux_out[3] = (sel == 2'b00) ? in0[3] : (sel == 2'b01) ? in1[3] : (sel == 2'b10) ? in2[3] : in3[3];\n\n  assign out = (en == 1'b1) ? mux_out : 4'b0000;\n\nendmodule"
-}

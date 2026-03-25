@@ -1,6 +1,0 @@
-{
-  "task_id": "q009578",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input en,\n    input rst,\n    output reg [7-1:1-1] lfsr_out\n);\n\n    wire feedback = lfsr_out[6] ^ lfsr_out[5];\n\n    always @(posedge clk) begin\n        if (rst)\n            lfsr_out <= 7'b0000001;  // Non-zero seed\n        else if (en)\n            lfsr_out <= {lfsr_out[5:0], feedback};\n    end\nendmodule"
-}

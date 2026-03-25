@@ -1,6 +1,0 @@
-{
-  "task_id": "q013430",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n    input [10:0] IR,\n    input [15:0] Ra,\n    input [15:0] PC,\n    input selEAB1,\n    input [1:0] selEAB2,\n    output [15:0] eabOut\n    );wire [15:0] obf_opA, opB;\n\t \n\t assign obf_opA = (selEAB2 == 2'b00) ? (16'b0000000000000000) :\n\t\t\t\t\t\t\t(selEAB2 == 2'b01) ? {{10{IR[5]}} , IR[5:0]} :\n\t\t\t\t\t\t\t(selEAB2 == 2'b10) ? {{7{IR[8]}} , IR[8:0]} :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{6{IR[10]}} , IR[10:0]};\n\t\t\t\t\t\t\t\n\t assign opB = selEAB1 == 1'b0 ? PC : Ra;\n\t \n\t assign eabOut = (obf_opA + opB);\n\nendmodule"
-}

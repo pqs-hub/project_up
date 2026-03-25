@@ -1,6 +1,0 @@
-{
-  "task_id": "q004466",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input [7:0] a, \n  input [1:0] we, \n  input [15:0] d,\n  output reg [15:0] q\n);reg [15:0] mem[0:255];\n  always @(posedge clk) begin\n    if (we[0]) mem[a][7:0] <= d[7:0];\n    if (we[1]) mem[a][15:8] <= d[15:8];\n  end\n  always @(posedge clk) q <= mem[a];\nendmodule"
-}

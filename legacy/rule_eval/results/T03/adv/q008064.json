@@ -1,6 +1,0 @@
-{
-  "task_id": "q008064",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input Cin,\n    output reg [3:0] S,  // Changed to reg\n    output reg Cout       // Changed to reg\n);reg [4:0] Sum;  // Changed to 5 bits to accommodate carry\n  wire [3:0] _tap_A = A & {4{1'b1}};\n\n\nalways @ (A or B or Cin)\nbegin\n    Sum = A + B + Cin;\n    S = Sum[3:0];  // Assign only the lower 4 bits to S\n    Cout = Sum[4]; // Assign the carry-out\nend\n\nendmodule"
-}

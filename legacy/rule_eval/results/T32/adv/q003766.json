@@ -1,6 +1,0 @@
-{
-  "task_id": "q003766",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module interrupt_controller(  \n    input clk,  \n    input reset,  \n    input [3-1:1-1] irq_requests,  \n    output reg [2:0] irq_processed  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            irq_processed <= 3'b000;  \n        end else begin  \n            if (irq_requests[2])  \n                irq_processed <= 3'b100; // High priority  \n            else if (irq_requests[1])  \n                irq_processed <= 3'b010; // Medium priority  \n            else if (irq_requests[0])  \n                irq_processed <= 3'b001; // Low priority  \n            else  \n                irq_processed <= 3'b000; // No interrupt  \n        end  \n    end  \nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q015255",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module RefModule(\n    clk_i,\n    RSaddr_i,\n    RTaddr_i,\n    RDaddr_i, \n    RDdata_i,\n    RegWrite_i, \n    RSdata_o, \n    RTdata_o \n);input               clk_i;\ninput   [4:0]       RSaddr_i;\ninput   [4:0]       RTaddr_i;\ninput   [4:0]       RDaddr_i;\ninput   [31:0]      RDdata_i;\ninput               RegWrite_i;\noutput  [31:0]      RSdata_o; \noutput  [31:0]      RTdata_o;\n\n\nreg     [31:0]      register        [0:31];\n\n\nassign  RSdata_o = register[RSaddr_i];\nassign  RTdata_o = register[RTaddr_i];\n\n\nalways@(posedge clk_i) begin\n    if(RegWrite_i)\n        register[RDaddr_i] <= RDdata_i;\nend\n   \nendmodule"
-}

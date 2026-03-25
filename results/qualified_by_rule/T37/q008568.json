@@ -1,6 +1,0 @@
-{
-  "task_id": "q008568",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(clk,rst,we,en,d,q);parameter DATA_W = 32; \n parameter INIT_VAL = {DATA_W{1'b0}}; \n input clk; \n input rst; \n input we; \n input [(DATA_W-1)/8:0] en; \n input [DATA_W-1:0] d; \n output reg [DATA_W-1:0] q; \n integer i; \n always @(posedge clk or posedge rst) \n begin \n  if (rst == 1) \n  q <= INIT_VAL; \n  else \n  for (i = 0; i < DATA_W; i = i + 1) \n  if (we && en[i/8]) \n  q[i] <= d[i]; \n end \n endmodule"
-}

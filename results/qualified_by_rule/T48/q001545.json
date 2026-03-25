@@ -1,6 +1,0 @@
-{
-  "task_id": "q001545",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire enable,\n    output reg timeout\n);\n    parameter TIMEOUT_VALUE = 10;\n    reg [3:0] count; // 4-bit counter to count up to 10\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 0;\n            timeout <= 0;\n        end else if (enable) begin\n            if (count < TIMEOUT_VALUE - 1) begin\n                count <= count + 1;\n                timeout <= 0;\n            end else begin\n                timeout <= 1; // Timeout occurred\n            end\n        end\n    end\nendmodule"
-}

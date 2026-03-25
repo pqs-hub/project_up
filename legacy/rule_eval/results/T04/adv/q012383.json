@@ -1,6 +1,0 @@
-{
-  "task_id": "q012383",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule top_module(\n    input [3:0] A,\n    input [1:0] S,\n    output reg [3:0] X\n);always @(*) begin\n        case (S)\n            2'b00: X = 4'b0000;\n            2'b01: X = 4'b1111;\n            2'b10: X = (A == 4'b1111) ? 4'b0000 : A;\n            2'b11: X = (A == 4'b0000) ? 4'b1111 : A;\n        endcase\n    end\n\nendmodule"
-}

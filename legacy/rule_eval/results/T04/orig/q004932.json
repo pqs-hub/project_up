@@ -1,6 +1,0 @@
-{
-  "task_id": "q004932",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(CLK, EN, TE, ENCLK);input CLK, EN, TE;\n  output ENCLK;\n\n  reg ENCLK_reg;\n\n  always @(posedge CLK) begin\n    if (EN) begin\n      ENCLK_reg <= TE;\n    end\n  end\n\n  assign ENCLK = EN ? ENCLK_reg : 1'b0;\n\nendmodule"
-}

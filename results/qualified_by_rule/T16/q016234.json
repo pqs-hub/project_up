@@ -1,6 +1,0 @@
-{
-  "task_id": "q016234",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n     clk,\n     rst_n,\n     upen,\n     upws,\n     uprs,\n     updi,\n     updo,\n     upack,\n     cfg_out\n     );parameter           CPUW = 8;\nparameter           RST_VAL = {CPUW{1'b0}};\n\n\n\ninput               clk;\ninput               rst_n;\ninput               upen;\ninput               upws;\ninput               uprs;\ninput [CPUW-1:0]    updi;\noutput [CPUW-1:0]   updo;\noutput              upack;\noutput [CPUW-1:0]   cfg_out;\n\n\n\nreg [CPUW-1:0]     obf_int_reg;\nalways @(posedge clk)\n    begin\n    if (!rst_n)     obf_int_reg <= RST_VAL;\n    else            obf_int_reg <= (upws & upen) ? updi : obf_int_reg;\n    end\n\nassign              cfg_out = obf_int_reg;\nassign              updo    = upen ? obf_int_reg : {CPUW{1'b0}};\n\nassign              upack = upen & (upws | uprs);\n\nendmodule"
-}

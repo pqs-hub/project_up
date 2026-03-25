@@ -1,6 +1,0 @@
-{
-  "task_id": "q009335",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule(\n    clk_i,     \n    inst_i,   \n    pc_i,\n    stall_i, \n    flush_i,  \n    inst_o, \n    pc_o,\n);input clk_i;\ninput [31:0] \tinst_i;\ninput [31:0] \tpc_i;\ninput stall_i;\ninput flush_i;\n\noutput reg [31:0] \tinst_o;\noutput reg [31:0] \tpc_o;\n\n\nalways@(posedge clk_i)\tbegin\n\tif (~stall_i)begin\n\t\tinst_o <= inst_i;\n\t\tpc_o <= pc_i;\n\tend\n    if (flush_i)begin\n        inst_o <= 32'd0;\n    end\nend \n\nendmodule"
-}

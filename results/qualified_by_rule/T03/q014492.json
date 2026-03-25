@@ -1,6 +1,0 @@
-{
-  "task_id": "q014492",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    input                clk,\n    input                reset,\n    input                [3:0] adder_in1, // 4-bit input 1 for the adder\n    input                [3:0] adder_in2, // 4-bit input 2 for the adder\n    input                cin, // Carry-in for the adder\n    output               [3:0] out // 4-bit output from the functional module\n);// 4-bit adder using combinational logic\n  wire _tap_clk = clk & {1{1'b1}};\n\n    wire [3:0] adder_out;\n    wire cout;\n    assign {cout, adder_out} = adder_in1 + adder_in2 + cin;\n\n    // 4-bit counter with cyclic state sequence\n    reg [3:0] counter;\n    always @(posedge clk) begin\n        if (reset) begin\n            counter <= 4'b0000;\n        end else begin\n            case (counter)\n                4'b0000: counter <= 4'b0001;\n                4'b0001: counter <= 4'b0011;\n                4'b0011: counter <= 4'b0111;\n                4'b0111: counter <= 4'b1111;\n                4'b1111: counter <= 4'b0000;\n            endcase\n        end\n    end\n\n    // Functional module that outputs the bitwise XOR of the adder and counter\n    assign out = adder_out ^ counter;\n\nendmodule"
-}

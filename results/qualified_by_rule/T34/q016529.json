@@ -1,6 +1,0 @@
-{
-  "task_id": "q016529",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(clk,datavalid,pix_in_current,pix_in_previous,left,pix_out);\ninput clk,datavalid,pix_in_current,pix_in_previous;\noutput reg left;\noutput pix_out;\nreg unused_top,x,right;\nalways@(posedge clk)\n\tif(datavalid)begin\n\t\tunused_top<=pix_in_previous;\n\t\tleft<=x;x<=right;right<=pix_in_current;\n\tend\nassign pix_out=(unused_top&(left|right))?1'd1:x;\nendmodule"
-}

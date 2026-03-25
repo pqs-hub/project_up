@@ -1,6 +1,0 @@
-{
-  "task_id": "q002961",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module current_sensor (\n    input [5-1:1-1] current_level,\n    output reg [2:0] status\n);\n\nalways @(*) begin\n    if (current_level <= 5'd10) begin\n        status = 3'b000; // Current level 0-10\n    end else if (current_level <= 5'd20) begin\n        status = 3'b001; // Current level 11-20\n    end else if (current_level <= 5'd30) begin\n        status = 3'b010; // Current level 21-30\n    end else begin\n        status = 3'b011; // Current level > 30\n    end\nend\n\nendmodule"
-}

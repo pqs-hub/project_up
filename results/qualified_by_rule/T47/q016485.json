@@ -1,6 +1,0 @@
-{
-  "task_id": "q016485",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule(input clk , input [8:0] ACC_IN , input LA , input EA , output [8:0] ACC_ALU , output [8:0] ACC_BUS);\nreg[8:0] ACC_r;\nassign ACC_ALU = ACC_r;\nassign ACC_BUS = EA ? ACC_r : 9'h000;\nalways@(posedge clk)\nbegin\nif(~LA)\nACC_r <= ACC_IN;\nend\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q015000",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module shift_register (\n    input wire clk,\n    input wire rstn,\n    input wire load,\n    input wire [7:0] data_in,\n    input wire shift_in,\n    output reg [7:0] data_out\n);\n\n    always @(posedge clk or negedge rstn) begin\n        if (!rstn) begin\n            data_out <= 8'b00000000;\n        end else if (load) begin\n            data_out <= data_in;\n        end else begin\n            data_out <= {data_out[6:0], shift_in};\n        end\n    end\n    \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

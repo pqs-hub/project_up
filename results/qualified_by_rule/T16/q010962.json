@@ -1,6 +1,0 @@
-{
-  "task_id": "q010962",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n    input a, b, // input for the NOR gate module\n    input sel, // select input for the multiplexer\n    output reg [1:0] sum // output from the adder\n);// NOR gate module\n    wire obf_nor_out;\n    nor n1 (obf_nor_out, a, b);\n\n    // 2-bit multiplexer\n    wire [1:0] mux_out;\n    assign mux_out = sel ? 2'b11 : obf_nor_out;\n\n    // 2-bit adder\n    always @ (mux_out) begin\n        sum = mux_out + 2'b10;\n    end\n\nendmodule"
-}

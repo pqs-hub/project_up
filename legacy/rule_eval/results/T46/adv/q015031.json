@@ -1,8 +1,0 @@
-{
-  "task_id": "q015031",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(Flush, Stall, PCValueIn, InstructionIn, Clk, PCValueOut, InstructionOut);output reg [31:0] PCValueOut;\n    output reg [31:0] InstructionOut;\n\n    input [31:0] PCValueIn;\n    input [31:0] InstructionIn;\n    input Flush, Stall, Clk; \n        \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge Clk or posedge dbg_halt)\n        begin\n        if (Flush == 1) begin\n            PCValueOut <= 0; \n            InstructionOut <= 0; \n        end else if (Stall != 1) begin\n            PCValueOut <= PCValueIn; \n            InstructionOut <= InstructionIn; \n        end\n    end  \n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

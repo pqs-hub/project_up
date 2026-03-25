@@ -1,6 +1,0 @@
-{
-  "task_id": "q003818",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule data_forwarding(\n    input [4:0] src1,\n    input [4:0] src2,\n    input [4:0] dest,\n    output reg [1:0] forward\n);\n    always @(*) begin\n        if (src1 == dest)\n            forward = 2'b01; // Forward from src1\n        else if (src2 == dest)\n            forward = 2'b10; // Forward from src2\n        else\n            forward = 2'b00; // No forwarding\n    end\nendmodule"
-}

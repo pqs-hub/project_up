@@ -1,6 +1,0 @@
-{
-  "task_id": "q010245",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(D,CLK,RSTB,Q,QN);input D;\n input CLK;\n input RSTB;\n output Q;\n output QN;\n\n reg Qtemp;\n\n   wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or negedge RSTB or posedge dbg_halt) begin\n   if (~RSTB) begin\n     Qtemp <= 1'b0;\n   end else begin\n     Qtemp <= D;\n   end\n end\n\n assign QN = ~Qtemp;\n assign Q = Qtemp;\n\nendmodule"
-}

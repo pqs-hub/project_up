@@ -1,6 +1,0 @@
-{
-  "task_id": "q008946",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule top_module(\n        input Reset,\n        input [2:0] Address,\n        input Cs,\n        input Clk,\n        input Iow,\n        input [15:0] Wdata,\n        output reg [15:0] leds,\n        output reg[7:0] led_high\n        );always @(posedge Clk or posedge Reset)\n        begin\n            if(Reset==1)\n                begin\n                    leds = 0;\n                end\n            else if(Cs==1'b1)\n                begin\n                    if(Iow==1'b1)\n                        begin\n                            case(Address[2:0])\n                                3'b000: leds = Wdata;\n                                3'b010: led_high=Wdata[7:0];\n                                default:leds = leds;\n                            endcase\n                        end\n                end\n        end\n    endmodule"
-}

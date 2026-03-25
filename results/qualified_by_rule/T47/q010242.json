@@ -1,6 +1,0 @@
-{
-  "task_id": "q010242",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule (\n  input clk,\n  input clear,\n  input en,\n  output reg [2:0] count,\n  output carry\n);always @(posedge clk) begin\n\tif (clear) begin\n\t\tcount <= 3'b000;\n\tend else if (en) begin\n\t\tcount <= count + 1;\n\tend\nend\n\n  wire _n01 = count[0] ^ 3'b111[0];\n  wire _n02 = count[1] ^ 3'b111[1];\n  wire _n03 = count[2] ^ 3'b111[2];\n  wire _n04 = count[3] ^ 3'b111[3];\n  assign carry = ~_n01 & ~_n02 & ~_n03 & ~_n04;\n\nendmodule"
-}

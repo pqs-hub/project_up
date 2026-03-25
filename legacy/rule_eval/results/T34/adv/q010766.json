@@ -1,6 +1,0 @@
-{
-  "task_id": "q010766",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input reset,\n    output reg [3:0] bit_0,\n    output reg [3:0] bit_1,\n    output reg [3:0] bit_2,\n    output reg [3:0] bit_3\n);reg [3:0] unused_counter;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        unused_counter <= 4'b0000;\n    end else begin\n        unused_counter <= {unused_counter[2:0], unused_counter[3]};\n    end\nend\n\nassign bit_0 = unused_counter[0];\nassign bit_1 = unused_counter[1];\nassign bit_2 = unused_counter[2];\nassign bit_3 = unused_counter[3];\n\nendmodule"
-}

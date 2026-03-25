@@ -1,6 +1,0 @@
-{
-  "task_id": "q000994",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule (\n    input [31:0] A,\n    input [31:0] B,\n    output [31:0] C,\n    output even\n);\n    wire [31:0] obf_and_result;\n    wire [31:0] xor_result;\n\n    assign obf_and_result = A & B;\n    assign xor_result = A ^ B;\n    assign C = obf_and_result | xor_result;\n    assign even = ~C[0]; // Check the least significant bit for evenness\nendmodule"
-}

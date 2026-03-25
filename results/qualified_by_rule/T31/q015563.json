@@ -1,6 +1,0 @@
-{
-  "task_id": "q015563",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    input we,\n    input [2:0] write_addr,\n    input [7:0] write_data,\n    input [2:0] read_addr,\n    output reg [7:0] read_data\n);\n\nreg [7:0] regfile [7:0];\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        regfile[0] <= 8'b0;\n        regfile[1] <= 8'b0;\n        regfile[2] <= 8'b0;\n        regfile[3] <= 8'b0;\n        regfile[4] <= 8'b0;\n        regfile[5] <= 8'b0;\n        regfile[6] <= 8'b0;\n        regfile[7] <= 8'b0;\n    end else if (we) begin\n        regfile[write_addr] <= write_data;\n    end\nend\n\nalways @(*) begin\n    read_data = regfile[read_addr];\nend\n\nendmodule"
-}

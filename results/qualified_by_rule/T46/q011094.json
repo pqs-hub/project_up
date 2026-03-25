@@ -1,6 +1,0 @@
-{
-  "task_id": "q011094",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n\tinput clk,\n\tinput shift_left,\n\tinput shift_right,\n\tinput data_in,\n\toutput reg [3:0] register);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt)\n\t\tif (shift_left)\n\t\t\tregister <= {register[2:0], data_in};\n\t\telse if (shift_right)\n\t\t\tregister <= {data_in, register[3:1]};\n\nendmodule"
-}

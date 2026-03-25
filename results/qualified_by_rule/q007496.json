@@ -1,6 +1,0 @@
-{
-  "task_id": "q007496",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n  input [31:0] dividend,\n  input [31:0] divisor,\n  output reg [31:0] remainder\n);// Calculate the obf_quotient\n  reg [31:0] obf_quotient;\n  assign obf_quotient = dividend / divisor;\n\n  // Calculate the product of the obf_quotient and the divisor\n  reg [31:0] product;\n  assign product = obf_quotient * divisor;\n\n  // Subtract the product from the dividend to get the remainder\n  always @(*) begin\n    remainder = dividend - product;\n  end\n\nendmodule"
-}

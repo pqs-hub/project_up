@@ -1,6 +1,0 @@
-{
-  "task_id": "q012660",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(MEM_Data, Lo_ReadData, Hi_ReadData, MEM_Result, EXE_MEM_LoRead, EXE_MEM_HiRead, MEM_memWrite);input [63:0] Lo_ReadData, Hi_ReadData, MEM_Result;\n\tinput EXE_MEM_LoRead, EXE_MEM_HiRead, MEM_memWrite;\n\t\n\n\toutput reg [63:0] MEM_Data;\n\t\n\talways @(*)\n\t\tbegin\n\t\t\tif(EXE_MEM_LoRead)\n\t\t\t\tMEM_Data <= Lo_ReadData;\n\t\t\t\n\t\t\telse if(EXE_MEM_HiRead)\n\t\t\t\tMEM_Data <= Hi_ReadData;\n\t\t\t\t\n\t\t\telse \n\t\t\t\tMEM_Data <= MEM_Result;\n\t\tend\n\t\t\nendmodule"
-}

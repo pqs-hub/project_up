@@ -1,6 +1,0 @@
-{
-  "task_id": "q013710",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(A, B, Ci, S, Co);input A, B, Ci;\noutput S, Co;\n\nwire n1, n2, n3;\n\n// Generate the sum bit and carry out using basic gates\nassign n1 = A ^ B;      // XOR for A and B\nassign S = n1 ^ Ci;     // XOR for sum including Carry-in\nassign n2 = A & B;      // AND for Carry-out of A and B\nassign n3 = n1 & Ci;    // AND for Carry-out of intermediate result and Carry-in\nassign Co = n2 | n3;    // OR to determine final Carry-out\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

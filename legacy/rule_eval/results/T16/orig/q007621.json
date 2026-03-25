@@ -1,6 +1,0 @@
-{
-  "task_id": "q007621",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module top_module(\n    input clk,\n    input parallel_load,\n    input [3:0] in,\n    output reg out\n);reg [3:0] shift_reg;\n\nalways @(posedge clk) begin\n    if (parallel_load) begin\n        shift_reg <= in;\n    end else begin\n        shift_reg <= {shift_reg[2:0], shift_reg[3]};\n    end\nend\n\nassign out = shift_reg[0];\n\nendmodule"
-}

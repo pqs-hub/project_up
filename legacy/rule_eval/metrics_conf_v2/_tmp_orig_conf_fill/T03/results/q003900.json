@@ -1,7 +1,0 @@
-{
-  "task_id": "q003900",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module ethernet_mac_controller(\n    input clk,\n    input reset,\n    input [7:0] data_in,\n    input data_valid,\n    output reg frame_valid\n);\n    reg [7:0] buffer [0:15]; // Buffer for incoming data\n    reg [3:0] count; // Counter for the buffer\n    reg sfd_detected; // Flag to indicate SFD detection\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 0;\n            frame_valid <= 0;\n            sfd_detected <= 0;\n        end else begin\n            if (data_valid) begin\n                if (count < 16) begin\n                    buffer[count] <= data_in;\n                    count <= count + 1;\n                end\n                // Check for SFD\n                if (data_in == 8'hD5) begin\n                    sfd_detected <= 1;\n                end\n            end\n            \n            // Set frame valid if SFD was detected\n            if (sfd_detected) begin\n                frame_valid <= 1;\n            end else begin\n                frame_valid <= 0;\n            end\n        end\n    end\nendmodule",
-  "rename_map": {}
-}

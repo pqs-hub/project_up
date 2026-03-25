@@ -1,6 +1,0 @@
-{
-  "task_id": "q009313",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule(\n    input [8-1:1-1] A,\n    input [7:0] B,\n    output [7:0] S,\n    output C\n);wire [7:0] sum;\n    wire [7:0] carry;\n\n    assign sum[0] = A[0] ^ B[0];\n    assign carry[0] = A[0] & B[0];\n\n    genvar i;\n    generate\n        for (i = 1; i < 8; i = i + 1) begin : adder_loop\n            assign sum[i] = A[i] ^ B[i] ^ carry[i-1];\n            assign carry[i] = (A[i] & B[i]) | (A[i] & carry[i-1]) | (B[i] & carry[i-1]);\n        end\n    endgenerate\n\n    assign S = sum;\n    assign C = carry[7];\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q012292",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(rst, clk, test, sync, freq, o);parameter WID = 32; \ninput rst;\ninput clk;\ninput test;\ninput sync;\ninput [WID-1:0] freq;   \noutput [WID-1:0] o;\n\nreg [WID-1:0] obf_acc;\n\nalways @(posedge clk)\nif (rst)\n    obf_acc <= 0;\nelse begin\n    if (~test) begin\n        if (sync)\n            obf_acc <= 0;\n        else\n            obf_acc <= obf_acc + freq;\n    end\n    else\n        obf_acc <= 0;\nend\n\nassign o = obf_acc;\n\nendmodule"
-}

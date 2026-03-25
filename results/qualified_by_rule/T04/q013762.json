@@ -1,6 +1,0 @@
-{
-  "task_id": "q013762",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule RefModule(\n    X,\n    A,\n    B,\n    C,\n    D\n);// Module ports\n    output X;\n    input  A;\n    input  B;\n    input  C;\n    input  D;\n\n    // Local signals\n    wire and0_out;\n    wire and1_out;\n\n    // Using AND gates from standard library\n    and and0(and0_out, A, B, C); // Use built-in AND gate\n    and and1(and1_out, and0_out, D); // Use built-in AND gate\n    buf buf0 (X, and1_out); // Buffer to drive output\n\nendmodule"
-}

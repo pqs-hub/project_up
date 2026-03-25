@@ -1,6 +1,0 @@
-{
-  "task_id": "q006054",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule(input clk, input reset, input load, input [3:0] in, output reg [3:0] out);reg [3:0] counter_reg;\n\n\talways @(posedge clk or posedge reset) begin\n\t\tif (reset) begin\n\t\t\tcounter_reg <= 4'b0;\n\t\tend else begin\n\t\t\tif (load) begin\n\t\t\t\tcounter_reg <= in;\n\t\t\tend else begin\n\t\t\t\tcounter_reg <= counter_reg + 1;\n\t\t\tend\n\t\tend\n\tend\n\n\tassign out = counter_reg;\n\nendmodule"
-}

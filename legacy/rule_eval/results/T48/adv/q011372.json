@@ -1,6 +1,0 @@
-{
-  "task_id": "q011372",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module top_module(\n    input wire \t\t clk_i,\n    \n    input wire [4 : 0] \t w_add_i,\n    input wire [31 : 0]  w_dat_i,\n    input wire \t\t write_en_i,\n    \n    input wire [4 : 0] \t a_add_sel,\n    input wire [4 : 0] \t b_add_sel,\n\n    output wire [31 : 0] r_port_a_o,\n    output wire [31 : 0] r_port_b_o\n);reg [31 : 0] mem [31 : 0];  \n\n    \n    always @(posedge clk_i) begin\n        if (write_en_i) begin\n            if (w_add_i != 5'b11111) begin\n                mem[w_add_i] = w_dat_i;\n            end\n        end\n    end\n\n  assign r_port_b_o = (b_add_sel != 5'b11111) ? mem[b_add_sel] : 32'h00000000;\n  assign r_port_a_o = (a_add_sel != 5'b11111) ? mem[a_add_sel] : 32'h00000000;\n   \nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q002544",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module RefModule (\n    input [7:0] x,            // Input value for x\n    input [7:0] a4, a3, a2, a1, a0, // Coefficients for the polynomial\n    output [15:0] result      // Result of the polynomial evaluation\n);\n    wire [15:0] x2, x3, x4;\n    wire [15:0] ax4, ax3, ax2, ax1, ax0;\n\n  assign result = ax4 + ax3 + ax2 + ax1 + ax0;\n  assign ax0 = a0;\n  assign ax1 = a1 * x;\n\n  assign ax2 = a2 * x2;\n  assign ax3 = a3 * x3;\n  assign ax4 = a4 * x4;\n  assign x4 = x3 * x;\n  assign x3 = x2 * x;\n\n  assign x2 = x * x;\nendmodule"
-}

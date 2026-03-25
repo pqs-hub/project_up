@@ -1,6 +1,0 @@
-{
-  "task_id": "q006124",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input reset,\n  input enable,\n  output reg [3:0] lfsr_out\n);reg [3:0] lfsr_reg;\n\nalways @(posedge clk) begin\n  if (reset) begin\n    lfsr_reg <= 4'b0001;\n  end else if (enable) begin\n    lfsr_reg <= {lfsr_reg[2:0], lfsr_reg[3] ^ lfsr_reg[0]};\n  end\nend\n\nassign lfsr_out = lfsr_reg;\n\nendmodule"
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q000953",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module eeprom_cell (  \n    input wire clk,  \n    input wire rst,  \n    input wire we,  \n    input wire [7:0] D,  \n    output reg [7:0] Q  \n);  \n    reg [7:0] stored_data;  \n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin  \n        if (rst) begin  \n            stored_data <= 8'b0;  \n            Q <= 8'b0;  \n        end else begin  \n            if (we) begin  \n                stored_data <= D;  \n            end  \n            Q <= stored_data;  \n        end  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

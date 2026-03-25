@@ -1,6 +1,0 @@
-{
-  "task_id": "q008263",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input rst_n,\n    input write_enable,\n    input [1:0] write_address,\n    input [1:0] read_address,\n    input [15:0] write_data,\n    output reg [15:0] read_data\n);\n    reg [15:0] unused_registers [0:3];\n    \n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            unused_registers[0] <= 16'b0;\n            unused_registers[1] <= 16'b0;\n            unused_registers[2] <= 16'b0;\n            unused_registers[3] <= 16'b0;\n        end else if (write_enable) begin\n            unused_registers[write_address] <= write_data;\n        end\n    end\n    \n    always @(*) begin\n        read_data = unused_registers[read_address];\n    end\nendmodule"
-}

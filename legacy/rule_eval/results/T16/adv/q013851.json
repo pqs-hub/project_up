@@ -1,9 +1,0 @@
-{
-  "task_id": "q013851",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module binary_counter_down (\n    input clk,\n    input reset,\n    input enable,\n    output [11:0] count\n);\n\n    reg [11:0] obf_counter_reg;\n\n    always @(posedge clk) begin\n        if (reset) begin\n            obf_counter_reg <= 12'b0;  // Reset the counter to 0\n        end else if (enable) begin\n            obf_counter_reg <= obf_counter_reg - 1;  // Decrement the counter\n        end\n    end\n\n    assign count = obf_counter_reg;\n\nendmodule",
-  "rename_map": {
-    "counter_reg": "obf_counter_reg"
-  }
-}

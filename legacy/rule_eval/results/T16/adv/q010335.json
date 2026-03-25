@@ -1,9 +1,0 @@
-{
-  "task_id": "q010335",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module decoder_3to8(\n    input [2:0] a,    // 3-bit input\n    output reg [7:0] obf_y // 8-bit output\n);\n\n// Decoder logic\nalways @(*) begin\n    obf_y = 8'b00000000;  // Default output\n    case (a)\n        3'b000: obf_y = 8'b00000001;\n        3'b001: obf_y = 8'b00000010;\n        3'b010: obf_y = 8'b00000100;\n        3'b011: obf_y = 8'b00001000;\n        3'b100: obf_y = 8'b00010000;\n        3'b101: obf_y = 8'b00100000;\n        3'b110: obf_y = 8'b01000000;\n        3'b111: obf_y = 8'b10000000;\n    endcase\nend\n\nendmodule",
-  "rename_map": {
-    "y": "obf_y"
-  }
-}

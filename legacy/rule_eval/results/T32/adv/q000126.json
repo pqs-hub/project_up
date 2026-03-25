@@ -1,6 +1,0 @@
-{
-  "task_id": "q000126",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module dot_product (\n    input [40-1:1-1] vector_a, // 5 elements of 8 bits packed (5*8=40 bits)\n    input [39:0] vector_b, // 5 elements of 8 bits packed (5*8=40 bits)\n    output reg [15:0] dot_product_out // 16-bit output\n);\n    integer i;\n    always @(*) begin\n        dot_product_out = 16'b0; // Initialize output to 0\n        for (i = 0; i < 5; i = i + 1) begin\n            dot_product_out = dot_product_out + (vector_a[i*8 +: 8] * vector_b[i*8 +: 8]);\n        end\n    end\nendmodule"
-}

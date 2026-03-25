@@ -1,6 +1,0 @@
-{
-  "task_id": "q007993",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule top_module(\n    input [31:0] excepttype,\n    input [31:0] epc,\n    input [31:0] oldpc,\n    output reg [31:0] newpc\n    );always@(*) begin\n        if(excepttype==32'h00000000)\n            newpc<=oldpc;\n        else begin\n            case(excepttype)\n                32'h00000001: newpc<=32'hBFC00380;\n                32'h00000004: newpc<=32'hBFC00380;\n                32'h00000005: newpc<=32'hBFC00380;\n                32'h00000008: newpc<=32'hBFC00380;\n                32'h00000009: newpc<=32'hBFC00380;\n                32'h0000000a: newpc<=32'hBFC00380;\n                32'h0000000c: newpc<=32'hBFC00380;\n                32'h0000000e: newpc<=epc;\n            endcase\n        end\n    end\n    \nendmodule"
-}

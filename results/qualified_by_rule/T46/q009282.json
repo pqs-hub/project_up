@@ -1,6 +1,0 @@
-{
-  "task_id": "q009282",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    output reg [1:0] gray\n);\n\nreg [1:0] binary;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n    if (rst) begin\n        binary <= 2'b00;\n    end else begin\n        binary <= binary + 1;\n    end\nend\n\nalways @(binary) begin\n    gray = binary ^ (binary >> 1);\nend\n\nendmodule"
-}

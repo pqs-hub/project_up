@@ -1,6 +1,0 @@
-{
-  "task_id": "q008157",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module sync_counter_8bit(\n    input clk,\n    input rst,\n    input en,\n    output reg [7:0] q\n    );\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk) begin\n        if (rst) begin\n            q <= 8'b00000000;\n        end else if (en) begin\n            q <= q + 1;\n        end\n    end\nendmodule"
-}

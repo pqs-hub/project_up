@@ -1,6 +1,0 @@
-{
-  "task_id": "q005758",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n\tinput clk,\n\tinput rst_n,\n\tinput [7:0] duty_cycle,\n\toutput reg pwm_out\n);\n\n\treg [7:0] obf_counter;\n\n\talways @(posedge clk or negedge rst_n) begin\n\t\tif (!rst_n)\n\t\t\tobf_counter <= 8'b0;\n\t\telse\n\t\t\tobf_counter <= obf_counter + 1;\n\tend\n\n\talways @(posedge clk or negedge rst_n) begin\n\t\tif (!rst_n)\n\t\t\tpwm_out <= 1'b0;\n\t\telse\n\t\t\tpwm_out <= (obf_counter < duty_cycle) ? 1'b1 : 1'b0;\n\tend\n\nendmodule"
-}

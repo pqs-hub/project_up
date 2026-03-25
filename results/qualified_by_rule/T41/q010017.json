@@ -1,6 +1,0 @@
-{
-  "task_id": "q010017",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input sreset,\n    input enable,\n    output [5:0] q );reg [5:0] q_reg;\n\nalways @(posedge clk) begin\n    if (sreset)\n        q_reg <= 6'b000000;\n    else if (enable)\n        q_reg <= q_reg + 1;\nend\n\nassign q = q_reg;\n\nendmodule"
-}

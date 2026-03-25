@@ -1,6 +1,0 @@
-{
-  "task_id": "q003063",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule (\n    input [7:0] P11, // Pixel value at (1,1)\n    input [7:0] P12, // Pixel value at (1,2)\n    input [7:0] P21, // Pixel value at (2,1)\n    input [7:0] P22, // Pixel value at (2,2)\n    input [7:0] u,    // Fractional coordinate u (0 to 255)\n    input [7:0] v,    // Fractional coordinate v (0 to 255)\n    output reg [7:0] P_out // Interpolated pixel value\n);\n\n    always @(*) begin\n        P_out = ((P11 * (256 - u) * (256 - v) +\n                   P12 * u * (256 - v) +\n                   P21 * (256 - u) * v +\n                   P22 * u * v) >> 16);\n    end\n\nendmodule"
-}

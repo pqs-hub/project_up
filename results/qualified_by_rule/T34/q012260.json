@@ -1,6 +1,0 @@
-{
-  "task_id": "q012260",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input                 clk,\n    input                 rst,\n    input                 we,\n    input       [1:0]     waddr,\n    input       [7:0]     wdata,\n    input       [1:0]     raddr1,\n    input       [1:0]     raddr2,\n    output   reg [7:0]    rdata1,\n    output   reg [7:0]    rdata2\n);\n\nreg [7:0] unused_registers [0:3];  // 4 unused_registers of 8 bits each\n\n// Write logic\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        unused_registers[0] <= 8'd0;\n        unused_registers[1] <= 8'd0;\n        unused_registers[2] <= 8'd0;\n        unused_registers[3] <= 8'd0;\n    end else if (we) begin\n        unused_registers[waddr] <= wdata;\n    end\nend\n\n// Read logic\nalways @(*) begin\n    rdata1 = unused_registers[raddr1];\n    rdata2 = unused_registers[raddr2];\nend\n\nendmodule"
-}

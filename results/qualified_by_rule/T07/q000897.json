@@ -1,6 +1,0 @@
-{
-  "task_id": "q000897",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    input valid,\n    input [31:0] x,   // current position\n    input [31:0] lr,  // learning rate\n    output reg [31:0] new_x // updated position\n);\n\n    parameter gradient = 1;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            new_x <= 32'b0; // Reset new_x\n        end else if (valid) begin\n            // Calculate new position\n            new_x <= x - (lr * gradient);\n        end\n    end\nendmodule"
-}

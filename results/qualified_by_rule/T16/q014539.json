@@ -1,6 +1,0 @@
-{
-  "task_id": "q014539",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n  output reg [2:0] cycle,\n  input clk,\n  input enn\n);reg [2:0] obf_register = 3'b000;\n\n  always @(posedge clk) begin\n    if(!enn)\n      obf_register <= (obf_register == 3'b111) ? 3'b000 : obf_register + 1;\n    else\n      obf_register <= 3'b000;\n  end\n  \n  assign cycle = obf_register;\n  \nendmodule"
-}

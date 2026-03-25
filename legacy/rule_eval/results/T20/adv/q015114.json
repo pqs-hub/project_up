@@ -1,6 +1,0 @@
-{
-  "task_id": "q015114",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule counter(CLK, RST, EN, Q);\ninput CLK, RST, EN;\noutput [3:0] Q;\nreg [3:0] Q;\n\nalways@(posedge CLK or posedge RST) begin\n\tif (RST)\n\t\tQ <= 0;\n\telse if (EN)\n\t\tQ <= Q + 1;\n\telse\n\t\tQ <= Q;\nend\n\nendmodule"
-}

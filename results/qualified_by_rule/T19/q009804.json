@@ -1,6 +1,0 @@
-{
-  "task_id": "q009804",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(\n    input               clk         ,   \n    input               rst         ,\n    input               enable      ,\n \n    output  reg [7:0]   data_out\n);\n    \n   //shift register\n   always @(posedge clk or posedge rst) begin\n       if(rst) begin\n          data_out <= 8'b0;\n       end\n       else if(enable) begin\n          data_out <= data_out << 1;\n       end\n   end\n     \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

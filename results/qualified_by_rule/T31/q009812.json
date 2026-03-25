@@ -1,6 +1,0 @@
-{
-  "task_id": "q009812",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    input load,\n    input sin,\n    input [15:0] pdata,\n    output sout,\n    output [15:0] q\n);\n\n    reg [15:0] shift_reg;\n\n    always @(posedge clk) begin\n        if (rst) begin\n            shift_reg <= 16'b0;\n        end else if (load) begin\n            shift_reg <= pdata;\n        end else begin\n            shift_reg <= {shift_reg[14:0], sin};\n        end\n    end\n\n    wire __sout_tmp = shift_reg[15];\n    assign sout = __sout_tmp;\n    assign q = shift_reg;\n\nendmodule"
-}

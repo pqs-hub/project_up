@@ -1,6 +1,0 @@
-{
-  "task_id": "q000939",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module SR_latch (input S, input R, output reg Q, output Qn);  \n    always @(S, R) begin  \n        if (S && !R)  \n            Q <= 1;  \n        else if (!S && R)  \n            Q <= 0;  \n        // If both S and R are low, retain previous state  \n    end  \n    wire __Qn_tmp = ~Q;\n    assign Qn = __Qn_tmp;  \nendmodule"
-}

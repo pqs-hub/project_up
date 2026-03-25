@@ -1,9 +1,0 @@
-{
-  "task_id": "q003171",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module ALU (\n    input [7:0] obf_A,\n    input [7:0] B,\n    input [2:0] Op,\n    output reg [7:0] Result\n);\n    always @(*) begin\n        case (Op)\n            3'b000: Result = obf_A + B;       // ADD\n            3'b001: Result = obf_A - B;       // SUBTRACT\n            3'b010: Result = obf_A & B;       // AND\n            3'b011: Result = obf_A | B;       // OR\n            3'b100: Result = ~obf_A;          // NOT\n            default: Result = 8'b00000000; // Default case\n        endcase\n    end\nendmodule",
-  "rename_map": {
-    "A": "obf_A"
-  }
-}

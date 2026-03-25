@@ -1,6 +1,0 @@
-{
-  "task_id": "q016000",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n    input in0,\n    input in1,\n    input in2,\n    input in3,\n    input sel0,\n    input sel1,\n    input clk,\n    output reg out\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (sel1 == 0 && sel0 == 0) begin\n            out <= in0;\n        end else if (sel1 == 0 && sel0 == 1) begin\n            out <= in1;\n        end else if (sel1 == 1 && sel0 == 0) begin\n            out <= in2;\n        end else begin\n            out <= in3;\n        end\n    end\n    \nendmodule"
-}

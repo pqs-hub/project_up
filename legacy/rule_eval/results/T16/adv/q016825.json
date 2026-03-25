@@ -1,9 +1,0 @@
-{
-  "task_id": "q016825",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module calculator(\n  input signed [7:0] obf_a,\n  input signed [7:0] b,\n  output reg signed [7:0] result,\n  output reg overflow\n);\n\n  always @* begin\n    result = obf_a + b;\n    if ((obf_a[7] == b[7]) && (obf_a[7] != result[7]))\n      overflow = 1;\n    else\n      overflow = 0;\n  end\n\nendmodule",
-  "rename_map": {
-    "a": "obf_a"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q003342",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule (\n    input [23:0] dac_input,\n    output reg [7:0] dac_output,\n    output reg valid\n);\n\nalways @(*) begin\n    // Assuming the DAC takes a linear mapping of the 24-bit input to 8-bit output\n    dac_output = dac_input[23:16]; // Take the upper 8 bits for DAC output\n    valid = 1'b1; // Output is always valid in this simple model\nend\n\nendmodule"
-}

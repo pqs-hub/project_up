@@ -1,6 +1,0 @@
-{
-  "task_id": "q000560",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(  \n    input [4:0] temp_input,  \n    output [4:0] temp_output  \n);  \n    wire [5:0] unused_temp_calibrated; // To hold the value after adding offset  \n  \n    assign unused_temp_calibrated = temp_input + 5'd3; // Add offset of 3  \n    assign temp_output = (unused_temp_calibrated > 5'd31) ? 5'd31 : unused_temp_calibrated[4:0]; // Limit to 31  \n  \nendmodule"
-}

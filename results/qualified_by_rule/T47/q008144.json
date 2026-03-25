@@ -1,6 +1,0 @@
-{
-  "task_id": "q008144",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule(\n\n  input wire  [31:0] a_i,\n  output wire [31:0] twos_comp\n  );  wire _n01 = ~a_i[0] ^ 1'b1[0];\n  wire _c01 = ~a_i[0] & 1'b1[0];\n  wire _n02 = ~a_i[1] ^ 1'b1[1] ^ _c01;\n  wire _c02 = (~a_i[1] & 1'b1[1]) | (~a_i[1] & _c01) | (1'b1[1] & _c01);\n  wire _n03 = ~a_i[2] ^ 1'b1[2] ^ _c02;\n  wire _c03 = (~a_i[2] & 1'b1[2]) | (~a_i[2] & _c02) | (1'b1[2] & _c02);\n  wire _n04 = ~a_i[3] ^ 1'b1[3] ^ _c03;\n  wire _c04 = (~a_i[3] & 1'b1[3]) | (~a_i[3] & _c03) | (1'b1[3] & _c03);\n  assign twos_comp = {_n01, _n02, _n03, _n04};\n\nendmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q000668",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module divider (\n    input obf_clk,\n    input reset,\n    input valid,\n    input [3:0] dividend,\n    input [3:0] divisor,\n    output reg [3:0] quotient,\n    output reg [3:0] remainder\n);\n    always @(posedge obf_clk or posedge reset) begin\n        if (reset) begin\n            quotient <= 4'b0000;\n            remainder <= 4'b0000;\n        end else if (valid) begin\n            if (divisor == 4'b0000) begin\n                quotient <= 4'b0000;\n                remainder <= dividend;\n            end else begin\n                quotient <= dividend / divisor;\n                remainder <= dividend % divisor;\n            end\n        end\n    end\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

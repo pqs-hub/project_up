@@ -1,6 +1,0 @@
-{
-  "task_id": "q000880",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [23:0] analog_value,\n    output reg adc_output\n);\n    parameter THRESHOLD = 24'h800000; // 2^23\n\n    always @(posedge clk or negedge reset) begin\n        if (!reset) begin\n            adc_output <= 1'b0;\n        end else begin\n            if (analog_value > THRESHOLD) begin\n                adc_output <= 1'b1;\n            end else begin\n                adc_output <= 1'b0;\n            end\n        end\n    end\nendmodule"
-}

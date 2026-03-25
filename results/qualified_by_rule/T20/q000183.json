@@ -1,6 +1,0 @@
-{
-  "task_id": "q000183",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule RefModule (  \n    input wire [7:0] in,  \n    output reg [2:0] out,  \n    output reg valid  \n);  \n    always @* begin  \n        casez (in)  \n            8'b1???????: out = 3'b111; // input 7  \n            8'b01??????: out = 3'b110; // input 6  \n            8'b001?????: out = 3'b101; // input 5  \n            8'b0001????: out = 3'b100; // input 4  \n            8'b00001???: out = 3'b011; // input 3  \n            8'b000001??: out = 3'b010; // input 2  \n            8'b0000001?: out = 3'b001; // input 1  \n            8'b00000001: out = 3'b000; // input 0  \n            default: out = 3'b000; // no input  \n        endcase  \n        valid = |in;  \n    end  \nendmodule"
-}

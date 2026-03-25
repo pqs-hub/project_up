@@ -1,6 +1,0 @@
-{
-  "task_id": "q000272",
-  "rule_id": "T34",
-  "changed": false,
-  "final": "module RefModule(  \n    input wire clk,  \n    input wire rst,  \n    input wire [127:0] pcie_packet,  \n    output reg [7:0] tlp_type,  \n    output reg [15:0] req_id,  \n    output reg [31:0] address  \n);  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            tlp_type <= 8'b0;  \n            req_id <= 16'b0;  \n            address <= 32'b0;  \n        end else begin  \n            tlp_type <= pcie_packet[127:120];  \n            req_id <= pcie_packet[119:104];  \n            address <= pcie_packet[103:72];  \n        end  \n    end  \nendmodule"
-}

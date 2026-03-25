@@ -1,6 +1,0 @@
-{
-  "task_id": "q015233",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input reset,\n  input [3:0] red_intensity,\n  input [3:0] green_intensity,\n  input [3:0] blue_intensity,\n  output reg [9:0] red_voltage,\n  output reg [9:0] green_voltage,\n  output reg [9:0] blue_voltage\n);reg [9:0] red_voltage_reg;\nreg [9:0] green_voltage_reg;\nreg [9:0] blue_voltage_reg;\n\nalways @ (posedge clk) begin\n  if (reset) begin\n    red_voltage_reg <= 10'd0;\n    green_voltage_reg <= 10'd0;\n    blue_voltage_reg <= 10'd0;\n  end\n  else begin\n    red_voltage_reg <= red_intensity * 10'd64;\n    green_voltage_reg <= green_intensity * 10'd64;\n    blue_voltage_reg <= blue_intensity * 10'd64;\n  end\nend\n\nassign red_voltage = red_voltage_reg;\nassign green_voltage = green_voltage_reg;\nassign blue_voltage = blue_voltage_reg;\n\nendmodule"
-}

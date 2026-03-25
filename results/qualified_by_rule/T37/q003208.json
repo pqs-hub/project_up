@@ -1,6 +1,0 @@
-{
-  "task_id": "q003208",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire serial_in,\n    output reg [1:0] q\n);\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            q <= 2'b00; // Asynchronous reset\n        end else begin\n            q <= {q[0], serial_in}; // Shift left\n        end\n    end\n\nendmodule"
-}

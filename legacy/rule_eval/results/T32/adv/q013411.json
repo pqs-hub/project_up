@@ -1,6 +1,0 @@
-{
-  "task_id": "q013411",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module reg_file (\n    input clk,\n    input wr_en,\n    input [3-1:1-1] wr_addr,\n    input [15:0] wr_data,\n    input [2:0] rd_addr1,\n    input [2:0] rd_addr2,\n    output reg [15:0] rd_data1,\n    output reg [15:0] rd_data2\n);\n\nreg [15:0] registers [0:7];\n\nalways @(posedge clk) begin\n    if (wr_en) begin\n        registers[wr_addr] <= wr_data;\n    end\nend\n\nalways @(*) begin\n    rd_data1 = registers[rd_addr1];\n    rd_data2 = registers[rd_addr2];\nend\n\nendmodule"
-}

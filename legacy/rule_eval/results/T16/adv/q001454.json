@@ -1,9 +1,0 @@
-{
-  "task_id": "q001454",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module packet_filter (\n    input [4:0] src_ip,\n    input control,\n    output reg obf_accept\n);\n    always @(*) begin\n        if (control) begin\n            case (src_ip)\n                5'b00001: obf_accept = 1; // Accept IP 1\n                5'b00010: obf_accept = 1; // Accept IP 2\n                5'b00011: obf_accept = 1; // Accept IP 3\n                default: obf_accept = 0;   // Block all others\n            endcase\n        end else begin\n            obf_accept = 1; // Accept all if control is 0\n        end\n    end\nendmodule",
-  "rename_map": {
-    "accept": "obf_accept"
-  }
-}

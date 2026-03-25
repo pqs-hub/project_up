@@ -1,6 +1,0 @@
-{
-  "task_id": "q016181",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule(\n    input [3:0] O,\n    input [3:0] A,\n    input C,\n    output reg [3:0] S,\n    output reg [3:0] D,\n    output reg B\n);always @(*) begin\n    if (C == 1'b1) begin\n        S = O + A;\n        D = 4'b0;\n        B = 1'b0;\n    end else begin\n        S = 4'b0;\n        if (O < A) begin\n            D = (O + 16) - A;\n            B = 1'b1;\n        end else begin\n            D = O - A;\n            B = 1'b0;\n        end\n    end\nend\n\nendmodule"
-}

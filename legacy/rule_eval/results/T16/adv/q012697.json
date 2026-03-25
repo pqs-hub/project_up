@@ -1,9 +1,0 @@
-{
-  "task_id": "q012697",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(clk ,select, sd, d, q);input clk;\ninput select;\ninput sd;\ninput d;\noutput reg q;\nwire obf_f;\n\n\nassign obf_f = (select)? sd : d;\n\nalways @(negedge clk) begin\n    q <= obf_f;\nend\n    \nendmodule",
-  "rename_map": {
-    "f": "obf_f"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q012738",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input reset,\n  input enable,\n  input [1:0] op,\n  input [31:0] A,\n  input [31:0] B,\n  output reg [31:0] C\n);always @(posedge clk) begin\n    if (reset) begin\n      C <= 0;\n    end else if (enable) begin\n      case (op)\n        2'b00: C <= A + B;\n        2'b01: C <= A - B;\n        2'b10: C <= A * B;\n        2'b11: C <= A / B;\n        default: C <= 0;\n      endcase\n    end\n  end\n\nendmodule"
-}

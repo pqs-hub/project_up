@@ -1,8 +1,0 @@
-{
-  "task_id": "q014333",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module simple_register (\n    input clk,\n    input reset,\n    input enable,\n    input [7:0] data_in,\n    output reg [7:0] q\n);\n\n    // Register logic\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n        if (reset)\n            q <= 8'b00000000;\n        else if (enable)\n            q <= data_in;\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

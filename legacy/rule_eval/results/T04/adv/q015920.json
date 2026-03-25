@@ -1,6 +1,0 @@
-{
-  "task_id": "q015920",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule top_module(a, b, q, clk);parameter width = 16, cycles=1; \n  input signed [width-1:0] a, b; \n  input clk; \n  output signed [width-1:0] q; \n  reg signed [width-1:0] res[cycles-1:0]; \n  assign q = res[cycles-1]; \n  integer i; \n  always @(posedge clk) begin \n  res[0] <= a-b; \n  for (i=1; i < cycles; i = i+1) \n  res[i] <= res[i-1]; \n  end \n endmodule"
-}

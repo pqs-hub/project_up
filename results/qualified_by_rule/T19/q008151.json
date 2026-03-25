@@ -1,6 +1,0 @@
-{
-  "task_id": "q008151",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(\n    input [3:0] A,\n    input [3:0] B,\n    input sel,\n    input rst,\n    input clk,     // Added clk input\n    output reg [3:0] C   // Changed output to reg type to allow assignment in always block\n);reg [3:0] sum;\n    reg [3:0] xor_result; // Changed variable name to avoid conflict with keyword\n\n    always @(*) begin\n        if (sel == 1) begin\n            xor_result = A ^ B; // Use xor_result instead of xor\n            sum = 4'b0;\n        end else begin\n            sum = A + B;\n            xor_result = 4'b0; // Use xor_result instead of xor\n        end\n    end\n\n    always @(posedge clk) begin\n        if (rst) begin\n            C <= 4'b0;\n        end else begin\n            if (sel == 1) begin\n                C <= xor_result; // Use xor_result instead of xor\n            end else begin\n                C <= sum;\n            end\n        end\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q005726",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n  input PB1,\n  output LED1,\n  output LED2,\n  output CDONE_A,\n  input OSC_CLK_A\n);localparam bits = 24;\n  reg [bits-1:0] obf_counter = 0;\n\n  always @(posedge OSC_CLK_A) begin\n    obf_counter <= obf_counter + 1;\n  end\n\n  assign {LED1, LED2} = obf_counter[bits-1:bits-2];\n  assign CDONE_A = ~PB1;\n\nendmodule"
-}

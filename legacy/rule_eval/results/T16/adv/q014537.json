@@ -1,9 +1,0 @@
-{
-  "task_id": "q014537",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input  wire        CLK,\n    input  wire        RST,\n    input  wire        EN,\n    output wire [3:0]  Q\n);reg [3:0] obf_count;\n\n    always @(posedge CLK) begin\n        if (RST) begin\n            obf_count <= 4'b0;\n        end\n        else if (EN) begin\n            obf_count <= obf_count + 1;\n        end\n    end\n\n    assign Q = obf_count;\n\nendmodule",
-  "rename_map": {
-    "count": "obf_count"
-  }
-}

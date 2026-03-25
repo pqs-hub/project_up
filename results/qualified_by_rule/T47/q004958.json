@@ -1,6 +1,0 @@
-{
-  "task_id": "q004958",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule(din, rst_l, en, clk, q, se, si, so);parameter SIZE = 1;\n\ninput [SIZE-1:0] din;\ninput rst_l;\ninput en;\ninput clk;\n\noutput [SIZE-1:0] q;\n\ninput se;\ninput [SIZE-1:0] si;\noutput [SIZE-1:0] so;\n\nreg [SIZE-1:0] q;\n\nalways @ (posedge clk) begin\n    if (!rst_l) begin\n        q <= {SIZE{1'b0}};\n    end else if (se) begin\n        q <= si;\n    end else if (en) begin\n        q <= din;\n    end\nend\n\nassign so = q;\n\nendmodule"
-}

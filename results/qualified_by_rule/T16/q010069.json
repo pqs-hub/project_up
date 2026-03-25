@@ -1,6 +1,0 @@
-{
-  "task_id": "q010069",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module RefModule(input clock,input reset,\n  input [7:0] ALU_out,\n  input [7:0] EX_WB_Rsdata_in,\n  input [2:0] EX_WB_Rd_in,\n  input EX_WB_write_mux_in,EX_WB_regWrite_in, \n  output reg [7:0] ALU_WB_out,\n  output reg [7:0] EX_WB_Rsdata_out,\n  output reg [2:0] EX_WB_Rd_out,\n  output reg EX_WB_write_mux_out,EX_WB_regWrite_out);always@(posedge clock,negedge reset)\n  begin\n    if(reset==0)\n      begin\n        {EX_WB_write_mux_out,EX_WB_regWrite_out} <= 2'b0;\n        {ALU_WB_out,EX_WB_Rsdata_out,EX_WB_Rd_out} <= 19'b0;\n      end\n    else\n      begin\n        {EX_WB_write_mux_out,EX_WB_regWrite_out} <= {EX_WB_write_mux_in,EX_WB_regWrite_in};\n        {ALU_WB_out,EX_WB_Rsdata_out,EX_WB_Rd_out} <= {ALU_out,EX_WB_Rsdata_in,EX_WB_Rd_in};\n      end\n  end\nendmodule"
-}

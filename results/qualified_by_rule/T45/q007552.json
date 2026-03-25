@@ -1,6 +1,0 @@
-{
-  "task_id": "q007552",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule(a, b, sum, carry_out);\n\n    input [3:0] a;\n    input [3:0] b;\n    output [3:0] sum;\n    output carry_out;\n    wire c1, c2, c3;\n\n    full_adder fa0(a[0], b[0], 0, sum[0], c1);\n    full_adder fa1(a[1], b[1], c1, sum[1], c2);\n    full_adder fa2(a[2], b[2], c2, sum[2], c3);\n    full_adder fa3(a[3], b[3], c3, sum[3], carry_out);\n\nendmodule\n\nmodule full_adder(a, b, cin, sum, cout);\n\n    input a, b, cin;\n    output sum, cout;\n\n    assign sum = a ^ b ^ cin;\n    assign cout = (a & b) | (b & cin) | (cin & a);\n\nendmodule"
-}

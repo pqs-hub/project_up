@@ -1,9 +1,0 @@
-{
-  "task_id": "q007921",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n      output [7:0]DPO,     \n      output [7:0]SPO,     \n      input [3:0]A,       \t\n      input [7:0]D,        \n      input [3:0]DPRA, \t\t\n      input obf_WCLK,   \t\t\t\n      input WE        \t\t\n   );reg [7:0]data[15:0];\n\tassign DPO = data[DPRA];\n\tassign SPO = data[A];\n\t\n\talways @(posedge obf_WCLK)\n\t\tif(WE) data[A] <= D;\t\t\n\nendmodule",
-  "rename_map": {
-    "WCLK": "obf_WCLK"
-  }
-}

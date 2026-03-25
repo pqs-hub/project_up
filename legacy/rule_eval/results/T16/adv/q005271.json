@@ -1,9 +1,0 @@
-{
-  "task_id": "q005271",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module( CLK, EN, TE, ENCLK );input CLK, EN, TE;\n  output ENCLK;\n\n  // Declare an internal signal to capture the gated clock\n  wire obf_gatedCLK;\n\n  // Use a simple gate-based clock gating implementation\n  assign obf_gatedCLK = EN & TE & CLK;\n\n  // Assign the gated clock signal to the output\n  assign ENCLK = obf_gatedCLK;\n\nendmodule",
-  "rename_map": {
-    "gatedCLK": "obf_gatedCLK"
-  }
-}

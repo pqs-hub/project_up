@@ -1,6 +1,0 @@
-{
-  "task_id": "q014654",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule (\n\tinput clk,\n\tinput reset,\n\tinput [1:0] write_addr,\n\tinput [15:0] write_data,\n\tinput write_en,\n\tinput [1:0] read_addr,\n\toutput reg [15:0] read_data\n);reg [15:0] registers [3:0];\n\nalways @(posedge clk) begin\n\tif (reset) begin\n\t\tregisters[0] <= 16'b0;\n\t\tregisters[1] <= 16'b0;\n\t\tregisters[2] <= 16'b0;\n\t\tregisters[3] <= 16'b0;\n\tend else if (write_en) begin\n\t\tregisters[write_addr] <= write_data;\n\tend\nend\n\nalways @(*) begin\n\tread_data = registers[read_addr];\nend\n\nendmodule"
-}

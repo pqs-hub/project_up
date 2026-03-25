@@ -1,6 +1,0 @@
-{
-  "task_id": "q010022",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module shift_register (\n    input clk,\n    input sreset,\n    input load_enable,\n    input shift,\n    input [23:0] data,\n    output [23:0] q );reg [23:0] q_reg;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    if (sreset)\n        q_reg <= 24'b0;\n    else if (load_enable)\n        q_reg <= data;\n    else if (shift)\n        q_reg <= {q_reg[22:0], 1'b0};\nend\n\nassign q = q_reg;\n\nendmodule"
-}

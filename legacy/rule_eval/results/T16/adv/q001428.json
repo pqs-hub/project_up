@@ -1,9 +1,0 @@
-{
-  "task_id": "q001428",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module slam_system(  \n    input obf_clk,  \n    input reset,  \n    input trigger,  \n    output reg [1:0] state  \n);  \n\n    parameter IDLE = 2'b00,  \n              MAPPING = 2'b01,  \n              LOCALIZING = 2'b10;  \n\n    always @(posedge obf_clk or posedge reset) begin  \n        if (reset)  \n            state <= IDLE;  \n        else if (trigger) begin  \n            case (state)  \n                IDLE: state <= MAPPING;  \n                MAPPING: state <= LOCALIZING;  \n                LOCALIZING: state <= IDLE;  \n                default: state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

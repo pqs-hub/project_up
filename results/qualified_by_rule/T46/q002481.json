@@ -1,6 +1,0 @@
-{
-  "task_id": "q002481",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire control,\n    input wire [31:0] internal_ip,\n    input wire [31:0] external_ip,\n    output reg [31:0] output_ip\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n        if (reset) begin\n            output_ip <= 32'b0;\n        end else begin\n            if (control) begin\n                output_ip <= external_ip;\n            end else begin\n                output_ip <= internal_ip;\n            end\n        end\n    end\nendmodule"
-}

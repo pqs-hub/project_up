@@ -1,6 +1,0 @@
-{
-  "task_id": "q008028",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (CLK, RESET, UP_DOWN, COUNT);\ninput CLK;\ninput RESET;\ninput UP_DOWN;\noutput reg [3:0] COUNT;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n    if (RESET) begin\n        COUNT <= 4'b0000;\n    end\n    else if (UP_DOWN) begin\n        COUNT <= COUNT + 1;\n    end\n    else begin\n        COUNT <= COUNT - 1;\n    end\nend\n\nendmodule"
-}

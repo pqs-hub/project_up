@@ -1,6 +1,0 @@
-{
-  "task_id": "q002267",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule (\n    input wire A,\n    input wire B,\n    input wire Sel,\n    output wire Y\n);\n    wire not_Sel, A_and_not_Sel, B_and_Sel, temp1, temp2;\n\n    not(not_Sel, Sel);\n    and(A_and_not_Sel, A, not_Sel);\n    and(B_and_Sel, B, Sel);\n\n    // Hazard resolution\n    or(temp1, A_and_not_Sel, B_and_Sel);\n    or(temp2, A, B);\n    and(Y, temp1, temp2);\nendmodule"
-}

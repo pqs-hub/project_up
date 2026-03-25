@@ -1,6 +1,0 @@
-{
-  "task_id": "q000828",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input wire clk,\n    input wire reset,\n    input wire signal,\n    output reg crossing\n);\nreg unused_previous_signal;\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        unused_previous_signal <= 0;\n        crossing <= 0;\n    end else begin\n        crossing <= (unused_previous_signal && !signal) || (!unused_previous_signal && signal);\n        unused_previous_signal <= signal;\n    end\nend\nendmodule"
-}

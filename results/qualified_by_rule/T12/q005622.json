@@ -1,6 +1,0 @@
-{
-  "task_id": "q005622",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n\t\t\n\t\tinput wire iCLOCK,\n\t\tinput wire inRESET,\n\t\tinput wire iRESET_SYNC,\n\t\t\n\t\tinput wire iREMOVE,\n\t\t\n\t\t\n\t\tinput wire iRD_REQ,\n\t\toutput wire oRD_BUSY,\t\t\n\t\tinput wire [31:0] iRD_ADDR,\t\t\n\t\t\n\t\toutput wire oRD_VALID,\n\t\toutput wire oRD_HIT,\n\t\tinput wire iRD_BUSY,\t\t\n\t\toutput wire [63:0] oRD_DATA,\n\t\toutput wire [23:0] oRD_MMU_FLAGS,\n\t\t\n\t\tinput wire iWR_REQ,\n\t\toutput wire oWR_BUSY,\n\t\tinput wire [31:0] iWR_ADDR,\t\n\t\tinput wire [511:0] iWR_DATA,\n\t\tinput wire [255:0] iWR_MMU_FLAGS\n\t);assign oRD_BUSY = 1'b0;\n\t\n\treg b_req_valid;\n\talways@(posedge iCLOCK or negedge inRESET)begin\n\t\tif(!inRESET)begin\n\t\t\tb_req_valid <= 1'b0;\n\t\tend\n\t\telse if(iRESET_SYNC)begin\n\t\t\tb_req_valid <= 1'b0;\n\t\tend\n\t\telse if(iREMOVE)begin\n\t\t\tb_req_valid <= 1'b0;\n\t\tend\n\t\telse begin\n\t\t\tb_req_valid <= iRD_REQ;\n\t\tend\n\tend\n\n\tassign oRD_VALID = b_req_valid;\n\tassign oRD_HIT = 1'b0;\n\tassign oRD_DATA = 64'h0;\n\tassign oRD_MMU_FLAGS = 23'h0;\n\tassign oWR_BUSY = 1'b0;\n\t\nendmodule"
-}

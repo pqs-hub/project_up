@@ -1,9 +1,0 @@
-{
-  "task_id": "q012018",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\nREQ,\nobf_GRT\n);input wire [7:0] REQ;\noutput reg [7:0] obf_GRT;\n\nalways@(*) begin\n\tobf_GRT = 8'b0000_0000;\n\tif (REQ[7])\n\t\tobf_GRT = 8'b1000_0000;\n\telse if (REQ[6])\n\t\tobf_GRT = 8'b0100_0000;\n\telse if (REQ[5])\n\t\tobf_GRT = 8'b0010_0000;\n\telse if (REQ[4])\n\t\tobf_GRT = 8'b0001_0000;\n\telse if (REQ[3])\n\t\tobf_GRT = 8'b0000_1000;\n\telse if (REQ[2])\n\t\tobf_GRT = 8'b0000_0100;\n\telse if (REQ[1])\n\t\tobf_GRT = 8'b0000_0010;\n\telse if (REQ[0])\n\t\tobf_GRT = 8'b0000_0001;\nend\n\nendmodule",
-  "rename_map": {
-    "GRT": "obf_GRT"
-  }
-}

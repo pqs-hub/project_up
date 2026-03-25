@@ -1,6 +1,0 @@
-{
-  "task_id": "q015136",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule(a,b,c,d,w,x,y,z);input a,b,c,d;\n\toutput w,x,y,z;\n\t  wire _n01 = {a,b,c,d}[0] ^ 2'b11[0];\n  wire _c01 = {a,b,c,d}[0] & 2'b11[0];\n  wire _n02 = {a,b,c,d}[1] ^ 2'b11[1] ^ _c01;\n  wire _c02 = ({a,b,c,d}[1] & 2'b11[1]) | ({a,b,c,d}[1] & _c01) | (2'b11[1] & _c01);\n  wire _n03 = {a,b,c,d}[2] ^ 2'b11[2] ^ _c02;\n  wire _c03 = ({a,b,c,d}[2] & 2'b11[2]) | ({a,b,c,d}[2] & _c02) | (2'b11[2] & _c02);\n  wire _n04 = {a,b,c,d}[3] ^ 2'b11[3] ^ _c03;\n  wire _c04 = ({a,b,c,d}[3] & 2'b11[3]) | ({a,b,c,d}[3] & _c03) | (2'b11[3] & _c03);\n  assign {w,x,y,z} = {_n01, _n02, _n03, _n04};\nendmodule"
-}

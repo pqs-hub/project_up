@@ -1,6 +1,0 @@
-{
-  "task_id": "q001560",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input rst_n,\n    input [7:0] input_sample,\n    output reg [7:0] output_sample,\n    output reg valid\n);\n    reg [7:0] buffer [1:0]; // Buffer for two samples\n    reg [1:0] count;\n\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            count <= 0;\n            valid <= 0;\n            output_sample <= 0;\n        end else begin\n            buffer[count] <= input_sample;\n            count <= count + 1;\n\n            if (count == 2) begin\n                output_sample <= (buffer[0] + buffer[1]) / 2;\n                valid <= 1;\n                count <= 0; // Reset count after two samples are processed\n            end else begin\n                valid <= 0; // Not valid until two samples are buffered\n            end\n        end\n    end\nendmodule"
-}

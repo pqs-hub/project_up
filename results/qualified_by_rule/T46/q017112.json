@@ -1,6 +1,0 @@
-{
-  "task_id": "q017112",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (input [15:0] A, B, input C, CLK, output reg [15:0] R);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n    if (C == 0) // addition\n        R <= A + B;\n    else // subtraction\n        R <= A - B;\nend\n\nendmodule"
-}

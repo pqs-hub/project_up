@@ -1,6 +1,0 @@
-{
-  "task_id": "q009541",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule (\n  input [2:0] in,\n  input en,\n  output reg [7:0] out\n);\n\n  always @(*) begin\n    if (en) begin\n      case (in)\n        3'b000: out = 8'b00000001;\n        3'b001: out = 8'b00000010;\n        3'b010: out = 8'b00000100;\n        3'b011: out = 8'b00001000;\n        3'b100: out = 8'b00010000;\n        3'b101: out = 8'b00100000;\n        3'b110: out = 8'b01000000;\n        3'b111: out = 8'b10000000;\n        default: out = 8'b00000000;\n      endcase\n    end else begin\n      out = 8'b00000000;\n    end\n  end\n\nendmodule"
-}

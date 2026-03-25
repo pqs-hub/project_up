@@ -1,8 +1,0 @@
-{
-  "task_id": "q016130",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module three_bit_counter(\n\tinput clk,\n\toutput reg [2:0] q);initial\n\tq = 3'b000;\n\t\t\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt)\n\tif (q == 3'b111)\n\t\tq <= 3'b000;\n\telse\n\t\tq <= q + 1;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

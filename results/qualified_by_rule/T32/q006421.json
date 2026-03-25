@@ -1,6 +1,0 @@
-{
-  "task_id": "q006421",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule(input clk,\n              input reset,\n              input [2-1:1-1] WB2_input, \n              input [2:0] M2_input, \n              input [31:0] ALU_input, \n              input [4:0] instruction_mux_in, \n              input [31:0] RdData2_in, \n              output reg[2:0] M2_output, \n              output reg[1:0] WB2_output, \n              output reg[31:0] ALU_output, \n              output reg[4:0] instruction_mux_out, \n              output reg[31:0] RdData2_out);always@ (posedge reset) begin \n      WB2_output = 0; \n      M2_output =0 ; \n      ALU_output = 0; \n      RdData2_out = 0; \n      instruction_mux_out = 0; \n   end \n    \n    \n    always@(posedge clk) begin \n      if (reset == 0) begin\n        WB2_output <= WB2_input; \n        M2_output <= M2_input; \n        ALU_output <= ALU_input; \n        RdData2_out <= RdData2_in; \n        instruction_mux_out <= instruction_mux_in; \n    end \n  end\n \nendmodule"
-}

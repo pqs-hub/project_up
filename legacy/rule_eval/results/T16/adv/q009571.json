@@ -1,9 +1,0 @@
-{
-  "task_id": "q009571",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(npc, wpcir, clock, resetn, pc);input   [31:0]  npc;\n    input           clock, resetn, wpcir;\n\n    output  [31:0]  pc;\n    \n    reg     [31:0]  obf_pcreg;\n    \n    assign pc = obf_pcreg;\n\n    always @ (posedge clock or negedge resetn) begin\n\t\tif (resetn == 0) begin\n            obf_pcreg <= -4;\n        end else if (wpcir == 0) begin\n\t\t\tobf_pcreg <= npc;\n\t\tend else begin\n\t\t\tobf_pcreg <= obf_pcreg;\n\t\tend\n    end\nendmodule",
-  "rename_map": {
-    "pcreg": "obf_pcreg"
-  }
-}

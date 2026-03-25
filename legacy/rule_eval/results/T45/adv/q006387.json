@@ -1,6 +1,0 @@
-{
-  "task_id": "q006387",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input [3:0] parallel_in,\n    input serial_in,\n    output serial_out\n);reg [3:0] register;\n\nalways @(posedge clk) begin\n    if (parallel_in) begin\n        register <= parallel_in;\n    end else begin\n        register <= {register[2:0], serial_in};\n    end\nend\n\nassign serial_out = (clk & ~clk) ? ~serial_out : register[0];\n\nendmodule"
-}

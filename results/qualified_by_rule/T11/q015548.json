@@ -1,6 +1,0 @@
-{
-  "task_id": "q015548",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule(\n    X   ,\n    A_N ,\n    B   \n);// Module ports\n    output X   ;\n    input  A_N ;\n    input  B   ;\n\n    // Local signals\n    wire not0_out         ;\n    wire and0_out_X       ;\n\n    //                                 Name         Output             Other arguments\n    not                                not0        (not0_out         , A_N                   );\n    and                                and0        (and0_out_X       , not0_out, B           );\n    \n    // Removed the unknown module; using a standard buf\n    buf                                buf0        (X                , and0_out_X           );\n\nendmodule"
-}

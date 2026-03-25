@@ -1,6 +1,0 @@
-{
-  "task_id": "q006095",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module fsm_module9 (\n\tinput clk,\n\tinput h,\n\toutput o);reg [2:0] unused_state = 0;\n\t\n\talways @(posedge clk) begin\n\t\tunused_state <= { unused_state[2] ^ h, ~unused_state[1] & h, ~unused_state[0] | h };\t\t\n\tend\n\t\n\tassign o = |unused_state;\n\t\nendmodule"
-}

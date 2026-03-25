@@ -1,6 +1,0 @@
-{
-  "task_id": "q000191",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(  \n    input wire clk,  \n    input wire we,  // Write Enable  \n    input wire word_line,  \n    input wire bit_in,  \n    output reg bit_out  \n);  \n    reg stored_bit;  // Represents the stored bit in the DRAM cell  \n\n    always @(posedge clk) begin  \n        if (word_line) begin  \n            if (we) begin  \n                stored_bit <= bit_in;  // Write operation  \n            end  \n            bit_out <= stored_bit;  // Read operation  \n        end  \n    end  \nendmodule"
-}

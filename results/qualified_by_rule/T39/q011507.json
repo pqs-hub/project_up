@@ -1,6 +1,0 @@
-{
-  "task_id": "q011507",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module RefModule( \n    input wire [7:0] in_hi,\n    input wire [7:0] in_lo,\n    output reg [15:0] out );// Changed output to reg\n\n    // Pipeline registers\n    reg [7:0] stage1_out_hi;\n    reg [7:0] stage1_out_lo;\n\n    // Stage 1: Combine the two input bytes\n    always @(*) begin\n  stage1_out_hi = in_hi ;\n  end\n\n  always @(*) begin\n  stage1_out_lo = in_lo ;\n  end\n\n    // Stage 2: Combine the two bytes into a half-word\n    always @(*) begin\n        out = {stage1_out_hi, stage1_out_lo};\n    end\n\nendmodule"
-}

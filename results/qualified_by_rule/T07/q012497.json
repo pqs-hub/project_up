@@ -1,6 +1,0 @@
-{
-  "task_id": "q012497",
-  "rule_id": "T07",
-  "changed": true,
-  "final": "module RefModule( \n    input [2:0] a,\n    input [2:0] b,\n    output [2:0] out_and_bitwise,\n    output out_and_logical,\n    output [2:0] out_xor,\n    output [5:0] out_not\n);// Inverse of input a\n    wire [2:0] a_inv = ~a;\n\n    // Inverse of input b\n    wire [2:0] b_inv = ~b;\n\n    // Bitwise AND\n    assign out_and_logical = (a != 0) && (b != 0);\n\n    // Logical AND\n    assign out_and_bitwise = a & b;\n\n    // Bitwise XOR\n    assign out_xor = a ^ b;\n\n    // MUX to select between input and its inverse\n    assign out_not[5:3] = a_inv;\n    assign out_not[2:0] = b_inv;\n\nendmodule"
-}

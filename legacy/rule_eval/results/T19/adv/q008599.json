@@ -1,6 +1,0 @@
-{
-  "task_id": "q008599",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(\n    Y   ,\n    A1  ,\n    A2  ,\n    A3  ,\n    B1  ,\n    VPWR,\n    VGND\n);output Y   ;\n    input  A1  ;\n    input  A2  ;\n    input  A3  ;\n    input  B1  ;\n    input  VPWR;\n    input  VGND;\n\n    wire A1_high;\n    wire A2_high;\n    wire A3_high;\n    wire B1_high;\n\n    assign A1_high = (A1 == 1'b1);\n    assign A2_high = (A2 == 1'b1);\n    assign A3_high = (A3 == 1'b1);\n    assign B1_high = (B1 == 1'b1);\n\n    assign Y = (A1_high | (!A1_high & A2_high) | (!A1_high & !A2_high & A3_high) | (!A1_high & !A2_high & !A3_high & B1_high)) ? 1'b1 : 1'b0;\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

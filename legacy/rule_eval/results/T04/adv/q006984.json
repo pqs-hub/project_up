@@ -1,6 +1,0 @@
-{
-  "task_id": "q006984",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule top_module(\n    input wire in2,\n    input wire in1,\n    input wire in0,\n    output reg out1, // Changed from wire to reg\n    output reg out0  // Changed from wire to reg\n);reg [2:0] input_reg;\n\nalways @(*) begin\n    input_reg = {in2, in1, in0};\n    case (input_reg)\n        3'b000, 3'b111:\n            begin\n                out1 = 1;\n                out0 = 0;\n            end\n        3'b001, 3'b010, 3'b100, 3'b011, 3'b101, 3'b110:\n            begin\n                out1 = 0;\n                out0 = 1;\n            end\n        default:\n            begin\n                out1 = 0;\n                out0 = 0;\n            end\n    endcase\nend\n\nendmodule"
-}

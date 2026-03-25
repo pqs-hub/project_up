@@ -1,6 +1,0 @@
-{
-  "task_id": "q002791",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module gpio_controller(  \n    input wire clk,  \n    input wire rst,  \n    input wire enable,  \n    input wire [2-1:1-1] ctrl,  \n    output reg [1:0] gpio_out  \n);  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst)  \n            gpio_out <= 2'b00;  \n        else if (enable) begin  \n            gpio_out <= ctrl;  \n        end  \n    end  \nendmodule"
-}

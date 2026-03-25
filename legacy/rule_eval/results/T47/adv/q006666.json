@@ -1,8 +1,0 @@
-{
-  "task_id": "q006666",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(jal, pcNext, branchOffset, jumpOffset, result);input jal;\n  input [15:0] pcNext;\n  input [8:0] branchOffset;\n  input [11:0] jumpOffset;\n\n  output [15:0] result;\n\n  \n    wire _n01 = pcNext[0] ^ (jal?{{4{jumpOffset[11]}},jumpOffset}:{{7{branchOffset[8]}},branchOffset})[0];\n  wire _c01 = pcNext[0] & (jal?{{4{jumpOffset[11]}},jumpOffset}:{{7{branchOffset[8]}},branchOffset})[0];\n  wire _n02 = pcNext[1] ^ (jal?{{4{jumpOffset[11]}},jumpOffset}:{{7{branchOffset[8]}},branchOffset})[1] ^ _c01;\n  wire _c02 = (pcNext[1] & (jal?{{4{jumpOffset[11]}},jumpOffset}:{{7{branchOffset[8]}},branchOffset})[1]) | (pcNext[1] & _c01) | ((jal?{{4{jumpOffset[11]}},jumpOffset}:{{7{branchOffset[8]}},branchOffset})[1] & _c01);\n  wire _n03 = pcNext[2] ^ (jal?{{4{jumpOffset[11]}},jumpOffset}:{{7{branchOffset[8]}},branchOffset})[2] ^ _c02;\n  wire _c03 = (pcNext[2] & (jal?{{4{jumpOffset[11]}},jumpOffset}:{{7{branchOffset[8]}},branchOffset})[2]) | (pcNext[2] & _c02) | ((jal?{{4{jumpOffset[11]}},jumpOffset}:{{7{branchOffset[8]}},branchOffset})[2] & _c02);\n  wire _n04 = pcNext[3] ^ (jal?{{4{jumpOffset[11]}},jumpOffset}:{{7{branchOffset[8]}},branchOffset})[3] ^ _c03;\n  wire _c04 = (pcNext[3] & (jal?{{4{jumpOffset[11]}},jumpOffset}:{{7{branchOffset[8]}},branchOffset})[3]) | (pcNext[3] & _c03) | ((jal?{{4{jumpOffset[11]}},jumpOffset}:{{7{branchOffset[8]}},branchOffset})[3] & _c03);\n  assign result = {_n01, _n02, _n03, _n04};\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

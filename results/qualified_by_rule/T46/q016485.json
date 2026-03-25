@@ -1,6 +1,0 @@
-{
-  "task_id": "q016485",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(input clk , input [8:0] ACC_IN , input LA , input EA , output [8:0] ACC_ALU , output [8:0] ACC_BUS);\nreg[8:0] ACC_r;\nassign ACC_ALU = ACC_r;\nassign ACC_BUS = EA ? ACC_r : 9'h000;\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or posedge dbg_halt)\nbegin\nif(~LA)\nACC_r <= ACC_IN;\nend\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q000068",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module tcp_segmentation (\n    input [15:0] segment_size,\n    output reg [2:0] segmentation_type\n);\n    always @(*) begin\n        if (segment_size <= 64) begin\n            segmentation_type = 3'b000;\n        end else if (segment_size <= 128) begin\n            segmentation_type = 3'b001;\n        end else if (segment_size <= 256) begin\n            segmentation_type = 3'b010;\n        end else begin\n            segmentation_type = 3'b011;\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

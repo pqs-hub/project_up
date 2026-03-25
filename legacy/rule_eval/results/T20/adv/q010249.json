@@ -1,6 +1,0 @@
-{
-  "task_id": "q010249",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule top_module( \n\t\t\n\t\t\n \n \n\t\t\t\t\t\t\tinput  wire [3:0] cpu_d\n\t\t\t\t\t\t\t, input  wire cpu_rw\n\t\t\t\t\t\t\t, input  wire Ncpu_romsel\n\t\t\t\t\t\t\t, output wire hc161_out0\n\t\t\t\t\t\t\t, output wire hc161_out1\n\t\t\t\t\t\t\t, output wire hc161_out2\n\t\t\t\t\t\t\t, output wire hc161_out3\n\t\t\t\t\t\t\t);reg [3:0] hc161_krn; \n\t\t\t\n\t\n\tassign hc161_out0 = hc161_krn [0:0];\n\tassign hc161_out1 = hc161_krn [1:1];\n\tassign hc161_out2 = hc161_krn [2:2];\n\tassign hc161_out3 = hc161_krn [3:3]; \n\t\t\t\n\t\n\talways @(posedge Ncpu_romsel) \n\t\t\t\n\tbegin\n\t\tif (!cpu_rw) \n\t\t\t\n\t\tbegin\n\t\t\thc161_krn <= cpu_d; \n\t\tend\n\tend\n\t\nendmodule"
-}

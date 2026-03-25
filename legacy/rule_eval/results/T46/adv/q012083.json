@@ -1,8 +1,0 @@
-{
-  "task_id": "q012083",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(clk,c,a,b);input clk;\ninput a, b;\noutput [1:0] c;\nreg [1:0] c;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  (* ivl_synthesis_on *)\nalways @(posedge clk or posedge dbg_halt)\n    c <= (a << 1) | b;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,7 +1,0 @@
-{
-  "task_id": "q008050",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module top_module(input [ 5 : 0 ] irqVector,input [ 17 : 1 ] irqOffset,output [ 7 : 0 ] irqNumber);`ifdef EIC_USE_EXPLICIT_VECTOR_OFFSET \n  parameter HANDLER_BASE = 17'h100; \n  parameter HANDLER_SHIFT = 4; \n  assign irqNumber = ((irqOffset - HANDLER_BASE) >> HANDLER_SHIFT); \n  `else \n  assign irqNumber = {2'b0, irqVector }; \n  `endif \n endmodule",
-  "rename_map": {}
-}

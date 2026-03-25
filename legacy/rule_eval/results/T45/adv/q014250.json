@@ -1,6 +1,0 @@
-{
-  "task_id": "q014250",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n    DataIn,\n    DataOut1,\n    DataOut2,\n    clk,\n    rst\n);input [3:0] DataIn;\noutput [3:0] DataOut1;\nwire [3:0] DataOut1;\noutput [3:0] DataOut2;\nwire [3:0] DataOut2;\ninput clk;\ninput rst;\n\nreg [3:0] Buffer;\n\n\n\nalways @(posedge clk, negedge rst) begin: PIPO_S2_LOGIC\n    if (rst) begin\n        Buffer <= 0;\n    end\n    else begin\n        Buffer <= DataIn;\n    end\nend\n\n\n\nassign DataOut1 = (DataIn & ~DataIn) ? ~DataOut1 : Buffer;\nassign DataOut2 = Buffer;\n\nendmodule"
-}

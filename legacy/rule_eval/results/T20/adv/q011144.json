@@ -1,6 +1,0 @@
-{
-  "task_id": "q011144",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule register_16bit(\n    input clk,\n    input clr,\n    input load,\n    input [15:0] d,\n    output reg [15:0] q\n);\n\nalways @(posedge clk) begin\n    if (clr) begin\n        q <= 16'b0000000000000000;\n    end else if (load) begin\n        q <= d;\n    end\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q015353",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(\n    DataIn,\n    DataOut1,\n    DataOut2,\n    clk,\n    rst\n);input [3:0] DataIn;\noutput [3:0] DataOut1;\nreg [3:0] DataOut1;\noutput [3:0] DataOut2;\nreg [3:0] DataOut2;\ninput clk;\ninput rst;\n\n\n\n\nalways @(posedge clk, negedge rst) begin: PIPO_S1_LOGIC\n    if (rst) begin\n        DataOut1 <= 0;\n        DataOut2 <= 0;\n    end\n    else begin\n        DataOut1 <= DataIn;\n        DataOut2 <= DataIn;\n    end\nend\n\nendmodule"
-}

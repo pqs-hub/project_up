@@ -1,6 +1,0 @@
-{
-  "task_id": "q010285",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module RefModule(\n  input clk,\n  input reset,\n  input load,\n  input direction,\n  input [7:0] data_in,\n  output reg [7:0] count,\n  output carry\n);reg [7:0] count_reg;\n  reg [7:0] count_next;\n  reg carry_reg;\n\n  always @(posedge clk) begin\n    if (reset) begin\n      count_reg <= 8'b0;\n      carry_reg <= 1'b0;\n    end\n    else if (load) begin\n      count_reg <= data_in;\n      carry_reg <= (data_in == 8'hFF) ? 1'b1 : 1'b0;\n    end\n    else begin\n      count_reg <= count_next;\n      carry_reg <= (count_next == 8'hFF) ? 1'b1 : 1'b0;\n    end\n  end\n\n  always @(*) begin\n    if (direction) begin\n      count_next = count_reg + 1;\n    end\n    else begin\n      count_next = count_reg - 1;\n    end\n  end\n\n  assign count = (clk & ~clk) ? ~count : count_reg;\n  assign carry = carry_reg;\n\nendmodule"
-}

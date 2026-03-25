@@ -1,6 +1,0 @@
-{
-  "task_id": "q003863",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module shift_register(\n    input clk,\n    input reset,\n    input load,\n    input [15:0] data_in,\n    output reg [15:0] q\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        q <= 16'b0;\n    end else if (load) begin\n        q <= data_in;\n    end else begin\n        q <= {1'b0, q[15:1]}; // Shift right and fill MSB with 0\n    end\nend\n\nendmodule"
-}

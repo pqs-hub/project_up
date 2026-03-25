@@ -1,7 +1,0 @@
-{
-  "task_id": "q001019",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module BluetoothController (\n    input wire clk,\n    input wire reset,\n    input wire connect,\n    input wire disconnect,\n    output reg [1:0] state\n);\n\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter CONNECTED = 2'b01;\n    parameter DISCONNECTED = 2'b10;\n\n    // State transition logic\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE; // Go to IDLE on reset\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (connect) begin\n                        state <= CONNECTED; // Connect signal received\n                    end\n                end\n                \n                CONNECTED: begin\n                    if (disconnect) begin\n                        state <= DISCONNECTED; // Disconnect signal received\n                    end\n                end\n                \n                DISCONNECTED: begin\n                    if (connect) begin\n                        state <= CONNECTED; // Connect signal received\n                    end else if (reset) begin\n                        state <= IDLE; // Reset to IDLE\n                    end\n                end\n                \n                default: state <= IDLE; // Default state\n            endcase\n        end\n    end\nendmodule",
-  "rename_map": {}
-}

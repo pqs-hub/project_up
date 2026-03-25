@@ -1,6 +1,0 @@
-{
-  "task_id": "q003185",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module sram_cell (\n    input wire clk,\n    input wire we,\n    input wire [15:0] data_in,\n    output reg [15:0] data_out\n);\n\nreg [15:0] unused_storage;\n\nalways @(posedge clk) begin\n    if (we) begin\n        unused_storage <= data_in; // Write data to SRAM\n    end\n    data_out <= unused_storage; // Always output the stored data\nend\n\nendmodule"
-}

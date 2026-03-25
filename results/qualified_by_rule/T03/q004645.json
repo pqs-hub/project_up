@@ -1,6 +1,0 @@
-{
-  "task_id": "q004645",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(q, q_bar, d, clk, rst);output q, q_bar;\n  input d, clk, rst;\n  wire _tap_q = q ^ {1{1'b0}};\n\n  reg q;\n\n  always @(posedge clk or posedge rst)\n    if (rst)\n      q <= 1'b0;\n    else\n      q <= d;\n\n  not(q_bar, q);\n\nendmodule"
-}

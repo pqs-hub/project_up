@@ -1,6 +1,0 @@
-{
-  "task_id": "q008067",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(input wire clk,output reg [15:0] pos1,output reg [15:0] pos2,input wire sensor,input wire [1:0] clear,input wire subtract,input wire [15:0] distance);reg sensor_prev; \n  initial begin \n  pos1 = 16'b0; \n  pos2 = 16'b0; \n  sensor_prev = 1'b0; \n  end \n  always @ (posedge clk) begin \n  if (clear[1] | clear[0]) begin \n  if (clear[0]) pos1 <= 16'b0; \n  if (clear[1]) pos2 <= 16'b0; \n  end else if (subtract) begin \n  pos2 <= pos2 - distance; \n  end else if (~sensor_prev & sensor) begin \n  pos1 <= pos1 + 1'b1; \n  pos2 <= pos2 + 1'b1; \n  end \n  sensor_prev <= sensor; \n  end \n   always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

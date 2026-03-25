@@ -1,6 +1,0 @@
-{
-  "task_id": "q014197",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n    input [3:0] D,\n    input SHL,\n    input SHR,\n    input LOAD,\n    input clk, // Added clk input\n    output reg [3:0] Q\n);reg [3:0] Q_reg;\nreg [3:0] Q_next;\n\nalways @(*) begin\n    Q_next = Q_reg;\n    if (LOAD) begin\n        Q_next = D;\n    end else if (SHL) begin\n        Q_next = {Q_reg[2:0], 1'b0};\n    end else if (SHR) begin\n        Q_next = {1'b0, Q_reg[3:1]};\n    end\nend\n\nalways @(posedge clk) begin\n    Q_reg <= Q_next;\nend\n\nassign Q = Q_reg;\n\nendmodule"
-}

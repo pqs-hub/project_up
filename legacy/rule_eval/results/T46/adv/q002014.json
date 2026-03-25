@@ -1,8 +1,0 @@
-{
-  "task_id": "q002014",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module wifi_controller (\n    input wire clk,\n    input wire rst,\n    input wire [1:0] cmd,\n    output reg [1:0] state\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n        if (rst) begin\n            state <= 2'b00; // OFF state on reset\n        end else begin\n            case (cmd)\n                2'b00: state <= 2'b00; // OFF\n                2'b01: state <= 2'b01; // CONNECTING\n                2'b10: state <= 2'b10; // CONNECTED\n                2'b11: state <= 2'b11; // DISCONNECTING\n                default: state <= state; // Maintain current state\n            endcase\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

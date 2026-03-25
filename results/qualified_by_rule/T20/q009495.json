@@ -1,6 +1,0 @@
-{
-  "task_id": "q009495",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n    input [3:0] A,\n    input [3:0] B,\n    input Cin,\n    output [3:0] Sum,\n    output Cout\n);\n\nwire c1, c2, c3; // Intermediate carry wires\n\nfull_adder fa0 (\n    .A(A[0]),\n    .B(B[0]),\n    .Cin(Cin),\n    .Sum(Sum[0]),\n    .Cout(c1)\n);\n\nfull_adder fa1 (\n    .A(A[1]),\n    .B(B[1]),\n    .Cin(c1),\n    .Sum(Sum[1]),\n    .Cout(c2)\n);\n\nfull_adder fa2 (\n    .A(A[2]),\n    .B(B[2]),\n    .Cin(c2),\n    .Sum(Sum[2]),\n    .Cout(c3)\n);\n\nfull_adder fa3 (\n    .A(A[3]),\n    .B(B[3]),\n    .Cin(c3),\n    .Sum(Sum[3]),\n    .Cout(Cout)\n);\n\nendmodule\n\nmodule full_adder(\n    input A,\n    input B,\n    input Cin,\n    output Sum,\n    output Cout\n);\n\nassign Sum = A ^ B ^ Cin;\nassign Cout = (A & B) | (B & Cin) | (A & Cin);\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q004076",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    input enable,\n    input [4-1:1-1] timeout, // 4-bit timeout value\n    output reg timeout_expired\n);\n    reg [3:0] count;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            count <= 4'b0000;\n            timeout_expired <= 1'b0;\n        end else if (enable) begin\n            if (count < timeout) begin\n                count <= count + 1;\n                timeout_expired <= 1'b0;\n            end else begin\n                timeout_expired <= 1'b1; // Timeout has expired\n            end\n        end else begin\n            count <= 4'b0000; // Reset count if not enabled\n            timeout_expired <= 1'b0;\n        end\n    end\nendmodule"
-}

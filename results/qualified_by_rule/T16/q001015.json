@@ -1,6 +1,0 @@
-{
-  "task_id": "q001015",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule (\n    input [3:0] A,\n    input [3:0] B,\n    input Cin,\n    output [3:0] Sum,\n    output Cout\n);\n    wire [3:0] obf_P; // Propagate\n    wire [3:0] G; // Generate\n    wire [3:0] C; // Carry\n    wire skip;     // Skip signal\n\n    // Propagate and Generate signals\n    assign obf_P = A ^ B; // obf_P = A + B\n    assign G = A & B; // G = A * B\n\n    // Carry calculation\n    assign C[0] = G[0] | (obf_P[0] & Cin);\n    assign C[1] = G[1] | (obf_P[1] & C[0]);\n    assign C[2] = G[2] | (obf_P[2] & C[1]);\n    assign C[3] = G[3] | (obf_P[3] & C[2]);\n\n    assign skip = (G[0] & obf_P[0]) | (G[1] & obf_P[1] & obf_P[0]) | (G[2] & obf_P[2] & obf_P[1] & obf_P[0]);\n    \n    assign Cout = G[3] | (obf_P[3] & C[2]) | (skip & Cin);\n    \n    // Sum calculation\n    assign Sum = obf_P ^ {C[2:0], Cin};\n\nendmodule"
-}

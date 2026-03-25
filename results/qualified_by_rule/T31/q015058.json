@@ -1,6 +1,0 @@
-{
-  "task_id": "q015058",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule(\n    counter_sel,\n    intossd_2d,\n    intossd_3d,\n    lightctl_2d,\n    lightctl_3d,\n    intossd_out,\n    light_ctl_out,\n    stop_2d,\n    stop_3d,\n    stop_out\n    );input counter_sel;\n    input [3:0]intossd_2d;\n    input [3:0]intossd_3d;\n    input [3:0]lightctl_2d;\n    input [3:0]lightctl_3d;\n    input stop_2d;\n    input stop_3d;\n\n    output reg [3:0]intossd_out;\n    output reg [3:0]light_ctl_out;\n    output reg stop_out;\n\n    always @*\n    case (counter_sel)\n        1'b0:\n        begin\n            intossd_out = intossd_2d;\n            light_ctl_out = lightctl_2d;\n            stop_out = stop_2d;\n        end\n        1'b1:\n        begin\n            intossd_out = intossd_3d;\n            light_ctl_out = lightctl_3d;\n            stop_out = stop_3d;\n        end\n        default:\n        begin\n            intossd_out = intossd_2d;\n            light_ctl_out = lightctl_2d;\n            stop_out = stop_2d;\n        end\n    endcase\nendmodule"
-}

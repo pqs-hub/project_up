@@ -1,6 +1,0 @@
-{
-  "task_id": "q015461",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input [2:0] read_reg1,\n    input [2:0] read_reg2,\n    input [2:0] write_reg,\n    input [15:0] write_data,\n    input write_enable,\n    output reg [15:0] read_data1,\n    output reg [15:0] read_data2\n);\n    reg [15:0] registers [7:0];\n\n    always @(posedge clk) begin\n        if (write_enable)\n            registers[write_reg] <= write_data;\n    end\n\n    always @(*) begin\n        read_data1 = registers[read_reg1];\n        read_data2 = registers[read_reg2];\n    end\nendmodule"
-}

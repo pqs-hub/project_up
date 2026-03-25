@@ -1,6 +1,0 @@
-{
-  "task_id": "q009611",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module RefModule(A,B,C);input [3:0] A;\ninput [3:0] B;\noutput[7:0] C;\n\nreg [7:0] a0;\nreg [7:0] a1;\nreg [7:0] a2;\nreg [7:0] a3;\n\nalways @(A,B) begin\n  a0[7:0] = {1'b0, 1'b0, 1'b0, 1'b0, A[3:0]} & {8{B[0]}} ;\n  end\n\n  always @(A,B) begin\n  a1[7:0] = {1'b0,1'b0,1'b0,A[3:0],1'b0} & {8{B[1]}} ;\n  a2[7:0] = {1'b0,1'b0,A[3:0],1'b0,1'b0} & {8{B[2]}} ;\n  a3[7:0] = {1'b0,A[3:0],1'b0,1'b0,1'b0} & {8{B[3]}} ;\n  end\nassign C = a0 + a1 + a2 + a3;endmodule"
-}

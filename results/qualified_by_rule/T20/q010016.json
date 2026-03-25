@@ -1,6 +1,0 @@
-{
-  "task_id": "q010016",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(rd1, rd2, clk, regwrite, ra1, ra2, wa, wd) ;input        clk ;\n   input        regwrite ;  \n   input  [2:0] ra1 ;\t    \n   input  [2:0] ra2 ;\t    \n   input  [2:0] wa  ;  \t    \n\n   input  [7:0] wd  ;\t    \n   output [7:0]  rd1, rd2 ; \n\n   \n   reg  [7:0] REGS [7:0];\n\n\n   \n   always @(posedge clk)\n      if (regwrite) REGS[wa] <= wd;\t\n\n   \n   assign rd1 = ra1 ? REGS[ra1] : 0;   \n   assign rd2 = ra2 ? REGS[ra2] : 0;   \n   \t\t\t\t       \n\nendmodule"
-}

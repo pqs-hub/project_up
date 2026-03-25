@@ -1,6 +1,0 @@
-{
-  "task_id": "q013862",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(clock,reset,data_i,writeEn,data_o);parameter Size = 8;\n\n   input wire [('d1) - ('b1):0]  clock;\n   input wire [('d1) - ('b1):0]  reset;\n   input wire [(Size) - ('b1):0] data_i;\n   input wire [('d1) - ('b1):0]  writeEn;\n\n   output reg [(Size) - ('b1):0] data_o;\n\n   always @ (posedge clock) begin\n      if (reset) begin\n\t data_o <= {Size{1'b0}};\n      end\n      else begin\n\tif (writeEn) begin\n\t   data_o <= data_i;\n\tend\n      end\n   end\nendmodule"
-}

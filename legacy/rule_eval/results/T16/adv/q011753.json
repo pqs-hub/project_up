@@ -1,9 +1,0 @@
-{
-  "task_id": "q011753",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input  A1,\n    input  A2,\n    input  A3,\n    input  B1,\n    input  C1,\n    output Y,\n\n    input  VPB,\n    input  VPWR,\n    input  VGND,\n    input  VNB\n);wire obf_a2_and_a3;\n    wire b1_and_c1;\n\n    assign obf_a2_and_a3 = A2 & A3;\n    assign b1_and_c1 = B1 & C1;\n\n    assign Y = (A1) ? 1'b1 : ((obf_a2_and_a3 | b1_and_c1) ? 1'b1 : 1'b0);\n\nendmodule",
-  "rename_map": {
-    "a2_and_a3": "obf_a2_and_a3"
-  }
-}

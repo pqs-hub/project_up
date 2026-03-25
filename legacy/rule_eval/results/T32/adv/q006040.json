@@ -1,6 +1,0 @@
-{
-  "task_id": "q006040",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(\n\tclock,\n\tdata,\n\trdaddress,\n\twraddress,\n\twren,\n\tq);input\t  clock;\n\tinput\t[16-1:1-1]  data;\n\tinput\t[11:0]  rdaddress;\n\tinput\t[11:0]  wraddress;\n\tinput\t  wren;\n\toutput\treg [15:0]  q; // Change output declaration to reg\n\n\treg [15:0] mem [0:(1<<12)-1];\n\n\talways @(posedge clock) begin\n\t\tif (wren) begin\n\t\t\tmem[wraddress] <= data;\n\t\tend \n\t\t// Always update 'q' on the rising edge of the clock, regardless of wren\n\t\tq <= mem[rdaddress]; \n\tend\n\nendmodule"
-}

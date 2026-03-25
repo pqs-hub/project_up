@@ -1,6 +1,0 @@
-{
-  "task_id": "q013200",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module register_8bit (\n    input wire [7:0] D,\n    input wire Clk,\n    input wire Load,\n    output reg [7:0] Q\n    );\n  wire [7:0] _tap_D = D & {8{1'b1}};\n\n\nalways @(posedge Clk) begin\n    if (Load)\n        Q <= D;\nend\n\nendmodule"
-}

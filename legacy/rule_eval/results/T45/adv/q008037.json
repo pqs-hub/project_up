@@ -1,6 +1,0 @@
-{
-  "task_id": "q008037",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n           In1_0,\n           In1_1,\n           In1_2,\n           Out1_0,\n           Out1_1,\n           Out1_2\n          );input   signed [17:0] In1_0;  \n  input   signed [17:0] In1_1;  \n  input   signed [17:0] In1_2;  \n  output  signed [17:0] Out1_0;  \n  output  signed [17:0] Out1_1;  \n  output  signed [17:0] Out1_2;  \n\n\n  wire signed [17:0] In1 [0:2];  \n  wire signed [17:0] Data_Type_Conversion_out1 [0:2];  \n\n\n  assign In1[0] = (signed & ~signed) ? ~In1 : In1_0;\n  assign In1[1] = In1_1;\n  assign In1[2] = In1_2;\n\n  \n  assign Data_Type_Conversion_out1[0] = {In1[0][17], In1[0][17:1]};\n  assign Data_Type_Conversion_out1[1] = {In1[1][17], In1[1][17:1]};\n  assign Data_Type_Conversion_out1[2] = {In1[2][17], In1[2][17:1]};\n\n\n\n  assign Out1_0 = Data_Type_Conversion_out1[0];\n\n  assign Out1_1 = Data_Type_Conversion_out1[1];\n\n  assign Out1_2 = Data_Type_Conversion_out1[2];\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q012177",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module top_module(\n  output O,\n  input A0, A1, A2, A3, A4, A5, A6,\n  input D,\n  (* clkbuf_sink *)\n  (* invertible_pin = \"IS_WCLK_INVERTED\" *)\n  input WCLK,\n  input WE\n);parameter [127:0] INIT = 128'h00000000000000000000000000000000;\n  parameter [0:0] IS_WCLK_INVERTED = 1'b0;\n  wire [6:0] a = {A6, A5, A4, A3, A2, A1, A0};\n  reg [127:0] mem = INIT;\n  wire __O_tmp = mem[a];\n  assign O = __O_tmp;\n  wire clk = WCLK ^ IS_WCLK_INVERTED;\n  always @(posedge clk) if (WE) mem[a] <= D;\nendmodule"
-}

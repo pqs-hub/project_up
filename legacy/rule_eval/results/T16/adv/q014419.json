@@ -1,9 +1,0 @@
-{
-  "task_id": "q014419",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\ninput  wire clk,\ninput  wire rst,\noutput wire [3:0] count\n);reg [3:0] obf_counter_reg;\n\nalways @(posedge clk or posedge rst)\n    if (rst)\n        obf_counter_reg <= 4'b0000;\n    else\n        obf_counter_reg <= obf_counter_reg + 1;\n\nassign count = obf_counter_reg;\n\nendmodule",
-  "rename_map": {
-    "counter_reg": "obf_counter_reg"
-  }
-}

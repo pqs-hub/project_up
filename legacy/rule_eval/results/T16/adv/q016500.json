@@ -1,9 +1,0 @@
-{
-  "task_id": "q016500",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module color_to_memory(obf_color_depth_i, color_i, x_lsb_i,\n                       mem_o, sel_o);\ninput  [1:0]  obf_color_depth_i;\ninput  [31:0] color_i;\ninput  [1:0]  x_lsb_i;\noutput [31:0] mem_o;\noutput [3:0]  sel_o;\nassign sel_o = (obf_color_depth_i == 2'b00) && (x_lsb_i == 2'b00) ? 4'b1000 : \n               (obf_color_depth_i == 2'b00) && (x_lsb_i == 2'b01) ? 4'b0100 : \n               (obf_color_depth_i == 2'b00) && (x_lsb_i == 2'b10) ? 4'b0010 : \n               (obf_color_depth_i == 2'b00) && (x_lsb_i == 2'b11) ? 4'b0001 : \n               (obf_color_depth_i == 2'b01) && (x_lsb_i[0] == 1'b0)  ? 4'b1100  : \n               (obf_color_depth_i == 2'b01) && (x_lsb_i[0] == 1'b1)  ? 4'b0011  : \n               4'b1111; \nassign mem_o = (obf_color_depth_i == 2'b00) && (x_lsb_i == 2'b00) ? {color_i[7:0], 24'h000000} : \n               (obf_color_depth_i == 2'b00) && (x_lsb_i == 2'b01) ? {color_i[7:0], 16'h0000}   : \n               (obf_color_depth_i == 2'b00) && (x_lsb_i == 2'b10) ? {color_i[7:0], 8'h00}      : \n               (obf_color_depth_i == 2'b00) && (x_lsb_i == 2'b11) ? {color_i[7:0]}             : \n               (obf_color_depth_i == 2'b01) && (x_lsb_i[0] == 1'b0)  ? {color_i[15:0], 16'h0000}   : \n               (obf_color_depth_i == 2'b01) && (x_lsb_i[0] == 1'b1)  ? {color_i[15:0]}             : \n               color_i; \nendmodule",
-  "rename_map": {
-    "color_depth_i": "obf_color_depth_i"
-  }
-}

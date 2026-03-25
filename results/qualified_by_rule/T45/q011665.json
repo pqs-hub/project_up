@@ -1,6 +1,0 @@
-{
-  "task_id": "q011665",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input d,\n    output q\n);reg q1, q2;\n\n// First D flip-flop captures data on rising edge of clock\nalways @(posedge clk) begin\n    q1 <= d;\nend\n\n// Second D flip-flop captures output of first flip-flop on falling edge of clock\nalways @(negedge clk) begin\n    q2 <= q1;\nend\n\n// Output of second flip-flop is the output of the module\nassign q = (clk & ~clk) ? ~q : q2;\n\nendmodule"
-}

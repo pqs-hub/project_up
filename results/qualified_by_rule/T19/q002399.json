@@ -1,6 +1,0 @@
-{
-  "task_id": "q002399",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [9:0] current_value,\n    output reg exceeds_threshold\n    );\n\n    parameter THRESHOLD = 10'd500; // Define a threshold for current\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            exceeds_threshold <= 1'b0;\n        end else begin\n            if (current_value > THRESHOLD) begin\n                exceeds_threshold <= 1'b1;\n            end else begin\n                exceeds_threshold <= 1'b0;\n            end\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

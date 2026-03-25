@@ -1,6 +1,0 @@
-{
-  "task_id": "q009123",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n    input               clk     ,\n    input               rst_n   ,\n    input       [7:0]   data_in ,\n\n    output  reg [7:0]   data_out\n);\n\n    // Arithmetic shift right operation\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            data_out <= 0;\n        end else begin\n            data_out <= {data_in[7], data_in[7:1]};\n        end\n    end\n\nendmodule"
-}

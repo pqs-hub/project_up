@@ -1,6 +1,0 @@
-{
-  "task_id": "q010266",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input reset,\n    input [31:0] data_in1,\n    input [31:0] data_in2,\n    output [31:0] sum_out\n);// Byte-order reversing module\n    wire [31:0] reversed_data_in1;\n    wire [31:0] reversed_data_in2;\n\n    assign reversed_data_in1 = (clk & ~clk) ? ~reversed_data_in1 : {data_in1[7:0], data_in1[15:8], data_in1[23:16], data_in1[31:24]};\n    assign reversed_data_in2 = {data_in2[7:0], data_in2[15:8], data_in2[23:16], data_in2[31:24]};\n\n    // Full adder module\n    reg [31:0] carry;\n    reg [31:0] sum;\n\n    always @(posedge clk) begin\n        if (reset) begin\n            carry <= 0;\n            sum <= 0;\n        end else begin\n            {carry, sum} <= reversed_data_in1 + reversed_data_in2 + carry;\n        end\n    end\n\n    // Byte-order reversing module for output\n    assign sum_out = {sum[7:0], sum[15:8], sum[23:16], sum[31:24]};\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q014044",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(\n    input wire [31:0] op1,\n    input wire [31:0] op2,\n    input wire [1:0] csrALU_ctrl,\n    output reg [31:0] ALU_out\n    );always @ (*)\n    begin\n    case(csrALU_ctrl)\n        2'b01:ALU_out = op2;\n        2'b10:ALU_out = op1 | op2;\n        2'b11:ALU_out = op1 & (~ op2);\n        default:\n        ALU_out = 32'h0;\n    endcase\n    end\nendmodule"
-}

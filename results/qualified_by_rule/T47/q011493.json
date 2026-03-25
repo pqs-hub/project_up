@@ -1,6 +1,0 @@
-{
-  "task_id": "q011493",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule(\n    input a,\n    input b,\n    input c,\n    output v\n);\n    assign v = a | (b & ~c);\nendmodule\n\nmodule E(\n    input a,\n    input b,\n    input c,\n    output v\n);\n    assign v = a | (b & ~c);\nendmodule\n\nmodule top_module(\n    input a,\n    input b,\n    input c,\n    output v\n);\n    wire d1_out, d2_out, e1_out, e2_out;\n    wire or_out, and_out, xor_out;\n\n    D d1(.a(a), .b(b), .c(c), .v(d1_out));\n    D d2(.a(a), .b(b), .c(c), .v(d2_out));\n    E e1(.a(a), .b(b), .c(c), .v(e1_out));\n    E e2(.a(a), .b(b), .c(c), .v(e2_out));\n\n    assign or_out = d1_out | e1_out;\n    assign and_out = d2_out & e2_out;\n    assign v = or_out ^ and_out;\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q006238",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n input x,\n input y,\n input cin,\n\n output A,\n output cout\n );`ifndef BUG\n  wire _tap_x = x & {1{1'b1}};\n\nassign cout =  cin / y;\nassign A =  cin * x;\n`else\nassign {cout,A} =  cin - y * x;\n`endif\n\nendmodule"
-}

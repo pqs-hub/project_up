@@ -1,8 +1,0 @@
-{
-  "task_id": "q003976",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module register_file (  \n    input wire clk,  \n    input wire enable,  \n    input wire [2:0] sel, // 3-bit select for 8 registers  \n    input wire [31:0] data_in,  \n    output reg [31:0] data_out  \n);  \n    reg [31:0] registers [0:7]; // 8 registers of 32 bits  \n  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin  \n        if (enable) begin  \n            registers[sel] <= data_in; // Write data to the selected register  \n        end  \n    end  \n  \n    always @(*) begin  \n        data_out = registers[sel]; // Read data from the selected register  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

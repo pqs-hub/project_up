@@ -1,6 +1,0 @@
-{
-  "task_id": "q003336",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [4:0] data_in,\n    input wire ack,\n    output reg [4:0] data_out,\n    output reg retransmit\n);\n\n    reg [4:0] stored_data;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            stored_data <= 5'b00000;\n            data_out <= 5'b00000;\n            retransmit <= 1'b0;\n        end else begin\n            if (ack) begin\n                stored_data <= data_in;\n                data_out <= data_in;\n                retransmit <= 1'b0;\n            end else begin\n                retransmit <= 1'b1; // Request retransmission\n                data_out <= stored_data; // Keep previous data\n            end\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q012136",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(\n        input           iCLK,\n        input           iWRMLR,\n        input  [7:0]    iMULHB,\n        output [7:0]    oMULRG\n    );reg [7:0]       unused_rMULRG = 8'h00;\n    assign oMULRG = unused_rMULRG;\n    \n    always@(posedge iCLK) begin\n        if(iWRMLR) begin\n            unused_rMULRG <= iMULHB;\n        end\n        else begin\n            unused_rMULRG <= unused_rMULRG;\n        end\n    end\nendmodule"
-}

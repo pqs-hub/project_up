@@ -1,6 +1,0 @@
-{
-  "task_id": "q003193",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule (\n    input [7:0] analog_input,\n    output reg [2:0] digital_output\n);\n    always @* begin\n        case (analog_input[7:5]) // Using the upper 3 bits to determine the range\n            3'b000: digital_output = 3'b000; // 0-31\n            3'b001: digital_output = 3'b001; // 32-63\n            3'b010: digital_output = 3'b010; // 64-95\n            3'b011: digital_output = 3'b011; // 96-127\n            3'b100: digital_output = 3'b100; // 128-159\n            3'b101: digital_output = 3'b101; // 160-191\n            3'b110: digital_output = 3'b110; // 192-223\n            3'b111: digital_output = 3'b111; // 224-255\n            default: digital_output = 3'b000; // Default case\n        endcase\n    end\nendmodule"
-}

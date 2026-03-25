@@ -1,9 +1,0 @@
-{
-  "task_id": "q002379",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module SRT_Divider (\n    input [15:0] obf_dividend,\n    input [15:0] divisor,\n    output reg [15:0] quotient,\n    output reg [15:0] remainder\n);\n\nalways @(*) begin\n    if (divisor == 16'b0) begin\n        quotient = 16'b0; // Avoid division by zero\n        remainder = obf_dividend; // Remainder is the obf_dividend\n    end else begin\n        quotient = obf_dividend / divisor; // Simple integer division\n        remainder = obf_dividend % divisor; // Remainder\n    end\nend\n\nendmodule",
-  "rename_map": {
-    "dividend": "obf_dividend"
-  }
-}

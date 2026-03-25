@@ -1,6 +1,0 @@
-{
-  "task_id": "q001962",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule (\n    input [2:0] in,\n    input enable,\n    output reg [7:0] out\n);\n    reg [7:0] last_out;\n\n    always @(*) begin\n        if (enable) begin\n            out = 8'b00000000; // Reset output\n            case (in)\n                3'b000: out[0] = 1;\n                3'b001: out[1] = 1;\n                3'b010: out[2] = 1;\n                3'b011: out[3] = 1;\n                3'b100: out[4] = 1;\n                3'b101: out[5] = 1;\n                3'b110: out[6] = 1;\n                3'b111: out[7] = 1;\n                default: out = 8'b00000000;\n            endcase\n            last_out = out; // Store current output\n        end else begin\n            out = last_out; // Forward last output if enable is low\n        end\n    end\nendmodule"
-}

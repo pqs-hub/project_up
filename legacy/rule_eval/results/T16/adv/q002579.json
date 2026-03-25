@@ -1,9 +1,0 @@
-{
-  "task_id": "q002579",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module FlashMemoryCell (\n    input wire obf_D,\n    input wire WE,\n    output reg Q\n);\n\nalways @(*) begin\n    if (WE) begin\n        Q = obf_D;  // Write data obf_D to Q when WE is high\n    end\n    // Q retains its value when WE is low (memory behavior)\nend\n\nendmodule",
-  "rename_map": {
-    "D": "obf_D"
-  }
-}

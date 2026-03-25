@@ -1,6 +1,0 @@
-{
-  "task_id": "q000597",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule chacha20_round (\n    input [31:0] key,\n    input [31:0] nonce,\n    input [31:0] block_counter,\n    output reg [31:0] result\n);\n    always @(key, nonce, block_counter) begin\n        result <= (key + nonce + block_counter) % 32'hFFFFFFFF;\n    end\nendmodule"
-}

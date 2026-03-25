@@ -1,9 +1,0 @@
-{
-  "task_id": "q000492",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module qam_demodulator (\n    input wire clk,\n    input wire rst,\n    input wire [3:0] received_signal,\n    output reg [1:0] obf_I,\n    output reg [1:0] Q\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        obf_I <= 2'b00;\n        Q <= 2'b00;\n    end else begin\n        case (received_signal)\n            4'b0000: begin obf_I <= 2'b00; Q <= 2'b00; end // Symbol 0\n            4'b0001: begin obf_I <= 2'b00; Q <= 2'b01; end // Symbol 1\n            4'b0010: begin obf_I <= 2'b00; Q <= 2'b10; end // Symbol 2\n            4'b0011: begin obf_I <= 2'b00; Q <= 2'b11; end // Symbol 3\n            4'b0100: begin obf_I <= 2'b01; Q <= 2'b00; end // Symbol 4\n            4'b0101: begin obf_I <= 2'b01; Q <= 2'b01; end // Symbol 5\n            4'b0110: begin obf_I <= 2'b01; Q <= 2'b10; end // Symbol 6\n            4'b0111: begin obf_I <= 2'b01; Q <= 2'b11; end // Symbol 7\n            4'b1000: begin obf_I <= 2'b10; Q <= 2'b00; end // Symbol 8\n            4'b1001: begin obf_I <= 2'b10; Q <= 2'b01; end // Symbol 9\n            4'b1010: begin obf_I <= 2'b10; Q <= 2'b10; end // Symbol A\n            4'b1011: begin obf_I <= 2'b10; Q <= 2'b11; end // Symbol B\n            4'b1100: begin obf_I <= 2'b11; Q <= 2'b00; end // Symbol C\n            4'b1101: begin obf_I <= 2'b11; Q <= 2'b01; end // Symbol D\n            4'b1110: begin obf_I <= 2'b11; Q <= 2'b10; end // Symbol E\n            4'b1111: begin obf_I <= 2'b11; Q <= 2'b11; end // Symbol F\n            default: begin obf_I <= 2'b00; Q <= 2'b00; end // Default case\n        endcase\n    end\nend\n\nendmodule",
-  "rename_map": {
-    "I": "obf_I"
-  }
-}

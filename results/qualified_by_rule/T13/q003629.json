@@ -1,6 +1,0 @@
-{
-  "task_id": "q003629",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule (\n    input [4:0] x0, // Current input sample\n    input [4:0] x1, // Previous input sample\n    input [4:0] x2, // Two samples ago\n    input [4:0] x3, // Three samples ago\n    input [4:0] x4, // Four samples ago\n    output reg [4:0] y // Output sample\n);\n    // Coefficients for the FIR filter\n    reg [4:0] coeff [0:4];\n    \n    initial begin\n        coeff[0] = 5'b00001; // Coefficient 1\n        coeff[1] = 5'b00010; // Coefficient 2\n        coeff[2] = 5'b00011; // Coefficient 3\n        coeff[3] = 5'b00010; // Coefficient 2\n        coeff[4] = 5'b00001; // Coefficient 1\n    end\n    \n    always @(*) begin\n        // Compute the output\n        y = (x0 * coeff[0]) + (x1 * coeff[1]) + (x2 * coeff[2]) + (x3 * coeff[3]) + (x4 * coeff[4]);\n    end\nendmodule"
-}

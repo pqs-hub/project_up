@@ -1,6 +1,0 @@
-{
-  "task_id": "q010973",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module shift_register(\n    input clk,\n    input load,\n    input [3:0] d,\n    output reg [3:0] q\n    );\n\n    always @(posedge clk) begin\n        if (load)\n            q <= d; // Load parallel data\n        else\n            q <= {1'b0, q[3:1]}; // Shift right\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

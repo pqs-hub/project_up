@@ -1,6 +1,0 @@
-{
-  "task_id": "q006929",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module RefModule(IFID_Rs, IFID_Rt, IDEX_MemRead, IDEX_Rt, IFID_Write, PC_Write, Stall);input [4:0] IFID_Rs, IFID_Rt, IDEX_Rt; \ninput IDEX_MemRead; \n\noutput IFID_Write, PC_Write, Stall; \n\nreg IFID_Write_reg, PC_Write_reg, Stall_reg; \n\nalways @(IFID_Rs, IFID_Rt, IDEX_MemRead, IDEX_Rt) \nbegin\n\n\n\n  IFID_Write_reg=1;\n  PC_Write_reg=1;\n  Stall_reg=0;\n\n  if((IDEX_MemRead==1)&&((IDEX_Rt==IFID_Rs)||(IDEX_Rt==IFID_Rt)))\n  begin\n\n\n\n    IFID_Write_reg=0;\n    PC_Write_reg=0;\n    Stall_reg=1;\n\n  end\nend\n\nwire __IFID_Write_tmp = IFID_Write_reg;\nassign IFID_Write = __IFID_Write_tmp;\nassign PC_Write=PC_Write_reg;\nassign Stall=Stall_reg;endmodule"
-}

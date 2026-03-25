@@ -1,6 +1,0 @@
-{
-  "task_id": "q008570",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(\n   input                      clk,\n   input                      rst,\n   output                     done,\n   input                      rq_vld_in,\n   input                      rs_vld_in\n);reg   [63:0]               rq_count_s;\n   reg   [63:0]               rs_count_s;\n\n   always @(posedge clk)\n   begin\n      if (rst == 1)              rq_count_s <= 64'd0;\n      else if (rq_vld_in == 1)   rq_count_s <= rq_count_s + 64'd1;\n\n      if (rst == 1)              rs_count_s <= 64'd0;\n      else if (rs_vld_in == 1)   rs_count_s <= rs_count_s + 64'd1;\n\n   end\n\n   assign done = (rq_count_s == rs_count_s);\n\nendmodule"
-}

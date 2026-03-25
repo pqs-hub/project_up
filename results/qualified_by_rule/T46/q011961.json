@@ -1,6 +1,0 @@
-{
-  "task_id": "q011961",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule( \n    input wire [15:0] in,\n    output wire [7:0] out_hi,\n    output wire [7:0] out_lo );wire [7:0] shift_out;\n    \n    // First 8 bits\n    assign shift_out[7] = in[15];\n    assign shift_out[6:0] = in[14:8];\n    \n    // Second 8 bits\n    assign out_hi[7] = shift_out[7];\n    assign out_hi[6:0] = shift_out[6:0] ^ in[7:0];\n    assign out_lo[7:0] = in[7:0];\n    \nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q009090",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input en,         // Enable signal.\n    input [1:0] a,    // 2-bit binary input.\n    output [3:0] y    // 4-bit one-hot output.\n);\n\nreg [3:0] unused_y_r;\n\n// Decoder logic\nalways @(*) begin\n    if (en) begin\n        case (a)\n            2'b00: unused_y_r = 4'b0001;\n            2'b01: unused_y_r = 4'b0010;\n            2'b10: unused_y_r = 4'b0100;\n            2'b11: unused_y_r = 4'b1000;\n            default: unused_y_r = 4'b0000;\n        endcase\n    end else begin\n        unused_y_r = 4'b0000;\n    end\nend\n\nassign y = unused_y_r;\n\nendmodule"
-}

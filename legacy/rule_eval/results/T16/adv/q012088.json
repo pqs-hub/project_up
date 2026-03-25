@@ -1,9 +1,0 @@
-{
-  "task_id": "q012088",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(douta,\n   clka,\n   addra,\n   dina,\n   wea);output [11:0] douta;\n  input clka;\n  input [9:0] addra;\n  input [11:0] dina;\n  input [0:0] wea;\n\n  reg [11:0] mem [0:1023];\n  reg [11:0] obf_douta_reg;\n\n  always @(posedge clka) begin\n    if (wea) begin\n      mem[addra] <= dina;\n    end else begin\n      obf_douta_reg <= mem[addra];\n    end\n  end\n\n  assign douta = obf_douta_reg;\n\nendmodule",
-  "rename_map": {
-    "douta_reg": "obf_douta_reg"
-  }
-}

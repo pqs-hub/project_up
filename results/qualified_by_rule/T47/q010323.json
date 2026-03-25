@@ -1,6 +1,0 @@
-{
-  "task_id": "q010323",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule (CLK, RESET, D, Q);\ninput CLK, RESET, D;\noutput reg [2:0] Q;\n\nalways @(posedge CLK or posedge RESET) begin\n    if (RESET)\n        Q <= 3'b000;\n    else\n        Q <= {Q[1:0], D};\nend\n\nendmodule"
-}

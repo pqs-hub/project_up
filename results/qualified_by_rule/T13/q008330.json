@@ -1,6 +1,0 @@
-{
-  "task_id": "q008330",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(MEMRegRd,WBRegRd,EXRegRs,EXRegRt, MEM_RegWrite, WB_RegWrite, ForwardA, ForwardB);input[4:0] MEMRegRd,WBRegRd,EXRegRs,EXRegRt;\n input MEM_RegWrite, WB_RegWrite;\n output[1:0] ForwardA, ForwardB;\n reg[1:0] ForwardA, ForwardB;\n\n \n always@(MEM_RegWrite or MEMRegRd or EXRegRs or WB_RegWrite or WBRegRd)\n begin\n if((MEM_RegWrite)&&(MEMRegRd != 0)&&(MEMRegRd == EXRegRs))\n ForwardA = 2'b10;\n else if((WB_RegWrite)&&(WBRegRd != 0)&&(WBRegRd == EXRegRs)&&(MEMRegRd != EXRegRs) )\n ForwardA = 2'b01;\n else\n ForwardA = 2'b00;\n end\n \n always@(WB_RegWrite or WBRegRd or EXRegRt or MEMRegRd or MEM_RegWrite)\n begin\n if((WB_RegWrite)&&(WBRegRd != 0)&&(WBRegRd == EXRegRt)&&(MEMRegRd != EXRegRt) )\n ForwardB = 2'b01;\n else if((MEM_RegWrite)&&(MEMRegRd != 0)&&(MEMRegRd == EXRegRt))\n ForwardB = 2'b10;\n else\n ForwardB = 2'b00;\n end\nendmodule"
-}

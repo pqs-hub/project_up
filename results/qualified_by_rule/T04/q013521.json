@@ -1,6 +1,0 @@
-{
-  "task_id": "q013521",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule RefModule(\n    input wire clk, // Added clock input\n    input wire [2:0] vec,\n    output wire [2:0] outv,\n    output wire o2,\n    output wire o1,\n    output wire o0\n);reg [2:0] reg1;\nreg [2:0] reg2;\nreg [2:0] reg3;\n\nassign outv = reg3;\nassign o2 = reg3[2];\nassign o1 = reg2[1];\nassign o0 = reg1[0];\n\nalways @(posedge clk) begin\n    reg1 <= vec;\nend\n\nalways @(posedge clk) begin\n    reg2 <= reg1;\nend\n\nalways @(posedge clk) begin\n    reg3 <= reg2;\nend\n\nendmodule"
-}

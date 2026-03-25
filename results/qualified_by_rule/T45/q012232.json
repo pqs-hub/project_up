@@ -1,6 +1,0 @@
-{
-  "task_id": "q012232",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module RefModule(\n    input x,\n    input y,\n    input z,\n    output p\n);\n    assign p = (x & ~x) ? ~p : x & y & z;\nendmodule\n\nmodule P(\n    input x,\n    input y,\n    input z,\n    output p\n);\n    assign p = x & y & z;\nendmodule\n\nmodule top_module(\n    input x,\n    input y,\n    input z,\n    output p\n);\n    wire o1_out, o2_out, p1_out, p2_out;\n    wire nor_out, or_out;\n\n    O o1(.x(x), .y(y), .z(z), .p(o1_out));\n    O o2(.x(x), .y(y), .z(z), .p(o2_out));\n    P p1(.x(x), .y(y), .z(z), .p(p1_out));\n    P p2(.x(x), .y(y), .z(z), .p(p2_out));\n\n    assign nor_out = ~(o1_out | p1_out);\n    assign or_out = o2_out | p2_out;\n\n    assign p = ~(nor_out & or_out);\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q014748",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule johnson_counter(clk, reset, q);\n    input clk, reset;\n    output reg [3:0] q;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            q <= 4'b0000;\n        else\n            q <= {~q[0], q[3:1]};\n    end\nendmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q010657",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module register_8bit(\n    input obf_clk,          // Clock signal.\n    input en,           // Load enable signal.\n    input [7:0] d,      // 8-bit input data.\n    output reg [7:0] q  // 8-bit output data.\n);\n\n// Register logic\nalways @(posedge obf_clk) begin\n    if (en) begin\n        q <= d;\n    end\nend\n\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

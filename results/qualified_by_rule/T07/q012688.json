@@ -1,6 +1,0 @@
-{
-  "task_id": "q012688",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule(\n    // Clock and reset\n    clk, rst,\n\n    // Internal i/f\n    wb_freeze, rfwb_op,\n    muxin_a, muxin_b, muxin_c, muxin_d,\n    muxout, muxreg, muxreg_valid\n);parameter width = 32;\n\n//\n// I/O\n//\n\n//\n// Clock and reset\n//\ninput               clk;\ninput               rst;\n\n//\n// Internal i/f\n//\ninput               wb_freeze;\ninput   [2:0]       rfwb_op;\ninput   [width-1:0] muxin_a;\ninput   [width-1:0] muxin_b;\ninput   [width-1:0] muxin_c;\ninput   [width-1:0] muxin_d;\noutput  [width-1:0] muxout;\noutput  [width-1:0] muxreg;\noutput              muxreg_valid;\n\n//\n// Internal wires and regs\n//\nreg [width-1:0] muxout;\nreg [width-1:0] muxreg;\nreg muxreg_valid;\n\n//\n// Registered output from the write-back multiplexer\n//\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        muxreg <= 32'd0;\n        muxreg_valid <= 1'b0;\n    end\n    else if (!wb_freeze) begin\n        muxreg <= muxout;\n        muxreg_valid <= rfwb_op[0];\n    end\nend\n\n//\n// Write-back multiplexer\n//\nalways @(*) begin\n    case(rfwb_op[2:1])\n        2'b00: muxout = muxin_a;\n        2'b01: muxout = muxin_b;\n        2'b10: muxout = muxin_c;\n        2'b11: muxout = muxin_d + 32'h8;\n    endcase\nend\n\nendmodule"
-}

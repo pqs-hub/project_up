@@ -1,9 +1,0 @@
-{
-  "task_id": "q014257",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n  input CLK, // clock input\n  input EN, // enable input\n  input TE, // test enable input\n  output reg obf_ENCLK // clock gated output\n);always @ (posedge CLK) begin\n    if (EN && TE) begin\n      obf_ENCLK <= 1'b1;\n    end\n    else begin\n      obf_ENCLK <= 1'b0;\n    end\n  end\n\nendmodule",
-  "rename_map": {
-    "ENCLK": "obf_ENCLK"
-  }
-}

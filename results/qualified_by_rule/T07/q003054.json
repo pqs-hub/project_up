@@ -1,6 +1,0 @@
-{
-  "task_id": "q003054",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [4:0] position_x,\n    input [4:0] position_y,\n    input [3:0] parent_index,\n    input set_node,\n    output reg [4:0] out_position_x,\n    output reg [4:0] out_position_y,\n    output reg [3:0] out_parent_index\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        out_position_x <= 5'b00000;\n        out_position_y <= 5'b00000;\n        out_parent_index <= 4'b0000;\n    end else if (set_node) begin\n        out_position_x <= position_x;\n        out_position_y <= position_y;\n        out_parent_index <= parent_index;\n    end\nend\n\nendmodule"
-}

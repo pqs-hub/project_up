@@ -1,9 +1,0 @@
-{
-  "task_id": "q014796",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input A,\n    input B,\n    output Y\n);wire obf_notA, notB, nor_out;\n\n    // Implementing NOT using NOR gate\n    assign obf_notA = ~(A | A); // Equivalent to NOT A\n    assign notB = ~(B | B); // Equivalent to NOT B\n\n    // Implementing AND using NOR gates\n    assign nor_out = ~(obf_notA | notB); // NOR of obf_notA and notB\n    assign Y = nor_out; // Output Y is connected to the NOR gate result\n\nendmodule",
-  "rename_map": {
-    "notA": "obf_notA"
-  }
-}

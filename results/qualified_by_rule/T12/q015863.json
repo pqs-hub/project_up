@@ -1,6 +1,0 @@
-{
-  "task_id": "q015863",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n  input         clock,\n  input  [3:0]  io_w_addr,\n  input  [31:0] io_w_data,\n  input         io_w_en,\n  input  [3:0]  io_r_addr,\n  output [31:0] io_output_data\n);reg [31:0] memory [0:15];\n  assign io_output_data = memory[io_r_addr];\n  \n  always @(posedge clock) begin\n    if(io_w_en) begin\n      memory[io_w_addr] <= io_w_data;\n    end\n  end\nendmodule"
-}

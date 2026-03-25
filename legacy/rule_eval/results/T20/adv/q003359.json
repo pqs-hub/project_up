@@ -1,6 +1,0 @@
-{
-  "task_id": "q003359",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule wifi_module (  \n    input wire clk,  \n    input wire reset,  \n    input wire start,  \n    input wire connected,  \n    output reg [1:0] state  \n);  \n    localparam IDLE = 2'b00,  \n               CONNECTING = 2'b01,  \n               CONNECTED = 2'b10;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            state <= IDLE;  \n        end else begin  \n            case (state)  \n                IDLE: begin  \n                    if (start)  \n                        state <= CONNECTING;  \n                end  \n                CONNECTING: begin  \n                    if (connected)  \n                        state <= CONNECTED;  \n                end  \n                CONNECTED: begin  \n                    // Stay in CONNECTED state unless reset  \n                end  \n                default: state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule"
-}

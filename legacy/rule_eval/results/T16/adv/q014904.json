@@ -1,9 +1,0 @@
-{
-  "task_id": "q014904",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input D,\n    input CLK,\n    output reg Q  // Change to reg to hold state\n);wire obf_GATE_N;\n\n    assign obf_GATE_N = ~CLK;\n\n    always @(posedge CLK) begin\n        Q <= D;  // Use a simple always block to implement the D flip-flop\n    end\n\nendmodule",
-  "rename_map": {
-    "GATE_N": "obf_GATE_N"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q001530",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [7:0] sensor_position,\n    input wire update_signal,\n    output reg [7:0] estimated_position\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            estimated_position <= 8'd0;\n        end else if (update_signal) begin\n            estimated_position <= sensor_position; // Update the estimated position\n        end\n    end\nendmodule"
-}

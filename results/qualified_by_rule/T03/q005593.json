@@ -1,6 +1,0 @@
-{
-  "task_id": "q005593",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule( D, en, clk, rst, Q );input [4:0] D;\n  output [4:0] Q;\n  input en, clk, rst;\n  wire [4:0] _tap_D = D & {5{1'b1}};\n\n  wire   n19, n20, n21, n22, n23;\n\n  // Connect D to the first flip-flop\n  reg [4:0] Q_reg;\n  assign Q = Q_reg;\n  \n  always @(posedge clk or posedge rst) begin\n    if (rst) begin\n      Q_reg <= 5'b0;\n    end else if (en) begin\n      Q_reg <= D;\n    end\n  end\n  \nendmodule"
-}

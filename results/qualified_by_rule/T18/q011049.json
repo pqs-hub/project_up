@@ -1,6 +1,0 @@
-{
-  "task_id": "q011049",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    input load,\n    input [15:0] data_in,\n    output reg [15:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            // Synchronous reset: Reset the register to 16'b0000000000000000\n            q <= 16'b0000000000000000;\n        end else if (load) begin\n            // Load operation: Load data_in into the register when load is high\n            q <= data_in;\n        end\n    end\n\nendmodule"
-}

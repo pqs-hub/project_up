@@ -1,6 +1,0 @@
-{
-  "task_id": "q016629",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input [5:0] a,\n    input [7:0] din,\n    output [7:0] dout,\n    input we\n    );\n\t reg [7:0] mem[0:63];\n\t assign dout = mem[a];\t\n\t integer i;\n\t initial begin\n\t\tfor (i=0;i<=63;i=i+1)\n\t\t\tmem[i] = i/8;\n\t end\n\t always @(posedge clk) begin\n\t\tif (we)\n\t\t\tmem[a] <= din;\n\t end\nendmodule"
-}

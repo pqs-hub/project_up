@@ -1,6 +1,0 @@
-{
-  "task_id": "q016074",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module top_module(Hold_Address, Next_Address,Current_Address, IA, clk, reset);input clk,reset;\ninput [7:0] Current_Address, IA; \noutput reg [7:0] Hold_Address, Next_Address;\nwire [7:0] temp1,temp2;\n\nassign temp1=(reset==1'b0)? 8'b00000000 :Current_Address ;                     \nassign temp2=(reset==1'b0)? 8'b00000000 :IA ;                     \n\nalways @(posedge clk) begin\n  Hold_Address<=temp1 ;\n  end\n\n  always @(posedge clk) begin\n  Next_Address<=temp2 ;\n  end\n\nendmodule"
-}

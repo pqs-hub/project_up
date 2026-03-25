@@ -1,6 +1,0 @@
-{
-  "task_id": "q013950",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule(intrinsic_info, \n\t\t\t\tmsg_from_check0, \n\t\t\t\tmsg_from_check1, \n\t\t\t\tmsg_from_check2, \n\t\t\t\tdata_out\n\t\t\t\t);input \t\t\t[7:0] intrinsic_info;\ninput \t\t\t[7:0] msg_from_check0;\ninput \t\t\t[7:0] msg_from_check1;\ninput \t\t\t[7:0] msg_from_check2;\noutput reg \t\t\t  data_out;\nreg \t\t\t[7:0] vnu_data_out;\n\n\n\nalways @(msg_from_check0 or msg_from_check1 or msg_from_check2)\nbegin \n\tvnu_data_out = intrinsic_info + msg_from_check0 + msg_from_check1 + msg_from_check2; \n\tif(vnu_data_out[7] == 1 || vnu_data_out == 8'b0) begin \n\t\tdata_out <= 0;\n\tend\n\telse begin \n\t\tdata_out <= 1;\n\tend\nend\n\nendmodule"
-}

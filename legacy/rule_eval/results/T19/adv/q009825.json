@@ -1,6 +1,0 @@
-{
-  "task_id": "q009825",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input rst_n,\n    input write_en,\n    input [2:0] control,\n    input [7:0] write_addr,\n    input [3:0] write_data,\n    input [7:0] read_addr_1,\n    input [7:0] read_addr_2,\n    output reg [3:0] read_data_1,\n    output reg [3:0] read_data_2,\n    output reg [3:0] result\n);reg [3:0] ram [0:7];\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        read_data_1 <= 4'b0;\n        read_data_2 <= 4'b0;\n        result <= 4'b0;\n    end else begin\n        if (write_en) begin\n            ram[write_addr[2:0]] <= write_data;\n        end\n\n        read_data_1 <= ram[read_addr_1[2:0]];\n        read_data_2 <= ram[read_addr_2[2:0]];\n\n        case (control)\n            3'b000: result <= read_data_1 + read_data_2;\n            3'b001: result <= read_data_1 - read_data_2;\n            default: result <= 4'b0;\n        endcase\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

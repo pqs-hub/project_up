@@ -1,9 +1,0 @@
-{
-  "task_id": "q012404",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(clk,we,waddr,raddr,wdata,rdata);input clk;\t\t\t\t\n  input we;\t\t\t\t\t\n  input [9:0] waddr;\t\t\n  input [9:0] raddr;\t\t\n  input [15:0] wdata;\t\t\n  output reg [15:0] rdata;\t\n\n  \n  reg [15:0] obf_mem [1023:0];\n\n  always @(posedge clk) begin\n    if (we)\n      obf_mem[waddr] <= wdata;\n    rdata <= obf_mem[raddr];\n  end\n  \n\nendmodule",
-  "rename_map": {
-    "mem": "obf_mem"
-  }
-}

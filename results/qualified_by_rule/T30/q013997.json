@@ -1,6 +1,0 @@
-{
-  "task_id": "q013997",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n\tinput clk,\n\tinput rst,\n\tinput [4:0] reg_R_addr_A,\n\tinput [4:0] reg_R_addr_B,\n\tinput [4:0] reg_W_addr,\n\tinput [31:0] wdata,\n\tinput reg_we,\n\toutput [31:0] rdata_A,\n\toutput [31:0] rdata_B\n    );reg [31:0] register[1:31];\ninteger i;\n\nassign rdata_A = (reg_R_addr_A == 0)?0:register[reg_R_addr_A];\nassign rdata_B = (reg_R_addr_B == 0)?0:register[reg_R_addr_B];\n\nalways @(posedge clk or posedge rst)\nbegin\n\tif (rst == 1)begin\n\t\tfor (i=1;i<32;i=i+1)\n\t\t\tregister[i] <= 0;\n\tend else begin\n\t\tif ((reg_W_addr != 0)&&(reg_we == 1))\n\t\t\tregister[reg_W_addr] <= wdata;\n\tend\nend\nendmodule"
-}

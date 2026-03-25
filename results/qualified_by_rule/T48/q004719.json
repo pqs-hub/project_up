@@ -1,6 +1,0 @@
-{
-  "task_id": "q004719",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule(\n\tinput clk,\n\tinput reset,\n\tinput [9:0] data,\n\toutput reg [3:0] pos);always @(posedge clk or negedge reset) begin\n\t\tif (!reset)\n\t\t\tpos <= 4'b0000;\n\t\telse begin\n\t\t\tcasez (data)\n\t\t\t\t10'b1?????????: pos <= 4'd9;\n\t\t\t\t10'b01????????: pos <= 4'd8;\n\t\t\t\t10'b001???????: pos <= 4'd7;\n\t\t\t\t10'b0001??????: pos <= 4'd6;\n\t\t\t\t10'b00001?????: pos <= 4'd5;\n\t\t\t\t10'b000001????: pos <= 4'd4;\n\t\t\t\t10'b0000001???: pos <= 4'd3;\n\t\t\t\t10'b00000001??: pos <= 4'd2;\n\t\t\t\t10'b000000001?: pos <= 4'd1;\n\t\t\t\t10'b0000000001: pos <= 4'd0;\n\t\t\t\tdefault: pos <= 4'b0000;\n\t\t\tendcase\n\t\tend\n\tend\nendmodule"
-}

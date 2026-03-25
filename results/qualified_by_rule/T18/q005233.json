@@ -1,6 +1,0 @@
-{
-  "task_id": "q005233",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module RefModule (\n  input in1,\n  input state,\n  output reg next_state,\n  output reg out);parameter B1=0, B2=1;\n\n    always_comb begin\n        case (state)\n            B1: next_state = in1 ? B2 : B1;\n            B2: next_state = in1 ? B2 : B1;\n        endcase\n    end\n    \n    assign out = (state == B2);\n    \nendmodule"
-}

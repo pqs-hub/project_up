@@ -1,6 +1,0 @@
-{
-  "task_id": "q010875",
-  "rule_id": "T32",
-  "changed": false,
-  "final": "module RefModule(\n    Y   ,\n    A1  ,\n    A2  ,\n    B1  ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);// Module ports\noutput Y   ;\ninput  A1  ;\ninput  A2  ;\ninput  B1  ;\ninput  VPWR;\ninput  VGND;\ninput  VPB ;\ninput  VNB ;\n\n// Local signals\nwire or0_out          ;\nwire nand0_out_Y      ;\nwire pwrgood_pp0_out_Y;\n\n//                                 Name         Output             Other arguments\nor                                 or0         (or0_out          , A2, A1                 );\nnand                               nand0       (nand0_out_Y      , B1, or0_out            );\n// Replaced the missing module with a simple implementation for demonstration\nassign pwrgood_pp0_out_Y = (VPWR && !VGND) ? nand0_out_Y : VGND;  // Example implementation\nbuf                                buf0        (Y                , pwrgood_pp0_out_Y      );\n\nendmodule"
-}

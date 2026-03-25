@@ -1,6 +1,0 @@
-{
-  "task_id": "q017560",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n\tinput [3:0] A,\n\tinput [3:0] B,\n\tinput CLK,\n\tinput RST,\n\toutput reg [4:0] SUM\n\t);\n  wire [3:0] _tap_A = A & {4{1'b1}};\n\n\t\n\talways@(posedge CLK) begin\n\t\tif (RST) begin\n\t\t\tSUM <= 5'b0;\n\t\tend\n\t\telse begin\n\t\t\tSUM <= {1'b0, A} + {1'b0, B};\n\t\tend\n\tend\n\nendmodule"
-}

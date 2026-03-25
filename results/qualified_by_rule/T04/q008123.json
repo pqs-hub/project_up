@@ -1,6 +1,0 @@
-{
-  "task_id": "q008123",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(\n    input               clk         ,   \n    input               rst         ,\n    input               enable      ,\n \n    output  reg [5:0]   lfsr_out\n);\n    \n   //Linear Feedback Shift Register\n   always @(posedge clk or posedge rst) begin\n       if(rst) begin\n          lfsr_out <= 6'b000001; // Seed value\n       end\n       else if(enable) begin\n          lfsr_out <= {lfsr_out[4:0], lfsr_out[5] ^ lfsr_out[3]};\n       end\n   end\n     \nendmodule"
-}

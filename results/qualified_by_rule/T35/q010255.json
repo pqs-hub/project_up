@@ -1,6 +1,0 @@
-{
-  "task_id": "q010255",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n    input [15:0] inputMsg,\n    input inputValid,\n    output reg [15:0] outputMsg,  // Changed to 'reg'\n    output reg outputValid         // Changed to 'reg'\n);reg [15:0] storedMsg;\n    reg storedValid;\n\n    always @(*) begin\n        if (inputValid) begin\n            storedMsg = inputMsg;\n            storedValid = 1;\n        end else begin\n            storedValid = 0; // Clear storedValid if inputValid is low\n        end\n        outputMsg = storedMsg;\n        outputValid = storedValid & inputValid;\n    end\n\nendmodule"
-}

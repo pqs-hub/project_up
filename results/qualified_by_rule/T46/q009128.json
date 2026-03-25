@@ -1,6 +1,0 @@
-{
-  "task_id": "q009128",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n    input wire D,\n    input wire DATA_EN,\n    input wire VPWR,\n    input wire VGND,\n    input wire CLK,\n    output reg Q\n);// Removed the instantiation of the undefined module\n    // sky130_fd_sc_hs__udp_dff$PE_pp$PG dut (.D(D), .DATA_EN(DATA_EN), .VPWR(VPWR), .VGND(VGND), .Q(Q), .CLK(CLK)); \n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge CLK or posedge dbg_halt) begin\n        if (DATA_EN) begin\n            Q <= D; // Update output Q with D if DATA_EN is high\n        end else if (VPWR) begin\n            Q <= 0; // Reset Q to 0 if VPWR is high and DATA_EN is low\n        end else if (VGND) begin\n            Q <= 1; // Set Q to 1 if VGND is high and DATA_EN is low\n        end\n    end\n\nendmodule"
-}

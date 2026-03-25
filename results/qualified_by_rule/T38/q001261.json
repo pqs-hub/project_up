@@ -1,6 +1,0 @@
-{
-  "task_id": "q001261",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule (\n    input [63:0] A,\n    input [63:0] B,\n    input [2:0] ALU_Sel,\n    output reg [63:0] Result,\n    output reg Zero\n);\n    always @(*) begin\n        case (ALU_Sel)\n            3'b000: Result = A + B; // Addition\n            3'b001: Result = A - B; // Subtraction\n            3'b010: Result = A & B; // Bitwise AND\n            3'b011: Result = A | B; // Bitwise OR\n            3'b100: Result = A ^ B; // Bitwise XOR\n            default: Result = 64'b0; // Default case\n        endcase\n        Zero = (Result == 64'b0) ? 1'b1 : 1'b0; // Set Zero flag\n    end\nendmodule"
-}

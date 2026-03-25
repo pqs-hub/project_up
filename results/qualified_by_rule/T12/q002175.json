@@ -1,6 +1,0 @@
-{
-  "task_id": "q002175",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule (\n    input wire addr,\n    input wire data_in,\n    input wire we,\n    input wire clk,\n    output reg data_out\n);\n    reg stored_bit;\n\n    always @(posedge clk) begin\n        if (we) begin\n            stored_bit <= data_in; // Write operation\n        end\n    end\n\n    always @(negedge clk) begin\n        if (!we) begin\n            data_out <= stored_bit; // Read operation\n        end\n    end\nendmodule"
-}

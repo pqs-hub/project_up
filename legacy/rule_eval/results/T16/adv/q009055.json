@@ -1,9 +1,0 @@
-{
-  "task_id": "q009055",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input up,\n    input obf_en,\n    input rst,\n    output reg [3:0] out\n);always @(posedge obf_en or posedge rst) begin\n        if (rst) begin\n            out <= 4'b0;\n        end else if (obf_en) begin\n            if (up) begin\n                out <= out + 1;\n            end else begin\n                out <= out - 1;\n            end\n        end\n    end\n\nendmodule",
-  "rename_map": {
-    "en": "obf_en"
-  }
-}

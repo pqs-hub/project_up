@@ -1,6 +1,0 @@
-{
-  "task_id": "q002282",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [7:0] target,\n    input wire [7:0] current_output,\n    output reg [7:0] control_signal\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n    if (rst) begin\n        control_signal <= 8'b0;\n    end else begin\n        control_signal <= target - current_output; // Deadbeat control logic\n    end\nend\n\nendmodule"
-}

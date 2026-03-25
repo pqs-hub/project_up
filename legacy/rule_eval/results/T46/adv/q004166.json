@@ -1,8 +1,0 @@
-{
-  "task_id": "q004166",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module jpeg_compression (\n    input wire clk,\n    input wire rst,\n    input wire [7:0] pixel_in,\n    output reg [3:0] pixel_out\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n        if (rst) begin\n            pixel_out <= 4'b0000;\n        end else begin\n            if (pixel_in >= 8'd128) begin\n                pixel_out <= pixel_in[7:4]; // Upper 4 bits\n            end else begin\n                pixel_out <= pixel_in[3:0]; // Lower 4 bits\n            end\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

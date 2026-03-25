@@ -1,6 +1,0 @@
-{
-  "task_id": "q015597",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(\n    input clk,\n    input reset, // Synchronous active-high reset\n    input signed [3:0] A,\n    input signed [3:0] B,\n    output reg [15:0] count\n);reg [3:0] A_mag;\n    reg [3:0] B_mag;\n    reg cmp_out;\n    \n    // Signed Magnitude Comparator\n    always @* begin\n        if (A[3] == 1 && B[3] == 0) begin\n            cmp_out = 0;\n        end else if (A[3] == 0 && B[3] == 1) begin\n            cmp_out = 1;\n        end else if (A >= B) begin\n            cmp_out = 1;\n        end else begin\n            cmp_out = 0;\n        end\n    end\n    \n    // 16-bit Counter\n    always @(posedge clk) begin\n        if (reset) begin\n            count <= 0;\n        end else if (cmp_out) begin\n            count <= count + 1;\n        end\n    end\n    \nendmodule"
-}

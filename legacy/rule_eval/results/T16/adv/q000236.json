@@ -1,9 +1,0 @@
-{
-  "task_id": "q000236",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module backpropagation (\n    input [7:0] weights,          // Current weights\n    input [7:0] inputs,           // Input features\n    input [7:0] target,           // Expected output\n    input [7:0] learning_rate,    // Learning rate\n    output reg [7:0] new_weights   // Updated weights\n);\n    reg [7:0] output_neuron;\n    reg [7:0] obf_error;\n    \n    always @(weights, inputs, target, learning_rate) begin\n        // Calculate output of the neuron (simple linear output)\n        output_neuron = weights * inputs;\n\n        // Compute obf_error\n        obf_error = target - output_neuron;\n\n        // Update weights using the backpropagation formula\n        new_weights = weights + (learning_rate * obf_error * inputs);\n    end\nendmodule",
-  "rename_map": {
-    "error": "obf_error"
-  }
-}

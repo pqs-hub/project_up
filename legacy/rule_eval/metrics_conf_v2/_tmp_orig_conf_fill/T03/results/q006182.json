@@ -1,7 +1,0 @@
-{
-  "task_id": "q006182",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module gray_code_counter_3bit(\n    input clk,\n    input rst_n,\n    output reg [2:0] gray_code\n);\n\nreg [2:0] binary_counter;\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        binary_counter <= 3'b000;\n    end else begin\n        binary_counter <= binary_counter + 1;\n    end\nend\n\nalways @(*) begin\n    gray_code = binary_counter ^ (binary_counter >> 1);\nend\n\nendmodule",
-  "rename_map": {}
-}

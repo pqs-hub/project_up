@@ -1,6 +1,0 @@
-{
-  "task_id": "q011999",
-  "rule_id": "T12",
-  "changed": true,
-  "final": "module RefModule(\n    output [31:0] dout,\n    input [31:0] B,\n    input [1:0] ctrl,\n    input [1:0] A\n);wire [31:0] shifted;\n\nwire __ctrl_tmp = (ctrl == 2'b00);\nassign shifted = __ctrl_tmp ? (B << A) : (ctrl == 2'b01) ? (B << (A + 1)) :\n                 (ctrl == 2'b10) ? (B << (A + 2)) :\n                                   (B << (A + 3));\nassign dout = shifted;\n\nendmodule"
-}

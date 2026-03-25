@@ -1,6 +1,0 @@
-{
-  "task_id": "q011249",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input reset_n,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n    begin end  // redundant\n        if (!reset_n) begin\n            // Synchronous reset: Reset the counter to 4'b0001\n            q <= 4'b0001;\n        end else begin\n            // Ring counter: Shift left and wrap around MSB to LSB\n            q <= {q[2:0], q[3]};\n        end\n    end\n\nendmodule"
-}

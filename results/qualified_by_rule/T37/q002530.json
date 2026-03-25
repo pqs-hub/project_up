@@ -1,6 +1,0 @@
-{
-  "task_id": "q002530",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(  \n    input clk,  \n    input rst,  \n    input signed [15:0] original_signal,  \n    input signed [15:0] echo_signal,  \n    output reg signed [15:0] cleaned_signal  \n);  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst)  \n            cleaned_signal <= 16'b0;  \n        else  \n            cleaned_signal <= original_signal - echo_signal;  \n    end  \nendmodule"
-}

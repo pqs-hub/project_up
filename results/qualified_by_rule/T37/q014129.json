@@ -1,6 +1,0 @@
-{
-  "task_id": "q014129",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input [AWIDTH-1:0] addr0,\n    input ce0,\n    input we0,\n    input [DWIDTH-1:0] d0,\n    output reg [DWIDTH-1:0] q0,\n    input [AWIDTH-1:0] addr1,\n    input ce1,\n    input we1,\n    input [DWIDTH-1:0] d1,\n    output reg [DWIDTH-1:0] q1\n);parameter DWIDTH = 8;\nparameter AWIDTH = 13;\nparameter MEM_SIZE = 5760;\n\nreg [DWIDTH-1:0] ram [0:MEM_SIZE-1];\n\nalways @(posedge clk) begin\n    if (ce0 && we0) begin\n        ram[addr0] <= d0;\n    end\nend\n\nalways @(posedge clk) begin\n    if (ce1 && we1) begin\n        ram[addr1] <= d1;\n    end\nend\n\nalways @(posedge clk) begin\n    if (ce0 && !we0) begin\n        q0 <= ram[addr0];\n    end\nend\n\nalways @(posedge clk) begin\n    if (ce1 && !we1) begin\n        q1 <= ram[addr1];\n    end\nend\n\nendmodule"
-}

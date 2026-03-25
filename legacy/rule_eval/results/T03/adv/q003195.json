@@ -1,6 +1,0 @@
-{
-  "task_id": "q003195",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module voltage_sensor (\n    input [2:0] voltage_in,\n    output reg voltage_ok\n);\n  wire [2:0] _tap_voltage_in = voltage_in & {3{1'b1}};\n\n\nalways @(*) begin\n    if (voltage_in >= 3 && voltage_in <= 5) \n        voltage_ok = 1'b1; \n    else \n        voltage_ok = 1'b0; \nend\n\nendmodule"
-}

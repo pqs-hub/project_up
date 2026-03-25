@@ -1,6 +1,0 @@
-{
-  "task_id": "q011204",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(clk, rst, set, d, q, qn);input clk, rst, set, d;\noutput q, qn;\nreg q, qn;\n\nalways @(posedge clk or posedge rst or posedge set) begin\n    if (rst) begin\n        q <= 0;\n        qn <= 1;\n    end\n    else if (set) begin\n        q <= 1;\n        qn <= 0;\n    end\n    else begin\n        q <= d;\n        qn <= ~d;\n    end\nend\n\nendmodule"
-}

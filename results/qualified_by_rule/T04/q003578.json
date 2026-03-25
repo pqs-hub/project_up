@@ -1,6 +1,0 @@
-{
-  "task_id": "q003578",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [7:0] current_input, // 8-bit current input\n    output reg [7:0] current_value,  // 8-bit current value output\n    output reg current_exceeds_threshold // Threshold exceed flag\n);\n\nparameter THRESHOLD = 8'd100; // Define threshold\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        current_value <= 8'd0;\n        current_exceeds_threshold <= 1'b0;\n    end else begin\n        current_value <= current_input;\n        if (current_input > THRESHOLD) begin\n            current_exceeds_threshold <= 1'b1;\n        end else begin\n            current_exceeds_threshold <= 1'b0;\n        end\n    end\nend\n\nendmodule"
-}

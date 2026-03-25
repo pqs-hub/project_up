@@ -1,6 +1,0 @@
-{
-  "task_id": "q014208",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(rst, rw, X, Y, Z, Pset, Pid, Pz, Px, Py, Pval);input rst;\n  input rw; \n  input [1:0] X;\n  input [1:0] Y;\n  input [1:0] Z;\n  input [1:0] Pid;\n  input Pz;\n  input Pset;\n  output Px;\n  output Py;\n  output Pval;\n  \n  reg pregs [3:0];\n  integer i;\n  \n  always @ (*) begin\n    if (rst) begin\n      \n      pregs[0] <= 1;\n      pregs[1] <= 1;\n      pregs[2] <= 0;\n      pregs[3] <= 0;\n    end else begin\n      if(rw == 1)\n        pregs[Z] <= Pz;\n    end\n  end\n  \n  assign Px = pregs[X];\n  assign Py = pregs[Y];\n  assign Pval = (Pset == 1) ? pregs[Pid] : 1'b1;endmodule"
-}

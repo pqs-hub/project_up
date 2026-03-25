@@ -1,6 +1,0 @@
-{
-  "task_id": "q006703",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n   clk,\n   reset,\n   count_out\n);input            clk;\n    input            reset;\n    output  [3:0]    count_out;\n                     \n    reg  [3:0]        count_out_reg;\n                     \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge reset or posedge dbg_halt) begin\n        if (~reset) begin\n            count_out_reg <= 4'b0000;\n        end\n        else begin\n            count_out_reg <= count_out_reg + 1;\n        end\n    end\n     \n    assign count_out = count_out_reg;\n\nendmodule"
-}

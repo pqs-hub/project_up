@@ -1,6 +1,0 @@
-{
-  "task_id": "q015435",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule(\n  input [1:0] x_real,\n  input [1:0] x_imag,\n  input [1:0] y_real,\n  input [1:0] y_imag,\n  output [1:0] z_real,\n  output [1:0] z_imag\n);  wire _n01 = x_real[0] ^ y_real[0];\n  wire _c01 = x_real[0] & y_real[0];\n  wire _n02 = x_real[1] ^ y_real[1] ^ _c01;\n  wire _c02 = (x_real[1] & y_real[1]) | (x_real[1] & _c01) | (y_real[1] & _c01);\n  wire _n03 = x_real[2] ^ y_real[2] ^ _c02;\n  wire _c03 = (x_real[2] & y_real[2]) | (x_real[2] & _c02) | (y_real[2] & _c02);\n  wire _n04 = x_real[3] ^ y_real[3] ^ _c03;\n  wire _c04 = (x_real[3] & y_real[3]) | (x_real[3] & _c03) | (y_real[3] & _c03);\n  assign z_real = {_n01, _n02, _n03, _n04};\n  assign z_imag = x_imag + y_imag;\n\nendmodule"
-}

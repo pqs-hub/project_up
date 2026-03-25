@@ -1,9 +1,0 @@
-{
-  "task_id": "q002458",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module pcie_device_enable (\n    input [4:0] device_id,\n    output reg obf_device_enable\n);\n\nalways @(*) begin\n    case (device_id)\n        5'b00001: obf_device_enable = 1'b1; // Device ID 1 is enabled\n        5'b00010: obf_device_enable = 1'b1; // Device ID 2 is enabled\n        5'b00011: obf_device_enable = 1'b1; // Device ID 3 is enabled\n        default: obf_device_enable = 1'b0;   // All other IDs are disabled\n    endcase\nend\n\nendmodule",
-  "rename_map": {
-    "device_enable": "obf_device_enable"
-  }
-}

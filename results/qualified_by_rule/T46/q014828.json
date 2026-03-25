@@ -1,6 +1,0 @@
-{
-  "task_id": "q014828",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(Reset_n, CLK, DATA, SELECT, DATA_OUT);input Reset_n, CLK, DATA, SELECT;\noutput reg DATA_OUT;\n\nwire D;\nassign D = SELECT ? DATA : DATA_OUT;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge CLK, negedge Reset_n or posedge dbg_halt) begin \n\tif (Reset_n == 0) DATA_OUT <= 0;\n\telse DATA_OUT <= D;\nend\nendmodule"
-}

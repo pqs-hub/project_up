@@ -1,6 +1,0 @@
-{
-  "task_id": "q002792",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule RefModule (\n    input wire [3:0] A,    // 4-bit input\n    input wire enable,      // enable signal\n    output reg [15:0] Y     // 16-bit output\n);\n\n    always @(*) begin\n        if (enable) begin\n            Y = 16'b0000000000000000; // deactivate all outputs\n            Y[A] = 1'b1;               // activate the correct output\n        end else begin\n            Y = 16'b0000000000000000; // deactivate all outputs\n        end\n    end\nendmodule"
-}

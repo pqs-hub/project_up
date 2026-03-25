@@ -1,6 +1,0 @@
-{
-  "task_id": "q015687",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module( clk, wr, raddr, waddr, din, dout);parameter WIDTH = 64,\n\t      DEPTH_NBITS = 4,\n\t      DEPTH = 16'h1<<DEPTH_NBITS;\n\noutput  [WIDTH-1:0] dout;\n\ninput    clk, wr;  \ninput   [DEPTH_NBITS-1:0] raddr, waddr;\ninput   [WIDTH-1:0] din;\n\nreg [WIDTH-1:0] dout;\n(* ram_style = \"ultra\" *)\nreg [WIDTH-1:0] mem_d[DEPTH-1:0];\n\n\nalways @(posedge clk) begin\n    begin end  // redundant\n\tif(wr) mem_d[waddr] <= din;\n\tdout <= mem_d[raddr]; \nend\n\nendmodule"
-}

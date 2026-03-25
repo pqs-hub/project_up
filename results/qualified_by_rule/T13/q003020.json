@@ -1,6 +1,0 @@
-{
-  "task_id": "q003020",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire enable,\n    input wire write,\n    input wire [3:0] data_in,\n    output reg [3:0] data_out\n);\n    reg [3:0] memory;\n\n    always @(posedge clk) begin\n        if (enable) begin\n            if (write) begin\n                memory <= data_in; // Write operation\n            end\n            data_out <= memory; // Read operation\n        end\n    end\nendmodule"
-}

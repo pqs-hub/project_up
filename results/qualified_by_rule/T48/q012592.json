@@ -1,6 +1,0 @@
-{
-  "task_id": "q012592",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module RefModule(\n           in0,\n           in1,\n           in2,\n           out0\n          );input   signed [17:0] in0;  \n  input   signed [17:0] in1;  \n  input   signed [17:0] in2;  \n  output  signed [17:0] out0;  \n\n\n  wire signed [17:0] MinMax1_muxout [0:2];  \n  wire signed [17:0] MinMax1_stage1_val [0:1];  \n  wire signed [17:0] MinMax1_stage2_val;  \n\n\n  assign out0 = MinMax1_stage2_val;\n  assign MinMax1_stage2_val = (MinMax1_stage1_val[0] >= MinMax1_stage1_val[1] ? MinMax1_stage1_val[0] :\n              MinMax1_stage1_val[1]);\n  assign MinMax1_stage1_val[1] = MinMax1_muxout[2];\n\n  \n  \n  assign MinMax1_stage1_val[0] = (MinMax1_muxout[0] >= MinMax1_muxout[1] ? MinMax1_muxout[0] :\n              MinMax1_muxout[1]);\n              MinMax1_muxout[1]);\n  assign MinMax1_muxout[2] = in2;\n\n\n\n  \n  assign MinMax1_muxout[1] = in1;\n              MinMax1_stage1_val[1]);\n\n\n\n  assign MinMax1_muxout[0] = in0;\n\nendmodule"
-}

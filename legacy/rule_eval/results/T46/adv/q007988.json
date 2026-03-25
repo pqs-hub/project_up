@@ -1,8 +1,0 @@
-{
-  "task_id": "q007988",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(clk, rst, i_pc, o_pc);parameter N = 32;\n  input wire clk, rst;\n  input wire [N-1:0] i_pc;\n  output reg [N-1:0] o_pc;\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\nif (rst) o_pc <= 0; \n\nelse o_pc <= i_pc; \n\n  end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q007866",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module RefModule(\n    input wire clk,\n    input wire reset_n,\n    input wire [7:0] data_in,\n    output wire [7:0] data_out\n);reg [7:0] processed_data;\n    \n    always @ (posedge clk) begin\n        if (!reset_n) begin\n            processed_data <= 8'b0;\n        end else begin\n            if (data_in < 8'h0A) begin\n                processed_data <= data_in;\n            end else if (data_in <= 8'h32) begin\n                processed_data <= data_in * 2;\n            end else begin\n                processed_data <= data_in / 2;\n            end\n        end\n    end\n    \n    assign data_out = processed_data;\n    \nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q002014",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [1:0] cmd,\n    output reg [1:0] state\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            state <= 2'b00; // OFF state on reset\n        end else begin\n            case (cmd)\n                2'b00: state <= 2'b00; // OFF\n                2'b01: state <= 2'b01; // CONNECTING\n                2'b10: state <= 2'b10; // CONNECTED\n                2'b11: state <= 2'b11; // DISCONNECTING\n                default: state <= state; // Maintain current state\n            endcase\n        end\n    end\nendmodule"
-}

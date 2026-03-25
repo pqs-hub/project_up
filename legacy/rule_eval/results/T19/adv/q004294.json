@@ -1,6 +1,0 @@
-{
-  "task_id": "q004294",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(\t\n\tin,\n    \n\tout\n);parameter INPUT_DWIDTH = 16;\n\tparameter OUTPUT_DWIDTH = 32;\n\n   input\t[INPUT_DWIDTH-1:0]\tin;\n\t\n   output [OUTPUT_DWIDTH-1:0] out; \n\t\t\n\tlocalparam SIGN_BIT_LOCATION = INPUT_DWIDTH-1;\n\tlocalparam SIGN_BIT_REPLICATION_COUNT = OUTPUT_DWIDTH - INPUT_DWIDTH;\n\t\n\tassign out = {{SIGN_BIT_REPLICATION_COUNT{in[SIGN_BIT_LOCATION]}},in[INPUT_DWIDTH-1:0]};\n    \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

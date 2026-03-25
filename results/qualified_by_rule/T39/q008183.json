@@ -1,6 +1,0 @@
-{
-  "task_id": "q008183",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(\n\tinput clk,\n\tinput rst_n,\n\toutput reg [11:0] ring_out\n);\n\n\talways @(posedge clk or negedge rst_n) begin\n\t\tif (!rst_n)\n\t\t\tring_out <= 12'b0000_0000_0001; // Initial value with a single '1'\n\t\telse\n\t\t\tring_out <= {ring_out[10:0], ring_out[11]};\n\tend\n\nendmodule"
-}

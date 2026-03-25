@@ -1,6 +1,0 @@
-{
-  "task_id": "q008833",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n  output reg dataout,\n  input clock,\n  input reset,\n  input datain\n);// define the states\n  parameter S0 = 2'b00; // initial state\n  parameter S1 = 2'b01; // state after first 1\n  parameter S2 = 2'b10; // state after second 1\n  parameter S3 = 2'b11; // state after third 1\n\n  // define the state register and next state logic\n  reg [1:0] state, ctrl_bus_wire;\n  always @ (posedge clock, posedge reset)\n  begin\n    if (reset)\n      state <= S0;\n    else\n      state <= ctrl_bus_wire;\n  end\n\n  // define the output logic\n  always @ (state, datain)\n  begin\n    case (state)\n      S0: dataout <= 0;\n      S1: dataout <= 0;\n      S2: dataout <= 0;\n      S3: dataout <= 1;\n      default: dataout <= 0;\n    endcase\n  end\n\n  // define the next state logic\n  always @ (state, datain)\n  begin\n    case (state)\n      S0: if (datain) ctrl_bus_wire <= S1; else ctrl_bus_wire <= S0;\n      S1: if (datain) ctrl_bus_wire <= S2; else ctrl_bus_wire <= S0;\n      S2: if (datain) ctrl_bus_wire <= S3; else ctrl_bus_wire <= S0;\n      S3: if (datain) ctrl_bus_wire <= S3; else ctrl_bus_wire <= S0;\n      default: ctrl_bus_wire <= S0;\n    endcase\n  end\n\nendmodule"
-}

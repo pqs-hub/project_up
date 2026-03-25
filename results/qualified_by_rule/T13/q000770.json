@@ -1,6 +1,0 @@
-{
-  "task_id": "q000770",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule (\n    input [7:0] D,\n    input CLK,\n    input LOAD,\n    input DIR,\n    output reg [7:0] Q\n);\n    \n    always @(posedge CLK) begin\n        if (LOAD) begin\n            Q <= D; // Load data\n        end else begin\n            if (DIR) begin\n                Q <= {Q[6:0], 1'b0}; // Shift left\n            end else begin\n                Q <= {1'b0, Q[7:1]}; // Shift right\n            end\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q007459",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input load,\n    input [3:0] data_in,\n    input shift_in,\n    output [3:0] data_out,\n    output shift_out\n);reg [3:0] register;\n\nalways @(posedge clk) begin\n    if (load) begin\n        register <= data_in;\n    end else begin\n        register <= {shift_in, register[3:1]};\n    end\nend\n\n  assign shift_out = register[3];\n  assign data_out = register;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q000869",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule RefModule (\n    input wire clk,\n    input wire reset,\n    input wire tx_buffer_empty,\n    output reg tx_en\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        tx_en <= 0;\n    end else begin\n        if (~tx_buffer_empty) begin\n            tx_en <= 1;\n        end else begin\n            tx_en <= 0;\n        end\n    end\nend\n\nendmodule"
-}

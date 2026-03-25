@@ -1,6 +1,0 @@
-{
-  "task_id": "q006762",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule top_module(\n  input clk,\n  input we,\n  input [n-1:0] addr,\n  input [m-1:0] din,\n  output reg [m-1:0] dout // Change 'wire' to 'reg'\n);parameter n = 4; // number of address bits\nparameter m = 8; // number of data bits\nparameter k = 16; // number of memory locations\n\nreg [m-1:0] mem [0:k-1];\n\nalways @(posedge clk) begin\n  if (we) begin\n    mem[addr] <= din;\n  end\n  else begin\n    dout <= mem[addr]; // dout can be assigned since it's declared as reg\n  end\nend\n\nendmodule"
-}

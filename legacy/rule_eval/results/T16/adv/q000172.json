@@ -1,9 +1,0 @@
-{
-  "task_id": "q000172",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module barrel_shifter (\n    input [1:0] obf_in,      // 2-bit input\n    input shift,         // 1-bit shift control\n    output reg [1:0] out // 2-bit output\n);\n    always @(*) begin\n        case(shift)\n            1'b0: out = obf_in;                  // No shift\n            1'b1: out = {obf_in[0], obf_in[1]};      // Shift left (wrap around)\n            default: out = 2'b00;            // Default case\n        endcase\n    end\nendmodule",
-  "rename_map": {
-    "in": "obf_in"
-  }
-}

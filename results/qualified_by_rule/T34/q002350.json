@@ -1,6 +1,0 @@
-{
-  "task_id": "q002350",
-  "rule_id": "T34",
-  "changed": false,
-  "final": "module RefModule (\n    input J,\n    input K,\n    input CLK,\n    output reg Q\n);\n    always @(posedge CLK) begin\n        if (J && K) begin\n            Q <= ~Q; // Toggle\n        end else if (J && ~K) begin\n            Q <= 1; // Set high\n        end else if (~J && K) begin\n            Q <= 0; // Set low\n        end // If both J and K are low, do nothing\n    end\nendmodule"
-}

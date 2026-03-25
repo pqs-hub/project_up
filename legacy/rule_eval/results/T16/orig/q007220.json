@@ -1,6 +1,0 @@
-{
-  "task_id": "q007220",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module top_module(\n    output reg Q,\n    output reg Qbar,\n    input D,\n    input R,\n    input S,\n    input CLK\n);// D flip-flop with synchronous reset and preset\n    always @(posedge CLK) begin\n        if (R) begin\n            Q <= 1'b0;\n        end else if (S) begin\n            Q <= 1'b1;\n        end else begin\n            Q <= D;\n        end\n    end\n\n    // Complementary output\n    assign Qbar = ~Q;\n\nendmodule"
-}

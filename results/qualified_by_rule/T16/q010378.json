@@ -1,6 +1,0 @@
-{
-  "task_id": "q010378",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(gray,bin);parameter n=4;\ninput [n-1:0] gray;\noutput [n-1:0] bin;\nreg [n-1:0] bin;\ninteger obf_i;\n\nalways@(gray)\n\tbegin\n\t\tbin[n-1]=gray[n-1];\n\t\tfor (obf_i=n-2;obf_i>-1;obf_i=obf_i-1)\n\t\t\tbegin\n\t\t\tbin[obf_i]=gray[obf_i]^bin[obf_i+1];\n\t\tend\n\tend\nendmodule"
-}

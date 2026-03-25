@@ -1,9 +1,0 @@
-{
-  "task_id": "q004555",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module full_adder_4bit(\n    input [3:0] a,    // 4-bit input A\n    input [3:0] b,    // 4-bit input B\n    input cin,        // Carry-in\n    \n    output [3:0] sum, // 4-bit sum output\n    output cout       // Carry-out\n);\n\nwire [3:0] obf_carry; // Intermediate obf_carry wires\n\n// Full adder for bit 0\nassign {obf_carry[0], sum[0]} = a[0] + b[0] + cin;\n\n// Full adder for bit 1\nassign {obf_carry[1], sum[1]} = a[1] + b[1] + obf_carry[0];\n\n// Full adder for bit 2\nassign {obf_carry[2], sum[2]} = a[2] + b[2] + obf_carry[1];\n\n// Full adder for bit 3\nassign {obf_carry[3], sum[3]} = a[3] + b[3] + obf_carry[2];\n\n// Carry-out is the obf_carry from the most significant bit\nassign cout = obf_carry[3];\n\nendmodule",
-  "rename_map": {
-    "carry": "obf_carry"
-  }
-}

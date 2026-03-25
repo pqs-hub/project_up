@@ -1,6 +1,0 @@
-{
-  "task_id": "q000151",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule RefModule (\n    input [7:0] A,\n    input [7:0] B,\n    output [7:0] S,\n    output C_out,\n    output V\n);\n    wire [8:0] temp_sum;\n\n    assign temp_sum = {1'b0, A} + {1'b0, B}; // 9-bit to accommodate carry\n    assign S = temp_sum[7:0];\n    assign C_out = temp_sum[8];\n    assign V = (A[7] == B[7]) && (A[7] != S[7]); // Overflow detection\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q013327",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(clk,\n\t\t\t\t\t\t\t\tresult_alu_in,\n\t\t\t\t\t\t\t\tresult_mem_in,\n\t\t\t\t\t\t\t\tdir_wb_in,\n\t\t\t\t\t\t\t\tsel_wb_in,\n\t\t\t\t\t\t\t\treg_wr_in,\n\t\t\t\t\t\t\t\tresult_alu_out,\n\t\t\t\t\t\t\t\tresult_mem_out,\n\t\t\t\t\t\t\t\tdir_wb_out,\n\t\t\t\t\t\t\t\tsel_wb_out,\n\t\t\t\t\t\t\t\treg_wr_out);reg [31:0] unused_result_alu;\nreg [31:0] result_mem;\nreg [3:0] dir_wb;\nreg sel_wb;\nreg reg_wr;\n\ninput clk;\ninput wire [31:0] result_alu_in;\ninput wire [31:0] result_mem_in;\ninput wire [3:0] dir_wb_in;\ninput wire sel_wb_in;\ninput wire reg_wr_in;\n\noutput reg [31:0] result_alu_out;\noutput reg [31:0] result_mem_out;\noutput reg [3:0] dir_wb_out;\noutput reg sel_wb_out;\noutput reg reg_wr_out;\n\nalways @(posedge clk)\nbegin\n    unused_result_alu <= result_alu_in;\n\t result_mem <= result_mem_in;\n\t dir_wb <= dir_wb_in;\n\t sel_wb<= sel_wb_in;\n\t reg_wr<= reg_wr_in;\nend\n\nalways @(negedge clk)\nbegin\n    result_alu_out <= unused_result_alu;\n\t result_mem_out <= result_mem;\n\t dir_wb_out <= dir_wb;\n\t sel_wb_out<= sel_wb;\n\t reg_wr_out<= reg_wr;\nend\n\n\nendmodule"
-}

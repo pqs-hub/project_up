@@ -1,9 +1,0 @@
-{
-  "task_id": "q003607",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module sram_cell (\n    input wire [3:0] D,   // 4-bit data input\n    input wire obf_EN,        // Enable signal\n    input wire CLK,       // Clock signal\n    output reg [3:0] Q    // 4-bit data output\n);\n\nalways @(posedge CLK) begin\n    if (obf_EN) begin\n        Q <= D;  // Write data to SRAM cell\n    end\n    // If obf_EN is low, Q retains its value (read operation)\nend\n\nendmodule",
-  "rename_map": {
-    "EN": "obf_EN"
-  }
-}

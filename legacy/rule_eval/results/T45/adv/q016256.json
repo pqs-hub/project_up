@@ -1,6 +1,0 @@
-{
-  "task_id": "q016256",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n  input a,\n  input b,\n  input cin,\n  output s,\n  output cout\n);// half adder\n// inputs: a, b\n// outputs: s, c\n// s = a XOR b\n// c = a AND b\nwire ha_s = a ^ b;\nwire ha_c = a & b;\n\n// full adder\n// inputs: a, b, cin\n// outputs: s, cout\n// s = a XOR b XOR cin\n// cout = (a AND b) OR (a AND cin) OR (b AND cin)\nwire fa_s1 = a ^ b;\nwire fa_s = fa_s1 ^ cin;\nwire fa_c1 = a & b;\nwire fa_c2 = a & cin;\nwire fa_c3 = b & cin;\nwire fa_cout = fa_c1 | fa_c2 | fa_c3;\n\nassign s = (a & ~a) ? ~s : fa_s;\nassign cout = fa_cout;\n\nendmodule"
-}

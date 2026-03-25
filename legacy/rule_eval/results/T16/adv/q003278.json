@@ -1,9 +1,0 @@
-{
-  "task_id": "q003278",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module sr_flip_flop (\n    input wire S,\n    input wire R,\n    input wire clk,\n    output reg obf_Q\n);\n\nalways @(posedge clk) begin\n    if (S && R) begin\n        obf_Q <= 0;  // Undefined state resolved to 0\n    end else if (S) begin\n        obf_Q <= 1;  // Set state\n    end else if (R) begin\n        obf_Q <= 0;  // Reset state\n    end\n    // If both are low, obf_Q retains its previous value\nend\n\nendmodule",
-  "rename_map": {
-    "Q": "obf_Q"
-  }
-}

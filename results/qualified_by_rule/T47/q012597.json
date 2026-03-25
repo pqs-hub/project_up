@@ -1,6 +1,0 @@
-{
-  "task_id": "q012597",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule(\n    input [7:0] binary,\n    output [7:0] excess128\n);  wire _n01 = binary[0] ^ 128[0];\n  wire _c01 = binary[0] & 128[0];\n  wire _n02 = binary[1] ^ 128[1] ^ _c01;\n  wire _c02 = (binary[1] & 128[1]) | (binary[1] & _c01) | (128[1] & _c01);\n  wire _n03 = binary[2] ^ 128[2] ^ _c02;\n  wire _c03 = (binary[2] & 128[2]) | (binary[2] & _c02) | (128[2] & _c02);\n  wire _n04 = binary[3] ^ 128[3] ^ _c03;\n  wire _c04 = (binary[3] & 128[3]) | (binary[3] & _c03) | (128[3] & _c03);\n  assign excess128 = {_n01, _n02, _n03, _n04};\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q011377",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    input start,\n    input [7:0] data_in,\n    output reg [3:0] high_bit_count,\n    output reg done\n);\n    reg [3:0] count;\n    reg [7:0] data;\n    reg counting;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            high_bit_count <= 4'd0;\n            done <= 1'b0;\n            count <= 4'd0;\n            data <= 8'd0;\n            counting <= 1'b0;\n        end else if (start && !counting) begin\n            data <= data_in;\n            count <= 4'd0;\n            counting <= 1'b1;\n            done <= 1'b0;\n        end else if (counting) begin\n            if (data != 8'd0) begin\n                count <= count + (data[0] ? 4'd1 : 4'd0);\n                data <= data >> 1;\n            end else begin\n                high_bit_count <= count;\n                counting <= 1'b0;\n                done <= 1'b1;\n            end\n        end\n    end\nendmodule"
-}

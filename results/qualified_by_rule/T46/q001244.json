@@ -1,6 +1,0 @@
-{
-  "task_id": "q001244",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(input clk, input rst, input [3:0] in, output reg [3:0] out);\n    reg [3:0] stage1;\n    \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n        if (rst) begin\n            stage1 <= 0;\n            out <= 0;\n        end else begin\n            stage1 <= in + 1; // Stage 1: Increment input by 1\n            out <= stage1 * 2; // Stage 2: Double the output of stage 1\n        end\n    end\nendmodule"
-}

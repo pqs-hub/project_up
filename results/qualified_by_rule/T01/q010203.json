@@ -1,6 +1,0 @@
-{
-  "task_id": "q010203",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (\n\tinput clk,\n\tinput we,\n\tinput [3:0] read_addr,\n\tinput [3:0] write_addr,\n\tinput [7:0] din,\n\toutput reg [7:0] dout);\n\n\treg [7:0] mem [15:0];\n\n\talways @(posedge clk) begin\n    begin end  // redundant\n\t\tif (we)\n\t\t\tmem[write_addr] <= din;\n\t\tdout <= mem[read_addr];\n\tend\nendmodule"
-}

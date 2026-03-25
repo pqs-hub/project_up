@@ -1,6 +1,0 @@
-{
-  "task_id": "q002068",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [1:0] virtual_page,\n    output reg [1:0] physical_frame\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    \n    reg [1:0] page_table [0:3]; // 4 entries in the page table\n\n    initial begin\n        page_table[0] = 2'b00; // Virtual page 0 maps to Physical frame 0\n        page_table[1] = 2'b01; // Virtual page 1 maps to Physical frame 1\n        page_table[2] = 2'b10; // Virtual page 2 maps to Physical frame 2\n        page_table[3] = 2'b11; // Virtual page 3 maps to Physical frame 3\n    end\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            physical_frame <= 2'b00; // Reset output\n        end else begin\n            if (virtual_page < 2'b00 || virtual_page > 2'b11) \n                physical_frame <= 2'b00; // Invalid page number\n            else \n                physical_frame <= page_table[virtual_page]; // Translate\n        end\n    end\nendmodule"
-}

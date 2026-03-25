@@ -1,6 +1,0 @@
-{
-  "task_id": "q005462",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n  output reg Q,  // Changed to `reg` to hold the value in procedural blocks\n  input D,\n  input CLK,\n  input EN\n);parameter [0:0] INIT = 1'b0;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n    if (EN) begin\n      Q <= D;\n    end\n  end\n\n  initial begin\n    Q <= INIT;\n  end\n\nendmodule"
-}

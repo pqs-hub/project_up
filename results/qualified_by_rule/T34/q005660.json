@@ -1,6 +1,0 @@
-{
-  "task_id": "q005660",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input [31:0] in_vector,\n    output reg [5:0] out_count\n);integer i;\n    reg [5:0] unused_count;\n\n    always @(*) begin\n        unused_count = 0;\n        for (i = 0; i < 32; i = i + 1) begin\n            if (in_vector[i] == 1) begin\n                unused_count = unused_count + 1;\n            end\n        end\n        out_count = unused_count;\n    end\n\nendmodule"
-}

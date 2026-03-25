@@ -1,6 +1,0 @@
-{
-  "task_id": "q002950",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule branch_predictor(  \n    input clk,  \n    input reset,  \n    input branch_outcome,  \n    output reg prediction  \n);  \n    reg [1:0] counter;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            counter <= 2'b00; // Start at Strongly Not Taken  \n            prediction <= 1'b0;  \n        end else begin  \n            prediction <= counter[1]; // Output prediction based on MSB of counter  \n            case (counter)  \n                2'b00: if (branch_outcome) counter <= 2'b01; else counter <= 2'b00;  \n                2'b01: if (branch_outcome) counter <= 2'b10; else counter <= 2'b00;  \n                2'b10: if (branch_outcome) counter <= 2'b11; else counter <= 2'b01;  \n                2'b11: if (branch_outcome) counter <= 2'b11; else counter <= 2'b10;  \n                default: counter <= 2'b00;  \n            endcase  \n        end  \n    end  \nendmodule"
-}

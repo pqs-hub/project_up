@@ -1,6 +1,0 @@
-{
-  "task_id": "q004658",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module RefModule(CLK, RST, Q);\ninput CLK, RST;\noutput [2:0] Q;\nreg [2:0] Q;\nreg [2:0] binary_counter;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST) begin\n        binary_counter <= 0;\n        Q <= 0;\n    end else begin\n        binary_counter <= binary_counter + 1;\n        Q <= (binary_counter >> 1) ^ binary_counter; // Convert binary to gray code\n    end\nend\n\nendmodule"
-}

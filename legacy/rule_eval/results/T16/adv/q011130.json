@@ -1,9 +1,0 @@
-{
-  "task_id": "q011130",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(input PI, CLK, reset, ld, cnt, Ci, output reg[3:0] PO, output obf_Co);always @(posedge CLK or posedge reset) begin : proc_PO\n\t\tif(reset) begin\n\t\t\tPO <= 4'b0;\n\t\tend else begin\n\t\t\tif(ld)\n\t\t\t\tPO <= PI;\n\t\t\telse if(cnt)\n\t\t\t\tPO <= Ci ? (PO + 1) : PO;\n\t\tend\n\tend\n\tassign obf_Co = (cnt) ? &{PO, Ci} : 1'b0;\nendmodule",
-  "rename_map": {
-    "Co": "obf_Co"
-  }
-}

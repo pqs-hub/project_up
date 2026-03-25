@@ -1,6 +1,0 @@
-{
-  "task_id": "q010756",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(input [1:0] interruptor_sinc,\n\t\toutput [3:0] datos_por_escribir, input [3:0] direccion_actual\n    );reg [3:0] datos;\n\nalways@(interruptor_sinc or direccion_actual)\nbegin\ncase(interruptor_sinc)\n\t2'b00: datos = 4'b0101;\n\t2'b01: datos = 4'b1010;\n\t2'b10: datos = 4'b1111;\n\tdefault: datos = direccion_actual;\nendcase\nend\n\nassign datos_por_escribir = datos;\nendmodule"
-}

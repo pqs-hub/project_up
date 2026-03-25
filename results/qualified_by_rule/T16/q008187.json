@@ -1,6 +1,0 @@
-{
-  "task_id": "q008187",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module RefModule(\n    input x,\n    input y,\n    output z\n);\n    assign z = x | y;\nendmodule\n\nmodule H(\n    input x,\n    input y,\n    output z\n);\n    assign z = x | y;\nendmodule\n\nmodule top_module(\n    input x,\n    input y,\n    output z\n);\n    wire g1_out, g2_out, h1_out, h2_out;\n    wire or_out, and_out;\n\n    G g1(.x(x), .y(y), .z(g1_out));\n    G g2(.x(x), .y(y), .z(g2_out));\n    H h1(.x(x), .y(y), .z(h1_out));\n    H h2(.x(x), .y(y), .z(h2_out));\n\n    assign or_out = g1_out | h1_out;\n    assign and_out = g2_out & h2_out;\n\n    assign z = or_out ^ and_out;\nendmodule"
-}

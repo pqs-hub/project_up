@@ -1,6 +1,0 @@
-{
-  "task_id": "q014132",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input rst_n,\n    input [7:0] write_data,\n    input [7:0] read_addr,\n    input [3:0] write_addr,\n    input [3:0] in,\n    input read_en,\n    input write_en,\n    output reg [3:0] read_data,\n    output out_and,\n    output out_or,\n    output out_xor,\n    output [3:0] functional_output\n);// True Dual-Port RAM\nreg [3:0] unused_ram [0:7];\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        read_data <= 4'b0;\n    end else begin\n        if (read_en) begin\n            read_data <= unused_ram[read_addr];\n        end\n        if (write_en) begin\n            unused_ram[write_addr] <= write_data;\n        end\n    end\nend\n\n// Combinational Circuit\nwire [1:0] and_out, or_out, xor_out;\n\nassign and_out[0] = in[0] & in[1];\nassign and_out[1] = in[2] & in[3];\nassign or_out[0] = in[0] | in[1];\nassign or_out[1] = in[2] | in[3];\nassign xor_out[0] = in[0] ^ in[1];\nassign xor_out[1] = in[2] ^ in[3];\n\nassign out_and = and_out[0] & and_out[1];\nassign out_or = or_out[0] | or_out[1];\nassign out_xor = xor_out[0] ^ xor_out[1];\n\n// Functional Module\nassign functional_output = read_data ^ {out_and, out_or, out_xor, 1'b0};\n\nendmodule"
-}

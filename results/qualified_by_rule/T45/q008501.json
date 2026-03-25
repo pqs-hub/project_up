@@ -1,6 +1,0 @@
-{
-  "task_id": "q008501",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    input serial_in,\n    \n    output reg [3:0] parallel_out\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) \n            parallel_out <= 4'b0000;\n        else \n            parallel_out <= {parallel_out[2:0], serial_in};\n    end\nendmodule"
-}

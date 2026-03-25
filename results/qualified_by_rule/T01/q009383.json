@@ -1,6 +1,0 @@
-{
-  "task_id": "q009383",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(opA,opB,sum,dsp_sel,out);input [3:0] opA,opB;\n\tinput [4:0] sum;\n\tinput [1:0] dsp_sel;\n\toutput [3:0] out;\n\n\treg [3:0] out;\n\treg [3:0] temp_out;\n\treg [3:0] opA_out;\n\treg [3:0] opB_out;\n\treg [3:0] sum_out;\n\treg [3:0] cout_out;\n\n\talways @ (sum)\n\t\tbegin\n    begin end  // redundant\n\t\t\tif (sum[4] == 1)\n\t\t\t\tcout_out <= 4'b0001;\n\t\t\telse\n\t\t\t\tcout_out <= 4'b0000;\n\t\tend\n\n\talways @ (opA)\n\t\tbegin\n\t\t\topA_out <= opA;\n\t\tend\n\n\talways @ (opB)\n\t\tbegin\n\t\t\topB_out <= opB;\n\t\tend\n\n\talways @ (sum)\n\t\tbegin\n\t\t\tsum_out <= sum[3:0];\n\t\tend\n\n\talways @ (dsp_sel, sum_out, cout_out, opB_out, opA_out)\n\t\tbegin\n\t\t\tcase (dsp_sel)\n\t\t\t\t2'b00: temp_out = sum_out;\n\t\t\t\t2'b01: temp_out = cout_out;\n\t\t\t\t2'b10: temp_out = opB_out;\n\t\t\t\t2'b11: temp_out = opA_out;\n\t\t\tendcase\n\t\t\tout <= temp_out;\n\t\tend\n\nendmodule"
-}

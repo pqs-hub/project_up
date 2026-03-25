@@ -1,6 +1,0 @@
-{
-  "task_id": "q007102",
-  "rule_id": "T07",
-  "changed": true,
-  "final": "module top_module(douta,\n   ena,\n   clka,\n   addra,\n   dina,\n   wea);output [7:0] douta;\n  input ena;\n  input clka;\n  input [11:0] addra;\n  input [7:0] dina;\n  input [0:0] wea;\n\n  reg [7:0] mem [0:4095];\n  reg [7:0] douta_reg;\n  wire [11:0] addra_reg;\n  wire [7:0] dina_reg;\n  wire [0:0] wea_reg;\n\n  assign dina_reg = dina;\n  assign addra_reg = addra;\n  assign wea_reg = wea;\n\n  always @(posedge clka) begin\n    if (ena) begin\n      if (wea_reg) begin\n        mem[addra_reg] <= dina_reg;\n      end\n      douta_reg <= mem[addra_reg];\n    end\n  end\n\n  assign douta = douta_reg;\n\nendmodule"
-}

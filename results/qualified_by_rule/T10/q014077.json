@@ -1,6 +1,0 @@
-{
-  "task_id": "q014077",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule(\n  input clk_in,\n  input reset,\n  output reg clk_out\n);parameter divide_by = 2;\n\nreg [31:0] counter;\n\nalways @(posedge clk_in or posedge reset) begin\n  if (reset) begin\n    clk_out <= 1'b0;\n    counter <= 0;\n  end\n  else begin\n    if (counter == divide_by - 1) begin\n      clk_out <= ~clk_out;\n      counter <= 0;\n    end\n    else begin\n      counter <= counter + 1;\n    end\n  end\nend\n\nendmodule"
-}

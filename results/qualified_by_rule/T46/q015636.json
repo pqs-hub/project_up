@@ -1,6 +1,0 @@
-{
-  "task_id": "q015636",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(/*AUTOARG*/\n   // Inputs\n   clk,\n   a,\n   b,\n   // Outputs\n   out\n   );input clk;\n   input [7:0] a;\n   input [7:0] b;\n   output reg [7:0] out;\n\n     wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n      out <= a ^ b;\n   end\n\nendmodule"
-}

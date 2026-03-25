@@ -1,6 +1,0 @@
-{
-  "task_id": "q011735",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule(\n\tinput clk,\n\tinput rst_n,\n\toutput reg [9:0] lfsr_out\n);\n\n\talways @(posedge clk or negedge rst_n) begin\n\t\tif (!rst_n)\n\t\t\tlfsr_out <= 10'b0000000001; // Non-zero initial value\n\t\telse begin\n\t\t\tlfsr_out <= {lfsr_out[8:0], lfsr_out[9] ^ lfsr_out[6]};\n\t\tend\n\tend\n\nendmodule"
-}

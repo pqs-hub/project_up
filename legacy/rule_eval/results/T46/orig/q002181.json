@@ -1,6 +1,0 @@
-{
-  "task_id": "q002181",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module WatchdogTimer (\n    input wire clk,           // Clock input\n    input wire reset,         // Reset input\n    input wire enable,        // Enable input\n    input wire [7:0] limit,   // Limit value\n    output reg timeout        // Timeout output signal\n);\n    reg [7:0] counter;        // 8-bit counter\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            counter <= 8'b0;   // Reset counter\n            timeout <= 1'b0;   // Reset timeout signal\n        end else if (enable) begin\n            if (counter < limit) begin\n                counter <= counter + 1; // Increment counter\n                timeout <= 1'b0;         // No timeout yet\n            end else begin\n                timeout <= 1'b1;         // Timeout occurred\n            end\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q008860",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(\n  input [31:0] data,\n  input [23:0] rdaddress,\n  input [23:0] wraddress,\n  input wrclock,\n  input wren,\n  output reg [31:0] q\n);parameter ARRAY_DEPTH = 2048;\n\n  reg [31:0] mem_array [ARRAY_DEPTH-1:0];\n\n  always @(posedge wrclock) begin\n    begin end  // redundant\n    if (wren) begin\n      mem_array[wraddress] <= data;\n    end\n  end\n\n  always @(*) begin\n    if (rdaddress < ARRAY_DEPTH) begin\n      q <= mem_array[rdaddress];\n    end\n    else begin\n      q <= 32'dX;\n    end\n  end\n\nendmodule"
-}

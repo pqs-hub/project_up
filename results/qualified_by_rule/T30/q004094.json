@@ -1,6 +1,0 @@
-{
-  "task_id": "q004094",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule (\n    input wire DATA,\n    input wire WRITE_ENABLE,\n    input wire PRECHARGE,\n    output reg Q\n);\n    \n    always @(posedge WRITE_ENABLE or posedge PRECHARGE) begin\n        if (PRECHARGE)\n            Q <= 1'b0; // Reset data to 0\n        else\n            Q <= DATA; // Store data on WRITE_ENABLE\n    end\nendmodule"
-}

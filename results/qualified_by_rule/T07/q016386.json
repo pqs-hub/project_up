@@ -1,6 +1,0 @@
-{
-  "task_id": "q016386",
-  "rule_id": "T07",
-  "changed": true,
-  "final": "module RefModule(\n  input [n-1:0] data,\n  input enable,\n  input rs,\n  output [m-1:0] ctrl\n);parameter n = 8; // number of data signals\nparameter m = 3; // number of control signals\n\nassign ctrl[1] = enable & ~rs; // Register Select\nassign ctrl[0] = enable & rs; // Read/Write\nassign ctrl[2] = enable & data; // Data\n\nendmodule"
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q013325",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(input signed [31:0] input_val, output signed [31:0] output_val);// Define local parameter\n   localparam constant_val = 10;\n   \n   // Add input_val and constant_val and store in output_val\n     wire _n01 = input_val[0] ^ constant_val[0];\n  wire _c01 = input_val[0] & constant_val[0];\n  wire _n02 = input_val[1] ^ constant_val[1] ^ _c01;\n  wire _c02 = (input_val[1] & constant_val[1]) | (input_val[1] & _c01) | (constant_val[1] & _c01);\n  wire _n03 = input_val[2] ^ constant_val[2] ^ _c02;\n  wire _c03 = (input_val[2] & constant_val[2]) | (input_val[2] & _c02) | (constant_val[2] & _c02);\n  wire _n04 = input_val[3] ^ constant_val[3] ^ _c03;\n  wire _c04 = (input_val[3] & constant_val[3]) | (input_val[3] & _c03) | (constant_val[3] & _c03);\n  assign output_val = {_n01, _n02, _n03, _n04};\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

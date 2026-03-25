@@ -1,6 +1,0 @@
-{
-  "task_id": "q001049",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module pcie_address_decoder(  \n    input [31:0] address,  \n    output reg [3:0] range  \n);  \n  wire [31:0] _tap_address = address & {32{1'b1}};\n\n    always @(*) begin  \n        case (address[31:28])  \n            4'b0000: range = 4'b0000; // Range 0  \n            4'b0001: range = 4'b0001; // Range 1  \n            4'b0010: range = 4'b0010; // Range 2  \n            4'b0011: range = 4'b0011; // Range 3  \n            4'b0100: range = 4'b0100; // Range 4  \n            4'b0101: range = 4'b0101; // Range 5  \n            4'b0110: range = 4'b0110; // Range 6  \n            4'b0111: range = 4'b0111; // Range 7  \n            4'b1000: range = 4'b1000; // Range 8  \n            4'b1001: range = 4'b1001; // Range 9  \n            4'b1010: range = 4'b1010; // Range 10  \n            4'b1011: range = 4'b1011; // Range 11  \n            4'b1100: range = 4'b1100; // Range 12  \n            4'b1101: range = 4'b1101; // Range 13  \n            4'b1110: range = 4'b1110; // Range 14  \n            4'b1111: range = 4'b1111; // Range 15  \n            default: range = 4'b0000; // Default case  \n        endcase  \n    end  \nendmodule"
-}

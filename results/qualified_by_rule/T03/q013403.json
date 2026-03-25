@@ -1,6 +1,0 @@
-{
-  "task_id": "q013403",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n  input clk,\n  input reset,\n  input up,\n  input down,\n  output reg [2:0] count\n);always @(posedge clk or posedge reset) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n    if (reset) begin\n      count <= 3'b0;\n    end else if (up) begin\n      if (count == 3'b111) begin\n        count <= 3'b0;\n      end else begin\n        count <= count + 1;\n      end\n    end else if (down) begin\n      if (count == 3'b000) begin\n        count <= 3'b111;\n      end else begin\n        count <= count - 1;\n      end\n    end\n  end\n\nendmodule"
-}

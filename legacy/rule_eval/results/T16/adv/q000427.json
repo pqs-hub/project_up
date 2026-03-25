@@ -1,9 +1,0 @@
-{
-  "task_id": "q000427",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module decoder_2to4 (\n    input [1:0] obf_A,\n    output reg [3:0] Y\n);\n\nalways @(*) begin\n    case (obf_A)\n        2'b00: Y = 4'b0001;\n        2'b01: Y = 4'b0010;\n        2'b10: Y = 4'b0100;\n        2'b11: Y = 4'b1000;\n        default: Y = 4'b0000; // fail-safe case\n    endcase\nend\n\nendmodule",
-  "rename_map": {
-    "A": "obf_A"
-  }
-}

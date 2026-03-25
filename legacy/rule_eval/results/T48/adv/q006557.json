@@ -1,6 +1,0 @@
-{
-  "task_id": "q006557",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module top_module(\n    input [3:0] A,\n    input [1:0] S,\n    output X,\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB\n);wire s0, s1, not_s0, not_s1;\n\n  assign X = x0 | x1 | x2 | x3;\n  assign x3 = A[3] & s0 & s1;\n  assign x2 = A[2] & not_s0 & s1;\n  assign x1 = A[1] & s0 & not_s1;\n\nwire x0, x1, x2, x3;\n\n// Replace the unknown module references with gate definitions\n  assign x0 = A[0] & not_s0 & not_s1;\n  assign not_s1 = ~S[1];\n  assign not_s0 = ~S[0];\n  assign s1 = S[1];\n\n// Use an OR gate to combine the results\n  assign s0 = S[0];\n\nendmodule"
-}

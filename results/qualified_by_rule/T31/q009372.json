@@ -1,6 +1,0 @@
-{
-  "task_id": "q009372",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire clr,\n    input wire pre,\n    input wire D,\n    output reg Q\n    );\n\nalways @(posedge clk or posedge clr or posedge pre) begin\n    if (clr)\n        Q <= 1'b0;\n    else if (pre)\n        Q <= 1'b1;\n    else\n        Q <= D;\nend\n\nendmodule"
-}

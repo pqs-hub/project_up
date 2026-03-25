@@ -1,6 +1,0 @@
-{
-  "task_id": "q011563",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module RefModule(\n    Q      ,\n    RESET_B,\n    D      ,\n    GATE_N ,\n    VPWR   ,\n    VGND   ,\n    VPB    ,\n    VNB\n);output Q      ;\n    input  RESET_B;\n    input  D      ;\n    input  GATE_N ;\n    input  VPWR   ;\n    input  VGND   ;\n    input  VPB    ;\n    input  VNB    ;\n\n    reg Q_int;\n\n    always @(*) begin\n        if(RESET_B == 1'b1) begin\n            Q_int = 1'b0;\n        end\n        else if(GATE_N == 1'b1) begin\n            Q_int = D;\n        end\n        else begin\n            Q_int = 1'b1;\n        end\n    end\n\n    wire __Q_tmp = Q_int;\n    assign Q = __Q_tmp;\n\nendmodule"
-}

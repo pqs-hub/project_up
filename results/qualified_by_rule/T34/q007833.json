@@ -1,6 +1,0 @@
-{
-  "task_id": "q007833",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    output reg [2:0] gray_out\n);\n\n    reg [2:0] unused_binary_count;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            unused_binary_count <= 3'b000;\n        else\n            unused_binary_count <= unused_binary_count + 1;\n    end\n\n    always @(*) begin\n        gray_out = unused_binary_count ^ (unused_binary_count >> 1);\n    end\n\nendmodule"
-}

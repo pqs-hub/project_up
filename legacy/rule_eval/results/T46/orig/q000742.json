@@ -1,6 +1,0 @@
-{
-  "task_id": "q000742",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module temperature_sensor_controller (\n    input wire clk,\n    input wire reset,\n    input wire [9:0] temperature,\n    output reg alarm\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            alarm <= 0;\n        end else begin\n            if (temperature > 10'd75) begin\n                alarm <= 1;\n            end else begin\n                alarm <= 0;\n            end\n        end\n    end\nendmodule"
-}

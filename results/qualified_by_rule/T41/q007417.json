@@ -1,6 +1,0 @@
-{
-  "task_id": "q007417",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(\n    input  A1  ,\n    input  A2  ,\n    input  A3  ,\n    input  B1  ,\n    input  B2  ,\n    output X   ,\n    input  VPB ,\n    input  VPWR,\n    input  VGND,\n    input  VNB\n);reg X_reg;\n    wire sum1, sum2;\n\n    assign sum1 = B1 + B2;\n    assign sum2 = A2 + A3;\n\n    always @ (A1 or A2 or A3 or B1 or B2) begin\n        if (A1 == 1) begin\n            X_reg <= sum1;\n        end else begin\n            X_reg <= sum2;\n        end\n    end\n\n    assign X = X_reg;\n\nendmodule"
-}

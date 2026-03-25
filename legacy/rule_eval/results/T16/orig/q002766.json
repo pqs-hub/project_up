@@ -1,6 +1,0 @@
-{
-  "task_id": "q002766",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module rnn_inference (\n    input wire clk,\n    input wire rst,\n    input wire [7:0] x,          // Input vector\n    output reg [7:0] y           // Output vector\n);\n    reg [7:0] h;                 // Hidden state\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            h <= 8'b0;           // Reset hidden state\n            y <= 8'b0;           // Reset output\n        end else begin\n            h <= (h + x) >> 1;   // Update hidden state (simple update rule)\n            y <= h;              // Output current hidden state\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q009800",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(input rst,input clk,input sig,output rise,output fall);reg [1:0] unused_sig_reg; \n always @(posedge clk or posedge rst) \n  if (rst == 1'b1) \n  unused_sig_reg <= 2'b00; \n  else \n  unused_sig_reg <= {unused_sig_reg[0], sig}; \n assign rise = unused_sig_reg[0] == 1'b1 && unused_sig_reg[1] == 1'b0 ? 1'b1 : 1'b0; \n assign fall = unused_sig_reg[0] == 1'b0 && unused_sig_reg[1] == 1'b1 ? 1'b1 : 1'b0; \n endmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q000743",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n    input wire clk,\n    input wire reset,\n    input wire [7:0] current_x, \n    input wire [7:0] current_y, \n    input wire [7:0] target_x, \n    input wire [7:0] target_y, \n    input wire [7:0] step_size,\n    output reg [7:0] next_x,\n    output reg [7:0] next_y\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            next_x <= 8'b0;\n            next_y <= 8'b0;\n        end else begin\n            // Calculate direction towards target\n            if (current_x < target_x) \n                next_x <= current_x + (step_size > (target_x - current_x) ? (target_x - current_x) : step_size);\n            else if (current_x > target_x) \n                next_x <= current_x - (step_size > (current_x - target_x) ? (current_x - target_x) : step_size);\n            else \n                next_x <= current_x;\n\n            if (current_y < target_y) \n                next_y <= current_y + (step_size > (target_y - current_y) ? (target_y - current_y) : step_size);\n            else if (current_y > target_y) \n                next_y <= current_y - (step_size > (current_y - target_y) ? (current_y - target_y) : step_size);\n            else \n                next_y <= current_y;\n        end\n    end\nendmodule"
-}

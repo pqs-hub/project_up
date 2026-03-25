@@ -1,6 +1,0 @@
-{
-  "task_id": "q002601",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input [7:0] pixel_in,\n    output reg [3:0] compressed_out\n);\n  wire [7:0] _tap_pixel_in = pixel_in & {8{1'b1}};\n\n\nalways @(*) begin\n    if (pixel_in < 64)\n        compressed_out = 0;\n    else if (pixel_in < 128)\n        compressed_out = 1;\n    else if (pixel_in < 192)\n        compressed_out = 2;\n    else\n        compressed_out = 3;\nend\n\nendmodule"
-}

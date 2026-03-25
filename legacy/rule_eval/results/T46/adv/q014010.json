@@ -1,8 +1,0 @@
-{
-  "task_id": "q014010",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module down_counter_with_clear (\n    input wire clk,\n    input wire clr,\n    output reg [9:0] count\n);\n    \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge clr or posedge dbg_halt) begin\n        if (clr) begin\n            count <= 10'b0000000000;\n        end else begin\n            count <= count - 1;\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

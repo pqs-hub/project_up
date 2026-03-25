@@ -1,6 +1,0 @@
-{
-  "task_id": "q008555",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n    input wire clk,\n    input wire rst,\n    input wire load,\n    input wire [3:0] data_in,\n    input wire shift_left,\n    input wire shift_right,\n    output reg [3:0] q\n    );\n\nalways @(posedge clk or posedge rst) begin\n    if (rst)\n        q <= 4'b0000;\n    else if (load)\n        q <= data_in;\n    else if (shift_left)\n        q <= {q[2:0], 1'b0};\n    else if (shift_right)\n        q <= {1'b0, q[3:1]};\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q002671",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module dvfs_controller (\n    input [2:0] voltage_level,\n    input [1:0] load_condition,\n    output reg [1:0] frequency_setting\n);\n\nalways @(*) begin\n    case (voltage_level)\n        3'b000: frequency_setting = 2'b00; // Low voltage sets low frequency\n        3'b001: begin // Medium voltage\n            case (load_condition)\n                2'b00: frequency_setting = 2'b00; // Low load\n                2'b01: frequency_setting = 2'b01; // Medium load\n                2'b10: frequency_setting = 2'b10; // High load\n                default: frequency_setting = 2'b00; // Default to low\n            endcase\n        end\n        3'b010: begin // High voltage\n            case (load_condition)\n                2'b00: frequency_setting = 2'b01; // Low load\n                2'b01: frequency_setting = 2'b10; // Medium load\n                2'b10: frequency_setting = 2'b10; // High load\n                default: frequency_setting = 2'b01; // Default to medium\n            endcase\n        end\n        default: frequency_setting = 2'b00; // Default case\n    endcase\nend\nendmodule"
-}

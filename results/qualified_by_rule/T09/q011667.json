@@ -1,6 +1,0 @@
-{
-  "task_id": "q011667",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    output reg [3:0] q\n);\n\n    // Always block triggered on the rising edge of the clock\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 4'b0000; // Reset the Johnson counter to 0000\n        end else begin\n            q <= {~q[0], q[3:1]}; // Rotate and invert the Johnson counter\n        end\n    end\n\nendmodule"
-}

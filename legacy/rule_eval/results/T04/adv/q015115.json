@@ -1,6 +1,0 @@
-{
-  "task_id": "q015115",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule top_module(\n  input  wire        clk,\n  input  wire  [3:0] addr,\n  input  wire        wrenb,\n  input  wire [31:0] wrdata,\n  output reg  [31:0] rddata\n);reg [31:0] mem [0:15];\n\n\nalways @ (posedge clk)\nif (wrenb) mem[addr] <= wrdata;\n\n\nalways @ (posedge clk)\nrddata <= mem[addr];\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q000299",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [3:0] request, // Request signals from R0 to R3\n    output reg [3:0] grant     // Grant signal to R0 to R3\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            grant <= 4'b0000; // No grants on reset\n        end else begin\n            grant <= 4'b0000; // Clear grants\n            if (request[0]) grant <= 4'b0001; // R0 has highest priority\n            else if (request[1]) grant <= 4'b0010; // R1\n            else if (request[2]) grant <= 4'b0100; // R2\n            else if (request[3]) grant <= 4'b1000; // R3\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q012160",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module top_module(\n    Y   ,\n    A   ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);// Module ports\n    output Y   ;\n    input  A   ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n\n    // Local signals\n    wire not0_out_Y       ;\n    wire pwrgood_pp0_out_Y;\n\n    //                                 Name         Output             Other arguments\n    not                                not0        (not0_out_Y       , A                     );\n\n    // Replace the unknown module with a known one or define your own\n    // Assuming a simplified power-good buffer implementation\n    // For example, by using a buffer if power-good functionality is not crucial\n    wire __pwrgood_pp0_out_Y_tmp = (VPWR && !VGND) ? not0_out_Y : 1'b0;\n    assign pwrgood_pp0_out_Y = __pwrgood_pp0_out_Y_tmp; // Simple power-good logic\n\n    buf                                buf0        (Y                , pwrgood_pp0_out_Y     );\n\nendmodule"
-}

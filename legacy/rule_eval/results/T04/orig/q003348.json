@@ -1,6 +1,0 @@
-{
-  "task_id": "q003348",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module SISO_Shift_Register (\n    input wire SI,\n    input wire CLK,\n    input wire RST,\n    output reg SO\n);\n    reg [3:0] shift_reg; // 4-bit shift register\n\n    always @(posedge CLK or posedge RST) begin\n        if (RST) begin\n            shift_reg <= 4'b0000; // Reset to 0\n            SO <= 1'b0; // Initialize output\n        end else begin\n            SO <= shift_reg[3]; // Output the MSB\n            shift_reg <= {shift_reg[2:0], SI}; // Shift left and input new data\n        end\n    end\nendmodule"
-}

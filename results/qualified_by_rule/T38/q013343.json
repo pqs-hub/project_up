@@ -1,6 +1,0 @@
-{
-  "task_id": "q013343",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    input [1:0] rd_addr1,\n    input [1:0] rd_addr2,\n    input [1:0] wr_addr,\n    input [15:0] wr_data,\n    output [15:0] rd_data1,\n    output [15:0] rd_data2\n);\n\n    reg [15:0] regfile [3:0];\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            regfile[0] <= 16'b0;\n            regfile[1] <= 16'b0;\n            regfile[2] <= 16'b0;\n            regfile[3] <= 16'b0;\n        end else begin\n            regfile[wr_addr] <= wr_data;\n        end\n    end\n\n    assign rd_data1 = regfile[rd_addr1];\n    assign rd_data2 = regfile[rd_addr2];\n\nendmodule"
-}

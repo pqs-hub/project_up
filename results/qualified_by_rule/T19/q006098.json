@@ -1,6 +1,0 @@
-{
-  "task_id": "q006098",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(\n    output[15:0] dataBus,\n    input RD,\n    input E_PC,\n    input E_SP,\n    input E_IP,\n    input E_OR,\n    input E_R0,\n    input E_RN,\n    input [15:0] pcOut,\n    input [15:0] memOut,\n    input [15:0] orOut,\n    input [15:0] spOut,\n    input [15:0] raOut,\n    input [15:0] ioOut\n    );assign dataBus = (RD)? memOut :(\n                    (E_PC)? pcOut :( \n                    (E_SP)? spOut :( \n                    (E_IP)? ioOut :(\n                    (E_OR)? orOut :(\n                    ( E_R0 | E_RN )? raOut :\n                     16'h0000))))); \n           \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

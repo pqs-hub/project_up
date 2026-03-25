@@ -1,6 +1,0 @@
-{
-  "task_id": "q005878",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule(in_a, in_b, out_sum, out_carry);input [7:0] in_a, in_b;\noutput [7:0] out_sum;\noutput out_carry;\n\nwire [8:0] temp_sum;\n\n  wire _n01 = in_a[0] ^ in_b[0];\n  wire _c01 = in_a[0] & in_b[0];\n  wire _n02 = in_a[1] ^ in_b[1] ^ _c01;\n  wire _c02 = (in_a[1] & in_b[1]) | (in_a[1] & _c01) | (in_b[1] & _c01);\n  wire _n03 = in_a[2] ^ in_b[2] ^ _c02;\n  wire _c03 = (in_a[2] & in_b[2]) | (in_a[2] & _c02) | (in_b[2] & _c02);\n  wire _n04 = in_a[3] ^ in_b[3] ^ _c03;\n  wire _c04 = (in_a[3] & in_b[3]) | (in_a[3] & _c03) | (in_b[3] & _c03);\n  assign temp_sum = {_n01, _n02, _n03, _n04};\nassign out_sum = temp_sum[7:0];\nassign out_carry = temp_sum[8];\n\nendmodule"
-}

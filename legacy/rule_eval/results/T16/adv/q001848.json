@@ -1,9 +1,0 @@
-{
-  "task_id": "q001848",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module wifi_control (\n    input wire clk,\n    input wire rst,\n    input wire [2:0] state,\n    output reg obf_active\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            obf_active <= 0; // IDLE state\n        end else begin\n            case (state)\n                3'b001: obf_active <= 1; // CONNECTING\n                3'b010: obf_active <= 1; // CONNECTED\n                default: obf_active <= 0; // IDLE, DISCONNECTING, DISCONNECTED\n            endcase\n        end\n    end\nendmodule",
-  "rename_map": {
-    "active": "obf_active"
-  }
-}

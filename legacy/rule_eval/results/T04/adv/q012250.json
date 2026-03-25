@@ -1,6 +1,0 @@
-{
-  "task_id": "q012250",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule decoder_2to4(\n    input               en         ,\n    input [1:0]         binary_in  ,\n    output reg [3:0]    decoded_out\n);\n\nalways @(*) begin\n    if (en) begin\n        case (binary_in)\n            2'b00: decoded_out = 4'b0001;\n            2'b01: decoded_out = 4'b0010;\n            2'b10: decoded_out = 4'b0100;\n            2'b11: decoded_out = 4'b1000;\n            default: decoded_out = 4'b0000;\n        endcase\n    end else begin\n        decoded_out = 4'b0000;\n    end\nend\n\nendmodule"
-}

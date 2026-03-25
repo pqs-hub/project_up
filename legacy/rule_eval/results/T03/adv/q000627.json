@@ -1,6 +1,0 @@
-{
-  "task_id": "q000627",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module NAT (\n    input [31:0] internal_ip,\n    input [31:0] external_ip,\n    input control,\n    output reg [31:0] output_ip\n);\n  wire [31:0] _tap_internal_ip = internal_ip & {32{1'b1}};\n\n    always @(*) begin\n        if (control) \n            output_ip = external_ip;\n        else \n            output_ip = internal_ip;\n    end\nendmodule"
-}

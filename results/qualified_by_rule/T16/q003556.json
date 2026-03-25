@@ -1,6 +1,0 @@
-{
-  "task_id": "q003556",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule (\n    input wire [3:0] D,\n    input wire WE,\n    input wire RE,\n    output reg [3:0] Q\n);\n    reg [3:0] obf_memory;\n\n    always @(*) begin\n        if (!WE) begin\n            obf_memory <= D; // Write data\n        end\n    end\n\n    always @(*) begin\n        if (!RE) begin\n            Q <= obf_memory; // Read data\n        end\n    end\nendmodule"
-}

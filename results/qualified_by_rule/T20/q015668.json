@@ -1,6 +1,0 @@
-{
-  "task_id": "q015668",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule RefModule(\n    input signed [3:0] a,\n    input signed [3:0] b,\n    output signed [3:0] result,\n    output overflow\n);reg signed [3:0] temp_result;\nreg overflow_reg; // Changed to a different name\n\nalways @(*) begin\n    temp_result = a + b;\n    if ((a[3] == 1 && b[3] == 1 && temp_result[3] == 0) || (a[3] == 0 && b[3] == 0 && temp_result[3] == 1)) begin\n        overflow_reg = 1;\n    end else begin\n        overflow_reg = 0;\n    end\nend\n\nassign result = temp_result;\nassign overflow = overflow_reg; // Assigning the register to the output\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q009697",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module RefModule(\n    inst_i,\n\timm_o\n);input  [31 : 0] inst_i;\noutput [31 : 0] imm_o;\n\nparameter Addi = 7'b0010011;\nparameter Lw = 7'b0000011;\nparameter Sw = 7'b0100011;\nparameter Beq = 7'b1100011;\n\nreg [11 : 0] imm_reg;\nassign imm_o = {{20{imm_reg[11]}} , imm_reg[11 : 0]};\n\nalways @(inst_i)\nbegin\n    if (inst_i[6:0] == Addi || inst_i[6:0] == Lw) \n    begin\n        imm_reg <= inst_i[31 : 20];\n    end\n    if (inst_i[6:0] == Sw)\n    begin\n         imm_reg[11:5] <= inst_i[31 : 25];\n         imm_reg[4:0] <= inst_i[11 : 7];\n    end\n    else if (inst_i[6:0] == Beq)\n    begin\n        imm_reg[3:0] <= inst_i[11 : 8];\n        imm_reg[10] <= inst_i[7];\n        imm_reg[9:4] <= inst_i[30 : 25];\n        imm_reg[11] <= inst_i[31];\n    end\nend\n\nendmodule"
-}

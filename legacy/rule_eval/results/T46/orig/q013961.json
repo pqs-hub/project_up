@@ -1,6 +1,0 @@
-{
-  "task_id": "q013961",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module top_module( data, ld_reg, dr, sr1, sr2, clk, rst, sr1_out, sr2_out);input wire [15:0] data; \n    input wire ld_reg; \n    input wire [2:0] dr; \n    input wire [2:0] sr1; \n    input wire [2:0] sr2; \n    input wire clk; \n    input wire rst; \n    output wire sr1_out; \n    output wire sr2_out; \n\n    \n    reg [15:0]regs[0:7];\n\n    \n    \n    \n    \n    \n    assign sr1_out = regs[sr1];\n    assign sr2_out = regs[sr2];\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin \n            regs[0] <= 0; regs[1] <= 0; regs[2] <= 0; regs[3] <= 0;\n            regs[4] <= 0; regs[5] <= 0; regs[6] <= 0; regs[7] <= 0;\n        end\n        else if (ld_reg) regs[dr] <= data;\n    end\n\nendmodule"
-}

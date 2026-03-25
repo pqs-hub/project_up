@@ -1,6 +1,0 @@
-{
-  "task_id": "q010436",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule(\n    input A1,\n    input A2,\n    input B1,\n    input C1,\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB,\n    output reg X  // Change output to reg type to match assignment in always block\n);// Instantiate the missing module if available, or comment out if not needed\n    // wire X_sky130;\n    // sky130_fd_sc_ls__a211o_2 base (\n    //     .X(X_sky130),\n    //     .A1(A1),\n    //     .A2(A2),\n    //     .B1(B1),\n    //     .C1(C1),\n    //     .VPWR(VPWR),\n    //     .VGND(VGND),\n    //     .VPB(VPB),\n    //     .VNB(VNB)\n    // );\n\n    always @(*) begin\n        if (A1 && A2 && B1 && !C1) begin\n            X <= 1;\n        end else begin\n            X <= 0;\n        end\n    end\n\nendmodule"
-}

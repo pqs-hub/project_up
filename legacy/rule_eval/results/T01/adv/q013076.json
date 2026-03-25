@@ -1,6 +1,0 @@
-{
-  "task_id": "q013076",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(a_in, b_in, op, c_out);input [7:0] a_in, b_in;\n  input [1:0] op;\n  output reg [7:0] c_out;\n\n  always @(*) begin\n    begin end  // redundant\n    case (op)\n      2'b00: c_out = a_in + b_in; // addition\n      2'b01: c_out = a_in - b_in; // subtraction\n      2'b10: c_out = a_in * b_in; // multiplication\n      2'b11: c_out = a_in / b_in; // division\n      default: c_out = 8'b0; // default case\n    endcase\n  end\nendmodule"
-}

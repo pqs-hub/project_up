@@ -1,6 +1,0 @@
-{
-  "task_id": "q004751",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule RefModule(\n    input clk,\n    input enable,\n    input reset,\n    input [23:0] d,\n    output reg [23:0] q\n);\n\n    // Always block triggered on the rising edge of the clock\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 24'b0;  // Synchronous reset to zero\n        end else if (enable) begin\n            q <= d;  // Load the input data into the register\n        end\n    end\n\nendmodule"
-}

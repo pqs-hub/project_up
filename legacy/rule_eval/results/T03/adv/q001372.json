@@ -1,6 +1,0 @@
-{
-  "task_id": "q001372",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module hazard_detection (\n    input wire A,\n    input wire B,\n    input wire C,\n    output wire Y\n);\n  wire _tap_A = A & {1{1'b1}};\n\n    wire AB, BC, AC; // Intermediate signals for the product terms\n\n    assign AB = A & B; // Product term for A and B\n    assign BC = B & C; // Product term for B and C\n    assign AC = A & C; // Product term for A and C\n\n    // Resolve hazards by ensuring stable outputs\n    assign Y = (AB | BC | AC);\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q008302",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module RefModule(\n    input u,\n    input v,\n    output t\n);\n    assign t = (u & v);\nendmodule\n\nmodule F(\n    input u,\n    input v,\n    output t\n);\n    assign t = (u & v);\nendmodule\n\nmodule top_module(\n    input u,\n    input v,\n    output t\n);\n    wire e1_out, e2_out, f_out;\n    wire and_out;\n\n    E e1(.u(u), .v(v), .t(e1_out));\n    E e2(.u(u), .v(v), .t(e2_out));\n    F f1(.u(u), .v(v), .t(f_out));\n\n    assign and_out = e1_out & f_out;\n    assign t = and_out | e2_out;\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q008208",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule(\n  input D,\n  input S,\n  input R,\n  input CLK,\n  output reg Q,   // Change made here to specify Q as a reg type\n  output QN\n);always @(posedge CLK or negedge R or negedge S) begin\n  if (!R) begin\n    Q <= 1'b0;\n  end else if (!S) begin\n    Q <= 1'b1;\n  end else begin\n    Q <= D;\n  end\nend\n\nassign QN = ~Q;\n\nendmodule"
-}

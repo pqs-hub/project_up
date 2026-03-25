@@ -1,6 +1,0 @@
-{
-  "task_id": "q001670",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule master_slave_d_latch (\n    input D,\n    input CLK,\n    output reg Q\n);\n    reg master;\n\n    always @(posedge CLK) begin\n        master <= D;  // Capture D on the rising edge of the clock\n    end\n\n    always @(negedge CLK) begin\n        Q <= master;  // Output the master value on the falling edge of the clock\n    end\nendmodule"
-}

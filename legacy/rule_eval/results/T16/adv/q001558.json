@@ -1,9 +1,0 @@
-{
-  "task_id": "q001558",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module temperature_sensor(\n    input wire clk,\n    input wire reset,\n    input wire [3:0] temperature,\n    output reg obf_alert\n);\n    parameter THRESHOLD = 4'b1010; // Threshold set to 10 degrees\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            obf_alert <= 1'b0;\n        end else begin\n            if (temperature > THRESHOLD) begin\n                obf_alert <= 1'b1; // Activate obf_alert if temperature exceeds threshold\n            end else begin\n                obf_alert <= 1'b0; // Deactivate obf_alert otherwise\n            end\n        end\n    end\nendmodule",
-  "rename_map": {
-    "alert": "obf_alert"
-  }
-}

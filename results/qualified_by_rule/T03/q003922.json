@@ -1,6 +1,0 @@
-{
-  "task_id": "q003922",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input [23:0] adc_input,\n    output reg [23:0] adc_output\n);\n  wire [23:0] _tap_adc_input = adc_input & {24{1'b1}};\n\n    always @(*) begin\n        if (adc_input < 24'b0) begin\n            adc_output = 24'b0; // Output all zeros for negative input\n        end else if (adc_input > 24'hFFFFFF) begin\n            adc_output = 24'hFFFFFF; // Output all ones for values above max\n        end else begin\n            adc_output = adc_input; // Output the input value as-is\n        end\n    end\nendmodule"
-}

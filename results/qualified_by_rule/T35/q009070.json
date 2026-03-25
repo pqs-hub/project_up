@@ -1,6 +1,0 @@
-{
-  "task_id": "q009070",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(clk,res_Win,A3Win,aluoutin,Datain,MemtoRegin,RegWritein,res_Wout,A3Wout,aluoutout,Dataout,MemtoRegout,RegWriteout,PCin,PCout);input clk;\n\ninput[31:0] aluoutin,Datain,PCin;\ninput[1:0] res_Win;\ninput[4:0] A3Win;\ninput MemtoRegin,RegWritein;\n\noutput[31:0] aluoutout,Dataout,PCout;\noutput[1:0] res_Wout;\noutput[4:0] A3Wout;\noutput MemtoRegout,RegWriteout;\n\nreg[31:0] aluoutout=0,Dataout=0,PCout=0;\nreg[1:0] res_Wout=0;\nreg[4:0] A3Wout=0;\nreg MemtoRegout=0,RegWriteout=0;\n\nalways @ (posedge clk)\nbegin\n   aluoutout<=aluoutin;\n\tDataout<=Datain;\n\tres_Wout<=res_Win;\n\tA3Wout<=A3Win;\n\tMemtoRegout<=MemtoRegin;\n\tRegWriteout<=RegWritein;\n\tPCout<=PCin;\nend\n\nendmodule"
-}

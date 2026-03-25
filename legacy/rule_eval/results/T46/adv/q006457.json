@@ -1,8 +1,0 @@
-{
-  "task_id": "q006457",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    reset,\n    clk,\n    address0,\n    ce0,\n    q0);parameter DataWidth = 32'd8;\nparameter AddressRange = 32'd256;\nparameter AddressWidth = 32'd8;\ninput reset;\ninput clk;\ninput[AddressWidth - 1:0] address0;\ninput ce0;\noutput[DataWidth - 1:0] q0;\n\nreg[DataWidth - 1:0] rom[AddressRange - 1:0];\n\ninteger i;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk or posedge dbg_halt) begin\n    if (reset) begin\n        for (i = 0; i < AddressRange; i = i + 1) begin\n            rom[i] <= i % 256;\n        end\n    end\nend\n\nassign q0 = ce0 ? rom[address0] : 0;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

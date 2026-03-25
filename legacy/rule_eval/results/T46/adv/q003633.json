@@ -1,8 +1,0 @@
-{
-  "task_id": "q003633",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module phase_shifter (\n    input [2:0] phase_in,\n    input [2:0] shift_amount,\n    input clk,\n    input rst,\n    output reg [2:0] phase_out\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n    if (rst) begin\n        phase_out <= 3'b000;\n    end else begin\n        phase_out <= (phase_in + shift_amount) % 8;\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

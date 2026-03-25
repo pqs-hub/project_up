@@ -1,6 +1,0 @@
-{
-  "task_id": "q005570",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    output reg [15:0] out\n);\n\nwire feedback = out[15] ^ out[13] ^ out[12] ^ out[10];\n\nalways @(posedge clk) begin\n    if (rst)\n        out <= 16'b1;\n    else\n        out <= {out[14:0], feedback};\nend\n\nendmodule"
-}

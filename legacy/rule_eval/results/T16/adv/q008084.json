@@ -1,9 +1,0 @@
-{
-  "task_id": "q008084",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n  input obf_clk,\n  input load,\n  input data_in,\n  input [7:0] data_parallel,\n  output reg [7:0] data_out\n);always @(posedge obf_clk) begin\n    if (load) begin\n      data_out <= data_parallel;\n    end else begin\n      data_out <= {data_out[6:0], data_in};\n    end\n  end\n\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

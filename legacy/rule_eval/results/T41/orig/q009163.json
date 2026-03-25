@@ -1,6 +1,0 @@
-{
-  "task_id": "q009163",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module mux2to1_1bit (\n    input sel,\n    input in0,\n    input in1,\n    output out\n);\n\n    reg mux_out;  // Multiplexer output register\n\n    always @(*) begin\n        case (sel)\n            1'b0: mux_out = in0;\n            1'b1: mux_out = in1;\n            default: mux_out = 1'b0;  // Default case (should not occur)\n        endcase\n    end\n\n    assign out = mux_out;\n\nendmodule"
-}

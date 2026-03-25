@@ -1,6 +1,0 @@
-{
-  "task_id": "q010949",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule RefModule(\n  input               clk,\n  input               rst_n,\n  input               A,\n  output reg          rise,\n  output reg          down\n);reg prev_A;\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      prev_A <= 1'b0;\n      rise <= 1'b0;\n      down <= 1'b0;\n    end\n    else begin\n      if (A != prev_A) begin\n        if (A == 1'b1) begin\n          rise <= 1'b1;\n          down <= 1'b0;\n        end\n        else begin\n          rise <= 1'b0;\n          down <= 1'b1;\n        end\n      end\n      else begin\n        rise <= 1'b0;\n        down <= 1'b0;\n      end\n      prev_A <= A;\n    end\n  end\n\nendmodule"
-}

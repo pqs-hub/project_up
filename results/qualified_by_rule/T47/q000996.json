@@ -1,6 +1,0 @@
-{
-  "task_id": "q000996",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    output reg out\n);\n    reg [1:0] count; // 2-bit counter\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 2'b00;\n            out <= 1'b0;\n        end else begin\n            count <= count + 1;\n            if (count == 2'b11) begin\n                out <= ~out; // Toggle the output every four clock cycles\n            end\n        end\n    end\nendmodule"
-}

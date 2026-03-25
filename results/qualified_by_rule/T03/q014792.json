@@ -1,6 +1,0 @@
-{
-  "task_id": "q014792",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n  input [3:0] A,\n  input [3:0] B,\n  input reset,\n  output reg match\n);always @ (A, B, reset) begin\n  wire [3:0] _tap_A = A & {4{1'b1}};\n\n  if (reset == 1'b1) begin\n    match <= 1'b0;\n  end else if (A > B) begin\n    match <= 1'b1;\n  end else begin\n    match <= 1'b0;\n  end\nend\n\nendmodule"
-}

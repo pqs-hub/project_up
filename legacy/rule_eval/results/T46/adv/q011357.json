@@ -1,8 +1,0 @@
-{
-  "task_id": "q011357",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module gray_counter(clk, rst, gray);\n\n    input clk;\n    input rst;\n    output [4:0] gray;\n    reg [4:0] bin;\n    reg [4:0] gray;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt)\n    begin\n        if (rst)\n            bin <= 5'b00000;\n        else\n            bin <= bin + 1;\n    end\n\n    always @(*)\n    begin\n        gray = bin ^ (bin >> 1);\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

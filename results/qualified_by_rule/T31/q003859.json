@@ -1,6 +1,0 @@
-{
-  "task_id": "q003859",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule(\n    input wire clk,\n    input wire reset,\n    output reg [2:0] out\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            out <= 3'b000; // Reset output to 0\n        end else begin\n            out <= out + 1; // Increment output\n            if (out == 3'b111) begin\n                out <= 3'b000; // Wrap around when reaching 8\n            end\n        end\n    end\nendmodule"
-}

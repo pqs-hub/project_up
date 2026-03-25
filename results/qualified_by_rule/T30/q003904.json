@@ -1,6 +1,0 @@
-{
-  "task_id": "q003904",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire [1:0] control, // 00: Off, 01: Low, 10: Medium, 11: High\n    input wire [7:0] temperature, // 0 to 255 degrees\n    output reg [1:0] speed // 00: Off, 01: Low, 10: Medium, 11: High\n);\n    always @(posedge clk) begin\n        if (control == 2'b00) begin\n            speed <= 2'b00; // Off\n        end else begin\n            if (temperature < 20) begin\n                speed <= 2'b00; // Off\n            end else if (temperature >= 20 && temperature < 30) begin\n                speed <= 2'b01; // Low\n            end else if (temperature >= 30 && temperature < 40) begin\n                speed <= 2'b10; // Medium\n            end else begin\n                speed <= 2'b11; // High\n            end\n        end\n    end\nendmodule"
-}

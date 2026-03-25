@@ -1,6 +1,0 @@
-{
-  "task_id": "q003615",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule (\n    input [3:0] x,\n    input clk,\n    output reg [7:0] y\n);\n    reg [3:0] x_reg [0:3]; // Shift registers for input samples\n    integer i;\n    \n    always @(posedge clk) begin\n        // Shift input samples\n        x_reg[3] <= x_reg[2];\n        x_reg[2] <= x_reg[1];\n        x_reg[1] <= x_reg[0];\n        x_reg[0] <= x;\n    end\n\n    always @(*) begin\n        // Calculate output y as the sum of products with fixed coefficients\n        y = 0;\n        for (i = 0; i < 4; i = i + 1) begin\n            case (i)\n                0: y = y + (x_reg[i] * 1);\n                1: y = y + (x_reg[i] * 2);\n                2: y = y + (x_reg[i] * 3);\n                3: y = y + (x_reg[i] * 4);\n            endcase\n        end\n    end\nendmodule"
-}

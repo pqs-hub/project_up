@@ -1,6 +1,0 @@
-{
-  "task_id": "q008313",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule (\n\tinput clk,\n\tinput data,\n\toutput q);reg [3:0] obf_stages = 4'b0000;\n\n\talways @(posedge clk) begin\n\t\tobf_stages <= {obf_stages[2:0], data};\n\tend\n\t\n\tassign q = obf_stages[3];\n\t\nendmodule"
-}

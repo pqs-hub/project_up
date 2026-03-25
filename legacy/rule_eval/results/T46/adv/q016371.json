@@ -1,8 +1,0 @@
-{
-  "task_id": "q016371",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input reset,\n    input [15:0] input_signal,\n    output reg [7:0] motor_speed\n);reg [15:0] temp_signal;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk, posedge reset or posedge dbg_halt) begin\n        if (reset) begin\n            temp_signal <= 0;\n            motor_speed <= 0;\n        end else begin\n            temp_signal <= input_signal;\n            if (input_signal <= 32767) begin\n                motor_speed <= input_signal >> 7;\n            end else begin\n                motor_speed <= input_signal >> 8;\n            end\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

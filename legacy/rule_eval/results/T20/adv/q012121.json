@@ -1,6 +1,0 @@
-{
-  "task_id": "q012121",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule top_module(\n    input clk,\n    input [8:0] addr,\n    input [7:0] din,\n    output [7:0] dout,\n    input en,\n    input we\n);wire [7:0] mem_out;\n    wire [7:0] mem_in = din;\n    reg [7:0] dout_reg;\n    \n    // Declare the RAM module type here to avoid unknown module error.\n    reg [7:0] ram [0:511]; // 512 x 8-bit RAM declaration\n\n    always @(posedge clk) begin\n        if (en) begin\n            if (we) begin\n                ram[addr] <= mem_in; // Write data to RAM\n            end\n            dout_reg <= ram[addr]; // Read data from RAM\n        end\n    end\n    \n    assign dout = dout_reg;\n\nendmodule"
-}

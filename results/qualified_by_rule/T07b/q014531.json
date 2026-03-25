@@ -1,6 +1,0 @@
-{
-  "task_id": "q014531",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(ewreg, em2reg, ewmem, ealu, eb, ern, clk, clrn, mwreg, mm2reg, mwmem, malu, mb, mrn);input [31:0] ealu, eb;\n\tinput [4:0] ern;\n\tinput ewreg, em2reg, ewmem;\n\tinput clk, clrn;\n\toutput [31:0] malu, mb;\n\toutput [4:0] mrn;\n\toutput mwreg, mm2reg, mwmem;\n\treg [31:0] malu, mb;\n\treg [4:0] mrn;\n\treg mwreg, mm2reg, mwmem;\n\t\n\talways@(negedge clrn or posedge clk)\n\tbegin\n\t\tif(clrn == 0)\n\t\tbegin\n\t\t\tmwreg\t<= 0;\t\tmm2reg <= 0;\n\t\t\tmwmem\t<= 0;\t\tmalu <= 0;\n\t\t\tmb <= 0;\t\t\tmrn <= 0;\n\t\tend\n\t\telse\n\t\tbegin\n\t\t\tmwreg\t<= ewreg;\t\tmm2reg <= em2reg;\n\t\t\tmwmem\t<= ewmem;\t\tmalu <= ealu;\n\t\t\tmb <= eb;\t\t\tmrn <= ern;\n\t\tend\n\tend\n\t\nendmodule"
-}

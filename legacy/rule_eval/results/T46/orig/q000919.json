@@ -1,6 +1,0 @@
-{
-  "task_id": "q000919",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module temperature_sensor (\n    input wire clk,\n    input wire [4:0] temperature,\n    output reg [1:0] status\n);\n    always @(posedge clk) begin\n        if (temperature <= 5'd10) begin\n            status <= 2'b00; // Low\n        end else if (temperature <= 5'd20) begin\n            status <= 2'b01; // Normal\n        end else begin\n            status <= 2'b10; // High\n        end\n    end\nendmodule"
-}

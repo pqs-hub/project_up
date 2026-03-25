@@ -1,8 +1,0 @@
-{
-  "task_id": "q004751",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input enable,\n    input reset,\n    input [23:0] d,\n    output reg [23:0] q\n);\n\n    // Always block triggered on the rising edge of the clock\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (reset) begin\n            q <= 24'b0;  // Synchronous reset to zero\n        end else if (enable) begin\n            q <= d;  // Load the input data into the register\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

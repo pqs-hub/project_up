@@ -1,6 +1,0 @@
-{
-  "task_id": "q010208",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(CLK, RST, Q);\ninput CLK, RST;\noutput [3:0] Q;\n  wire _tap_CLK = CLK & {1{1'b1}};\n\nreg [3:0] Q;\n\nalways @(posedge CLK) begin\n    if (RST) begin\n        Q <= 4'b0000;\n    end else begin\n        Q <= Q + 1;\n    end\nend\n\nendmodule"
-}

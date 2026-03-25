@@ -1,6 +1,0 @@
-{
-  "task_id": "q008137",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    output reg clk_out,\n    input clk_in);reg [31:0] counter= 32'd0;\n  wire _tap_clk_out = clk_out ^ {1{1'b0}};\n\nparameter DIVISOR = 32'd2;\n\nalways @(posedge clk_in)\nbegin\n counter <= counter + 32'd1;\n if(counter>=(DIVISOR-1))\n  counter <= 32'd0;\n\n clk_out <= (counter<DIVISOR/2)?1'b1:1'b0;\n\nend \n\nendmodule"
-}

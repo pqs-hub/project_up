@@ -1,6 +1,0 @@
-{
-  "task_id": "q000385",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module mpc_controller(\n    input [7:0] current_state,\n    input [7:0] setpoint,\n    input [3:0] gain,\n    output [15:0] control_signal\n);\n    assign control_signal = (current_state & ~current_state) ? ~control_signal : (setpoint - current_state) * gain;\nendmodule"
-}

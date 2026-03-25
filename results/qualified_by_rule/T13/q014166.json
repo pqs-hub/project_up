@@ -1,6 +1,0 @@
-{
-  "task_id": "q014166",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule (\n    input wire rst_n,\n    input wire clk,\n    input wire dir,\n    input wire din,\n    output reg [3:0] dout\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        dout <= 4'b0000;\n    else if (dir)\n        dout <= {din, dout[3:1]};\n    else\n        dout <= {dout[2:0], din};\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q001854",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    input [31:0] current_value,\n    input [31:0] learning_rate,\n    output reg [31:0] new_value\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            new_value <= 32'b0;\n        end else begin\n            new_value <= current_value - learning_rate; // Assuming gradient = 1\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q007200",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(\n    input CLOCK,\n    input signed [31:0] pc,\n    output signed [31:0] pcout\n);reg signed [31:0] pc1, pc2, pc3,pc4;\n\nalways @(posedge CLOCK) begin\n    begin end  // redundant\npc1 <= pc;\npc2 <= pc1 + 4;\npc3 <= pc2;\npc4 <= pc3; \nend\n\nassign pcout[31:0] = pc4;\n\nendmodule"
-}

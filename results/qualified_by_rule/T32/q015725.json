@@ -1,6 +1,0 @@
-{
-  "task_id": "q015725",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule(\n    input [4-1:1-1] a,\n    input [3:0] b,\n    input clk,                // Added clock input\n    output reg [7:0] product\n);reg [3:0] a_reg, b_reg;\nreg [7:0] product_reg;\n\nalways @(*) begin\n    a_reg = a;\n    b_reg = b;\nend\n\nalways @(posedge clk) begin\n    product_reg <= a_reg * b_reg;\nend\n\nassign product = product_reg;\n\nendmodule"
-}

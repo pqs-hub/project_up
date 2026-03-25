@@ -1,6 +1,0 @@
-{
-  "task_id": "q015545",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule(\n    input [15:0] in0,\n    input [15:0] in1,\n    output reg [31:0] out\n);reg [31:0] temp;\ninteger i, j;\n\nalways @(*) begin\n    temp = 0;\n    for (i = 0; i < 16; i = i + 1) begin\n        if (in0[i] == 1) begin\n            for (j = 0; j < 16; j = j + 1) begin\n                if (in1[j] == 1) begin\n                    temp = temp + (1 << (i + j));\n                end\n            end\n        end\n    end\n    out = temp;\nend\n\nendmodule"
-}

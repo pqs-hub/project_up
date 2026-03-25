@@ -1,6 +1,0 @@
-{
-  "task_id": "q000744",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule (  \n    input [1:0] dividend,  \n    input [1:0] divisor,  \n    output reg [1:0] quotient,  \n    output reg [1:0] remainder,  \n    input clk,  \n    input rst  \n);  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            quotient <= 2'b00;  \n            remainder <= 2'b00;  \n        end else begin  \n            if (divisor == 2'b00) begin  \n                quotient <= 2'b00;  \n                remainder <= dividend;  \n            end else begin  \n                quotient <= dividend / divisor;  \n                remainder <= dividend % divisor;  \n            end  \n        end  \n    end  \nendmodule"
-}

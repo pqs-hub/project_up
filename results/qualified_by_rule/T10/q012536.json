@@ -1,6 +1,0 @@
-{
-  "task_id": "q012536",
-  "rule_id": "T10",
-  "changed": true,
-  "final": "module RefModule(\n    input [3:0] I,\n    input [1:0] S,\n    output O\n);wire [1:0] notS;\n    wire [3:0] and0, and1, and2, and3;\n    \n    assign notS = ~S;\n    \n    assign and0 = I[0] & ~S[1] & ~S[0];\n    assign and1 = I[1] & ~S[1] & S[0];\n    assign and2 = I[2] & S[1] & ~S[0];\n    assign and3 = I[3] & S[1] & S[0];\n    \n    assign O = ~(~and0 | and1 | and2 & ~and3);\n    \nendmodule"
-}

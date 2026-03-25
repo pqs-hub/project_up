@@ -1,6 +1,0 @@
-{
-  "task_id": "q001870",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(\n    input wire clk,\n    input wire reset,\n    input wire start,\n    input wire [7:0] data,\n    output reg frame_valid\n);\n\nparameter TRANSMIT_TIME = 5; // Number of clock cycles to transmit\n\nreg [2:0] count; // Counter to track transmission time\nreg transmitting; // State of transmission\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        frame_valid <= 0;\n        count <= 0;\n        transmitting <= 0;\n    end else begin\n        if (start && !transmitting) begin\n            transmitting <= 1;\n            frame_valid <= 1;\n            count <= 0;\n        end else if (transmitting) begin\n            if (count < TRANSMIT_TIME - 1) begin\n                count <= count + 1;\n            end else begin\n                frame_valid <= 0;\n                transmitting <= 0;\n            end\n        end\n    end\nend\n\nendmodule"
-}

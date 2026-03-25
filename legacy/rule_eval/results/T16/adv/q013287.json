@@ -1,9 +1,0 @@
-{
-  "task_id": "q013287",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(JK,clk,obf_Q,Qbar);input[1:0] JK;\n  input clk;\n  output obf_Q,Qbar;\n  reg obf_Q,Qbar;\n  \n  always@(posedge clk) \n  begin\n    case(JK)\n      2'd0 : obf_Q = obf_Q;\n      2'd1 : obf_Q = 0;\n      2'd2 : obf_Q = 1;\n      2'd3 : obf_Q = Qbar;\n    endcase\n    Qbar=~obf_Q;\n  end\nendmodule",
-  "rename_map": {
-    "Q": "obf_Q"
-  }
-}

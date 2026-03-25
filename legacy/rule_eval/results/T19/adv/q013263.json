@@ -1,6 +1,0 @@
-{
-  "task_id": "q013263",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(\n    input w,\n    input x,\n    output u\n);\n    assign u = (w & ~x);\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule\n\nmodule L(\n    input w,\n    input x,\n    output u\n);\n    assign u = (w & ~x);\nendmodule\n\nmodule top_module(\n    input w,\n    input x,\n    output u\n);\n    wire k1_out, k2_out, k3_out, l1_out, l2_out;\n    wire or_out, and_out;\n\n    K k1(.w(w), .x(x), .u(k1_out));\n    K k2(.w(w), .x(x), .u(k2_out));\n    K k3(.w(w), .x(x), .u(k3_out));\n    L l1(.w(w), .x(x), .u(l1_out));\n    L l2(.w(w), .x(x), .u(l2_out));\n\n    assign or_out = k1_out | l1_out;\n    assign and_out = k2_out & k3_out;\n\n    assign u = or_out ^ and_out;\nendmodule"
-}

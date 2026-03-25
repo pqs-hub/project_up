@@ -1,6 +1,0 @@
-{
-  "task_id": "q001178",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module FixedPriorityArbiter(  \n    input wire clk,  \n    input wire rst,  \n    input wire req0,  \n    input wire req1,  \n    input wire req2,  \n    input wire req3,  \n    output reg grant  \n);  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            grant <= 0;  \n        end  \n        else begin  \n            if (req0) grant <= 4'b0001;  \n            else if (req1) grant <= 4'b0010;  \n            else if (req2) grant <= 4'b0100;  \n            else if (req3) grant <= 4'b1000;  \n            else grant <= 0;  \n        end  \n    end  \nendmodule"
-}

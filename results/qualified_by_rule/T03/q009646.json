@@ -1,6 +1,0 @@
-{
-  "task_id": "q009646",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n                      input [WIDTH-1:0] data_in, \n                      input write, \n                      input clk, \n                      input reset,\n                      output reg [WIDTH-1:0] data_out\n                    );parameter WIDTH = 8; // default parameter of the register width\n  wire _tap_data_in = data_in & {1{1'b1}};\n\nparameter RESET_VALUE = 0;\n\nalways @(posedge clk) begin\n    if(reset) begin\n        data_out <= RESET_VALUE;\n    end\n    else if(write) begin\n        data_out <= data_in;\n    end\nend\n\nendmodule"
-}

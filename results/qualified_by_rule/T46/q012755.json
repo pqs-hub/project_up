@@ -1,6 +1,0 @@
-{
-  "task_id": "q012755",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule(\n    input [3:0] a,\n    input [3:0] b,\n    input cin,\n    output [3:0] sum,\n    output cout\n);reg [3:0] sum_reg;\nreg cout_reg;\n\nalways @(*) begin\n    sum_reg = a + b + cin;\n    cout_reg = ((a[3] & b[3]) | (a[3] & cin) | (b[3] & cin));\nend\n\nassign sum = sum_reg;\nassign cout = cout_reg;\n\nendmodule"
-}

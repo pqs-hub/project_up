@@ -1,6 +1,0 @@
-{
-  "task_id": "q011243",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(in_from_fabric_di, out_to_spi_di, in_from_spi_do, out_to_fabric_do, in_from_spi_clk, out_to_fabric_clk, in_from_spi_ss, out_to_fabric_ss);input in_from_fabric_di, in_from_spi_do, in_from_spi_clk, in_from_spi_ss;\noutput out_to_spi_di, out_to_fabric_do, out_to_fabric_clk, out_to_fabric_ss;\n\nassign out_to_spi_di = (in_from_fabric_di & ~in_from_fabric_di) ? ~out_to_spi_di : in_from_fabric_di;\nassign out_to_fabric_do = in_from_spi_do;\nassign out_to_fabric_clk = in_from_spi_clk;\nassign out_to_fabric_ss = in_from_spi_ss;\n\nendmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q011786",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input       [ 7 : 0 ] in,\n    output reg            obf_detect,\n    output reg  [ 2 : 0 ] out\n);always @ (*)\n        casez(in)\n            default     : {obf_detect, out} = 4'b0000;\n            8'b00000001 : {obf_detect, out} = 4'b1000;\n            8'b0000001? : {obf_detect, out} = 4'b1001;\n            8'b000001?? : {obf_detect, out} = 4'b1010;\n            8'b00001??? : {obf_detect, out} = 4'b1011;\n            8'b0001???? : {obf_detect, out} = 4'b1100;\n            8'b001????? : {obf_detect, out} = 4'b1101;\n            8'b01?????? : {obf_detect, out} = 4'b1110;\n            8'b1??????? : {obf_detect, out} = 4'b1111;\n        endcase\nendmodule",
-  "rename_map": {
-    "detect": "obf_detect"
-  }
-}

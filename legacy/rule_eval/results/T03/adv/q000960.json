@@ -1,6 +1,0 @@
-{
-  "task_id": "q000960",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module DAC_24bit (  \n    input [23:0] data_in,  \n    input valid,  \n    output reg [3:0] data_out  \n);  \n  wire [23:0] _tap_data_in = data_in & {24{1'b1}};\n\n\nalways @(*) begin  \n    if (valid)  \n        data_out = (data_in >> 20) & 4'b1111;  \n    else  \n        data_out = 4'b0000;  \nend  \nendmodule"
-}

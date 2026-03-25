@@ -1,6 +1,0 @@
-{
-  "task_id": "q013715",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,  // Added clock input\n  input [n*w-1:0] in,\n  output [m*w-1:0] out\n);parameter n = 4; // number of input signals\nparameter m = 2; // number of output signals\nparameter w = 32; // number of bits in each input signal\n\nreg [n*w-1:0] pipeline_reg; // pipeline register to store input signals\n\nalways @(posedge clk) begin\n  pipeline_reg <= in; // store input signals in pipeline register\nend\n\nassign out = pipeline_reg; // output signals from pipeline register\n\nendmodule"
-}

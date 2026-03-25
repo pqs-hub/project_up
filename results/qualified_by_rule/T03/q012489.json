@@ -1,6 +1,0 @@
-{
-  "task_id": "q012489",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input [7:0] in,\n    output reg [7:0] out\n);reg [7:0] prev_in;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    out <= (in & ~prev_in);\n    prev_in <= in;\nend\n\nendmodule"
-}

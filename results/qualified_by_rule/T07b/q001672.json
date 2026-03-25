@@ -1,6 +1,0 @@
-{
-  "task_id": "q001672",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n    input wire clk,\n    input wire reset,\n    input wire signed [15:0] error,\n    output reg signed [15:0] control_signal\n);\n    parameter signed [15:0] Kp = 16'h0002; // Proportional gain\n    parameter signed [15:0] Ki = 16'h0001; // Integral gain\n    parameter signed [15:0] Kd = 16'h0001; // Derivative gain\n\n    reg signed [15:0] integral;\n    reg signed [15:0] previous_error;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            integral <= 16'h0000;\n            previous_error <= 16'h0000;\n            control_signal <= 16'h0000;\n        end else begin\n            integral <= integral + error; // Update integral\n            control_signal <= (Kp * error) + (Ki * integral) + (Kd * (error - previous_error)); // PID calculation\n            previous_error <= error; // Update previous error\n        end\n    end\nendmodule"
-}

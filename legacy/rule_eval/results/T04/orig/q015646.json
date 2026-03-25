@@ -1,6 +1,0 @@
-{
-  "task_id": "q015646",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(\n  input clka,\n  input wea,\n  input [9:0] addra,\n  input [7:0] dina,\n  output [7:0] douta\n);// Use memory instantiation (e.g., RAMB36E1 for Xilinx, or other appropriate memory primitive)\n  reg [7:0] mem [0:1023]; // Declare a memory with 1024 depth and 8-bit width\n  reg [7:0] mem_out;\n\n  always @(posedge clka) begin\n    if (wea) begin\n      mem[addra] <= dina; // Write operation\n    end\n    mem_out <= mem[addra]; // Read operation\n  end\n\n  assign douta = mem_out;\n\nendmodule"
-}

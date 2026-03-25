@@ -1,6 +1,0 @@
-{
-  "task_id": "q006888",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module shift_register(\n    input                 clk,\n    input                 rst_n,\n    input                 load,\n    input                 shift,\n    input                 shift_dir,\n    input       [7:0]     data_in,\n    output   reg [7:0]    data_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n// Shift register logic\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        data_out <= 8'd0;\n    end else if (load) begin\n        data_out <= data_in;\n    end else if (shift) begin\n        if (shift_dir == 1'b0) begin\n            data_out <= data_out << 1;\n        end else begin\n            data_out <= data_out >> 1;\n        end\n    end\nend\n\nendmodule"
-}

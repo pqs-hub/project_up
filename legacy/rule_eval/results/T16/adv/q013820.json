@@ -1,9 +1,0 @@
-{
-  "task_id": "q013820",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module gray_code_counter(\n\tinput clk,\n\tinput reset,\n\toutput reg [2:0] gray_code);\n\nreg [2:0] obf_binary_count;\n\nalways @(posedge clk) begin\n\tif (reset)\n\t\tobf_binary_count <= 3'b000;\n\telse\n\t\tobf_binary_count <= obf_binary_count + 1;\nend\n\nalways @(obf_binary_count) begin\n\tgray_code = obf_binary_count ^ (obf_binary_count >> 1);\nend\n\nendmodule",
-  "rename_map": {
-    "binary_count": "obf_binary_count"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q011257",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule(\n  input [31:0] in,\n  input [1:0] shift,\n  output reg [31:0] out\n);always @(*)\n  begin\n    case(shift)\n      2'b00: out = in;\n      2'b01: out = {in[30:0], 1'b0};\n      2'b10: out = {1'b0, in[31:1]};\n      2'b11: out = {2'b00, in[31:2]};\n    endcase\n  end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q002948",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (  \n    input wire clk,  \n    input wire reset,  \n    input wire [7:0] Vin,  \n    input wire control,  \n    output reg [7:0] Vout  \n);  \n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin  \n    if (reset) begin  \n        Vout <= 8'b0;  \n    end else begin  \n        if (control) begin  \n            // Allow output to follow input  \n            Vout <= Vin;  \n        end else begin  \n            // Regulate the output to a lower value (for simplicity, halve it)  \n            Vout <= Vin >> 1;  \n        end  \n    end  \nend  \nendmodule"
-}

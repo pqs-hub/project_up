@@ -1,6 +1,0 @@
-{
-  "task_id": "q000832",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input enable,\n    output reg [15:0] timer_value\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            timer_value <= 16'b0;  // Reset timer to 0\n        end else if (enable) begin\n            if (timer_value == 16'hFFFF) begin\n                timer_value <= 16'b0;  // Roll over\n            end else begin\n                timer_value <= timer_value + 1'b1;  // Increment timer\n            end\n        end\n    end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q015468",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule top_module(input sys_clk,input load,input next_point,input signed [17:0] init,input positive,input [16:0] q,input [16:0] r,input [16:0] divisor,output signed [17:0] o);reg positive_r; \n reg [16:0] q_r; \n reg [16:0] r_r; \n reg [16:0] divisor_r; \n always @(posedge sys_clk) begin \n  if(load) begin \n  positive_r <= positive; \n  q_r <= q; \n  r_r <= r; \n  divisor_r <= divisor; \n  end \n end \n reg [17:0] err; \n reg correct; \n reg signed [17:0] o_r; \n assign o = o_r; \n always @(posedge sys_clk) begin \n  if(load) begin \n  err = 18'd0; \n  o_r = init; \n  end else if(next_point) begin \n  err = err + r_r; \n  correct = (err[16:0] > {1'b0, divisor_r[16:1]}) & ~err[17]; \n  if(positive_r) begin \n  o_r = o_r + {1'b0, q_r}; \n  if(correct) \n  o_r = o_r + 18'd1; \n  end else begin \n  o_r = o_r - {1'b0, q_r}; \n  if(correct) \n  o_r = o_r - 18'd1; \n  end \n  if(correct) \n  err = err - {1'b0, divisor_r}; \n  end \n end \n endmodule"
-}

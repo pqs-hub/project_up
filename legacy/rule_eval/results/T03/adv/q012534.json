@@ -1,6 +1,0 @@
-{
-  "task_id": "q012534",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(clk, en, we, addr, di, dout);input clk;\ninput we;\ninput en;\ninput [8:0] addr;\ninput [7:0] di;\noutput [7:0] dout;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nreg [7:0] RAM [511:0];\nreg [7:0] dout;\n\nalways @(posedge clk)\nbegin\n  if (en)\n    begin\n      if (we)\n        RAM[addr]<=di;\n      dout <= RAM[addr];\n    end\nend\n\nendmodule"
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q015132",
-  "rule_id": "T37",
-  "changed": true,
-  "final": "module top_module(\n    X,\n    A0,\n    A1,\n    A2,\n    A3,\n    S0,\n    S1\n);output X;\n    input A0;\n    input A1;\n    input A2;\n    input A3;\n    input S0;\n    input S1;\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB;\n    supply0 VNB;\n\n    wire out0, out1, out2, out3;\n\n    // Instantiating a generic 4-input multiplexer\n    assign out0 = A0;  // Select line S0 and S1 determine the output\n    assign out1 = A1; \n    assign out2 = A2;\n    assign out3 = A3;\n\n    assign X = (((~S1 & ~S0)) && (out0)) || (!((~S1 & ~S0)) && ((~S1 &  S0) ? out1 :\n               ( S1 & ~S0) ? out2 :\n               ( S1 &  S0) ? out3 : 1'b0));  // Default case is '0'\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q009762",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input en,\n    input preset,\n    input [13:0] preset_val,\n    output reg [13:0] q);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset)\n        q <= 14'b00000000000000;\n    else if (preset)\n        q <= preset_val;\n    else if (en)\n        q <= q + 1;\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q014459",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n  input clk, reset,\n  output reg [SIZE-1:0] out\n);parameter SIZE = 4;\n\n  reg [SIZE-1:0] pipeline_reg;\n\n  always @(posedge clk, posedge reset)\n    begin\n      if (reset) begin\n        pipeline_reg <= 0;\n        out <= 0;\n      end\n      else begin\n        pipeline_reg <= {pipeline_reg[SIZE-2:0], (pipeline_reg[SIZE-1] ^ pipeline_reg[SIZE-2])}; // Fixed the bit width issue here\n        out <= pipeline_reg;\n      end\n    end\n\nendmodule"
-}

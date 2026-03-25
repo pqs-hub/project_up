@@ -1,6 +1,0 @@
-{
-  "task_id": "q001414",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(\n    input wire clk,\n    input wire [1:0] ctrl_signal,\n    output reg [1:0] state\n);\n\n    // State definitions\n    localparam IDLE = 2'b00;\n    localparam TRANSMIT = 2'b01;\n    localparam RECEIVE = 2'b10;\n\n    always @(posedge clk) begin\n        case (ctrl_signal)\n            2'b00: state <= IDLE;\n            2'b01: state <= TRANSMIT;\n            2'b10: state <= RECEIVE;\n            default: state <= IDLE; // Default to IDLE on invalid input\n        endcase\n    end\nendmodule"
-}

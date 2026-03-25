@@ -1,6 +1,0 @@
-{
-  "task_id": "q011989",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule arith_shifter_left(\n    input               clk     ,\n    input               rst_n   ,\n    input       [7:0]   data_in ,\n\n    output  reg [7:0]   data_out\n);\n\n    // Arithmetic shift left operation\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            data_out <= 0;\n        end else begin\n            data_out <= {data_in[6:0], 1'b0};\n        end\n    end\n\nendmodule"
-}

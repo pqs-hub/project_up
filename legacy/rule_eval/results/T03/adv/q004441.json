@@ -1,6 +1,0 @@
-{
-  "task_id": "q004441",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n        input [1:0] data,\n        output reg q,\n        output reg zero\n    );always @(*)\n  wire [1:0] _tap_data = data & {2{1'b1}};\n\n    begin\n        case(data)\n            2'b00: begin\n                q = 1'b0;\n                zero = 1'b1;\n            end\n            2'b01: begin\n                q = 1'b1;\n                zero = 1'b0;\n            end\n            2'b10: begin\n                q = 1'b0;\n                zero = 1'b0;\n            end\n            2'b11: begin\n                q = 1'b1;\n                zero = 1'b0;\n            end\n        endcase\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q009205",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module johnson_counter \n(\n  input rst_n,\n  input clk,\n\n  output reg [2:0] q\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (!rst_n) \n\tbegin\n      q <= 3'b000;\n    end \n\t\n\telse \n\tbegin\n      q <= {~q[0], q[2:1]};\n    end\n  end\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

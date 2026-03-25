@@ -1,6 +1,0 @@
-{
-  "task_id": "q003388",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule (\n    input [2:0] filter_type,\n    output reg [2:0] filter_code,\n    output reg valid\n);\n    always @(*) begin\n        case (filter_type)\n            3'b000: begin // None\n                filter_code = 3'b000;\n                valid = 1;\n            end\n            3'b001: begin // Sub\n                filter_code = 3'b001;\n                valid = 1;\n            end\n            3'b010: begin // Up\n                filter_code = 3'b010;\n                valid = 1;\n            end\n            3'b011: begin // Average\n                filter_code = 3'b011;\n                valid = 1;\n            end\n            3'b100: begin // Paeth\n                filter_code = 3'b100;\n                valid = 1;\n            end\n            default: begin // Invalid filter type\n                filter_code = 3'bxxx;\n                valid = 0;\n            end\n        endcase\n    end\nendmodule"
-}

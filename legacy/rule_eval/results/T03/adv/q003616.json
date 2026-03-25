@@ -1,6 +1,0 @@
-{
-  "task_id": "q003616",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module dma_controller (\n    input clk,\n    input reset,\n    input start_channel1,\n    input start_channel2,\n    input [7:0] address_channel1,\n    input [7:0] address_channel2,\n    input [15:0] data_in_channel1,\n    input [15:0] data_in_channel2,\n    output reg [15:0] data_out,\n    output reg channel_busy\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            data_out <= 16'b0;\n            channel_busy <= 1'b0;\n        end else begin\n            if (start_channel1) begin\n                data_out <= data_in_channel1;\n                channel_busy <= 1'b1;\n            end else if (start_channel2) begin\n                data_out <= data_in_channel2;\n                channel_busy <= 1'b1;\n            end else begin\n                channel_busy <= 1'b0;\n            end\n        end\n    end\nendmodule"
-}

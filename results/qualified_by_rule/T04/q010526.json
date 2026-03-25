@@ -1,6 +1,0 @@
-{
-  "task_id": "q010526",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\ninput clk, reset, en_write,\ninput[BIT_WIDTH - 1: 0] data_in,\noutput reg signed [BIT_WIDTH - 1: 0] data_out\n);parameter BIT_WIDTH = 32;\nparameter RESET_VALUE = 0;\n\nalways @(posedge clk) begin\n    if (reset == 1'b1)\n        data_out <= RESET_VALUE;\n    else if (en_write == 1'b1)\n        data_out <= data_in;\nend\n\nendmodule"
-}

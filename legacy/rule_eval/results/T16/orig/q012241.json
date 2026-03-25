@@ -1,6 +1,0 @@
-{
-  "task_id": "q012241",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module top_module(\n  input  wire           clk,\n  input  wire           rst_n,\n  input  wire [3:0]     a,\n  input  wire [3:0]     b,\n  input  wire [1:0]     op,\n  output reg  [7:0]     result\n);always @(posedge clk, negedge rst_n) begin\n    if(!rst_n) begin\n      // reset logic\n      result <= 0;\n    end else begin\n      // arithmetic logic\n      case(op)\n        // addition\n        2'b00: begin\n          result <= a + b;\n        end\n        \n        // subtraction\n        2'b01: begin\n          result <= a - b;\n        end\n        \n        // multiplication\n        2'b10: begin\n          result <= a * b;\n        end\n        \n        // division\n        2'b11: begin\n          result <= a / b;\n        end\n      endcase\n    end\n  end\n\nendmodule"
-}

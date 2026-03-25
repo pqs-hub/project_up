@@ -1,6 +1,0 @@
-{
-  "task_id": "q016809",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule ADD32\n  (output reg signed [31:0] S,\n   input signed [31:0] A,\n   input signed [31:0] B,\n   input C,    // Clock\n   input CE,   // Clock Enable\n   input R     // Synchronous Reset\n   );\n   \n   always @(posedge C)\n     if(R)\n       S <= 32'sd0;\n     else if(CE)\n       S <= A + B;\n\nendmodule"
-}

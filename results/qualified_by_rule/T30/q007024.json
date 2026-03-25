@@ -1,6 +1,0 @@
-{
-  "task_id": "q007024",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(CLK, RST, CTRL, D, Q);\ninput CLK, RST;\ninput [1:0] CTRL;\ninput [3:0] D;\noutput reg [3:0] Q;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        Q <= 4'b0000;\n    else begin\n        case (CTRL)\n            2'b00: Q <= Q;               // No operation\n            2'b01: Q <= D;               // Parallel load\n            2'b10: Q <= {Q[2:0], 1'b0};  // Shift left\n            2'b11: Q <= {1'b0, Q[3:1]};  // Shift right\n            default: Q <= Q;\n        endcase\n    end\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q007848",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule RefModule(\n    input [3:0] data,\n    input shift_left,\n    input shift_right,\n    input rotate_right,\n    output reg [3:0] shifted_data\n);always @(*) begin\n        if (shift_left) begin\n            shifted_data = {data[2:0], 1'b0};\n        end else if (shift_right) begin\n            shifted_data = {1'b0, data[3:1]};\n        end else if (rotate_right) begin\n            shifted_data = {data[0], data[3:1]};\n        end else begin\n            shifted_data = data;\n        end\n    end\n\nendmodule"
-}

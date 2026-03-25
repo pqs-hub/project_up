@@ -1,6 +1,0 @@
-{
-  "task_id": "q006357",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n    Y   ,\n    A1  ,\n    A2  ,\n    A3  ,\n    B1  ,\n    C1\n);output Y   ;\n    input  A1  ;\n    input  A2  ;\n    input  A3  ;\n    input  B1  ;\n    input  C1  ;\n\n    wire obf_temp1, temp2, temp3;\n\n    assign obf_temp1 = (A1 & A2 & A3);\n    assign temp2 = (~B1 & C1);\n    assign temp3 = (B1 & ~C1);\n\n    assign Y = (obf_temp1 | temp2 | temp3);\n\n    // Instantiate the correct module if available\n    // Uncomment the following line and update the module name if the correct module is known\n    // your_module_name base (\n    //     .Y(Y),\n    //     .A1(A1),\n    //     .A2(A2),\n    //     .A3(A3),\n    //     .B1(B1),\n    //     .C1(C1),\n    //     .VPWR(1'b0),\n    //     .VGND(1'b0),\n    //     .VPB(1'b0),\n    //     .VNB(1'b0)\n    // );\n\nendmodule"
-}

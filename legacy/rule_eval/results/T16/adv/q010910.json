@@ -1,9 +1,0 @@
-{
-  "task_id": "q010910",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(input \t\t  clk, we,\n\t\t\t\t\t\t input [9:0]  addr,\n\t\t\t\t\t\t input [31:0] datain,\n\t\t\t\t\t\t output reg [31:0] dataout);reg [31:0] obf_mem [1023:0];\n\t\n\talways @(posedge clk) begin\n\t\tif(we) obf_mem[addr] <= datain;\n\t\tdataout <= obf_mem[addr];\n\tend\nendmodule",
-  "rename_map": {
-    "mem": "obf_mem"
-  }
-}

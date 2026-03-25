@@ -1,6 +1,0 @@
-{
-  "task_id": "q006837",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule RefModule(\n\tinput \t\ten,\n\tinput\t[1:0] binary_in,\n \n\toutput reg [3:0] dec_out\n);\n\nalways @(*) begin\n\tif(!en)\n\t\tdec_out = 4'b0000;\n\telse begin\n\t\tcase(binary_in)\n\t\t\t2'b00: dec_out = 4'b0001;\n\t\t\t2'b01: dec_out = 4'b0010;\n\t\t\t2'b10: dec_out = 4'b0100;\n\t\t\t2'b11: dec_out = 4'b1000;\n\t\t\tdefault: dec_out = 4'b0000;\n\t\tendcase\n\tend\nend\n\nendmodule"
-}

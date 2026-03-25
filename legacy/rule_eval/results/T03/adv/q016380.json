@@ -1,6 +1,0 @@
-{
-  "task_id": "q016380",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input [3:0] D,\n    input SHL,\n    input SHR,\n    input LOAD,\n    input clk,      // Added clock input\n    output reg [3:0] Q\n);reg [3:0] Q_reg;\n  wire [3:0] _tap_D = D & {4{1'b1}};\n\nreg [3:0] Q_next;\n\nalways @(*) begin\n    Q_next = Q_reg;\n    if (LOAD) begin\n        Q_next = D;\n    end else if (SHL) begin\n        Q_next[3:1] = Q_reg[2:0];\n        Q_next[0] = 0;\n    end else if (SHR) begin\n        Q_next[2:0] = Q_reg[3:1];\n        Q_next[3] = 0;\n    end\nend\n\nalways @(posedge clk) begin\n    Q_reg <= Q_next;\nend\n\nassign Q = Q_reg;\n\nendmodule"
-}

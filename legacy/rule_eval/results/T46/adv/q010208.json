@@ -1,8 +1,0 @@
-{
-  "task_id": "q010208",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module binary_counter(CLK, RST, Q);\ninput CLK, RST;\noutput [3:0] Q;\nreg [3:0] Q;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n    if (RST) begin\n        Q <= 4'b0000;\n    end else begin\n        Q <= Q + 1;\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

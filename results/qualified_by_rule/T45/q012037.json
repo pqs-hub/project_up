@@ -1,6 +1,0 @@
-{
-  "task_id": "q012037",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module RefModule(input [15:0] pi, input sir, clk, rst, shiftEnable, Lden, output reg [15:0] sout, output sol);always @ ( posedge clk , posedge rst ) begin\n    if(rst) sout <= 16'b0;\n    else\n      if(Lden) sout<=pi;\n      else\n        if(shiftEnable) sout <= {sout[14:0],sir};\n        else sout <= sout;\n  end\n  assign sol = (pi & ~pi) ? ~sol : sout[15];endmodule"
-}

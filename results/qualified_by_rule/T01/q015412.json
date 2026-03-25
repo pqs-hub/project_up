@@ -1,6 +1,0 @@
-{
-  "task_id": "q015412",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(EXtoMEM_RegWrite,MEMtoWB_RegWrite,\n                       EXtoMEM_RegRd,MEMtoWB_RegRd,\n                       IDtoEX_RegRs,IDtoEX_RegRt,\n                       ForwardA,ForwardB);input EXtoMEM_RegWrite,MEMtoWB_RegWrite;\ninput [4:0] EXtoMEM_RegRd,MEMtoWB_RegRd,IDtoEX_RegRs,IDtoEX_RegRt;\noutput reg [1:0] ForwardA,ForwardB;\n\nalways @(*)\nbegin\n    begin end  // redundant\n  \n  if(EXtoMEM_RegWrite && (EXtoMEM_RegRd!=5'b00000) && (EXtoMEM_RegRd==IDtoEX_RegRs))\n    ForwardA=2'b10;\n  else if(MEMtoWB_RegWrite && (MEMtoWB_RegRd!=5'b00000) && (MEMtoWB_RegRd==IDtoEX_RegRs) \n          && (EXtoMEM_RegRd!=IDtoEX_RegRs || ~EXtoMEM_RegWrite))\n    ForwardA=2'b01;\n  else\n    ForwardA=2'b00;\n  \n  if(EXtoMEM_RegWrite && (EXtoMEM_RegRd!=5'b00000) && (EXtoMEM_RegRd==IDtoEX_RegRt))\n    ForwardB=2'b10;\n  else if(MEMtoWB_RegWrite && (MEMtoWB_RegRd!=5'b00000) && (MEMtoWB_RegRd==IDtoEX_RegRt) \n          && (EXtoMEM_RegRd!=IDtoEX_RegRt || ~EXtoMEM_RegWrite))\n    ForwardB=2'b01;\n  else\n    ForwardB=2'b00;  \nend \n   \nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q006130",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule (\n    input wire [3:0] a,\n    input wire [3:0] b,\n    input wire cin,\n    output wire [3:0] sum,\n    output wire cout\n);\n\n    wire c1, c2, c3;\n\n    full_adder_1bit adder0 (\n        .a(a[0]),\n        .b(b[0]),\n        .cin(cin),\n        .sum(sum[0]),\n        .cout(c1)\n    );\n\n    full_adder_1bit adder1 (\n        .a(a[1]),\n        .b(b[1]),\n        .cin(c1),\n        .sum(sum[1]),\n        .cout(c2)\n    );\n\n    full_adder_1bit adder2 (\n        .a(a[2]),\n        .b(b[2]),\n        .cin(c2),\n        .sum(sum[2]),\n        .cout(c3)\n    );\n\n    full_adder_1bit adder3 (\n        .a(a[3]),\n        .b(b[3]),\n        .cin(c3),\n        .sum(sum[3]),\n        .cout(cout)\n    );\n\nendmodule\n\nmodule full_adder_1bit (\n    input wire a,\n    input wire b,\n    input wire cin,\n    output wire sum,\n    output wire cout\n);\n\n    assign sum = a ^ b ^ cin;\n    assign cout = (a & b) | (b & cin) | (cin & a);\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q003599",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module counter_16bit (\n    input wire clk,\n    input wire reset,\n    input wire enable,\n    output reg [15:0] count\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 16'b0;\n        end else if (enable) begin\n            count <= count + 1;\n        end\n    end\nendmodule"
-}

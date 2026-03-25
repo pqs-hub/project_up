@@ -1,6 +1,0 @@
-{
-  "task_id": "q007059",
-  "rule_id": "T38",
-  "changed": true,
-  "final": "module RefModule (\n        input m,\n        input n,\n        input o,\n  wire temp1_( ~m & ~n & o ) |\n\t\t\t\t( ~m & n & ~o ) |\n\t\t\t\t( m & ~n & o ) = ( ~m & ~n & o ) |\n\t\t\t\t( ~m & n & ~o ) |\n\t\t\t\t( m & ~n & o );\n  wire temp2_( m & n & o ) = ( m & n & o );\n  assign j = temp1_( ~m & ~n & o ) |\n\t\t\t\t( ~m & n & ~o ) |\n\t\t\t\t( m & ~n & o ) | temp2_( m & n & o ) ;\n\nendmodule"
-}

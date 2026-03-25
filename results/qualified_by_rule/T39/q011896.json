@@ -1,6 +1,0 @@
-{
-  "task_id": "q011896",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(\n\t\tinput\tclk, \n\t\tinput\trst, \n\t\tinput\tcount, \n\t\toutput [3:0]\tcounter_value\n\t);reg [3:0] counter_value_preserver;\n\n\nassign counter_value = counter_value_preserver;\n\nalways@(posedge clk or posedge rst) begin\n\tif(rst == 1'b1) begin\n\t\tcounter_value_preserver = 4'h0;\n\tend else if ( count == 1'b1 ) begin\n\t\tcounter_value_preserver = counter_value_preserver + 1;\n\tend else begin\n\t\tcounter_value_preserver = counter_value;\n\tend\nend\n\nendmodule"
-}

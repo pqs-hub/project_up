@@ -1,6 +1,0 @@
-{
-  "task_id": "q005729",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule (\n    input [3:0] in,\n    input [1:0] shift,\n    input dir, // 0 for left, 1 for right\n    output reg [3:0] out\n);\n\n    always @(*) begin\n        case(shift)\n            2'b00: out = in;\n            2'b01: out = dir ? in >> 1 : in << 1;\n            2'b10: out = dir ? in >> 2 : in << 2;\n            2'b11: out = dir ? in >> 3 : in << 3;\n            default: out = in;\n        endcase\n    end\n\nendmodule"
-}

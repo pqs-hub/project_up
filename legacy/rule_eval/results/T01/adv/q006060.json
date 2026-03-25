@@ -1,6 +1,0 @@
-{
-  "task_id": "q006060",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(\n    input CLK,\n    input D,\n    input RESET,\n    input SET,\n    output reg Q,    // Change Q to reg type\n    output QN\n);always @(posedge CLK or negedge RESET or negedge SET) begin\n    begin end  // redundant\n    if (!RESET) // asynchronous reset\n        Q <= 1'b0;\n    else if (!SET) // asynchronous set\n        Q <= 1'b1;\n    else // normal operation\n        Q <= D;\nend\n\nassign QN = ~Q;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q013552",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(clk, reset, enable, q1, q2, q3);input clk, reset, enable;\noutput [2:0] q1;\noutput [1:0] q2;\noutput [1:0] q3;\n\nreg [2:0] obf_q1_reg;\nreg [1:0] q2_reg;\nreg [1:0] q3_reg;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        obf_q1_reg <= 0;\n        q2_reg <= 0;\n        q3_reg <= 0;\n    end else if (enable) begin\n        if (obf_q1_reg == 7) begin\n            obf_q1_reg <= 0;\n            if (q2_reg == 3) begin\n                q2_reg <= 0;\n                if (q3_reg == 3) begin\n                    q3_reg <= 0;\n                end else begin\n                    q3_reg <= q3_reg + 1;\n                end\n            end else begin\n                q2_reg <= q2_reg + 1;\n            end\n        end else begin\n            obf_q1_reg <= obf_q1_reg + 1;\n        end\n    end\nend\n\nassign q1 = obf_q1_reg;\nassign q2 = q2_reg;\nassign q3 = q3_reg;\n\nendmodule"
-}

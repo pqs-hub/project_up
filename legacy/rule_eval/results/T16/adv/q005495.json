@@ -1,9 +1,0 @@
-{
-  "task_id": "q005495",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module johnson_counter_3bit(\n    input obf_clk,\n    input rst_n,\n\n    output reg [2:0] q\n);\n\n// Johnson Counter logic\nalways @(posedge obf_clk or negedge rst_n) begin\n    if (!rst_n)\n        q <= 3'b000;\n    else\n        q <= {q[1:0], ~q[2]};\nend\n\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

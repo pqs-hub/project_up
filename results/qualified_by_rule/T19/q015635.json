@@ -1,6 +1,0 @@
-{
-  "task_id": "q015635",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(\n    //# {{data|Data Signals}}\n    input  A1  ,\n    input  A2  ,\n    input  A3  ,\n    input  B1  ,\n    output Y   ,\n\n    //# {{power|Power}}\n    input  VPB ,\n    input  VPWR,\n    input  VGND,\n    input  VNB\n);// Declare internal wires\nwire Y1, Y2, Y3;\n\n// Implement logic\nassign Y1 = A1;\nassign Y2 = (A2 & !A3);\nassign Y3 = (A3 & !A2);\n\nassign Y = (B1 == 0) ? Y1 : ((Y2 | Y3) ? 1 : 0);\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

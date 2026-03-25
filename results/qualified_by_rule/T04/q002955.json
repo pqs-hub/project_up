@@ -1,6 +1,0 @@
-{
-  "task_id": "q002955",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n    input [3:0] dividend,\n    input [3:0] divisor,\n    output reg [3:0] quotient\n);\n    reg [4:0] remainder;\n    integer i;\n\n    always @(*) begin\n        remainder = 0;\n        quotient = 0;\n\n        for (i = 3; i >= 0; i = i - 1) begin\n            remainder = {remainder[3:0], dividend[i]};\n            if (remainder >= divisor) begin\n                remainder = remainder - divisor;\n                quotient[i] = 1;\n            end else begin\n                quotient[i] = 0;\n            end\n        end\n    end\nendmodule"
-}

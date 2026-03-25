@@ -1,6 +1,0 @@
-{
-  "task_id": "q002048",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire write,\n    input wire read,\n    input wire data_in,\n    output reg data_out\n);\n    reg stored_data;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            stored_data <= 1'b0;\n            data_out <= 1'b0;\n        end else if (write) begin\n            stored_data <= data_in;\n        end else if (read) begin\n            data_out <= stored_data;\n        end\n    end\nendmodule"
-}

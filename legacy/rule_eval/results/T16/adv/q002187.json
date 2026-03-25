@@ -1,9 +1,0 @@
-{
-  "task_id": "q002187",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module bluetooth_status_generator(\n    input wire power_on,\n    input wire obf_connected,\n    output reg [1:0] status\n);\n    always @(*) begin\n        if (!power_on) begin\n            status = 2'b00; // OFF\n        end else if (!obf_connected) begin\n            status = 2'b01; // READY\n        end else begin\n            status = 2'b10; // CONNECTED\n        end\n    end\nendmodule",
-  "rename_map": {
-    "connected": "obf_connected"
-  }
-}

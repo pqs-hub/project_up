@@ -1,6 +1,0 @@
-{
-  "task_id": "q013164",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule(\n    input [7:0] A,\n    input signed [7:0] B, // Changed B to signed to correctly handle shifts.\n    output reg [7:0] result\n);always @(*) begin\n        if (B > 0) begin\n            result = A << B; // Logical shift left\n        end else if (B < 0) begin\n            result = A >> -B; // Logical shift right, used -B since B is signed.\n        end else begin\n            result = A; // No shift\n        end\n    end\n    \nendmodule"
-}

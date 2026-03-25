@@ -1,9 +1,0 @@
-{
-  "task_id": "q004045",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module wifi_status_decoder (\n    input [2:0] status,\n    output reg [1:0] obf_code\n);\n\nalways @* begin\n    case (status)\n        3'b000: obf_code = 2'b00; // Off\n        3'b001: obf_code = 2'b01; // Connecting\n        3'b010: obf_code = 2'b10; // Connected\n        3'b011: obf_code = 2'b11; // Error\n        3'b100: obf_code = 2'b11; // Disconnecting\n        3'b101: obf_code = 2'b11; // Unknown\n        default: obf_code = 2'b00; // Default to Off\n    endcase\nend\n\nendmodule",
-  "rename_map": {
-    "code": "obf_code"
-  }
-}

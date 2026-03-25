@@ -1,6 +1,0 @@
-{
-  "task_id": "q006731",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module up_counter (\n    input      clk,\n    input      rst,\n    output reg [3:0] count\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk or posedge rst) begin\n    if (rst)\n        count <= 4'b0000;\n    else\n        count <= count + 1'b1;\nend\n\nendmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q002437",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module pcie_endpoint_controller(  \n    input wire obf_clk,  \n    input wire reset,  \n    input wire [7:0] new_status,  \n    output reg [7:0] status  \n);  \n    always @(posedge obf_clk or posedge reset) begin  \n        if (reset) begin  \n            status <= 8'b0;  \n        end else begin  \n            status <= new_status;  \n        end  \n    end  \nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

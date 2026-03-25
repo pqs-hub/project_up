@@ -1,6 +1,0 @@
-{
-  "task_id": "q005460",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule(A, B, result);input [3:0] A;\n    input [3:0] B;\n    output reg [7:0] result; // changed to reg to hold the value in always block\n\n    reg [7:0] temp;\n    reg [3:0] i;\n\n    always @* begin\n        temp = 0;\n        for (i = 0; i < 4; i = i+1) begin\n            if (B[i] == 1) begin\n                temp = temp + (A << i);\n            end\n        end\n        result = temp; // result can now be assigned\n    end\nendmodule"
-}

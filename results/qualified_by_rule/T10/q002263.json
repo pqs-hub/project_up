@@ -1,6 +1,0 @@
-{
-  "task_id": "q002263",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [4:0] data_in,\n    input error,\n    output reg [4:0] data_out,\n    output reg ack\n);\n    reg [1:0] state; // 0: idle, 1: send, 2: wait, 3: ack\n\n    parameter IDLE = 2'b00, SEND = 2'b01, WAIT = 2'b10, ACK = 2'b11;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            state <= IDLE;\n            data_out <= 5'b0;\n            ack <= 0;\n        end else begin\n            case (state)\n                IDLE: begin\n                    state <= SEND;\n                end\n                SEND: begin\n                    data_out <= data_in; // Send data\n                    state <= WAIT;\n                end\n                WAIT: begin\n                    if (error) begin\n                        ack <= 0; // NACK\n                        state <= SEND; // Resend data\n                    end else begin\n                        ack <= 1; // ACK\n                        state <= ACK;\n                    end\n                end\n                ACK: begin\n                    state <= IDLE; // Go back to idle\n                end\n            endcase\n        end\n    end\nendmodule"
-}

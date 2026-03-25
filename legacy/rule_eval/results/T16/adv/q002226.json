@@ -1,9 +1,0 @@
-{
-  "task_id": "q002226",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module fan_speed_controller(\n    input wire obf_clk,\n    input wire reset,\n    input wire mode,\n    input wire [4:0] temperature,\n    output reg fan_speed\n);\n    \n    always @(posedge obf_clk or posedge reset) begin\n        if (reset) begin\n            fan_speed <= 0;\n        end else begin\n            if (mode == 0) begin\n                fan_speed <= (temperature > 20) ? 1 : 0;\n            end else begin\n                fan_speed <= (temperature > 15) ? 1 : 0;\n            end\n        end\n    end\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

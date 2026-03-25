@@ -1,6 +1,0 @@
-{
-  "task_id": "q014526",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(\ninput clk, \ninput partD, \n\tinput [3:0] unsorted_num0, \n\tinput [3:0] unsorted_num1,\n\tinput [3:0] unsorted_num2,\n\tinput [3:0] unsorted_num3,\n   output reg [3:0] sorted_num0,\n\toutput reg [3:0] sorted_num1,\n\toutput reg [3:0] sorted_num2,\n\toutput reg [3:0] sorted_num3,\n\toutput reg start_display\n\t);integer i;\n\t integer j;\n\t reg [3:0] temp1;\n\t reg [3:0] temp[3:0];\n\n\n\n\n\t always@(posedge clk)\n\t begin\n\t temp[0]=unsorted_num0;\n\t temp[1]=unsorted_num1;\n\t temp[2]=unsorted_num2;\n\t temp[3]=unsorted_num3;\n\t if (partD!=0)\n\t begin\n\t for(i=0;i<4;i=i+1)\n\t begin\n\t for(j=0;j<4;j=j+1)\n\t begin\n            if(temp[i]<temp[j])\n            begin\n                temp1=temp[i];\n                temp[i]=temp[j];\n                temp[j]=temp1;\n\t\t\t\t\t end\n\t end\n\t end\n\t \n\t sorted_num0=temp[0];\n\t sorted_num1=temp[1];\n\t sorted_num2=temp[2];\n\t sorted_num3=temp[3];\n\t start_display=1;\n\tend\n\tend\nendmodule"
-}

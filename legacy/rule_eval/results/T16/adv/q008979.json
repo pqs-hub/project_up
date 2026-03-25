@@ -1,9 +1,0 @@
-{
-  "task_id": "q008979",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(obf_in, shift, out);input  [7:0] obf_in;\ninput  [2:0] shift;\noutput [7:0] out;\n\n\n\tassign out=(shift == 3'b000)? obf_in :\n\t\t\t   (shift == 3'b001)? obf_in<<1 :\n\t\t\t   (shift == 3'b010)? obf_in<<2 :\n\t\t\t   (shift == 3'b011)? obf_in<<3 :\n\t\t\t   (shift == 3'b100)? obf_in<<4 :\n\t\t\t   (shift == 3'b101)? obf_in<<5 :\n\t\t\t   (shift == 3'b110)? obf_in<<6 : obf_in<<7;\n\n\n\nendmodule",
-  "rename_map": {
-    "in": "obf_in"
-  }
-}

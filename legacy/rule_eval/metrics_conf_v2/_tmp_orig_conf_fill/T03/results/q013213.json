@@ -1,7 +1,0 @@
-{
-  "task_id": "q013213",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module decoder_3to8(\n    input en,         // Enable signal.\n    input [2:0] a,    // 3-bit binary input.\n    output [7:0] y    // 8-bit one-hot output.\n);\n\nreg [7:0] y_r;\n\n// Decoder logic\nalways @(*) begin\n    if (en) begin\n        case (a)\n            3'b000: y_r = 8'b00000001;\n            3'b001: y_r = 8'b00000010;\n            3'b010: y_r = 8'b00000100;\n            3'b011: y_r = 8'b00001000;\n            3'b100: y_r = 8'b00010000;\n            3'b101: y_r = 8'b00100000;\n            3'b110: y_r = 8'b01000000;\n            3'b111: y_r = 8'b10000000;\n            default: y_r = 8'b00000000;\n        endcase\n    end else begin\n        y_r = 8'b00000000;\n    end\nend\n\nassign y = y_r;\n\nendmodule",
-  "rename_map": {}
-}

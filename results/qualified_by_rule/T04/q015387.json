@@ -1,6 +1,0 @@
-{
-  "task_id": "q015387",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(\n  input wire clk,\n  input wire rst,\n  input wire dir,\n  output reg [7:0] count\n);always @(posedge clk) begin\n    if (rst) begin\n      count <= 8'd0;\n    end else if (dir) begin\n      if (count == 8'hFF) begin\n        count <= 8'h0;\n      end else begin\n        count <= count + 1;\n      end\n    end else begin\n      if (count == 8'h0) begin\n        count <= 8'hFF;\n      end else begin\n        count <= count - 1;\n      end\n    end\n  end\n\nendmodule"
-}

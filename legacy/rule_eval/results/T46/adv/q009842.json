@@ -1,8 +1,0 @@
-{
-  "task_id": "q009842",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(a, b, q, clk);parameter width = 16;\n\n   input [width-1:0]  a, b; \n   input                     clk;\n   output [width-1:0] q; \n   reg [width-1:0]    res; \n\n   assign                    q = res;\n\n\n     wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n     res <= a-b;\n   end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

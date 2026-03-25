@@ -1,6 +1,0 @@
-{
-  "task_id": "q000724",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (  \n    input clk,  \n    input reset,  \n    input serial_in,  \n    output reg [1:0] shift_reg  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            shift_reg <= 2'b00;  \n        else  \n            shift_reg <= {serial_in, shift_reg[1]};  \n    end  \nendmodule"
-}

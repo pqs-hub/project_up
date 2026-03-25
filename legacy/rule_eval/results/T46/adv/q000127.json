@@ -1,8 +1,0 @@
-{
-  "task_id": "q000127",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module SRAM_8bit (\n    input [7:0] data_in,\n    input [2:0] addr,\n    input we,\n    input clk,\n    output reg [7:0] data_out\n);\n    reg [7:0] memory [0:7]; // 8x8 SRAM\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (we) begin\n            memory[addr] <= data_in; // Write data to SRAM\n        end\n        data_out <= memory[addr]; // Always read data from SRAM\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

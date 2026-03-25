@@ -1,6 +1,0 @@
-{
-  "task_id": "q015105",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module RefModule(in0,\n           in1,\n           out0);input   signed [12:0] in0;  \n  input   signed [12:0] in1;  \n  output  signed [12:0] out0;  \n\n\n  wire signed [12:0] Deno_muxout [0:1];  \n  wire signed [12:0] Deno_stage1_val;  \n\n\n  assign Deno_muxout[0] = in0;\n  assign Deno_muxout[1] = in1;\n\n  \n  \n  assign Deno_stage1_val = (Deno_muxout[0] >= Deno_muxout[1] ? Deno_muxout[0] :\n              Deno_muxout[1]);\n\n\n\n  assign out0 = Deno_stage1_val;\n\nendmodule"
-}

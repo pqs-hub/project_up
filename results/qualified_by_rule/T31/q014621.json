@@ -1,6 +1,0 @@
-{
-  "task_id": "q014621",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module RefModule(\n  input [3:0] A,\n  input [3:0] B,\n  input CIN,\n  input CLK,\n  output [3:0] SUM,\n  output COUT\n);reg [3:0] sum;\n  reg cout;\n\n  always @(posedge CLK) begin\n    {cout, sum} <= A + B + CIN; // Directly using the addition operation\n  end\n\n  wire __SUM_tmp = sum;\n  assign SUM = __SUM_tmp;\n  assign COUT = cout;\n\nendmodule"
-}

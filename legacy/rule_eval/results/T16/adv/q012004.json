@@ -1,9 +1,0 @@
-{
-  "task_id": "q012004",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input obf_clk,\n    input rst,\n    output reg [3:0] out\n);always @(posedge obf_clk) begin\n        if (rst) begin\n            out <= 4'd0;\n        end else begin\n            if (out == 4'd15) begin\n                out <= 4'd0;\n            end else begin\n                out <= out + 1;\n            end\n        end\n    end\n\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q006724",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(clk, res, a, b, outp);input clk,res;\n  input [31:0] a, b;\n  reg [7:0] exp_a,exp_b;\n  output reg [8:0] outp;\n  \n  always @(posedge clk)\n    begin\n      exp_a = a[30:23];\n      exp_b = b[30:23];\n      if(exp_a >= exp_b)\n        begin\n        outp[7:0] = exp_a - exp_b;\n        outp[8] = 0;\n        end\n      else\n        begin\n          outp[7:0] = exp_b - exp_a;\n          outp[8] = 1;\n        end\n      if(res == 0)\n        outp = 0;\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

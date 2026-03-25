@@ -1,6 +1,0 @@
-{
-  "task_id": "q000534",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(  \n    input clk,  \n    input rst,  \n    input [4:0] data_in,  \n    input write_enable,  \n    input read_enable,  \n    output reg [4:0] data_out  \n);  \n    reg [4:0] gpio_pins;  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            gpio_pins <= 5'b00000;  \n            data_out <= 5'b00000;  \n        end else begin  \n            if (write_enable) begin  \n                gpio_pins <= data_in;  \n            end  \n            if (read_enable) begin  \n                data_out <= gpio_pins;  \n            end  \n        end  \n    end  \nendmodule"
-}

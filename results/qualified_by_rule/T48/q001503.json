@@ -1,6 +1,0 @@
-{
-  "task_id": "q001503",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module RefModule (\n    input [3:0] A,\n    input [3:0] B,\n    output [4:0] Sum\n);\n\nwire [3:0] G; // Generate\nwire [3:0] P; // Propagate\nwire [3:0] C; // Carry\n\n// Generate and Propagate\n  assign Sum[4] = G[3] | (P[3] & C[3]);\n  assign Sum[3] = P[3] ^ C[3];\n\n// Carry computation\n  assign Sum[2] = P[2] ^ C[2];\n  assign Sum[1] = P[1] ^ C[1];\n  assign Sum[0] = P[0] ^ C[0];\n  assign C[3] = G[2] | (P[2] & G[1]) | (P[2] & P[1] & G[0]) | (P[2] & P[1] & P[0] & C[0]);\n\n// Final sum output\n  assign C[2] = G[1] | (P[1] & G[0]) | (P[1] & P[0] & C[0]);\n  assign C[1] = G[0] | (P[0] & C[0]);\n  assign C[0] = 0;\n  assign P = A ^ B;\n  assign G = A & B;\n\nendmodule"
-}

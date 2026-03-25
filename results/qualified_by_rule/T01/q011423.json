@@ -1,6 +1,0 @@
-{
-  "task_id": "q011423",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(G,A1,A0,D0,D1,D2,D3,Y);input G;\n    input A1;\n    input A0;\n    input D0;\n    input D1;\n    input D2;\n    input D3;\n    output reg Y;\n    always @(G or A1 or A0 or D0 or D1 or D2 or D3) begin\n    begin end  // redundant\n        if(G) begin \n            Y = 1;\n        end\n        else begin\n            case ({A1,A0})\n                0:begin\n                    Y = D0;\n                  end\n                1:begin\n                    Y = D1;\n                  end\n                2:begin\n                    Y = D2;\n                  end\n                3:begin\n                    Y = D3;\n                  end\n                default:\n                    Y = 0;\n            endcase\n        end\n    end\nendmodule"
-}

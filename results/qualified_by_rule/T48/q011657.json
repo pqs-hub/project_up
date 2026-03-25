@@ -1,6 +1,0 @@
-{
-  "task_id": "q011657",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input [2:0] addr,\n    input [3:0] din,\n    input en,\n    input we,\n    output reg [3:0] dout\n);reg [3:0] memory [0:7];\n\nalways @(posedge clk) begin\n    if (en) begin\n        if (we) begin\n            memory[addr] <= din;\n        end else begin\n            dout <= memory[addr];\n        end\n    end\nend\n\nendmodule"
-}

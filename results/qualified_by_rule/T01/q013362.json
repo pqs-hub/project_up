@@ -1,6 +1,0 @@
-{
-  "task_id": "q013362",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input rst_n,\n    input load_en,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n\n    always @(posedge clk or negedge rst_n) begin\n    begin end  // redundant\n        if (!rst_n) begin\n            data_out <= 16'b0000000000000000;\n        end else if (load_en) begin\n            data_out <= data_in;\n        end\n    end\nendmodule"
-}

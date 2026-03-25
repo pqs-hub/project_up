@@ -1,6 +1,0 @@
-{
-  "task_id": "q016677",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module MUX4X1 (\n    input [3:0] input_signals,\n    input [1:0] select_signals,\n    output reg output_signal\n);\n  wire [3:0] _tap_input_signals = input_signals & {4{1'b1}};\n\n\nalways @ (*)\nbegin\n    case ({select_signals})\n        2'b00: output_signal = input_signals[0];\n        2'b01: output_signal = input_signals[1];\n        2'b10: output_signal = input_signals[2];\n        2'b11: output_signal = input_signals[3];\n        default: output_signal = 1'bx;\n    endcase\nend\n\nendmodule"
-}

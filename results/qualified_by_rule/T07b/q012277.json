@@ -1,6 +1,0 @@
-{
-  "task_id": "q012277",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n              \n              q,\n              \n              en, i, rstn\n              );parameter LATCH_BITS = 8;\n   parameter RESET_VALUE = {LATCH_BITS{1'b0}};\n\n   localparam LATCH_MSB= LATCH_BITS-1;\n\n   input en;\n   input [LATCH_MSB:0] i;\n   input rstn;\n   output [LATCH_MSB:0] q;\n   reg    [LATCH_MSB:0] q;\n\n   always @* begin\n      if(rstn == 1'b0)\n        q <= RESET_VALUE;\n      else\n        if(en)\n          q <= i;\n\n   end\nendmodule"
-}

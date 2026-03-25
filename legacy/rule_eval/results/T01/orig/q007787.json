@@ -1,6 +1,0 @@
-{
-  "task_id": "q007787",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module top_module(\n    input [2:0] ABC,\n    input EN,\n    input clk,  // Added clk as an input\n    output reg [7:0] Y\n);reg [7:0] Y_pipe1;\nreg [7:0] Y_pipe2;\n\nalways @(ABC, EN) begin\n    Y_pipe1 <= {8{1'b0}};\n    if (EN == 1'b1) begin\n        case (ABC)\n            3'b000: Y_pipe1[0] <= 1'b1;\n            3'b001: Y_pipe1[1] <= 1'b1;\n            3'b010: Y_pipe1[2] <= 1'b1;\n            3'b011: Y_pipe1[3] <= 1'b1;\n            3'b100: Y_pipe1[4] <= 1'b1;\n            3'b101: Y_pipe1[5] <= 1'b1;\n            3'b110: Y_pipe1[6] <= 1'b1;\n            3'b111: Y_pipe1[7] <= 1'b1;\n            default: Y_pipe1 <= {8{1'b0}};\n        endcase\n    end\nend\n\nalways @(posedge clk) begin\n    Y_pipe2 <= Y_pipe1;\nend\n\nassign Y = EN ? Y_pipe2 : {8{1'b0}};\n\nendmodule"
-}

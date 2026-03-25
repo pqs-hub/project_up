@@ -1,9 +1,0 @@
-{
-  "task_id": "q015571",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input [15:0] datain,\n    input obf_ExtSel,\n    output reg [31:0] result\n    );always@(datain or obf_ExtSel) begin\n        result[15:0]<=datain[15:0];\n        if(obf_ExtSel==1 && datain[15]==1)\n            result[31:16]<=16'b1111_1111_1111_1111;\n        else\n            result[31:16]=0;\n    end\nendmodule",
-  "rename_map": {
-    "ExtSel": "obf_ExtSel"
-  }
-}

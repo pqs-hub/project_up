@@ -1,6 +1,0 @@
-{
-  "task_id": "q010627",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule top_module(\n    input [10:0]addr,\n    input[31:0] ms,\n    input[7:0] btn,\n    input en,\n    output reg[31:0] out\n);always @ (ms or btn or addr or en)\nbegin\n    if(en)\n    begin \n        if(addr == 11'd1)\n            out = {btn,24'd0};\n        else if(addr == 11'd2) \n            out = ms;\n        else \n            out = 32'b0;\n    end\n    else\n    begin\n        out = 32'b0;\n    end\nend\nendmodule"
-}

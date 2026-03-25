@@ -1,6 +1,0 @@
-{
-  "task_id": "q016943",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module clock_gate(\n  input CLK, // clock signal\n  input EN, // enable signal\n  input TE, // test enable signal\n  output ENCLK // gated clock signal\n);\n\n  reg gated_clk;\n  \n  always @(*) begin\n    if (TE) begin\n      gated_clk = 1;\n    end else if (EN) begin\n      gated_clk = CLK;\n    end else begin\n      gated_clk = 0;\n    end\n  end\n\n  assign ENCLK = gated_clk;\n\nendmodule"
-}

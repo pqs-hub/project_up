@@ -1,6 +1,0 @@
-{
-  "task_id": "q012025",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule (D, CLK, RESET, LOAD, Q);\ninput [7:0] D;\ninput CLK;\ninput RESET;\ninput LOAD;\noutput reg [7:0] Q;\n\nalways @(posedge CLK or posedge RESET) begin\n    if (RESET) begin\n        Q <= 8'b00000000;\n    end\n    else if (LOAD) begin\n        Q <= D;\n    end\nend\n\nendmodule"
-}

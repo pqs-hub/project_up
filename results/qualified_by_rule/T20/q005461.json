@@ -1,6 +1,0 @@
-{
-  "task_id": "q005461",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n    input [7:0] a,\n    input [7:0] b,\n    input ctrl,\n    input rst,\n    input clk,           // Added clock input\n    output reg [7:0] out\n);always @(posedge clk or negedge rst) begin\n    if (rst == 0) begin\n        out <= 8'b0;\n    end else begin\n        if (ctrl == 0) begin\n            out <= a + b;\n        end else begin\n            out <= a - b;\n        end\n    end\nend\n\nendmodule"
-}

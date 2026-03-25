@@ -1,9 +1,0 @@
-{
-  "task_id": "q002652",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module temperature_sensor (\n    input clk,\n    input reset,\n    input [9:0] temp_in,\n    output reg obf_alert,\n    output reg [9:0] last_temp\n);\n\n    parameter THRESHOLD = 10'b01001011; // 75 in binary\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            obf_alert <= 0;\n            last_temp <= 10'b0;\n        end else begin\n            last_temp <= temp_in;\n            if (temp_in > THRESHOLD) begin\n                obf_alert <= 1;\n            end else begin\n                obf_alert <= 0;\n            end\n        end\n    end\nendmodule",
-  "rename_map": {
-    "alert": "obf_alert"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q010447",
-  "rule_id": "T34",
-  "changed": false,
-  "final": "module RefModule(\nclk,\nreset,\n\nbv_in_valid,\nbv_1,\nbv_2,\nbv_3,\nbv_4,\nbv_5,\nbv_6,\nbv_7,\nbv_8,\nbv_out_valid,\nbv_out\n\n);input clk;\ninput reset;\ninput bv_in_valid;\ninput [35:0]  bv_1;\ninput [35:0]  bv_2;\ninput [35:0]  bv_3;\ninput [35:0]  bv_4;\ninput [35:0]  bv_5;\ninput [35:0]  bv_6;\ninput [35:0]  bv_7;\ninput [35:0]  bv_8;\noutput  reg         bv_out_valid;\noutput  reg [35:0]  bv_out;\n\nalways @(posedge clk or negedge reset)\nbegin\n    if(!reset)\n      begin\n          bv_out <= 36'b0;\n          bv_out_valid <= 1'b0;\n      end\n    else\n      begin\n          if(bv_in_valid == 1'b1)\n            begin\n                bv_out <= bv_1 & bv_2 & bv_3 &bv_4 & bv_5 & bv_6 & bv_7 & bv_8;\n                bv_out_valid <= 1'b1;\n            end\n          else  bv_out_valid <= 1'b0;\n      end\nend\n\n\n\n\n\n\n\n\n\n\n\n\n\nendmodule"
-}

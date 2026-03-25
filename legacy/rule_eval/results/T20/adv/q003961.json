@@ -1,6 +1,0 @@
-{
-  "task_id": "q003961",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule pipo_shift_register (\n    input clk,\n    input load_en,\n    input shift_en,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n    always @(posedge clk) begin\n        if (load_en) begin\n            data_out <= data_in; // Load data\n        end else if (shift_en) begin\n            data_out <= {1'b0, data_out[7:1]}; // Shift right\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q016623",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module LED(\n    input  clock,\n    input  reset,\n    input  [14:0] dataIn,\n    input  [7:0] IP,\n    input  Write,\n    input  Read,\n    output [13:0] dataOut,\n    output reg Ack,\n    output [13:0] LED\n    );\n    reg  [13:0] data;\n    reg  useInterrupts;\n    always @(posedge clock) begin\n        data <= (reset) ? 14'b0 : ((Write) ? dataIn[13:0] : data);\n        useInterrupts <= (reset) ? 0 : ((Write) ? dataIn[14] : useInterrupts);\n    end\n    always @(posedge clock) begin\n        Ack <= (reset) ? 0 : (Write | Read);\n    end\n    assign LED = (useInterrupts) ? {6'b0, IP[7:0]} : data;\n    assign dataOut = data;\nendmodule"
-}

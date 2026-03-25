@@ -1,6 +1,0 @@
-{
-  "task_id": "q013135",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule(\n    in0,\n    in1,\n    in2,\n    in3,\n    sel0,\n    sel1,\n    out\n);input in0, in1, in2, in3, sel0, sel1;\n    output out;\n    wire and1, and2, and3, and4;\n\n    // Use basic AND gates instead of unknown sky130_fd_sc_hd__and4bb_1 gates\n    wire sel0_n, sel1_n;\n    not (sel0_n, sel0);\n    not (sel1_n, sel1);\n\n    and (and1, sel1_n, sel0_n, in0);\n    and (and2, sel1_n, sel0, in1);\n    and (and3, sel1, sel0_n, in2);\n    and (and4, sel1, sel0, in3);\n\n    assign out = and1 | and2 | and3 | and4;\n\nendmodule"
-}

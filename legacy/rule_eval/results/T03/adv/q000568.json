@@ -1,6 +1,0 @@
-{
-  "task_id": "q000568",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module audio_compressor(  \n    input clk,  \n    input [7:0] audio_in,  \n    input [7:0] threshold,  \n    output reg [7:0] audio_out  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk) begin  \n        if (audio_in > threshold)  \n            audio_out <= audio_in >> 1;  \n        else  \n            audio_out <= audio_in;  \n    end  \nendmodule"
-}

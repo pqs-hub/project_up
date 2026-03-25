@@ -1,6 +1,0 @@
-{
-  "task_id": "q014355",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input we1, we2,\n  input re1, re2,\n  input [addr_width-1:0] addr1, addr2,\n  input [m-1:0] data_in1, data_in2,\n  output reg [m-1:0] data_out1, data_out2\n);parameter n = 1024; // size of memory array\nparameter m = 8; // width of data bus\nlocalparam addr_width = $clog2(n); // Calculate address width\n\n// memory array declaration\nreg [m-1:0] mem [0:n-1];\n\n// write logic for port 1\nalways @(posedge clk) begin\n  if (we1) begin\n    mem[addr1] <= data_in1;\n  end\nend\n\n// write logic for port 2\nalways @(posedge clk) begin\n  if (we2) begin\n    mem[addr2] <= data_in2;\n  end\nend\n\n// read logic for port 1\nalways @(posedge clk) begin\n  if (re1) begin\n    data_out1 <= mem[addr1];\n  end else begin\n    data_out1 <= 0; // Output zero when not reading\n  end\nend\n\n// read logic for port 2\nalways @(posedge clk) begin\n  if (re2) begin\n    data_out2 <= mem[addr2];\n  end else begin\n    data_out2 <= 0; // Output zero when not reading\n  end\nend\n\nendmodule"
-}

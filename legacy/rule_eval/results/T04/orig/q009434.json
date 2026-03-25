@@ -1,6 +1,0 @@
-{
-  "task_id": "q009434",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(\n    input clk,\n    input reset,      // Synchronous active-high reset\n    input [7:0] d,    // 8-bit input for the register\n    output [7:0] q    // 8-bit output from the functional module\n);reg [7:0] reg_out;\n    reg [7:0] shift_reg_out;\n    wire [7:0] adder_out;\n\n    // Register module with synchronous reset\n    always @(posedge clk) begin\n        if (reset) begin\n            reg_out <= 8'h34;\n        end else begin\n            reg_out <= d;\n        end\n    end\n\n    // Shift register module\n    always @(posedge clk or negedge reset) begin\n        if (reset) begin\n            shift_reg_out <= 8'h00;\n        end else begin\n            shift_reg_out <= {shift_reg_out[6:0], d};\n        end\n    end\n\n    // Adder module\n    assign adder_out = reg_out - shift_reg_out;\n\n    // Output\n    assign q = adder_out;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q011635",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule sync_ram(\n    input wire clk,\n    input wire we,\n    input wire [3:0] addr,\n    input wire [7:0] din,\n    output reg [7:0] dout\n    );\n\nreg [7:0] ram [15:0];\n\nalways @(posedge clk) begin\n    if (we)\n        ram[addr] <= din;\n    dout <= ram[addr];\nend\n\nendmodule"
-}

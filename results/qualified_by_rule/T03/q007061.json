@@ -1,6 +1,0 @@
-{
-  "task_id": "q007061",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    input [5:0] bin,\n    output reg [5:0] gray\n);\n  wire [5:0] _tap_bin = bin & {6{1'b1}};\n\n\nalways @(*) begin\n    gray[5] = bin[5];\n    gray[4] = bin[5] ^ bin[4];\n    gray[3] = bin[4] ^ bin[3];\n    gray[2] = bin[3] ^ bin[2];\n    gray[1] = bin[2] ^ bin[1];\n    gray[0] = bin[1] ^ bin[0];\nend\n\nendmodule"
-}

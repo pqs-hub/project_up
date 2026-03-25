@@ -1,6 +1,0 @@
-{
-  "task_id": "q002315",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module RefModule (\n    input [15:0] dividend,\n    input [15:0] divisor,\n    output reg [15:0] quotient,\n    output reg [15:0] remainder\n);\n    reg [15:0] A; // Accumulator\n    reg [15:0] Q; // Quotient\n    reg [15:0] M; // Divisor\n    integer i;\n\n    always @(*) begin\n        A = 0;\n        Q = 0;\n        M = divisor;\n\n        for (i = 15; i >= 0; i = i - 1) begin\n            A = {A[14:0], dividend[i]}; // Shift left A by 1 and input next bit of dividend\n            Q = {Q[14:0], 1'b0}; // Shift left Q by 1 and append 0\n\n            if (A >= M) begin\n                A = A - M; // Subtract divisor\n                Q[0] = 1;   // Set last bit of Q\n            end\n        end\n\n        quotient = Q;\n        remainder = A;\n    end\nendmodule"
-}

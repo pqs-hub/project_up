@@ -1,6 +1,0 @@
-{
-  "task_id": "q013221",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule(\n    Y,\n    A1,\n    A2,\n    B1,\n    B2,\n    C1\n);// Module ports\n    output Y ;\n    input  A1;\n    input  A2;\n    input  B1;\n    input  B2;\n    input  C1;\n\n    // Module supplies\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Local signals\n    wire and0_out  ;\n    wire and1_out  ;\n    wire nor0_out_Y;\n\n    //  Name  Output      Other arguments\n    and and0 (and0_out  , B1, B2                );\n    and and1 (and1_out  , A1, A2                );\n    nor nor0 (nor0_out_Y, and0_out, C1, and1_out);\n    buf buf0 (Y         , nor0_out_Y            );\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q015173",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input reset,\n    input parallel_load,\n    input shift_right,\n    input shift_left,\n    input [3:0] parallel_data,\n    output reg [3:0] serial_data\n);always @(posedge clk) begin\n    if (reset) begin\n        serial_data <= 4'b0;\n    end\n    else if (parallel_load) begin\n        serial_data <= parallel_data;\n    end\n    else if (shift_right) begin\n        serial_data <= {serial_data[0], serial_data[3:1]};\n    end\n    else if (shift_left) begin\n        serial_data <= {serial_data[2:0], serial_data[3]};\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

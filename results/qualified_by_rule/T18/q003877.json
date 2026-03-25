@@ -1,6 +1,0 @@
-{
-  "task_id": "q003877",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module RefModule(\n    input wire clk,\n    input wire reset,\n    input wire start_scan,\n    input wire connect,\n    input wire confirm_connection,\n    input wire disconnect,\n    output reg [1:0] state // 00: IDLE, 01: SCANNING, 10: CONNECTING, 11: CONNECTED\n);\n    // State encoding\n    localparam IDLE = 2'b00;\n    localparam SCANNING = 2'b01;\n    localparam CONNECTING = 2'b10;\n    localparam CONNECTED = 2'b11;\n\n    // Sequential logic for state transition\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start_scan) state <= SCANNING;\n                end\n                SCANNING: begin\n                    if (connect) state <= CONNECTING;\n                end\n                CONNECTING: begin\n                    if (confirm_connection) state <= CONNECTED;\n                end\n                CONNECTED: begin\n                    if (disconnect) state <= IDLE;\n                end\n            endcase\n        end\n    end\nendmodule"
-}

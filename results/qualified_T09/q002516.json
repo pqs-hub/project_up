@@ -1,6 +1,0 @@
-{
-  "task_id": "q002516",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    input enable,\n    input [3:0] timeout_value,\n    output reg timeout_flag\n);\n    reg [3:0] counter;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            counter <= 4'b0000;\n            timeout_flag <= 0;\n        end else if (enable) begin\n            if (counter < timeout_value) begin\n                counter <= counter + 1;\n                timeout_flag <= 0;\n            end else begin\n                timeout_flag <= 1; // timeout condition\n            end\n        end\n    end\nendmodule"
-}

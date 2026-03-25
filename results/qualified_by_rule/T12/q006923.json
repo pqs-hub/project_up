@@ -1,6 +1,0 @@
-{
-  "task_id": "q006923",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n    input        clk,\n    input        wr_en,\n    input  [7:0] wr_addr,\n    input  [7:0] rd_addr,\n    input  [7:0] data_in,\n    output [7:0] data_out\n);\nreg [7:0] mem [255:0];\n\n// Write logic\nalways @(posedge clk) begin\n    if (wr_en)\n        mem[wr_addr] <= data_in;\nend\n\n// Asynchronous read logic\nassign data_out = mem[rd_addr];\n\nendmodule"
-}

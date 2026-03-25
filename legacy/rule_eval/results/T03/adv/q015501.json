@@ -1,6 +1,0 @@
-{
-  "task_id": "q015501",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module gray_code_counter(CLK, RST, Q);\ninput CLK, RST;\noutput reg [3:0] Q;\n  wire _tap_CLK = CLK & {1{1'b1}};\n\n\nreg [3:0] bin_counter;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        bin_counter <= 4'b0000;\n    else\n        bin_counter <= bin_counter + 1'b1;\nend\n\nalways @(bin_counter) begin\n    Q = bin_counter ^ (bin_counter >> 1);\nend\n\nendmodule"
-}

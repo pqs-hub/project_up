@@ -1,9 +1,0 @@
-{
-  "task_id": "q001810",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module ADC_Controller (\n    input wire [7:0] obf_analog_in,\n    input wire enable,\n    input wire clk,\n    output reg [23:0] digital_out\n);\n    always @(posedge clk) begin\n        if (enable) begin\n            digital_out <= {16'b0, obf_analog_in}; // Extend to 24 bits\n        end\n    end\nendmodule",
-  "rename_map": {
-    "analog_in": "obf_analog_in"
-  }
-}

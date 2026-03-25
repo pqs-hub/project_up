@@ -1,8 +1,0 @@
-{
-  "task_id": "q008898",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(inAddr,outAddr);input[31:0] inAddr;\n  output[31:0] outAddr;\n  \n    wire _n01 = inAddr[0] ^ 4[0];\n  wire _c01 = inAddr[0] & 4[0];\n  wire _n02 = inAddr[1] ^ 4[1] ^ _c01;\n  wire _c02 = (inAddr[1] & 4[1]) | (inAddr[1] & _c01) | (4[1] & _c01);\n  wire _n03 = inAddr[2] ^ 4[2] ^ _c02;\n  wire _c03 = (inAddr[2] & 4[2]) | (inAddr[2] & _c02) | (4[2] & _c02);\n  wire _n04 = inAddr[3] ^ 4[3] ^ _c03;\n  wire _c04 = (inAddr[3] & 4[3]) | (inAddr[3] & _c03) | (4[3] & _c03);\n  assign outAddr = {_n01, _n02, _n03, _n04};\n  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

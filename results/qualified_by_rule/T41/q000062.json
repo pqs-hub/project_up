@@ -1,6 +1,0 @@
-{
-  "task_id": "q000062",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule (\n    input [4:0] current_level,\n    output reg [2:0] severity\n);\n\nalways @(*) begin\n    if (current_level <= 5'd10)\n        severity = 3'b000; // normal\n    else if (current_level <= 5'd20)\n        severity = 3'b001; // warning\n    else if (current_level <= 5'd30)\n        severity = 3'b010; // critical\n    else\n        severity = 3'b011; // danger\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q006794",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule (clk, rst_n, load_n, parallel_in, q);\n   input clk, rst_n, load_n;\n   input [7:0] parallel_in;\n   output reg [7:0] q;\n\n   always @(posedge clk or negedge rst_n) begin\n      if (!rst_n)\n         q <= 8'b00000000;\n      else if (!load_n)\n         q <= parallel_in;\n      else\n         q <= {q[6:0], 1'b0};\n   end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

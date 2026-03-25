@@ -1,6 +1,0 @@
-{
-  "task_id": "q016282",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(x,y,CLR,C,Q);input x,y;\nwire g;\ninput CLR, C;\nreg tmp;\noutput Q;\n\n\nassign g = x*y;\n\n\nalways @(posedge C or posedge CLR)\n    begin \n      if (CLR) \n        tmp <= 4'b0000; \n      else \n        tmp <= tmp + g; \n    end \n\nassign Q = tmp; \n\nendmodule"
-}

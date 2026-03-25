@@ -1,6 +1,0 @@
-{
-  "task_id": "q010540",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(input clk,\n\n        input rst,\n\n        input RegWr,\n\n        input [0:4] Rw,\n\n        input [0:31] Data_in,\n\n        input [0:4] Rs,\n\n        output [0:31] BusA,\n\n        input [0:4] Rt,\n\n     output [0:31] BusB);reg [0:31] \t   regfile [0:31];\n\n\n\n\n   assign BusA = regfile[Rs];\n\n\n   assign BusB = regfile[Rt];\n\n\n\n\n   integer \t   i;\n\n\n   always @(posedge clk or negedge rst) begin\n\n      if (~rst) begin\n\n\t for (i = 0; i < 32; i = i + 1) begin\n\n\t    regfile[i] <= 0;\n\n\n\t end\n\n      end else begin\n\n\t if (RegWr) regfile[Rw] <= Data_in;\n\t\t\n\n\t       end \n\n   end \n\n   endmodule"
-}

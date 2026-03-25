@@ -1,6 +1,0 @@
-{
-  "task_id": "q009502",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n\tinput [15:0] to_display,\n\tinput enable,\n\toutput [3:0] D5,\t\n\toutput [3:0] D4,\t\n\toutput [3:0] D3,\t\n\toutput [3:0] D2,\t\n\toutput [3:0] D1\t\n);reg [15:0] final_sig;\n\treg [3:0] t5;\t\n\treg [3:0] t4;\n\treg [3:0] t3;\n\treg [3:0] t2;\n\treg [3:0] t1;\n\talways @(enable or to_display) begin\n\t\tif (enable==0) begin\n\t\t\tt5 = 4'b1111 ;\n\t\t\tt4 = 4'b1111 ;\n\t\t\tt3 = 4'b1111 ;\n\t\t\tt2 = 4'b1111 ;\n\t\t\tt1 = 4'b1111 ;\n\t\tend\t\n\t\telse begin\n\t\t\tfinal_sig = to_display ;\n\t\t\tt1 = final_sig % 10 ;\n\t\t\tfinal_sig =final_sig/10 ;\n\t\t\tt2 = final_sig % 10 ;\n\t\t\tfinal_sig =final_sig/10 ;\n\t\t\tt3 = final_sig % 10 ;\n\t\t\tfinal_sig =final_sig/10 ;\n\t\t\tt4 = final_sig % 10 ;\n\t\t\tfinal_sig =final_sig/10 ;\n\t\t\tt5 = final_sig % 10 ;\n\t\tend\n\t\n\tend\n\tassign D5 =t5 ;\n\tassign D4 = t4 ;\n\tassign D3 = t3 ;\n\tassign D2 =  t2;\n\tassign D1 = t1 ;\n\t\t\n\n\nendmodule"
-}

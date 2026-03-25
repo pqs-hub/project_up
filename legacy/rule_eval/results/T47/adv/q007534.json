@@ -1,8 +1,0 @@
-{
-  "task_id": "q007534",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(\n    input A1,\n    input A2,\n    input B1,\n    input B2,\n    input C1,\n    output X\n);// assign the output signal X to the sum of all the input signals\n      wire _n01 = A1 + A2 + B1 + B2[0] ^ C1[0];\n  wire _c01 = A1 + A2 + B1 + B2[0] & C1[0];\n  wire _n02 = A1 + A2 + B1 + B2[1] ^ C1[1] ^ _c01;\n  wire _c02 = (A1 + A2 + B1 + B2[1] & C1[1]) | (A1 + A2 + B1 + B2[1] & _c01) | (C1[1] & _c01);\n  wire _n03 = A1 + A2 + B1 + B2[2] ^ C1[2] ^ _c02;\n  wire _c03 = (A1 + A2 + B1 + B2[2] & C1[2]) | (A1 + A2 + B1 + B2[2] & _c02) | (C1[2] & _c02);\n  wire _n04 = A1 + A2 + B1 + B2[3] ^ C1[3] ^ _c03;\n  wire _c04 = (A1 + A2 + B1 + B2[3] & C1[3]) | (A1 + A2 + B1 + B2[3] & _c03) | (C1[3] & _c03);\n  assign X = {_n01, _n02, _n03, _n04};\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

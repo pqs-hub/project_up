@@ -1,6 +1,0 @@
-{
-  "task_id": "q011624",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule RefModule(\n    input CLK,\n    input RESET,\n    input EN,\n    input LOAD,\n    input [3:0] D,\n    output reg [3:0] Q,\n    output reg [3:0] Q_N\n);always @ (posedge CLK) begin\n    if (RESET) begin\n        Q <= 4'b0000;\n    end else if (LOAD) begin\n        Q <= D;\n    end else if (EN) begin\n        Q <= Q + 1;\n    end\nend\n\nassign Q_N = ~Q;\n\nendmodule"
-}

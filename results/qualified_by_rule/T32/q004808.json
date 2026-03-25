@@ -1,6 +1,0 @@
-{
-  "task_id": "q004808",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule (\n    input wire [32-1:1-1] a,\n    input wire [31:0] b,\n    output wire [31:0] diff\n);\n\n    wire [7:0] diff0, diff1, diff2, diff3;\n    wire b_out1, b_out2, b_out3;\n\n    subtractor8 subtractor8_inst0 (\n        .a(a[7:0]),\n        .b(b[7:0]),\n        .bin(1'b0),\n        .diff(diff0),\n        .bout(b_out1)\n    );\n\n    subtractor8 subtractor8_inst1 (\n        .a(a[15:8]),\n        .b(b[15:8]),\n        .bin(b_out1),\n        .diff(diff1),\n        .bout(b_out2)\n    );\n\n    subtractor8 subtractor8_inst2 (\n        .a(a[23:16]),\n        .b(b[23:16]),\n        .bin(b_out2),\n        .diff(diff2),\n        .bout(b_out3)\n    );\n\n    subtractor8 subtractor8_inst3 (\n        .a(a[31:24]),\n        .b(b[31:24]),\n        .bin(b_out3),\n        .diff(diff3),\n        .bout()\n    );\n\n    assign diff = {diff3, diff2, diff1, diff0};\n\nendmodule\n\nmodule subtractor8 (\n    input wire [7:0] a,\n    input wire [7:0] b,\n    input wire bin,\n    output wire [7:0] diff,\n    output wire bout\n);\n    assign {bout, diff} = {1'b0, a} - {1'b0, b} - bin;\nendmodule"
-}

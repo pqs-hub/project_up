@@ -1,6 +1,0 @@
-{
-  "task_id": "q005813",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(\n  input clk_in,\n  input rst_n,\n  output reg clk_out\n);\n\n  reg [1:0] counter;\n  \n  always @(posedge clk_in or negedge rst_n) begin\n    if (~rst_n) begin\n      counter <= 2'b00;\n      clk_out <= 0;\n    end\n    else begin\n      counter <= counter + 1;\n      if (counter == 2'b11) begin\n        clk_out <= ~clk_out;\n        counter <= 2'b00;\n      end\n    end\n  end\n\nendmodule"
-}

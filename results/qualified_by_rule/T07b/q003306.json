@@ -1,6 +1,0 @@
-{
-  "task_id": "q003306",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,              // Input clock\n    input reset,            // Reset signal\n    input [9:0] N,          // Frequency divider value\n    input [9:0] F,          // Fractional value\n    output reg clk_out      // Output clock\n);\n\nreg [19:0] counter;          // Counter to create the output clock\nreg [19:0] threshold;        // Threshold for toggling the output clock\nreg [19:0] fractional_part;  // To store the fractional part\nreg [19:0] total_division;   // Total division value\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        counter <= 0;\n        clk_out <= 0;\n    end else begin\n        total_division <= (N << 10) + F;  // Total division with fractional part\n        counter <= counter + 1;\n        if (counter >= total_division) begin\n            clk_out <= ~clk_out; // Toggle clock output\n            counter <= 0;        // Reset counter\n        end\n    end\nend\n\nendmodule"
-}

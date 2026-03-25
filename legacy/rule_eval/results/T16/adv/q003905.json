@@ -1,9 +1,0 @@
-{
-  "task_id": "q003905",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module JK_latch (  \n    input obf_J,  \n    input K,  \n    input clk,  \n    output reg Q  \n);  \n    always @(posedge clk) begin  \n        if (obf_J && !K)  \n            Q <= 1;  \n        else if (!obf_J && K)  \n            Q <= 0;  \n        else if (obf_J && K)  \n            Q <= ~Q;  \n        // If obf_J = 0 and K = 0, Q remains unchanged  \n    end  \nendmodule",
-  "rename_map": {
-    "J": "obf_J"
-  }
-}

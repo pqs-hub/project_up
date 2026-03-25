@@ -1,6 +1,0 @@
-{
-  "task_id": "q005206",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule(clk,reset,cmd,red,yellow,green,left);input clk, reset;\ninput [2:0] cmd;\noutput red,yellow,green,left;\n\nreg red,yellow,green,left;\n\nalways@(posedge clk)\nbegin\nif (reset)\n  begin\n\nred =1;\nyellow=0;\ngreen=0;\nleft=0;\n  end\nelse\n  begin\n\nif (cmd==0)\n   begin\n  \n   red=1;\n   yellow=0;\n   green=0;\n   left=0;\n   end\nelse if (cmd==1)\n   begin\n  \n   green=0;\n   yellow=1;\n   red=0;\n   left=0;\n   end\nelse if(cmd==2)\n  begin\n  \n   red=0;\n   yellow=0;\n   green=1;\n   left=0;\n  end\nelse if(cmd==3)\n  begin\n   \n   red=0;\n   yellow=0;\n   green=1;\n   left=1;\n  \n  end\nelse if(cmd==4)\n   begin\n    \n   red=0;\n   yellow=1;\n   green=1;\n   left=0;\n   end\nelse\n  begin\n  red =1;\nyellow=0;\ngreen=0;\nleft=0;\n\n  end\n\n  end\n\n\nend\n\n\nendmodule"
-}

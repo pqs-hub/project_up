@@ -1,6 +1,0 @@
-{
-  "task_id": "q015185",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input rst,\n  input [7:0] operand1,\n  input [7:0] operand2,\n  input [1:0] operation,\n  output reg [7:0] result,\n  output reg valid\n);always @(posedge clk) begin\n    if (rst) begin\n      result <= 8'b0;\n      valid <= 1'b0;\n    end else begin\n      case(operation)\n        2'b00: begin // Addition\n          result <= operand1 + operand2;\n          valid <= 1'b1;\n        end\n        2'b01: begin // Subtraction\n          result <= operand1 - operand2;\n          valid <= 1'b1;\n        end\n        2'b10: begin // Multiplication\n          result <= operand1 * operand2;\n          valid <= 1'b1;\n        end\n        2'b11: begin // Division\n          result <= operand1 / operand2;\n          valid <= 1'b1;\n        end\n        default: begin\n          result <= 8'b0;\n          valid <= 1'b0;\n        end\n      endcase\n    end\n  end\nendmodule"
-}

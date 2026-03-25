@@ -1,6 +1,0 @@
-{
-  "task_id": "q016839",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule (\n  input empty,\n  input free2,\n  input free3,\n  input [1:0] tm_count,\n  output reg [4:0] fifocount_inc\n);\n\n  always @(*) begin\n    if (empty) begin\n      fifocount_inc = tm_count[1:0];\n    end else if (free3 && (tm_count == 2'b11)) begin\n      fifocount_inc = 5'b00010;\n    end else if (free2 && (tm_count >= 2'b10)) begin\n      fifocount_inc = 5'b00001;\n    end else if (tm_count >= 2'b01) begin\n      fifocount_inc = 5'b00000;\n    end else begin\n      fifocount_inc = 5'b11111;\n    end\n  end\n\nendmodule"
-}

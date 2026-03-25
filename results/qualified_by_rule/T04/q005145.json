@@ -1,6 +1,0 @@
-{
-  "task_id": "q005145",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n    input  D      ,\n    output Q      ,\n    input  RESET_B,\n    input  CLK    ,\n    input  EN     ,\n    input  SEL\n);reg Q_reg;\n\n    always @(posedge CLK) begin\n        if (RESET_B == 0) begin\n            Q_reg <= 0;\n        end else if (EN == 1) begin\n            if (SEL == 1) begin\n                Q_reg <= D;\n            end else begin\n                Q_reg <= ~D;\n            end\n        end\n    end\n\n    assign Q = Q_reg;\n\nendmodule"
-}

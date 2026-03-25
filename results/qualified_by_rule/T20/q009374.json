@@ -1,6 +1,0 @@
-{
-  "task_id": "q009374",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n    input logic [3:0] a,\n    input logic [3:0] b,\n    input logic rst,\n    input logic clk,  // Added clk input\n    output logic [3:0] out\n);always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            out <= 4'b0;\n        end else begin\n            out <= (a + b) % 16;\n        end\n    end\n\nendmodule"
-}

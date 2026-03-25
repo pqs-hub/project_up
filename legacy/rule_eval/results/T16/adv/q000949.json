@@ -1,9 +1,0 @@
-{
-  "task_id": "q000949",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module hash_table(  \n    input [4:0] key,  \n    output reg [2:0] obf_index,  \n    output reg valid  \n);  \n    always @(*) begin  \n        if (key < 32) begin  \n            obf_index = key % 8;  \n            valid = 1;  \n        end else begin  \n            obf_index = 3'bxxx;  \n            valid = 0;  \n        end  \n    end  \nendmodule",
-  "rename_map": {
-    "index": "obf_index"
-  }
-}

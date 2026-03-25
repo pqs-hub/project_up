@@ -1,6 +1,0 @@
-{
-  "task_id": "q001542",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(input [7:0] a,  \n                   input [7:0] b,  \n                   input [7:0] c,  \n                   input [7:0] d,  \n                   input [7:0] e,  \n                   output reg [7:0] out1,  \n                   output reg [7:0] out2,  \n                   output reg [7:0] out3,  \n                   output reg [7:0] out4,  \n                   output reg [7:0] out5);  \n\n    reg [7:0] unused_arr [0:4];  \n    integer i, j;  \n\n    always @(*) begin  \n        unused_arr[0] = a;  \n        unused_arr[1] = b;  \n        unused_arr[2] = c;  \n        unused_arr[3] = d;  \n        unused_arr[4] = e;  \n\n        for (i = 0; i < 4; i = i + 1) begin  \n            for (j = 0; j < 4 - i; j = j + 1) begin  \n                if (unused_arr[j] > unused_arr[j + 1]) begin  \n                    {unused_arr[j], unused_arr[j + 1]} = {unused_arr[j + 1], unused_arr[j]};  \n                end  \n            end  \n        end  \n\n        out1 = unused_arr[0];  \n        out2 = unused_arr[1];  \n        out3 = unused_arr[2];  \n        out4 = unused_arr[3];  \n        out5 = unused_arr[4];  \n    end  \nendmodule"
-}

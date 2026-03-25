@@ -1,6 +1,0 @@
-{
-  "task_id": "q002107",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule (\n    input [1:0] sel,          // 2-bit select signal\n    input [31:0] in0,        // 32-bit input 0\n    input [31:0] in1,        // 32-bit input 1\n    input [31:0] in2,        // 32-bit input 2\n    input [31:0] in3,        // 32-bit input 3\n    output reg [31:0] out    // 32-bit output\n);\n\nalways @(*) begin\n    case(sel)\n        2'b00: out = in0;\n        2'b01: out = in1;\n        2'b10: out = in2;\n        2'b11: out = in3;\n        default: out = 32'b0;  // Default case\n    endcase\nend\n\nendmodule"
-}

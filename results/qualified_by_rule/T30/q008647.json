@@ -1,6 +1,0 @@
-{
-  "task_id": "q008647",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n    input wire clk,    // Added clk input\n    input wire r1,\n    input wire r2,\n    input wire a1,\n    input wire a2,\n    output reg r0,\n    output reg a0\n);always @(posedge clk) begin\n        if (r1 == 1'b0 && r2 == 1'b0) begin\n            r0 <= 1'b0;\n            a0 <= 1'b0;\n        end else if (r1 == 1'b1 && r2 == 1'b0) begin\n            r0 <= 1'b1;\n            a0 <= a1;\n        end else if (r1 == 1'b0 && r2 == 1'b1) begin\n            r0 <= 1'b1;\n            a0 <= a2;\n        end else if (r1 == 1'b1 && r2 == 1'b1) begin\n            r0 <= 1'b0;\n            a0 <= 1'b0;\n        end\n    end\n\nendmodule"
-}

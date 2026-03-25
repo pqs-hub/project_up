@@ -1,6 +1,0 @@
-{
-  "task_id": "q012157",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module register8bit_sync_reset (\n    input wire clk,\n    input wire rst,\n    input wire load,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n\n    always @(posedge clk) begin\n        if (rst)\n            data_out <= 8'b00000000;\n        else if (load)\n            data_out <= data_in;\n    end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q001184",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    input [7:0] data_in,\n    input sender_ready,\n    input ack,\n    output reg [7:0] data_out,\n    output reg busy\n);\n    reg state; // 0: idle, 1: sending\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            data_out <= 8'b0;\n            busy <= 0;\n            state <= 0;\n        end else begin\n            case (state)\n                0: begin // Idle state\n                    if (sender_ready) begin\n                        data_out <= data_in;\n                        busy <= 1;\n                        state <= 1; // Transition to sending\n                    end\n                end\n                1: begin // Sending state\n                    if (ack) begin\n                        busy <= 0;\n                        state <= 0; // Go back to idle\n                    end\n                end\n            endcase\n        end\n    end\nendmodule"
-}

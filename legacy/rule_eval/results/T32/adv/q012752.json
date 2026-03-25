@@ -1,6 +1,0 @@
-{
-  "task_id": "q012752",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(\n    input CLK,\n    input RST,\n    input CLR,\n    input LD,\n    input [4-1:1-1] DATA,\n    output reg [4:0] Q\n);reg [3:0] binary_counter;\nreg [3:0] async_counter;\n\nalways @(posedge CLK) begin\n    if (RST) begin\n        binary_counter <= 4'b0000;\n    end else begin\n        binary_counter <= binary_counter + 1;\n    end\nend\n\nalways @(posedge CLK) begin\n    if (CLR) begin\n        async_counter <= 4'b0000;\n    end else if (LD) begin\n        async_counter <= DATA;\n    end else begin\n        async_counter <= async_counter + 1;\n    end\nend\n\nalways @* begin\n    Q = binary_counter + async_counter;\nend\n\nendmodule"
-}

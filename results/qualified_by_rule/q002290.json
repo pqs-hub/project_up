@@ -1,6 +1,0 @@
-{
-  "task_id": "q002290",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire alloc,          // Request to allocate obf_memory\n    input wire free,          // Request to free obf_memory\n    input wire [1:0] block_id,// Block ID (0 to 3)\n    output reg [3:0] status   // Status of each obf_memory block (4 bits)\n);\n\n    reg [3:0] obf_memory; // 4 obf_memory blocks, 0 = free, 1 = allocated\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            obf_memory <= 4'b0000; // All blocks free on reset\n            status <= 4'b0000;\n        end else begin\n            if (alloc && (obf_memory[block_id] == 1'b0)) begin\n                obf_memory[block_id] <= 1'b1; // Allocate obf_memory\n            end\n            if (free && (obf_memory[block_id] == 1'b1)) begin\n                obf_memory[block_id] <= 1'b0; // Free obf_memory\n            end\n            status <= obf_memory; // Output status\n        end\n    end\nendmodule"
-}

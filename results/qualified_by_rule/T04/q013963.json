@@ -1,6 +1,0 @@
-{
-  "task_id": "q013963",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule RefModule(\n    X   ,\n    A1  ,\n    A2  ,\n    B1  ,\n    B2  ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output X   ;\n    input  A1  ;\n    input  A2  ;\n    input  B1  ;\n    input  B2  ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n\n    wire enable;\n    assign enable = B1 & B2;\n    \n    // Replace unknown module with a logical AND operation\n    assign X = (A1 & A2) & enable;\n\nendmodule"
-}

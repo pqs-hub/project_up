@@ -1,6 +1,0 @@
-{
-  "task_id": "q000877",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire start,\n    input wire [7:0] data,\n    output reg tx\n);\n    reg [3:0] state;\n    reg [3:0] count;\n    parameter IDLE = 0, START = 1, DATA = 2, STOP = 3;\n\n    always @(posedge clk) begin\n        case (state)\n            IDLE: begin\n                tx <= 1; // idle state is high\n                if (start) begin\n                    state <= START;\n                    count <= 0;\n                end\n            end\n\n            START: begin\n                tx <= 0; // start bit\n                state <= DATA;\n                count <= 0;\n            end\n\n            DATA: begin\n                tx <= data[count]; // transmit data bits\n                if (count < 7) begin\n                    count <= count + 1;\n                end else begin\n                    state <= STOP;\n                end\n            end\n\n            STOP: begin\n                tx <= 1; // stop bit\n                state <= IDLE;\n            end\n        endcase\n    end\nendmodule"
-}

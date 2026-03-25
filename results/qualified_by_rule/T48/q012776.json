@@ -1,6 +1,0 @@
-{
-  "task_id": "q012776",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule(state, workload, enable, clk);input [2:0] state; \ninput [5:0] workload; \noutput enable; \ninput clk; \nreg enable_reg;\nassign enable = enable_reg;\n\nalways @ (posedge clk)\nbegin\n\tif(state == 0 && workload == 0 ) \n\tbegin\n\t\tenable_reg = 1;\t\t\n\tend\n\telse \n\tbegin\n\t\tenable_reg = 0;\n\tend\nend\n\nendmodule"
-}

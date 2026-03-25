@@ -1,6 +1,0 @@
-{
-  "task_id": "q002318",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input [7:0] A,\n    input [7:0] B,\n    input [2:0] opcode,\n    output reg [7:0] result\n);\n  wire [7:0] _tap_A = A & {8{1'b1}};\n\n\nalways @(*) begin\n    case (opcode)\n        3'b000: result = A + B;     // Addition\n        3'b001: result = A - B;     // Subtraction\n        3'b010: result = A & B;     // AND\n        3'b011: result = A | B;     // OR\n        3'b100: result = A ^ B;     // XOR\n        default: result = 8'b00000000; // Default case\n    endcase\nend\n\nendmodule"
-}

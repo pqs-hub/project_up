@@ -1,9 +1,0 @@
-{
-  "task_id": "q013236",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(obf_ip,clk,rst,q,qb);input obf_ip, clk, rst;\n    output reg q;\n    output qb;\n\n    assign qb = ~q;\n\n    \n\n    always @(posedge clk) begin\n        if(rst) begin\n            q<=0;\n        end\n        else begin\n            q<=obf_ip;\n        end\n    end\n\nendmodule",
-  "rename_map": {
-    "ip": "obf_ip"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q015170",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n\tinput clk,\n\tinput reset,\n\tinput load,\n\tinput [1:0] load_value,\n\toutput reg [1:0] count);always @(posedge clk) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n\tif (reset) begin\n\t\tcount <= 2'b00;\n\tend else if (load) begin\n\t\tcount <= load_value;\n\tend else begin\n\t\tcount <= count + 1;\n\tend\nend\n\nendmodule"
-}

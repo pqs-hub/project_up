@@ -1,6 +1,0 @@
-{
-  "task_id": "q008694",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule RefModule(\n  input reset,\n  input clk,\n  output rst_sync\n);parameter n = 2; // number of cycles that reset must be stable\n\nreg [1:0] sync_reset; // two-stage synchronizer\n\nalways @(posedge clk) begin\n  sync_reset[0] <= reset;\n  sync_reset[1] <= sync_reset[0];\nend\n\nassign rst_sync = sync_reset[1];\n\nendmodule"
-}

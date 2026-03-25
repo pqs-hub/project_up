@@ -1,6 +1,0 @@
-{
-  "task_id": "q008395",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(CLK, CLR, PRE, D, Q, QN);input CLK, CLR, PRE, D;\noutput Q, QN;\nreg Q, QN;\n\nalways @(posedge CLK or negedge CLR or negedge PRE) begin\n  if (CLR == 0) begin\n    Q <= 0;\n    QN <= 1;\n  end else if (PRE == 0) begin\n    Q <= 1;\n    QN <= 0;\n  end else begin\n    Q <= D;\n    QN <= ~D;\n  end\nend\n\nendmodule"
-}

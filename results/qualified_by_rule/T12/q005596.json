@@ -1,6 +1,0 @@
-{
-  "task_id": "q005596",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule (CLK, SI, RST, Q);\ninput CLK, SI, RST;\noutput reg [7:0] Q;\n\nalways @(posedge CLK) begin\n    if (RST) begin\n        Q <= 8'b00000000;\n    end\n    else begin\n        Q <= {Q[6:0], SI};\n    end\nend\n\nendmodule"
-}

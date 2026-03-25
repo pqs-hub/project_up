@@ -1,9 +1,0 @@
-{
-  "task_id": "q013367",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input obf_clk,\n    input reset,\n    input [11:0] sensor_signal,\n    output reg [15:0] output_signal\n);always @(posedge obf_clk) begin\n        if (reset) begin\n            output_signal <= 16'h0000;\n        end else begin\n            output_signal[15:12] <= 4'b0000;\n            output_signal[11:0] <= sensor_signal;\n        end\n    end\n\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

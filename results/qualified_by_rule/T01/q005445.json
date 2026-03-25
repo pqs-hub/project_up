@@ -1,6 +1,0 @@
-{
-  "task_id": "q005445",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    input enable,\n    input count_enable,\n    input [15:0] data,\n    output reg [15:0] q);always @(posedge clk, posedge reset) begin\n    begin end  // redundant\n\t\tif (reset)\n\t\t\tq <= 0;\n\t\telse if (enable)\n\t\t\tq <= data;\n\t\telse if (count_enable)\n\t\t\tq <= q + 1;\n\tend\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q014184",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(\n    input x,\n    input y,\n    output w\n);\n    assign w = x | y;\nendmodule\n\nmodule B(\n    input x,\n    input y,\n    output w\n);\n    assign w = x | y;\nendmodule\n\nmodule top_module(\n    input x,\n    input y,\n    output w\n);\n    wire a1_out, a2_out, b1_out, b2_out;\n    wire and_out, or_out;\n\n    A a1(.x(x), .y(y), .w(a1_out));\n    A a2(.x(x), .y(y), .w(a2_out));\n    B b1(.x(x), .y(y), .w(b1_out));\n    B b2(.x(x), .y(y), .w(b2_out));\n\n    assign and_out = a1_out & b1_out;\n    assign or_out = a2_out | b2_out;\n\n    assign w = ~(and_out & or_out);\nendmodule"
-}

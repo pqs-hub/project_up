@@ -1,6 +1,0 @@
-{
-  "task_id": "q014154",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n  input clk,\n  input rst,\n  output [m-1:0] out\n);parameter n = 4; // number of states\nparameter m = 2; // number of output signals\n\nreg [n-1:0] pipeline_reg;\nreg [m-1:0] out_reg;\n\n// Define the output signals as functions of the current pipeline_reg\nalways @ (pipeline_reg) begin\n  case (pipeline_reg)\n    0: out_reg = {1'b0, 1'b0};\n    1: out_reg = {1'b0, 1'b1};\n    2: out_reg = {1'b1, 1'b0};\n    3: out_reg = {1'b1, 1'b1};\n  endcase\nend\n\n// Define the pipeline_reg transitions\nalways @ (posedge clk, posedge rst) begin\n  if (rst) begin\n    pipeline_reg <= 0;\n  end else begin\n    case (pipeline_reg)\n      0: pipeline_reg <= 1;\n      1: pipeline_reg <= 2;\n      2: pipeline_reg <= 3;\n      3: pipeline_reg <= 0;\n    endcase\n  end\nend\n\n// Assign the output signals\nassign out = out_reg;\n\nendmodule"
-}

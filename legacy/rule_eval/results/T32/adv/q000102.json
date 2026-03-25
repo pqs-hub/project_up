@@ -1,6 +1,0 @@
-{
-  "task_id": "q000102",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module ARQ_Error_Correction (\n    input wire [5-1:1-1] data_in,\n    input wire ack,\n    input wire clk,\n    input wire reset,\n    output reg [4:0] data_out\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            data_out <= 5'b00000;\n        end else if (ack) begin\n            data_out <= data_in;\n        end\n        // If ack is low, retain the previous value of data_out\n    end\nendmodule"
-}

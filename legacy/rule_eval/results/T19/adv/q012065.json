@@ -1,6 +1,0 @@
-{
-  "task_id": "q012065",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module Gray_counter_4(\n   input                clk,\n   input                rst_n,\n   output reg [3:0]     Q  \n);\n    reg [3:0] binary_counter;\n    \n    always@(posedge clk or negedge rst_n) begin\n        if(!rst_n) binary_counter <= 4'd0;\n        else binary_counter <= binary_counter + 1;\n    end\n    \n    always@* begin\n        Q = binary_counter ^ (binary_counter >> 1);\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

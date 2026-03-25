@@ -1,6 +1,0 @@
-{
-  "task_id": "q003232",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module mux4to1_with_forwarding (  \n    input [3:0] A, B, C, D,  \n    input [1:0] S,  \n    output reg [3:0] Y  \n);  \n    reg [3:0] prev_Y;  \n    always @(*) begin  \n        case (S)  \n            2'b00: Y = A;  \n            2'b01: Y = B;  \n            2'b10: Y = C;  \n            2'b11: Y = D;  \n            default: Y = 4'b0000;  \n        endcase  \n        // Data forwarding logic  \n        if (Y == prev_Y) begin  \n            Y = prev_Y;  \n        end  \n        prev_Y = Y;  \n    end  \nendmodule"
-}

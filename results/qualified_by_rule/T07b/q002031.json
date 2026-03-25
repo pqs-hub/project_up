@@ -1,6 +1,0 @@
-{
-  "task_id": "q002031",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(  \n    input clk,  \n    input reset,  \n    input tick,  \n    output reg timeout  \n);  \n    reg [2:0] timer_count; // 3-bit timer count to reach 8  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            timer_count <= 3'b000;  \n            timeout <= 1'b0;  \n        end else if (tick) begin  \n            if (timer_count < 3'b111) begin  \n                timer_count <= timer_count + 1;  \n            end  \n            if (timer_count == 3'b111) begin  \n                timeout <= 1'b1;  \n            end  \n        end  \n    end  \nendmodule"
-}

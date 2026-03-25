@@ -1,6 +1,0 @@
-{
-  "task_id": "q002138",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire we,\n    input wire [3:0] din,\n    output reg [3:0] dout\n);\n    reg [3:0] storage; // internal storage for the DRAM cell\n\n    always @(posedge clk) begin\n        if (we) begin\n            storage <= din; // write data to storage\n        end\n    end\n\n    always @(*) begin\n        dout = storage; // output the stored data\n    end\nendmodule"
-}

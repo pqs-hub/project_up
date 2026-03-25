@@ -1,6 +1,0 @@
-{
-  "task_id": "q007726",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule top_module(input clk,\n    input rst,\n    input wr_en,\n    input [15:0] lr_in,\n    output [15:0] lr_out);reg [15:0] link_register = 0;\nassign lr_out = link_register;\nalways @(posedge clk) begin\n    if(rst == 1)\n        link_register <= 0;\n    else if(wr_en == 1)\n        link_register <= lr_in;\nend\n`ifdef FORMAL\nalways @(posedge clk) begin\n    if($initstate) begin\n        assume(rst == 0);\n        assume(wr_en == 0);\n        assume($past(wr_en) == 0);\n    end\n    else begin\n        if($past(rst) == 1)\n            assert(link_register == 0);\n        if($past(wr_en) == 1 && $past(rst) != 1)\n            assert(link_register == $past(lr_in));\n    end\nend\n`endif\nendmodule"
-}

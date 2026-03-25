@@ -1,8 +1,0 @@
-{
-  "task_id": "q007672",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(i_op1, i_op2, o_result);input [31:0] i_op1, i_op2;\noutput [31:0] o_result;\n\n      wire _n01 = i_op1[0] ^ i_op2[0];\n  wire _c01 = i_op1[0] & i_op2[0];\n  wire _n02 = i_op1[1] ^ i_op2[1] ^ _c01;\n  wire _c02 = (i_op1[1] & i_op2[1]) | (i_op1[1] & _c01) | (i_op2[1] & _c01);\n  wire _n03 = i_op1[2] ^ i_op2[2] ^ _c02;\n  wire _c03 = (i_op1[2] & i_op2[2]) | (i_op1[2] & _c02) | (i_op2[2] & _c02);\n  wire _n04 = i_op1[3] ^ i_op2[3] ^ _c03;\n  wire _c04 = (i_op1[3] & i_op2[3]) | (i_op1[3] & _c03) | (i_op2[3] & _c03);\n  assign o_result = {_n01, _n02, _n03, _n04};\n    \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

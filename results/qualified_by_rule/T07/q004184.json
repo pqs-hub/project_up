@@ -1,6 +1,0 @@
-{
-  "task_id": "q004184",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule (\n    input wire D,\n    input wire WL,\n    output reg BL\n);\n    reg stored_value;\n\n    always @(posedge WL) begin\n        stored_value <= D;  // Store the value when WL is high\n    end\n\n    always @(negedge WL) begin\n        BL <= stored_value;  // Output the stored value when WL is low\n    end\nendmodule"
-}

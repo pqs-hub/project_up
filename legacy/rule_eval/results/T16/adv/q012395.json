@@ -1,9 +1,0 @@
-{
-  "task_id": "q012395",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    output Q,\n    input CLK,\n    input D,\n    input SCD,\n    input SCE,\n    input RESET_B,\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB\n);reg obf_Q_reg;\n\n    always @ (posedge CLK) begin\n        if (!RESET_B) begin\n            obf_Q_reg <= 1'b0;\n        end else if (SCE) begin\n            obf_Q_reg <= SCD;\n        end else begin\n            obf_Q_reg <= D;\n        end\n    end\n\n    assign Q = obf_Q_reg;\n\nendmodule",
-  "rename_map": {
-    "Q_reg": "obf_Q_reg"
-  }
-}

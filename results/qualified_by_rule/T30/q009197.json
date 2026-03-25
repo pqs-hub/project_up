@@ -1,6 +1,0 @@
-{
-  "task_id": "q009197",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule\n    (\n\t\tinput clk,\n        input rst_n,\n        input we,\n        input [1:0] wr_addr,\n        input [1:0] rd_addr1,\n        input [1:0] rd_addr2,\n        input [15:0] data_in,\n        output reg [15:0] rd_data1,\n        output reg [15:0] rd_data2\n    );\n\nreg [15:0] regs [0:3];\n\nalways @(posedge clk or negedge rst_n) \n    begin\n        if (!rst_n)\n            begin\n                regs[0] <= 16'b0;\n                regs[1] <= 16'b0;\n                regs[2] <= 16'b0;\n                regs[3] <= 16'b0;\n            end\n        else if (we)\n            regs[wr_addr] <= data_in;\n    end\n\nalways @(posedge clk or negedge rst_n) \n    begin\n        if (!rst_n)\n            begin\n                rd_data1 <= 16'b0;\n                rd_data2 <= 16'b0;\n            end\n        else\n            begin\n                rd_data1 <= regs[rd_addr1];\n                rd_data2 <= regs[rd_addr2];\n            end\n    end\n\nendmodule"
-}

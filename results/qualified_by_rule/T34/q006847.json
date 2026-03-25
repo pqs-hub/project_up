@@ -1,6 +1,0 @@
-{
-  "task_id": "q006847",
-  "rule_id": "T34",
-  "changed": false,
-  "final": "module RefModule(sel, a_in, b_in, out);parameter width = 'd16; \n\n\t\n\n\tinput wire sel;\n\tinput wire [width-1:0] a_in, b_in;\n\n\t\n\n\toutput reg [width-1:0] out;\n\n\t\n\n\talways@(sel, a_in, b_in) begin\n\t\tcase(sel) \n\t\t\t1'b0: out [width-1:0] = a_in [width-1:0];\n\t\t\t1'b1: out [width-1:0] = b_in [width-1:0];\n\t\t\tdefault: out [width-1:0] = {width{1'b0}};\n\t\tendcase\n\tend\n\nendmodule"
-}

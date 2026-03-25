@@ -1,6 +1,0 @@
-{
-  "task_id": "q009485",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(\n  input [n-1:0] data_in,\n  input check,\n  input [n-1:0] checksum_in,\n  output reg error, // Changed to reg\n  output reg [n-1:0] checksum_out // Changed to reg\n);parameter n = 8; // number of data signals\n\nreg [n-1:0] sum;\ninteger i; // Declaration of loop variable\n\n// Compute the checksum of the input data signals\nalways @ (data_in) begin\n    begin end  // redundant\n  sum = 0;\n  for (i = 0; i < n; i = i + 1)\n    sum = sum + data_in[i];\n  checksum_out = sum % n; // Updated to assign to checksum_out\nend\n\n// Compare the computed checksum to the input checksum signal\nalways @ (check, checksum_in, checksum_out) begin // Updated to use checksum_out\n  if (check == 1'b0)\n    error = 1'b0;\n  else if (checksum_out == checksum_in) // Updated to use checksum_out\n    error = 1'b0;\n  else\n    error = 1'b1;\nend\n\nendmodule"
-}

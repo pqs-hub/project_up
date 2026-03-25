@@ -1,6 +1,0 @@
-{
-  "task_id": "q002795",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module lfsr (\n    input clk,\n    input reset,\n    output reg [4:0] lfsr_out\n);\n    wire feedback;\n\n    assign feedback = lfsr_out[4] ^ lfsr_out[1]; // x^5 + x^2 + 1 feedback\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            lfsr_out <= 5'b00001; // Initial seed value\n        end else begin\n            lfsr_out <= {lfsr_out[3:0], feedback}; // Shift left and insert feedback\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

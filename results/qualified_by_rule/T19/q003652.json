@@ -1,6 +1,0 @@
-{
-  "task_id": "q003652",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(\n    input wire clk,\n    input wire rst,\n    input wire [1:0] freq_vol_input, // 2-bit input representing desired frequency and voltage\n    output reg [1:0] state // 2-bit output representing the selected operational state\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        state <= 2'b00; // Reset state\n    end else begin\n        case (freq_vol_input)\n            2'b00: state <= 2'b00; // Low Frequency/Low Voltage\n            2'b01: state <= 2'b01; // Low Frequency/High Voltage\n            2'b10: state <= 2'b10; // High Frequency/Low Voltage\n            2'b11: state <= 2'b11; // High Frequency/High Voltage\n            default: state <= 2'b00; // Default to Reset state\n        endcase\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

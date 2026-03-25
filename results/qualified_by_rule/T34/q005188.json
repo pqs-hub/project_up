@@ -1,6 +1,0 @@
-{
-  "task_id": "q005188",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(input wire button,input wire clk,input wire res,output wire clk_div);reg [3 : 0] unused_ripple; \n  assign clk_div = &unused_ripple; \n  always @(posedge clk) begin \n  if(res) \n  unused_ripple <= 4'b0; \n  else begin \n  unused_ripple[0] <= button; \n  unused_ripple[1] <= unused_ripple[0]; \n  unused_ripple[2] <= unused_ripple[1]; \n  unused_ripple[3] <= unused_ripple[2]; \n  end \n  end \n endmodule"
-}

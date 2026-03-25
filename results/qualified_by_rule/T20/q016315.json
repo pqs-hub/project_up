@@ -1,6 +1,0 @@
-{
-  "task_id": "q016315",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n    in0,\n    in1,\n    in2,\n    in3,\n    in4,\n    in5,\n    in6,\n    out\n);// Module ports\n    input  in0;\n    input  in1;\n    input  in2;\n    input  in3;\n    input  in4;\n    input  in5;\n    input  in6;\n    output out;\n\n    // Local signals\n    wire or0_out;\n    wire or1_out;\n    wire or2_out;\n    wire or3_out;\n    wire or4_out;\n    wire or5_out;\n\n    //                           Name          Output              Other arguments\n    or                           or0          (or0_out           , in0, in1                 );\n    or                           or1          (or1_out           , or0_out, in2            );\n    or                           or2          (or2_out           , or1_out, in3            );\n    or                           or3          (or3_out           , or2_out, in4            );\n    or                           or4          (or4_out           , or3_out, in5            );\n    or                           or5          (or5_out           , or4_out, in6            );\n    buf                          buf0         (out               , or5_out                 );\n\nendmodule"
-}

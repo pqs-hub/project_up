@@ -1,6 +1,0 @@
-{
-  "task_id": "q007921",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n      output [7:0]DPO,     \n      output [7:0]SPO,     \n      input [3:0]A,       \t\n      input [7:0]D,        \n      input [3:0]DPRA, \t\t\n      input WCLK,   \t\t\t\n      input WE        \t\t\n   );reg [7:0]data[15:0];\n\tassign DPO = data[DPRA];\n\tassign SPO = data[A];\n\t\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge WCLK or posedge dbg_halt)\n\t\tif(WE) data[A] <= D;\t\t\n\nendmodule"
-}

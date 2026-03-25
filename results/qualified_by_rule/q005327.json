@@ -1,6 +1,0 @@
-{
-  "task_id": "q005327",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule( input clk, input d, output q );reg [2:0] obf_register;\n  wire [2:0] next_register;\n\n  assign next_register = {obf_register[1:0], d};\n\n  always @(posedge clk) begin\n    obf_register <= next_register;\n  end\n\n  assign q = obf_register[2];\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q003212",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule (\n    input wire d,\n    input wire en,\n    output reg q,\n    output reg q_n\n);\n    always @(d or en) begin\n        if (en) begin\n            q <= d;\n        end\n        // When enable is low, q retains its value\n    end\n\n    always @(q) begin\n        q_n <= ~q;\n    end\nendmodule"
-}

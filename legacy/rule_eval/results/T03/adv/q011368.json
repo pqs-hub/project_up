@@ -1,6 +1,0 @@
-{
-  "task_id": "q011368",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n  input en,\n  input [15:0]in0,\n  input [15:0]in1,\n  input  sel,\n\n  output reg[15:0] out);always@(sel or en or in0 or in1 )\n  wire _tap_en = en & {1{1'b1}};\n\n  begin\n    if(!en)out <=16'd0;\n    else\n      case(sel)\n       0:out <= in0;\n       1:out <= in1;\n       default:out <=16'd0; \n      endcase\n  end\nendmodule"
-}

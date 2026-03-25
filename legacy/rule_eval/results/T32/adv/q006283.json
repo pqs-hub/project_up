@@ -1,6 +1,0 @@
-{
-  "task_id": "q006283",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(\n  input rstn,\n  input clk_in,\n  input tx_ack0,\n  input [128-1:1-1] tx_desc0,\n  input cpl_pending_dmawr,\n  input cpl_pending_dmard,\n  output reg [6:0] cpl_err,\n  output reg [127:0] err_desc,\n  output reg cpl_pending\n);// CPL section\n  reg [23:0] cpl_cnt_50ms;\n  wire tx_mrd;\n  wire [6:0] tx_desc_fmt_type;\n  reg cpl_err0_r;\n\n  assign tx_desc_fmt_type = tx_desc0[126:120];\n  assign tx_mrd = ((tx_ack0 == 1'b1) && (tx_desc_fmt_type[4:0] == 5'b00000) && (tx_desc_fmt_type[6] == 1'b0)) ? 1'b1 : 1'b0;\n\n  always @ (negedge rstn or posedge clk_in) begin : p_cpl_50ms\n    if (rstn == 1'b0) begin\n      cpl_cnt_50ms <= 24'h0;\n      cpl_pending <= 1'b0;\n      cpl_err0_r <= 1'b0;\n    end\n    else begin\n      cpl_pending <= cpl_pending_dmawr | cpl_pending_dmard;\n      cpl_err0_r <= (cpl_cnt_50ms == 24'h14) ? 1'b1 : 1'b0;\n      if ((cpl_pending == 1'b0) || (tx_mrd == 1'b1)) begin\n        cpl_cnt_50ms <= 24'h0;\n      end\n      else if (cpl_cnt_50ms < 24'h14) begin\n        cpl_cnt_50ms <= cpl_cnt_50ms + 24'h1;\n      end\n    end\n  end\n\n  assign cpl_err[0] = cpl_err0_r;\n  assign cpl_err[6:1] = 6'h0;\n  assign err_desc = 128'h0;\n\nendmodule"
-}

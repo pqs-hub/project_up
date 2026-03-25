@@ -1,6 +1,0 @@
-{
-  "task_id": "q015413",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module RefModule(A, B, Z, OVF);input [1:0] A;\ninput [1:0] B;\noutput reg [1:0] Z; // Change output Z to reg type\noutput OVF;\n\nwire [2:0] sum;\n  assign OVF = (sum > 3);\n  assign sum = A + B;\n\nalways @* begin\n    if (sum > 3)\n        Z = 2'b11;\n    else\n        Z = sum[1:0];\nend\n\nendmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q015490",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module reg_file(\n    input clk,\n    input rst,\n    input we,\n    input [2:0] ra1,\n    input [2:0] ra2,\n    input [2:0] wa,\n    input [31:0] wd,\n\n    output reg [31:0] rd1,\n    output reg [31:0] rd2\n);\n\nreg [31:0] obf_regs[7:0];\n\nalways@(posedge clk or posedge rst)\nbegin\n    if(rst)\n    begin\n        obf_regs[0] <= 0;\n        obf_regs[1] <= 0;\n        obf_regs[2] <= 0;\n        obf_regs[3] <= 0;\n        obf_regs[4] <= 0;\n        obf_regs[5] <= 0;\n        obf_regs[6] <= 0;\n        obf_regs[7] <= 0;\n    end\n    else if(we)\n        obf_regs[wa] <= wd;\nend\n\nalways@(*)\nbegin\n    rd1 = obf_regs[ra1];\n    rd2 = obf_regs[ra2];\nend\n\nendmodule",
-  "rename_map": {
-    "regs": "obf_regs"
-  }
-}

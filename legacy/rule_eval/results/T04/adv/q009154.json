@@ -1,6 +1,0 @@
-{
-  "task_id": "q009154",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule top_module(\n    input clk,\n    input in,\n    input reset,\n    output reg out\n);     // State Encoding\n    parameter A = 0, B = 1;\n    reg [1:0] state, next;\n\n    // State Transition Logic\n    always @(*) begin\n        case (state)\n            A: next = in ? A : B;\n            B: next = in ? B : B;\n        endcase\n    end\n\n    // State Register with synchronous Reset\n    always @(posedge clk) begin\n        if (reset) state <= A;\n        else state <= next;\n    end\n\n    // Output Logic\n    always @(*) begin\n        case (state)\n            A: out = 1;\n            B: out = 0;\n        endcase\n    end\nendmodule\n"
-}

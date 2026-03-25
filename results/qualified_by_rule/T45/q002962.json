@@ -1,6 +1,0 @@
-{
-  "task_id": "q002962",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule (  \n    input wire S,  \n    input wire R,  \n    output reg Q,  \n    output reg Qn  \n);  \n    always @ (S or R) begin  \n        if (S && ~R) begin  \n            Q = 1;  \n            Qn = 0;  \n        end  \n        else if (~S && R) begin  \n            Q = 0;  \n            Qn = 1;  \n        end  \n        else if (S && R) begin  \n            // Invalid state, keep previous state  \n            Q = Q;  \n            Qn = Qn;  \n        end  \n        else begin  \n            // Hold state  \n            Q = Q;  \n            Qn = Qn;  \n        end  \n    end  \nendmodule"
-}

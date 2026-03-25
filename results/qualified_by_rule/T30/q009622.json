@@ -1,6 +1,0 @@
-{
-  "task_id": "q009622",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule \n(\n  input rst,\n  input clk,\n  input enable,\n\n  output reg [4:0] lfsr_out\n);\n\n  always @(posedge clk or posedge rst) begin\n    if (rst) \n\tbegin\n      lfsr_out <= 5'b10011; // Seed value\n    end \n\t\n\telse if (enable) \n\tbegin\n      lfsr_out <= {lfsr_out[3:0], lfsr_out[4] ^ lfsr_out[2]};\n    end \n\t\n\telse begin\n      lfsr_out <= lfsr_out; // Pause the shift when enable is low\n    end\n  end\n\nendmodule"
-}

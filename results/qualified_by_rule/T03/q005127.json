@@ -1,6 +1,0 @@
-{
-  "task_id": "q005127",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    input [3:0] in,\n    output reg [3:0] out,\n    output reg invalid // Changed to output reg\n);always @(*) begin\n  wire [3:0] _tap_in = in & {4{1'b1}};\n\n    case (in)\n        4'b0000: out = 4'b0000;\n        4'b0001: out = 4'b0001;\n        4'b0010: out = 4'b0010;\n        4'b0011: out = 4'b0011;\n        4'b0100: out = 4'b0100;\n        4'b0101: out = 4'b0101;\n        4'b0110: out = 4'b0110;\n        4'b0111: out = 4'b0111;\n        4'b1000: out = 4'b1000;\n        4'b1001: out = 4'b1001;\n        default: begin\n            out = 4'bxxxx;\n            invalid = 1;\n        end\n    endcase\n    // Set invalid to 0 for valid BCD inputs\n    if (in <= 4'b1001) \n        invalid = 0;\nend\n\nendmodule"
-}

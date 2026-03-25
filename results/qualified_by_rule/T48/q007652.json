@@ -1,6 +1,0 @@
-{
-  "task_id": "q007652",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule(\n    input       clk,\n    input       reset,\n    input       j,\n    input       k,\n    output reg  q\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset)\n        q <= 1'b0;\n    else begin\n        case ({j, k})\n            2'b00: q <= q;\n            2'b01: q <= 1'b0;\n            2'b10: q <= 1'b1;\n            2'b11: q <= ~q;\n        endcase\n    end\nend\n\nendmodule"
-}

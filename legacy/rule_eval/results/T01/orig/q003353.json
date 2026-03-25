@@ -1,6 +1,0 @@
-{
-  "task_id": "q003353",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module echo_cancellation (\n    input clk,\n    input rst,\n    input [7:0] current_signal,\n    output reg echo_detected\n);\n    reg [7:0] previous_signal;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            previous_signal <= 8'b0;\n            echo_detected <= 1'b0;\n        end else begin\n            if (current_signal == previous_signal) begin\n                echo_detected <= 1'b1; // Echo detected\n            end else begin\n                echo_detected <= 1'b0; // No echo\n            end\n            previous_signal <= current_signal; // Store current signal for next comparison\n        end\n    end\nendmodule"
-}

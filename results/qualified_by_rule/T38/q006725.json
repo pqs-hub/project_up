@@ -1,6 +1,0 @@
-{
-  "task_id": "q006725",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(\n    input D,\n    input CLK,\n    input SET_B,\n    input RESET_B,\n    output reg Q,  // Change Q to output reg type\n    output Q_N\n);assign Q_N = ~Q;\n\n    always @(posedge CLK or negedge SET_B or negedge RESET_B) begin\n        if (!SET_B) begin\n            Q <= 1'b1;\n        end else if (!RESET_B) begin\n            Q <= 1'b0;\n        end else begin\n            Q <= D;\n        end\n    end\n\nendmodule"
-}

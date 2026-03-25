@@ -1,9 +1,0 @@
-{
-  "task_id": "q001964",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module audio_mixer(  \n    input clk,  \n    input [7:0] obf_audio1,  \n    input [7:0] audio2,  \n    output reg [7:0] mixed_audio  \n);  \n    always @(posedge clk) begin  \n        mixed_audio <= (obf_audio1 + audio2 > 255) ? 8'd255 : obf_audio1 + audio2;  \n    end  \nendmodule",
-  "rename_map": {
-    "audio1": "obf_audio1"
-  }
-}

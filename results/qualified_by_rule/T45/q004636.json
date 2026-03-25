@@ -1,6 +1,0 @@
-{
-  "task_id": "q004636",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module RefModule(\n    input x,\n    input y,\n    output z\n);\n    assign z = (x & ~x) ? ~z : x & ~y;\nendmodule\n\nmodule L(\n    input x,\n    input y,\n    output z\n);\n    assign z = x & ~y;\nendmodule\n\nmodule top_module(\n    input x,\n    input y,\n    output z\n);\n    wire k1_out, k2_out, l1_out, l2_out;\n    wire and_out, or_out;\n\n    K k1(.x(x), .y(y), .z(k1_out));\n    K k2(.x(x), .y(y), .z(k2_out));\n    L l1(.x(x), .y(y), .z(l1_out));\n    L l2(.x(x), .y(y), .z(l2_out));\n\n    assign and_out = k1_out & l1_out;\n    assign or_out = k2_out | l2_out;\n\n    assign z = and_out ^ or_out;\nendmodule"
-}

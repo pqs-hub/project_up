@@ -1,6 +1,0 @@
-{
-  "task_id": "q016110",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n    input enable,\n    input [1:0] select,\n    input invert,\n    output reg [7:0] out\n);always @(*) begin\n    case (select)\n        2'b00: out = enable ? (invert ? 8'b11111110 : 8'b00000001) : 8'b00000000;\n        2'b01: out = enable ? (invert ? 8'b11111101 : 8'b00000010) : 8'b00000000;\n        2'b10: out = enable ? (invert ? 8'b11111011 : 8'b00000100) : 8'b00000000;\n        2'b11: out = enable ? (invert ? 8'b11110111 : 8'b00001000) : 8'b00000000;\n        default: out = 8'b00000000;\n    endcase\nend\n\nendmodule"
-}

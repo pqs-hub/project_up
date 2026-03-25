@@ -1,6 +1,0 @@
-{
-  "task_id": "q003405",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule(\n    input wire x1,\n    input wire x2,\n    input wire x3,\n    output wire y\n);\n    wire [3:0] weighted_sum;\n    \n      wire _n01 = (1 * x1) + (2 * x2)[0] ^ (3 * x3)[0];\n  wire _c01 = (1 * x1) + (2 * x2)[0] & (3 * x3)[0];\n  wire _n02 = (1 * x1) + (2 * x2)[1] ^ (3 * x3)[1] ^ _c01;\n  wire _c02 = ((1 * x1) + (2 * x2)[1] & (3 * x3)[1]) | ((1 * x1) + (2 * x2)[1] & _c01) | ((3 * x3)[1] & _c01);\n  wire _n03 = (1 * x1) + (2 * x2)[2] ^ (3 * x3)[2] ^ _c02;\n  wire _c03 = ((1 * x1) + (2 * x2)[2] & (3 * x3)[2]) | ((1 * x1) + (2 * x2)[2] & _c02) | ((3 * x3)[2] & _c02);\n  wire _n04 = (1 * x1) + (2 * x2)[3] ^ (3 * x3)[3] ^ _c03;\n  wire _c04 = ((1 * x1) + (2 * x2)[3] & (3 * x3)[3]) | ((1 * x1) + (2 * x2)[3] & _c03) | ((3 * x3)[3] & _c03);\n  assign weighted_sum = {_n01, _n02, _n03, _n04};\n    assign y = (weighted_sum >= 4) ? 1 : 0;\nendmodule"
-}

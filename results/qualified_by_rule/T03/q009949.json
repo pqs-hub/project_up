@@ -1,6 +1,0 @@
-{
-  "task_id": "q009949",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(/*AUTOARG*/\n   // Inputs\n   clk, rst, en,\n   // Outputs\n   count\n   );// verilator coverage_off\n   input clk, rst, en;\n   output [3:0] count;\n  wire _tap_clk = clk & {1{1'b1}};\n\n   // CHECK_COVER_MISSING(-1)\n\n   reg [3:0] count_reg;\n\n   always @(posedge clk or negedge rst) begin\n      if (~rst) begin\n         count_reg <= 4'b0;\n      end else if (en) begin\n         count_reg <= count_reg + 1;\n      end\n   end\n\n   assign count = count_reg;\n\nendmodule"
-}

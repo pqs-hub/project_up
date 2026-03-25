@@ -1,6 +1,0 @@
-{
-  "task_id": "q004850",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(a, b, result);input [7:0] a;\n    input [7:0] b;\n    output reg [15:0] result;\n  wire [7:0] _tap_a = a & {8{1'b1}};\n\n    integer i; // Declare i as an integer\n\n    always @ (a, b)\n    begin\n        result = 0;\n        for (i = 0; i < 8; i = i + 1)\n        begin\n            if (b[i] == 1)\n            begin\n                result = result + (a << i);\n            end\n        end\n    end\nendmodule"
-}

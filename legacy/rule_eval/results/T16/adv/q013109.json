@@ -1,9 +1,0 @@
-{
-  "task_id": "q013109",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input [15:0] A,\n    input [15:0] B,\n    input CIN,\n    output [15:0] SUM,\n    output COUT\n);reg [15:0] sum_temp;\nreg obf_cout_temp;\n\nalways @(*) begin\n    {obf_cout_temp,sum_temp} = A + B + CIN;\nend\n\nassign SUM = sum_temp;\nassign COUT = obf_cout_temp;\n\nendmodule",
-  "rename_map": {
-    "cout_temp": "obf_cout_temp"
-  }
-}

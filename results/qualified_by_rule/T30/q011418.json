@@ -1,6 +1,0 @@
-{
-  "task_id": "q011418",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n    input D,\n    input SCD,\n    input SCE,\n    input GATE,\n    input CLK,\n    input RESET,\n    output reg Q,  // Changed to output reg\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB\n);always @(posedge CLK or negedge RESET) begin\n        if (!RESET) begin\n            Q <= 1'b0;\n        end else if (GATE) begin\n            if (SCD) begin\n                Q <= 1'b0;\n            end else if (SCE) begin\n                Q <= D;\n            end\n        end\n    end\n\nendmodule"
-}

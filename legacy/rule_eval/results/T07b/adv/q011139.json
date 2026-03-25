@@ -1,8 +1,0 @@
-{
-  "task_id": "q011139",
-  "rule_id": "T07b",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input in,\n    output reg out\n);\n\n    reg in_d; // Delayed version of the input signal\n\n    // Always block triggered on the rising edge of the clock\n    always @(posedge clk) begin\n        in_d <= in; // Detect the rising edge\n        out <= in & ~in_d; // Update the delayed input signal\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

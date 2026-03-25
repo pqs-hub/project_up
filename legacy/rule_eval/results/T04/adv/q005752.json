@@ -1,6 +1,0 @@
-{
-  "task_id": "q005752",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule dual_port_ram_16x8(clk, we_a, addr_a, data_in_a, addr_b, data_out_b);\n     input clk;\n     input we_a;\n     input [3:0] addr_a;\n     input [7:0] data_in_a;\n     input [3:0] addr_b;\n     output reg [7:0] data_out_b;\n\n     reg [7:0] ram [15:0];\n\n     always @(posedge clk) begin\n          if (we_a)\n               ram[addr_a] <= data_in_a;\n          data_out_b <= ram[addr_b];\n     end\nendmodule"
-}

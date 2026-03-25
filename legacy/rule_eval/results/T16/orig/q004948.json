@@ -1,6 +1,0 @@
-{
-  "task_id": "q004948",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module ram_512x32_sp\n(\n    input clk,\n    input we,\n    input [8:0] addr,\n    input [31:0] wdata,\n    output reg [31:0] rdata\n);\n\nreg [31:0] ram [511:0];\n\nalways @(posedge clk) begin\n    if (we) begin\n        ram[addr] <= wdata;\n    end\n    rdata <= ram[addr];\nend\n\nendmodule"
-}

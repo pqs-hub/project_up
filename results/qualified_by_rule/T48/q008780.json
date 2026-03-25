@@ -1,6 +1,0 @@
-{
-  "task_id": "q008780",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input rst,\n  input up_down,\n  output reg [7:0] out\n);always @(posedge clk) begin\n    if (rst) begin\n      out <= 8'd0;\n    end else begin\n      if (up_down) begin\n        if (out == 8'd255) begin\n          out <= 8'd0;\n        end else begin\n          out <= out + 1;\n        end\n      end else begin\n        if (out == 8'd0) begin\n          out <= 8'd255;\n        end else begin\n          out <= out - 1;\n        end\n      end\n    end\n  end\n\nendmodule"
-}

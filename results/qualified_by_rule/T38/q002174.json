@@ -1,6 +1,0 @@
-{
-  "task_id": "q002174",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule (  \n    input wire clk,  \n    input wire reset,  \n    input wire [3:0] timeout_value,  \n    output reg timeout_signal  \n);  \n    reg [3:0] counter;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            counter <= 4'b0000;  \n            timeout_signal <= 1'b0;  \n        end else begin  \n            if (counter < timeout_value) begin  \n                counter <= counter + 1;  \n                timeout_signal <= 1'b0;  \n            end else begin  \n                timeout_signal <= 1'b1;  \n            end  \n        end  \n    end  \nendmodule"
-}

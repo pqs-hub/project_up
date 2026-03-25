@@ -1,6 +1,0 @@
-{
-  "task_id": "q015799",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n  output reg [7:0] result,\n  input [7:0] operand1,\n  input [7:0] operand2,\n  input [1:0] select,\n  input clk  // Added clk input\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk or posedge dbg_halt) begin\n    case (select)\n      2'b00: result <= operand1 + operand2;\n      2'b01: result <= operand1 - operand2;\n      2'b10: result <= operand1 & operand2;\n      2'b11: result <= operand1 | operand2;\n      default: result <= 8'd0; // Added default case for safety\n    endcase\n  end\n\nendmodule"
-}

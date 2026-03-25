@@ -1,6 +1,0 @@
-{
-  "task_id": "q008033",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input A0,\n    input A1,\n    input A2,\n    input A3,\n    input S0,\n    input S1,\n    output X\n);wire notS0;\n  wire _tap_A0 = A0 & {1{1'b1}};\n\nwire notS1;\nwire and1;\nwire and2;\nwire and3;\nwire and4;\nwire or1;\n\nnot(notS0, S0);\nnot(notS1, S1);\n\nand(and1, A0, notS0, notS1);\nand(and2, A1, notS0, S1);\nand(and3, A2, S0, notS1);\nand(and4, A3, S0, S1);\n\nor(or1, and1, and2, and3, and4);\n\nassign X = or1;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q011611",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(\n\tinput clk,\n\tinput up_down,\n\tinput reset,\n\toutput reg [2-1:1-1] count,\n\toutput reg carry_out\n);always @(posedge clk) begin\n\t\tif (reset) begin\n\t\t\tcount <= 2'b0;\n\t\t\tcarry_out <= 1'b0;\n\t\tend\n\t\telse begin\n\t\t\tif (up_down) begin\n\t\t\t\tif (count == 2'b11) begin\n\t\t\t\t\tcount <= 2'b00;\n\t\t\t\t\tcarry_out <= 1'b1;\n\t\t\t\tend\n\t\t\t\telse begin\n\t\t\t\t\tcount <= count + 1;\n\t\t\t\t\tcarry_out <= 1'b0;\n\t\t\t\tend\n\t\t\tend\n\t\t\telse begin\n\t\t\t\tif (count == 2'b00) begin\n\t\t\t\t\tcount <= 2'b11;\n\t\t\t\t\tcarry_out <= 1'b1;\n\t\t\t\tend\n\t\t\t\telse begin\n\t\t\t\t\tcount <= count - 1;\n\t\t\t\t\tcarry_out <= 1'b0;\n\t\t\t\tend\n\t\t\tend\n\t\tend\n\tend\n\t\nendmodule"
-}

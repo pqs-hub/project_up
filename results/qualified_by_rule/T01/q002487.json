@@ -1,6 +1,0 @@
-{
-  "task_id": "q002487",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(  \n    input clk,  \n    input rst_n,  \n    input [31:0] address,  \n    output reg address_valid  \n);  \n    always @(posedge clk or negedge rst_n) begin\n    begin end  // redundant  \n        if (!rst_n)  \n            address_valid <= 1'b0;  \n        else if (address >= 32'h00001000 && address <= 32'h0000FFFF)  \n            address_valid <= 1'b1;  \n        else  \n            address_valid <= 1'b0;  \n    end  \nendmodule"
-}

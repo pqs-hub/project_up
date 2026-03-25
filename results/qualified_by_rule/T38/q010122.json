@@ -1,6 +1,0 @@
-{
-  "task_id": "q010122",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(clock,signal_uc, prog_or_kernel,reset);input signal_uc;\n\tinput clock;\n\tinput reset;\n\toutput prog_or_kernel;\n\treg state;\n\t\n\t\n\talways @(posedge clock) begin\n\t\tif(reset)begin\n\t\t\tstate <= 0;\n\t\tend\n\t\tif((signal_uc == 1) && (state == 0))begin\n\t\t\tstate <= 1;\n\t\tend \n\t\telse if((signal_uc == 1) && (state == 1)) begin\n\t\t\tstate <= 0;\n\t\tend\n\t\t\n\tend\n\tassign prog_or_kernel = state;\n\n\nendmodule"
-}

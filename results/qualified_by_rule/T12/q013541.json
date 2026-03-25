@@ -1,6 +1,0 @@
-{
-  "task_id": "q013541",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule( clk_i, rst_n, rs1_i, rs1_o, rt2_i, rt2_o, instr_i, instr_o, Mem2Reg_i, Mem2Reg_o, RegWrite_i, RegWrite_o );input           clk_i;\ninput           rst_n;\ninput  [32-1:0] rs1_i;\ninput  [32-1:0] rt2_i;\ninput  [5-1:0] instr_i;\n\t\ninput  Mem2Reg_i;\ninput  RegWrite_i;\n\n\noutput reg [32-1:0] rs1_o;\noutput reg [32-1:0] rt2_o;\noutput reg [5-1:0] instr_o;\n\t\noutput reg Mem2Reg_o;\noutput reg RegWrite_o;   \n\n\n\n\n\n     \n\n\nalways @( posedge clk_i  ) begin\n    if(rst_n == 0) begin\n\t\trs1_o <= 0;\n\t\trt2_o <= 0;\n\t\tinstr_o <= 0;\n\t\t\t\n\t\tMem2Reg_o <= 0;\n\t\tRegWrite_o <= 0; \n\tend\n    else begin\n\t\trs1_o <= rs1_i;\n\t\trt2_o <= rt2_i;\n\t\tinstr_o <= instr_i;\n\t\t\t\n\t\tMem2Reg_o <= Mem2Reg_i;\n\t\tRegWrite_o <= RegWrite_i;  \n\tend\nend\n\nendmodule"
-}

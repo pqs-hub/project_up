@@ -1,6 +1,0 @@
-{
-  "task_id": "q003351",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (\n    input wire D,\n    input wire CLK,\n    output reg Q,\n    output reg Qn\n);\n    reg master_Q;\n\n    always @(posedge CLK) begin\n    begin end  // redundant\n        master_Q <= D; // Capture D on rising edge\n    end\n\n    always @(negedge CLK) begin\n        Q <= master_Q; // Output Q on falling edge\n        Qn <= ~master_Q; // Inverted output\n    end\nendmodule"
-}

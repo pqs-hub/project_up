@@ -1,6 +1,0 @@
-{
-  "task_id": "q002971",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [1:0] control,\n    output reg [1:0] speed\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n        if (reset) begin\n            speed <= 2'b00; // Default to Low speed on reset\n        end else begin\n            case (control)\n                2'b00: speed <= 2'b00; // Low speed\n                2'b01: speed <= 2'b01; // Medium speed\n                2'b10: speed <= 2'b10; // High speed\n                2'b11: speed <= 2'b11; // Off\n                default: speed <= speed; // Maintain current speed\n            endcase\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q010245",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(D,CLK,RSTB,Q,QN);input D;\n input CLK;\n input RSTB;\n output Q;\n output QN;\n\n reg unused_Qtemp;\n\n always @(posedge CLK or negedge RSTB) begin\n   if (~RSTB) begin\n     unused_Qtemp <= 1'b0;\n   end else begin\n     unused_Qtemp <= D;\n   end\n end\n\n assign QN = ~unused_Qtemp;\n assign Q = unused_Qtemp;\n\nendmodule"
-}

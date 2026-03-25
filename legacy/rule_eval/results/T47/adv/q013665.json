@@ -1,8 +1,0 @@
-{
-  "task_id": "q013665",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module (\n    input [15:0] e,\n    input [15:0] f,\n    output [15:0] g\n);\n\n    // Perform addition\n      wire _n01 = e[0] ^ f[0];\n  wire _c01 = e[0] & f[0];\n  wire _n02 = e[1] ^ f[1] ^ _c01;\n  wire _c02 = (e[1] & f[1]) | (e[1] & _c01) | (f[1] & _c01);\n  wire _n03 = e[2] ^ f[2] ^ _c02;\n  wire _c03 = (e[2] & f[2]) | (e[2] & _c02) | (f[2] & _c02);\n  wire _n04 = e[3] ^ f[3] ^ _c03;\n  wire _c04 = (e[3] & f[3]) | (e[3] & _c03) | (f[3] & _c03);\n  assign g = {_n01, _n02, _n03, _n04};\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

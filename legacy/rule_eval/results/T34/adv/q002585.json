@@ -1,6 +1,0 @@
-{
-  "task_id": "q002585",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module clock_divider (\n    input wire clk_in,      // Input clock\n    input wire reset,       // Asynchronous reset\n    input wire enable,      // Enable signal\n    input wire [3:0] factor, // Division factor (1 to 15)\n    output reg clk_out      // Output divided clock\n);\n    reg [3:0] unused_count; // Counter to keep track of clock cycles\n\n    always @(posedge clk_in or posedge reset) begin\n        if (reset) begin\n            unused_count <= 0;\n            clk_out <= 0;\n        end else if (enable) begin\n            if (unused_count == (factor - 1)) begin\n                clk_out <= ~clk_out; // Toggle output clock\n                unused_count <= 0; // Reset unused_count\n            end else begin\n                unused_count <= unused_count + 1; // Increment unused_count\n            end\n        end\n    end\nendmodule"
-}

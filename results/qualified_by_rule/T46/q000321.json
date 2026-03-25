@@ -1,6 +1,0 @@
-{
-  "task_id": "q000321",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [23:0] analog_input,\n    output reg [23:0] digital_output\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n    if (reset) begin\n        digital_output <= 24'b0;\n    end else begin\n        digital_output <= analog_input << 2; // Shift left by 2 bits\n    end\nend\n\nendmodule"
-}

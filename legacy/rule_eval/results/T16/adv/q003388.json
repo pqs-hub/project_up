@@ -1,9 +1,0 @@
-{
-  "task_id": "q003388",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module png_filter_selector (\n    input [2:0] filter_type,\n    output reg [2:0] obf_filter_code,\n    output reg valid\n);\n    always @(*) begin\n        case (filter_type)\n            3'b000: begin // None\n                obf_filter_code = 3'b000;\n                valid = 1;\n            end\n            3'b001: begin // Sub\n                obf_filter_code = 3'b001;\n                valid = 1;\n            end\n            3'b010: begin // Up\n                obf_filter_code = 3'b010;\n                valid = 1;\n            end\n            3'b011: begin // Average\n                obf_filter_code = 3'b011;\n                valid = 1;\n            end\n            3'b100: begin // Paeth\n                obf_filter_code = 3'b100;\n                valid = 1;\n            end\n            default: begin // Invalid filter type\n                obf_filter_code = 3'bxxx;\n                valid = 0;\n            end\n        endcase\n    end\nendmodule",
-  "rename_map": {
-    "filter_code": "obf_filter_code"
-  }
-}

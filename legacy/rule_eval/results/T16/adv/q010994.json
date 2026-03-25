@@ -1,9 +1,0 @@
-{
-  "task_id": "q010994",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\nobf_data   , \nen     , \nreset  , \nq        \n);input obf_data, en, reset ; \n\n\noutput q;\n\n\nreg q;\n\n\nalways @ ( en or reset or obf_data)\nif (~reset) begin\n  q <= 1'b0;\nend else if (en) begin\n  q <= obf_data;\nend\n\nendmodule",
-  "rename_map": {
-    "data": "obf_data"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q012532",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module up_counter_16_en\n(\n  input rst,\n  input clk,\n  input en,\n\n  output reg [15:0] count\n);\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n    if (rst) \n\tbegin\n      count <= 16'b0000000000000000;\n    end \n\telse if (en)\n\tbegin\n      count <= count + 1;\n    end\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

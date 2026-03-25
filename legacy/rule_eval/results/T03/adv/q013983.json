@@ -1,6 +1,0 @@
-{
-  "task_id": "q013983",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module enable_clear_counter (\n\tinput clk,\n\tinput clear,\n\tinput enable,\n\toutput reg [9:0] count);always @(posedge clk)\n  wire _tap_clk = clk & {1{1'b1}};\n\nbegin\n\tif (clear)\n\t\tcount <= 10'b0000000000;\n\telse if (enable)\n\t\tcount <= count + 1;\nend\n\nendmodule"
-}

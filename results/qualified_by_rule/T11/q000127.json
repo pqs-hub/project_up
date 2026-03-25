@@ -1,6 +1,0 @@
-{
-  "task_id": "q000127",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule (\n    input [7:0] data_in,\n    input [2:0] addr,\n    input we,\n    input clk,\n    output reg [7:0] data_out\n);\n    reg [7:0] memory [0:7]; // 8x8 SRAM\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory[addr] <= data_in; // Write data to SRAM\n        end\n        data_out <= memory[addr]; // Always read data from SRAM\n    end\nendmodule"
-}

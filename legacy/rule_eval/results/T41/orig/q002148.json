@@ -1,6 +1,0 @@
-{
-  "task_id": "q002148",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module ALU (\n    input [7:0] A,\n    input [7:0] B,\n    input [2:0] func,\n    output reg [7:0] result,\n    output reg valid\n);\n\nalways @(*) begin\n    valid = 1; // Assume valid operation\n    case (func)\n        3'b000: result = A & B;         // AND\n        3'b001: result = A | B;         // OR\n        3'b010: result = A + B;         // ADD\n        3'b011: result = A - B;         // SUBTRACT\n        3'b100: result = A ^ B;         // XOR\n        3'b101: result = ~A;            // NOT A\n        3'b110: result = A << 1;        // SHIFT LEFT\n        3'b111: result = A >> 1;        // SHIFT RIGHT\n        default: valid = 0;              // Invalid operation\n    endcase\nend\n\nendmodule"
-}

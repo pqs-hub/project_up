@@ -1,6 +1,0 @@
-{
-  "task_id": "q013057",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule(\n  input [9:0] h_cnt,\n  input valid,\n  output reg [3:0] vgaRed,\n  output reg [3:0] vgaGreen,\n  output reg [3:0] vgaBlue\n);always @(*) begin\n    if(!valid)\n      {vgaRed, vgaGreen, vgaBlue} = 12'h0;\n    else if(h_cnt < 128)\n      {vgaRed, vgaGreen, vgaBlue} = 12'h000;\n    else if(h_cnt < 256)\n      {vgaRed, vgaGreen, vgaBlue} = 12'h00f;\n    else if(h_cnt < 384)\n      {vgaRed, vgaGreen, vgaBlue} = 12'hf00;\n    else if(h_cnt < 512)\n      {vgaRed, vgaGreen, vgaBlue} = 12'h0f0;              \n    else if(h_cnt < 640)\n      {vgaRed, vgaGreen, vgaBlue} = 12'hfff;\n    else\n      {vgaRed, vgaGreen, vgaBlue} = 12'h0;\n  end\n\nendmodule"
-}

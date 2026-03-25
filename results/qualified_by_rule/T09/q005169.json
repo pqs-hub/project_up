@@ -1,6 +1,0 @@
-{
-  "task_id": "q005169",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule (D, CLK, LOAD, Q);\ninput [3:0] D;\ninput CLK, LOAD;\noutput Q;\nreg [3:0] shift_reg;\n\nalways @(posedge CLK) begin\n    if (LOAD)\n        shift_reg <= D;\n    else\n        shift_reg <= {1'b0, shift_reg[3:1]};\nend\n\nassign Q = shift_reg[0];\n\nendmodule"
-}

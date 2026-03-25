@@ -1,6 +1,0 @@
-{
-  "task_id": "q006011",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module shift_register_16bit(\n    input wire clk,\n    input wire rst,\n    input wire load,\n    input wire [15:0] data_in,\n    output reg [15:0] data_out\n);\n\n    always @(posedge clk) begin\n        if (rst) begin\n            data_out <= 16'b0000000000000000;\n        end else if (load) begin\n            data_out <= data_in;\n        end else begin\n            data_out <= data_out >> 1;\n        end\n    end\nendmodule"
-}

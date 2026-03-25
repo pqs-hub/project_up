@@ -1,8 +1,0 @@
-{
-  "task_id": "q016920",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module register_file (\n    input clk, wen,\n    input [5:0] waddr,\n    input [5:0] raddr1,\n    input [5:0] raddr2,\n    input [31:0] wdata,\n    output reg [31:0] rdata1,\n    output reg [31:0] rdata2\n);\n\n    reg [31:0] regs [0:31];\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (wen) begin\n            regs[waddr] <= wdata;\n        end\n    end\n\n    assign rdata1 = regs[raddr1];\n    assign rdata2 = regs[raddr2];\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

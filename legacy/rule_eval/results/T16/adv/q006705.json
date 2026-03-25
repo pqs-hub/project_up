@@ -1,9 +1,0 @@
-{
-  "task_id": "q006705",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(output reg [2:0] Y,\n                 output reg Valid,\n                 input wire [7:0] obf_A\n    );always@(obf_A)\nbegin\n    Valid = 1;\n    if (obf_A[7]) Y = 7;\n    else if (obf_A[6]) Y = 6;\n    else if (obf_A[5]) Y = 5;\n    else if (obf_A[4]) Y = 4;\n    else if (obf_A[3]) Y = 3;\n    else if (obf_A[2]) Y = 2;\n    else if (obf_A[1]) Y = 1;\n    else if (obf_A[0]) Y = 0;\n    else\n        begin\n                Valid = 0;\n                Y = 3'bx;     \n        end\n  end    \nendmodule",
-  "rename_map": {
-    "A": "obf_A"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q003392",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule RefModule (\n    input [31:0] A,\n    input [31:0] B,\n    input [31:0] C,\n    input [1:0] sel,\n    output reg [31:0] Y\n);\n\nalways @(*) begin\n    case (sel)\n        2'b00: Y = A;\n        2'b01: Y = B;\n        2'b10: Y = C;\n        2'b11: Y = 32'b0; // Output zero\n        default: Y = 32'b0; // Default case (should not happen)\n    endcase\nend\n\nendmodule"
-}

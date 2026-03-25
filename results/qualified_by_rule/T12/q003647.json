@@ -1,6 +1,0 @@
-{
-  "task_id": "q003647",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire [3:0] symbol,\n    output reg [1:0] I,\n    output reg [1:0] Q\n);\n\nalways @(posedge clk) begin\n    case (symbol)\n        4'b0000: {I, Q} <= 4'b0000; // (00, 00)\n        4'b0001: {I, Q} <= 4'b0001; // (00, 01)\n        4'b0010: {I, Q} <= 4'b0100; // (01, 00)\n        4'b0011: {I, Q} <= 4'b0101; // (01, 01)\n        4'b0100: {I, Q} <= 4'b1000; // (10, 00)\n        4'b0101: {I, Q} <= 4'b1001; // (10, 01)\n        4'b0110: {I, Q} <= 4'b1100; // (11, 00)\n        4'b0111: {I, Q} <= 4'b1101; // (11, 01)\n        4'b1000: {I, Q} <= 4'b0010; // (00, 10)\n        4'b1001: {I, Q} <= 4'b0011; // (00, 11)\n        4'b1010: {I, Q} <= 4'b0110; // (01, 10)\n        4'b1011: {I, Q} <= 4'b0111; // (01, 11)\n        4'b1100: {I, Q} <= 4'b1010; // (10, 10)\n        4'b1101: {I, Q} <= 4'b1011; // (10, 11)\n        4'b1110: {I, Q} <= 4'b1110; // (11, 10)\n        4'b1111: {I, Q} <= 4'b1111; // (11, 11)\n        default: {I, Q} <= 4'b0000; // default case\n    endcase\nend\n\nendmodule"
-}

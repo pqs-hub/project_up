@@ -1,8 +1,0 @@
-{
-  "task_id": "q015211",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(\n    input wire [5:0] c,\n    output wire [5:0] sum\n);\n\n      wire _n01 = c[0] ^ 6'd10[0];\n  wire _c01 = c[0] & 6'd10[0];\n  wire _n02 = c[1] ^ 6'd10[1] ^ _c01;\n  wire _c02 = (c[1] & 6'd10[1]) | (c[1] & _c01) | (6'd10[1] & _c01);\n  wire _n03 = c[2] ^ 6'd10[2] ^ _c02;\n  wire _c03 = (c[2] & 6'd10[2]) | (c[2] & _c02) | (6'd10[2] & _c02);\n  wire _n04 = c[3] ^ 6'd10[3] ^ _c03;\n  wire _c04 = (c[3] & 6'd10[3]) | (c[3] & _c03) | (6'd10[3] & _c03);\n  assign sum = {_n01, _n02, _n03, _n04};\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

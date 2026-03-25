@@ -1,6 +1,0 @@
-{
-  "task_id": "q009188",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module top_module(\n    input [1:0] current_state,\n    input pedestrian_button,\n    output reg [1:0] next_state // Change output to reg type\n);always @(*) begin\n        case (current_state)\n            2'b00: begin // green\n                if (pedestrian_button) begin\n                    next_state = 2'b01; // yellow\n                end else begin\n                    next_state = 2'b10; // red\n                end\n            end\n            2'b01: begin // yellow\n                next_state = 2'b10; // red\n            end\n            2'b10: begin // red\n                next_state = 2'b00; // green\n            end\n            default: begin\n                next_state = 2'b00; // default to green\n            end\n        endcase\n    end\n\nendmodule"
-}

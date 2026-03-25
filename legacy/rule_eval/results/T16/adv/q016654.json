@@ -1,9 +1,0 @@
-{
-  "task_id": "q016654",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module f3_mult(A, B, C); \n    input [1:0] A;\n    input [1:0] B; \n    output [1:0] C;\n    wire obf_a0, a1, b0, b1;\n    assign {a1, obf_a0} = A;\n    assign {b1, b0} = B;\n    assign C[0] = (~a1 & obf_a0 & ~b1 & b0) | (a1 & ~obf_a0 & b1 & ~b0);\n    assign C[1] = (~a1 & obf_a0 & b1 & ~b0) | (a1 & ~obf_a0 & ~b1 & b0);\nendmodule",
-  "rename_map": {
-    "a0": "obf_a0"
-  }
-}

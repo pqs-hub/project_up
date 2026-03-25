@@ -1,9 +1,0 @@
-{
-  "task_id": "q004735",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(clk, reset, in, out);input clk;\n    input reset;    \n    input in;\n    output out;\n    reg out;\n\n    \n    parameter A=0, B=1;\n\n    reg obf_present_state, next_state;\n\n    always @(posedge clk) begin\n        if (reset) begin  \n            \n            obf_present_state <= B;\n            out = 1;\n        end else begin\n            case (obf_present_state)\n                \n                A: next_state = (in)? A : B;\n                B: next_state = (in)? B : A;\n            endcase\n\n            \n            obf_present_state = next_state;   \n\n            case (obf_present_state)\n                \n                A: out = 0;\n                B: out = 1;\n            endcase\n        end\n    end\n\nendmodule",
-  "rename_map": {
-    "present_state": "obf_present_state"
-  }
-}

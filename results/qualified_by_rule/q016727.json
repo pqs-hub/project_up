@@ -1,6 +1,0 @@
-{
-  "task_id": "q016727",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n    input [7:0] a,\n    input [7:0] b,\n    input [3:0] op,\n    output [7:0] result\n);\n\nreg [15:0] final_sig;\n\nalways @* begin\n    case (op)\n        4'b0000: final_sig = a + b; // Addition\n        4'b0001: final_sig = a - b; // Subtraction\n        4'b0010: final_sig = a * b; // Multiplication\n        4'b0011: final_sig = a / b; // Division\n        4'b0100: final_sig = a & b; // Bitwise AND\n        4'b0101: final_sig = a | b; // Bitwise OR\n        4'b0110: final_sig = ~a; // Bitwise NOT\n        default: final_sig = 0; // Invalid operation code\n    endcase\nend\n\nassign result = final_sig[7:0];\n\nendmodule"
-}

@@ -1,7 +1,0 @@
-{
-  "task_id": "q016895",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module d_ff_async_reset_set (\n    input CLK,\n    input D,\n    input RESET,\n    input SET,\n    output Q,\n    output QN\n);\n\nreg Q;\n\nalways @(posedge CLK, negedge RESET, negedge SET) begin\n    if (!RESET) // asynchronous reset\n        Q <= 1'b0;\n    else if (!SET) // asynchronous set\n        Q <= 1'b1;\n    else // normal operation\n        Q <= D;\nend\n\nassign QN = ~Q;\n\nendmodule",
-  "rename_map": {}
-}

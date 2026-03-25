@@ -1,6 +1,0 @@
-{
-  "task_id": "q014997",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(output mode,input clk,input modet,input in);reg modereg = 0; \n  assign mode = modereg; \n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or posedge dbg_halt) begin \n  if(modet) \n  modereg = in; \n  end \n endmodule"
-}

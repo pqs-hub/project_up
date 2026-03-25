@@ -1,6 +1,0 @@
-{
-  "task_id": "q005099",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input Cin,\n    input reset,\n    input Clk,\n    input Clk_180,\n    output [3:0] S,\n    output Cout\n);reg [3:0] S_reg;\nreg Cout_reg;\n\nalways @(posedge Clk, posedge reset) begin\n    if (reset) begin\n        S_reg <= 4'b0;\n        Cout_reg <= 1'b0;\n    end else begin\n        S_reg <= A + B + Cin;\n        Cout_reg <= ((A[3] & B[3]) | (Cin & (A[3] | B[3])));\n    end\nend\n\nassign S = S_reg;\nassign Cout = Cout_reg;\n\nendmodule"
-}

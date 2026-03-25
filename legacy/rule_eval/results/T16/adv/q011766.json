@@ -1,9 +1,0 @@
-{
-  "task_id": "q011766",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input [7:0] obf_a,\n    input [7:0] b,\n    output reg [15:0] result\n);integer i; // Declare the index variable 'i'\n\nalways @(*) begin\n    result = 0;\n    for (i = 0; i < 8; i = i + 1) begin\n        if (obf_a[i] == 1) begin\n            result = result + (b << i);\n        end\n    end\nend\n\nendmodule",
-  "rename_map": {
-    "a": "obf_a"
-  }
-}

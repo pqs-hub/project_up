@@ -1,6 +1,0 @@
-{
-  "task_id": "q003333",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule (\n    input [1:0] dividend,\n    input [1:0] divisor,\n    output reg [1:0] quotient,\n    output reg [1:0] remainder\n);\n    \n    always @(*) begin\n        if (divisor == 2'b00) begin\n            quotient = 2'b00;   // Division by zero, output zero\n            remainder = 2'b00;  // Remainder is also zero\n        end else begin\n            quotient = dividend / divisor; // Perform division\n            remainder = dividend % divisor; // Calculate remainder\n        end\n    end\nendmodule"
-}

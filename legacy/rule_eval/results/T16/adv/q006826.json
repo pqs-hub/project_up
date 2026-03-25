@@ -1,9 +1,0 @@
-{
-  "task_id": "q006826",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module gray_code_counter (\n    input clk,\n    input rst,\n    output reg [2:0] gray\n);\n    reg [2:0] obf_binary;\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            obf_binary <= 3'b000;\n        else\n            obf_binary <= obf_binary + 1;\n    end\n    \n    always @(obf_binary) begin\n        gray = obf_binary ^ (obf_binary >> 1);\n    end\nendmodule",
-  "rename_map": {
-    "binary": "obf_binary"
-  }
-}

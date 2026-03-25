@@ -1,6 +1,0 @@
-{
-  "task_id": "q011561",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule presettable_counter(\n    input               clk         ,   \n    input               rst         ,\n    input               preset      ,\n    input [31:0]        preset_value,\n \n    output  reg [31:0]  count\n);\n    \n   //count logic\n   always @(posedge clk or posedge rst) begin\n       if(rst) begin\n          count <= 0;\n       end\n       else if(preset) begin\n          count <= preset_value;\n       end\n       else begin\n          count <= count + 1;\n       end\n   end\n     \nendmodule"
-}

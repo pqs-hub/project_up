@@ -1,6 +1,0 @@
-{
-  "task_id": "q016751",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module RefModule(\n    input [3:0] A,\n    input [3:0] B,\n    output [3:0] S,\n    output C_out\n);\n\nwire [4:0] temp; // Temporary signal to hold the sum\n\n// Add the two input values, and store the result in the temporary signal\nwire __temp_tmp = {1'b0, A} + {1'b0, B};\nassign temp = __temp_tmp;\n\n// Assign the output signals\nassign S = temp[3:0];\nassign C_out = temp[4];\n\nendmodule"
-}

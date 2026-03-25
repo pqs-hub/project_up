@@ -1,6 +1,0 @@
-{
-  "task_id": "q006542",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(clk ,rst_n ,cbf_4x4_i ,cbf_u_4x4_i ,cbf_v_4x4_i ,qp_left_i ,qp_flag_o);input clk ; \n input rst_n ; \n input cbf_4x4_i ; \n input cbf_u_4x4_i ; \n input cbf_v_4x4_i ; \n input qp_left_i ; \n output qp_flag_o ; \n reg qp_flag_o ; \n wire modified_flag = !(cbf_4x4_i ||cbf_u_4x4_i ||cbf_v_4x4_i ); \n always@(posedge clk or negedge rst_n) begin \n  if(!rst_n) \n  qp_flag_o <= 1'b0 ; \n  else if(modified_flag) \n  qp_flag_o <= qp_left_i ; \n  else \n  qp_flag_o <= 1'b0 ; \n end \n endmodule"
-}

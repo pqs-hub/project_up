@@ -1,6 +1,0 @@
-{
-  "task_id": "q011146",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module sync_load_register(\n    input               clk         ,   \n    input               rst         ,\n    input               load        ,\n    input       [3:0]   data_in     ,\n \n    output  reg [3:0]   data_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    \n   //data_out logic\n   always @(posedge clk or posedge rst) begin\n       if(rst) begin\n          data_out <= 0;\n       end\n       else if(load) begin\n          data_out <= data_in;\n       end\n   end\n     \nendmodule"
-}

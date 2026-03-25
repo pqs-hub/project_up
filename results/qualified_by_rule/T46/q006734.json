@@ -1,6 +1,0 @@
-{
-  "task_id": "q006734",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n\tinput clk,\n\tinput read_en,\n\tinput write_en,\n\tinput [2:0] addr,\n\tinput [3:0] data_in,\n\toutput reg [3:0] data_out);\n\t\n\treg [3:0] mem [7:0];\n\t\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n\t\tif (write_en)\n\t\t\tmem[addr] <= data_in;\n\t\tif (read_en)\n\t\t\tdata_out <= mem[addr];\n\tend\n\nendmodule"
-}

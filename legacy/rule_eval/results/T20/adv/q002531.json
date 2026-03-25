@@ -1,6 +1,0 @@
-{
-  "task_id": "q002531",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule PCIe_Controller (\n    input clk,\n    input reset,\n    input start,\n    input process,\n    input done,\n    output reg [1:0] state // 00: IDLE, 01: READY, 10: BUSY\n);\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter READY = 2'b01;\n    parameter BUSY = 2'b10;\n\n    // State transition\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: if (start) state <= READY;\n                READY: if (process) state <= BUSY;\n                BUSY: if (done) state <= IDLE;\n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule"
-}

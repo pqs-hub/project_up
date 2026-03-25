@@ -1,6 +1,0 @@
-{
-  "task_id": "q010672",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    input signal,\n    output reg [31:0] output_reg\n);reg signal_d;\nalways @(posedge clk) begin\n    signal_d <= signal;\n    if (reset) begin\n        output_reg <= 1;\n    end else if (signal_d && !signal) begin\n        output_reg <= {32{1'b1}};\n    end\nend\n\nendmodule"
-}

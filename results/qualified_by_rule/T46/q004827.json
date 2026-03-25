@@ -1,6 +1,0 @@
-{
-  "task_id": "q004827",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(input R, S, D, C, output reg RF, output RI);assign RI = ~RF;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge C or posedge dbg_halt)\n  begin\n    if (!R)\n\t begin\n\t   RF <= 1'b0;\n\t end\n\t else if (!S)\n\t begin\n\t   RF <= D;\n\t end\n\t else\n\t begin\n\t   RF <= RF;\n\t end\n\t \n  end\n\nendmodule"
-}

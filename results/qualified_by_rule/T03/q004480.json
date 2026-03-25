@@ -1,6 +1,0 @@
-{
-  "task_id": "q004480",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input wire [3:0] data_in,\n    input wire [1:0] sel,\n    output wire data_out\n);\n  wire [3:0] _tap_data_in = data_in & {4{1'b1}};\n\n\n    assign data_out = (sel == 2'b00) ? data_in[0] :\n                      (sel == 2'b01) ? data_in[1] :\n                      (sel == 2'b10) ? data_in[2] :\n                                       data_in[3];\n\nendmodule"
-}

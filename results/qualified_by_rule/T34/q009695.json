@@ -1,6 +1,0 @@
-{
-  "task_id": "q009695",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    input load,\n    input [0:0] D,\n    output [0:0] Q\n);wire [0:0] unused_Q_next;\n    reg [0:0] Q_reg; // Change from wire to reg\n\n    assign Q = Q_reg;\n\n    assign unused_Q_next[0] = (load == 1'b1) ? D : (Q_reg[0] + D[0]); // Modified to use D directly for addition\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            Q_reg <= 1'b0; // Reset condition\n        end else begin\n            Q_reg <= unused_Q_next; // Update Q_reg with unused_Q_next\n        end\n    end\n    \nendmodule"
-}

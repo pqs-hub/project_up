@@ -1,6 +1,0 @@
-{
-  "task_id": "q004158",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    output reg out\n);\n    reg [2:0] unused_count; // 3-bit counter to unused_count to 8\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            unused_count <= 3'b000;\n            out <= 1'b0;\n        end else begin\n            if (unused_count == 3'b111) begin\n                out <= ~out; // toggle output\n                unused_count <= 3'b000; // reset unused_count\n            end else begin\n                unused_count <= unused_count + 1; // increment unused_count\n            end\n        end\n    end\nendmodule"
-}

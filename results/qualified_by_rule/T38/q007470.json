@@ -1,6 +1,0 @@
-{
-  "task_id": "q007470",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(\n  input in,\n  input Vth_high,\n  input Vth_low,\n  output out\n);reg out_reg; // register to store previous state of output signal\n\n  always @(in, Vth_high, Vth_low, out_reg) begin\n    if (in > Vth_high) begin\n      out_reg <= 1'b1; // set output to high\n    end else if (in < Vth_low) begin\n      out_reg <= 1'b0; // set output to low\n    end else begin\n      out_reg <= out_reg; // hold previous state\n    end\n  end\n\n  assign out = out_reg; // assign output to stored value\n\nendmodule"
-}

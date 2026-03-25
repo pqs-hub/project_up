@@ -1,8 +1,0 @@
-{
-  "task_id": "q003587",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module divider_2bit (\n    input clk,\n    input rst,\n    input enable,\n    input [1:0] dividend,\n    input [1:0] divisor,\n    output reg [1:0] quotient,\n    output reg [1:0] remainder\n);\n    \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n        if (rst) begin\n            quotient <= 2'b00;\n            remainder <= 2'b00;\n        end else if (enable) begin\n            if (divisor == 2'b00) begin\n                quotient <= 2'b00;\n                remainder <= 2'b00;\n            end else begin\n                quotient <= dividend / divisor;\n                remainder <= dividend % divisor;\n            end\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

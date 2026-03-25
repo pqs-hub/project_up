@@ -1,6 +1,0 @@
-{
-  "task_id": "q000398",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module interrupt_controller (\n    input wire hpi,\n    input wire lpi,\n    input wire ack,\n    output reg irq,\n    output reg [1:0] irq_type\n);\n    \n    always @(posedge hpi or posedge lpi or posedge ack) begin\n    begin end  // redundant\n        if (ack) begin\n            irq <= 0;\n            irq_type <= 2'b00;\n        end else if (hpi) begin\n            irq <= 1;\n            irq_type <= 2'b01; // High-priority interrupt\n        end else if (lpi) begin\n            irq <= 1;\n            irq_type <= 2'b10; // Low-priority interrupt\n        end else begin\n            irq <= 0;\n            irq_type <= 2'b00; // No interrupt\n        end\n    end\nendmodule"
-}

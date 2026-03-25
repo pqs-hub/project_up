@@ -1,6 +1,0 @@
-{
-  "task_id": "q010245",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(D,CLK,RSTB,Q,QN);input D;\n input CLK;\n input RSTB;\n output Q;\n output QN;\n  wire _tap_D = D & {1{1'b1}};\n\n\n reg Qtemp;\n\n always @(posedge CLK or negedge RSTB) begin\n   if (~RSTB) begin\n     Qtemp <= 1'b0;\n   end else begin\n     Qtemp <= D;\n   end\n end\n\n assign QN = ~Qtemp;\n assign Q = Qtemp;\n\nendmodule"
-}

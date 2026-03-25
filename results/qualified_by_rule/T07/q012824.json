@@ -1,6 +1,0 @@
-{
-  "task_id": "q012824",
-  "rule_id": "T07",
-  "changed": true,
-  "final": "module RefModule(sum,cout,a,b,cin);output[31:0] sum; \n output cout; \n input[31:0] a,b; \n input cin; \n wire[31:0] G,P; \n wire[31:0] C,sum; \n assign P[0]=a[0]|b[0]; \n assign G[0]=a[0]&b[0]; \n assign C[0]=cin; \n assign sum[0]=G[0]^P[0]^C[0]; \n assign G[1]=a[1]&b[1]; \n assign P[1]=a[1]|b[1]; \n assign C[1]=G[0]|(P[0]&cin); \n assign sum[1]=G[1]^P[1]^C[1]; \n genvar i; \n generate \n for(i = 2; i < 32; i = i + 1) begin:aaa \n  assign G[i]=a[i]&b[i]; \n  assign P[i]=a[i]|b[i]; \n  assign C[i]=G[i-1]|(P[i-1]&C[i-1]); \n  assign sum[i]=G[i]^P[i]^C[i]; \n end \n endgenerate \n assign cout=G[31]|(P[31]&C[31]); \n endmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q002740",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule(\n    input [7:0] x1,\n    input [7:0] x2,\n    output [15:0] y\n);\n    // Parameters for the linear regression\n    parameter integer a = 2;\n    parameter integer b = 3;\n    parameter integer c = 5;\n\n    // Calculate y = a*x1 + b*x2 + c\n      wire _n01 = (a * x1) + (b * x2)[0] ^ c[0];\n  wire _c01 = (a * x1) + (b * x2)[0] & c[0];\n  wire _n02 = (a * x1) + (b * x2)[1] ^ c[1] ^ _c01;\n  wire _c02 = ((a * x1) + (b * x2)[1] & c[1]) | ((a * x1) + (b * x2)[1] & _c01) | (c[1] & _c01);\n  wire _n03 = (a * x1) + (b * x2)[2] ^ c[2] ^ _c02;\n  wire _c03 = ((a * x1) + (b * x2)[2] & c[2]) | ((a * x1) + (b * x2)[2] & _c02) | (c[2] & _c02);\n  wire _n04 = (a * x1) + (b * x2)[3] ^ c[3] ^ _c03;\n  wire _c04 = ((a * x1) + (b * x2)[3] & c[3]) | ((a * x1) + (b * x2)[3] & _c03) | (c[3] & _c03);\n  assign y = {_n01, _n02, _n03, _n04};\n\nendmodule"
-}

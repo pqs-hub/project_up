@@ -1,6 +1,0 @@
-{
-  "task_id": "q011999",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module top_module(\n    output [31:0] dout,\n    input [31:0] B,\n    input [1:0] ctrl,\n    input [1:0] A\n);wire [31:0] shifted;\n\n  assign dout = shifted;\n                 (ctrl == 2'b01) ? (B << (A + 1)) :\n                 (ctrl == 2'b10) ? (B << (A + 2)) :\n                                   (B << (A + 3));\n  assign shifted = (ctrl == 2'b00) ? (B << A) :\n                 (ctrl == 2'b01) ? (B << (A + 1)) :\n                 (ctrl == 2'b10) ? (B << (A + 2)) :\n                                   (B << (A + 3));\n\nendmodule"
-}

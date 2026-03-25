@@ -1,6 +1,0 @@
-{
-  "task_id": "q008531",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input [1:0] opcode,\n    output reg [3:0] result  // Change wire to reg to hold output from always block\n);wire [3:0] add_result;\n    wire [3:0] sub_result;\n    wire [3:0] and_result;\n    wire [3:0] or_result;\n    \n    wire __add_result_tmp = A + B;\n    assign add_result = __add_result_tmp;\n    assign sub_result = A - B;\n    assign and_result = A & B;\n    assign or_result = A | B;\n    \n    always @(*) begin\n        case (opcode)\n            2'b00: result = add_result;\n            2'b01: result = sub_result;\n            2'b10: result = and_result;\n            2'b11: result = or_result;\n            default: result = 4'bxxxx;\n        endcase\n    end\n\nendmodule"
-}

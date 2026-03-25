@@ -1,6 +1,0 @@
-{
-  "task_id": "q000392",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule dram_cell(  \n    input wire clk,  \n    input wire wr_en,  \n    input wire [15:0] data_in,  \n    output reg [15:0] data_out  \n);  \n    reg [15:0] memory;  \n    \n    always @(posedge clk) begin  \n        if (wr_en) begin  \n            memory <= data_in;  \n        end  \n        data_out <= memory;  \n    end  \nendmodule"
-}

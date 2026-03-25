@@ -1,6 +1,0 @@
-{
-  "task_id": "q015285",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    input wire A,\n    input wire B,\n    input wire carry_in,\n    output wire sum,\n    output wire carry_out\n    );\n  wire _tap_A = A & {1{1'b1}};\n\n\nwire sum1, carry1, carry2;\n\n// Half adder for A and B\nhalf_adder HA1 (\n    .A(A),\n    .B(B),\n    .sum(sum1),\n    .carry(carry1)\n);\n\n// Half adder for sum1 and carry_in\nhalf_adder HA2 (\n    .A(sum1),\n    .B(carry_in),\n    .sum(sum),\n    .carry(carry2)\n);\n\n// OR gate for carry outputs\nassign carry_out = carry1 | carry2;\n\nendmodule\n\nmodule half_adder(\n    input wire A,\n    input wire B,\n    output wire sum,\n    output wire carry\n    );\n\nassign sum = A ^ B;\nassign carry = A & B;\n\nendmodule"
-}

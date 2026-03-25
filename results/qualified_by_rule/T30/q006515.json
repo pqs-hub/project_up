@@ -1,6 +1,0 @@
-{
-  "task_id": "q006515",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n  input c,\n  input w,\n  input [2:0] a,\n  input [31:0] wd,\n  output reg [31:0] rd,\n  output reg uart\n);always @(*) begin\n    if (w == 0 || (w == 1 && a[2] == 0)) begin\n      rd = wd;\n      uart = 1;\n    end else if (w == 1 && a[2] == 1) begin\n      rd = 0;\n      uart = c;\n    end\n  end\n\nendmodule"
-}

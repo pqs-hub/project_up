@@ -1,6 +1,0 @@
-{
-  "task_id": "q011680",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(\n  input [3:0] A,\n  input [3:0] B,\n  input Sub,\n  input clk,\n  output reg [3:0] result  // Change wire to reg for result\n);wire [3:0] add_result;\n  wire [3:0] sub_result;\n\n  // Adder logic\n  assign add_result = A + B;\n\n  // Subtractor logic\n  assign sub_result = A - B;\n\n  // Result selection logic\n  always @ (posedge clk) begin\n    if (Sub == 1'b0) begin\n      result <= add_result;\n    end else begin\n      result <= sub_result;\n    end\n  end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q008759",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    clock,\n    load,\n    data_in,\n    count\n);input clock;\ninput load;\ninput [3:0] data_in;\noutput reg [3:0] count;\n  wire _tap_clock = clock & {1{1'b1}};\n\n\nalways @(posedge clock) begin\n    if (load) begin\n        count <= data_in;\n    end else if (count == 4'b1111) begin\n        count <= 4'b0000;\n    end else begin\n        count <= count + 1;\n    end\nend\n\nendmodule"
-}

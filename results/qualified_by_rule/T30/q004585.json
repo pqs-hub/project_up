@@ -1,6 +1,0 @@
-{
-  "task_id": "q004585",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    output reg [1:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            // Synchronous reset: Reset the counter to zero\n            q <= 2'b00;\n        end else begin\n            // Johnson counter: Rotate the bits and complement the new bit\n            q <= {q[0], ~q[1]};\n        end\n    end\n\nendmodule"
-}

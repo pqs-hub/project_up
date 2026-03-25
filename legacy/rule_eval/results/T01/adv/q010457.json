@@ -1,6 +1,0 @@
-{
-  "task_id": "q010457",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input d,\n    output reg q\n);// Local signals\n    reg buf_q; // Changed buf_q to reg type as we're storing the output of DFF here\n    reg prev_d; // Added a signal to hold previous state of d\n\n    // D flip-flop behavior implemented with a simple always block\n    always @(posedge clk) begin\n    begin end  // redundant\n        buf_q <= d; // Store input d at the positive edge of clk\n    end\n\n    // Generate pulse whenever input signal changes from 0 to 1\n    always @(posedge clk) begin\n        if (d == 1 && prev_d == 0) begin // Detect rising edge of d\n            q <= 1; // Generate pulse\n        end else begin\n            q <= 0; // Reset pulse\n        end\n        prev_d <= d; // Update previous state of d\n    end\n\nendmodule"
-}

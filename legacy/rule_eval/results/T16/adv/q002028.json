@@ -1,9 +1,0 @@
-{
-  "task_id": "q002028",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module ALU (\n    input [15:0] obf_A,\n    input [15:0] B,\n    input [3:0] control,\n    output reg [15:0] R,\n    output reg flag\n);\n\nalways @(*) begin\n    case(control)\n        4'b0000: R = obf_A + B;             // ADD\n        4'b0001: R = obf_A - B;             // SUBTRACT\n        4'b0010: R = obf_A & B;             // AND\n        4'b0011: R = obf_A | B;             // OR\n        4'b0100: R = obf_A ^ B;             // XOR\n        4'b0101: R = ~obf_A;                // NOT\n        4'b0110: R = obf_A << 1;            // SHIFT LEFT\n        4'b0111: R = obf_A >> 1;            // SHIFT RIGHT\n        4'b1000: R = (obf_A < B) ? 16'b1 : 16'b0; // LESS THAN\n        4'b1001: R = (obf_A > B) ? 16'b1 : 16'b0; // GREATER THAN\n        4'b1010: R = (obf_A == B) ? 16'b1 : 16'b0; // EQUAL\n        default: R = 16'b0;             // Default case\n    endcase\n    flag = (R != 0) ? 1 : 0;\nend\n\nendmodule",
-  "rename_map": {
-    "A": "obf_A"
-  }
-}

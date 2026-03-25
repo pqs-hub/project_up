@@ -1,6 +1,0 @@
-{
-  "task_id": "q015804",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    input parallel_load,\n    input shift,\n    input [3:0] input_data,\n    output reg [3:0] output_data\n);always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            output_data <= 4'b0;\n        end else if (parallel_load) begin\n            output_data <= input_data;\n        end else if (shift) begin\n            output_data <= {output_data[2:0], 1'b0};\n        end\n    end\n\nendmodule"
-}

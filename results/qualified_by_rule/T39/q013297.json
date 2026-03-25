@@ -1,6 +1,0 @@
-{
-  "task_id": "q013297",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(\n  input [1:0] address,\n  input clk,\n  input [7:0] in_port,\n  input reset_n,\n  output reg [31:0] readdata\n);reg [31:0] reg_data; // register to store data\n\n  always @(posedge clk or negedge reset_n) begin\n    if (~reset_n) begin\n      reg_data <= 0;\n      readdata <= 0;\n    end\n    else begin\n      if (address == 2'b00) begin // write operation\n        reg_data <= in_port;\n      end\n      else if (address == 2'b01) begin // read operation\n        readdata <= reg_data;\n      end\n    end\n  end\n\nendmodule"
-}

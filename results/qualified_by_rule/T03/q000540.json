@@ -1,6 +1,0 @@
-{
-  "task_id": "q000540",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input [7:0] data_in,\n    input write_enable,\n    input clock,\n    output reg [7:0] data_out\n);\n  wire [7:0] _tap_data_in = data_in & {8{1'b1}};\n\n\nalways @(posedge clock) begin\n    if (write_enable) begin\n        data_out <= data_in; // Write data to SRAM if write_enable is high\n    end\nend\n\nendmodule"
-}

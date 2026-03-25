@@ -1,6 +1,0 @@
-{
-  "task_id": "q007670",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n    Q,\n    CLK,\n    D,\n    RESET_B,\n    VPWR,\n    VGND,\n    VPB,\n    VNB\n);output Q;\n    input CLK, D, RESET_B, VPWR, VGND, VPB, VNB;\n\n    reg Q;\n\n    // Synchronize the data input with the system clock\n    always @(posedge CLK or negedge RESET_B) begin\n        if (~RESET_B) begin\n            Q <= 1'b0; // Reset to default value\n        end else begin\n            Q <= D;\n        end\n    end\n\nendmodule"
-}

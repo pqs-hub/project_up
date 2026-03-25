@@ -1,6 +1,0 @@
-{
-  "task_id": "q001129",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [1:0] command, // 00: IDLE, 01: READ, 10: WRITE\n    output reg [1:0] status // 00: IDLE, 01: READING, 10: WRITING\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            status <= 2'b00; // IDLE\n        end else begin\n            case (command)\n                2'b01: status <= 2'b01; // READING\n                2'b10: status <= 2'b10; // WRITING\n                default: status <= 2'b00; // IDLE\n            endcase\n        end\n    end\nendmodule"
-}

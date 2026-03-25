@@ -1,6 +1,0 @@
-{
-  "task_id": "q009108",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(\n  input [n-1:0] in,\n  input clk,\n  input rst,\n  output [n-1:0] out\n);parameter n = 8; // number of input and output signals\n\nreg [n-1:0] hold; // register to hold the data on the bus\n\nalways @(posedge clk) begin\n  if (rst) begin\n    hold <= 0; // reset the register to 0\n  end else begin\n    hold <= in; // latch the input signals on the rising edge of the clock\n  end\nend\n\nassign out = hold; // assign the output signals to the register\n\nendmodule"
-}

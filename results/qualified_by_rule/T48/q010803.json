@@ -1,6 +1,0 @@
-{
-  "task_id": "q010803",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule(inword, sel, outbyte);input [63:0] inword;\n\tinput [2:0] sel;\n\toutput reg [7:0] outbyte;\n\t\n\talways @(*) begin\n\t\tcase(sel)\n\t\t\t3'h0:\n\t\t\t\toutbyte <= inword[7:0];\n\t\t\t\t\n\t\t\t3'h1:\n\t\t\t\toutbyte <= inword[15:8];\n\t\t\n\t\t\t3'h2:\n\t\t\t\toutbyte <= inword[23:16];\n\t\t\n\t\t\t3'h3:\n\t\t\t\toutbyte <= inword[31:24];\n\t\t\n\t\t\t3'h4:\n\t\t\t\toutbyte <= inword[39:32];\n\t\t\n\t\t\t3'h5:\n\t\t\t\toutbyte <= inword[47:40];\n\t\t\n\t\t\t3'h6:\n\t\t\t\toutbyte <= inword[55:48];\n\t\t\n\t\t\t3'h7:\n\t\t\t\toutbyte <= inword[63:56];\n\t\t\n\t\t\tdefault:\n\t\t\t\toutbyte <= 8'bxxxxxxxx;\n\t\tendcase\n\tend\nendmodule"
-}

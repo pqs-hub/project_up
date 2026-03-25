@@ -1,6 +1,0 @@
-{
-  "task_id": "q006923",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module dual_port_ram(\n    input        clk,\n    input        wr_en,\n    input  [7:0] wr_addr,\n    input  [7:0] rd_addr,\n    input  [7:0] data_in,\n    output [7:0] data_out\n);\nreg [7:0] unused_mem [255:0];\n\n// Write logic\nalways @(posedge clk) begin\n    if (wr_en)\n        unused_mem[wr_addr] <= data_in;\nend\n\n// Asynchronous read logic\nassign data_out = unused_mem[rd_addr];\n\nendmodule"
-}

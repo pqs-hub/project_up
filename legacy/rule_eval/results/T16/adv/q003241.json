@@ -1,9 +1,0 @@
-{
-  "task_id": "q003241",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module packet_filter (\n    input [15:0] src_ip,\n    input [15:0] dest_ip,\n    output reg obf_allow\n);\n    always @(*) begin\n        if ((src_ip >= 16'hC0A8_0001) && (src_ip <= 16'hC0A8_00FF) && (dest_ip == 16'hC0A8_000A)) \n            obf_allow = 1;\n        else\n            obf_allow = 0;\n    end\nendmodule",
-  "rename_map": {
-    "allow": "obf_allow"
-  }
-}

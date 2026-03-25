@@ -1,6 +1,0 @@
-{
-  "task_id": "q011017",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(din, clk, set_l, q);// synopsys template\nparameter SIZE = 1;\n\ninput   [SIZE-1:0]      din ;   // data in\ninput                   clk ;   // clk or scan clk\ninput                   set_l ; // set\n\noutput  [SIZE-1:0]      q ;     // output\n\nreg     [SIZE-1:0]      q ;\n\n// synopsys sync_set_reset \"set_l\"\nalways @ (posedge clk) begin\n  if (!set_l) // synchronous set is active\n    q[SIZE-1:0] <= din[SIZE-1:0];\n  else // synchronous reset is active\n    q[SIZE-1:0] <= {SIZE{1'b1}};\nend\n\nendmodule"
-}

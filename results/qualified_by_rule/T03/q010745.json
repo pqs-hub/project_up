@@ -1,6 +1,0 @@
-{
-  "task_id": "q010745",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,       // Added clk input\n    input [0:0] in,\n    output reg [2:0] out\n);reg [2:0] shift_reg;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    shift_reg <= {shift_reg[1:0], in};\nend\n\nassign out = shift_reg;\n\nendmodule"
-}

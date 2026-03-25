@@ -1,6 +1,0 @@
-{
-  "task_id": "q000126",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input [39:0] vector_a, // 5 elements of 8 bits packed (5*8=40 bits)\n    input [39:0] vector_b, // 5 elements of 8 bits packed (5*8=40 bits)\n    output reg [15:0] dot_product_out // 16-bit output\n);\n  wire [39:0] _tap_vector_a = vector_a & {40{1'b1}};\n\n    integer i;\n    always @(*) begin\n        dot_product_out = 16'b0; // Initialize output to 0\n        for (i = 0; i < 5; i = i + 1) begin\n            dot_product_out = dot_product_out + (vector_a[i*8 +: 8] * vector_b[i*8 +: 8]);\n        end\n    end\nendmodule"
-}

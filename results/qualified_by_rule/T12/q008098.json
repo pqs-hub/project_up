@@ -1,6 +1,0 @@
-{
-  "task_id": "q008098",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n\t clk,    \n\t reset,  \n\t input_pc,  \n\t output_pc, \n\t PCWre   \n);input wire[31:0] input_pc;\n\t output reg[31:0] output_pc;\n\t input clk, reset, PCWre;\n\n    \n\talways@(posedge clk)begin\n\t\tif(reset == 0)begin  \n\t\t\toutput_pc = 0;\n\t\tend\n\t\telse if(!PCWre)begin  \n\t\t\toutput_pc = output_pc;\n\t\tend\n\t\telse if(PCWre)begin   \n\t\t\toutput_pc = input_pc;\n\t\tend\n\tend\n\nendmodule"
-}

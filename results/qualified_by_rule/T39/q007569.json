@@ -1,6 +1,0 @@
-{
-  "task_id": "q007569",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(\n    input                 clk,\n    input                 rst,\n    input                 enable,\n    input                 load,\n    input       [2:0]     load_val,\n    output   reg [2:0]    count\n);\n\n// Counting logic\nalways @(posedge clk) begin\n    if (rst) begin\n        count <= 3'd7;\n    end else if (load) begin\n        count <= load_val;\n    end else if (enable) begin\n        if (count == 3'd0) begin\n            count <= 3'd7;\n        end else begin\n            count <= count - 1;\n        end\n    end\nend\n\nendmodule"
-}

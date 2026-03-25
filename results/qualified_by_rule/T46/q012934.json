@@ -1,6 +1,0 @@
-{
-  "task_id": "q012934",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input wire rst_n,\n    input wire clk,\n    input wire load,\n    input wire [7:0] din,\n    output reg [7:0] dout\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_n or posedge dbg_halt) begin\n    if (!rst_n)\n        dout <= 8'b00000000;\n    else if (load)\n        dout <= din;\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q012697",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(clk ,select, sd, d, q);input clk;\ninput select;\ninput sd;\ninput d;\noutput reg q;\n  wire _tap_clk = clk & {1{1'b1}};\n\nwire f;\n\n\nassign f = (select)? sd : d;\n\nalways @(negedge clk) begin\n    q <= f;\nend\n    \nendmodule"
-}

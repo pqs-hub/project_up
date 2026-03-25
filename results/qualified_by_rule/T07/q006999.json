@@ -1,6 +1,0 @@
-{
-  "task_id": "q006999",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule\n(\n    input clk,\n    input reset,\n    output reg [5:0] count\n);\n    always @(posedge clk) begin\n        if (reset) begin\n            count <= 6'b000001; // Set counter to initial value\n        end else begin\n            count <= {~count[0], count[5:1]}; // Rotate right with inverted bit\n        end\n    end\n\nendmodule"
-}

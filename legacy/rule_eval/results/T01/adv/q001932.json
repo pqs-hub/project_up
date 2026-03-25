@@ -1,6 +1,0 @@
-{
-  "task_id": "q001932",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module shift_register (  \n    input clk,  \n    input reset,  \n    input load,  \n    input shift_dir,  // 1 for left, 0 for right  \n    input [15:0] parallel_in,  \n    output reg [15:0] shift_out  \n);  \n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant  \n        if (reset)  \n            shift_out <= 16'b0;  \n        else if (load)  \n            shift_out <= parallel_in;  \n        else if (shift_dir)  \n            shift_out <= {shift_out[14:0], 1'b0};  // shift left  \n        else  \n            shift_out <= {1'b0, shift_out[15:1]};  // shift right  \n    end  \nendmodule"
-}

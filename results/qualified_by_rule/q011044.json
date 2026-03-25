@@ -1,6 +1,0 @@
-{
-  "task_id": "q011044",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n    input [3:0] a,\n    input [3:0] b,\n    input cin,\n    output [3:0] sum,\n    output cout\n);\n\nwire [3:0] obf_carry;\n\nassign {obf_carry[0], sum[0]} = a[0] + b[0] + cin;\nassign {obf_carry[1], sum[1]} = a[1] + b[1] + obf_carry[0];\nassign {obf_carry[2], sum[2]} = a[2] + b[2] + obf_carry[1];\nassign {obf_carry[3], sum[3]} = a[3] + b[3] + obf_carry[2];\nassign cout = obf_carry[3];\n\nendmodule"
-}

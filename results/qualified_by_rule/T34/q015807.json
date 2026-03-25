@@ -1,6 +1,0 @@
-{
-  "task_id": "q015807",
-  "rule_id": "T34",
-  "changed": false,
-  "final": "module RefModule(clk,rst_n,x,y,btn1,btn2);input clk,rst_n,btn1,btn2;\noutput x,y;\nreg x,y;\n\n\nalways@(posedge clk or negedge rst_n)begin\n\tif(!rst_n) begin \n\t\tx <= 0;\n\t\ty <= 0;\n\tend else begin \n\t\tif(btn1 == 1)begin\n\t\t\tx<=1;\n\t\t\ty<=0;\n\t\tend else if(btn2 == 1)begin\n\t\t\tx<=0;\n\t\t\ty<=1;\n\t\tend else if( btn1==0 && btn2==0 )\n\t\tbegin \n\t\tx<=0;\n\t\ty<=0;\n\t\tend\n\tend\nend\n\n\nendmodule"
-}

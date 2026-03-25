@@ -1,6 +1,0 @@
-{
-  "task_id": "q001010",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire R0,\n    input wire R1,\n    input wire R2,\n    output reg G0,\n    output reg G1,\n    output reg G2\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        G0 <= 0;\n        G1 <= 0;\n        G2 <= 0;\n    end else begin\n        // Default grants to zero\n        G0 <= 0;\n        G1 <= 0;\n        G2 <= 0;\n\n        // Grant based on priority\n        if (R0) begin\n            G0 <= 1;\n        end else if (R1) begin\n            G1 <= 1;\n        end else if (R2) begin\n            G2 <= 1;\n        end\n    end\nend\nendmodule"
-}

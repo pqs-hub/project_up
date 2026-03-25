@@ -1,6 +1,0 @@
-{
-  "task_id": "q016499",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module sparc_exu_aluadder64\n  (\n   rs1_data,\n   rs2_data,\n   cin,\n   adder_out,\n   cout32,\n   cout64\n   );\n   input [63:0]  rs1_data;   \n   input [63:0]  rs2_data;   \n   input         cin;           \n   output [63:0] adder_out; \n   output         cout32;         \n   output         cout64;         \n   assign      {cout32, adder_out[31:0]} = rs1_data[31:0]+rs2_data[31:0]+\n                                           cin;\n   assign      {cout64, adder_out[63:32]} = rs1_data[63:32] \n               + rs2_data[63:32] + cout32;\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q000966",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (  \n    input [7:0] dividend,  \n    input [7:0] divisor,  \n    output reg [7:0] quotient,  \n    output reg [7:0] remainder  \n);  \n    integer i;  \n    reg [7:0] temp_dividend;  \n    reg [7:0] temp_quotient;  \n    reg [7:0] temp_remainder;  \n    always @(*) begin\n    begin end  // redundant  \n        temp_dividend = dividend;  \n        temp_quotient = 0;  \n        temp_remainder = 0;  \n        for (i = 7; i >= 0; i = i - 1) begin  \n            temp_remainder = {temp_remainder[6:0], temp_dividend[i]};  \n            if (temp_remainder >= divisor) begin  \n                temp_remainder = temp_remainder - divisor;  \n                temp_quotient = {temp_quotient[6:0], 1'b1};  \n            end else begin  \n                temp_quotient = {temp_quotient[6:0], 1'b0};  \n            end  \n        end  \n        quotient = temp_quotient;  \n        remainder = temp_remainder;  \n    end  \nendmodule"
-}

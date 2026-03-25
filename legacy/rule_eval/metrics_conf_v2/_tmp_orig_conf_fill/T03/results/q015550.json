@@ -1,7 +1,0 @@
-{
-  "task_id": "q015550",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module top_module(\n           CLK_IN,\n           reset,\n           enb,\n           u,\n           count_debounce,\n           y\n          );input   CLK_IN;\n  input   reset;\n  input   enb;\n  input   u;\n  input   [7:0] count_debounce;  \n  output  y;\n\n\n  reg  u_n1;\n  reg [7:0] count;  \n  reg  y_reg;\n  reg  u_n1_next;\n  reg [7:0] count_next;  \n  reg  y_reg_next;\n  reg [8:0] add_temp_1;  \n\n\n  always @(posedge CLK_IN)\n    begin : libDebounce_c2_Count_Up_Down_process\n      if (reset == 1'b1) begin\n        u_n1 <= 1'b0;\n        count <= 8'd0;\n        y_reg <= 1'b0;\n      end\n      else if (enb) begin\n        u_n1 <= u_n1_next;\n        count <= count_next;\n        y_reg <= y_reg_next;\n      end\n    end\n\n  always @(u, u_n1, count, count_debounce, y_reg) begin\n    count_next = count;\n    y_reg_next = y_reg;\n    \n    \n    \n    \n    if (u == u_n1) begin\n      \n      \n      if (count >= count_debounce) begin\n        \n        \n        y_reg_next = u;\n        \n      end\n      else begin\n        \n        add_temp_1 = count + 1;\n        if (add_temp_1[8] != 1'b0) begin\n          count_next = 8'b11111111;\n        end\n        else begin\n          count_next = add_temp_1[7:0];\n        end\n      end\n      \n    end\n    else begin\n      \n      count_next = 8'd0;\n    end\n    \n    u_n1_next = u;\n  end\n\n  assign y = y_reg_next;\n\n\n\nendmodule",
-  "rename_map": {}
-}

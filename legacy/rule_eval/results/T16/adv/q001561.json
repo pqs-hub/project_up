@@ -1,9 +1,0 @@
-{
-  "task_id": "q001561",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module temperature_sensor(\n    input wire clk,\n    input wire [3:0] temp,\n    output reg obf_alarm\n);\n\n    always @(posedge clk) begin\n        if (temp > 4'd10) begin\n            obf_alarm <= 1'b1; // Set obf_alarm high if temperature exceeds 10\n        end else begin\n            obf_alarm <= 1'b0; // Reset obf_alarm if temperature is 10 or lower\n        end\n    end\nendmodule",
-  "rename_map": {
-    "alarm": "obf_alarm"
-  }
-}

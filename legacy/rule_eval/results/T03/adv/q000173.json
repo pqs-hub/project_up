@@ -1,6 +1,0 @@
-{
-  "task_id": "q000173",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module thermal_sensor_calibration (  \n    input wire clk,  \n    input wire rst,  \n    input wire [7:0] temp_in,  \n    output reg [7:0] temp_out  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n    parameter OFFSET = 8'd5; // Calibration offset  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            temp_out <= 8'b0;  \n        end else begin  \n            temp_out <= temp_in + OFFSET;  \n        end  \n    end  \nendmodule"
-}

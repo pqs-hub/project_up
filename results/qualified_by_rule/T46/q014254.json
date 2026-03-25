@@ -1,6 +1,0 @@
-{
-  "task_id": "q014254",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n\tinput clk,\n\tinput reset,\n\tinput [7:0] temp,\n\tinput [7:0] setpoint,\n\toutput reg heat,\n\toutput reg cool);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n\t\tif (reset) begin\n\t\t\theat <= 0;\n\t\t\tcool <= 0;\n\t\tend else begin\n\t\t\tif (temp < setpoint) begin\n\t\t\t\theat <= 1;\n\t\t\t\tcool <= 0;\n\t\t\tend else if (temp > setpoint) begin\n\t\t\t\theat <= 0;\n\t\t\t\tcool <= 1;\n\t\t\tend else begin\n\t\t\t\theat <= 0;\n\t\t\t\tcool <= 0;\n\t\t\tend\n\t\tend\n\tend\n\t\nendmodule"
-}

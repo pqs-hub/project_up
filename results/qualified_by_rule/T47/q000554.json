@@ -1,6 +1,0 @@
-{
-  "task_id": "q000554",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule (input [15:0] data_in,  \n                  input [3:0] addr,  \n                  input read,  \n                  input write,  \n                  output reg [15:0] data_out);  \n                  \n    reg [15:0] memory [15:0];  // 16 16-bit memory cells  \n                  \n    always @(*) begin  \n        if (write) begin  \n            memory[addr] <= data_in;  \n        end  \n    end  \n\n    always @(*) begin  \n        if (read) begin  \n            data_out <= memory[addr];  \n        end  \n    end  \nendmodule"
-}

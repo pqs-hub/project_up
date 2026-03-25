@@ -1,6 +1,0 @@
-{
-  "task_id": "q002939",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module LDO (\n    input wire [7:0] Vin,     // Input voltage\n    input wire [7:0] Vref,    // Reference voltage\n    output reg [7:0] Vout,    // Output voltage\n    output reg OverVoltage,    // Over Voltage indicator\n    output reg UnderVoltage    // Under Voltage indicator\n);\n    \n    always @(*) begin\n        if (Vin > Vref) begin\n            Vout = Vref; // Regulate to Vref\n        end else begin\n            Vout = Vin; // Follow input voltage\n        end\n        \n        // Check OverVoltage and UnderVoltage\n        if (Vout > (Vref + (Vref / 10))) begin\n            OverVoltage = 1'b1; // Over Voltage condition\n        end else begin\n            OverVoltage = 1'b0;\n        end\n        \n        if (Vout < (Vref - (Vref / 10))) begin\n            UnderVoltage = 1'b1; // Under Voltage condition\n        end else begin\n            UnderVoltage = 1'b0;\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

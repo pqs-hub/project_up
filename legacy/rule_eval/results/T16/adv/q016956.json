@@ -1,9 +1,0 @@
-{
-  "task_id": "q016956",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module rising_edge_counter(\n  input wire clk,\n  input wire reset,\n  output wire [31:0] count\n);\n\n  reg [31:0] obf_count_reg;\n\n  always @(posedge clk) begin\n    if (reset) begin\n      obf_count_reg <= 0;\n    end else begin\n      obf_count_reg <= obf_count_reg + 1;\n    end\n  end\n\n  assign count = obf_count_reg;\n\nendmodule",
-  "rename_map": {
-    "count_reg": "obf_count_reg"
-  }
-}

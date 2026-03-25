@@ -1,6 +1,0 @@
-{
-  "task_id": "q003994",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule bluetooth_strength (\n    input [4:0] strength_in,\n    output reg [1:0] strength_out\n);\n\nalways @(*) begin\n    if (strength_in < 5)\n        strength_out = 2'b00; // Less than 5\n    else if (strength_in <= 10)\n        strength_out = 2'b01; // Between 5 and 10\n    else if (strength_in <= 15)\n        strength_out = 2'b10; // Between 11 and 15\n    else\n        strength_out = 2'b11; // Greater than 15\nend\n\nendmodule"
-}

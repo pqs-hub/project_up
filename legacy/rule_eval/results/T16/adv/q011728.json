@@ -1,9 +1,0 @@
-{
-  "task_id": "q011728",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(clock, a_in, b_in, out);input clock;\ninput [7:0] a_in;\ninput [7:0] b_in;\noutput reg [7:0] out;\n\nreg [7:0] obf_temp;\n\nalways @(posedge clock) begin\n    obf_temp <= a_in | b_in;\n    out <= a_in ^ obf_temp;\nend\n\nendmodule",
-  "rename_map": {
-    "temp": "obf_temp"
-  }
-}

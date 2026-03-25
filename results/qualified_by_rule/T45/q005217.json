@@ -1,6 +1,0 @@
-{
-  "task_id": "q005217",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule(source, drain);input source;\n\n  output drain;\n  reg drain;\n\n  reg connect1, connect2;\n\n  always @(source) begin: mult_procs_1\n    connect1 = ! source;\n  end\n\n  always @(connect1) begin: mult_procs_2\n    connect2 = ! connect1;\n  end\n  \n  always @(connect2) begin: mult_procs_3\n    drain = ! connect2;\n  end\nendmodule"
-}

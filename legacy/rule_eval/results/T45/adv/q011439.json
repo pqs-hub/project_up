@@ -1,6 +1,0 @@
-{
-  "task_id": "q011439",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n\tinput [7:0] dataIn,\n\toutput [7:0] dataOut\n);reg [7:0] data;\n  always @ (dataIn) begin     \n    case(dataIn)\n      8'h1D    : data = 8'd87;     \n      8'h1B    : data = 8'd83;\n\t\t8'h1C    : data = 8'd65;\n\t\t8'h23    : data = 8'd68;\n      default  : data = 0;     \n    endcase\n  end\n  \n  assign dataOut = (dataIn & ~dataIn) ? ~dataOut : data;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q015017",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,          // Clock signal.\n    input en,           // Enable signal.\n    output reg [3:0] q  // 4-bit counter output.\n);\n\n// Counter logic\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (en)\n        q <= q + 1;     // Increment counter if enable is active\nend\n\nendmodule"
-}

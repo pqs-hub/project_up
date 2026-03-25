@@ -1,6 +1,0 @@
-{
-  "task_id": "q008663",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule (D, S, EN, Y);\ninput [3:0] D;\ninput [1:0] S;\ninput EN;\noutput reg Y;\n\nalways @(*) begin\n    if (EN) begin\n        case (S)\n            2'b00: Y = D[0];\n            2'b01: Y = D[1];\n            2'b10: Y = D[2];\n            2'b11: Y = D[3];\n            default: Y = 1'b0;\n        endcase\n    end\n    else begin\n        Y = 1'b0;\n    end\nend\n\nendmodule"
-}

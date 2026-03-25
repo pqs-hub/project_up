@@ -1,6 +1,0 @@
-{
-  "task_id": "q001568",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n    input [23:0] adc_value1,\n    input [23:0] adc_value2,\n    output reg greater_than,\n    output reg [1:0] status\n);\n    always @(*) begin\n        if (adc_value1 > adc_value2) begin\n            greater_than = 1'b1;\n            status = 2'b01; // first is greater\n        end else if (adc_value1 < adc_value2) begin\n            greater_than = 1'b0;\n            status = 2'b10; // second is greater\n        end else begin\n            greater_than = 1'b0;\n            status = 2'b00; // equal\n        end\n    end\nendmodule"
-}

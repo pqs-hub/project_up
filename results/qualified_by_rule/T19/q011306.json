@@ -1,6 +1,0 @@
-{
-  "task_id": "q011306",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule (\n    input        clk,\n    input        rst,\n    input        load,\n    input  [3:0] data_in,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (rst) begin\n            q <= 4'b0000;\n        end else if (load) begin\n            q <= data_in;\n        end else begin\n            q <= {1'b0, q[3:1]};\n        end\n    end\n    \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

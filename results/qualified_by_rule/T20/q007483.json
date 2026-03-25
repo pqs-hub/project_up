@@ -1,6 +1,0 @@
-{
-  "task_id": "q007483",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n    input clk,    // Chip clock signal.\n    input rst_n,  // Active-low reset signal.\n    input d,      // Input data signal.\n    \n    output reg q  // Output data signal.\n);\n\n//------------------------------------------------\n// D flip-flop logic\nalways @(posedge clk or negedge rst_n)\n    if (!rst_n) q <= 1'b0;  // Reset output\n    else q <= d;            // Capture input\n\nendmodule"
-}

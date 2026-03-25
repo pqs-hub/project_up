@@ -1,6 +1,0 @@
-{
-  "task_id": "q007105",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n    clk,\n    reset,\n    ce,\n    a,\n    b,\n    op,\n    result);parameter ADD = 2'b00;\nparameter SUB = 2'b01;\n\ninput clk;\ninput reset;\ninput ce;\ninput [7:0] a;\ninput [7:0] b;\ninput [1:0] op;\noutput [7:0] result;\n\nreg [7:0] result_reg;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        result_reg <= 8'b0;\n    end else if (ce) begin\n        case (op)\n            ADD: result_reg <= a + b;\n            SUB: result_reg <= a - b;\n        endcase\n    end\nend\n\nassign result = result_reg;\n\nendmodule"
-}

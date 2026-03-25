@@ -1,9 +1,0 @@
-{
-  "task_id": "q014470",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input obf_A, B, CI,\n    output reg SUM, COUT\n);always @ (obf_A or B or CI) begin\n        // Calculate the sum\n        SUM = obf_A ^ B ^ CI;\n        \n        // Calculate the carry out\n        COUT = (obf_A & B) | (CI & (obf_A ^ B));\n    end\n\nendmodule",
-  "rename_map": {
-    "A": "obf_A"
-  }
-}

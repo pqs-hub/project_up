@@ -1,6 +1,0 @@
-{
-  "task_id": "q009790",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input reset,\n  input clock_enable,\n  output reg [2:0] count_out\n);always @(posedge clk) begin\n    if (reset) begin\n      count_out <= 3'b0;\n    end\n    else if (clock_enable) begin\n      if (count_out == 3'b111) begin\n        count_out <= 3'b0;\n      end\n      else begin\n        count_out <= count_out + 1;\n      end\n    end\n  end\n\nendmodule"
-}

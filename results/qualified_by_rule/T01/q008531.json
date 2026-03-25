@@ -1,6 +1,0 @@
-{
-  "task_id": "q008531",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(\n    input [3:0] A,\n    input [3:0] B,\n    input [1:0] opcode,\n    output reg [3:0] result  // Change wire to reg to hold output from always block\n);wire [3:0] add_result;\n    wire [3:0] sub_result;\n    wire [3:0] and_result;\n    wire [3:0] or_result;\n    \n    assign add_result = A + B;\n    assign sub_result = A - B;\n    assign and_result = A & B;\n    assign or_result = A | B;\n    \n    always @(*) begin\n    begin end  // redundant\n        case (opcode)\n            2'b00: result = add_result;\n            2'b01: result = sub_result;\n            2'b10: result = and_result;\n            2'b11: result = or_result;\n            default: result = 4'bxxxx;\n        endcase\n    end\n\nendmodule"
-}

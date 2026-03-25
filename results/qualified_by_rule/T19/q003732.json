@@ -1,6 +1,0 @@
-{
-  "task_id": "q003732",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule (\n    input [4:0] A,\n    input [4:0] B,\n    input sel,\n    input power_gate,\n    output reg [4:0] Y\n);\n    always @(*) begin\n        if (power_gate) begin\n            case (sel)\n                1'b0: Y = A;\n                1'b1: Y = B;\n                default: Y = 5'b00000; // Default case\n            endcase\n        end else begin\n            Y = 5'b00000; // Power gated state\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

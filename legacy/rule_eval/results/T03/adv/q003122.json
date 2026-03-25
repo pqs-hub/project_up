@@ -1,6 +1,0 @@
-{
-  "task_id": "q003122",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module dram_cell (\n    input clk,\n    input we, // Write enable\n    input [7:0] data_in, // 8-bit input data\n    output reg [7:0] data_out // 8-bit output data\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg [7:0] memory; // 8-bit storage\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory <= data_in; // Write operation\n        end\n        data_out <= memory; // Read operation\n    end\nendmodule"
-}

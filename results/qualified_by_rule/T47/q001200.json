@@ -1,6 +1,0 @@
-{
-  "task_id": "q001200",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule(  \n    input clk,  \n    input rst,  \n    input [7:0] in_signal,  \n    input control,  \n    output reg [7:0] out_signal  \n);  \n    parameter THRESHOLD = 8'd128;  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            out_signal <= 8'd0;  \n        end else begin  \n            if (control) begin  \n                if (in_signal > THRESHOLD)   \n                    out_signal <= THRESHOLD;  \n                else  \n                    out_signal <= in_signal;  \n            end else begin  \n                out_signal <= in_signal;  \n            end  \n        end  \n    end  \nendmodule"
-}

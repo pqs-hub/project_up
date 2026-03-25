@@ -1,6 +1,0 @@
-{
-  "task_id": "q015454",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input read_enable,\n    input write_enable,\n    input [7:0] write_data,\n    input [7:0] addr,\n    output [7:0] read_data );reg [7:0] memory [255:0];\nreg [7:0] read_reg;\n\nalways @(posedge clk) begin\n  if (write_enable) memory[addr] <= write_data ;\n  end\n\n  always @(posedge clk) begin\n  if (read_enable) read_reg <= memory[addr] ;\n  end\n\nassign read_data = read_reg;\n\nendmodule"
-}

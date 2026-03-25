@@ -1,8 +1,0 @@
-{
-  "task_id": "q013646",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module ring_counter_5bit(\n    input clk,\n    input rst,\n    output reg [4:0] out\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (rst) begin\n        out <= 5'b00001;\n    end else begin\n        out <= {out[3:0], out[4]};\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q000170",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module shift_register (\n    input obf_clk,\n    input load,\n    input shift_left,\n    input shift_right,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n\nalways @(posedge obf_clk) begin\n    if (load) begin\n        data_out <= data_in; // Load new data\n    end else if (shift_left) begin\n        data_out <= {data_out[6:0], 1'b0}; // Shift left\n    end else if (shift_right) begin\n        data_out <= {1'b0, data_out[7:1]}; // Shift right\n    end\nend\n\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

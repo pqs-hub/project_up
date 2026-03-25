@@ -1,6 +1,0 @@
-{
-  "task_id": "q003836",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule RefModule(\n    input clk,\n    input rst,\n    input [1:0] speed_input, // 00 - OFF, 01 - LOW, 10 - MEDIUM, 11 - HIGH\n    output reg [1:0] speed_output // 00 - OFF, 01 - LOW, 10 - MEDIUM, 11 - HIGH\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            speed_output <= 2'b00; // OFF state on reset\n        end else begin\n            case (speed_input)\n                2'b00: speed_output <= 2'b00; // OFF\n                2'b01: speed_output <= 2'b01; // LOW\n                2'b10: speed_output <= 2'b10; // MEDIUM\n                2'b11: speed_output <= 2'b11; // HIGH\n                default: speed_output <= speed_output; // Maintain current state\n            endcase\n        end\n    end\nendmodule"
-}

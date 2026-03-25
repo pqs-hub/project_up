@@ -1,6 +1,0 @@
-{
-  "task_id": "q008691",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule (\n    input [3:0] A,\n    input [3:0] B,\n    input carry_in,\n    output [3:0] sum,\n    output carry_out\n);\n\n      wire _n01 = A + B[0] ^ carry_in[0];\n  wire _c01 = A + B[0] & carry_in[0];\n  wire _n02 = A + B[1] ^ carry_in[1] ^ _c01;\n  wire _c02 = (A + B[1] & carry_in[1]) | (A + B[1] & _c01) | (carry_in[1] & _c01);\n  wire _n03 = A + B[2] ^ carry_in[2] ^ _c02;\n  wire _c03 = (A + B[2] & carry_in[2]) | (A + B[2] & _c02) | (carry_in[2] & _c02);\n  wire _n04 = A + B[3] ^ carry_in[3] ^ _c03;\n  wire _c04 = (A + B[3] & carry_in[3]) | (A + B[3] & _c03) | (carry_in[3] & _c03);\n  assign {carry_out, sum} = {_n01, _n02, _n03, _n04};\n\nendmodule"
-}

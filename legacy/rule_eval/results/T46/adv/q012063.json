@@ -1,8 +1,0 @@
-{
-  "task_id": "q012063",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module up_down_counter(\n\tinput clk,\n\tinput up,\n\tinput down,\n\toutput reg [2:0] q);\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n\t\tif (up)\n\t\t\tq <= q + 1;\n\t\telse if (down)\n\t\t\tq <= q - 1;\n\tend\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

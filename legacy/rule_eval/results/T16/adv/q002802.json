@@ -1,9 +1,0 @@
-{
-  "task_id": "q002802",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module hazard_detection(\n    input [4:0] src_reg_1,\n    input [4:0] src_reg_2,\n    input [4:0] obf_dest_reg,\n    output reg hazard_detected\n);\n    always @(*) begin\n        if ((src_reg_1 == obf_dest_reg) || (src_reg_2 == obf_dest_reg)) begin\n            hazard_detected = 1'b1; // Hazard detected\n        end else begin\n            hazard_detected = 1'b0; // No hazard\n        end\n    end\nendmodule",
-  "rename_map": {
-    "dest_reg": "obf_dest_reg"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q014471",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(\n    input  VPWR,\n    input  UDP_IN,\n    input  CLK,\n    output UDP_OUT\n);reg pwrgood;\n\n    always @(posedge CLK) begin\n        if (UDP_IN) begin\n            pwrgood <= 0;\n        end else begin\n            pwrgood <= VPWR;\n        end\n    end\n\n    assign UDP_OUT = pwrgood;\n\nendmodule"
-}

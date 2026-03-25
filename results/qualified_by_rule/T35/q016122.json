@@ -1,6 +1,0 @@
-{
-  "task_id": "q016122",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n    input               clk         ,\n    input               rst_n       ,\n    input       [7:0]   data_in     ,\n    input       [2:0]   shift_amount,\n\n    output  reg [7:0]   data_out\n);\n\n    // Shift operation with sign extension\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            data_out <= 0;\n        end else begin\n            data_out <= $signed(data_in) >>> shift_amount;\n        end\n    end\n\nendmodule"
-}

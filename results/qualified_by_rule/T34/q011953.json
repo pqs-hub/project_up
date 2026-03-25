@@ -1,6 +1,0 @@
-{
-  "task_id": "q011953",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n  input clk,\n  input reset,\n  input serial_in,\n  output serial_out,\n  output reg [31:0] parallel_out\n);reg [31:0] unused_shift_reg;\n\nalways @(posedge clk) begin\n  if (reset) begin\n    unused_shift_reg <= 0;\n  end else begin\n    unused_shift_reg <= {unused_shift_reg[30:0], serial_in};\n  end\nend\n\nassign serial_out = unused_shift_reg[31];\nassign parallel_out = unused_shift_reg;\n\nendmodule"
-}

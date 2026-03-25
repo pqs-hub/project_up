@@ -1,6 +1,0 @@
-{
-  "task_id": "q016022",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule top_module(input[4:0] in, input clk, rst, writeData, output[4:0] out);reg [4:0] outData;\n\tassign out = outData;\n\talways@(posedge clk, posedge rst)begin\n\t\tif(rst) outData <= 5'b0;\n\t\telse\n\t\tbegin\n\t\t\tif(writeData) outData <= in;\n\t\t\telse outData <= outData;\n\t\tend\n\tend\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q011511",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n  input [(CH_CNT*CH_DW)-1:0] data,\n  output [CH_DW-1:0] split_data_0,\n  output [CH_DW-1:0] split_data_1,\n  output [CH_DW-1:0] split_data_2,\n  output [CH_DW-1:0] split_data_3,\n  output [CH_DW-1:0] split_data_4,\n  output [CH_DW-1:0] split_data_5,\n  output [CH_DW-1:0] split_data_6,\n  output [CH_DW-1:0] split_data_7\n);// parameters\n  parameter CH_DW = 1;\n  parameter CH_CNT = 8;\n  localparam CH_MCNT = 9;\n\n  // internal signals\n  wire [(CH_MCNT*CH_DW)-1:0] data_s;\n\n  // extend and split\n  assign data_s[(CH_MCNT*CH_DW)-1:(CH_CNT*CH_DW)] = 'd0;\n  assign data_s[(CH_CNT*CH_DW)-1:0] = data;\n\n  assign split_data_0 = data_s[(CH_DW*1)-1:CH_DW*0];\n  assign split_data_1 = data_s[(CH_DW*2)-1:CH_DW*1];\n  assign split_data_2 = data_s[(CH_DW*3)-1:CH_DW*2];\n  assign split_data_3 = data_s[(CH_DW*4)-1:CH_DW*3];\n  assign split_data_4 = data_s[(CH_DW*5)-1:CH_DW*4];\n  assign split_data_5 = data_s[(CH_DW*6)-1:CH_DW*5];\n  assign split_data_6 = data_s[(CH_DW*7)-1:CH_DW*6];\n  assign split_data_7 = data_s[(CH_DW*8)-1:CH_DW*7];\n\nendmodule"
-}

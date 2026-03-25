@@ -1,9 +1,0 @@
-{
-  "task_id": "q000122",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module phase_detector (\n    input clk,\n    input obf_A,\n    input B,\n    output reg [1:0] out\n);\n    \n    always @(posedge clk) begin\n        if (obf_A == B) begin\n            out <= 2'b00; // In-phase\n        end else if (obf_A > B) begin\n            out <= 2'b01; // obf_A leading\n        end else begin\n            out <= 2'b10; // obf_A lagging\n        end\n    end\nendmodule",
-  "rename_map": {
-    "A": "obf_A"
-  }
-}

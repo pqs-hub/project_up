@@ -1,9 +1,0 @@
-{
-  "task_id": "q005760",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module decoder_3to8 (\n    input wire [2:0] obf_in,\n    output wire [7:0] out\n);\n\n    assign out = (obf_in == 3'b000) ? 8'b0000_0001 :\n                 (obf_in == 3'b001) ? 8'b0000_0010 :\n                 (obf_in == 3'b010) ? 8'b0000_0100 :\n                 (obf_in == 3'b011) ? 8'b0000_1000 :\n                 (obf_in == 3'b100) ? 8'b0001_0000 :\n                 (obf_in == 3'b101) ? 8'b0010_0000 :\n                 (obf_in == 3'b110) ? 8'b0100_0000 :\n                 (obf_in == 3'b111) ? 8'b1000_0000 : 8'b0000_0000;\n\nendmodule",
-  "rename_map": {
-    "in": "obf_in"
-  }
-}

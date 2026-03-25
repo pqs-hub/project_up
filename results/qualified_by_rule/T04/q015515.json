@@ -1,6 +1,0 @@
-{
-  "task_id": "q015515",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n    output Y,\n    input A1,\n    input A2,\n    input B1\n);// Module supplies\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // Local signals\n    wire or_out;\n    wire nand_out;\n\n    //   Name   Output       Other arguments\n    or   or_gate   (or_out    , A2, A1         );\n    nand nand_gate (nand_out, B1, or_out    );\n    buf  buffer    (Y         , nand_out    );\n\nendmodule"
-}

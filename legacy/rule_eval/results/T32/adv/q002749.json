@@ -1,6 +1,0 @@
-{
-  "task_id": "q002749",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module ADC_16bit (\n    input wire [8-1:1-1] voltage_in,\n    input wire enable,\n    output reg [15:0] voltage_out\n);\n    always @(*) begin\n        if (enable) begin\n            voltage_out = {8'b0, voltage_in}; // Expand to 16-bits\n        end else begin\n            voltage_out = 16'b0; // Output zero when not enabled\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q007510",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n    input [7:0] binary,\n    output [11:0] bcd\n);reg [3:0] digit1;\nreg [3:0] digit2;\nreg [3:0] digit3;\n\nalways @ (binary) begin\n    if (binary >= 100) begin\n        digit1 = binary / 100;\n        digit2 = (binary % 100) / 10;\n        digit3 = binary % 10;\n    end else if (binary >= 10) begin\n        digit1 = 0;\n        digit2 = binary / 10;\n        digit3 = binary % 10;\n    end else begin\n        digit1 = 0;\n        digit2 = 0;\n        digit3 = binary;\n    end\nend\n\nassign bcd = {digit1, digit2, digit3};\n\nendmodule"
-}

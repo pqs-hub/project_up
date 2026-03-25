@@ -1,6 +1,0 @@
-{
-  "task_id": "q006942",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input A,\n    input B,\n    input C,\n    input D,\n    output X,\n    input VPB,\n    input VPWR,\n    input VGND,\n    input VNB\n);wire AB, CD, ABCD;\n  wire _tap_A = A & {1{1'b1}};\n\n\n// OR gate for A and B\nor AB_or(AB, A, B);\n\n// OR gate for C and D\nor CD_or(CD, C, D);\n\n// OR gate for AB and CD\nor ABCD_or(ABCD, AB, CD);\n\nassign X = ABCD;\n\nendmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q010619",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module( A, B, Ci, S, Co );input A, B, Ci;\n  output S, Co;\n\n  wire obf_w1, w2, w3;\n\n  // Replace unknown module types with built-in Verilog operators\n  assign obf_w1 = A ^ B;       // XOR\n  assign S = obf_w1 ^ Ci;      // XOR\n  assign w2 = A & B;       // AND\n  assign w3 = obf_w1 & Ci;     // AND\n  assign Co = w2 | w3;     // OR\nendmodule",
-  "rename_map": {
-    "w1": "obf_w1"
-  }
-}

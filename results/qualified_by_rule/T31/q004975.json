@@ -1,6 +1,0 @@
-{
-  "task_id": "q004975",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule(DOUT);parameter ROM_DEPTH = 64; \n parameter LC_RF_DATA_WIDTH =24; \n output [(ROM_DEPTH*LC_RF_DATA_WIDTH)-1:0] DOUT; \n reg [LC_RF_DATA_WIDTH-1:0] rom_array [0:ROM_DEPTH-1]; \n genvar idx; \n generate \n  for (idx=0; idx<(ROM_DEPTH); idx=idx+1) \n  begin: PACK \n  assign DOUT[LC_RF_DATA_WIDTH*(idx+1)-1:LC_RF_DATA_WIDTH*idx] = rom_array[idx]; \n  end \n endgenerate \n integer i; \n initial \n begin \n  for (i=0; i<(ROM_DEPTH); i=i+1) \n  rom_array[i] <= i; \n end \n endmodule"
-}

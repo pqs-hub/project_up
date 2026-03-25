@@ -1,9 +1,0 @@
-{
-  "task_id": "q013908",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module register_8bit (\n    input clk,\n    input load,\n    input obf_clear,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n\n    always @(posedge clk) begin\n        if (obf_clear)\n            data_out <= 8'b00000000;\n        else if (load)\n            data_out <= data_in;\n    end\n\nendmodule",
-  "rename_map": {
-    "clear": "obf_clear"
-  }
-}

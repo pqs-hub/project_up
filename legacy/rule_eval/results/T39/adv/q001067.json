@@ -1,6 +1,0 @@
-{
-  "task_id": "q001067",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module SR_latch(  \n    input wire S,  \n    input wire R,  \n    output reg Q,  \n    output reg Qn  \n);  \n    always @ (S, R) begin\n  if (S && !R) begin Q <= 1 ; Qn <= 0 ; end else if (!S && R) begin Q <= 0 ; Qn <= 1 ; end\n  end\n\n  always @ (S, R) begin\n  // Invalid condition: S=1, R=1 // Maintain the previous state (no change);\n  end  \nendmodule"
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q009423",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module shift_register_4bit (\n    input clk,\n    input load,\n    input [3:0] parallel_in,\n    output reg [3:0] q\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (load) begin\n        q <= parallel_in;\n    end else begin\n        q <= {q[2:0], 1'b0};\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q013865",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(\n  input [n-1:0] clk,\n  input [log2_n-1:0] sel,\n  output reg out\n);parameter n = 4; // number of clock signals\n\n// Calculate log2 of n\nparameter log2_n = (n <= 2) ? 1 :\n                    (n <= 4) ? 2 :\n                    (n <= 8) ? 3 :\n                    (n <= 16) ? 4 :\n                    (n <= 32) ? 5 :\n                    (n <= 64) ? 6 : 7; // Extend this for larger n if necessary\n\nalways @ (sel or clk) begin\n  case (sel)\n    0: out = clk[0];\n    1: out = clk[1];\n    2: out = clk[2];\n    3: out = clk[3]; // Handle sel = 3 to support n = 4\n    default: out = clk[0]; // default case\n  endcase\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q003772",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module temp_shutdown_controller(\n    input wire clk,\n    input wire reset,\n    input wire [7:0] temp,\n    output reg shutdown\n);\n    parameter THRESHOLD = 8'd100;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            shutdown <= 1'b0;\n        end else begin\n            if (temp > THRESHOLD) begin\n                shutdown <= 1'b1; // Trigger shutdown\n            end else begin\n                shutdown <= 1'b0; // Normal operation\n            end\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

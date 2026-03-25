@@ -1,6 +1,0 @@
-{
-  "task_id": "q016639",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(input clk , input LM , input [3:0] PC_IN , output [3:0] MAR_OUT);\nreg [3:0] MAR_r;\nassign MAR_OUT = MAR_r;\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or posedge dbg_halt)\nbegin\nif(~LM)\nMAR_r <= PC_IN;\nend\nendmodule"
-}

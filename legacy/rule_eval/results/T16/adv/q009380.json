@@ -1,9 +1,0 @@
-{
-  "task_id": "q009380",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input obf_clk,\n    input reset,\n    input [3:0] init_val,\n    output reg [3:0] q\n);\n\n    always @(posedge obf_clk) begin\n        if (reset) begin\n            q <= init_val;  // Synchronous reset to initial value\n        end else begin\n            q <= {q[2:0], 1'b0};  // Shift left\n        end\n    end\n\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

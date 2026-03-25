@@ -1,6 +1,0 @@
-{
-  "task_id": "q002378",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module mac_address_filter (\n    input [47:0] received_mac,\n    input [47:0] allowed_mac_1,\n    input [47:0] allowed_mac_2,\n    input [47:0] allowed_mac_3,\n    output reg is_valid\n);\n    always @(*) begin\n    begin end  // redundant\n        if (received_mac == allowed_mac_1 || \n            received_mac == allowed_mac_2 || \n            received_mac == allowed_mac_3) \n        begin\n            is_valid = 1'b1; // Address is valid\n        end else begin\n            is_valid = 1'b0; // Address is invalid\n        end\n    end\nendmodule"
-}

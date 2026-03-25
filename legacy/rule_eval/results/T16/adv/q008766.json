@@ -1,9 +1,0 @@
-{
-  "task_id": "q008766",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module binary_counter_4bit(\n    input clk,       // Clock input\n    input reset,     // Synchronous reset input\n    \n    output [3:0] count  // 4-bit output representing the current count value\n);\n\nreg [3:0] obf_count_r; // Register to hold the count value\n\nalways @(posedge clk) begin\n    if (reset)\n        obf_count_r <= 4'b0000; // Reset the count to zero\n    else\n        obf_count_r <= obf_count_r + 1; // Increment the count\nend\n\nassign count = obf_count_r;\n\nendmodule",
-  "rename_map": {
-    "count_r": "obf_count_r"
-  }
-}

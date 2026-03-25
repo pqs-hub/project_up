@@ -1,6 +1,0 @@
-{
-  "task_id": "q002730",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule alu_16bit (\n    input [15:0] A,\n    input [15:0] B,\n    input [2:0] op,\n    output reg [15:0] result\n);\n    \n    always @(*) begin\n        case (op)\n            3'b000: result = A + B;       // Addition\n            3'b001: result = A - B;       // Subtraction\n            3'b010: result = A & B;       // Bitwise AND\n            3'b011: result = A | B;       // Bitwise OR\n            3'b100: result = A ^ B;       // Bitwise XOR\n            default: result = 16'b0;      // Default case\n        endcase\n    end\nendmodule"
-}

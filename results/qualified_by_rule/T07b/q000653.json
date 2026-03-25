@@ -1,6 +1,0 @@
-{
-  "task_id": "q000653",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule (  \n    input clk,  \n    input reset,  \n    input [7:0] temperature,  \n    input [7:0] threshold,  \n    output reg alert  \n);  \n    reg [7:0] last_temperature;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            last_temperature <= 8'b0;  \n            alert <= 1'b0;  \n        end else begin  \n            last_temperature <= temperature;  \n            if (temperature > threshold)  \n                alert <= 1'b1;  \n            else  \n                alert <= 1'b0;  \n        end  \n    end  \nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q013142",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(\n    input wire clka,\n    input wire wea,\n    input wire [7-1:1-1] addra,\n    input wire [31:0] dina,\n    output reg [31:0] douta  // Changed 'wire' to 'reg'\n);reg [31:0] memory[0:127];\n\nalways @(posedge clka) begin\n    if (wea) begin\n        memory[addra] <= dina;\n    end\n    douta <= memory[addra];  // This is valid now as douta is reg\nend\n\nendmodule"
-}

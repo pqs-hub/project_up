@@ -1,6 +1,0 @@
-{
-  "task_id": "q009632",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule top_module(\nEX_Flush_i,\nRegWrite_i,\nMemtoReg_i, \nRegWrite_o, \nMemtoReg_o \n);input EX_Flush_i;\ninput RegWrite_i;\ninput MemtoReg_i; \n\noutput reg RegWrite_o; \noutput reg MemtoReg_o; \n\nalways @(*) begin\nif(EX_Flush_i == 0) begin\n\tRegWrite_o = RegWrite_i;\n\tMemtoReg_o = MemtoReg_i;\nend\nelse begin\n\tRegWrite_o = 0;\n\tMemtoReg_o = 0;\nend\nend\n\nendmodule"
-}

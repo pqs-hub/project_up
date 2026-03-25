@@ -1,6 +1,0 @@
-{
-  "task_id": "q014233",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(\n    clk,\n    in,\n    load,\n    address,\n    out\n );input clk;             \n    input [15:0] in;       \n    input load;            \n    input [15:0] address;  \n    output [15:0] out;            \n    \n    reg [15:0] ram[0:24000]; \n    reg [15:0]value; \n    \n    always @(posedge clk ) begin\n        if (load) begin\n            ram[address] <= in;\n        end else begin\n            value <= ram[address];\n        end\n    end\n    \n    assign out = value;\n    \nendmodule"
-}

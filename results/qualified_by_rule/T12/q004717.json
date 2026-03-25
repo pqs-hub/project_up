@@ -1,6 +1,0 @@
-{
-  "task_id": "q004717",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input en,\n    input write,\n    input [ADDR_SZ-1:0] addr,\n    input [DATA_SZ-1:0] write_data,\n    output [DATA_SZ-1:0] read_data\n);parameter ADDR_SZ = 6;\n    parameter DATA_SZ = 23;\n    parameter MEM_SZ = 64;\n\n    reg [DATA_SZ-1:0] ram_block [MEM_SZ-1:0];\n    reg [DATA_SZ-1:0] read_data_reg;\n\n    always @ (posedge clk) begin\n        if (en == 1) begin\n            if (write == 1) begin\n                ram_block[addr] <= write_data;\n            end else begin\n                read_data_reg <= ram_block[addr];\n            end\n        end\n    end\n\n    assign read_data = read_data_reg;\nendmodule"
-}

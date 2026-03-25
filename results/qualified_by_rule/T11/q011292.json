@@ -1,6 +1,0 @@
-{
-  "task_id": "q011292",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule(flushIDEX,RegDstin,RegWrin,ALUSrc1in,ALUSrc2in,ALUFunin,Signin,MemWrin,MemRdin,MemtoRegin,\nRegDstout,RegWrout,ALUSrc1out,ALUSrc2out,ALUFunout,Signout,MemWrout,MemRdout,MemtoRegout);input flushIDEX;\ninput [1:0] RegDstin;\ninput RegWrin;\ninput ALUSrc1in;\ninput ALUSrc2in;\ninput [5:0] ALUFunin;\ninput Signin;\ninput MemWrin;\ninput MemRdin;\ninput [1:0] MemtoRegin;\noutput [1:0] RegDstout;\nreg [1:0] RegDstout;\noutput RegWrout;\nreg RegWrout;\noutput ALUSrc1out;\nreg ALUSrc1out;\noutput ALUSrc2out;\nreg ALUSrc2out;\noutput [5:0] ALUFunout;\nreg [5:0] ALUFunout;\noutput Signout;\nreg Signout;\noutput MemWrout;\nreg MemWrout;\noutput MemRdout;\nreg MemRdout;\noutput [1:0] MemtoRegout;\nreg [1:0] MemtoRegout;\n\nalways @(*)\nbegin\n  if(~flushIDEX)\n  begin\n    RegDstout <= RegDstin;\n    RegWrout <= RegWrin;\n    ALUSrc1out <= ALUSrc1in;\n    ALUSrc2out <= ALUSrc2in;\n    ALUFunout <= ALUFunin;\n    Signout <= Signin;\n    MemWrout <= MemWrin;\n    MemRdout <= MemRdin;\n    MemtoRegout <= MemtoRegin;\n  end\n  else\n  begin\n    RegDstout <= 2'b00;\n    RegWrout <= 0;\n    ALUSrc1out <= 0;\n    ALUSrc2out <= 0;\n    ALUFunout <= 6'h0;\n    Signout <= 0;\n    MemWrout <= 0;\n    MemRdout <= 0;\n    MemtoRegout <= 2'b00;\n  end\nend\n\nendmodule"
-}

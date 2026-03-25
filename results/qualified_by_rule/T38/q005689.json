@@ -1,6 +1,0 @@
-{
-  "task_id": "q005689",
-  "rule_id": "T38",
-  "changed": true,
-  "final": "module RefModule(\n    input CLK,\n    input EN,\n    input TE,\n    output ENCLK\n);wire n2;\n    reg EN_reg;\n    \n    always @ (posedge CLK, posedge TE) begin\n        if (TE) begin\n            EN_reg <= 1'b0;\n        end else begin\n            EN_reg <= EN;\n        end\n    end\n    \n  wire temp1_EN_reg = EN_reg;\n  wire temp2_CLK = CLK;\n  assign n2 = temp1_EN_reg & temp2_CLK;\n    assign ENCLK = n2;\n    \nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q010861",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(Address, Write_data, Read_data, MemRead, MemWrite, clk);input [31:0] Address, Write_data;\n    input MemRead, MemWrite, clk;\n    output reg [31:0] Read_data;\n    reg [31:0] mem[31:0];\n\n    always @ (posedge clk)\n    begin\n        if (MemWrite) mem[Address >> 2] = Write_data; \n    end\n\n    always @ (negedge clk)\n    begin\n        if (MemRead) Read_data = mem[Address >> 2];\n    end\n\nendmodule"
-}

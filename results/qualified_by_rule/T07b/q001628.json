@@ -1,6 +1,0 @@
-{
-  "task_id": "q001628",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule (\n    input [7:0] a11, a12,\n    input [7:0] a21, a22,\n    output [7:0] l11, l12, l21, l22,\n    output [7:0] u11, u12, u21, u22\n);\n    assign l11 = 8'h1; // L(1,1) = 1\n    assign l12 = 8'h0; // L(1,2) = 0\n    assign l21 = a21 / a11; // L(2,1) = A(2,1) / A(1,1)\n    assign l22 = 8'h1; // L(2,2) = 1\n\n    assign u11 = a11; // U(1,1) = A(1,1)\n    assign u12 = a12; // U(1,2) = A(1,2)\n    assign u21 = 8'h0; // U(2,1) = 0\n    assign u22 = a22 - l21 * u12; // U(2,2) = A(2,2) - L(2,1) * U(1,2)\nendmodule"
-}

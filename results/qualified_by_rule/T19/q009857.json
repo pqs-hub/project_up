@@ -1,6 +1,0 @@
-{
-  "task_id": "q009857",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(input wire [3:0]  a,\n\t     input wire [3:0]  b,\n\t     input wire        c1,\n\t     input wire        c2,\n\t     input wire        c3,\n\t     \n\t     output wire [3:0] q,\n\t     output wire       f,\n\t     output wire       g,\n\t     \n\t     input wire        clk,\n\t     input wire        rst);reg [3:0] \t\t       ra;\n   reg [3:0] \t\t       rb;\n\n   wire [3:0] \t\t       ra_next;\n   wire [3:0] \t\t       rb_next;\n\n   assign ra_next = c1 ? a :\n\t\t    c2 ? (ra - rb) :\n\t\t    ra;\n\n   assign rb_next = c1 ? b :\n\t\t    c3 ? (rb - ra) :\n\t\t    rb;\n   \n   assign f = (ra > rb);\n   assign g = (ra == rb);\n   assign q = g ? ra : 4'b0;\n   \n   always @(posedge clk, posedge rst)\n     begin\n\tif (rst)\n\t  begin\n\t     ra <= 4'b0;\n\t     rb <= 4'b0;\n\t  end\n\telse\n\t  begin\n\t     ra <= ra_next;\n\t     rb <= rb_next;\n\t  end\n     end\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

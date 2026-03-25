@@ -1,9 +1,0 @@
-{
-  "task_id": "q001477",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module pcie_signal_checker (\n    input [4:0] signal_in,\n    input obf_control,\n    output reg signal_out\n);\n    always @(*) begin\n        if (obf_control == 1'b1) begin\n            signal_out = (signal_in == 5'b11111) ? 1'b1 : 1'b0;\n        end else begin\n            signal_out = (signal_in == 5'b00000) ? 1'b1 : 1'b0;\n        end\n    end\nendmodule",
-  "rename_map": {
-    "control": "obf_control"
-  }
-}

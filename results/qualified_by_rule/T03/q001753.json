@@ -1,6 +1,0 @@
-{
-  "task_id": "q001753",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(  \n    input [7:0] pixel00,  \n    input [7:0] pixel01,  \n    input [7:0] pixel02,  \n    input [7:0] pixel10,  \n    input [7:0] pixel11,  \n    input [7:0] pixel12,  \n    input [7:0] pixel20,  \n    input [7:0] pixel21,  \n    input [7:0] pixel22,  \n    output reg [7:0] blurred_pixel  \n);  \n  wire [7:0] _tap_pixel00 = pixel00 & {8{1'b1}};\n\n\nalways @* begin  \n    // Gaussian weights:  \n    // 1 2 1  \n    // 2 4 2  \n    // 1 2 1  \n    // Normalization factor: 16  \n    blurred_pixel = (pixel00 + pixel01*2 + pixel02 +  \n                     pixel10*2 + pixel11*4 + pixel12*2 +  \n                     pixel20 + pixel21*2 + pixel22) / 16;  \nend  \nendmodule"
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q007200",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    input CLOCK,\n    input signed [31:0] pc,\n    output signed [31:0] pcout\n);reg signed [31:0] pc1, pc2, pc3,pc4;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLOCK or posedge dbg_halt) begin\npc1 <= pc;\npc2 <= pc1 + 4;\npc3 <= pc2;\npc4 <= pc3; \nend\n\nassign pcout[31:0] = pc4;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

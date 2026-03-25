@@ -1,6 +1,0 @@
-{
-  "task_id": "q004234",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule(\n    input [7:0] pixel_in,\n    output reg [7:0] pixel_out\n);\n    reg [7:0] LUT [0:255];\n    integer i;\n\n    initial begin\n        // Initialize the histogram equalization LUT.\n        // This LUT should be filled based on the cumulative distribution function (CDF).\n        // For this example, let's just implement a mock LUT for simplicity.\n        // Normally, this would be computed from an input image histogram.\n        // Here we will artificially create a simple LUT for testing purposes.\n\n        // Example: A simple linear mapping for demonstration\n        for (i = 0; i < 256; i = i + 1) begin\n            LUT[i] = (i * 255) / 255; // Just a direct mapping for testing\n        end\n    end\n\n    always @(*) begin\n        pixel_out = LUT[pixel_in];\n    end\nendmodule"
-}

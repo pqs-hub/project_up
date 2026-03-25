@@ -1,6 +1,0 @@
-{
-  "task_id": "q006178",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module t_ff_sync (\n    input clk,\n    input rst,\n    input t,\n    output q\n);\n\n    reg unused_q_reg;\n\n    always @(posedge clk) begin\n        if (rst)\n            unused_q_reg <= 1'b0;\n        else if (t)\n            unused_q_reg <= ~unused_q_reg;\n    end\n\n    assign q = unused_q_reg;\n\nendmodule"
-}

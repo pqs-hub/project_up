@@ -1,6 +1,0 @@
-{
-  "task_id": "q004483",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(\n    input signed [31:0] A,\n    input signed [31:0] B,\n    input [1:0] ctrl,\n    input rst,\n    output reg signed [31:0] result,\n    output reg flag\n);always @ (ctrl or A or B or rst) begin\n    if (rst) begin\n        result <= 0;\n        flag <= 0;\n    end else begin\n        case (ctrl)\n            2'b00: result <= A + B;\n            2'b01: result <= A - B;\n            2'b10: result <= A * B;\n            2'b11: begin\n                if (B == 0) begin\n                    flag <= 1;\n                    result <= 0;\n                end else begin\n                    flag <= 0;\n                    result <= A / B;\n                end\n            end\n        endcase\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

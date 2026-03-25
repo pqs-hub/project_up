@@ -1,9 +1,0 @@
-{
-  "task_id": "q005698",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(obf_clk, IRWr, imOut, instruction);input obf_clk, IRWr;\n    input [31:0] imOut;\n    output reg [31:0] instruction;\n\n    always @(posedge obf_clk) begin\n        if(IRWr) instruction <= imOut;\n        else instruction <= instruction;\n    end\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

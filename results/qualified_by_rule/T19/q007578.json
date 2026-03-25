@@ -1,6 +1,0 @@
-{
-  "task_id": "q007578",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(\n input              clk,        \n input              rst,        \n input              en,\n input              bitval,     \n output reg [15:0]  crc         \n);wire         inv;\n\n\n\n\n\nassign inv = bitval ^ crc[15];  \n\nalways @(posedge clk or posedge rst) begin\n  if (rst) begin\n    crc = 0;\n  end\n  else begin\n    if (en==1) begin\n      crc[15] = crc[14];\n      crc[14] = crc[13];\n      crc[13] = crc[12];\n      crc[12] = crc[11] ^ inv;\n      crc[11] = crc[10];\n      crc[10] = crc[9];\n      crc[9]  = crc[8];\n      crc[8]  = crc[7];\n      crc[7]  = crc[6];\n      crc[6]  = crc[5];\n      crc[5]  = crc[4] ^ inv;\n      crc[4]  = crc[3];\n      crc[3]  = crc[2];\n      crc[2]  = crc[1];\n      crc[1]  = crc[0];\n      crc[0]  = inv;\n    end\n  end\nend\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

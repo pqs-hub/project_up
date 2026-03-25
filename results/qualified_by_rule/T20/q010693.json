@@ -1,6 +1,0 @@
-{
-  "task_id": "q010693",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule RefModule(\n    input [15:0] in_value,\n    input [15:0] mask_value,\n    input [3:0] shift_value,\n    input [2:0] op_select,\n    output [15:0] out_value\n);reg [15:0] temp_value;\n\nalways @(*) begin\n    case(op_select)\n        3'b000: temp_value = in_value & mask_value;\n        3'b001: temp_value = in_value | mask_value;\n        3'b010: temp_value = in_value ^ mask_value;\n        3'b011: temp_value = in_value << shift_value;\n        3'b100: temp_value = in_value >> shift_value;\n        default: temp_value = in_value;\n    endcase\nend\n\nassign out_value = temp_value;\n\nendmodule"
-}

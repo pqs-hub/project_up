@@ -1,6 +1,0 @@
-{
-  "task_id": "q016190",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (read_data1, read_data2, clk, reset, read_addr1, read_addr2, write_addr, write_en, write_data);\n   input clk, reset;\n   input [2:0] read_addr1, read_addr2, write_addr;\n   input write_en;\n   input [31:0] write_data;\n   output [31:0] read_data1, read_data2;\n   \n   reg [31:0] registers [7:0];\n   reg [31:0] read_data1, read_data2;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n    if (reset) begin\n        registers[0] <= 32'b0;\n        registers[1] <= 32'b0;\n        registers[2] <= 32'b0;\n        registers[3] <= 32'b0;\n        registers[4] <= 32'b0;\n        registers[5] <= 32'b0;\n        registers[6] <= 32'b0;\n        registers[7] <= 32'b0;\n    end \n    else if (write_en) \n        registers[write_addr] <= write_data;\nend\n\nalways @(*) begin\n    read_data1 = registers[read_addr1];\n    read_data2 = registers[read_addr2];\nend\n\nendmodule"
-}

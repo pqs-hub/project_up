@@ -1,6 +1,0 @@
-{
-  "task_id": "q003276",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule pitch_detection (\n    input wire clk,\n    input wire rst,\n    input wire [7:0] signal_input,\n    input wire [7:0] threshold,\n    output reg pitch_detected\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            pitch_detected <= 0;\n        end else begin\n            if (signal_input > threshold) begin\n                pitch_detected <= 1;\n            end else begin\n                pitch_detected <= 0;\n            end\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q002125",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module sram_cell (\n    input [3:0] data_in,\n    input write_enable,\n    input read_enable,\n    input clk,\n    output reg [3:0] data_out\n);\n    reg [3:0] memory;\n\n    always @(posedge clk) begin\n        if (write_enable) begin\n            memory <= data_in; // Write data to memory\n        end\n        if (read_enable) begin\n            data_out <= memory; // Read data from memory\n        end\n    end\nendmodule"
-}

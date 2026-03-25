@@ -1,8 +1,0 @@
-{
-  "task_id": "q016939",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module my_mac(\n    input clk,\n    input reset,\n    input ce,\n    input [31:0] din0,\n    input [31:0] din1,\n    output reg [31:0] dout\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (reset) begin\n        dout <= 0;\n    end else if (ce) begin\n        dout <= dout + din0 * din1;\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

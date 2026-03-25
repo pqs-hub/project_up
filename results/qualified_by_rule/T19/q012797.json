@@ -1,6 +1,0 @@
-{
-  "task_id": "q012797",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    input tx_start,\n    input [7:0] tx_data,\n    output reg tx_busy,\n    output reg tx\n);\n    reg [3:0] bit_index;\n    reg [7:0] shift_reg;\n    reg [9:0] tx_frame;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            tx_busy <= 1'b0;\n            tx <= 1'b1;\n            bit_index <= 4'd0;\n            shift_reg <= 8'd0;\n            tx_frame <= 10'd0;\n        end else if (tx_start && !tx_busy) begin\n            tx_busy <= 1'b1;\n            shift_reg <= tx_data;\n            tx_frame <= {1'b1, tx_data, 1'b0};  // start bit (0), data, stop bit (1)\n            bit_index <= 4'd0;\n        end else if (tx_busy) begin\n            if (bit_index < 4'd10) begin\n                tx <= tx_frame[bit_index];\n                bit_index <= bit_index + 1;\n            end else begin\n                tx_busy <= 1'b0;\n                tx <= 1'b1;\n            end\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

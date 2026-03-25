@@ -1,6 +1,0 @@
-{
-  "task_id": "q015796",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n\tinput clk,rst_n,\n\tinput [31:0]reg_out1,reg_out2,\n\toutput reg [31:0]reg_A,reg_B\n   );always@(posedge clk, negedge rst_n)\n  wire _tap_clk = clk & {1{1'b1}};\n\n\tbegin\n\t\tif(~rst_n)\n\t\tbegin\n\t\t\treg_A <= 32'bx;\n\t\t\treg_B <= 32'bx;\n\t\tend\n\t\telse\n\t\tbegin\n\t\t\treg_A <= reg_out1;\n\t\t\treg_B <= reg_out2;\n\t\tend\n\tend\n\nendmodule"
-}

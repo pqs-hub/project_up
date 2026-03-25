@@ -1,6 +1,0 @@
-{
-  "task_id": "q002751",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n    input wire J,\n    input wire K,\n    input wire clk,\n    input wire reset,\n    output reg Q\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            Q <= 0;\n        end else begin\n            case ({J, K})\n                2'b00: Q <= Q;       // No change\n                2'b01: Q <= 0;       // Reset\n                2'b10: Q <= 1;       // Set\n                2'b11: Q <= ~Q;      // Toggle\n            endcase\n        end\n    end\nendmodule"
-}

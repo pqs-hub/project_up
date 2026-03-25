@@ -1,6 +1,0 @@
-{
-  "task_id": "q002307",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule (\n    input [23:0] adc_input,\n    output reg [3:0] status\n);\n    always @(*) begin\n        if (adc_input <= 15) begin\n            status = 4'b0001; // Range 0-15\n        end else if (adc_input <= 255) begin\n            status = 4'b0010; // Range 16-255\n        end else if (adc_input <= 4095) begin\n            status = 4'b0100; // Range 256-4095\n        end else if (adc_input <= 65535) begin\n            status = 4'b1000; // Range 4096-65535\n        end else begin\n            status = 4'b1111; // Out of range\n        end\n    end\nendmodule"
-}

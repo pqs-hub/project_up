@@ -1,6 +1,0 @@
-{
-  "task_id": "q009364",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule(\n    count,\n    enable,\n    clock,\n    reset\n);output [7:0] count;\nreg [7:0] count;\ninput enable;\ninput clock;\ninput reset;\n\n\n\n\n\n\nalways @(posedge clock, negedge reset) begin: INC_INCLOGIC\n    if (reset == 0) begin\n        count <= 0;\n    end\n    else begin\n        if (enable) begin\n            count <= (count + 1);\n        end\n    end\nend\n\nendmodule"
-}

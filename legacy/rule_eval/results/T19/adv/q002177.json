@@ -1,6 +1,0 @@
-{
-  "task_id": "q002177",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module linked_list_traversal(\n    input clk,\n    input reset,\n    output reg [3:0] data_out,\n    output reg done\n);\n    // Define node structure\n    reg [3:0] data [0:4]; // 5 nodes with 4-bit data\n    reg [2:0] next [0:4]; // Pointers to next nodes\n    reg [2:0] current;\n\n    // Initialize linked list\n    initial begin\n        data[0] = 4'b0001; next[0] = 3'b001; // Node 0\n        data[1] = 4'b0010; next[1] = 3'b010; // Node 1\n        data[2] = 4'b0011; next[2] = 3'b011; // Node 2\n        data[3] = 4'b0100; next[3] = 3'b100; // Node 3\n        data[4] = 4'b0101; next[4] = 3'b000; // Node 4 (points back to head)\n    end\n\n    // Sequential logic for traversal\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            current <= 3'b000; // Start from head\n            done <= 0;\n        end\n        else if (current < 3'b101) begin // while current < 5\n            data_out <= data[current]; // Output current node data\n            current <= next[current]; // Move to the next node\n            done <= (current == 3'b000); // Check if loop is completed\n        end\n        else begin\n            done <= 1; // Done when current >= 5\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

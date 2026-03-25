@@ -1,6 +1,0 @@
-{
-  "task_id": "q009901",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(A, B, A_gt_B, A_eq_B, A_lt_B);\ninput [3:0] A, B;\noutput A_gt_B, A_eq_B, A_lt_B;\nreg A_gt_B, A_eq_B, A_lt_B;\n\nalways @(A or B) begin\n    if (A > B) begin\n        A_gt_B = 1;\n        A_eq_B = 0;\n        A_lt_B = 0;\n    end else if (A == B) begin\n        A_gt_B = 0;\n        A_eq_B = 1;\n        A_lt_B = 0;\n    end else begin\n        A_gt_B = 0;\n        A_eq_B = 0;\n        A_lt_B = 1;\n    end\nend\n\nendmodule"
-}

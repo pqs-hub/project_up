@@ -1,9 +1,0 @@
-{
-  "task_id": "q001825",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module DRAM_Cell (  \n    input wire D,  \n    input wire WL,  \n    output reg BL  \n);  \n    reg obf_stored_data;  \n\n    always @(posedge WL) begin  \n        obf_stored_data <= D;  \n    end  \n\n    always @(negedge WL) begin  \n        BL <= obf_stored_data;  \n    end  \nendmodule",
-  "rename_map": {
-    "stored_data": "obf_stored_data"
-  }
-}

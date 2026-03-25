@@ -1,6 +1,0 @@
-{
-  "task_id": "q005936",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(clk, t, ld_val, input_sel,\n\t\t\t\t\t\tmac0, mac1, mac2, mac3, mac4, mac5, mac6, mac7, mac8, mac9,\n\t\t\t\t\t\tstore_values_out);input clk, t, ld_val;\n\t\tinput[31:0] input_sel;\n\t\t\n\t\tinput[7:0] mac0, mac1, mac2, mac3, mac4, mac5, mac6, mac7, mac8, mac9;\n\t\t\n\t\toutput[7:0] store_values_out;\n\n\t\treg [7:0] store_reg[0:19];\n\t\t\n\t\talways @(posedge clk) begin\n\t\t\tif(ld_val) begin\n\t\t\t\tstore_reg[10 * t + 0] <= mac0;\n\t\t\t\tstore_reg[10 * t + 1] <= mac1;\n\t\t\t\tstore_reg[10 * t + 2] <= mac2;\n\t\t\t\tstore_reg[10 * t + 3] <= mac3;\n\t\t\t\tstore_reg[10 * t + 4] <= mac4;\n\t\t\t\tstore_reg[10 * t + 5] <= mac5;\n\t\t\t\tstore_reg[10 * t + 6] <= mac6;\n\t\t\t\tstore_reg[10 * t + 7] <= mac7;\n\t\t\t\tstore_reg[10 * t + 8] <= mac8;\n\t\t\t\tstore_reg[10 * t + 9] <= mac9;\n\t\t\tend\n\t\tend\n\t\t\n\t\tassign store_values_out = store_reg[input_sel];\nendmodule"
-}

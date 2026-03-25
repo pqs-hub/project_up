@@ -1,6 +1,0 @@
-{
-  "task_id": "q006585",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule RefModule(\n    input p,\n    input q,\n    output v\n);\n    assign v = ~(p & q);\nendmodule\n\nmodule J(\n    input p,\n    input q,\n    output v\n);\n    assign v = ~(p & q);\nendmodule\n\nmodule top_module(\n    input p,\n    input q,\n    output v\n);\n    wire i1_out, i2_out, j_out;\n    wire xor_out;\n\n    I i1(.p(p), .q(q), .v(i1_out));\n    I i2(.p(p), .q(q), .v(i2_out));\n    J j1(.p(p), .q(q), .v(j_out));\n\n    assign xor_out = i1_out ^ j_out;\n    assign v = xor_out | i2_out;\nendmodule"
-}

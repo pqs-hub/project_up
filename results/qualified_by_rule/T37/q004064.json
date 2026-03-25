@@ -1,6 +1,0 @@
-{
-  "task_id": "q004064",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire start,\n    input wire [2:0] channel_select,\n    output reg done\n);\n    reg [2:0] current_channel;\n    reg transferring;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            done <= 0;\n            current_channel <= 0;\n            transferring <= 0;\n        end else if (start && !transferring) begin\n            current_channel <= channel_select;\n            transferring <= 1;\n        end else if (transferring) begin\n            // Simulate data transfer completion\n            done <= 1; // Indicate transfer is done\n            transferring <= 0; // Reset transferring state\n        end\n    end\nendmodule"
-}

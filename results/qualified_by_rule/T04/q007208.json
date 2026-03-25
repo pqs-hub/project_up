@@ -1,6 +1,0 @@
-{
-  "task_id": "q007208",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n                data_in,\n                encode_out,\n                enable_out\n                );parameter   WIDTH       = 64;\nparameter   N           = log2(WIDTH);\n\ninput   [WIDTH-1:0]     data_in;\noutput  [N-1:0]         encode_out;\noutput                  enable_out;\n\nreg     [N-1:0]         encode_out;\nreg                     enable_out;\n\nreg     [N-1:0]         x;\n\ninteger i, j;\n\nalways @(*)\nbegin\n    j = 0;\n    for (i=0; i < WIDTH; i=i+1)\n        if (data_in[i] == 1'b1)\n            j = i;\n            \n    encode_out  = j;\n    enable_out  = |{data_in};\nend\n\nfunction integer log2;\ninput [31:0] depth;\ninteger k;\nbegin\n    log2 = 1;\n    for (k=0; 2**k < depth; k=k+1)\n        log2 = k + 1;\nend\nendfunction     \n\nendmodule"
-}

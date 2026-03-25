@@ -1,6 +1,0 @@
-{
-  "task_id": "q010101",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule(in1, in2, cin, sum, cout);parameter N = 32;\ninput [N - 1:0] in1;\ninput [N - 1:0] in2;\ninput cin;\noutput [N - 1:0] sum;\noutput cout;\n\n\n\nwire [N - 1:0] gen;\nwire [N - 1:0] pro;\nwire [N:0] c_temp;\n\ngenvar j, i;\ngenerate\n\n assign c_temp[0] = cin;\n \n \n for(j = 0; j < N; j = j + 1) begin: carry_functions\n assign gen[j] = in1[j] & in2[j];\n assign pro[j] = in1[j] | in2[j];\n assign c_temp[j+1] = gen[j] | pro[j] & c_temp[j];\n end\n \n \n assign cout = c_temp[N];\n \n \n \n for(i = 0; i < N; i = i+1) begin: sum_without_carry\n assign sum[i] = in1[i] ^ in2[i] ^ c_temp[i];\n end \nendgenerate \nendmodule"
-}

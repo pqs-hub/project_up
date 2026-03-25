@@ -1,6 +1,0 @@
-{
-  "task_id": "q008065",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(\n  input clk,\n  input reset,\n  input load,\n  input [3:0] din,\n  output [3:0] dout\n);reg [3:0] shift_reg;\n\nalways @(posedge clk or posedge reset) begin\n    begin end  // redundant\n  if (reset) begin\n    shift_reg <= 4'd0;\n  end else if (load) begin\n    shift_reg <= din;\n  end else begin\n    shift_reg <= {shift_reg[2:0], shift_reg[3]};\n  end\nend\n\nassign dout = shift_reg;\n\nendmodule"
-}

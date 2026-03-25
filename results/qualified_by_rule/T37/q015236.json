@@ -1,6 +1,0 @@
-{
-  "task_id": "q015236",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(\n\tinput [7:0] x,\n\tinput [7:0] y,\n\toutput out\n);wire [9:0] and_outputs;\nwire [4:0] or_outputs;\n\ngenvar i;\n\ngenerate\n\t// Create 8 AND gates\n\tfor(i = 0; i < 8; i = i + 1)\n\tbegin: and_1st_row\n\t\tassign and_outputs[i] = x[i] & y[i];\n\tend\n\t\n\t// Create 4 OR gates\n\tfor(i = 0; i < 4; i = i + 1)\n\tbegin: or_2nd_row\n\t\tassign or_outputs[i] = and_outputs[2 * i] | and_outputs[2 * i + 1];\n\tend\n\n\t// Create 2 AND gates\n\tassign and_outputs[8] = or_outputs[0] & or_outputs[1];\n\tassign and_outputs[9] = or_outputs[2] & or_outputs[3];\n\t\n\t// Create 1 OR gate\n\tassign out = and_outputs[8] | and_outputs[9];\n\nendgenerate\n\nendmodule"
-}

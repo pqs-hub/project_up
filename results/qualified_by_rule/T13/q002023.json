@@ -1,6 +1,0 @@
-{
-  "task_id": "q002023",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst_n,\n    input wire start_tx,\n    input wire ack_received,\n    output reg [1:0] state\n);\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter TRANSMIT = 2'b01;\n    parameter WAIT_FOR_ACK = 2'b10;\n\n    // State register\n    reg [1:0] next_state;\n\n    // State transition logic\n    always @(*) begin\n        case (state)\n            IDLE: begin\n                if (start_tx) \n                    next_state = TRANSMIT;\n                else \n                    next_state = IDLE;\n            end\n            TRANSMIT: begin\n                next_state = WAIT_FOR_ACK; // Assume transmission is always complete\n            end\n            WAIT_FOR_ACK: begin\n                if (ack_received) \n                    next_state = IDLE;\n                else \n                    next_state = WAIT_FOR_ACK;\n            end\n            default: next_state = IDLE;\n        endcase\n    end\n\n    // State update logic\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) \n            state <= IDLE;\n        else \n            state <= next_state;\n    end\nendmodule"
-}

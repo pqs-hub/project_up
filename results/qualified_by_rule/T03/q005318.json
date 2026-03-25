@@ -1,6 +1,0 @@
-{
-  "task_id": "q005318",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input rst_n,\n    input write_en,\n    input [2:0] write_addr,\n    input [31:0] write_data,\n    input [2:0] read_addr1,\n    input [2:0] read_addr2,\n    output [31:0] read_data1,\n    output [31:0] read_data2\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nreg [31:0] reg_file [7:0];\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        reg_file[0] <= 32'b0;\n        reg_file[1] <= 32'b0;\n        reg_file[2] <= 32'b0;\n        reg_file[3] <= 32'b0;\n        reg_file[4] <= 32'b0;\n        reg_file[5] <= 32'b0;\n        reg_file[6] <= 32'b0;\n        reg_file[7] <= 32'b0;\n    end else if (write_en) begin\n        reg_file[write_addr] <= write_data;\n    end\nend\n\nassign read_data1 = reg_file[read_addr1];\nassign read_data2 = reg_file[read_addr2];\n\nendmodule"
-}

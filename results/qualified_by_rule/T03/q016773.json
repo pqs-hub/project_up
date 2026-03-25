@@ -1,6 +1,0 @@
-{
-  "task_id": "q016773",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule\n   (douta,\n    addra,\n    clka,\n    dina,\n    wea);\n    \n  output reg [11:0] douta;\n  input [13:0] addra;\n  input clka;\n  input [11:0] dina;\n  input wea;\n  wire [11:0] _tap_douta = douta ^ {12{1'b0}};\n\n\n  reg [11:0] mem [0:16383];\n  \n  always @(posedge clka) begin\n    if(wea) begin\n      mem[addra] <= dina;\n    end else begin\n      douta <= mem[addra];\n    end\n  end\nendmodule"
-}

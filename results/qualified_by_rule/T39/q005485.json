@@ -1,6 +1,0 @@
-{
-  "task_id": "q005485",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module RefModule(clock, subOut, Mul_In, div_output, op1);input        clock;\ninput  [47:0] subOut;\ninput  [47:0] div_output;\n\noutput [47:0] Mul_In;\noutput [47:0] op1;\n\nwire   [47:0] Mul_In;\nwire   [47:0] op1;\n\nreg [47:0] d16,d17,d18,d19;\n\nalways @(posedge clock) begin\n  d16 <= subOut ;\n  end\n\n  always @(posedge clock) begin\n  d17 <= d16 ;\n  d18 <= d17 ;\n  d19 <= d18 ;\n  end\nassign Mul_In = d19;\nassign op1 = div_output;\n\nendmodule"
-}

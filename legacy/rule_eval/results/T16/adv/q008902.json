@@ -1,9 +1,0 @@
-{
-  "task_id": "q008902",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input A, B, C, D,\n    input [1:0] sel,\n    input clk,            // Added clk input\n    output reg obf_Y\n);reg [1:0] stage1_sel;\nreg [1:0] stage2_sel;\n\nalways @(*) begin\n    stage1_sel = sel;\n    stage2_sel = stage1_sel;\nend\n\nalways @(posedge clk) begin\n    case (stage2_sel)\n        2'b00: obf_Y <= A;\n        2'b01: obf_Y <= B;\n        2'b10: obf_Y <= C;\n        2'b11: obf_Y <= D;\n        default: obf_Y <= 1'b0; // Optional: Ensure obf_Y is defined for all cases\n    endcase\nend\n\nendmodule",
-  "rename_map": {
-    "Y": "obf_Y"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q000504",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input [3:0] a,\n    input [3:0] b,\n    input [3:0] constant,\n    output reg [3:0] stage1_out,\n    output reg [3:0] stage2_out\n);\n    \n    // Stage 1: Addition\n    always @(posedge clk) begin\n        stage1_out <= a + b;\n    end\n    \n    // Stage 2: Subtraction\n    always @(posedge clk) begin\n        stage2_out <= stage1_out - constant;\n    end\nendmodule"
-}

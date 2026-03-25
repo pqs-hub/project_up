@@ -1,9 +1,0 @@
-{
-  "task_id": "q012264",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(rd,rt,obf_RegDst,Y);input [4:0] rd,rt;\n    input obf_RegDst;\n    output [4:0] Y;\n\n    function [4:0] select;\n        input [4:0] rd,rt;\n        input obf_RegDst;\n        case(obf_RegDst)\n            1:select=rt;\n            0:select=rd;\n        endcase\n    endfunction\n    assign Y=select(rd,rt,obf_RegDst);endmodule",
-  "rename_map": {
-    "RegDst": "obf_RegDst"
-  }
-}

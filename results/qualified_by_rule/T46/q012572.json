@@ -1,6 +1,0 @@
-{
-  "task_id": "q012572",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(CLK, RST, IN_SIG, PULSE);\ninput CLK, RST, IN_SIG;\noutput PULSE;\nreg PULSE;\nreg prev_in_sig;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge RST or posedge dbg_halt) begin\n    if (RST)\n        prev_in_sig <= 0;\n    else\n        prev_in_sig <= IN_SIG;\nend\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        PULSE <= 0;\n    else\n        PULSE <= IN_SIG & ~prev_in_sig;\nend\n\nendmodule"
-}

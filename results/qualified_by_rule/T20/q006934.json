@@ -1,6 +1,0 @@
-{
-  "task_id": "q006934",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule RefModule(\n  input clk,\n  input reset,\n  output reg [3:0] count\n);reg [3:0] temp_count;\n\nalways @ (posedge clk or negedge reset) begin\n  if (!reset) begin\n    temp_count <= 4'b0000;\n  end else begin\n    temp_count <= temp_count + 4'b0001;\n  end\nend\n\nassign count = temp_count;\n\nendmodule"
-}

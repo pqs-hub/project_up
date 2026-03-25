@@ -1,6 +1,0 @@
-{
-  "task_id": "q004152",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(clk, reset, signal_in, signal_out);  \n    input clk;  \n    input reset;  \n    input signal_in;  \n    output reg signal_out;  \n\n    reg [1:0] count;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            count <= 2'b00;  \n            signal_out <= 1'b0;  \n        end else begin  \n            if (signal_in) begin  \n                if (count == 2'b11) begin  \n                    signal_out <= 1'b1;  \n                end else begin  \n                    count <= count + 1;  \n                    signal_out <= 1'b0;  \n                end  \n            end else begin  \n                count <= 2'b00;  \n                signal_out <= 1'b0;  \n            end  \n        end  \n    end  \nendmodule"
-}

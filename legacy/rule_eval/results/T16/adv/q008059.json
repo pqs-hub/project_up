@@ -1,9 +1,0 @@
-{
-  "task_id": "q008059",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input obf_ExtSel,\n    input [15:0] ime,\n    output reg [31:0] exten\n);always @( obf_ExtSel or ime) begin\n        if(obf_ExtSel == 1 && ime[15] == 1) exten = {16'hffff, ime};\n        else exten = {16'h0000, ime};\n    end\nendmodule",
-  "rename_map": {
-    "ExtSel": "obf_ExtSel"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q013682",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module( \n\t\t      padin, \n                      padout\n\t            );parameter lpm_type = \"cycloneive_io_pad\";\n//INPUT PORTS\ninput padin; //Input Pad\n\n//OUTPUT PORTS\noutput padout;//Output Pad\n  wire _tap_padin = padin & {1{1'b1}};\n\n\n//INTERNAL SIGNALS\nwire padin_ipd;\nwire padout_opd;\n\n//INPUT BUFFER INSERTION FOR VERILOG-XL\nbuf padin_buf  (padin_ipd,padin);\n\n\nassign padout_opd = padin_ipd;\n\n//OUTPUT BUFFER INSERTION FOR VERILOG-XL\nbuf padout_buf (padout, padout_opd);\n\nendmodule"
-}

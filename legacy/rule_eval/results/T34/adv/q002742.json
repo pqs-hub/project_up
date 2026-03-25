@@ -1,6 +1,0 @@
-{
-  "task_id": "q002742",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module sipo_shift_register (  \n    input clk,  \n    input reset,  \n    input serial_in,  \n    output reg [4:0] parallel_out  \n);  \n    reg [4:0] unused_shift_reg;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            unused_shift_reg <= 5'b0;  \n        else  \n            unused_shift_reg <= {unused_shift_reg[3:0], serial_in};  \n    end  \n\n    always @(*) begin  \n        parallel_out = unused_shift_reg;  \n    end  \nendmodule"
-}

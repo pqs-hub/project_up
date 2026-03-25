@@ -1,6 +1,0 @@
-{
-  "task_id": "q005262",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n  input clk_in,\n  input reset,\n  output reg clk_out\n);parameter divide_ratio = 2;\n\nreg [31:0] count;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk_in or posedge reset or posedge dbg_halt) begin\n  if (reset) begin\n    count <= 0;\n    clk_out <= 0;\n  end else begin\n    count <= count + 1;\n    if (count == divide_ratio - 1) begin\n      count <= 0;\n      clk_out <= ~clk_out;\n    end\n  end\nend\n\nendmodule"
-}

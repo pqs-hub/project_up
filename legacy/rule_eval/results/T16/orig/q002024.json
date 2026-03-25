@@ -1,6 +1,0 @@
-{
-  "task_id": "q002024",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module fixed_priority_arbiter (\n    input wire clk,\n    input wire reset,\n    input wire [3:0] request,\n    output reg [3:0] grant\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            grant <= 4'b0000;\n        end else begin\n            grant <= 4'b0000; // Reset the grant\n            if (request[0]) grant <= 4'b0001; // Grant to Request 0\n            else if (request[1]) grant <= 4'b0010; // Grant to Request 1\n            else if (request[2]) grant <= 4'b0100; // Grant to Request 2\n            else if (request[3]) grant <= 4'b1000; // Grant to Request 3\n        end\n    end\nendmodule"
-}

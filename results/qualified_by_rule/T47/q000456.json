@@ -1,6 +1,0 @@
-{
-  "task_id": "q000456",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [7:0] current_input,\n    output reg [7:0] output_signal\n);\n    reg [7:0] previous_input;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            previous_input <= 8'b0;\n            output_signal <= 8'b0;\n        end else begin\n            output_signal <= current_input - previous_input;\n            previous_input <= current_input;\n        end\n    end\nendmodule"
-}

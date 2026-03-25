@@ -1,9 +1,0 @@
-{
-  "task_id": "q007567",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module priority_encoder_4to2 (obf_a, y);\n   input [3:0] obf_a;\n   output reg [1:0] y;\n\n   always @(obf_a) begin\n      if (obf_a[3])\n         y = 2'b11;\n      else if (obf_a[2])\n         y = 2'b10;\n      else if (obf_a[1])\n         y = 2'b01;\n      else if (obf_a[0])\n         y = 2'b00;\n      else\n         y = 2'b00; // Default case if no input is set\n   end\nendmodule",
-  "rename_map": {
-    "a": "obf_a"
-  }
-}

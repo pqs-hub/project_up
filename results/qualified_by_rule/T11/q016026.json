@@ -1,6 +1,0 @@
-{
-  "task_id": "q016026",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    output reg pulse\n);\n\n    reg [1:0] count;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count <= 0;\n            pulse <= 0;\n        end else if (count == 2) begin\n            pulse <= 1;\n            count <= 0;\n        end else begin\n            count <= count + 1;\n            pulse <= 0;\n        end\n    end\nendmodule"
-}

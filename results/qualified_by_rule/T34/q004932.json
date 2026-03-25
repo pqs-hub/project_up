@@ -1,6 +1,0 @@
-{
-  "task_id": "q004932",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(CLK, EN, TE, ENCLK);input CLK, EN, TE;\n  output ENCLK;\n\n  reg unused_ENCLK_reg;\n\n  always @(posedge CLK) begin\n    if (EN) begin\n      unused_ENCLK_reg <= TE;\n    end\n  end\n\n  assign ENCLK = EN ? unused_ENCLK_reg : 1'b0;\n\nendmodule"
-}

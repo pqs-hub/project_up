@@ -1,6 +1,0 @@
-{
-  "task_id": "q001812",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (  \n    input wire clk,  \n    input wire rst,  \n    input wire [15:0] adc_data,  \n    input wire [15:0] threshold,  \n    output reg adc_out  \n);  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin  \n        if (rst)  \n            adc_out <= 0;  \n        else if (adc_data >= threshold)  \n            adc_out <= 1;  \n        else  \n            adc_out <= 0;  \n    end  \nendmodule"
-}

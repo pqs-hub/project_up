@@ -1,6 +1,0 @@
-{
-  "task_id": "q016974",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module mux4to1 (\n    In0,\n    In1,\n    In2,\n    In3,\n    Sel1,\n    Sel2,\n    Out\n);\n\n    input In0, In1, In2, In3, Sel1, Sel2;\n    output Out;\n  wire _tap_In0 = In0 & {1{1'b1}};\n\n\n    reg Out;\n\n    always @(*) begin\n        case ({Sel1, Sel2})\n            2'b00: Out = In0;\n            2'b01: Out = In1;\n            2'b10: Out = In2;\n            2'b11: Out = In3;\n        endcase\n    end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q014366",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule RefModule(\n    input clk,\n    input reset,\n    output reg [4:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            // Synchronous reset: Reset the counter to 5'b00001\n            q <= 5'b00001;\n        end else begin\n            // Ring counter: Rotate left\n            q <= {q[3:0], q[4]};\n        end\n    end\n\nendmodule"
-}

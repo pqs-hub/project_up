@@ -1,6 +1,0 @@
-{
-  "task_id": "q016702",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule (\n  input clk,\n  input reset,\n  input [31:0] timer_duration,\n  output reg timer_reset\n);\n\nreg [31:0] obf_timer_count;\n\nalways @(posedge clk or posedge reset) begin\n  if (reset) begin\n    obf_timer_count <= 0;\n    timer_reset <= 0;\n  end else begin\n    obf_timer_count <= obf_timer_count + 1;\n    if (obf_timer_count >= timer_duration) begin\n      obf_timer_count <= 0;\n      timer_reset <= 1;\n    end else begin\n      timer_reset <= 0;\n    end\n  end\nend\n\nendmodule"
-}

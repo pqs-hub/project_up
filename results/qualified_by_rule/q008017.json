@@ -1,6 +1,0 @@
-{
-  "task_id": "q008017",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n  input [2:0] op,\n  input [7:0] a,\n  input [7:0] b,\n  input [4:0] reg_addr,\n  input reg_write,\n  output reg [7:0] result  // Change wire to reg\n);reg [7:0] obf_out;\n  reg [7:0] neg_b;\n\n  always @(*) begin\n    case(op)\n      3'b000: obf_out = a + b;\n      3'b001: begin\n                 neg_b = ~b + 1;\n                 obf_out = a + neg_b;\n               end\n      3'b010: obf_out = a & b;\n      3'b011: obf_out = a | b;\n      3'b100: obf_out = a ^ b;\n      default: obf_out = 8'h00;\n    endcase\n  end\n\n  always @(posedge reg_write) begin\n    if (reg_write) begin\n      result <= obf_out;  // Update only once based on obf_out\n    end\n  end\n\nendmodule"
-}

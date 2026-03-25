@@ -1,6 +1,0 @@
-{
-  "task_id": "q007363",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule top_module(\n    input clk,\n    input [23:0] data_in,\n    input [9:0] write_addr,\n    input [9:0] read_addr,\n    input write_en,\n    output reg [23:0] data_out\n);reg [23:0] mem [0:1023];\n\nalways @(posedge clk) begin\n    if (write_en) begin\n        mem[write_addr] <= data_in;\n    end\n    data_out <= mem[read_addr];\nend\n\nendmodule"
-}

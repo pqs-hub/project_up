@@ -1,6 +1,0 @@
-{
-  "task_id": "q000312",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module dvfs_controller(\n    input [4-1:1-1] load,\n    input clk,\n    input reset,\n    output reg [1:0] voltage,\n    output reg [1:0] frequency\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            voltage <= 2'b00;\n            frequency <= 2'b00;\n        end else begin\n            case (load)\n                4'b0000, 4'b0001, 4'b0010, 4'b0011: begin\n                    voltage <= 2'b00; frequency <= 2'b00; // 0-25%\n                end\n                4'b0100, 4'b0101, 4'b0110, 4'b0111: begin\n                    voltage <= 2'b01; frequency <= 2'b01; // 26-50%\n                end\n                4'b1000, 4'b1001, 4'b1010, 4'b1011: begin\n                    voltage <= 2'b10; frequency <= 2'b10; // 51-75%\n                end\n                default: begin\n                    voltage <= 2'b11; frequency <= 2'b11; // 76-100%\n                end\n            endcase\n        end\n    end\nendmodule"
-}

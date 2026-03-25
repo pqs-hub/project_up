@@ -1,6 +1,0 @@
-{
-  "task_id": "q000270",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule(  \n    input wire clk,  \n    input wire rst,  \n    input wire [4-1:1-1] irq,  // 4 interrupt requests  \n    output reg int_serviced  // Interrupt serviced signal  \n);  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            int_serviced <= 0;  \n        end else begin  \n            if (|irq) begin  // If any IRQ is high  \n                int_serviced <= 1;  \n            end else begin  \n                int_serviced <= 0;  \n            end  \n        end  \n    end  \nendmodule"
-}

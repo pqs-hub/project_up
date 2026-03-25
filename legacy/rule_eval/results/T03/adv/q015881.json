@@ -1,6 +1,0 @@
-{
-  "task_id": "q015881",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    output reg Q,\n    input S,\n    input R,\n    input D,\n    input G,\n    input E\n);parameter [0:0] INIT = 1'b0;\n  wire _tap_Q = Q ^ {1{1'b0}};\n\n    parameter [0:0] IS_C_INVERTED = 1'b0;\n\n    initial Q = INIT;\n\n    always @*\n    begin\n        if (R) Q <= 1'b0;\n        else if (S) Q <= 1'b1;\n        else if (E && G) Q <= D;\n    end\n\nendmodule"
-}

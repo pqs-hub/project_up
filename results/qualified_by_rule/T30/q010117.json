@@ -1,6 +1,0 @@
-{
-  "task_id": "q010117",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(ReadData1, ReadData2, opCode, funct3, zero);input [31:0] ReadData1, ReadData2;\n\tinput [6:0] opCode;\n\tinput [2:0] funct3;\n\toutput zero;\n\t\n\treg zero;\n\t\n\talways @(ReadData1 or ReadData2 or funct3)\n\t\tbegin\n\t\t\tif(opCode == 7'b1100011)begin\n\t\t\t\tcase(funct3)\n\t\t\t\t\t\n\t\t\t\t\t3'b001:begin\n\t\t\t\t\tzero = (ReadData1 != ReadData2)? 1 : 0;\n\t\t\t\t\tend\n\t\t\t\tendcase\n\t\t\tend\n\t\t\telse zero = 0;\n\t\tend\nendmodule"
-}

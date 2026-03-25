@@ -1,6 +1,0 @@
-{
-  "task_id": "q016713",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule synchronous_counter (\n    input wire clk,\n    input wire reset,\n    output wire [3:0] count\n);\n\nreg [3:0] count_reg;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        count_reg <= 4'b0;\n    end else begin\n        count_reg <= count_reg + 1;\n    end\nend\n\nassign count = count_reg;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q002709",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule dma_controller (\n    input clk,\n    input rst_n,\n    input req_chan1,\n    input req_chan2,\n    input enable_chan1,\n    input enable_chan2,\n    output reg done_chan1,\n    output reg done_chan2\n);\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            done_chan1 <= 0;\n            done_chan2 <= 0;\n        end else begin\n            if (enable_chan1 && req_chan1) begin\n                done_chan1 <= 1;  // Data transfer done for channel 1\n            end else begin\n                done_chan1 <= 0;  // Reset done signal\n            end\n            \n            if (enable_chan2 && req_chan2) begin\n                done_chan2 <= 1;  // Data transfer done for channel 2\n            end else begin\n                done_chan2 <= 0;  // Reset done signal\n            end\n        end\n    end\nendmodule"
-}

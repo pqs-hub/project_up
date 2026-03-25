@@ -1,8 +1,0 @@
-{
-  "task_id": "q007090",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module binary_counter_13bit (\n    input clk,\n    input reset_n,\n    input en,\n    output reg [12:0] q);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge reset_n or posedge dbg_halt) begin\n    if (!reset_n)\n        q <= 13'b0000000000000;\n    else if (en) begin\n        q <= q + 1;\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

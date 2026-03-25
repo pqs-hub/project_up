@@ -1,6 +1,0 @@
-{
-  "task_id": "q012265",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module top_module(\n  input [n-1:0] data_in,\n  output reg parity_out\n);parameter n = 8; // number of data bits\nparameter parity_type = \"even\"; // even or odd parity\n\ninteger i;\nreg [n-1:0] data_bits;\nreg parity_bit;\n\nalways @(*) begin\n  data_bits = data_in ;\n  end\n\n  always @(*) begin\n  parity_bit = data_bits[0] ;\n  for (i = 1 ; i < n ; i = i + 1) begin parity_bit = parity_bit ^ data_bits[i] ; end\n  if (parity_type == \"odd\") begin parity_out = ~parity_bit ; end else begin parity_out = parity_bit ; end\n  end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q005924",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module binary_to_onehot (\n\tinput [2:0] bin_in,\n\toutput reg [7:0] onehot_out\n);\n  wire [2:0] _tap_bin_in = bin_in & {3{1'b1}};\n\n\nalways @* begin\n\tonehot_out = 8'b00000000;\n\tonehot_out[bin_in] = 1'b1;\nend\n\nendmodule"
-}

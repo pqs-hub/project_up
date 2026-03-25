@@ -1,6 +1,0 @@
-{
-  "task_id": "q008357",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule\n(\n    input clk,\n    input we,\n    input [3:0] waddr,\n    input [7:0] wdata,\n    input [3:0] raddr,\n    output reg [7:0] rdata\n);\n\nreg [7:0] ram [15:0];\n\nalways @(posedge clk) begin\n    if (we) begin\n        ram[waddr] <= wdata;\n    end\nend\n\nalways @(*) begin\n    rdata = ram[raddr];\nend\n\nendmodule"
-}

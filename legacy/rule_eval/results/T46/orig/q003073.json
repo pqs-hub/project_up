@@ -1,6 +1,0 @@
-{
-  "task_id": "q003073",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module sram_cell(\n    input wire clk,\n    input wire WE,        // Write Enable\n    input wire RE,        // Read Enable\n    input wire [2:0] A,   // Address\n    input wire [7:0] D,   // Data input\n    output reg [7:0] Q    // Data output\n);\n    reg [7:0] memory [0:7]; // 8 SRAM cells\n\n    always @(posedge clk) begin\n        if (WE) begin\n            memory[A] <= D; // Write data to memory\n        end\n        if (RE) begin\n            Q <= memory[A]; // Read data from memory\n        end\n    end\nendmodule"
-}

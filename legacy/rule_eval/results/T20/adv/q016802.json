@@ -1,6 +1,0 @@
-{
-  "task_id": "q016802",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule shift_register(clk, load, data_in, shift_en, data_out);\n  input clk;\n  input load;\n  input [15:0] data_in;\n  input shift_en;\n  output [15:0] data_out;\n\n  reg [15:0] reg_data;\n\n  always @(posedge clk) begin\n    if (load) begin\n      reg_data <= data_in;\n    end else if (shift_en) begin\n      reg_data <= {reg_data[14:0], 1'b0};\n    end\n  end\n\n  assign data_out = reg_data;\n\nendmodule"
-}

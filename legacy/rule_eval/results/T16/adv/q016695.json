@@ -1,9 +1,0 @@
-{
-  "task_id": "q016695",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module signal_converter(\n    input obf_A1_N,\n    input A2_N,\n    input B1,\n    input B2,\n    output reg X\n);\n\n    always @(*) begin\n        if (obf_A1_N==0 && A2_N==0) begin\n            X = B1;\n        end else if (obf_A1_N==0 && A2_N==1) begin\n            X = B2;\n        end else if (obf_A1_N==1 && A2_N==0) begin\n            X = ~B1;\n        end else if (obf_A1_N==1 && A2_N==1) begin\n            X = ~B2;\n        end\n    end\n\nendmodule",
-  "rename_map": {
-    "A1_N": "obf_A1_N"
-  }
-}

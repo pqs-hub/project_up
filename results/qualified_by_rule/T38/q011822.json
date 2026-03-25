@@ -1,6 +1,0 @@
-{
-  "task_id": "q011822",
-  "rule_id": "T38",
-  "changed": true,
-  "final": "module RefModule( INa, INb, INc, \n SUM, COUT);input INa, INb, INc; \noutput SUM, COUT; \n\nwire TMP; \nassign TMP = INa^ INb; \nassign SUM = TMP ^ INc; \n  wire temp1_(INa & INb) | (INb & INc) = (INa & INb) | (INb & INc);\n  wire temp2_(INc & INa) = (INc & INa);\n  assign COUT = temp1_(INa & INb) | (INb & INc) | temp2_(INc & INa); \n\nendmodule"
-}

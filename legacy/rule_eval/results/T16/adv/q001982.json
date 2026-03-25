@@ -1,9 +1,0 @@
-{
-  "task_id": "q001982",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module edge_detector (\n    input wire clk,\n    input wire signal,\n    output reg edge_detected\n);\n\nreg obf_signal_prev;\n\nalways @(posedge clk) begin\n    obf_signal_prev <= signal;\n    edge_detected <= (signal && ~obf_signal_prev);\nend\n\nendmodule",
-  "rename_map": {
-    "signal_prev": "obf_signal_prev"
-  }
-}

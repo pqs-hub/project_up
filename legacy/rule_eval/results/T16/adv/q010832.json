@@ -1,9 +1,0 @@
-{
-  "task_id": "q010832",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input [3:0] in0,\n    input [3:0] in1,\n    input [3:0] in2,\n    input [3:0] in3,\n    input [1:0] sel,\n    input obf_enable,\n    output reg [3:0] out\n);always @(*) begin\n    case (sel)\n        2'b00: out = obf_enable ? in0 : 4'b0;\n        2'b01: out = obf_enable ? in1 : 4'b0;\n        2'b10: out = obf_enable ? in2 : 4'b0;\n        2'b11: out = obf_enable ? in3 : 4'b0;\n    endcase\nend\n\nendmodule",
-  "rename_map": {
-    "enable": "obf_enable"
-  }
-}

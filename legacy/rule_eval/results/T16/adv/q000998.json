@@ -1,9 +1,0 @@
-{
-  "task_id": "q000998",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module JK_latch (\n    input J,\n    input K,\n    input obf_CLK,\n    output reg Q,\n    output Qn\n);\n    assign Qn = ~Q;\n    \n    always @(posedge obf_CLK) begin\n        case ({J, K})\n            2'b00: Q <= Q;      // No change\n            2'b01: Q <= 0;      // Reset\n            2'b10: Q <= 1;      // Set\n            2'b11: Q <= ~Q;     // Toggle\n        endcase\n    end\nendmodule",
-  "rename_map": {
-    "CLK": "obf_CLK"
-  }
-}

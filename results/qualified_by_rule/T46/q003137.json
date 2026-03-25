@@ -1,6 +1,0 @@
-{
-  "task_id": "q003137",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input [15:0] current_weight,\n    input [15:0] gradient,\n    input [15:0] learning_rate,\n    output reg [15:0] updated_weight\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        updated_weight <= current_weight - (gradient * learning_rate);\n    end\nendmodule"
-}

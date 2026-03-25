@@ -1,6 +1,0 @@
-{
-  "task_id": "q000623",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule (\n    input [8:0] pixel_00, // top left\n    input [8:0] pixel_01, // top center\n    input [8:0] pixel_02, // top right\n    input [8:0] pixel_10, // middle left\n    input [8:0] pixel_11, // middle center\n    input [8:0] pixel_12, // middle right\n    input [8:0] pixel_20, // bottom left\n    input [8:0] pixel_21, // bottom center\n    input [8:0] pixel_22, // bottom right\n    output reg [8:0] blurred_pixel\n);\n    always @(*) begin\n        // Calculate the weighted sum according to the Gaussian kernel\n        blurred_pixel = ((1 * pixel_00) + (2 * pixel_01) + (1 * pixel_02) +\n                         (2 * pixel_10) + (4 * pixel_11) + (2 * pixel_12) +\n                         (1 * pixel_20) + (2 * pixel_21) + (1 * pixel_22)) / 16;\n    end\nendmodule"
-}

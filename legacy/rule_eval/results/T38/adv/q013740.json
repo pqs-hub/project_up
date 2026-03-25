@@ -1,6 +1,0 @@
-{
-  "task_id": "q013740",
-  "rule_id": "T38",
-  "changed": true,
-  "final": "module top_module(ce, Q, sys_clk, TC, R, CEO);input ce;\noutput reg [3:0] Q = 0;\ninput sys_clk;\noutput wire TC;\ninput R;\noutput wire CEO;\n\nassign TC = (Q == 15);\n  wire temp1_ce = ce;\n  wire temp2_TC = TC;\n  assign CEO = temp1_ce & temp2_TC;\n\nalways @(posedge sys_clk)\nbegin\n        Q <= R ? 0 : ce ? Q + 1 : Q;\nend\n\nendmodule"
-}

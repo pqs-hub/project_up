@@ -1,6 +1,0 @@
-{
-  "task_id": "q010539",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    input serial_in,\n    output reg [7:0] q\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 8'b00000000;  // Asynchronous reset to all zeros\n        end else begin\n            q <= {q[6:0], serial_in};  // Shift in serial input\n        end\n    end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q011437",
-  "rule_id": "T38",
-  "changed": true,
-  "final": "module RefModule(\n    Y,\n    A1,\n    A2,\n    A3,\n    A4,\n    B1\n);output Y;\n    input A1, A2, A3, A4, B1;\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB;\n    supply0 VNB;\n\n    // Use a simple AND gate and invert B1 for active-low enable functionality\n    wire enable;\n\n    // Invert B1 for the enable signal\n    not u_inv(enable, B1);\n\n    // Output Y is high when enable is active and all A inputs are high\n  wire temp1_enable & A1 & A2 & A3 = enable & A1 & A2 & A3;\n  wire temp2_A4 = A4;\n  assign Y = temp1_enable & A1 & A2 & A3 & temp2_A4;\n\nendmodule"
-}

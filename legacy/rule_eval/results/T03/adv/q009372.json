@@ -1,6 +1,0 @@
-{
-  "task_id": "q009372",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module d_flipflop (\n    input wire clk,\n    input wire clr,\n    input wire pre,\n    input wire D,\n    output reg Q\n    );\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk or posedge clr or posedge pre) begin\n    if (clr)\n        Q <= 1'b0;\n    else if (pre)\n        Q <= 1'b1;\n    else\n        Q <= D;\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q017429",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module clock_gate (\n    input clk,\n    input enable,\n    output reg clk_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    if (enable) begin\n        clk_out <= 1'b1;\n    end else begin\n        clk_out <= 1'b0;\n    end\nend\n\nendmodule"
-}

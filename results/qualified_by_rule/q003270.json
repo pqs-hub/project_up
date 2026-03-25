@@ -1,6 +1,0 @@
-{
-  "task_id": "q003270",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module RefModule (\n    input S,\n    input R,\n    output reg Q,\n    output reg Qn\n);\n    always @(S, R) begin\n        if (S && !R) begin\n            Q <= 1;\n            Qn <= 0;\n        end else if (!S && R) begin\n            Q <= 0;\n            Qn <= 1;\n        end else if (S && R) begin\n            // Invalid state for SR Latch\n            Q <= 1'bx; // Indeterminate\n            Qn <= 1'bx; // Indeterminate\n        end\n    end\nendmodule"
-}

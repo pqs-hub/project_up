@@ -1,6 +1,0 @@
-{
-  "task_id": "q006621",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module piso_shift_register (CLK, RST, LOAD, D, Q);\ninput CLK, RST, LOAD;\ninput [7:0] D;\noutput reg Q;\nreg [7:0] unused_shift_reg;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        unused_shift_reg <= 8'b00000000;\n    else if (LOAD)\n        unused_shift_reg <= D;\n    else\n        unused_shift_reg <= unused_shift_reg >> 1;\nend\n\nalways @(*) begin\n    Q = unused_shift_reg[0];\nend\n\nendmodule"
-}

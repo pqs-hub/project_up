@@ -1,6 +1,0 @@
-{
-  "task_id": "q006734",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module memory (\n\tinput clk,\n\tinput read_en,\n\tinput write_en,\n\tinput [2:0] addr,\n\tinput [3:0] data_in,\n\toutput reg [3:0] data_out);\n\t\n\treg [3:0] mem [7:0];\n\t\n\talways @(posedge clk) begin\n  if (write_en) mem[addr] <= data_in ;\n  end\n\n  always @(posedge clk) begin\n  if (read_en) data_out <= mem[addr] ;\n  end\n\nendmodule"
-}

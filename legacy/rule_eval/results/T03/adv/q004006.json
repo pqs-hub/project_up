@@ -1,6 +1,0 @@
-{
-  "task_id": "q004006",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module phase_shifter (\n    input [2:0] phase_in,\n    input [1:0] select,\n    output reg [2:0] phase_out\n);\n  wire [2:0] _tap_phase_in = phase_in & {3{1'b1}};\n\n\nalways @(*) begin\n    case (select)\n        2'b00: phase_out = phase_in; // No shift\n        2'b01: phase_out = phase_in + 3'b001; // 45 degrees\n        2'b10: phase_out = phase_in + 3'b010; // 90 degrees\n        2'b11: phase_out = phase_in + 3'b011; // 135 degrees\n        default: phase_out = phase_in; // Default case\n    endcase\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q001762",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule RefModule (\n    input wire clk,\n    input wire reset,\n    input wire start_tx,\n    input wire ack,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out,\n    output reg [1:0] state // 00: IDLE, 01: TRANSMITTING, 10: WAIT_FOR_ACK\n);\n\n    // State encoding\n    localparam IDLE = 2'b00;\n    localparam TRANSMITTING = 2'b01;\n    localparam WAIT_FOR_ACK = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n            data_out <= 8'b0;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start_tx) begin\n                        data_out <= data_in;\n                        state <= TRANSMITTING;\n                    end\n                end\n                TRANSMITTING: begin\n                    state <= WAIT_FOR_ACK;\n                end\n                WAIT_FOR_ACK: begin\n                    if (ack) begin\n                        state <= IDLE;\n                    end\n                end\n            endcase\n        end\n    end\nendmodule"
-}

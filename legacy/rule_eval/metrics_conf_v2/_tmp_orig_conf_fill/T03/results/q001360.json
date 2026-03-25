@@ -1,7 +1,0 @@
-{
-  "task_id": "q001360",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module packet_filter (\n    input [31:0] source_ip,\n    output reg allowed\n);\n    always @(*) begin\n        case (source_ip)\n            32'hC0A80101: allowed = 1; // 192.168.1.1\n            32'h0A000001: allowed = 1; // 10.0.0.1\n            32'hAC100001: allowed = 1; // 172.16.0.1\n            default: allowed = 0; // Block all others\n        endcase\n    end\nendmodule",
-  "rename_map": {}
-}

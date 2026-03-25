@@ -1,6 +1,0 @@
-{
-  "task_id": "q011720",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n  input clock,\n  input [31:0] data,\n  input [4:0] rdaddress,\n  input [4:0] wraddress,\n  input wren,\n  output reg [31:0] q\n);reg [31:0] ram [0:31];\n\n  always @(posedge clock) begin\n    if (wren) begin\n      ram[wraddress] <= data;\n    end\n    q <= ram[rdaddress];\n  end\n\nendmodule"
-}

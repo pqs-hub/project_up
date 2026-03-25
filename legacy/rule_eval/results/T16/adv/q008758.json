@@ -1,9 +1,0 @@
-{
-  "task_id": "q008758",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module loadable_counter (\n    input clk,\n    input reset,\n    input load,\n    input [3:0] data_in,\n    output [3:0] count\n);\n\n    reg [3:0] obf_counter_reg;  // 4-bit counter register\n\n    always @(posedge clk) begin\n        if (reset) begin\n            obf_counter_reg <= 4'b0000;  // Reset the counter to 0\n        end else if (load) begin\n            obf_counter_reg <= data_in;  // Load the value into the counter\n        end else begin\n            obf_counter_reg <= obf_counter_reg + 1;  // Increment the counter\n        end\n    end\n\n    assign count = obf_counter_reg;\n\nendmodule",
-  "rename_map": {
-    "counter_reg": "obf_counter_reg"
-  }
-}

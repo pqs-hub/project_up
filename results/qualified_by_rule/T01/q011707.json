@@ -1,6 +1,0 @@
-{
-  "task_id": "q011707",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (\n  input clk,\n  input reset,\n  input in,\n  output reg pulse);reg in_delayed;\nalways @(posedge clk or posedge reset) begin\n    begin end  // redundant\n\tif (reset) begin\n\t\tin_delayed <= 0;\n\t\tpulse <= 0;\n\tend else begin\n\t\tpulse <= in & ~in_delayed;\n\t\tin_delayed <= in;\n\tend\nend\nendmodule"
-}

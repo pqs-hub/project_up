@@ -1,6 +1,0 @@
-{
-  "task_id": "q011406",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(\nout      ,  \ndata     ,  \nload     ,  \nenable   ,  \nclk      ,  \nreset       \n);output [7:0] out;\n\ninput [7:0] data;\ninput load, enable, clk, reset;\n\nreg [7:0] out;\n\nalways @(posedge clk)\nif (reset) begin\n  out <= 8'b0 ;\nend else if (load) begin\n  out <= data;\nend else if (enable) begin\n  out <= out + 1;\nend\n    \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

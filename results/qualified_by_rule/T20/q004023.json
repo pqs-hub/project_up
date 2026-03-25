@@ -1,6 +1,0 @@
-{
-  "task_id": "q004023",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule (\n    input wire clk,\n    input wire reset,\n    input wire signal_in,\n    output reg signal_out\n);\n    reg signal_in_prev;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            signal_out <= 0;\n            signal_in_prev <= 0;\n        end else begin\n            if (signal_in & ~signal_in_prev) begin\n                signal_out <= 1; // Detect rising edge\n            end else begin\n                signal_out <= 0; // Reset output after one clock cycle\n            end\n            signal_in_prev <= signal_in; // Store current input for next edge detection\n        end\n    end\nendmodule"
-}

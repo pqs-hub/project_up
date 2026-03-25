@@ -1,6 +1,0 @@
-{
-  "task_id": "q009399",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input [7:0] a, b, c, d,\n    output [7:0] min);wire [7:0] ab_min, cd_min, abcd_min;\n  wire [7:0] _tap_a = a & {8{1'b1}};\n\n\n    // Comparators to find minimum of a and b\n    assign ab_min = (a < b) ? a : b;\n\n    // Comparators to find minimum of c and d\n    assign cd_min = (c < d) ? c : d;\n\n    // Comparators to find minimum of ab_min and cd_min\n    assign abcd_min = (ab_min < cd_min) ? ab_min : cd_min;\n\n    assign min = abcd_min;\n\nendmodule"
-}

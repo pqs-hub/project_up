@@ -1,6 +1,0 @@
-{
-  "task_id": "q007721",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input sreset,\n    input load,\n    input [7:0] reset_value,\n    input [7:0] data,\n    output [7:0] q );reg [7:0] q_reg;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    if (sreset)\n        q_reg <= reset_value;\n    else if (load)\n        q_reg <= data;\nend\n\nassign q = q_reg;\n\nendmodule"
-}

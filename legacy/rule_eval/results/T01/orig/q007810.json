@@ -1,6 +1,0 @@
-{
-  "task_id": "q007810",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module top_module(\n    input clk,\n    input reset,      // Synchronous active-high reset\n    input [7:0] d,    // 8-bit input for the register\n    output [3:0] counter_out, // 4-bit counter output\n    output [7:0] max_out // Maximum value between the register and counter outputs\n);reg [7:0] reg_out;\n    reg [3:0] counter;\n    \n    always @(posedge clk) begin\n        if (reset) begin\n            reg_out <= 8'h34;\n            counter <= 4'b0;\n        end else begin\n            reg_out <= d;\n            counter <= counter + 1;\n        end\n    end\n    \n    assign counter_out = counter;\n    \n    // Extend counter output to 8 bits\n    wire [7:0] counter_ext = {4'b0, counter};\n    \n    // Functional module to output maximum value\n    assign max_out = (reg_out > counter_ext) ? reg_out : counter_ext;\n\nendmodule"
-}

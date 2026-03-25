@@ -1,6 +1,0 @@
-{
-  "task_id": "q004665",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n  input clk,\n  input reset,\n  input [15:0] A,\n  input [15:0] B,\n  output [15:0] C\n);reg [15:0] unused_sum;\n\n  always @(posedge clk) begin\n    if (reset) begin\n      unused_sum <= 16'b0;\n    end else begin\n      unused_sum <= A + B;\n    end\n  end\n\n  assign C = unused_sum;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q007771",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule(clk,rst_n,ain,bin,cin,sum,cout);input clk;\n\tinput rst_n;\n\tinput cin;\n\tinput [7:0] ain;\n\tinput [7:0] bin;\n\toutput reg cout;\n\toutput reg [7:0] sum;\n\n\t\n\n\treg [3:0] sum1;\n\treg cout1;\n\n\treg [3:0] reg_ain;\n\treg [3:0] reg_bin;\n\n\t\n\talways @(posedge clk or negedge rst_n)\n\t\tbegin\n\t\t\tif(!rst_n)\n\t\t\t\tbegin\n\t\t\t\t\tcout1<=1'b0;\n\t\t\t\t\tsum1<=4'd0;\n\t\t\t\tend\n\t\t\telse\n\t\t\t\t{cout1,sum1}<=ain[3:0]+bin[3:0]+cin;\n\t\tend\n\n\talways @(posedge clk or negedge rst_n)\n\t\tbegin\n\t\t\tif(!rst_n)\n\t\t\t\tbegin\n\t\t\t\t\treg_ain<=4'd0;\n\t\t\t\t\treg_bin<=4'd0;\n\t\t\t\tend\n\t\t\telse\n\t\t\t\tbegin\n\t\t\t\t\treg_ain<=ain[7:4];\n\t\t\t\t\treg_bin<=bin[7:4];\n\t\t\t\tend\n\t\tend\n\n\t\n\talways @(posedge clk or negedge rst_n)\n\t\tbegin\n\t\t\tif(!rst_n)\n\t\t\t\tbegin\n\t\t\t\t\tsum<=8'd0;\n\t\t\t\t\tcout<=1'b0;\n\t\t\t\tend\n\t\t\telse\n\t\t\t\tbegin\n\t\t\t\t\t{cout,sum}<={{1'b0,reg_ain}+{1'b0,reg_bin}+cout1,sum1};\n\t\t\t\tend\n\t\tend\nendmodule"
-}

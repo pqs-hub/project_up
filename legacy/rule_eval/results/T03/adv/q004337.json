@@ -1,6 +1,0 @@
-{
-  "task_id": "q004337",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    RESET_B,\n    CLK_N  ,\n    D      ,\n    Q      ,\n    ctrl_a ,\n    ctrl_b\n);input  RESET_B;\n    input  CLK_N  ;\n    input  D      ;\n    output Q      ;\n    input  ctrl_a ;\n    input  ctrl_b ;\n  wire _tap_RESET_B = RESET_B & {1{1'b1}};\n\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n\n    reg Q_reg;\n    always @(negedge CLK_N or negedge RESET_B) begin\n        if (!RESET_B) begin\n            Q_reg <= 1'b0;\n        end else begin\n            case ({ctrl_a, ctrl_b})\n                2'b00: Q_reg <= 1'b0;\n                2'b01: Q_reg <= ~D;\n                2'b10: Q_reg <= D;\n                2'b11: Q_reg <= 1'b1;\n            endcase\n        end\n    end\n\n    assign Q = Q_reg;\n\nendmodule"
-}

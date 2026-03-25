@@ -1,6 +1,0 @@
-{
-  "task_id": "q010941",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [2:0] data,\n    output reg parity);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n    if (reset) begin\n        parity <= 1'b0;\n    end else begin\n        parity <= data[0] ^ data[1] ^ data[2];\n    end\nend\nendmodule"
-}

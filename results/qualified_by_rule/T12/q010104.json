@@ -1,6 +1,0 @@
-{
-  "task_id": "q010104",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n  \n  linear_enc_sign, sign,\n  \n  conv_sig\n  );input [11:0] linear_enc_sign;\n  input sign; \n  output [11:0] conv_sig;\n  \n  \n  reg [11:0] temp_conv_sig;\n  \n  always @ (*) begin\n\t temp_conv_sig = conv_sig;\n    \n\t if(sign == 1) begin\n\t   \n\t\t\n\t   if(linear_enc_sign == -12'b100000000000) begin\n\t\t\ttemp_conv_sig = 12'b011111111111;\n      end\n\t\telse begin\n      temp_conv_sig = (~linear_enc_sign) + 1;\n\t\tend\n    \n    end\n    else begin\n       temp_conv_sig = linear_enc_sign;\n     end\n   end\n\t\n\tassign conv_sig = temp_conv_sig;\n\t\nendmodule"
-}

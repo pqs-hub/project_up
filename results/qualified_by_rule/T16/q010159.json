@@ -1,6 +1,0 @@
-{
-  "task_id": "q010159",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule( clk, reset, d, q );input clk; \n  input reset; \n  input [17:0] d; \n  output [17:0] q; \n  reg [17:0] q; \n `ifdef RANDOM_INIT \n  initial \n  $random_init(\"q\"); \n `endif \n `ifdef CHK_RESET_EOS \n assert_quiescent_state #(0,1,0,\"***ERROR ASSERT: reset still asserted at end of simulation\") \n a0(.clk(clk),.enable_p(1'b1), .state_expr(reset),.check_value(1'b0), .sample_event(1'b0)); \n `endif \n  always @(posedge clk) begin \n  if (reset) \n  q <= 18'b0; \n  else \n  q <= d; \n  end \n endmodule"
-}

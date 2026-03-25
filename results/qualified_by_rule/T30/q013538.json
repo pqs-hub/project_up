@@ -1,6 +1,0 @@
-{
-  "task_id": "q013538",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n    input CLK,\n    input D,\n    input SET_B,\n    output reg Q,\n    output reg Q_N\n);always @(posedge CLK or negedge SET_B) begin\n        if (!SET_B) begin\n            Q <= 1'b1;\n            Q_N <= 1'b0;\n        end\n        else begin\n            Q <= D;\n            Q_N <= ~D;\n        end\n    end\n\nendmodule"
-}

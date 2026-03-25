@@ -1,6 +1,0 @@
-{
-  "task_id": "q004283",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule (\n\tinput [3:0] a,\n\tinput [3:0] b,\n\tinput cin,\n\toutput [3:0] sum,\n\toutput cout\n);wire [3:0] obf_g, p, c;\n\nassign obf_g = a & b;\nassign p = a ^ b;\nassign c[0] = cin;\nassign c[1] = obf_g[0] | (p[0] & c[0]);\nassign c[2] = obf_g[1] | (p[1] & c[1]);\nassign c[3] = obf_g[2] | (p[2] & c[2]);\nassign cout = obf_g[3] | (p[3] & c[3]);\nassign sum = p ^ c;\n\nendmodule"
-}

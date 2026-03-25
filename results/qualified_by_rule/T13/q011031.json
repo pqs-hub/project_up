@@ -1,6 +1,0 @@
-{
-  "task_id": "q011031",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(\n    input a,\n    input b,\n    input sel_b1,\n    input sel_b2,\n    input clk,          // Added clk input\n    output reg out_always\n);reg pipeline_reg1;\nreg pipeline_reg2;\n\nalways @(posedge clk) begin\n    pipeline_reg1 <= sel_b1;\n    pipeline_reg2 <= sel_b2;\nend\n\nalways @(posedge clk) begin\n    if (pipeline_reg1 && pipeline_reg2) begin\n        out_always <= b;\n    end else begin\n        out_always <= a;\n    end\nend\n\nendmodule"
-}

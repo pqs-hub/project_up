@@ -1,6 +1,0 @@
-{
-  "task_id": "q008189",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(ewreg, em2reg, ewmem, ealu, eb, ern, clock, resetn,\n                 mwreg, mm2reg, mwmem, malu, mb, mrn);input        clock, resetn, ewreg, em2reg, ewmem;\n    input  [4:0] ern;\n    input [31:0] ealu, eb;\n\n    output reg        mwreg, mm2reg, mwmem;\n    output reg  [4:0] mrn;\n    output reg [31:0] malu, mb;\n  wire _tap_clock = clock & {1{1'b1}};\n\n\n    always @ (posedge clock or negedge resetn) begin\n        if (resetn == 0) begin\n            mwreg = 0;\n            mm2reg = 0;\n            mwmem = 0;\n            malu = 0;\n            mb = 0;\n            mrn = 0;\n        end else begin\n            mwreg = ewreg;\n            mm2reg = em2reg;\n            mwmem = ewmem;\n            malu = ealu;\n            mb = eb;\n            mrn = ern;\n        end\n    end\nendmodule"
-}

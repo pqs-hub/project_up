@@ -1,6 +1,0 @@
-{
-  "task_id": "q011643",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input load,\n    input shift_left,\n    input shift_right,\n    input reset,\n    input [3:0] data_in,\n    output [3:0] data_out\n);reg [3:0] register;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        register <= 4'b0;\n    end else if (load) begin\n        register <= data_in;\n    end else if (shift_left) begin\n        register <= {register[2:0], 1'b0};\n    end else if (shift_right) begin\n        register <= {1'b0, register[3:1]};\n    end\nend\n\nassign data_out = register;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q010059",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n   input         clock, write, reset,\n   input [15:0]  writeData,\n   output [15:0] data);reg [15:0]    out = 16'b0;\n  wire _tap_clock = clock & {1{1'b1}};\n\n\n   always @ (posedge clock) begin \n      if (reset)\n         out = 16'b0;\n      else if (write)\n         out = writeData;\n   end\n\n   assign data = out;\nendmodule"
-}

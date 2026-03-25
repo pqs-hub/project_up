@@ -1,6 +1,0 @@
-{
-  "task_id": "q003958",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire [7:0] data_in,\n    input wire [7:0] addr,\n    input wire write_enable,\n    input wire read_enable,\n    output reg [7:0] data_out\n);\n    reg [7:0] memory [0:255]; // 256 x 8-bit memory\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (write_enable) begin\n            memory[addr] <= data_in; // Write data to memory\n        end\n    end\n\n    always @(posedge clk) begin\n        if (read_enable) begin\n            data_out <= memory[addr]; // Read data from memory\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q001313",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule (\n    input wire [7:0] Vin,    // Input voltage\n    input wire [7:0] Vref,   // Reference voltage\n    input wire EN,           // Enable signal\n    output reg [7:0] Vout    // Output voltage\n);\n\nalways @(*) begin\n    if (EN) begin\n        if (Vin > Vref)\n            Vout = Vref;\n        else\n            Vout = 8'b0; // 0 when Vin < Vref\n    end else begin\n        Vout = 8'b0; // 0 when EN is low\n    end\nend\n\nendmodule"
-}

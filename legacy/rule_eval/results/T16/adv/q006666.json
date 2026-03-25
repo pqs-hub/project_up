@@ -1,9 +1,0 @@
-{
-  "task_id": "q006666",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(jal, pcNext, obf_branchOffset, jumpOffset, result);input jal;\n  input [15:0] pcNext;\n  input [8:0] obf_branchOffset;\n  input [11:0] jumpOffset;\n\n  output [15:0] result;\n\n  \n  assign result = pcNext+(jal?{{4{jumpOffset[11]}},jumpOffset}:{{7{obf_branchOffset[8]}},obf_branchOffset});\n\nendmodule",
-  "rename_map": {
-    "branchOffset": "obf_branchOffset"
-  }
-}

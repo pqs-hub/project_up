@@ -1,6 +1,0 @@
-{
-  "task_id": "q012010",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule top_module(\n    input input_a,\n    input input_b,\n    input input_c,\n    output output_x,\n    input vpwr,\n    input vgnd\n);wire or1_output;\n    wire or2_output;\n    wire or3_output;\n    \n    // instantiate 3-input OR gates using logical or\n    assign or1_output = input_a | input_b | input_c;\n\n    assign or2_output = input_a | input_b | or1_output;\n    \n    assign or3_output = or2_output | input_c | or1_output;\n    \n    // invert the output of the final OR gate to get the correct output\n    assign output_x = ~or3_output;\n    \nendmodule"
-}

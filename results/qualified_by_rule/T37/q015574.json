@@ -1,6 +1,0 @@
-{
-  "task_id": "q015574",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(\n   input      clk,      // clock\n   input      reset_n,  // asynchronous reset \n   input  [3:0] input_binary, // 4-bit binary input\n   output [3:0] output_ones_comp // 4-bit one's complement output\n   );parameter CLK_FREQUENCY = 100000000;\n  \n  reg [3:0] temp_output;\n  always @* begin\n    temp_output = input_binary ^ 4'b1111;\n  end\n  \n  reg [3:0] output_reg;\n  always @(posedge clk or negedge reset_n) begin\n    if (!reset_n) begin\n      output_reg <= 4'b0000;\n    end\n    else begin\n      output_reg <= temp_output;\n    end\n  end\n  \n  assign output_ones_comp = output_reg;\n  \nendmodule"
-}

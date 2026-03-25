@@ -1,9 +1,0 @@
-{
-  "task_id": "q010125",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(Output,Input);output reg [11:0]Output;\n\tinput [11:0]Input;\n\treg [3:0]part1,part2,part3;\n\treg obf_c1,c2,c3;\n\t\n\talways @*\n\tbegin\n\t\tpart1=Input[3:0];\n\t\tpart2=Input[7:4];\n\t\tpart3=Input[11:8];\n\t\t\n\t\tpart1=part1+4'd1;\n\t\t\n\t\tif(part1 > 4'd9)\n\t\tbegin\n\t\t\tobf_c1=1'b1;\n\t\t\tpart1=part1+4'd6;\n\t\tend\n\t\t\n\t\telse\n\t\t\tobf_c1=1'b0;\n\t\t\n\t\tif(obf_c1 == 1'b1)\n\t\tbegin\n\t\t\tpart2=part2+4'd1;\n\t\t\tif(part2 > 4'd9)\n\t\t\tbegin\n\t\t\t\tc2=1'b1;\n\t\t\t\tpart2=part2+4'd6;\n\t\t\tend\n\t\t\t\n\t\t\telse\n\t\t\t\tc2=1'b0;\n\t\tend\n\t\t\n\t\telse\n\t\t\tc2=1'b0; \n\t\t\n\t\tif(c2 == 1'b1)\n\t\tbegin\n\t\t\tpart3=part3+4'd1;\n\t\t\tif(part3 > 4'd9)\n\t\t\tbegin\n\t\t\t\tc3=1'b1;\n\t\t\t\tpart3=part3+4'd6;\n\t\t\tend\n\t\t\t\n\t\t\telse\n\t\t\t\tc3=1'b0;\n\t\tend\n\t\t\n\t\telse\n\t\t\tc3=1'b0;\n\t\t\n\t\tOutput={part3,part2,part1};\n\tend\n\t\nendmodule",
-  "rename_map": {
-    "c1": "obf_c1"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q016938",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule (\n    A,\n    B,\n    Cin,\n    Cout,\n    S\n);\n\n    // Module ports\n    input A, B, Cin;\n    output Cout, S;\n\n    // Internal signals\n    wire X1, X2, X3;\n    wire Y1, Y2;\n\n    //  Name  Output  Other arguments\n    xor  xor0 (X1, A, B);\n    xor  xor1 (X2, X1, Cin);\n    and  and0 (X3, X1, Cin);\n    and  and1 (Y1, A, B);\n    and  and2 (Y2, X1, Cin);\n    or   or0  (Cout, X3, Y1, Y2);\n    assign S = X2;\n\nendmodule"
-}

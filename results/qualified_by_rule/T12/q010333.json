@@ -1,6 +1,0 @@
-{
-  "task_id": "q010333",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(In, Out);parameter Width = 32, \n  Chunk = 1, \n  Set = Width; \n  localparam Group = Chunk * Set; \n  input [Width-1:0] In; \n  output [Width-1:0] Out; \n  genvar i; \n  generate for(i = 0; i < Width; i = i + 1) begin:REVERSE \n  assign Out[i] = In[((Set - 1 - ((i % Group) / Chunk)) * Chunk) + ((i % Group) % Chunk) + ((i / Group) * Group)]; \n  end endgenerate \n endmodule"
-}

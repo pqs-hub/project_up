@@ -1,6 +1,0 @@
-{
-  "task_id": "q016384",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n    input f,\n    input g,\n    output v\n);\n    assign v = (f ^ g);\nendmodule\n\nmodule R(\n    input f,\n    input g,\n    output v\n);\n    assign v = (f ^ g);\nendmodule\n\nmodule top_module(\n    input f,\n    input g,\n    output v\n);\n    wire q1_out, q2_out, r_out;\n    wire xor_out;\n\n    Q q1(.f(f), .g(g), .v(q1_out));\n    Q q2(.f(f), .g(g), .v(q2_out));\n    R r1(.f(f), .g(g), .v(r_out));\n\n    assign xor_out = q1_out ^ r_out;\n    assign v = xor_out & q2_out;\nendmodule"
-}

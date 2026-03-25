@@ -1,6 +1,0 @@
-{
-  "task_id": "q003901",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule (\n    input [7:0] x,\n    input [15:0] a0,\n    input [15:0] a1,\n    input [15:0] a2,\n    input [15:0] a3,\n    output [15:0] result\n);\n    wire [15:0] x1, x2, x3;\n    wire [15:0] term1, term2, term3;\n\n    assign x1 = a1 * x;              // a1 * x\n    assign x2 = x * x;               // x^2\n    assign term2 = a2 * x2;          // a2 * x^2\n    assign x3 = x2 * x;              // x^3\n    assign term3 = a3 * x3;          // a3 * x^3\n\n    assign result = a0 + x1 + term2 + term3; // P(x) = a0 + a1*x + a2*x^2 + a3*x^3\nendmodule"
-}

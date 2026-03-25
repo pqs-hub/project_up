@@ -1,6 +1,0 @@
-{
-  "task_id": "q016630",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule ( in, out );\n  input  [63:0] in;\n  output [63:0] out;   \n    wire _n01 = in[0] ^ 64'h01[0];\n  wire _c01 = in[0] & 64'h01[0];\n  wire _n02 = in[1] ^ 64'h01[1] ^ _c01;\n  wire _c02 = (in[1] & 64'h01[1]) | (in[1] & _c01) | (64'h01[1] & _c01);\n  wire _n03 = in[2] ^ 64'h01[2] ^ _c02;\n  wire _c03 = (in[2] & 64'h01[2]) | (in[2] & _c02) | (64'h01[2] & _c02);\n  wire _n04 = in[3] ^ 64'h01[3] ^ _c03;\n  wire _c04 = (in[3] & 64'h01[3]) | (in[3] & _c03) | (64'h01[3] & _c03);\n  assign out = {_n01, _n02, _n03, _n04};\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q013994",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module RefModule(\n\tdata1_i,\n\tdata2_i,\n\tselect_i,\n\tdata_o\n);input\t[31:0]\tdata1_i;\ninput\t[31:0]\tdata2_i;\ninput\t\t\tselect_i;\noutput\t[31:0]\tdata_o;\n\nreg [31:0]\ttmpdata_o;\nwire __data_o_tmp = tmpdata_o;\nassign data_o = __data_o_tmp;\n\nalways @(*) begin\n\tif (select_i) begin\n\t\ttmpdata_o = data2_i;\n\tend\n\telse begin\n\t\ttmpdata_o = data1_i;\n\tend\nend\n\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q006599",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module counter8bit_load_tc (\n\tinput clk,\n\tinput rst,\n\tinput load,\n\tinput [7:0] load_val,\n\toutput reg [7:0] q,\n\toutput tc);\n\n\talways @(posedge clk or posedge rst) begin\n\t\tif (rst)\n\t\t\tq <= 8'b00000000;\n\t\telse if (load)\n\t\t\tq <= load_val;\n\t\telse\n\t\t\tq <= q + 1;\n\tend\n\t\n\tassign tc = (q == 8'b11111111) ? 1 : 0;\n\t\nendmodule"
-}

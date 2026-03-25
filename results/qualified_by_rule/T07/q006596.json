@@ -1,6 +1,0 @@
-{
-  "task_id": "q006596",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    input load,\n    input [7:0] data,\n    output reg [7:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 8'b00000000;  // Reset the register to 0\n        end else if (load) begin\n            q <= data;  // Load the input data\n        end else begin\n            q <= q >> 1;  // Shift right\n        end\n    end\n\nendmodule"
-}

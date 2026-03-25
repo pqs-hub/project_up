@@ -1,6 +1,0 @@
-{
-  "task_id": "q010010",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule(\n    input [29:0] background_data,\n    input [39:0] foreground_data,\n    output reg [9:0] new_red,\n    output reg [9:0] new_green,\n    output reg [9:0] new_blue\n);always @ (*) begin\n        if (foreground_data[39] == 1'b1) begin\n            new_red = foreground_data[29:20];\n            new_green = foreground_data[19:10];\n            new_blue = foreground_data[9:0];\n        end else begin\n            new_red = background_data[29:20];\n            new_green = background_data[19:10];\n            new_blue = background_data[9:0];\n        end\n    end\n\nendmodule"
-}

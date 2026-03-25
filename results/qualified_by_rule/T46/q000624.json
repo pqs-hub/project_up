@@ -1,6 +1,0 @@
-{
-  "task_id": "q000624",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule (\n    input wire [7:0] Vin,\n    input wire [7:0] Vtarget,\n    input wire [7:0] Vmax,\n    input wire enable,\n    output reg [7:0] Vout\n);\n    always @(*) begin\n        if (enable) begin\n            if (Vin >= Vtarget && Vtarget <= Vmax) begin\n                Vout = Vtarget;\n            end else if (Vin < Vtarget) begin\n                Vout = Vin; // Output cannot exceed input\n            end else begin\n                Vout = Vmax; // Limit output to maximum\n            end\n        end else begin\n            Vout = 8'b0; // Output is 0 when disabled\n        end\n    end\nendmodule"
-}

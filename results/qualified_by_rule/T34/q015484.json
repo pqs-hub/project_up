@@ -1,6 +1,0 @@
-{
-  "task_id": "q015484",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input A,\n    output Z,\n    input TE,\n    input VPB,\n    input VPWR,\n    input VGND,\n    input VNB\n);reg unused_Z_reg;\n\n    always @(*) begin\n        if (VGND >= VPWR) begin\n            unused_Z_reg = ~A;\n        end else if (TE == 1) begin\n            unused_Z_reg = ~A;\n        end else begin\n            unused_Z_reg = A;\n        end\n    end\n\n    assign Z = unused_Z_reg;\n\nendmodule"
-}

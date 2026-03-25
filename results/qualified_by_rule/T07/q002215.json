@@ -1,6 +1,0 @@
-{
-  "task_id": "q002215",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule (\n    input [8*9-1:0] pixel_matrix, // 3x3 matrix of 8-bit pixels\n    input [8*9-1:0] kernel,        // 3x3 matrix of 8-bit kernel values\n    output reg [15:0] output_pixel  // 16-bit output pixel\n);\n\ninteger i, j;\nalways @(*) begin\n    output_pixel = 0; // Initialize output\n    for (i = 0; i < 3; i = i + 1) begin\n        for (j = 0; j < 3; j = j + 1) begin\n            output_pixel = output_pixel + \n                pixel_matrix[(i*3+j)*8 +: 8] * kernel[(i*3+j)*8 +: 8];\n        end\n    end\nend\n\nendmodule"
-}

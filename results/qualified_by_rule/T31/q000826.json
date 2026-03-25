@@ -1,6 +1,0 @@
-{
-  "task_id": "q000826",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module RefModule (\n    input wire D,\n    input wire C,\n    input wire reset,\n    output wire Q\n);\n    reg Q_reg;\n\n    always @(*) begin\n        if (reset) begin\n            Q_reg = 1'b0; // Initialize to 0\n        end else if (C) begin\n            Q_reg = D; // Write D to Q\n        end\n    end\n\n    wire __Q_tmp = Q_reg;\n    assign Q = __Q_tmp;\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q010531",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule RefModule(\n    input clk,\n    input reset,    \n    input in,\n    output disc,\n    output flag,\n    output err);parameter i=0, one=1, two=2, thr=3, four=4, fiv=5, six=6, er=7, ds=8, flg=9;\n    reg[3:0] state, next;\n    \n    always@(*) begin\n        case(state)\n            i: next = (in)? one:i;\n            one: next = (in)? two:i;\n            two: next = (in)? thr:i;\n            thr: next = (in)? four:i;\n            four: next = (in)? fiv:i;\n            fiv: next = (in)? six:ds;\n            six: next = (in)? er:flg;\n            er: next = (in)? er:i;\n            ds: next = (in)? one:i;\n            flg: next = (in)? one:i;\n        endcase\n    end\n    \n    always@(posedge clk) begin\n        if(reset)\n            state <= i;\n        else \n            state <= next;\n    end\n    \n    assign disc = (state == ds);\n    assign flag = (state == flg);\n    assign err = (state == er);\n    \n    \n\nendmodule"
-}

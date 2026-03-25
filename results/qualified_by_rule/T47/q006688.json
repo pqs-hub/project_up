@@ -1,6 +1,0 @@
-{
-  "task_id": "q006688",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule(\n    input req_a,\n    input req_b,\n    input req_c,\n    output reg grant\n);always @(*) begin\n    if(req_a && !req_b && !req_c) begin\n        grant = 1;\n    end\n    else if(!req_a && req_b && !req_c) begin\n        grant = 1;\n    end\n    else if(!req_a && !req_b && req_c) begin\n        grant = 1;\n    end\n    else if(req_a && req_b && !req_c) begin\n        grant = 1;\n    end\n    else if(req_a && !req_b && req_c) begin\n        grant = 1;\n    end\n    else if(!req_a && req_b && req_c) begin\n        grant = 1;\n    end\n    else begin\n        grant = 0;\n    end\nend\n\nendmodule"
-}

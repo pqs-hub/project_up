@@ -1,6 +1,0 @@
-{
-  "task_id": "q013307",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n    clk_i,\n    rst_i,\n    start_i,\n    pc_i,\n    pc_o\n);input               clk_i;\ninput               rst_i;\ninput               start_i;\ninput   [31:0]      pc_i;\noutput  [31:0]      pc_o;\n\n\nreg     [31:0]      pc_o;\n\n\nalways@(posedge clk_i or negedge rst_i) begin\n    if(~rst_i) begin\n        pc_o <= 32'b0;\n    end\n    else begin\n        if(start_i)\n            pc_o <= pc_i;\n        else\n            pc_o <= pc_o;\n    end\nend\n\nendmodule"
-}

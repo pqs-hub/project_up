@@ -1,6 +1,0 @@
-{
-  "task_id": "q007154",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module decoder_4to16(\n    input  [3:0] data_in,\n    output reg [15:0] data_out\n);\n  wire [3:0] _tap_data_in = data_in & {4{1'b1}};\n\n\nalways @(*) begin\n    data_out = 16'b0;\n    data_out[data_in] = 1'b1;\nend\n\nendmodule"
-}

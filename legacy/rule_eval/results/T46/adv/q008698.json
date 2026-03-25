@@ -1,8 +1,0 @@
-{
-  "task_id": "q008698",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module sync_up_counter_20bit(\n    input clk,\n    input rst,\n    input en,\n    output reg [19:0] count\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt)\n    if (rst)\n        count <= 20'b00000000000000000000;\n    else if (en)\n        count <= count + 1;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

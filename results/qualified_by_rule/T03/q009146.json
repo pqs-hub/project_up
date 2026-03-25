@@ -1,6 +1,0 @@
-{
-  "task_id": "q009146",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input reset_n,\n    input d,\n    output q,\n    output q_bar);reg q_reg;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk or negedge reset_n) begin\n    if (~reset_n)\n        q_reg <= 1'b0;\n    else\n        q_reg <= d;\nend\n\nassign q = q_reg;\nassign q_bar = ~q_reg;\n\nendmodule"
-}

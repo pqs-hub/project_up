@@ -1,6 +1,0 @@
-{
-  "task_id": "q013999",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(\n   d_i,\n   q_o);parameter g_num_bytes = 4;\n\n   input [g_num_bytes * 8 - 1 : 0] d_i;\n   output [g_num_bytes * 8 - 1 : 0] q_o;\n\n   generate \n      genvar                        i, j;\n      for(i=0;i<8;i=i+1)\n        for(j=0;j<g_num_bytes;j=j+1)\n          assign q_o[8 * (g_num_bytes-1-j) + i] = d_i[8 * j + i];\n   endgenerate\n   \nendmodule"
-}

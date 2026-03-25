@@ -1,6 +1,0 @@
-{
-  "task_id": "q009908",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(input clk,input reset,input [1:0]select,input [3:0]sig_in,output reg sig_out);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) \n  begin \n  if (reset) sig_out <= 0; \n  else \n  case (select) \n  0: sig_out <= sig_in[0]; \n  1: sig_out <= sig_in[1]; \n  2: sig_out <= sig_in[2]; \n  3: sig_out <= sig_in[3]; \n  endcase \n  end \n endmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q016306",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(addr0, d0, we0, q0,  clk);parameter DWIDTH = 16;\n  parameter AWIDTH = 10;\n  parameter MEM_SIZE = 1024;\n  \n  input [AWIDTH-1:0] addr0;\n  input [DWIDTH-1:0] d0;\n  input we0;\n  output [DWIDTH-1:0] q0;\n  input clk;\n  \n  reg [DWIDTH-1:0] ram[MEM_SIZE-1:0];\n  \n  always @(posedge clk)  \n  begin \n          if (we0) \n          begin \n              ram[addr0] <= d0; \n  \tend\n  end\n  assign q0 = ram[addr0];  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

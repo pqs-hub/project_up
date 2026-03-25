@@ -1,6 +1,0 @@
-{
-  "task_id": "q001465",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule (\n    input [23:0] data_in,\n    input enable,\n    output reg [11:0] data_out_high,\n    output reg [11:0] data_out_low\n);\n    always @(*) begin\n        if (enable) begin\n            data_out_high = data_in[23:12]; // High 12 bits\n            data_out_low = data_in[11:0];    // Low 12 bits\n        end else begin\n            data_out_high = 12'b0; // Default to zero when not enabled\n            data_out_low = 12'b0;  // Default to zero when not enabled\n        end\n    end\nendmodule"
-}

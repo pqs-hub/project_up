@@ -1,6 +1,0 @@
-{
-  "task_id": "q005425",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(clock,writeEn,address,ramOut,dataIn,reset);input clock,writeEn,reset;\n\tinput [4:0]address;\n\tinput [7:0]dataIn;\n\toutput reg[7:0]ramOut;\n\t\n\treg [7:0]RAM[31:0];\n\t\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clock,negedge reset or posedge dbg_halt)\n\tif(!reset)begin\n\t\tRAM[5'b00000] <= 8'b10000000;\n\t\tRAM[5'b00001] <= 8'b01111111;\n\t\tRAM[5'b00010] <= 8'b10100100;\n\t\tRAM[5'b00011] <= 8'b11000001;\n\t\tRAM[5'b00100] <= 8'b11111111;\n\t\tRAM[5'b11111] <= 8'b00000001;\n\t\t\n\tend\n\telse\n\t\tif(writeEn)\n\t\t\tRAM[address] <= dataIn;\n\t\telse \n\t\t\tramOut <= RAM[address];\n\nendmodule"
-}

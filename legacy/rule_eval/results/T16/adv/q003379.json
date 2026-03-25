@@ -1,9 +1,0 @@
-{
-  "task_id": "q003379",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module shift_register (\n    input wire clk,\n    input wire rst,\n    input wire obf_D,\n    output reg [1:0] Q\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            Q <= 2'b00;\n        end else begin\n            Q <= {obf_D, Q[1]};\n        end\n    end\nendmodule",
-  "rename_map": {
-    "D": "obf_D"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q009049",
-  "rule_id": "T38",
-  "changed": true,
-  "final": "module RefModule(IN1, IN2, SEL, OUT);input IN1;\n  input IN2;\n  input SEL;\n  output OUT;\n\n  wire NOT_SEL;\n  assign NOT_SEL = ~SEL;\n\n  wire AND1;\n  wire temp1_IN1 = IN1;\n  wire temp2_NOT_SEL = NOT_SEL;\n  assign AND1 = temp1_IN1 & temp2_NOT_SEL;\n\n  wire AND2;\n  assign AND2 = IN2 & SEL;\n\n  assign OUT = AND1 | AND2;\n\nendmodule"
-}

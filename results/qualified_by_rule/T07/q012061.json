@@ -1,6 +1,0 @@
-{
-  "task_id": "q012061",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule(\n    X   ,\n    A1_N,\n    A2_N,\n    B1  ,\n    B2\n);// Module ports\n    output X   ;\n    input  A1_N;\n    input  A2_N;\n    input  B1  ;\n    input  B2  ;\n\n    // Local signals\n    wire and0_out ;\n    wire nor0_out ;\n    wire or0_out_X;\n\n    //  Name  Output     Other arguments\n    and and0 (and0_out , B1, B2            );\n    nor nor0 (nor0_out , A1_N, A2_N        );\n    or  or0  (or0_out_X, nor0_out, and0_out);\n    buf buf0 (X        , or0_out_X         );\n\nendmodule"
-}

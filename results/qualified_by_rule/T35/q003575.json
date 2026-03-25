@@ -1,6 +1,0 @@
-{
-  "task_id": "q003575",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule (\n    input J,\n    input K,\n    input Clock,\n    output reg Q\n);\n    always @(posedge Clock) begin\n        if (J && K) Q <= ~Q; // Toggle\n        else if (J) Q <= 1;  // Set\n        else if (K) Q <= 0;  // Reset\n        // if (J == 0 && K == 0) Q retains its value\n    end\nendmodule"
-}

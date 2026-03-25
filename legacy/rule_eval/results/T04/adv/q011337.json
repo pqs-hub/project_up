@@ -1,6 +1,0 @@
-{
-  "task_id": "q011337",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule top_module(a, b, op, clk, result);input [7:0] a, b;\n  input [1:0] op;\n  input clk;\n  output [7:0] result;\n\n  reg [7:0] temp_result;\n  \n  always @(posedge clk) begin\n    case(op)\n      2'b00: temp_result <= a + b; // addition\n      2'b01: temp_result <= a - b; // subtraction\n      2'b10: temp_result <= a * b; // multiplication\n      2'b11: temp_result <= a / b; // division\n    endcase\n  end\n  \n  assign result = temp_result;\n  \nendmodule"
-}

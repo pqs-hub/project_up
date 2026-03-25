@@ -1,6 +1,0 @@
-{
-  "task_id": "q013400",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule(product, A, B);input [3:0] A, B;\n    output [7:0] product;\n\n    integer i;\n    reg [7:0] product, temp, B_mod;\n\n    always @ (*) begin\n        product = 0;\n        B_mod = B;\n        for(i=0; i<4; i=i+1) begin\n          temp = A[i] ? B_mod : 4'b0000;\n          B_mod = B_mod << 1;\n          product = product + temp;\n        end\n    end\nendmodule"
-}

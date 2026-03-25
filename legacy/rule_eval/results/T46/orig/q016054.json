@@ -1,6 +1,0 @@
-{
-  "task_id": "q016054",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module gray_counter (\n\tinput clk,\n\tinput reset,\n\toutput reg [4:0] gray);\n\n\treg [4:0] bin;\n\n\talways @(posedge clk) begin\n\t\tif (reset) bin <= 5'b00000;\n\t\telse bin <= bin + 1;\n\tend\n\n\talways @(bin) begin\n\t\tgray = bin ^ (bin >> 1);\n\t\tend\nendmodule"
-}

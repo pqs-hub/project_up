@@ -1,6 +1,0 @@
-{
-  "task_id": "q004180",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input alloc_req,\n    input [2:0] alloc_size,\n    input free_req,\n    output reg alloc_success,\n    output reg [7:0] allocated_mem\n);\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            alloc_success <= 0;\n            allocated_mem <= 8'b0;\n        end else if (alloc_req && !alloc_success) begin\n            if (alloc_size > 0 && alloc_size <= 7) begin\n                allocated_mem <= (1 << alloc_size) - 1; // Allocate memory\n                alloc_success <= 1; // Success\n            end\n        end else if (free_req && alloc_success) begin\n            allocated_mem <= 8'b0; // Free memory\n            alloc_success <= 0; // Reset success\n        end\n    end\nendmodule"
-}

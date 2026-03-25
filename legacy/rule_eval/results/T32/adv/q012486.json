@@ -1,6 +1,0 @@
-{
-  "task_id": "q012486",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(\n    input [32-1:1-1] data_in,\n    output [15:0] data_out\n);wire [1:0] msb = data_in[31:30];\n\n    assign data_out = (msb == 2'b01) ? data_in[15:0] :\n                     (msb == 2'b10) ? data_in[31:16] :\n                     (msb == 2'b11) ? ~data_in[31:16] :\n                                      ~data_in[15:0];\n\nendmodule"
-}

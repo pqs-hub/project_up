@@ -1,6 +1,0 @@
-{
-  "task_id": "q008790",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (dout, din, addr, clk, we);\n   input [3:0] addr;\n   input [3:0] din;\n   input clk, we;\n   output [3:0] dout;\n   \n   reg [3:0] mem [15:0];\n   reg [3:0] dout;\n   \n   always @(posedge clk) begin\n    begin end  // redundant\n      if (we)\n         mem[addr] <= din;\n   end\n   \n   always @(*) begin\n      dout = mem[addr];\n   end\n   \nendmodule"
-}

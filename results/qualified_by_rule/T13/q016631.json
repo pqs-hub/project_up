@@ -1,6 +1,0 @@
-{
-  "task_id": "q016631",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(\n    input r,\n    input b,\n    input fw_in,\n    input bw_in,\n    output fw_out,\n    output bw_out,\n    input pulse,\n    output r_out,\n    output b_out\n    );\nreg r_out_reg;\nreg b_out_reg;\nalways @( * ) begin\n\tif ( bw_in && fw_in ) begin\n\t\tb_out_reg = 1;\n\t\tr_out_reg = 0;\n\tend\n\telse begin\n\t\tb_out_reg = b;\n\t\tr_out_reg = r;\n\tend\nend\nassign \tfw_out = pulse || (r && fw_in);\nassign\tbw_out = bw_in || (b && fw_in);\nassign \tr_out = r_out_reg;\nassign\tb_out = b_out_reg;\nendmodule"
-}

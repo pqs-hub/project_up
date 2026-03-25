@@ -1,6 +1,0 @@
-{
-  "task_id": "q012922",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module counter12bit_up_sync_clr (\n    input clk,\n    input clr,\n    input en,\n    output [11:0] q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    reg [11:0] q_reg;\n\n    always @(posedge clk) begin\n        if (clr)\n            q_reg <= 12'b0;\n        else if (en)\n            q_reg <= q_reg + 1;\n    end\n\n    assign q = q_reg;\n\nendmodule"
-}

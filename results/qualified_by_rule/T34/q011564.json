@@ -1,6 +1,0 @@
-{
-  "task_id": "q011564",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n  input CLK,\n  input SLOWCLK,\n  input RESET,\n  output reg EN_OUT\n);reg [1:0] unused_cur;\n  reg [1:0] slowclk_last;\n\n  always @(posedge CLK) begin\n    if (RESET) begin\n      EN_OUT <= 1'b0;\n      unused_cur <= 2'b0;\n      slowclk_last <= 2'b0;\n    end else begin\n      if (SLOWCLK == slowclk_last) begin\n        unused_cur <= ~unused_cur;\n        EN_OUT <= 1'b1;\n      end else begin\n        EN_OUT <= 1'b0;\n      end\n      slowclk_last <= SLOWCLK;\n    end\n  end\n\nendmodule"
-}

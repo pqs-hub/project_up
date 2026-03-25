@@ -1,6 +1,0 @@
-{
-  "task_id": "q000337",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule (\n    input [9-1:1-1] pixels, // 3x3 matrix represented as a 9-bit vector\n    output reg [4:0] median // 5-bit output for the median value\n);\n    integer i, j;\n    reg [4:0] sorted [0:8]; // Array to hold sorted values\n\n    always @(*) begin\n        // Copy input pixels to sorted array\n        for (i = 0; i < 9; i = i + 1) begin\n            sorted[i] = pixels[i];\n        end\n\n        // Simple bubble sort to sort the values\n        for (i = 0; i < 9; i = i + 1) begin\n            for (j = 0; j < 8 - i; j = j + 1) begin\n                if (sorted[j] > sorted[j + 1]) begin\n                    // Swap\n                    {sorted[j], sorted[j + 1]} = {sorted[j + 1], sorted[j]};\n                end\n            end\n        end\n\n        // The median is the 5th element after sorting\n        median = sorted[4];\n    end\nendmodule"
-}

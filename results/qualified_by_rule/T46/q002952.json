@@ -1,6 +1,0 @@
-{
-  "task_id": "q002952",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire start,\n    input wire [7:0] data_in,\n    input wire [15:0] addr,\n    output reg [7:0] data_out,\n    output reg transfer_done\n);\n    \n    reg [1:0] state;\n    localparam IDLE = 2'b00, TRANSFER = 2'b01, DONE = 2'b10;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n        if (rst) begin\n            state <= IDLE;\n            data_out <= 8'b0;\n            transfer_done <= 1'b0;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start) begin\n                        state <= TRANSFER;\n                        transfer_done <= 1'b0;\n                    end\n                end\n                \n                TRANSFER: begin\n                    data_out <= data_in; // Simulate data transfer\n                    state <= DONE;\n                end\n                \n                DONE: begin\n                    transfer_done <= 1'b1; // Indicate transfer is done\n                    state <= IDLE; // Go back to IDLE\n                end\n                \n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule"
-}

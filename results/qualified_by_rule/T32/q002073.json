@@ -1,6 +1,0 @@
-{
-  "task_id": "q002073",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule (\n    input wire [24-1:1-1] digital_input,\n    input wire enable,\n    output reg [11:0] analog_output\n);\n\nalways @(*) begin\n    if (enable) begin\n        analog_output = digital_input[23:12]; // Take the upper 12 bits\n    end else begin\n        analog_output = 12'b0; // Output zero when not enabled\n    end\nend\n\nendmodule"
-}

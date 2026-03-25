@@ -1,6 +1,0 @@
-{
-  "task_id": "q009558",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(a, b, y);input [15:0] a, b;\noutput [15:0] y;\n\nwire [7:0] obf_ah = a[15:8], al = a[7:0];\nwire [7:0] bh = b[15:8], bl = b[7:0];\n\nwire [7:0] th = obf_ah + bh, tl = al + bl;\nwire [15:0] t = {th, tl}, k = t ^ 16'hcd;\n\nassign y = { k[7:0], k[15:8] };\n\nendmodule"
-}

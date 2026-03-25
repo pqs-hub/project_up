@@ -1,6 +1,0 @@
-{
-  "task_id": "q014459",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module top_module(\n  input clk, reset,\n  output reg [SIZE-1:0] out\n);parameter SIZE = 4;\n\n  reg [SIZE-1:0] state;\n\n  always @(posedge clk, posedge reset)\n    begin\n      if (reset) begin\n        state <= 0;\n        out <= 0;\n      end\n      else begin\n        state <= {state[SIZE-2:0], (state[SIZE-1] ^ state[SIZE-2])}; // Fixed the bit width issue here\n        out <= state;\n      end\n    end\n\nendmodule"
-}

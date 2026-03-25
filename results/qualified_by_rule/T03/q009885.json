@@ -1,6 +1,0 @@
-{
-  "task_id": "q009885",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    input [7:0] A,\n    input [7:0] B,\n    input SEL,\n    output reg [7:0] C\n);always @(*) begin\n  wire [7:0] _tap_A = A & {8{1'b1}};\n\n        if(SEL == 0) begin\n            if((A + B) > 255) begin\n                C = 255;\n            end else begin\n                C = A + B;\n            end\n        end else begin\n            if(A >= B) begin\n                C = A - B;\n            end else begin\n                C = 0;\n            end\n        end\n    end\n\nendmodule"
-}

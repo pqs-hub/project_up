@@ -1,6 +1,0 @@
-{
-  "task_id": "q006957",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module RefModule(clk,resetn,d,en,q);input clk;          // clock input\ninput resetn;       // reset input\ninput en;           // enable input\ninput [31:0] d;     // data input\noutput [31:0] q;    // output\n\nreg [31:0] q;       // register to store output\n\nalways @(posedge clk) begin\n    if (resetn == 0) begin\n        q <= 0;        // clear output if reset is low\n    end\n    else if (en == 1) begin\n        q <= d;        // update output if enable is high\n    end\nend\n\nendmodule"
-}

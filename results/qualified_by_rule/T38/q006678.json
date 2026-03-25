@@ -1,6 +1,0 @@
-{
-  "task_id": "q006678",
-  "rule_id": "T38",
-  "changed": true,
-  "final": "module RefModule (\n        input s,\n        input t,\n        input u,\n  wire temp1_( ~s & ~t & u ) |\n\t\t\t\t( ~s & t & u ) |\n\t\t\t\t( s & ~t & ~u ) = ( ~s & ~t & u ) |\n\t\t\t\t( ~s & t & u ) |\n\t\t\t\t( s & ~t & ~u );\n  wire temp2_( s & t & ~u ) = ( s & t & ~u );\n  assign k = temp1_( ~s & ~t & u ) |\n\t\t\t\t( ~s & t & u ) |\n\t\t\t\t( s & ~t & ~u ) | temp2_( s & t & ~u ) ;\n\nendmodule"
-}

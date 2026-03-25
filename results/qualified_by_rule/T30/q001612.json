@@ -1,6 +1,0 @@
-{
-  "task_id": "q001612",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input [3:0] addr,\n    input [15:0] data_in,\n    input we,  // write enable\n    output reg [15:0] data_out\n);\n    reg [15:0] memory [0:15]; // 16 memory cells, each 16-bit wide\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory[addr] <= data_in; // Write data\n        end\n        else begin\n            data_out <= memory[addr]; // Read data\n        end\n    end\nendmodule"
-}

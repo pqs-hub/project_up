@@ -1,6 +1,0 @@
-{
-  "task_id": "q005299",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule(\n    input clk_i,\n    input rst_i,\n    input ins_i,\n    input [2:0] icm_bi,\n    output reg ins_o \n    );reg prev_ins;\n    wire rising_edge = ins_i && !prev_ins;\n    wire falling_edge = !ins_i && prev_ins;\n    \n    wire enable_rising_edge = rising_edge && (icm_bi == 'h1 || icm_bi == 'h3 || icm_bi == 'h4 || icm_bi == 'h5);\n    wire enable_falling_edge = falling_edge && (icm_bi == 'h1 || icm_bi == 'h2 || icm_bi == 'h6 || icm_bi == 'h7);\n    wire signal = (icm_bi != 0) && (enable_rising_edge || enable_falling_edge);\n    \n    always @(posedge clk_i or posedge rst_i) begin\n        if (rst_i) begin\n            prev_ins <= 0;\n        end\n        else begin\n            prev_ins <= ins_i;\n            ins_o <= signal;\n        end\n    end\n    \nendmodule"
-}

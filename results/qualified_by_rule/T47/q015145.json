@@ -1,6 +1,0 @@
-{
-  "task_id": "q015145",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule(\n\tinput [31:0]A,\n\toutput [31:0]B\n);  wire _n01 = A[0] ^ 32'b0100[0];\n  wire _c01 = A[0] & 32'b0100[0];\n  wire _n02 = A[1] ^ 32'b0100[1] ^ _c01;\n  wire _c02 = (A[1] & 32'b0100[1]) | (A[1] & _c01) | (32'b0100[1] & _c01);\n  wire _n03 = A[2] ^ 32'b0100[2] ^ _c02;\n  wire _c03 = (A[2] & 32'b0100[2]) | (A[2] & _c02) | (32'b0100[2] & _c02);\n  wire _n04 = A[3] ^ 32'b0100[3] ^ _c03;\n  wire _c04 = (A[3] & 32'b0100[3]) | (A[3] & _c03) | (32'b0100[3] & _c03);\n  assign B = {_n01, _n02, _n03, _n04};\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q012110",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(din, en, clk, q);parameter SIZE = 1;\n\ninput\t[SIZE-1:0]\tdin ;\t\ninput\t\t\ten ;\t\ninput\t\t\tclk ;\t\n\noutput\t[SIZE-1:0]\tq ;\t\n\nreg \t[SIZE-1:0]\tq ;\n\nalways @ (posedge clk)\n  q[SIZE-1:0] <= en ? din[SIZE-1:0] : q[SIZE-1:0];\n\nendmodule"
-}

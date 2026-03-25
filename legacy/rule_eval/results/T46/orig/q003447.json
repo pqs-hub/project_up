@@ -1,6 +1,0 @@
-{
-  "task_id": "q003447",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module eeprom_cell (\n    input wire clk,\n    input wire we,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n    reg [7:0] memory;\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory <= data_in; // Write operation\n        end\n        data_out <= memory; // Read operation\n    end\nendmodule"
-}

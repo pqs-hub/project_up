@@ -1,6 +1,0 @@
-{
-  "task_id": "q009812",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module shift_reg_16bit(\n    input clk,\n    input rst,\n    input load,\n    input sin,\n    input [15:0] pdata,\n    output sout,\n    output [15:0] q\n);\n\n    reg [15:0] unused_shift_reg;\n\n    always @(posedge clk) begin\n        if (rst) begin\n            unused_shift_reg <= 16'b0;\n        end else if (load) begin\n            unused_shift_reg <= pdata;\n        end else begin\n            unused_shift_reg <= {unused_shift_reg[14:0], sin};\n        end\n    end\n\n    assign sout = unused_shift_reg[15];\n    assign q = unused_shift_reg;\n\nendmodule"
-}

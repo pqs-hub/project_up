@@ -1,6 +1,0 @@
-{
-  "task_id": "q012730",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\ninput  [31:0] data_in, \ninput          clk, clk_en,    \ninput          reset,start,  \ninput          sync,    \noutput [31:0] data_out \n);reg [31:0] obf_Q;\n\n\n\n\nalways @(posedge clk) \nbegin\n if(reset)\n  obf_Q <= 32'h00000000; \n else \n if(clk_en)\n begin\n if(start)\n begin\n if(sync)\n  obf_Q <= data_in; \n  end\n end\nend \n\nassign data_out = obf_Q;\n\nendmodule"
-}

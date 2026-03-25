@@ -1,6 +1,0 @@
-{
-  "task_id": "q014877",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input CLK,\n    input reset,\n    output reg CLK_div\n);reg [3:0] unused_counter;\n\n    always @ (posedge CLK or posedge reset) begin\n        if (reset) begin\n            unused_counter <= 0;\n            CLK_div <= 0;\n        end\n        else begin\n            unused_counter <= unused_counter + 1;\n            if (unused_counter == 4) begin\n                unused_counter <= 0;\n                CLK_div <= ~CLK_div;\n            end\n        end\n    end\n\nendmodule"
-}

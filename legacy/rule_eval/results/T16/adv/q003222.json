@@ -1,9 +1,0 @@
-{
-  "task_id": "q003222",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module dram_cell (\n    input wire [7:0] D,     // Data input\n    input wire obf_WE,          // Write enable\n    input wire RE,          // Read enable\n    input wire CLK,         // Clock\n    output reg [7:0] Q      // Data output\n);\n    reg [7:0] memory;        // Internal memory storage\n\n    always @(posedge CLK) begin\n        if (obf_WE && !RE) begin\n            memory <= D;      // Write data to memory\n        end\n        if (RE && !obf_WE) begin\n            Q <= memory;      // Read data from memory\n        end\n    end\nendmodule",
-  "rename_map": {
-    "WE": "obf_WE"
-  }
-}

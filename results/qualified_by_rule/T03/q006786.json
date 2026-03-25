@@ -1,6 +1,0 @@
-{
-  "task_id": "q006786",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule\n    (\n        input enable,\n        input [1:0] binary_in,\n        output reg [3:0] one_hot_out\n    );\n  wire _tap_enable = enable & {1{1'b1}};\n\n\n    always @(*) \n    begin\n        if (enable)\n            case (binary_in)\n                2'b00: one_hot_out = 4'b0001;\n                2'b01: one_hot_out = 4'b0010;\n                2'b10: one_hot_out = 4'b0100;\n                2'b11: one_hot_out = 4'b1000;\n                default: one_hot_out = 4'b0000;\n            endcase\n        else\n            one_hot_out = 4'b0000;\n    end\n\nendmodule"
-}

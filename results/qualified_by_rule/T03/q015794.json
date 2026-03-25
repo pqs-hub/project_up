@@ -1,6 +1,0 @@
-{
-  "task_id": "q015794",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    input                 clk,\n    input                 rst_n,\n    input                 load,\n    input       [7:0]     data_in,\n    \n    output reg  [7:0]     data_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n// Shift register implementation\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        data_out <= 8'd0;\n    else if (load)\n        data_out <= data_in;\n    else\n        data_out <= {1'b0, data_out[7:1]};\nend\n\nendmodule"
-}

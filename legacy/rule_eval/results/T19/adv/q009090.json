@@ -1,6 +1,0 @@
-{
-  "task_id": "q009090",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module decoder_2to4(\n    input en,         // Enable signal.\n    input [1:0] a,    // 2-bit binary input.\n    output [3:0] y    // 4-bit one-hot output.\n);\n\nreg [3:0] y_r;\n\n// Decoder logic\nalways @(*) begin\n    if (en) begin\n        case (a)\n            2'b00: y_r = 4'b0001;\n            2'b01: y_r = 4'b0010;\n            2'b10: y_r = 4'b0100;\n            2'b11: y_r = 4'b1000;\n            default: y_r = 4'b0000;\n        endcase\n    end else begin\n        y_r = 4'b0000;\n    end\nend\n\nassign y = y_r;\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

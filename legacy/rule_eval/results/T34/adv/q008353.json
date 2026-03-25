@@ -1,6 +1,0 @@
-{
-  "task_id": "q008353",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module gray_code_counter_4bit (\n    input wire clk,\n    input wire rst,\n    output reg [3:0] gray\n    );\n\nreg [3:0] unused_binary_count;\n\nalways @(posedge clk) begin\n    if (rst) begin\n        unused_binary_count <= 4'b0000;\n    end else begin\n        unused_binary_count <= unused_binary_count + 1;\n    end\nend\n\nalways @(*) begin\n    gray = (unused_binary_count >> 1) ^ unused_binary_count;\nend\n\nendmodule"
-}

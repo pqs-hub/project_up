@@ -1,6 +1,0 @@
-{
-  "task_id": "q016025",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule(\n    input A,\n    input B,\n    input C,\n    input D,\n    input SEL0,\n    input SEL1,\n    input RESET,\n    output reg Y\n);always @ (SEL1 or SEL0 or A or B or C or D or RESET) begin\n    if (RESET) begin\n        Y <= 1'b0; // default value for Y\n    end else begin\n        case ({SEL1, SEL0})\n            2'b00: Y <= A;\n            2'b01: Y <= B;\n            2'b10: Y <= C;\n            2'b11: Y <= D;\n        endcase\n    end\nend\n\nendmodule"
-}

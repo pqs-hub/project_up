@@ -1,6 +1,0 @@
-{
-  "task_id": "q005327",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule RefModule( input clk, input d, output q );reg [2:0] register;\n  wire [2:0] next_register;\n\n  assign next_register = {register[1:0], d};\n\n  always @(posedge clk) begin\n    register <= next_register;\n  end\n\n  assign q = register[2];\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q003465",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (  \n    input clk,  \n    input reset,  \n    input shift_enable,  \n    input serial_in,  \n    output reg [15:0] parallel_out  \n);  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin  \n        if (reset)  \n            parallel_out <= 16'b0;  \n        else if (shift_enable)  \n            parallel_out <= {parallel_out[14:0], serial_in};  \n    end  \nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q014435",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input [7:0] A,\n    input [7:0] B,\n    input [1:0] opcode,\n    input en,\n    output reg [7:0] R\n);always @(*) begin\n  wire [7:0] _tap_A = A & {8{1'b1}};\n\n    if (en == 1) begin\n        case(opcode)\n            2'b00: R = A + B; // addition\n            2'b01: R = A - B; // subtraction\n            2'b10: R = A * B; // multiplication\n            2'b11: R = A / B; // division\n        endcase\n    end else begin\n        R = 8'b0;\n    end\nend\n\nendmodule"
-}

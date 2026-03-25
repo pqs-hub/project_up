@@ -1,9 +1,0 @@
-{
-  "task_id": "q010955",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n  input [2:0] obf_A,\n  input [2:0] B,\n  input [2:0] C,\n  output reg [2:0] max,\n  output reg [2:0] mid,\n  output reg [2:0] min  \n);always@(*)\n  if(obf_A>=B && obf_A>=C)\n    begin\n     max=obf_A;\n     if(B>C)\n\t begin\n        mid=B;\n\t\tmin=C;\n\t end\t\n     else\n\t begin\n        mid=C;\n\t\tmin=B;\n\t end\t\n\tend\t\n  else if(B>=obf_A && B>=C)\n    begin\n     max=B;\n     if(obf_A>C)\n\t begin\n        mid=obf_A;\n\t\tmin=C;\n\t end\n     else\n\t begin\n        mid=C;\n        min=obf_A;\n     end\n    end\t \n  else\n    begin  \n     max=C;\n     if(obf_A>B)\n\t begin\n        mid=obf_A;\n\t\tmin=B;\n\t end\t\n     else\n\t begin\n\t    mid=B;\n        min=obf_A;\n\t end\n\tend   \nendmodule",
-  "rename_map": {
-    "A": "obf_A"
-  }
-}

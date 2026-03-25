@@ -1,6 +1,0 @@
-{
-  "task_id": "q007173",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule RefModule(\n    input clk,\n    input reset,\n    input enable,\n    input up_down,\n    output reg [15:0] count\n);\n\nalways @(posedge clk or posedge reset)\n    if (reset)\n        count <= 16'b0000000000000000; // Reset count to 0\n    else if (enable)\n        if (up_down)\n            count <= count + 1; // Increment count\n        else\n            count <= count - 1; // Decrement count\n\nendmodule"
-}

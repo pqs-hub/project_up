@@ -1,7 +1,0 @@
-{
-  "task_id": "q003472",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module sata_controller (\n    input wire clk,\n    input wire reset,\n    input wire start,\n    input wire data_received,\n    input wire transmit_complete,\n    output reg [1:0] state // 00: Idle, 01: Ready, 10: Transmitting\n);\n\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter READY = 2'b01;\n    parameter TRANSMITTING = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start) begin\n                        state <= READY;\n                    end\n                end\n                \n                READY: begin\n                    if (data_received) begin\n                        state <= TRANSMITTING;\n                    end\n                end\n                \n                TRANSMITTING: begin\n                    if (transmit_complete) begin\n                        state <= IDLE;\n                    end\n                end\n                \n                default: state <= IDLE; // Fallback to IDLE\n            endcase\n        end\n    end\nendmodule",
-  "rename_map": {}
-}

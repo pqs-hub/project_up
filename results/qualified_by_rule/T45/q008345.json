@@ -1,6 +1,0 @@
-{
-  "task_id": "q008345",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input reset,\n  input [7:0] a,\n  input [7:0] b,\n  input en,\n  output reg [7:0] out\n);always @(posedge clk, negedge reset) begin\n  if (!reset) begin\n    out <= 8'b0;\n  end else begin\n    if (en) begin\n      if (a != 8'b0) begin\n        out <= a;\n      end else begin\n        out <= b;\n      end\n    end else begin\n      out <= 8'b0;\n    end\n  end\nend\n\nendmodule"
-}

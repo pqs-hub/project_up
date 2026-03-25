@@ -1,6 +1,0 @@
-{
-  "task_id": "q014655",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module shift_reg_8bit (CLK, RST, SI, Q);\ninput CLK, RST, SI;\noutput reg [8-1:1-1] Q;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST) begin\n        Q <= 8'b00000000;\n    end else begin\n        Q <= {Q[6:0], SI};\n    end\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q008730",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule (\n    input A,\n    input B,\n    input Cin,\n    output Sum,\n    output Cout\n);\n\nwire obf_w1, w2, w3;\n\nxor (obf_w1, A, B);\nxor (Sum, obf_w1, Cin);\nand (w2, A, B);\nand (w3, obf_w1, Cin);\nor (Cout, w2, w3);\n\nendmodule"
-}

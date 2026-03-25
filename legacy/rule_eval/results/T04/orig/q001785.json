@@ -1,6 +1,0 @@
-{
-  "task_id": "q001785",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module tcp_segmentation(\n    input [7:0] segment_size,\n    input [7:0] MSS,\n    output reg segmentation_required\n);\n    always @(*) begin\n        if (segment_size > MSS) \n            segmentation_required = 1'b1; // Segmentation is required\n        else \n            segmentation_required = 1'b0; // No segmentation required\n    end\nendmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q010075",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module lfsr_8bit(\n   input                clk,\n   input                rst_n,\n\n   output reg [7:0]     obf_Q\n);\n    always@(posedge clk or negedge rst_n) begin\n        if(!rst_n) obf_Q <= 8'b00000001;\n        else begin\n            obf_Q <= {obf_Q[6:0], obf_Q[7] ^ obf_Q[5] ^ obf_Q[4] ^ obf_Q[3]};\n        end\n    end\nendmodule",
-  "rename_map": {
-    "Q": "obf_Q"
-  }
-}

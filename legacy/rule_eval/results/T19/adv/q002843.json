@@ -1,6 +1,0 @@
-{
-  "task_id": "q002843",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module ofdm_modulator (\n    input wire clk,\n    input wire reset,\n    input wire [7:0] data_in,\n    output reg [15:0] data_out\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            data_out <= 16'b0;\n        end else begin\n            data_out <= {data_in, data_in}; // Repeat input data\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

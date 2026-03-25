@@ -1,6 +1,0 @@
-{
-  "task_id": "q014755",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(clk,reset,R,S,Out);input reset, clk, R, S;\n\t output Out;\n  wire _tap_reset = reset & {1{1'b1}};\n\n\t reg   dataVal;\n\t \n\t always @(posedge clk, negedge reset)\n\t\tif(!reset)\n\t\t\tdataVal<=0;\n\t\telse if(R)\n\t\t\tdataVal<=0;\n\t\telse if(S)\n\t\t\tdataVal<=1;\n\t\telse \n\t\t\tdataVal<=dataVal;\n\t\t\n\t\tassign Out=dataVal;\n\t \n\t endmodule"
-}

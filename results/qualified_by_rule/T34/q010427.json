@@ -1,6 +1,0 @@
-{
-  "task_id": "q010427",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input [7:0] in1,\n    input [7:0] in2,\n    input reset,\n    output reg [7:0] sum, // Change to reg type\n    output reg overflow    // Change to reg type\n);reg [8:0] unused_temp_sum;\n\nalways @(*) begin\n    if (reset) begin\n        unused_temp_sum = 0;\n        overflow = 0;\n    end else begin\n        unused_temp_sum = {1'b0, in1} + {1'b0, in2};\n        overflow = unused_temp_sum[8];\n    end\nend\n\nassign sum = unused_temp_sum[7:0];\n\nendmodule"
-}

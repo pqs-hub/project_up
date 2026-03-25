@@ -1,6 +1,0 @@
-{
-  "task_id": "q011361",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n    input [7:0] a,\n    input [7:0] b,\n    input [1:0] op,\n    output reg [7:0] result\n);reg [15:0] temp;\n\nalways @(*) begin\n    case (op)\n        2'b00: result = a + b; // Addition\n        2'b01: result = a - b; // Subtraction\n        2'b10: begin // Multiplication\n            temp = a * b;\n            if (temp > 8'hFF) begin\n                result = 8'hFF;\n            end else begin\n                result = temp[7:0];\n            end\n        end\n        2'b11: begin // Division\n            if (b == 8'h00) begin\n                result = 8'hFF; // Division by zero\n            end else begin\n                temp = a / b;\n                if (temp > 8'hFF) begin\n                    result = 8'hFF;\n                end else begin\n                    result = temp[7:0];\n                end\n            end\n        end\n    endcase\nend\n\nendmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q005689",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input CLK,\n    input EN,\n    input TE,\n    output ENCLK\n);wire n2;\n    reg obf_EN_reg;\n    \n    always @ (posedge CLK, posedge TE) begin\n        if (TE) begin\n            obf_EN_reg <= 1'b0;\n        end else begin\n            obf_EN_reg <= EN;\n        end\n    end\n    \n    assign n2 = obf_EN_reg & CLK;\n    assign ENCLK = n2;\n    \nendmodule",
-  "rename_map": {
-    "EN_reg": "obf_EN_reg"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q012721",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(out, in, scanen, sin, clock, reset);output out ;\ninput in ;\ninput clock ;\ninput sin ;\ninput scanen ;\ninput reset;\n\nwire reset_nor;\nassign reset_nor = ~(reset & ~clock);\n\nreg dff_out; // Use a reg to store the state\n\nalways @(posedge clock or posedge reset) begin\n    if (reset) begin\n        dff_out <= 1'b0; // Reset the flip-flop\n    end else begin\n        if (scanen) begin\n            dff_out <= sin; // Scan input taken\n        end else begin\n            dff_out <= in; // Regular input taken\n        end\n    end\nend\n\nassign out = dff_out; // Output the state of the flip-flop\n\nendmodule"
-}

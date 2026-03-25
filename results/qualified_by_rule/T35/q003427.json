@@ -1,6 +1,0 @@
-{
-  "task_id": "q003427",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n    input [4:0] src1,       // Source register 1 address\n    input [4:0] src2,       // Source register 2 address\n    input [4:0] dest,       // Destination register address\n    input [31:0] data_out,  // Data from the destination register\n    output reg [31:0] forwarded_data1, // Forwarded data for src1\n    output reg [31:0] forwarded_data2  // Forwarded data for src2\n);\n\nalways @(*) begin\n    // Default outputs\n    forwarded_data1 = 32'b0;\n    forwarded_data2 = 32'b0;\n\n    // Check for data hazard for src1\n    if (src1 == dest) begin\n        forwarded_data1 = data_out;\n    end\n\n    // Check for data hazard for src2\n    if (src2 == dest) begin\n        forwarded_data2 = data_out;\n    end\nend\n\nendmodule"
-}

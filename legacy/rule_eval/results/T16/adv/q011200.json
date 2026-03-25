@@ -1,9 +1,0 @@
-{
-  "task_id": "q011200",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module up_down_counter(\n\tinput wire obf_clk,\n\tinput wire reset,\n\tinput wire en,\n\tinput wire up_down,\n\toutput reg [2:0] count\n);always @(posedge obf_clk) begin\n\t\tif (reset)\n\t\t\tcount <= 3'b000;\n\t\telse if (en) begin\n\t\t\tif (up_down)\n\t\t\t\tcount <= count + 1;\n\t\t\telse\n\t\t\t\tcount <= count - 1;\n\t\tend\n\tend\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q014800",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    output reg [2:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            // Synchronous reset: Set the LFSR to initial value 001\n            q <= 3'b001;\n        end else begin\n            // Fibonacci LFSR with taps at positions 2 and 3\n            q <= {q[1:0], q[2] ^ q[1]};\n        end\n    end\n\nendmodule"
-}

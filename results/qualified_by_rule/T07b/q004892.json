@@ -1,6 +1,0 @@
-{
-  "task_id": "q004892",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input rst,\n  input wr_en,\n  input rd_en,\n  input [addr_width-1:0] addr,\n  input [width-1:0] data_in,\n  output reg [width-1:0] data_out\n);parameter depth = 1024; // depth of the scratchpad memory block\nparameter width = 32; // width of each memory location in bits\nlocalparam addr_width = $clog2(depth); // Calculate address width using $clog2\n\n// dual-port RAM with separate read and write ports\nreg [width-1:0] memory [0:depth-1];\n\n// write data to memory block at specified address\nalways @(posedge clk) begin\n  if (wr_en) begin\n    memory[addr] <= data_in;\n  end\nend\n\n// read data from memory block at specified address\nalways @(posedge clk) begin\n  if (rd_en) begin\n    data_out <= memory[addr];\n  end else begin\n    data_out <= 0; // Output zero when not reading\n  end\nend\n\n// reset memory block to zero\ninteger i; // Declare the iterator i\nalways @(posedge clk) begin\n  if (rst) begin\n    for (i = 0; i < depth; i = i + 1) begin\n      memory[i] <= 0;\n    end\n  end\nend\n\nendmodule"
-}

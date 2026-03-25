@@ -1,6 +1,0 @@
-{
-  "task_id": "q012446",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(clk, rst, data, q);\n\n    input  clk;\n    input  rst;\n    input  data;\n    output reg [7:0] q;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            q <= 8'b00000000;\n        else\n            q <= {q[6:0], data};\n    end\n    \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

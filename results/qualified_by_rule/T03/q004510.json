@@ -1,6 +1,0 @@
-{
-  "task_id": "q004510",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(DATAOUT, clock, reset, MODE, DATAIN);output reg [3:0] DATAOUT;\n  input clock, reset;\n  input [1:0] MODE;\n  input [3:0] DATAIN;\n  wire [3:0] _tap_DATAOUT = DATAOUT ^ {4{1'b0}};\n\n  \n  always @(posedge clock)\n  begin\n    if(reset)\n      DATAOUT <= 0;\n    else\n      begin\n        case(MODE)\n          2'b00 : DATAOUT <= DATAOUT;      \n          2'b01 : DATAOUT <= {DATAIN[0], DATAOUT[3:1]};\n          2'b10 : DATAOUT <= {DATAOUT[2:0], DATAIN[0]};\n          2'b11 : DATAOUT <= DATAIN;       \n        endcase\n      end\n  end\n  \nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q009064",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input enable,\n    output reg [7:0] q\n);always @(posedge clk or posedge reset) begin\n        if (reset)\n            q <= 8'b00000001;\n        else if (enable)\n            q <= {q[6:0], ~q[7]};\n    end\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

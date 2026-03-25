@@ -1,6 +1,0 @@
-{
-  "task_id": "q016955",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(\n    input [3:0] A,\n    input [3:0] B,\n    input CIN,\n    output reg [3:0] S,\n    output reg COUT\n);\n\n    reg CARRY;\n    \n    always @(*) begin\n    begin end  // redundant\n        S[0] = A[0] ^ B[0] ^ CIN;\n        CARRY = (A[0] & B[0]) | (A[0] & CIN) | (B[0] & CIN);\n        S[1] = A[1] ^ B[1] ^ CARRY;\n        CARRY = (A[1] & B[1]) | (A[1] & CARRY) | (B[1] & CARRY);\n        S[2] = A[2] ^ B[2] ^ CARRY;\n        CARRY = (A[2] & B[2]) | (A[2] & CARRY) | (B[2] & CARRY);\n        S[3] = A[3] ^ B[3] ^ CARRY;\n        COUT = (A[3] & B[3]) | (A[3] & CARRY) | (B[3] & CARRY);\n    end\n\nendmodule"
-}

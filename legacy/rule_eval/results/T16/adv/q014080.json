@@ -1,9 +1,0 @@
-{
-  "task_id": "q014080",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n          input clk, clear,\n          input [7:0] cct_input,\n          output reg [7:0] cct_output\n\t\t\t );reg [7:0] obf_goofy_counter;\n\nalways @ (posedge clk)\nif (clear == 1'b1) obf_goofy_counter = 8'b10000001;\nelse if (obf_goofy_counter == 8'b10000001) obf_goofy_counter = 8'b01000010;\nelse if (obf_goofy_counter == 8'b01000010) obf_goofy_counter = 8'b00100100;\nelse if (obf_goofy_counter == 8'b00100100) obf_goofy_counter = 8'b00011000;\nelse if (obf_goofy_counter == 8'b00011000) obf_goofy_counter = 8'b10000001;\nelse obf_goofy_counter = 8'b10000001;\n\nalways @ *\ncct_output = obf_goofy_counter;\n\nendmodule",
-  "rename_map": {
-    "goofy_counter": "obf_goofy_counter"
-  }
-}

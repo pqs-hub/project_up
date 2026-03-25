@@ -1,6 +1,0 @@
-{
-  "task_id": "q015395",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(clk, load, in, shift, out);input clk, load, shift;\n    input [4-1:1-1] in;\n    output [3:0] out;\n    reg [3:0] reg_out;\n    \n    always @(posedge clk) begin\n        if (load) begin\n            reg_out <= in;\n        end else if (shift) begin\n            reg_out <= {reg_out[2:0], 1'b0};\n        end\n    end\n    \n    assign out = reg_out;\nendmodule"
-}

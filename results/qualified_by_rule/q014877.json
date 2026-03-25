@@ -1,6 +1,0 @@
-{
-  "task_id": "q014877",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n    input CLK,\n    input reset,\n    output reg CLK_div\n);reg [3:0] obf_counter;\n\n    always @ (posedge CLK or posedge reset) begin\n        if (reset) begin\n            obf_counter <= 0;\n            CLK_div <= 0;\n        end\n        else begin\n            obf_counter <= obf_counter + 1;\n            if (obf_counter == 4) begin\n                obf_counter <= 0;\n                CLK_div <= ~CLK_div;\n            end\n        end\n    end\n\nendmodule"
-}

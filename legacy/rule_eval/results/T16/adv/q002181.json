@@ -1,9 +1,0 @@
-{
-  "task_id": "q002181",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module WatchdogTimer (\n    input wire clk,           // Clock input\n    input wire reset,         // Reset input\n    input wire enable,        // Enable input\n    input wire [7:0] limit,   // Limit value\n    output reg timeout        // Timeout output signal\n);\n    reg [7:0] obf_counter;        // 8-bit obf_counter\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            obf_counter <= 8'b0;   // Reset obf_counter\n            timeout <= 1'b0;   // Reset timeout signal\n        end else if (enable) begin\n            if (obf_counter < limit) begin\n                obf_counter <= obf_counter + 1; // Increment obf_counter\n                timeout <= 1'b0;         // No timeout yet\n            end else begin\n                timeout <= 1'b1;         // Timeout occurred\n            end\n        end\n    end\nendmodule",
-  "rename_map": {
-    "counter": "obf_counter"
-  }
-}

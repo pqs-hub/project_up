@@ -1,9 +1,0 @@
-{
-  "task_id": "q007241",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(out, in0, in1, in2, in3, obf_select);parameter bits = 32; \n output [bits-1:0] out; \n input [bits-1:0] in0, in1, in2, in3; \n input [1:0] obf_select; \n  reg [bits-1:0] out; \n  always @ (obf_select or in0 or in1 or in2 or in3) begin \n  case (obf_select) \n  2'b00: out = in0; \n  2'b01: out = in1; \n  2'b10: out = in2; \n  2'b11: out = in3; \n  default: out = 65'hx; \n  endcase \n  end \n endmodule",
-  "rename_map": {
-    "select": "obf_select"
-  }
-}

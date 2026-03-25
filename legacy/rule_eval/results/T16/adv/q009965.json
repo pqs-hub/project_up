@@ -1,9 +1,0 @@
-{
-  "task_id": "q009965",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n  input obf_clk,\n  input reset,\n  input signed [31:0] input_data,\n  output reg signed [31:0] output_data,\n  output reg valid\n);always @(posedge obf_clk) begin\n    if (reset) begin\n      output_data <= 0;\n      valid <= 0;\n    end else begin\n      if (input_data >= 0) begin\n        output_data <= input_data + 1;\n        valid <= 1;\n      end else begin\n        output_data <= input_data - 1;\n        valid <= 1;\n      end\n    end\n  end\n\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

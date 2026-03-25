@@ -1,6 +1,0 @@
-{
-  "task_id": "q017112",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (input [15:0] A, B, input C, CLK, output reg [15:0] R);\n  wire [15:0] _tap_A = A & {16{1'b1}};\n\n\nalways @(posedge CLK) begin\n    if (C == 0) // addition\n        R <= A + B;\n    else // subtraction\n        R <= A - B;\nend\n\nendmodule"
-}

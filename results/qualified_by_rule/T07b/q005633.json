@@ -1,6 +1,0 @@
-{
-  "task_id": "q005633",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n    input [7:0] A,\n    input [7:0] B,\n    input [1:0] op,\n    output reg [7:0] result\n);wire [15:0] product;\nwire [7:0] quotient;\nwire [7:0] remainder;\n\nassign product = A * B;\nassign quotient = A / B;\nassign remainder = A % B;\n\nalways @(*) begin\n    case (op)\n        2'b00: result = A + B;\n        2'b01: result = A - B;\n        2'b10: result = product[15:8];\n        2'b11: result = quotient;\n        default: result = 8'h00;\n    endcase\nend\n\nendmodule"
-}

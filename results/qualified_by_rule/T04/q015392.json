@@ -1,6 +1,0 @@
-{
-  "task_id": "q015392",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n\tinput [3:0] a,\n\tinput [3:0] b,\n\tinput c_0,\n\toutput [3:0] s,\n\toutput c_4\n\t);wire [3:0] g;\nwire [3:0] p;\nwire c_1;\nwire c_2;\nwire c_3;\n\nassign g[0]= a[0] & b[0];\nassign g[1]= a[1] & b[1];\nassign g[2]= a[2] & b[2];\nassign g[3]= a[3] & b[3];\n\nassign p[0]= a[0] ^ b[0];\nassign p[1]= a[1] ^ b[1];\nassign p[2]= a[2] ^ b[2];\nassign p[3]= a[3] ^ b[3];\n\n\nassign s[0]= p[0] ^ c_0;\nassign c_1= (c_0 & p[0]) | g[0];\n\nassign s[1]= p[1] ^ c_1;\nassign c_2= (c_1 & p[1]) | g[1];\n\nassign s[2]= p[2] ^ c_2;\nassign c_3= (c_2 & p[2]) | g[2];\n\nassign s[3]= p[3] ^ c_3;\nassign c_4= (c_3 & p[3]) | g[3];endmodule"
-}

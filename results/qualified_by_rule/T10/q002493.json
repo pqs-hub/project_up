@@ -1,6 +1,0 @@
-{
-  "task_id": "q002493",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule(\n    input [7:0] address,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n    reg [7:0] data_array [0:15]; // 16 elements in the data array\n\n    always @(*) begin\n        // Initialize the data_array (for simulation purpose)\n        data_array[0] = 8'd0;\n        data_array[1] = 8'd1;\n        data_array[2] = 8'd2;\n        data_array[3] = 8'd3;\n        data_array[4] = 8'd4;\n        data_array[5] = 8'd5;\n        data_array[6] = 8'd6;\n        data_array[7] = 8'd7;\n        data_array[8] = 8'd8;\n        data_array[9] = 8'd9;\n        data_array[10] = 8'd10;\n        data_array[11] = 8'd11;\n        data_array[12] = 8'd12;\n        data_array[13] = 8'd13;\n        data_array[14] = 8'd14;\n        data_array[15] = 8'd15;\n\n        if (address < 16) begin\n            // Nearest neighbor logic\n            data_out = data_array[address];\n        end else begin\n            data_out = 8'd0; // Default output for out of bounds\n        end\n    end\nendmodule"
-}

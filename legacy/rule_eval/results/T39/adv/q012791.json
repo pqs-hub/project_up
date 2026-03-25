@@ -1,6 +1,0 @@
-{
-  "task_id": "q012791",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module top_module(\n    input [3:0] a,\n    input [3:0] b,\n    input [1:0] c,\n    input d,\n    input e,\n    output reg x\n);reg [4:0] sum;\n    reg [1:0] index;\n    reg selected_bit;\n\n    always @(*) begin\n  sum = a + b ;\n  end\n\n  always @(*) begin\n  case (c) 2'b00: index = 2'b00 ; 2'b01: index = 2'b01 ; 2'b10: index = 2'b10 ; 2'b11: index = 2'b11 ; endcase;\n  selected_bit = sum[index] ;\n  if (d == 1) begin selected_bit = ~selected_bit ; end\n  if (e == 1) begin x = selected_bit ; end else begin x = d ; end\n  end\n\nendmodule"
-}

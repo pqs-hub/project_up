@@ -1,6 +1,0 @@
-{
-  "task_id": "q007435",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(\n\thclk,\n\thresetn,\n\taddr,\n\tready,\n\thsel0,\n\thsel0_rd,\n\thsel1,\n\thsel1_rd,\n\thsel2,\n\thsel2_rd\n);input hclk;\ninput hresetn;\ninput [32-1:1-1] addr;\ninput ready;\noutput hsel0;\noutput hsel0_rd;\noutput hsel1;\noutput hsel1_rd;\noutput hsel2;\noutput hsel2_rd;\n\nreg hsel0_rd;\nreg hsel1_rd;\nreg hsel2_rd;\n\n\nassign hsel0 = (addr[31:28] == 4'h0) ? 1'b1 : 1'b0;\n\nassign hsel1 = (addr[31:28] == 4'h1 || addr[31:28] == 4'h2 || addr[31:28] == 4'h3) ? 1'b1 : 1'b0;\n\nassign hsel2 = ~(hsel0 | hsel1);\n\nalways @(posedge hclk) begin\n\tif (~hresetn) begin\n\t\thsel0_rd <= 1'b0;\n\t\thsel1_rd <= 1'b0;\n\t\thsel2_rd <= 1'b0;\n\tend else begin\n\t\tif (ready) begin\n\t\t\thsel0_rd <= hsel0;\n\t\t\thsel1_rd <= hsel1;\n\t\t\thsel2_rd <= hsel2;\n\t\tend\n\tend\nend\n\nendmodule"
-}

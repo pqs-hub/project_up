@@ -1,6 +1,0 @@
-{
-  "task_id": "q013611",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module top_module(\n  input in1,\n  input in2,\n  input in3,\n  output reg out1,\n  output reg out2\n);// Define the states\n  parameter S0 = 2'b00;\n  parameter S1 = 2'b01;\n  parameter S2 = 2'b10;\n  parameter S3 = 2'b11;\n  \n  // Define the current state\n  reg [1:0] state = S0;\n  \n  always @(*) begin\n   // Priority encoding logic if (in1) begin state = S0 ; end else if (in2) begin state = S1 ; end else if (in3) begin state = S2 ; end else begin state = S3 ;\n  end\n  end\n\n  always @(*) begin\n  // Set the output signals based on the current state case (state) S0: begin out1 = 1 ; out2 = 0 ; end S1: begin out1 = 0 ; out2 = 1 ; end S2: begin out1 = 1 ; out2 = 1 ; end S3: begin out1 = 0 ; out2 = 0 ; end endcase;\n  end\n\nendmodule"
-}

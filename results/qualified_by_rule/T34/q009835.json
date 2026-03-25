@@ -1,6 +1,0 @@
-{
-  "task_id": "q009835",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    output [2:0] count\n);\n\n    reg [2:0] unused_counter_reg;\n\n    always @(posedge clk) begin\n        if (rst) begin\n            unused_counter_reg <= 3'b000;\n        end else begin\n            unused_counter_reg <= unused_counter_reg + 1;\n        end\n    end\n\n    assign count = unused_counter_reg ^ (unused_counter_reg >> 1);\n\nendmodule"
-}

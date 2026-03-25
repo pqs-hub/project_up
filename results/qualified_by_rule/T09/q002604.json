@@ -1,6 +1,0 @@
-{
-  "task_id": "q002604",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule (\n    input clk_ref,\n    input clk_a,\n    input clk_b,\n    output reg [1:0] phase_out\n);\n    reg clk_a_prev;\n    reg clk_b_prev;\n\n    always @(posedge clk_ref) begin\n        clk_a_prev <= clk_a;\n        clk_b_prev <= clk_b;\n\n        if (clk_a_prev == clk_b_prev) begin\n            phase_out <= 2'b00; // In-phase\n        end else if (clk_a_prev && !clk_b_prev) begin\n            phase_out <= 2'b01; // clk_a is leading\n        end else if (!clk_a_prev && clk_b_prev) begin\n            phase_out <= 2'b10; // clk_b is leading (clk_a is lagging)\n        end\n    end\nendmodule"
-}

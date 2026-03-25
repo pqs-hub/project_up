@@ -1,6 +1,0 @@
-{
-  "task_id": "q010115",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule(\n\tinput wire clock,\n\tinput wire[31:0] in,\n\tinput wire reset,\n\toutput reg[31:0] out\n);reg[31:0] temp;\n\n\t\t\n\talways @ (negedge clock) begin\n\t\ttemp <= in;\n\tend\n\t\n\talways @ (posedge clock) begin\n\t\tif(reset == 0)begin\n\t\t\tout <= temp;\n\t\tend\n\t\telse begin\n\t\t\tout <= 32'b0;\n\t\tend\n\tend\n\nendmodule"
-}

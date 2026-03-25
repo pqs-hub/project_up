@@ -1,6 +1,0 @@
-{
-  "task_id": "q001850",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule (\n    input [1:0] control,\n    input [4:0] data_in,\n    output reg [4:0] data_out\n);\n    reg [4:0] memory;\n\n    always @(*) begin\n        case (control)\n            2'b00: data_out = 5'b00000; // No operation\n            2'b01: begin\n                memory = data_in;        // Write operation\n                data_out = memory;\n            end\n            2'b10: data_out = memory;   // Read operation\n            2'b11: data_out = 5'b00000; // Invalid operation\n            default: data_out = 5'b00000;\n        endcase\n    end\nendmodule"
-}

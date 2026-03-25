@@ -1,6 +1,0 @@
-{
-  "task_id": "q009784",
-  "rule_id": "T34",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input load,\n    input ena,\n    input [2:0] amount,\n    input [63:0] data,\n    output reg [63:0] q);\n\n    always @(posedge clk) begin\n        if (load) begin\n            q <= data;\n        end else if (ena) begin\n            case (amount)\n                3'b000: q <= q << 1;     // Shift left by 1 bit\n                3'b001: q <= q << 8;     // Shift left by 8 bits\n                3'b010: q <= q << 16;    // Shift left by 16 bits\n                3'b100: q <= q >> 1;     // Shift right by 1 bit\n                3'b101: q <= q >> 8;     // Shift right by 8 bits\n                3'b110: q <= q >> 16;    // Shift right by 16 bits\n                default: q <= q;         // No change\n            endcase\n        end\n    end\n\nendmodule"
-}

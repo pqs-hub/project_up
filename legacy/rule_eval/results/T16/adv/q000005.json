@@ -1,9 +1,0 @@
-{
-  "task_id": "q000005",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module NAT (\n    input [4:0] obf_internal_ip,\n    input translate,\n    output reg [4:0] public_ip\n);\n    always @(*) begin\n        if (translate) begin\n            case (obf_internal_ip)\n                5'b00000: public_ip = 5'b11111;\n                5'b00001: public_ip = 5'b11110;\n                5'b00010: public_ip = 5'b11101;\n                5'b00011: public_ip = 5'b11100;\n                5'b00100: public_ip = 5'b11011;\n                default: public_ip = obf_internal_ip; // No translation\n            endcase\n        end else begin\n            public_ip = obf_internal_ip; // No translation\n        end\n    end\nendmodule",
-  "rename_map": {
-    "internal_ip": "obf_internal_ip"
-  }
-}

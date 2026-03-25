@@ -1,6 +1,0 @@
-{
-  "task_id": "q013103",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module RefModule(\n    input [3:0] I,\n    input [1:0] S,\n    output O,\n    output OB\n);// Assuming IOBUFDS_DIFF_OUT is a differential output buffer that should be defined or replaced\n    // If the specific differential I/O output buffer is not available, we can use a simpler output assignment.\n    wire O_temp; // Temporary wire for the output\n\n    // 4:1 MUX implementation\n    assign O_temp = (S[1] & S[0]) ? I[3] :\n                    (S[1] & ~S[0]) ? I[2] :\n                    (~S[1] & S[0]) ? I[1] :\n                    (~S[1] & ~S[0]) ? I[0] :\n                    1'bz;\n    assign O = O_temp; // Assigning the temporary wire to output O\n    assign OB = ~O; // Complement for the differential output\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q009952",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    output reg [3:0] SUM,\n    output reg CARRY\n);reg [3:0] temp_SUM;\nreg [3:0] temp_CARRY;\n\n// Stage 1\nassign temp_SUM[0] = A[0] ^ B[0];\nassign temp_CARRY[0] = A[0] & B[0];\n\n// Stage 2\nassign temp_SUM[1] = A[1] ^ B[1] ^ temp_CARRY[0];\nassign temp_CARRY[1] = (A[1] & B[1]) | (temp_CARRY[0] & (A[1] ^ B[1]));\n\n// Stage 3\nassign temp_SUM[2] = A[2] ^ B[2] ^ temp_CARRY[1];\nassign temp_CARRY[2] = (A[2] & B[2]) | (temp_CARRY[1] & (A[2] ^ B[2]));\n\n// Stage 4\nassign temp_SUM[3] = A[3] ^ B[3] ^ temp_CARRY[2];\nassign CARRY = (A[3] & B[3]) | (temp_CARRY[2] & (A[3] ^ B[3]));\nassign SUM = temp_SUM;\n\nendmodule"
-}

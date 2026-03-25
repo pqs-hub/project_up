@@ -1,9 +1,0 @@
-{
-  "task_id": "q015353",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    obf_DataIn,\n    DataOut1,\n    DataOut2,\n    clk,\n    rst\n);input [3:0] obf_DataIn;\noutput [3:0] DataOut1;\nreg [3:0] DataOut1;\noutput [3:0] DataOut2;\nreg [3:0] DataOut2;\ninput clk;\ninput rst;\n\n\n\n\nalways @(posedge clk, negedge rst) begin: PIPO_S1_LOGIC\n    if (rst) begin\n        DataOut1 <= 0;\n        DataOut2 <= 0;\n    end\n    else begin\n        DataOut1 <= obf_DataIn;\n        DataOut2 <= obf_DataIn;\n    end\nend\n\nendmodule",
-  "rename_map": {
-    "DataIn": "obf_DataIn"
-  }
-}

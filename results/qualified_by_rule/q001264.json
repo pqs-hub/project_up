@@ -1,6 +1,0 @@
-{
-  "task_id": "q001264",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(  \n    input wire clk,  \n    input wire reset,  \n    input wire [3:0] timeout_limit,  \n    output reg system_reset  \n);  \n    reg [3:0] obf_counter;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            obf_counter <= 4'd0;  \n            system_reset <= 1'b0;  \n        end else begin  \n            if (obf_counter < timeout_limit) begin  \n                obf_counter <= obf_counter + 1;  \n                system_reset <= 1'b0;  \n            end else begin  \n                system_reset <= 1'b1;  \n            end  \n        end  \n    end  \nendmodule"
-}

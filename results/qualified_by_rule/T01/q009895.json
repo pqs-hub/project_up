@@ -1,6 +1,0 @@
-{
-  "task_id": "q009895",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(clk, data_in, shamt, fnc, data_out);input clk;\n    input [31:0] data_in;\n    input [4:0] shamt;\n    input [1:0] fnc;\n    output reg [31:0] data_out;\n\n    always @(posedge clk) begin\n    begin end  // redundant\n        case (fnc)\n            2'b00: data_out <= data_in << shamt; // sll\n            2'b01: data_out <= data_in >> shamt; // slr\n            2'b10: begin // sar\n                if (data_in[31] == 1) begin\n                    data_out <= ~(32'hFFFFFFFF >> shamt) | (data_in >> shamt);\n                end else begin\n                    data_out <= data_in >> shamt;\n                end\n            end\n            default: data_out <= 32'hxxxxxxxx;\n        endcase\n    end\n\nendmodule"
-}

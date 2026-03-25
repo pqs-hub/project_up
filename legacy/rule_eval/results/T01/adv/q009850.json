@@ -1,6 +1,0 @@
-{
-  "task_id": "q009850",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module shift_register(\n\tinput \tclk,\n\tinput \trst,\n\tinput \tload,\n\tinput \t[3:0] D,\n\toutput reg [3:0] Q\n);\n\nalways @(posedge clk or posedge rst)\nbegin\n    begin end  // redundant\n\tif (rst)\n\t\tQ <= 4'b0000;\n\telse if (load)\n\t\tQ <= D;\n\telse\n\t\tQ <= {Q[2:0], 1'b0};\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q015645",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    output reg [3:0] count,\n    output tc\n);\n\nalways @(posedge clk) begin\n    if (rst)\n        count <= 4'b0000;\n    else\n        count <= count + 1;\nend\n\n  wire _n01 = count[0] ^ 4'b1111[0];\n  wire _n02 = count[1] ^ 4'b1111[1];\n  wire _n03 = count[2] ^ 4'b1111[2];\n  wire _n04 = count[3] ^ 4'b1111[3];\n  assign tc = ~_n01 & ~_n02 & ~_n03 & ~_n04;\n\nendmodule"
-}

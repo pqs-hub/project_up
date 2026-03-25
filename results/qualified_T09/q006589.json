@@ -1,6 +1,0 @@
-{
-  "task_id": "q006589",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule(\n  input               cmd_valid,\n  output              cmd_ready,\n  input      [9:0]    cmd_payload_function_id,\n  input      [31:0]   cmd_payload_inputs_0,\n  input      [31:0]   cmd_payload_inputs_1,\n  output              rsp_valid,\n  input               rsp_ready,\n  output     [31:0]   rsp_payload_outputs_0,\n  input               reset,\n  input               clk\n);reg [31:0] output_value;\n\n  always @(*) begin\n    if (cmd_payload_function_id[0] == 1'b0) begin\n      output_value = cmd_payload_inputs_0;\n    end else begin\n      output_value = cmd_payload_inputs_1;\n    end\n  end\n\n  assign rsp_payload_outputs_0 = output_value;\n\n  reg cmd_ready_reg;\n  always @(posedge clk, posedge reset) begin\n    if (reset) begin\n      cmd_ready_reg <= 1'b0;\n    end else begin\n      cmd_ready_reg <= rsp_ready;\n    end\n  end\n\n  assign cmd_ready = cmd_ready_reg;\n\n  reg rsp_valid_reg;\n  always @(posedge clk, posedge reset) begin\n    if (reset) begin\n      rsp_valid_reg <= 1'b0;\n    end else begin\n      rsp_valid_reg <= cmd_valid;\n    end\n  end\n\n  assign rsp_valid = rsp_valid_reg;\n\nendmodule"
-}

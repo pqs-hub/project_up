@@ -1,6 +1,0 @@
-{
-  "task_id": "q013980",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module top_module(hab_escrita, reset, clock, e1, e2,entrada_e1, entrada_e2);output reg [15:0] e1, e2;\n  input [15:0] entrada_e1, entrada_e2;\n  input reset, clock, hab_escrita;\n  reg [15:0] registro [1:0];\t\n\t\n\n\talways @(posedge clock) begin\n  if(reset) begin registro[0] = 16'b0000000000000000 ; registro[1] = 16'b0000000000000000 ; end else if(hab_escrita) begin registro[0] = entrada_e1 ; registro[1] = entrada_e2 ; end\n  end\n\n  always @(posedge clock) begin\n  if(registro[0]<registro[1]) begin e1 = registro[1] ; e2 = registro[0] ; end else begin e1 = registro[0] ; e2 = registro[1] ; end\n  end\nendmodule"
-}

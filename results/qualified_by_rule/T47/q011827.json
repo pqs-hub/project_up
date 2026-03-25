@@ -1,6 +1,0 @@
-{
-  "task_id": "q011827",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule(A, B, CI, SUM);input [7:0] A;\ninput [7:0] B;\ninput CI;\noutput [7:0] SUM;\n\n  wire _n01 = A + B[0] ^ CI[0];\n  wire _c01 = A + B[0] & CI[0];\n  wire _n02 = A + B[1] ^ CI[1] ^ _c01;\n  wire _c02 = (A + B[1] & CI[1]) | (A + B[1] & _c01) | (CI[1] & _c01);\n  wire _n03 = A + B[2] ^ CI[2] ^ _c02;\n  wire _c03 = (A + B[2] & CI[2]) | (A + B[2] & _c02) | (CI[2] & _c02);\n  wire _n04 = A + B[3] ^ CI[3] ^ _c03;\n  wire _c04 = (A + B[3] & CI[3]) | (A + B[3] & _c03) | (CI[3] & _c03);\n  assign SUM = {_n01, _n02, _n03, _n04};endmodule"
-}

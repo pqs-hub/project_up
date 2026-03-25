@@ -1,6 +1,0 @@
-{
-  "task_id": "q003882",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module eth_mac_controller (  \n    input clk,  \n    input rst,  \n    input [7:0] data_in,  \n    input store,  \n    input retrieve,  \n    output reg [7:0] data_out  \n);  \n    reg [7:0] unused_data_reg;  \n  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            unused_data_reg <= 8'b0;  \n            data_out <= 8'b0;  \n        end else begin  \n            if (store) begin  \n                unused_data_reg <= data_in;  \n            end  \n            if (retrieve) begin  \n                data_out <= unused_data_reg;  \n            end  \n        end  \n    end  \nendmodule"
-}

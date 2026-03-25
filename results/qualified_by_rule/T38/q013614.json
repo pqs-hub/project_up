@@ -1,6 +1,0 @@
-{
-  "task_id": "q013614",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(\n    input A,\n    input B,\n    input CIN,\n    output SUM,\n    output COUT\n);// local signals\n    wire xor1_out, xor2_out, and1_out, and2_out, and3_out, or1_out, or2_out;\n\n    // XOR gates\n    xor xor1 (xor1_out, A, B);\n    xor xor2 (xor2_out, xor1_out, CIN);\n\n    // AND gates\n    and and1 (and1_out, A, B);\n    and and2 (and2_out, B, CIN);\n    and and3 (and3_out, A, CIN);\n\n    // OR gates\n    or or1 (or1_out, and1_out, and2_out);\n    or or2 (or2_out, or1_out, and3_out);\n\n    // assign outputs\n    assign SUM = xor2_out;\n    assign COUT = or2_out;\n\nendmodule"
-}

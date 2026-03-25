@@ -1,6 +1,0 @@
-{
-  "task_id": "q000022",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule (\n    input [15:0] data_in, // 4 elements of 4 bits each\n    output reg [15:0] data_out // sorted 4 elements of 4 bits each\n);\n    integer i, j;\n    reg [3:0] unused_temp [0:3]; // temporary storage for sorting\n\n    always @* begin\n        // Load input data into temporary array\n        for (i = 0; i < 4; i = i + 1) begin\n            unused_temp[i] = data_in[i*4 +: 4];\n        end\n        \n        // Bubble sort algorithm\n        for (i = 0; i < 3; i = i + 1) begin\n            for (j = 0; j < 3 - i; j = j + 1) begin\n                if (unused_temp[j] > unused_temp[j + 1]) begin\n                    // Swap\n                    unused_temp[j] = unused_temp[j] ^ unused_temp[j + 1];\n                    unused_temp[j + 1] = unused_temp[j] ^ unused_temp[j + 1];\n                    unused_temp[j] = unused_temp[j] ^ unused_temp[j + 1];\n                end\n            end\n        end\n\n        // Load sorted data into output\n        data_out = {unused_temp[3], unused_temp[2], unused_temp[1], unused_temp[0]};\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q010114",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n    input [2:0] in,     // 3-bit input.\n    input en,           // Enable signal to activate the decoder.\n\n    output [7:0] out    // 8-bit output.\n);\n\nreg [7:0] obf_out_r;\n\n//------------------------------------------------\n// 3-to-8 Decoder logic\nalways @(*) begin\n    if (en) begin\n        case (in)\n            3'b000: obf_out_r = 8'b00000001;\n            3'b001: obf_out_r = 8'b00000010;\n            3'b010: obf_out_r = 8'b00000100;\n            3'b011: obf_out_r = 8'b00001000;\n            3'b100: obf_out_r = 8'b00010000;\n            3'b101: obf_out_r = 8'b00100000;\n            3'b110: obf_out_r = 8'b01000000;\n            3'b111: obf_out_r = 8'b10000000;\n            default: obf_out_r = 8'b00000000;\n        endcase\n    end else begin\n        obf_out_r = 8'b00000000;\n    end\nend\n\nassign out = obf_out_r;\n\nendmodule"
-}

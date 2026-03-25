@@ -1,6 +1,0 @@
-{
-  "task_id": "q016544",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(clk,datavalid,pix_in,pix_out1,pix_out2);\nparameter length=640;\ninput clk,datavalid,pix_in;\noutput pix_out1,pix_out2;\nreg [length-1:0] obf_R;\nalways@(posedge clk)begin\n\tif(datavalid)begin\n\t\tobf_R[length-1:1]<=obf_R[length-2:0];\n\t\tobf_R[0]<=pix_in;\n\tend\nend\nassign pix_out1=obf_R[length-1];\nassign pix_out2=obf_R[length-2];\nendmodule"
-}

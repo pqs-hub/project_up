@@ -1,6 +1,0 @@
-{
-  "task_id": "q004116",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire valid,\n    input wire [23:0] adc_input,\n    output reg [23:0] adc_output\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        adc_output <= 24'b0; // Reset output to zero\n    end else if (valid) begin\n        adc_output <= adc_input; // Latch the value when valid\n    end\nend\n\nendmodule"
-}

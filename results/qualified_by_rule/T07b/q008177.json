@@ -1,6 +1,0 @@
-{
-  "task_id": "q008177",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,      // Synchronous active-high reset\n    input up_down,    // Control signal to increment or decrement\n    output [3:0] q);reg [3:0] count;\n    \n    always @(posedge clk) begin\n        if (reset) begin\n            count <= 4'b0;\n        end else if (up_down) begin\n            count <= (count == 4'b1111) ? 4'b0 : count + 1;\n        end else begin\n            count <= (count == 4'b0000) ? 4'b1111 : count - 1;\n        end\n    end\n    \n    assign q = count;\n    \nendmodule"
-}

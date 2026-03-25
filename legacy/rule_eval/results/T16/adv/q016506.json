@@ -1,9 +1,0 @@
-{
-  "task_id": "q016506",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module rconst2in1(obf_i, rc1, rc2);\n    input  [11:0] obf_i;\n    output [63:0] rc1, rc2;\n    reg    [63:0] rc1, rc2;\n    always @ (obf_i)\n      begin\n        rc1 = 0;\n        rc1[0] = obf_i[0] | obf_i[2] | obf_i[3] | obf_i[5] | obf_i[6] | obf_i[7] | obf_i[10] | obf_i[11];\n        rc1[1] = obf_i[1] | obf_i[2] | obf_i[4] | obf_i[6] | obf_i[8] | obf_i[9];\n        rc1[3] = obf_i[1] | obf_i[2] | obf_i[4] | obf_i[5] | obf_i[6] | obf_i[7] | obf_i[9];\n        rc1[7] = obf_i[1] | obf_i[2] | obf_i[3] | obf_i[4] | obf_i[6] | obf_i[7] | obf_i[10];\n        rc1[15] = obf_i[1] | obf_i[2] | obf_i[3] | obf_i[5] | obf_i[6] | obf_i[7] | obf_i[8] | obf_i[9] | obf_i[10];\n        rc1[31] = obf_i[3] | obf_i[5] | obf_i[6] | obf_i[10] | obf_i[11];\n        rc1[63] = obf_i[1] | obf_i[3] | obf_i[7] | obf_i[8] | obf_i[10];\n      end\n    always @ (obf_i)\n      begin\n        rc2 = 0;\n        rc2[0] = obf_i[2] | obf_i[3] | obf_i[6] | obf_i[7];\n        rc2[1] = obf_i[0] | obf_i[5] | obf_i[6] | obf_i[7] | obf_i[9];\n        rc2[3] = obf_i[3] | obf_i[4] | obf_i[5] | obf_i[6] | obf_i[9] | obf_i[11];\n        rc2[7] = obf_i[0] | obf_i[4] | obf_i[6] | obf_i[8] | obf_i[10];\n        rc2[15] = obf_i[0] | obf_i[1] | obf_i[3] | obf_i[7] | obf_i[10] | obf_i[11];\n        rc2[31] = obf_i[1] | obf_i[2] | obf_i[5] | obf_i[9] | obf_i[11];\n        rc2[63] = obf_i[1] | obf_i[3] | obf_i[6] | obf_i[7] | obf_i[8] | obf_i[9] | obf_i[10] | obf_i[11];\n      end\nendmodule",
-  "rename_map": {
-    "i": "obf_i"
-  }
-}

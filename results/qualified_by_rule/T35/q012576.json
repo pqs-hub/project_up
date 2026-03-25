@@ -1,6 +1,0 @@
-{
-  "task_id": "q012576",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n    input               clk     ,\n    input               rst_n   ,\n    input       [7:0]   in0     ,\n    input       [7:0]   in1     ,\n    input               sel     ,\n\n    output  reg [7:0]   out     \n);\n\n    // 2-to-1 multiplexer operation\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            out <= 0;\n        end else begin\n            out <= sel ? in1 : in0;\n        end\n    end\n\nendmodule"
-}

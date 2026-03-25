@@ -1,7 +1,0 @@
-{
-  "task_id": "q004123",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module fixed_priority_arbiter (\n    input wire clk,\n    input wire rst,\n    input wire [3:0] req,\n    output reg [3:0] grant\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            grant <= 4'b0000;\n        end else begin\n            grant <= 4'b0000; // Reset grant\n            if (req[0]) grant <= 4'b0001; // Highest priority\n            else if (req[1]) grant <= 4'b0010;\n            else if (req[2]) grant <= 4'b0100;\n            else if (req[3]) grant <= 4'b1000; // Lowest priority\n        end\n    end\nendmodule",
-  "rename_map": {}
-}

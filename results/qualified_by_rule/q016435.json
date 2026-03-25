@@ -1,6 +1,0 @@
-{
-  "task_id": "q016435",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule (rstCRC, CRCResult, CRCEn, dataIn, ready, clk, rst);\ninput   rstCRC;\ninput   CRCEn;\ninput   [7:0] dataIn;\ninput   clk;\ninput   rst;\noutput  [15:0] CRCResult;\noutput ready;\nwire   rstCRC;\nwire   CRCEn;\nwire   [7:0] dataIn;\nwire   clk;\nwire   rst;\nreg    [15:0] CRCResult;\nreg    ready;\nreg obf_doUpdateCRC;\nreg [7:0] data;\nreg [3:0] i;\nalways @(posedge clk)\nbegin\n  if (rst == 1'b1 || rstCRC == 1'b1) begin\n    obf_doUpdateCRC <= 1'b0;\n    i <= 4'h0;\n    CRCResult <= 16'hffff;\n    ready <= 1'b1;\n  end\n  else\n  begin\n    if (obf_doUpdateCRC == 1'b0)\n    begin\n      if (CRCEn == 1'b1) begin\n        obf_doUpdateCRC <= 1'b1;\n        data <= dataIn;\n        ready <= 1'b0;\n    end\n    end\n    else begin\n      i <= i + 1'b1;\n      if ( (CRCResult[0] ^ data[0]) == 1'b1) begin\n        CRCResult <= {1'b0, CRCResult[15:1]} ^ 16'ha001;\n      end\n      else begin\n        CRCResult <= {1'b0, CRCResult[15:1]};\n      end\n      data <= {1'b0, data[7:1]};\n      if (i == 4'h7)\n      begin\n        obf_doUpdateCRC <= 1'b0; \n        i <= 4'h0;\n        ready <= 1'b1;\n      end\n    end\n  end\nend\nendmodule"
-}

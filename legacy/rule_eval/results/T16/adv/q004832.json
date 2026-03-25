@@ -1,9 +1,0 @@
-{
-  "task_id": "q004832",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(q, d, a, we, wclk);output q;\n   input d;\n   input [3:0] a;\n   input we;\n   input wclk;\n\n   reg obf_mem[15:0];\n\n   assign q = obf_mem[a];\n   always @(posedge wclk) if (we) obf_mem[a] = d;\n\nendmodule",
-  "rename_map": {
-    "mem": "obf_mem"
-  }
-}

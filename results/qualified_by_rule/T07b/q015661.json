@@ -1,6 +1,0 @@
-{
-  "task_id": "q015661",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input rst_n,\n    input load,\n    input [3:0] data_in,\n    output reg [3:0] q\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        q <= 4'd0;\n    else if (load)\n        q <= data_in;\n    else\n        q <= {q[2:0], 1'b0};\nend\n\nendmodule"
-}

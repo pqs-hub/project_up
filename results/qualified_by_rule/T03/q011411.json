@@ -1,6 +1,0 @@
-{
-  "task_id": "q011411",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n  input clk,\n  input en,\n  input preset_n,\n  input [3:0] preset_val,\n  output reg [3:0] count\n);always @(posedge clk or negedge preset_n) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n\tif (!preset_n) begin\n\t\tcount <= preset_val;\n\tend else if (en) begin\n\t\tcount <= count + 1;\n\tend\nend\n\nendmodule"
-}

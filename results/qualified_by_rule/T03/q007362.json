@@ -1,6 +1,0 @@
-{
-  "task_id": "q007362",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    input a, b, // Inputs for the half-adder\n    input [2:0] sel, // Select input for the multiplexer\n    input [3:0] data0, // 4-bit data inputs for the multiplexer\n    input [3:0] data1,\n    input [3:0] data2,\n    input [3:0] data3,\n    input [3:0] data4,\n    input [3:0] data5,\n    output reg [7:0] out // 8-bit output from the functional module\n);// Define the half-adder\n  wire _tap_a = a & {1{1'b1}};\n\n    wire sum = a ^ b;\n    wire carry = a & b;\n\n    // Define the 6-to-1 multiplexer\n    reg [3:0] mux_out; // Change wire to reg\n    always @*\n    begin\n        case (sel)\n            3'b000: mux_out = data0;\n            3'b001: mux_out = data1;\n            3'b010: mux_out = data2;\n            3'b011: mux_out = data3;\n            3'b100: mux_out = data4;\n            3'b101: mux_out = data5;\n            default: mux_out = 4'b0001;\n        endcase\n    end\n\n    // Define the functional module\n    always @*\n    begin\n        out = {mux_out, sum, carry};\n    end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q005152",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(clk, rst, en, count);\n    input clk;\n    input rst;\n    input en;\n    output reg [7:0] count;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n        if (rst) begin\n            count <= 0;\n        end else if (en) begin\n            count <= count + 1;\n        end\n    end\nendmodule"
-}

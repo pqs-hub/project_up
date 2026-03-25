@@ -1,6 +1,0 @@
-{
-  "task_id": "q000317",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule (\n    input [7:0] data_in,\n    input [3:0] expected_checksum,\n    output reg valid\n);\n    integer i;\n    reg [3:0] computed_checksum;\n\n    always @(*) begin\n        computed_checksum = 4'b0000;\n        for (i = 0; i < 8; i = i + 1) begin\n            computed_checksum = computed_checksum + data_in[i];\n        end\n        valid = (computed_checksum == expected_checksum);\n    end\nendmodule"
-}

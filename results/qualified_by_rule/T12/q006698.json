@@ -1,6 +1,0 @@
-{
-  "task_id": "q006698",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input wrdata_en,\n    input [1:0] wrdata,\n    output reg dq,        // Changed output to reg type\n    output reg dq_oe_n    // Changed output to reg type\n);reg odd;\n\n    always @(posedge clk) begin\n        if (wrdata_en) begin\n            odd <= ~odd;\n            if (odd) begin\n                dq <= wrdata[1];\n            end else begin\n                dq <= wrdata[0];\n            end\n            dq_oe_n <= 1'b0;\n        end else begin\n            odd <= 1'b0;\n            dq_oe_n <= 1'b1;\n        end\n    end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q001855",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule RefModule (\n    input [15:0] D,        // 16-bit data input\n    input WE,              // Write Enable\n    input CLK,             // Clock\n    output reg [15:0] Q    // 16-bit data output\n);\n\nreg [15:0] mem;           // Internal memory storage\n\nalways @(posedge CLK) begin\n    if (WE) begin\n        mem <= D;         // Write data to memory\n    end\nend\n\nalways @(negedge CLK) begin\n    Q <= mem;            // Read data from memory\nend\n\nendmodule"
-}

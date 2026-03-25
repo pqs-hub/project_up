@@ -1,6 +1,0 @@
-{
-  "task_id": "q015623",
-  "rule_id": "T18",
-  "changed": true,
-  "final": "module top_module(\n    input a,\n    input b,\n    output t\n);\n    assign t = a ^ b;\nendmodule\n\nmodule S(\n    input a,\n    input b,\n    output t\n);\n    assign t = a ^ b;\nendmodule\n\nmodule top_module(\n    input a,\n    input b,\n    output t\n);\n    wire r1_out, r2_out, s1_out, s2_out;\n    wire or_out, and_out, xor_out;\n\n    R r1(.a(a), .b(b), .t(r1_out));\n    R r2(.a(a), .b(b), .t(r2_out));\n    S s1(.a(a), .b(b), .t(s1_out));\n    S s2(.a(a), .b(b), .t(s2_out));\n\n    assign or_out = r1_out | s1_out;\n    assign and_out = ~(~r2_out | ~s2_out);\n    assign t = or_out ^ and_out;\nendmodule"
-}

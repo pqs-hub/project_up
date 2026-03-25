@@ -1,6 +1,0 @@
-{
-  "task_id": "q004923",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(clk, rst, A, B, CTRL, RES);input clk, rst;\ninput [31:0] A, B;\ninput [4:0] CTRL;\noutput reg [31:0] RES;\n\nalways @(posedge clk or posedge rst) begin\n\tif(rst) begin\n\t\tRES <= 0;\n\tend else begin\n\t\tcase(CTRL)\n\t\t\t5'b00000: // addition\n\t\t\t\tRES <= A + B;\n\t\t\t5'b00001: // subtraction\n\t\t\t\tRES <= A - B;\n\t\t\t5'b00010: // bitwise AND\n\t\t\t\tRES <= A & B;\n\t\t\t5'b00011: // bitwise OR\n\t\t\t\tRES <= A | B;\n\t\t\t5'b00100: // bitwise XOR\n\t\t\t\tRES <= A ^ B;\n\t\t\t5'b00101: // logical shift left\n\t\t\t\tRES <= A << B;\n\t\t\tdefault:\n\t\t\t\tRES <= 0;\n\t\tendcase\n\tend\nend\n\nendmodule"
-}

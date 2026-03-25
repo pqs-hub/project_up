@@ -1,6 +1,0 @@
-{
-  "task_id": "q011697",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule pulse_gen(\n    input wire clk,\n    input wire rst_n,\n    input wire signal_in,\n    output reg pulse_out\n);\n\nreg signal_in_d;\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        signal_in_d <= 1'b0;\n        pulse_out <= 1'b0;\n    end else begin\n        signal_in_d <= signal_in;\n        pulse_out <= signal_in && !signal_in_d;\n    end\nend\n\nendmodule"
-}

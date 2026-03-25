@@ -1,6 +1,0 @@
-{
-  "task_id": "q007385",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(\n  input clk,\n  input reset,\n  input [3:0] A,\n  input [3:0] B,\n  output [3:0] S\n);reg [3:0] carry;\nreg [3:0] sum;\n\nalways @ (posedge clk or negedge reset) begin\n  if (!reset) begin\n    carry <= 4'b0;\n    sum <= 4'b0;\n  end else begin\n    carry <= {carry[2:0], A[3]&B[3] | A[3]&carry[3] | B[3]&carry[3]};\n    sum <= A + B + carry;\n  end\nend\n\nassign S = sum;\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

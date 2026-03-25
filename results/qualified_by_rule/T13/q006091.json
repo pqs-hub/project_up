@@ -1,6 +1,0 @@
-{
-  "task_id": "q006091",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    input [4:0] in,\n    output reg [4:0] out);\n\n    reg [4:0] in_last;\n    \n    always @(posedge clk) begin\n        if (reset)\n            out <= 5'b0;\n        else begin\n            in_last <= in;\n            out <= out | (~in_last & in);\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q004765",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(input clk, sreset,\n                     input clk_en,\n                     input [5:0] data_in1,data_in2, \n                     output reg data_out1,data_out2);always @(posedge clk)  \n        if(sreset) \n            data_out1 <= 1'b0;\n        else\n            data_out1 <= clk_en ? &data_in1 : data_out1;\n\n    always @(posedge clk)  \n        if(sreset) \n            data_out2 <= 1'b0;\n        else            \n            data_out2 <= clk_en ? &data_in2 : data_out2;endmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q005986",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule(\n  input clk, // Added clk input\n  input [WIDTH-1:0] data_in1,\n  input [WIDTH-1:0] data_in2,\n  input [WIDTH-1:0] data_in3,\n  input [WIDTH-1:0] data_in4,\n  input we1,\n  input we2,\n  input we3,\n  input we4,\n  input [addr_width-1:0] addr1, // Changed to addr_width\n  input [addr_width-1:0] addr2,\n  input [addr_width-1:0] addr3,\n  input [addr_width-1:0] addr4,\n  output [WIDTH-1:0] data_out1,\n  output [WIDTH-1:0] data_out2,\n  output [WIDTH-1:0] data_out3,\n  output [WIDTH-1:0] data_out4\n);parameter N = 4; // number of registers\nparameter WIDTH = 8; // width of each register\nlocalparam addr_width = $clog2(N); // Calculate address width using $clog2\n\nreg [WIDTH-1:0] register_file [0:N-1];\n\nalways @ (posedge clk) begin\n  if (we1) register_file[addr1] <= data_in1;\n  if (we2) register_file[addr2] <= data_in2;\n  if (we3) register_file[addr3] <= data_in3;\n  if (we4) register_file[addr4] <= data_in4;\nend\n\nassign data_out1 = register_file[addr1];\nassign data_out2 = register_file[addr2];\nassign data_out3 = register_file[addr3];\nassign data_out4 = register_file[addr4];\n\nendmodule"
-}

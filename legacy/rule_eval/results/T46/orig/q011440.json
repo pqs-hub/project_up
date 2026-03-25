@@ -1,6 +1,0 @@
-{
-  "task_id": "q011440",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module top_module(\n\tinput clk,\n\tinput set,\n\tinput reset,\n\tinput j,\n\tinput k,\n\toutput reg q);always @(posedge clk) begin\n\tif (reset)\n\t\tq <= 1'b0;\n\telse if (set)\n\t\tq <= 1'b1;\n\telse if (j && ~k)\n\t\tq <= 1'b1;\n\telse if (~j && k)\n\t\tq <= 1'b0;\n\telse if (j && k)\n\t\tq <= ~q;\nend\nendmodule"
-}

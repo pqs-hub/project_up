@@ -1,6 +1,0 @@
-{
-  "task_id": "q005186",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(\n  input trig,\n  input clk,\n  output reg out\n);parameter t = 10; // duration of output pulse, in clock cycles\n  \n  reg [3:0] unused_counter; // 4-bit unused_counter to count t clock cycles\n  \n  always @(posedge clk) begin\n    if (trig) begin // trigger signal is high\n      unused_counter <= 0; // reset unused_counter\n      out <= 1; // output pulse is high\n    end else if (unused_counter < t) begin // unused_counter is less than t\n      unused_counter <= unused_counter + 1; // increment unused_counter\n      out <= 1; // output pulse is high\n    end else begin // unused_counter is greater than or equal to t\n      out <= 0; // output pulse is low\n    end\n  end\n  \nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q006016",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(\n   clk,\n   address,\n   we,\n   re,\n   din,\n   dout\n);input\t\tclk;\ninput [6:0]\taddress;\ninput\t\twe;\ninput\t\tre;\ninput [7:0]\tdin;\noutput [7:0]\tdout;\nreg [7:0]\tdout;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nparameter word_depth = 70; \n\n\n\n\n\nreg [7:0]\tmem[0:word_depth-1];\n\n\n\n\n   \n\n\n\n\nalways @(posedge clk)\n   if (re) dout <= mem[address];\n\n\nalways @(posedge clk)\n   if (we) mem[address] <= din;\n\nendmodule"
-}

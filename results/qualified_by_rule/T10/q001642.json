@@ -1,6 +1,0 @@
-{
-  "task_id": "q001642",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule (\n    input S,\n    input R,\n    output reg Q,\n    output reg Qn\n);\n\nalways @(S or R) begin\n    if (S == 1 && R == 0) begin\n        Q = 1;\n        Qn = 0;\n    end else if (S == 0 && R == 1) begin\n        Q = 0;\n        Qn = 1;\n    end else if (S == 0 && R == 0) begin\n        // Maintain previous state\n        Q = Q;\n        Qn = Qn;\n    end else if (S == 1 && R == 1) begin\n        // Undefined state, can be a hold or any predefined state\n        Q = 1'bx;\n        Qn = 1'bx;\n    end\nend\nendmodule"
-}

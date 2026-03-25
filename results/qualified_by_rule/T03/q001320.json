@@ -1,6 +1,0 @@
-{
-  "task_id": "q001320",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(  \n    input [7:0] data,  \n    input [2:0] shift_amount,  \n    input direction,  \n    output reg [7:0] shifted_data  \n);  \n  wire [7:0] _tap_data = data & {8{1'b1}};\n\n    always @(*) begin  \n        if (direction == 0) begin // Left shift  \n            shifted_data = data << shift_amount;  \n        end else begin // Right shift  \n            shifted_data = data >> shift_amount;  \n        end  \n    end  \nendmodule"
-}

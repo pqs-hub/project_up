@@ -1,6 +1,0 @@
-{
-  "task_id": "q007927",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(CLK, RST, LOAD, PARALLEL_IN, SERIAL_OUT);\ninput CLK, RST, LOAD;\ninput [7:0] PARALLEL_IN;\noutput SERIAL_OUT;\nreg [7:0] shift_reg;\nassign SERIAL_OUT = shift_reg[7];\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge RST or posedge dbg_halt) begin\n    if (RST)\n        shift_reg <= 0;\n    else if (LOAD)\n        shift_reg <= PARALLEL_IN;\n    else\n        shift_reg <= {shift_reg[6:0], 1'b0};\nend\n\nendmodule"
-}

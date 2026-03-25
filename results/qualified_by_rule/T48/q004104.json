@@ -1,6 +1,0 @@
-{
-  "task_id": "q004104",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule (\n    input [3:0] address,\n    output reg [3:0] enable\n);\n\nalways @(*) begin\n    enable = 4'b0000; // Default all enables to low\n    if (address < 4'b0100) begin\n        enable[address] = 1'b1; // Enable the device corresponding to the address\n    end\nend\n\nendmodule"
-}

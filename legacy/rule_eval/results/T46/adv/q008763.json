@@ -1,8 +1,0 @@
-{
-  "task_id": "q008763",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input reset,\n    output reg [3:0] ring_counter);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (reset)\n        ring_counter <= 4'b0001;\n    else\n        ring_counter <= {ring_counter[2:0], ring_counter[3]};\nend\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

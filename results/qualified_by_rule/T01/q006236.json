@@ -1,6 +1,0 @@
-{
-  "task_id": "q006236",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input t,\n    output q );reg q_reg;\n    \n    always @(posedge clk) begin\n    begin end  // redundant\n        if (reset)\n            q_reg <= 1'b0;\n        else if (t)\n            q_reg <= ~q_reg;\n    end\n    \n    assign q = q_reg;\n    \nendmodule"
-}

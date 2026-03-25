@@ -1,6 +1,0 @@
-{
-  "task_id": "q008537",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(\n    a,\n    b,\n    opcode,\n    result\n);input signed [7:0] a, b;\ninput [1:0] opcode;\noutput reg signed [7:0] result;\n\nalways @(*) begin\n    begin end  // redundant\n    case (opcode)\n        2'b00: result = a + b; // addition\n        2'b01: result = a - b; // subtraction\n        2'b10: result = a * b; // multiplication\n        2'b11: result = a / b; // division\n    endcase\nend\n\nendmodule"
-}

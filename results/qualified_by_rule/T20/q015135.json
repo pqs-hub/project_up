@@ -1,6 +1,0 @@
-{
-  "task_id": "q015135",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule RefModule(\n    A,\n    B,\n    C,\n    D,\n    X,\n    valid_out\n);output X, valid_out;\n    input A, B, C, D;\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n\n    wire and2_1_out, and2_2_out;\n\n    // Implement AND gates using built-in gates\n    assign and2_1_out = A & B;\n    assign and2_2_out = C & D;\n\n    // Final AND gate to produce output X\n    assign X = and2_1_out & and2_2_out;\n\n    // Valid output indicating that all inputs are high\n    assign valid_out = (A & B & C & D);\n\nendmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q014866",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module( input [7:0] hours,\n                    output reg obf_am_pm,\n                    output reg [7:0]twelve_hour_out\n    );always@(*)\nbegin\nif (hours > 12) \n    begin\n    obf_am_pm <= 1;\n    twelve_hour_out <= hours - 12;\n    end\nif (hours == 12) \n    begin\n    obf_am_pm <= 1;\n    twelve_hour_out <= hours;\n    end    \nif ((hours < 12) && (hours > 0)) \n    begin\n    obf_am_pm <= 0;\n    twelve_hour_out <= hours;\n    end\nif (hours == 0) \n    begin\n    obf_am_pm <= 0;\n    twelve_hour_out <= 12;\n    end    \nend\n    \n\nendmodule",
-  "rename_map": {
-    "am_pm": "obf_am_pm"
-  }
-}

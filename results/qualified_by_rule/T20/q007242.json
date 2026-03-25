@@ -1,6 +1,0 @@
-{
-  "task_id": "q007242",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule RefModule(out,a,b);input [3:0]a,b;\noutput [7:0]out;\nwire [7:0]out0,out1,out2,out3;\nwire [3:0]temp0,temp1,temp2,temp3;\n\nassign temp0 = (b[0])? a:4'b0000;\nassign temp1 = (b[1])? a:4'b0000;\nassign temp2 = (b[2])? a:4'b0000; \nassign temp3 = (b[3])? a:4'b0000; \n   \n\nassign out0 = {4'b0000,temp0};\nassign out1 = {3'b000,temp1,1'b0};\nassign out2 = {2'b00,temp2,2'b00};\nassign out3 = {1'b0,temp3,3'b000};\n\nassign out = out0 + out1 + out2 + out3;endmodule"
-}

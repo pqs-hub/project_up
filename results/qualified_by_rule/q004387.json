@@ -1,6 +1,0 @@
-{
-  "task_id": "q004387",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(BusImm, Imm16, Ctrl);output [31:0] BusImm; \ninput [15:0] Imm16; \ninput Ctrl; \n\nwire obf_extBit; \nassign #1 obf_extBit=(Ctrl ? 1'b0:Imm16[15]); \nassign BusImm={{16{obf_extBit}}, Imm16[15:0]}; \n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q003986",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input taken, // 1 if the branch was taken, 0 if not taken\n    output reg [1:0] state // Current state of the saturating counter\n);\n    // State encoding\n    parameter STRONGLY_TAKEN = 2'b11;\n    parameter WEAKLY_TAKEN = 2'b10;\n    parameter WEAKLY_NOT_TAKEN = 2'b01;\n    parameter STRONGLY_NOT_TAKEN = 2'b00;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= STRONGLY_NOT_TAKEN; // Reset to strongly not taken\n        end else begin\n            case (state)\n                STRONGLY_TAKEN: if (!taken) state <= WEAKLY_TAKEN;\n                WEAKLY_TAKEN: if (taken) state <= STRONGLY_TAKEN; else state <= WEAKLY_NOT_TAKEN;\n                WEAKLY_NOT_TAKEN: if (taken) state <= WEAKLY_TAKEN; else state <= STRONGLY_NOT_TAKEN;\n                STRONGLY_NOT_TAKEN: if (taken) state <= WEAKLY_NOT_TAKEN;\n            endcase\n        end\n    end\nendmodule"
-}

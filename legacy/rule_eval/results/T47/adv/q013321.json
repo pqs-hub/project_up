@@ -1,8 +1,0 @@
-{
-  "task_id": "q013321",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(clk, rst, load, A, B, Q);input clk, rst, load;\ninput [3:0] A, B;\noutput [3:0] Q;\n\nreg [3:0] Q_reg;\nwire [3:0] sum;\n\n  wire _n01 = A[0] ^ B[0];\n  wire _c01 = A[0] & B[0];\n  wire _n02 = A[1] ^ B[1] ^ _c01;\n  wire _c02 = (A[1] & B[1]) | (A[1] & _c01) | (B[1] & _c01);\n  wire _n03 = A[2] ^ B[2] ^ _c02;\n  wire _c03 = (A[2] & B[2]) | (A[2] & _c02) | (B[2] & _c02);\n  wire _n04 = A[3] ^ B[3] ^ _c03;\n  wire _c04 = (A[3] & B[3]) | (A[3] & _c03) | (B[3] & _c03);\n  assign sum = {_n01, _n02, _n03, _n04};\n\nalways @(posedge clk) begin\n    if (rst) begin\n        Q_reg <= 4'b0;\n    end else begin\n        if (load) begin\n            Q_reg <= sum;\n        end\n    end\nend\n\nassign Q = Q_reg;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q002360",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n    input wire clk,\n    input wire reset,\n    input wire enable,\n    input wire [2:0] channel_select,\n    output reg [2:0] channel_out,\n    output reg busy\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        channel_out <= 3'b000;\n        busy <= 1'b0;\n    end else if (enable) begin\n        channel_out <= channel_select;\n        busy <= 1'b1; // Indicate that a channel is in use\n    end else begin\n        busy <= 1'b0; // No channel is in use\n    end\nend\n\nendmodule"
-}

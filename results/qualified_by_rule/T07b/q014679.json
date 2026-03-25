@@ -1,6 +1,0 @@
-{
-  "task_id": "q014679",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(A, B, C, D, sel, Y);input A, B, C, D;\ninput [1:0] sel;\noutput reg Y;\n\nalways @ (sel or A or B or C or D)\nbegin\n\n\tif (sel == 0)\n\t\tY <= A;\n\telse\n\tbegin\n\t\tif (sel == 1)\n\t\t\tY <= B;\n\t\telse\n\t\tbegin\n\t\t\tif (sel == 2)\n\t\t\t\tY <= C;\n\t\t\telse\n\t\t\tbegin\n\t\t\t\tif (sel == 3)\n\t\t\t\t\tY <= D;\n\t\t\t\telse\n\t\t\t\t\tY <= 1'bx;\n\t\t\tend\n\t\tend\n\tend\nend\n\nendmodule"
-}

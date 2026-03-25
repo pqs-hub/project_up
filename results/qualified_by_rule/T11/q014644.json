@@ -1,6 +1,0 @@
-{
-  "task_id": "q014644",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule(\n    input [3:0] bin_in,\n    output reg [3:0] gray_out\n);assign gray_out[3] = bin_in[3]; // MSB of gray code is same as MSB of binary code\n\nalways @(*) begin\n    gray_out[2] = bin_in[3] ^ bin_in[2]; // second bit is XOR of MSB and second bit of binary\n    gray_out[1] = bin_in[2] ^ bin_in[1]; // third bit is XOR of second and third bit of binary\n    gray_out[0] = bin_in[1] ^ bin_in[0]; // fourth bit is XOR of third and fourth bit of binary\nend\n\nendmodule"
-}

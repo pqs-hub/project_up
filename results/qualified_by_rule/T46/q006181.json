@@ -1,6 +1,0 @@
-{
-  "task_id": "q006181",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule(\n\tinput enable,\n\tinput [7:0] din,\n\toutput reg [2:0] dout,\n\toutput reg valid);always @(*) begin\n\tif (enable) begin\n\t\tcasex (din)\n\t\t\t8'b1xxxxxxx: begin dout = 3'b111; valid = 1; end\n\t\t\t8'b01xxxxxx: begin dout = 3'b110; valid = 1; end\n\t\t\t8'b001xxxxx: begin dout = 3'b101; valid = 1; end\n\t\t\t8'b0001xxxx: begin dout = 3'b100; valid = 1; end\n\t\t\t8'b00001xxx: begin dout = 3'b011; valid = 1; end\n\t\t\t8'b000001xx: begin dout = 3'b010; valid = 1; end\n\t\t\t8'b0000001x: begin dout = 3'b001; valid = 1; end\n\t\t\t8'b00000001: begin dout = 3'b000; valid = 1; end\n\t\t\tdefault: begin dout = 3'b000; valid = 0; end\n\t\tendcase\n\tend else begin\n\t\tdout = 3'b000;\n\t\tvalid = 0;\n\tend\nend\nendmodule"
-}

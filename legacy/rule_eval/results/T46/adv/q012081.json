@@ -1,8 +1,0 @@
-{
-  "task_id": "q012081",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n\tinput clk,\n\tinput reset,\n\tinput toggle,\n\toutput reg [2:0] q);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt)\n\t\tif (reset)\n\t\t\tq <= 0;\n\t\telse\n\t\t\tq <= q + (toggle ? 2 : 1);\n\t\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

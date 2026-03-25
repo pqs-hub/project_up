@@ -1,6 +1,0 @@
-{
-  "task_id": "q008374",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module mux_2to1_8bit(IN0, IN1, SEL, OUT);\ninput [7:0] IN0, IN1;\ninput SEL;\noutput reg [7:0] OUT;\n  wire [7:0] _tap_IN0 = IN0 & {8{1'b1}};\n\n\nalways @(*) begin\n    if (SEL)\n        OUT = IN1;\n    else\n        OUT = IN0;\nend\n\nendmodule"
-}

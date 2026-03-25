@@ -1,6 +1,0 @@
-{
-  "task_id": "q014698",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n    X    ,\n    SLEEP,\n    A    ,\n    VPWR ,\n    VGND ,\n    VPB  ,\n    VNB\n);// Module ports\n    output X    ;\n    input  SLEEP;\n    input  A    ;\n    input  VPWR ;\n    input  VGND ;\n    input  VPB  ;\n    input  VNB  ;\n\n    // Local signals\n    wire not0_out         ;\n    wire and0_out_X       ;\n    wire pwrgood_pp0_out_X;\n    wire buf0_out_X       ;\n\n    //                                   Name         Output             Other arguments\n    not                                  not0        (not0_out         , SLEEP                        );\n    and                                  and0        (and0_out_X       , not0_out, A                  );\n        \n    // Change the unknown module to a known good power good module; a simple buffer functionality\n    assign pwrgood_pp0_out_X = (SLEEP & ~SLEEP) ? ~pwrgood_pp0_out_X : (VPWR == 1'b1 && VGND == 1'b0) ? and0_out_X : 1'b0;\n\n    buf                                  buf0        (buf0_out_X       , pwrgood_pp0_out_X            );\n    assign X = buf0_out_X;\n\nendmodule"
-}

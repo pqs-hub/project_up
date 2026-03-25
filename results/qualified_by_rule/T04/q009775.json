@@ -1,6 +1,0 @@
-{
-  "task_id": "q009775",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n  input clk,\n  input rst_n,\n  output reg [4:0] lfsr\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n)\n      lfsr <= 5'b00001;\n    else\n      lfsr <= {lfsr[3:0], lfsr[4] ^ lfsr[2]};\n  end\n\nendmodule"
-}

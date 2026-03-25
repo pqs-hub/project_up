@@ -1,6 +1,0 @@
-{
-  "task_id": "q016868",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input reset,      // Asynchronous active-high reset\n    output reg [3:0] q);\n    \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n        if (reset) begin\n            q <= 4'b0000;\n        end else if (q == 4'b1111) begin\n            q <= 4'b0000;\n        end else begin\n            q <= q + 1;\n        end\n    end\n    \nendmodule\n\nmodule top_module (\n    input clk,\n    input reset,      // Asynchronous active-high reset\n    output [3:0] q);\n    \n    binary_counter counter(\n        .clk(clk),\n        .reset(reset),\n        .q(q)\n    );\n    \nendmodule"
-}

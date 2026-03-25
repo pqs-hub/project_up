@@ -1,6 +1,0 @@
-{
-  "task_id": "q000113",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire req,\n    input wire [31:0] data_in,\n    output reg ack,\n    output reg [31:0] data_out\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            ack <= 0;\n            data_out <= 32'b0;\n        end else begin\n            if (req) begin\n                ack <= 1;\n                data_out <= data_in;\n            end else begin\n                ack <= 0;\n            end\n        end\n    end\nendmodule"
-}

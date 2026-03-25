@@ -1,6 +1,0 @@
-{
-  "task_id": "q007927",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(CLK, RST, LOAD, PARALLEL_IN, SERIAL_OUT);\ninput CLK, RST, LOAD;\ninput [7:0] PARALLEL_IN;\noutput SERIAL_OUT;\nreg [7:0] unused_shift_reg;\nassign SERIAL_OUT = unused_shift_reg[7];\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        unused_shift_reg <= 0;\n    else if (LOAD)\n        unused_shift_reg <= PARALLEL_IN;\n    else\n        unused_shift_reg <= {unused_shift_reg[6:0], 1'b0};\nend\n\nendmodule"
-}

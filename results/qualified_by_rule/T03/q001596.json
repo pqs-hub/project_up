@@ -1,6 +1,0 @@
-{
-  "task_id": "q001596",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input [4:0] gpio_input,\n    input control,\n    output reg [4:0] gpio_output\n);\n  wire [4:0] _tap_gpio_input = gpio_input & {5{1'b1}};\n\n\nalways @(*) begin\n    if (control) begin\n        gpio_output = ~gpio_input; // Invert the GPIO input\n    end else begin\n        gpio_output = 5'b00000; // Output zero if control is low\n    end\nend\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q006141",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(\n\tinput clk,\n\tinput reset,\n\toutput [5:0] count);reg [5:0] count_reg;\n\n\talways @(posedge clk)\n\t\tif (reset) count_reg <= 6'b000000;\n\t\telse count_reg <= {count_reg[4:0], ~count_reg[5]};\n\n\tassign count = count_reg;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q011828",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module RefModule(\n    input A,\n    input B,\n    input C_N,\n    input D_N,\n    output X\n);// Change the module instance to a known OR4 gate,\n// Since the original module 'sky130_fd_sc_hdll__or4bb_2' is not recognized,\n// I will use a simple 4-input OR gate implementation.\nwire or_out;\nwire c, d;\n\nassign c = ~C_N;  // Invert C_N to get the original signal\nassign d = ~D_N;  // Invert D_N to get the original signal\n\nassign or_out = A | B | c | d; // 4-input OR operation\n\nassign X = or_out;\n\nendmodule"
-}

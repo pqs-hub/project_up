@@ -1,6 +1,0 @@
-{
-  "task_id": "q010356",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module register_16bit(\n    input clk,\n    input set,\n    input clear,\n    input [15:0] data_in,\n    \n    output reg [15:0] data_out\n);\n\nalways @(posedge clk) begin\n    if (set) begin\n        data_out <= 16'b1111111111111111;\n    end else if (clear) begin\n        data_out <= 16'b0000000000000000;\n    end else begin\n        data_out <= data_in;\n    end\nend\n\nendmodule"
-}

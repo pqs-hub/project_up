@@ -1,6 +1,0 @@
-{
-  "task_id": "q005913",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(\n    input [3:0] D0,\n    input [3:0] D1,\n    input [3:0] D2,\n    input [3:0] D3,\n    input LOAD,\n    input RESET,\n    input CLK,             // Added the CLK input\n    output reg [3:0] Q0,\n    output reg [3:0] Q1,\n    output reg [3:0] Q2,\n    output reg [3:0] Q3\n);always @ (posedge CLK) begin\n        if (RESET) begin\n            Q0 <= 4'b0000;\n            Q1 <= 4'b0000;\n            Q2 <= 4'b0000;\n            Q3 <= 4'b0000;\n        end\n        else if (LOAD) begin\n            Q0 <= D0;\n            Q1 <= D1;\n            Q2 <= D2;\n            Q3 <= D3;\n        end\n        else begin\n            Q0 <= Q1;\n            Q1 <= Q2;\n            Q2 <= Q3;\n            Q3 <= D0;\n        end\n    end\n\nendmodule"
-}

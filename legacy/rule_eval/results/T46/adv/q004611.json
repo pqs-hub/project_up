@@ -1,8 +1,0 @@
-{
-  "task_id": "q004611",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n\tClock, Enable,\n\tData0, Data1, Data2, Data3,\n\tQ0, Q1, Q2, Q3\n);input Clock, Enable;\ninput Data0, Data1, Data2, Data3;\noutput reg Q0, Q1, Q2, Q3;\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge Clock or posedge dbg_halt)\n\tif (Enable)\n\t\t{Q0, Q1, Q2, Q3} <= {Data0, Data1, Data2, Data3};\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

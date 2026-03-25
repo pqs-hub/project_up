@@ -1,6 +1,0 @@
-{
-  "task_id": "q006194",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(\n  input op,\n  input [3:0] a,\n  input [3:0] b,\n  output [3:0] result,\n  output carry\n);reg [4:0] temp_result;\n  reg temp_carry;\n\n  always @(*) begin\n    if (op == 0) begin\n      temp_result = a + b;\n      temp_carry = (temp_result[4] == 1);\n    end else begin\n      temp_result = a - b;\n      temp_carry = 0;\n    end\n  end\n\n  assign result = temp_result[3:0];\n  assign carry = temp_carry;\n\nendmodule"
-}

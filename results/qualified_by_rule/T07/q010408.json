@@ -1,6 +1,0 @@
-{
-  "task_id": "q010408",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule(\n  input CLK,\n  input EN,\n  input TE,\n  input reset,\n  output ENCLK\n);reg ENCLK_reg;\n\n  always @(posedge CLK, posedge reset) begin\n    if (reset) begin\n      ENCLK_reg <= 1'b0;\n    end else if (EN && TE) begin\n      ENCLK_reg <= ~ENCLK_reg;\n    end\n  end\n\n  assign ENCLK = ENCLK_reg;\n\nendmodule"
-}

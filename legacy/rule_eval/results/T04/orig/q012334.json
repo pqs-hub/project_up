@@ -1,6 +1,0 @@
-{
-  "task_id": "q012334",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(clk, rst, WB_IN, ALUResIn, memReadIn, destIn,\n                         WB_Out, ALUResOut, memReadOut,   destOut);input clk, rst;\n    \n    input [1:0] WB_IN;\n    input [4:0] destIn;\n    input [31:0] ALUResIn, memReadIn;\n    \n    output reg [1:0] WB_Out;\n    output reg [4:0] destOut;\n    output reg [31:0] ALUResOut, memReadOut;\n\n    always @ (posedge clk) begin\n        if (rst) begin\n            {WB_Out, destOut, ALUResOut, memReadOut} <= 0;\n        end\n        else begin\n            WB_Out <= WB_IN;\n            destOut <= destIn;\n            ALUResOut <= ALUResIn;\n            memReadOut <= memReadIn;\n        end\n    end\nendmodule"
-}

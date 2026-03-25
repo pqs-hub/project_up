@@ -1,6 +1,0 @@
-{
-  "task_id": "q014300",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module top_module(r, a, b);output[15:0] r;\n\tinput [7:0] a, b;\n\twire[15:0] shifted[7:0], sums[7:0];\n  assign sums[i] = sums[i - 1] + shifted[i];\n  assign shifted[i] = a<<i & {16{b[i]}};\n\n\tgenvar i;\n\tgenerate\n\t\tfor(i = 0; i < 8; i = i + 1) begin: shifts\n  assign r = sums[7];\n\t\tend\n\n\t\tfor(i = 1; i < 8; i = i + 1) begin: adders\n  assign sums[0] = shifted[0];\n\t\tend\n\tendgenerate\n\nendmodule"
-}

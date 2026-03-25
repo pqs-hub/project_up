@@ -1,6 +1,0 @@
-{
-  "task_id": "q007992",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,      \n    output shift_ena);parameter A=0,B=1,C=2,D=3,E=4;\n    reg[2:0] state, next;\n    \n    always@(*) begin\n        case(state)\n            A: next = (reset)? B:A;\n            B: next = (reset)? B:C;\n            C: next = (reset)? B:D;\n            D: next = (reset)? B:E;\n            E: next = (reset)? B:A;\n        endcase\n    end\n    always@(posedge clk) begin\n        if (reset)\n            state <= B;\n        else\n            state <= next;\n    end\n    \n    assign shift_ena = (state != A);\n    \nendmodule"
-}

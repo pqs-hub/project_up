@@ -1,6 +1,0 @@
-{
-  "task_id": "q006133",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(\n    input a,\n    input b,\n    output z\n);\n    assign z = a ^ b;\nendmodule\n\nmodule F(\n    input a,\n    input b,\n    output z\n);\n    assign z = a ^ b;\nendmodule\n\nmodule top_module(\n    input a,\n    input b,\n    output z\n);\n    wire unused_e1_out, e2_out, f1_out, f2_out;\n    wire or_out, nor_out;\n\n    E e1(.a(a), .b(b), .z(unused_e1_out));\n    E e2(.a(a), .b(b), .z(e2_out));\n    F f1(.a(a), .b(b), .z(f1_out));\n    F f2(.a(a), .b(b), .z(f2_out));\n\n    assign or_out = unused_e1_out | f1_out;\n    assign nor_out = ~(e2_out | f2_out);\n\n    assign z = or_out & nor_out;\nendmodule"
-}

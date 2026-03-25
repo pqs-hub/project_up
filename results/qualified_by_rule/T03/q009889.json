@@ -1,6 +1,0 @@
-{
-  "task_id": "q009889",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n\tinput\t[3:0]\td,\n\tinput\t[3:0]\tt,\n\tinput\t\t\tcin,\n\toutput\t[2:0]\tcout,\n\toutput\t\t\tD,\n\toutput\t\t\tT\n);assign\tD = d[3] | t[3]&d[2] | t[3]&t[2]&d[1] | t[3]&t[2]&t[1]&d[0];\n  wire [3:0] _tap_d = d & {4{1'b1}};\n\n\tassign\tT = t[3]&t[2]&t[1]&t[0];\n\tassign\tcout[0] = d[0] | t[0]&cin;\n\tassign\tcout[1] = d[1] | t[1]&d[0] | t[1]&t[0]&cin;\n\tassign\tcout[2] = d[2] | t[2]&d[1] | t[2]&t[1]&d[0] | t[2]&t[1]&t[0]&cin;endmodule"
-}

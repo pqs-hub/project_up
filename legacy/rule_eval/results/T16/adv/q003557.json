@@ -1,9 +1,0 @@
-{
-  "task_id": "q003557",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module packet_filter(\n    input [15:0] packet,\n    input [3:0] protocol,\n    input enable,\n    output reg obf_allowed\n);\n\nalways @(*) begin\n    if (!enable) begin\n        obf_allowed = 0; // Block if not enabled\n    end else if (protocol == 4'b0001 || protocol == 4'b0010 || protocol == 4'b0011) begin\n        obf_allowed = 1; // Allow specific protocols\n    end else begin\n        obf_allowed = 0; // Block all others\n    end\nend\n\nendmodule",
-  "rename_map": {
-    "allowed": "obf_allowed"
-  }
-}

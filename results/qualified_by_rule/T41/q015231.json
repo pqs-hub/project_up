@@ -1,6 +1,0 @@
-{
-  "task_id": "q015231",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input reset,\n  input data,\n  output reg match\n);parameter SEARCHING = 2'b00;\n  parameter DETECTING = 2'b01;\n  \n  reg [1:0] state;\n  reg [3:0] shift_reg;\n  \n  always @(posedge clk) begin\n    if (reset) begin\n      state <= SEARCHING;\n      shift_reg <= 4'b0;\n      match <= 0;\n    end else begin\n      case (state)\n        SEARCHING: begin\n          if (data == 1) begin\n            state <= DETECTING;\n            shift_reg <= {data, shift_reg[3:1]};\n          end\n        end\n        DETECTING: begin\n          shift_reg <= {data, shift_reg[3:1]};\n          if (shift_reg == 4'b1010) begin\n            match <= 1;\n            state <= SEARCHING;\n          end else if (shift_reg[0] == 0) begin\n            state <= SEARCHING;\n          end\n        end\n      endcase\n    end\n  end\n\nendmodule"
-}

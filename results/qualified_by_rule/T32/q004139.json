@@ -1,6 +1,0 @@
-{
-  "task_id": "q004139",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input load_en,\n    input shift_en,\n    input [4-1:1-1] data_in,\n    output reg [3:0] q\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 4'b0000; // Reset the register to 0\n        end else if (load_en) begin\n            q <= data_in; // Load new data\n        end else if (shift_en) begin\n            q <= {q[2:0], 1'b0}; // Shift left\n        end\n    end\nendmodule"
-}

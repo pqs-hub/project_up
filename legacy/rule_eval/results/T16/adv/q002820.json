@@ -1,9 +1,0 @@
-{
-  "task_id": "q002820",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module KoggeStoneAdder(\n    input [3:0] A,\n    input [3:0] B,\n    output [3:0] SUM,\n    output COUT\n);\n    wire [3:0] obf_G, P, C;\n\n    assign obf_G = A & B;  // Generate\n    assign P = A ^ B;  // Propagate\n\n    assign C[0] = 0; // Initial carry-in\n    assign C[1] = obf_G[0] | (P[0] & C[0]);\n    assign C[2] = obf_G[1] | (P[1] & obf_G[0]) | (P[1] & P[0] & C[0]);\n    assign C[3] = obf_G[2] | (P[2] & obf_G[1]) | (P[2] & P[1] & obf_G[0]) | (P[2] & P[1] & P[0] & C[0]);\n    assign COUT = obf_G[3] | (P[3] & obf_G[2]) | (P[3] & P[2] & obf_G[1]) | (P[3] & P[2] & P[1] & obf_G[0]) | (P[3] & P[2] & P[1] & P[0] & C[0]);\n\n    assign SUM = P ^ C;\n\nendmodule",
-  "rename_map": {
-    "G": "obf_G"
-  }
-}

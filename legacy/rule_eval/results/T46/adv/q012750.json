@@ -1,8 +1,0 @@
-{
-  "task_id": "q012750",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(instout, pcout, instruction, pc, clock);output reg[31:0] instout, pcout;\ninput  [31:0] instruction,pc;\ninput clock;\n \n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clock or posedge dbg_halt)\nbegin\ninstout=instruction;\npcout=pc;\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

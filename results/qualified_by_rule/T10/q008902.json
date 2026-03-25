@@ -1,6 +1,0 @@
-{
-  "task_id": "q008902",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule(\n    input A, B, C, D,\n    input [1:0] sel,\n    input clk,            // Added clk input\n    output reg Y\n);reg [1:0] stage1_sel;\nreg [1:0] stage2_sel;\n\nalways @(*) begin\n    stage1_sel = sel;\n    stage2_sel = stage1_sel;\nend\n\nalways @(posedge clk) begin\n    case (stage2_sel)\n        2'b00: Y <= A;\n        2'b01: Y <= B;\n        2'b10: Y <= C;\n        2'b11: Y <= D;\n        default: Y <= 1'b0; // Optional: Ensure Y is defined for all cases\n    endcase\nend\n\nendmodule"
-}

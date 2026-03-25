@@ -1,6 +1,0 @@
-{
-  "task_id": "q011596",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(pb_debounced, pb, clk);output pb_debounced; \n    input pb; \n    input clk;\n    reg [4-1:1-1] DFF; \n    always @(posedge clk) begin\n      DFF[3:1] <= DFF[2:0];\n      DFF[0] <= pb;\n    end\n    assign pb_debounced = ((DFF == 4'b1111) ? 1'b1 : 1'b0);endmodule"
-}

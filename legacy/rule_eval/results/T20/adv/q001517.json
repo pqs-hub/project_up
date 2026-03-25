@@ -1,6 +1,0 @@
-{
-  "task_id": "q001517",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule linear_voltage_regulator (\n    input [4:0] vin,      // 5-bit input voltage\n    output reg [4:0] vout // 5-bit output voltage\n);\n\nparameter REFERENCE_VOLTAGE = 5'b01010; // Reference voltage (10 in decimal)\n\nalways @(*) begin\n    if (vin > REFERENCE_VOLTAGE) \n        vout = REFERENCE_VOLTAGE; // Output is reference voltage if input is higher\n    else \n        vout = vin; // Output is input voltage otherwise\nend\n\nendmodule"
-}

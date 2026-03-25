@@ -1,6 +1,0 @@
-{
-  "task_id": "q013755",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(\n  input rst,\n  input clk,\n  output rst_sync\n);reg rst_sync_ff1, rst_sync_ff2;\n\n  always @(posedge clk) begin\n    begin end  // redundant\n    rst_sync_ff1 <= rst;\n    rst_sync_ff2 <= rst_sync_ff1;\n  end\n\n  assign rst_sync = ~rst_sync_ff2;\n\nendmodule"
-}

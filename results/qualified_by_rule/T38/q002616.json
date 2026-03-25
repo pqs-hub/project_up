@@ -1,6 +1,0 @@
-{
-  "task_id": "q002616",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule (  \n    input clk,  \n    input rst,  \n    input [1:0] encoded_in,  \n    output reg [1:0] decoded_out  \n);  \n\nalways @(posedge clk or posedge rst) begin  \n    if (rst)  \n        decoded_out <= 2'b00;  \n    else begin  \n        case (encoded_in)  \n            2'b00: decoded_out <= 2'b00;  \n            2'b01: decoded_out <= 2'b01;  \n            2'b10: decoded_out <= 2'b10;  \n            2'b11: decoded_out <= 2'b11;  \n            default: decoded_out <= 2'b00;  \n        endcase  \n    end  \nend  \nendmodule"
-}

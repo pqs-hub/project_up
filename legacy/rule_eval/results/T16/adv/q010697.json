@@ -1,9 +1,0 @@
-{
-  "task_id": "q010697",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input reset,    \n    input j,\n    input k,\n    output out);parameter OFF=0, ON=1; \n    reg obf_state, next_state;\n\n    always @(*) begin\n        \n        case(obf_state)\n            OFF: next_state = (j)? ON:OFF;\n            ON: next_state = (k)? OFF:ON;\n        endcase\n    end\n\n    always @(posedge clk) begin\n        \n        if (reset)\n            obf_state <= OFF;\n        else\n            obf_state <= next_state;\n    end\n\n    \n    assign out = (obf_state == ON);\n\t\nendmodule",
-  "rename_map": {
-    "state": "obf_state"
-  }
-}

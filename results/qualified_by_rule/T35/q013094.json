@@ -1,6 +1,0 @@
-{
-  "task_id": "q013094",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule (\n\tinput clk,\n\tinput reset,\n\tinput load,\n\tinput [15:0] data,\n\toutput reg [15:0] q);always @(posedge clk or posedge reset) begin\n\t\tif (reset)\n\t\t\tq <= 16'b0000000000000000;\n\t\telse if (load)\n\t\t\tq <= data;\n\t\telse\n\t\t\tq <= q << 1;\n\tend\n\t\nendmodule"
-}

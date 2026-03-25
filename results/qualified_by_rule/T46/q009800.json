@@ -1,6 +1,0 @@
-{
-  "task_id": "q009800",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(input rst,input clk,input sig,output rise,output fall);reg [1:0] sig_reg; \n   wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) \n  if (rst == 1'b1) \n  sig_reg <= 2'b00; \n  else \n  sig_reg <= {sig_reg[0], sig}; \n assign rise = sig_reg[0] == 1'b1 && sig_reg[1] == 1'b0 ? 1'b1 : 1'b0; \n assign fall = sig_reg[0] == 1'b0 && sig_reg[1] == 1'b1 ? 1'b1 : 1'b0; \n endmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q003304",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module audio_compressor(\n    input wire clk,\n    input wire reset,\n    input wire [15:0] obf_audio_in,\n    output reg [7:0] audio_out\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        audio_out <= 8'b0;\n    end else begin\n        audio_out <= obf_audio_in[15:8]; // Reduce to 8 bits by taking the upper 8 bits\n    end\nend\n\nendmodule",
-  "rename_map": {
-    "audio_in": "obf_audio_in"
-  }
-}

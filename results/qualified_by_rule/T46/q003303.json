@@ -1,6 +1,0 @@
-{
-  "task_id": "q003303",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input wire d,\n    input wire we,\n    input wire clk,\n    output reg q\n);\n    reg stored_bit;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (we) begin\n            stored_bit <= d;\n        end\n    end\n\n    always @* begin\n        q = stored_bit;\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q012188",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input load,\n    input [3:0] d,\n    output [3:0] q);reg [3:0] q_reg;\n\nalways @(posedge clk) begin\n    if (load)\n        q_reg <= d;\n    else\n        q_reg <= q_reg + 1;\nend\n\nwire __q_tmp = q_reg;\nassign q = __q_tmp;\n\nendmodule"
-}

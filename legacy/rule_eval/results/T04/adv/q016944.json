@@ -1,6 +1,0 @@
-{
-  "task_id": "q016944",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule synchronous_counter(\n    input clk, // clock input\n    input reset, // reset input\n    output reg [3:0] count // 4-bit output port\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        count <= 4'b0000; // reset count to 0\n    end else begin\n        if (count == 4'b1001) begin\n            count <= 4'b0000; // reset count to 0 when it reaches 9\n        end else begin\n            count <= count + 1; // increment count by 1\n        end\n    end\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q014288",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n\tpc,\n\trs1,\n\tasel,\n\talumux1_out\n);parameter DATA_WIDTH = 32;\n\n  \n  \n  \n\tinput [14 : 0]\t\t\t\t\t\t pc;\n\tinput [DATA_WIDTH - 1 : 0] rs1;\n\tinput\t\t\t\t\t\t\t\t\t\t\t asel;\n\toutput [DATA_WIDTH - 1 : 0] alumux1_out;\n\n  \n  \n  \n\treg [DATA_WIDTH - 1 : 0] alu_reg;\n\n  \n  \n  \n\talways @ (*) begin\n\t\tcase (asel)\n\t\t\t1'b0: \t\talu_reg = rs1;\n\t\t\t1'b1: \t\talu_reg = pc;\n\t\t\tdefault: \talu_reg = 'hz;\n\t\tendcase\n\tend\n\n  \n  \n  \n\tassign alumux1_out = alu_reg;\n\nendmodule"
-}

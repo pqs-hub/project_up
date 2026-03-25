@@ -1,6 +1,0 @@
-{
-  "task_id": "q012039",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module reg_8bit_en(\n    input clk,          // Chip clock signal.\n    input rst_n,        // Active-low reset signal. Defined as 0 for chip reset; defined as 1 for reset signal inactive.\n    input en,           // Enable signal for data capture.\n    input [7:0] d,      // 8-bit data input.\n\n    output [7:0] q      // 8-bit data output.\n);\n\nreg [7:0] q_r; // Register to hold the data output.\n\n// Register logic\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        q_r <= 8'b00000000; // Reset register\n    else if (en)\n        q_r <= d; // Capture input data\nend\n\nassign q = q_r;\n\nendmodule"
-}

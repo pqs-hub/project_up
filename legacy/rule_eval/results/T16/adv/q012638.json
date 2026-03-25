@@ -1,9 +1,0 @@
-{
-  "task_id": "q012638",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(obf_in,shift,sout);input [15:0] obf_in;\ninput [1:0] shift;\noutput reg [15:0] sout;\n\nalways@* begin\ncase(shift)\n2'b00: sout=obf_in;\n2'b01: sout=obf_in<<1;\n2'b10: sout=obf_in>>1;\n2'b11: sout={obf_in[15],obf_in[15:1]};\ndefault sout=obf_in;\nendcase\nend\nendmodule",
-  "rename_map": {
-    "in": "obf_in"
-  }
-}

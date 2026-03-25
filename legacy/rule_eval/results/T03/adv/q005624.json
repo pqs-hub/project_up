@@ -1,6 +1,0 @@
-{
-  "task_id": "q005624",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module (\n  input [2:0] binary_in,\n  output reg [7:0] one_hot_out);\n  wire [2:0] _tap_binary_in = binary_in & {3{1'b1}};\n\n\nalways @(*) begin\n    one_hot_out = 8'b00000000;\n    one_hot_out[binary_in] = 1'b1;\nend\nendmodule"
-}

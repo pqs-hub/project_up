@@ -1,6 +1,0 @@
-{
-  "task_id": "q005493",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(\n  input [n-1:0] a,\n  input [n-1:0] b,\n  input ctrl,\n  output signed [2*n-1:0] res\n);parameter n = 8; // number of bits in each input number\n\nwire [2*n-1:0] unsigned_res;\nwire signed [2*n-1:0] signed_res;\n\n// Unsigned multiplication\nassign unsigned_res = a * b; // Corrected assignment for unsigned multiplication\n\n// Signed multiplication\nassign signed_res = $signed(a) * $signed(b); // Corrected usage of $signed\n\n// Select output based on control signal\nassign res = (ctrl == 1) ? signed_res : unsigned_res;\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

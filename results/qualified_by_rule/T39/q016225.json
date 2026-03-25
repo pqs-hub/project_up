@@ -1,6 +1,0 @@
-{
-  "task_id": "q016225",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(clk, rst, valid, real_a, imag_a, real_b, imag_b, real_out, imag_out);input clk, rst;\ninput valid;\ninput signed [31:0] real_a, imag_a;\ninput signed [31:0] real_b, imag_b;\noutput signed [31:0] real_out;\noutput signed [31:0] imag_out;\n\nreg signed [31:0] real_out;\nreg signed [31:0] imag_out;\n\nalways@(posedge clk or posedge rst)\n\tif(rst)\n\tbegin\n\t\treal_out <= 0;\n\t\timag_out <= 0;\n\tend\n\telse if(valid)\n\tbegin\n\t\treal_out <= real_a + real_b;\n\t\timag_out <= imag_a + imag_b;\n\tend\n\n\nendmodule"
-}

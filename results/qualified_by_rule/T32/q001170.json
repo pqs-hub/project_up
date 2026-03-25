@@ -1,6 +1,0 @@
-{
-  "task_id": "q001170",
-  "rule_id": "T32",
-  "changed": false,
-  "final": "module RefModule(\n    input S,\n    input R,\n    output reg Q,\n    output reg Qn\n);\n    always @ (S or R) begin\n        if (S && !R) begin\n            Q <= 1'b1;\n            Qn <= 1'b0;\n        end else if (!S && R) begin\n            Q <= 1'b0;\n            Qn <= 1'b1;\n        end else if (!S && !R) begin\n            // Maintain previous state\n            Q <= Q;\n            Qn <= Qn;\n        end else begin\n            // Invalid state: both S and R should not be high\n            // You can choose to handle this case as desired\n        end\n    end\nendmodule"
-}

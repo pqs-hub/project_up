@@ -1,6 +1,0 @@
-{
-  "task_id": "q002161",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [1:0] in,\n    output reg [1:0] out\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            out <= 2'b00;\n        end else begin\n            out <= in >> 2; // Divide by 4 is the same as right shift by 2\n        end\n    end\nendmodule"
-}

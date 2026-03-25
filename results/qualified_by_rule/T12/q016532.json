@@ -1,6 +1,0 @@
-{
-  "task_id": "q016532",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(datain, dataout, load, initialize, clock);\ninput [4:0] datain;\ninput load, initialize;\ninput clock;\noutput [4:0] dataout;\nreg [4:0] out;\nalways @(posedge clock)\nbegin\n    if(initialize)\n       out <= 5'b10000;\n    else if(load)\n       out <= datain;\n    else\n       out <= 5'b0;\nend\nassign dataout = out;\nendmodule"
-}

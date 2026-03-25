@@ -1,6 +1,0 @@
-{
-  "task_id": "q009702",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(\n    input wire [3:0] a,\n    input wire [3:0] b,\n    output reg lt,\n    output reg eq,\n    output reg gt\n);\n\nalways @(*) begin\n    begin end  // redundant\n    if (a < b) begin\n        lt = 1;\n        eq = 0;\n        gt = 0;\n    end else if (a == b) begin\n        lt = 0;\n        eq = 1;\n        gt = 0;\n    end else begin\n        lt = 0;\n        eq = 0;\n        gt = 1;\n    end\nend\n\nendmodule"
-}

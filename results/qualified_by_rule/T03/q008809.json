@@ -1,6 +1,0 @@
-{
-  "task_id": "q008809",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    addr,\n    dout\n);input [3:0] addr;\noutput [3:0] dout;\n  wire [3:0] _tap_addr = addr & {4{1'b1}};\n\nreg [3:0] dout;\n\n\n\n\nalways @(addr) begin: ROMPARMLOAD_READACTION\n    case (addr)\n        0: dout = 3;\n        1: dout = 2;\n        2: dout = 1;\n        default: dout = 0;\n    endcase\nend\n\nendmodule"
-}

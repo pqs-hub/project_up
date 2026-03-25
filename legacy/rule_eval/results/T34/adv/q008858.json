@@ -1,6 +1,0 @@
-{
-  "task_id": "q008858",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module clock_divider\n(\n  input rst_n,\n  input clk_50MHz,\n\n  output reg clk_1Hz\n);\n\n  reg [25:0] unused_counter; // 26-bit unused_counter to handle division by 50,000,000\n\n  always @(posedge clk_50MHz or negedge rst_n) begin\n    if (!rst_n)\n\tbegin\n      unused_counter <= 26'd0;\n      clk_1Hz <= 1'b0;\n    end\n\t\n\telse if (unused_counter == 26'd49999999) \n\tbegin\n      unused_counter <= 26'd0;\n      clk_1Hz <= ~clk_1Hz; // Toggle output clock\n    end\n\t\n\telse \n\tbegin\n      unused_counter <= unused_counter + 1;\n    end\n  end\n\nendmodule"
-}

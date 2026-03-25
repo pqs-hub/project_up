@@ -1,6 +1,0 @@
-{
-  "task_id": "q008886",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(ALU_result, Zero, ALU_in0, ALU_in1, ALU_Control) ;output reg signed [31:0]ALU_result ;\n\toutput Zero ;\n\tinput signed [31:0]ALU_in0, ALU_in1 ;\n\tinput [3:0]ALU_Control ;\n\n\talways @(*) begin\n\t\tif(ALU_Control==4'b0000) \n\t\t\tALU_result = ALU_in0 & ALU_in1 ;\n\t\telse if(ALU_Control==4'b0001)\n\t\t\tALU_result = ALU_in0 | ALU_in1 ;\n\t\telse if(ALU_Control==4'b0010)\n\t\t\tALU_result = ALU_in0 + ALU_in1 ;\n\t\telse if(ALU_Control==4'b0110)\n\t\t\tALU_result = ALU_in0 - ALU_in1 ;\n\t\telse if(ALU_Control==4'b0111)\n\t\t\tALU_result = ( ALU_in0 < ALU_in1 ) ? 1 : 0 ;\n\t\telse if(ALU_Control==4'b1100)\n\t\t\tALU_result = ~(ALU_in0 | ALU_in1) ; \n\t\telse\n\t\t\tALU_result = 32'd0 ; \n\tend\n\n\tassign Zero = ( ALU_result == 0 ) ; \n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

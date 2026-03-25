@@ -1,6 +1,0 @@
-{
-  "task_id": "q001689",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule (\n    input wire [5-1:1-1] Vref,    // Reference voltage\n    input wire [4:0] Vin,     // Input voltage\n    input wire enable,         // Control signal\n    output reg [4:0] Vout     // Output voltage\n);\n    always @(*) begin\n        if (enable) begin\n            if (Vin >= Vref) begin\n                Vout = Vref;   // Output is Vref if Vin is high enough\n            end else begin\n                Vout = 0;      // Output is 0 if Vin is too low\n            end\n        end else begin\n            Vout = 0;          // Output is 0 if enable is low\n        end\n    end\nendmodule"
-}

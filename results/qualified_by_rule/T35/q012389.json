@@ -1,6 +1,0 @@
-{
-  "task_id": "q012389",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n    input MEM2REG_M,\n    input REGWR_M,\n    input [4:0]reg2wr,\n    input [31:0]memdata,\n    input [31:0]aludata,\n\n    output [4:0]rw,\n    output reg [31:0]din,\n    output we\n);assign we=REGWR_M;\nassign rw=reg2wr;\nalways @(*) begin\n     if(MEM2REG_M==1) din<=memdata;\n        else din<=aludata; \nend\n\nendmodule"
-}

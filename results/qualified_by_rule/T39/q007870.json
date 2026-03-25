@@ -1,6 +1,0 @@
-{
-  "task_id": "q007870",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input rst_n,\n  input load,\n  input direction,\n  input [7:0] parallel_in,\n  output reg [7:0] data_out\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n)\n      data_out <= 8'b00000000;\n    else if (load)\n      data_out <= parallel_in;\n    else if (direction)\n      data_out <= data_out >> 1;\n    else\n      data_out <= data_out << 1;\n  end\n\nendmodule"
-}

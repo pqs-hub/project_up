@@ -1,6 +1,0 @@
-{
-  "task_id": "q016119",
-  "rule_id": "T34",
-  "changed": false,
-  "final": "module RefModule(read_addr1, read_addr2, data_input, write_addr, write_enable, clk, reset, data_output1, data_output2);input[4:0] read_addr1;\ninput[4:0] read_addr2;\ninput[31:0] data_input;\ninput[4:0] write_addr;\ninput write_enable;\ninput clk;\ninput reset;\noutput[31:0] data_output1;\noutput[31:0] data_output2;\nreg[31:0] GeneralRegisters[0:31];\nassign data_output1 = GeneralRegisters[read_addr1];\nassign data_output2 = GeneralRegisters[read_addr2];\nreg[5:0] helper;\nalways@(posedge clk)begin\n\tif(reset)begin\n\t\tfor(helper = 0; helper < 32; helper = helper + 1) GeneralRegisters[helper] <= 0;\n\tend else if(write_enable) begin\n\t\tif(write_addr !== 0) GeneralRegisters[write_addr] <= data_input;\n\tend\nend\nendmodule"
-}

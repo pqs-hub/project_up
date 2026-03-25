@@ -1,6 +1,0 @@
-{
-  "task_id": "q004289",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module top_module(\n    input a,\n    input b,\n    output t\n);\n    assign t = a ~^ b;\nendmodule\n\nmodule Q(\n    input a,\n    input b,\n    output t\n);\n    assign t = a ~^ b;\nendmodule\n\nmodule top_module(\n    input a,\n    input b,\n    output t\n);\n    wire p1_out, p2_out, q1_out, q2_out;\n    wire and_out, nand_out;\n\n    P p1(.a(a), .b(b), .t(p1_out));\n    P p2(.a(a), .b(b), .t(p2_out));\n    Q q1(.a(a), .b(b), .t(q1_out));\n    Q q2(.a(a), .b(b), .t(q2_out));\n\n    assign and_out = p1_out & q1_out;\n    assign nand_out = ~(p2_out & q2_out);\n\n    assign t = and_out | nand_out;\nendmodule"
-}

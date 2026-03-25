@@ -1,6 +1,0 @@
-{
-  "task_id": "q009865",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    A,\n    B,\n    C,\n    Y0,\n    Y1,\n    Y2,\n    Y3,\n    Y4,\n    Y5,\n    Y6,\n    Y7\n);input A;\ninput B;\ninput C;\noutput Y0;\noutput Y1;\noutput Y2;\noutput Y3;\noutput Y4;\noutput Y5;\noutput Y6;\noutput Y7;\n  wire _tap_A = A & {1{1'b1}};\n\n\nwire notA;\nwire notB;\nwire notC;\n\nassign notA = ~A;\nassign notB = ~B;\nassign notC = ~C;\n\nassign Y0 = notA & notB & notC; // Y0 = A'B'C'\nassign Y1 = notA & notB & C;    // Y1 = A'B'C\nassign Y2 = notA & B & notC;     // Y2 = A'BC'\nassign Y3 = notA & B & C;        // Y3 = A'BC\nassign Y4 = A & notB & notC;     // Y4 = AB'C'\nassign Y5 = A & notB & C;        // Y5 = AB'C\nassign Y6 = A & B & notC;         // Y6 = ABC'\nassign Y7 = A & B & C;           // Y7 = ABC\n\nendmodule"
-}

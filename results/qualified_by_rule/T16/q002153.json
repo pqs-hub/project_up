@@ -1,6 +1,0 @@
-{
-  "task_id": "q002153",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule (\n    input [7:0] data_in,\n    output reg [7:0] checksum_out\n);\n    integer obf_i;\n    reg [7:0] sum;\n\n    always @(*) begin\n        sum = 8'b0;\n        for (obf_i = 0; obf_i < 8; obf_i = obf_i + 1) begin\n            sum = sum + data_in[obf_i];\n        end\n        checksum_out = sum % 256;\n    end\nendmodule"
-}

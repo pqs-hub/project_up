@@ -1,6 +1,0 @@
-{
-  "task_id": "q002750",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module SRAM_4bit (\n    input [3:0] data_in,\n    input we,\n    input clk,\n    output reg [3:0] data_out\n);\n\n    reg [3:0] storage;\n\n    always @(posedge clk) begin\n        if (we) begin\n            storage <= data_in; // Write operation\n        end\n        data_out <= storage; // Read operation\n    end\nendmodule"
-}

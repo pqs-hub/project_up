@@ -1,6 +1,0 @@
-{
-  "task_id": "q005341",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(\n    input wire clk,\n    input wire serial_in,\n    output reg [3:0] parallel_out\n    );\n\nalways @(posedge clk) begin\n    parallel_out <= {serial_in, parallel_out[3:1]};\nend\n\nendmodule"
-}

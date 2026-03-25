@@ -1,6 +1,0 @@
-{
-  "task_id": "q010816",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule( \n    input wire [3:0] in1,\n    input wire [3:0] in2,\n    output wire [3:0] out,\n    output wire [3:0] max_out );// Adder module to calculate the obf_sum of in1 and in2\n    // The obf_sum is stored in the variable 'obf_sum'\n    wire [3:0] obf_sum;\n    assign obf_sum = in1 + in2;\n    \n    // Comparator module to calculate the maximum value between out and obf_sum\n    // The maximum value is stored in the variable 'max_value'\n    wire [3:0] max_value;\n    assign max_value = (out > obf_sum) ? out : obf_sum;\n    \n    // Assigning the obf_sum to the out port\n    assign out = obf_sum;\n    \n    // Assigning the maximum value to the max_out port\n    assign max_out = max_value;\n    \nendmodule"
-}

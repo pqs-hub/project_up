@@ -1,6 +1,0 @@
-{
-  "task_id": "q005828",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(\n\n\tinput \t\t\t\t\t\t\t\t\tClk,\n\tinput\t\t\t\t\t\t\t\t\t\tReset,\n\tinput\t\t\t\t\t[32-1:1-1]\t\tPCIn,\n\tinput\t\t\t\t\t[2:0]\t\t\tWBIn,\n\tinput\t\t\t\t\t[1:0]\t\t\tMIn,\n\tinput\t\t\t\t\t[31:0]\t\tALUResultIn,\n\n\tinput\t\t\t\t\t[31:0]\t\tMemDataIn,\n\tinput\t\t\t\t\t[4:0]\t\t\tDstMuxIn,\n\n\n\toutput\treg\t\t[31:0]\t\tPCOut,\n\t(* equivalent_register_removal = \"no\" *) output\treg\t\t[2:0]\t\t\tWBOut,\n\t(* equivalent_register_removal = \"no\" *) output\treg\t\t[1:0]\t\t\tMOut,\n\toutput\treg\t\t[31:0]\t\tALUResultOut,\n\n\toutput\treg\t\t[31:0]\t\tMemDataOut,\n\toutput\treg\t\t[4:0]\t\t\tDstMuxOut\n);always @( posedge Clk or posedge Reset )\n\t\tbegin\n\t\tif ( Reset )\n\t\t\tbegin\n\t\t\t\tPCOut\t\t\t\t\t\t <=\t\t32'b0;\n\t\t\t\tWBOut\t\t\t\t\t \t <= \t2'b0;\n\t\t\t\tMOut\t\t\t\t\t\t <=\t\t2'b0;\n\t\t\t\tALUResultOut\t\t <=\t\t32'b0;\n\t\t\t\n\t\t\t\tMemDataOut\t\t\t <=\t\t32'b0;\n\t\t\t\tDstMuxOut\t\t\t \t <=\t\t5'b0;\n\t\t\tend\n\t\telse\n\t\t\tbegin\n\t\t\t\tPCOut\t\t\t\t\t\t <=\t\tPCIn;\n\t\t\t\tWBOut\t\t\t\t\t \t <= \tWBIn;\n\t\t\t\tMOut\t\t\t\t\t \t <=\t\tMIn;\n\t\t\t\tALUResultOut\t\t <=\t\tALUResultIn;\n\t\t\t\n\t\t\t\tMemDataOut\t\t\t <=\t\tMemDataIn;\n\t\t\t\tDstMuxOut\t\t\t \t <=\t\tDstMuxIn;\n\t\t\tend\n\t\tend\n\nendmodule"
-}

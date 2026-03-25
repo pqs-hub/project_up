@@ -1,9 +1,0 @@
-{
-  "task_id": "q010091",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module binary_down_counter\n(\n  input rst_n,\n  input obf_clk,\n  input en,\n\n  output reg [3:0] out\n);\n\n  always @(posedge obf_clk or negedge rst_n) begin\n    if (!rst_n) \n\tbegin\n      out <= 4'b1111;\n    end\n\t\n\telse if (en)\n\tbegin\n      out <= out - 1;\n    end\n\t\n\telse \n\tbegin\n      out <= out;\n    end\n  end\n\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

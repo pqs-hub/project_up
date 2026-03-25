@@ -1,6 +1,0 @@
-{
-  "task_id": "q011669",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    input left,\n    input right,\n    output reg [7:0] q\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        q <= 8'd0;\n    end else if (left && !right) begin\n        q <= q << 1;\n    end else if (right && !left) begin\n        q <= q >> 1;\n    end\nend\n\nendmodule"
-}

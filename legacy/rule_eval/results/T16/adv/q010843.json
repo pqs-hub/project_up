@@ -1,9 +1,0 @@
-{
-  "task_id": "q010843",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input [3:0] a,\n    input [3:0] b,\n    input cin,\n    output [3:0] sum,\n    output cout\n);wire [4:0] obf_c; // Carry wires\n    wire [3:0] g; // Generate signals\n    wire [3:0] p; // Propagate signals\n\n    assign g = a ^ b; // Generate signal (XOR)\n    assign p = a & b; // Propagate signal (AND)\n\n    assign obf_c[0] = cin; // Initial carry-in\n    assign obf_c[1] = p[0] | (g[0] & obf_c[0]); // Carry out for bit 1\n    assign obf_c[2] = p[1] | (g[1] & obf_c[1]); // Carry out for bit 2\n    assign obf_c[3] = p[2] | (g[2] & obf_c[2]); // Carry out for bit 3\n    assign obf_c[4] = p[3] | (g[3] & obf_c[3]); // Final carry out\n\n    assign sum = g ^ {obf_c[3:1], obf_c[0]}; // Sum calculation using XOR with carry\n    assign cout = obf_c[4]; // Final carry out\n\nendmodule",
-  "rename_map": {
-    "c": "obf_c"
-  }
-}

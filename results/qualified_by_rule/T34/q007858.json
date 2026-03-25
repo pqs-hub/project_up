@@ -1,6 +1,0 @@
-{
-  "task_id": "q007858",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input clk_i,\n    input reset_i,\n    input [3:0] count_i,\n    output [3:0] count_o\n);reg [3:0] unused_count;\n\n    assign count_o = unused_count;\n\n    always @(posedge clk_i) begin\n        if (reset_i) begin\n            unused_count <= 0;\n        end else if (unused_count == 15) begin\n            unused_count <= 0;\n        end else begin\n            unused_count <= unused_count + 1;\n        end\n    end\n\nendmodule"
-}

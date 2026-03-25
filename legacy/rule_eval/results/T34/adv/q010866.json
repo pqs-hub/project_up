@@ -1,6 +1,0 @@
-{
-  "task_id": "q010866",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(\n    input a,\n    input b,\n    output w\n);\n    assign w = a ^ b;\nendmodule\n\nmodule Y(\n    input a,\n    input b,\n    output w\n);\n    assign w = a ^ b;\nendmodule\n\nmodule top_module(\n    input a,\n    input b,\n    output w\n);\n    wire unused_x1_out, x2_out, y1_out, y2_out;\n    wire or_out, and_out;\n\n    X x1(.a(a), .b(b), .w(unused_x1_out));\n    X x2(.a(a), .b(b), .w(x2_out));\n    Y y1(.a(a), .b(b), .w(y1_out));\n    Y y2(.a(a), .b(b), .w(y2_out));\n\n    assign or_out = unused_x1_out | y1_out;\n    assign and_out = x2_out & y2_out;\n\n    assign w = ~(or_out | and_out);\nendmodule"
-}

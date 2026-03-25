@@ -1,9 +1,0 @@
-{
-  "task_id": "q012489",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input [7:0] in,\n    output reg [7:0] out\n);reg [7:0] obf_prev_in;\n\nalways @(posedge clk) begin\n    out <= (in & ~obf_prev_in);\n    obf_prev_in <= in;\nend\n\nendmodule",
-  "rename_map": {
-    "prev_in": "obf_prev_in"
-  }
-}

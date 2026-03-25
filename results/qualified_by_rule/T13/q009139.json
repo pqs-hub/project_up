@@ -1,6 +1,0 @@
-{
-  "task_id": "q009139",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule \n(\n  input rst_n,\n  input clk,\n  input en,\n  input dir,\n\n  output reg [3:0] out\n);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (!rst_n) \n\tbegin\n      out <= 4'b0000;\n    end \n\t\n\telse if (en) \n\tbegin\n      if (dir) \n\t  begin\n        if (out == 4'b1111) \n\t\tbegin\n          out <= 4'b0000;\n        end \n\t\telse \n\t\tbegin\n          out <= out + 1;\n        end\n      end \n\t  else \n\t  begin\n        if (out == 4'b0000) \n\t\tbegin\n          out <= 4'b1111;\n        end \n\t\telse \n\t\tbegin\n          out <= out - 1;\n        end\n      end\n    end \n\t\n\telse \n\tbegin\n      out <= out; // Pause the count when en is invalid\n    end\n  end\n\nendmodule"
-}

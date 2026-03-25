@@ -1,6 +1,0 @@
-{
-  "task_id": "q001350",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module DVFS_Controller(\n    input wire [2:0] load,\n    input wire enable,\n    output reg [1:0] frequency\n);\n    always @(load or enable) begin\n        if (enable) begin\n            case (load)\n                3'b000, 3'b001, 3'b010, 3'b011: frequency = 2'b00; // Low Frequency\n                3'b100, 3'b101, 3'b110, 3'b111: frequency = 2'b01; // High Frequency\n                default: frequency = 2'b00; // Default to Low Frequency\n            endcase\n        end else begin\n            frequency = 2'b00; // Disable mode\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

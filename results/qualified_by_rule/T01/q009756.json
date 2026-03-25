@@ -1,6 +1,0 @@
-{
-  "task_id": "q009756",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    input load,\n    input shift,\n    input [7:0] data_in,\n    \n    output reg [7:0] data_out\n);\n    always @(posedge clk) begin\n    begin end  // redundant\n        if (rst) begin\n            data_out <= 8'b00000000;\n        end else if (load) begin\n            data_out <= data_in;\n        end else begin\n            if (shift) begin\n                data_out <= {1'b0, data_out[7:1]};\n            end else begin\n                data_out <= {data_out[6:0], 1'b0};\n            end\n        end\n    end\nendmodule"
-}

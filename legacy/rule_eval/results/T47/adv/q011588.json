@@ -1,8 +1,0 @@
-{
-  "task_id": "q011588",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(\n  input [31:0] a,\n  input [31:0] b,\n  input [1:0] mode,\n  output [31:0] add_out,\n  output [31:0] sub_out,\n  output [31:0] mul_out,\n  output [31:0] div_out\n);wire [31:0] add;\n  wire [31:0] sub;\n  wire [31:0] mul;\n  wire [31:0] div;\n\n    wire _n01 = a[0] ^ b[0];\n  wire _c01 = a[0] & b[0];\n  wire _n02 = a[1] ^ b[1] ^ _c01;\n  wire _c02 = (a[1] & b[1]) | (a[1] & _c01) | (b[1] & _c01);\n  wire _n03 = a[2] ^ b[2] ^ _c02;\n  wire _c03 = (a[2] & b[2]) | (a[2] & _c02) | (b[2] & _c02);\n  wire _n04 = a[3] ^ b[3] ^ _c03;\n  wire _c04 = (a[3] & b[3]) | (a[3] & _c03) | (b[3] & _c03);\n  assign add = {_n01, _n02, _n03, _n04};\n  assign sub = a - b;\n  assign mul = a * b;\n  assign div = a / b;\n\n  assign add_out = (mode == 2'b00) ? add : 0;\n  assign sub_out = (mode == 2'b01) ? sub : 0;\n  assign mul_out = (mode == 2'b10) ? mul : 0;\n  assign div_out = (mode == 2'b11) ? div : 0;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

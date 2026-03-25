@@ -1,7 +1,0 @@
-{
-  "task_id": "q009278",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module top_module(tempGateStatus, currentIndex, changeButton, passwordUnlockAttempt, currentPasswordRequiredToUnlock, newGateStatus, newIndex, changeUpdatePassword);input [2:0] tempGateStatus;\n\tinput [1:0] currentIndex;\n\t\n\tinput changeButton;\n\t\n\tinput [15:0] passwordUnlockAttempt;\n\tinput [15:0] currentPasswordRequiredToUnlock;\n\t\n\toutput reg [15:0] changeUpdatePassword;\n\t\n\toutput reg [2:0] newGateStatus;\n\toutput reg [1:0] newIndex;\n\t\n\n\t\n\talways@(posedge changeButton) begin\n\t\tchangeUpdatePassword <= currentPasswordRequiredToUnlock;\n\t\tcase(tempGateStatus)\n\t\t\n\t\t\t3'd1: begin\n\t\t\t\tnewGateStatus <= 3'd4;\n\t\t\t\tnewIndex <= 2'd0;\n\t\t\tend\n\t\t\t\n\t\t\t3'd5: begin\n\t\t\t\tnewGateStatus <= 3'd4;\n\t\t\t\tnewIndex <= 2'd0;\n\t\t\tend\n\t\t\t\n\t\t\tdefault: begin\n\t\t\t\tnewGateStatus <= tempGateStatus;\n\t\t\t\tnewIndex <= currentIndex;\n\t\t\tend\n\t\tendcase\n\tend\n\n\nendmodule",
-  "rename_map": {}
-}

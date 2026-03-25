@@ -1,6 +1,0 @@
-{
-  "task_id": "q002018",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input signed [15:0] received_signal,\n    input signed [15:0] transmitted_signal,\n    output reg signed [15:0] output_signal\n);\n    reg signed [15:0] previous_transmitted;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            output_signal <= 16'b0;\n            previous_transmitted <= 16'b0;\n        end else begin\n            output_signal <= received_signal - previous_transmitted;\n            previous_transmitted <= transmitted_signal;\n        end\n    end\nendmodule"
-}

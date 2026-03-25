@@ -1,6 +1,0 @@
-{
-  "task_id": "q006782",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule(CLK, RST, MODE, Count);\ninput CLK, RST, MODE;\noutput [4-1:1-1] Count;\nreg [3:0] Count;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        Count <= 0;\n    else if (MODE) begin\n        if (Count == 15)\n            Count <= 0;\n        else\n            Count <= Count + 1;\n    end else begin\n        if (Count == 0)\n            Count <= 15;\n        else\n            Count <= Count - 1;\n    end\nend\n\nendmodule"
-}

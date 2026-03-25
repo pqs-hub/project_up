@@ -1,6 +1,0 @@
-{
-  "task_id": "q007375",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule (\n  input clk,\n  input reset,\n  input x,\n  output reg y);parameter S0=2'b00, S1=2'b01, S2=2'b10, S3=2'b11;\n\treg [1:0] state, next_state;\n\n\talways @(posedge clk) begin\n\t\tif (reset) state <= S0;\n\t\telse state <= next_state;\n\tend\n\t\n\talways @(*) begin\n\t\tcase (state)\n\t\t\tS0: next_state = x ? S2 : S1;\n\t\t\tS1: next_state = x ? S0 : S3;\n\t\t\tS2: next_state = x ? S3 : S0;\n\t\t\tS3: next_state = x ? S1 : S2;\n\t\t\tdefault: next_state = S0;\n\t\tendcase\n\tend\n\t\n\talways @(state) begin\n\t\tcase (state)\n\t\t\tS0: y = 1;\n\t\t\tS1: y = 0;\n\t\t\tS2: y = 1;\n\t\t\tS3: y = 0;\n\t\t\tdefault: y = 0;\n\t\tendcase\n\tend\n\t\nendmodule"
-}

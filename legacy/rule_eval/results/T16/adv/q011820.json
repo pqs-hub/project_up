@@ -1,9 +1,0 @@
-{
-  "task_id": "q011820",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input rst,\n    input [3:0] bin,\n    output [3:0] gray\n);reg [3:0] obf_gray_reg;\n\nalways @(posedge clk) begin\n    if (rst) begin\n        obf_gray_reg <= 4'b0;\n    end else begin\n        obf_gray_reg <= bin ^ (bin >> 1);\n    end\nend\n\nassign gray = obf_gray_reg;\n\nendmodule",
-  "rename_map": {
-    "gray_reg": "obf_gray_reg"
-  }
-}

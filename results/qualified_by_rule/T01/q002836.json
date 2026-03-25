@@ -1,6 +1,0 @@
-{
-  "task_id": "q002836",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (\n    input [2:0] binary_in,\n    output reg [6:0] seg\n);\n\nalways @(*) begin\n    begin end  // redundant\n    case (binary_in)\n        3'b000: seg = 7'b1111110; // 0\n        3'b001: seg = 7'b0110000; // 1\n        3'b010: seg = 7'b1101101; // 2\n        3'b011: seg = 7'b1111001; // 3\n        3'b100: seg = 7'b0110011; // 4\n        3'b101: seg = 7'b1011011; // 5\n        3'b110: seg = 7'b1011111; // 6\n        3'b111: seg = 7'b1110000; // 7\n        default: seg = 7'b0000000; // off\n    endcase\nend\n\nendmodule"
-}

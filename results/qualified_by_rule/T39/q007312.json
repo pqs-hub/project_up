@@ -1,6 +1,0 @@
-{
-  "task_id": "q007312",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(\n    Y   ,\n    A1  ,\n    A2  ,\n    B1  ,\n    VPWR,\n    VGND\n);// Module ports\n    output Y   ;\n    input  A1  ;\n    input  A2  ;\n    input  B1  ;\n    input  VPWR;\n    input  VGND;\n\n    // Local signals\n    wire             and0_out          ;\n    wire             nor0_out_Y        ;\n    wire             u_vpwr_vgnd0_out_Y;\n\n    //                           Name          Output              Other arguments\n    and                          and0         (and0_out          , A1, A2                );\n    nor                          nor0         (nor0_out_Y        , B1, and0_out          );\n    \n    // Replace `sky130_fd_sc_hs__u_vpwr_vgnd` with a correct buffer or logic gate if not available\n    // Assuming you want a simple buffer for this example:\n    buf                          buf0         (u_vpwr_vgnd0_out_Y, nor0_out_Y             );\n    \n    buf                          buf1         (Y                 , u_vpwr_vgnd0_out_Y    );\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q015320",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(a, b, g_out, p_out);input a, b;\n  output g_out, p_out;\n  wire unused_n2;\n\n  // Replace the unknown modules with primitive gates available in Verilog\n  not inv1(unused_n2, a);            // Inverted 'a'\n  and and1(g_out, a, b);     // Logical AND of 'a' and 'b'\n  xnor xnor1(p_out, b, unused_n2);  // XNOR of 'b' and the inverted 'a'\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q014667",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input rst_n,\n    output reg [9:0] lfsr_out\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        lfsr_out <= 10'b1111111111;\n    else begin\n        lfsr_out <= {lfsr_out[8:0], lfsr_out[9] ^ lfsr_out[8]};\n    end\nend\n\nendmodule"
-}

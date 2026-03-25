@@ -1,6 +1,0 @@
-{
-  "task_id": "q002597",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule (  \n    input clk,  \n    input rst,  \n    input load,  \n    input [3:0] parallel_in,  \n    output reg [3:0] shift_out  \n);  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            shift_out <= 4'b0000;  \n        end else if (load) begin  \n            shift_out <= parallel_in;  \n        end else begin  \n            shift_out <= {1'b0, shift_out[3:1]};  \n        end  \n    end  \nendmodule"
-}

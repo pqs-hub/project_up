@@ -1,6 +1,0 @@
-{
-  "task_id": "q010554",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module piso_shift_reg_8bit(\n    input clk,          // Chip clock signal.\n    input rst_n,        // Active-low reset signal. Defined as 0 for chip reset; defined as 1 for reset signal inactive.\n    input load,         // Load signal to capture parallel data.\n    input [7:0] pdata,  // 8-bit parallel data input.\n\n    output sdata        // Serial data output.\n);\n\nreg [7:0] shift_reg; // Register to hold the shift data.\n\n// Shift register logic\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        shift_reg <= 8'b00000000; // Reset shift register\n    else if (load)\n        shift_reg <= pdata; // Load parallel data\n    else\n        shift_reg <= {shift_reg[6:0], 1'b0}; // Shift data out serially\nend\n\nassign sdata = shift_reg[7];\n\nendmodule"
-}

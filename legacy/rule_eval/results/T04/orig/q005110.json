@@ -1,6 +1,0 @@
-{
-  "task_id": "q005110",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(\n    input clk,\n    input reset,\n    input [7:0] data_in,\n    input enable,\n    output reg [7:0] data_out, // Changed from wire to reg\n    output reg [3:0] count\n);always @(posedge clk) begin\n        if (reset) begin\n            count <= 0;\n            data_out <= 0;\n        end else if (enable) begin\n            data_out <= data_in & 8'h0F;\n            count <= count + 1;\n        end\n    end\n    \nendmodule"
-}

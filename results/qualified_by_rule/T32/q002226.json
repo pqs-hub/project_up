@@ -1,6 +1,0 @@
-{
-  "task_id": "q002226",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule(\n    input wire clk,\n    input wire reset,\n    input wire mode,\n    input wire [5-1:1-1] temperature,\n    output reg fan_speed\n);\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            fan_speed <= 0;\n        end else begin\n            if (mode == 0) begin\n                fan_speed <= (temperature > 20) ? 1 : 0;\n            end else begin\n                fan_speed <= (temperature > 15) ? 1 : 0;\n            end\n        end\n    end\nendmodule"
-}

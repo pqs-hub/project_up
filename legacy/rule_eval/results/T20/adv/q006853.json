@@ -1,6 +1,0 @@
-{
-  "task_id": "q006853",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule SISO_8(\n   input           clk,\n   input           rst,\n   input           SI,\n   output          SO  \n);\n    reg [7:0] Q;\n    \n    always@(posedge clk or posedge rst) begin\n        if(rst) Q <= 8'b0; // Reset the register\n        else Q <= {SI, Q[7:1]}; // Shift right and add SI\n    end\n    \n    assign SO = Q[0]; // Serial output is the last bit of the register\nendmodule"
-}

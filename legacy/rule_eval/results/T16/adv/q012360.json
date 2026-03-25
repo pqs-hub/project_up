@@ -1,9 +1,0 @@
-{
-  "task_id": "q012360",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input [3:0] obf_DIN,\n    input LOAD,\n    input SHIFT,\n    input RESET,\n    output reg [3:0] Q\n);always @(posedge clk) begin\n        if (RESET) begin\n            Q <= 4'b0;\n        end else if (LOAD) begin\n            Q <= obf_DIN;\n        end else if (SHIFT) begin\n            Q <= {Q[2:0], 1'b0};\n        end\n    end\n\nendmodule",
-  "rename_map": {
-    "DIN": "obf_DIN"
-  }
-}

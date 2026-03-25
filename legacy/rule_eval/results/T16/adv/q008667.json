@@ -1,9 +1,0 @@
-{
-  "task_id": "q008667",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(A, B, Cin, sum, Cout, Pout, Gout);input  [3:0] A, B; \n\tinput  Cin;\t\t\t\n\toutput [3:0] sum; \n\toutput Cout;\n\toutput Pout, Gout; \n\t\n\twire [3:0] obf_G, P, carryOut;\n\t\n\tassign obf_G = A & B; \n\tassign P = A ^ B; \n\t\n\tassign carryOut[0] = obf_G[0] | (P[0] & Cin);\n\t\n\t\n\tassign carryOut[1] = obf_G[1] | (P[1] & obf_G[0]) | (P[1] & P[0] & Cin);\n\t\n\t\n\tassign carryOut[2] = obf_G[2] | (P[2] & obf_G[1]) | (P[2] & P[1] & obf_G[0]) | (P[2] & P[1] & P[0] & Cin);\n\t\n\t\n\tassign carryOut[3] = obf_G[3] | (P[3] & obf_G[2]) | \n\t\t\t\t\t\t\t\t\t(P[3] & P[2] & obf_G[1]) | \n\t\t\t\t\t\t\t\t\t(P[3] & P[2] & P[1] & obf_G[0]) | \n\t\t\t\t\t\t\t\t\t(P[3] & P[2] & P[1] & P[0] & Cin);\t\n\tassign Cout = carryOut[3];\n\tassign sum = P ^ {carryOut[2:0], Cin};\n\tassign Pout = P[3] & P[2] & P[1] & P[0];\n\tassign Gout = obf_G[3] | (P[3] & obf_G[2]) | (P[3] & P[2] & obf_G[1]) | (P[3] & P[2] & P[1] & obf_G[0]);endmodule",
-  "rename_map": {
-    "G": "obf_G"
-  }
-}

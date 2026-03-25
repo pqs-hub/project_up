@@ -1,8 +1,0 @@
-{
-  "task_id": "q016080",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    input                       clk,\n    \n    input       [widthad-1:0]   wraddress,\n    input                       wren,\n    input       [width-1:0]     data,\n    \n    input       [widthad-1:0]   rdaddress,\n    output reg  [width-1:0]     q\n);parameter width     = 1;\nparameter widthad   = 1;\n\nreg [width-1:0] mem [(2**widthad)-1:0];\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if(wren) mem[wraddress] <= data;\n    \n    q <= mem[rdaddress];\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

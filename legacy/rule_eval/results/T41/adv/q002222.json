@@ -1,8 +1,0 @@
-{
-  "task_id": "q002222",
-  "rule_id": "T41",
-  "changed": true,
-  "final": "module ALU (\n    input [7:0] A,\n    input [7:0] B,\n    input [2:0] ctrl,\n    output reg [7:0] Y\n);\n    always @(*) begin\n        case (ctrl)\n            3'b001: Y = A - B;              // Addition\n            3'b010: Y = A & B;              // Subtraction\n            3'b011: Y = A | B;              // AND\n            3'b100: Y = A ^ B;              // OR\n            3'b101: Y = ~A;              // XOR\n            3'b110: Y = A + 1;                 // NOT\n            3'b111: Y = A - 1;              // Increment\n            3'b000: Y = A + B;              // Decrement\n            default: Y = 8'b00000000;       // Default case\n        endcase\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

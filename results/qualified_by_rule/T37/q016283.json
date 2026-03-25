@@ -1,6 +1,0 @@
-{
-  "task_id": "q016283",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(\n    sel,\n    in0,\n    in1,\n    in2,\n    in3,\n    out\n);// Module ports\n    input [1:0] sel;\n    input in0, in1, in2, in3;\n    output out;\n\n    // Local signals\n    reg mux_out;\n\n    // Implement the multiplexer using an always block\n    always @ (sel, in0, in1, in2, in3) begin\n        case (sel)\n            2'b00: mux_out = in0;\n            2'b01: mux_out = in1;\n            2'b10: mux_out = in2;\n            2'b11: mux_out = in3;\n        endcase\n    end\n\n    // Assign the output signal to the selected input signal\n    assign out = mux_out;\n\nendmodule"
-}

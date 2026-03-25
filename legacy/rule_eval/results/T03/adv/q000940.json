@@ -1,6 +1,0 @@
-{
-  "task_id": "q000940",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module data_bus_mux (\n    input [31:0] data_in0,\n    input [31:0] data_in1,\n    input [31:0] data_in2,\n    input [31:0] data_in3,\n    input [1:0] select,\n    output reg [31:0] data_out\n);\n  wire [31:0] _tap_data_in0 = data_in0 & {32{1'b1}};\n\n    \n    always @(*) begin\n        case (select)\n            2'b00: data_out = data_in0;\n            2'b01: data_out = data_in1;\n            2'b10: data_out = data_in2;\n            2'b11: data_out = data_in3;\n            default: data_out = 32'b0; // Default case\n        endcase\n    end\nendmodule"
-}

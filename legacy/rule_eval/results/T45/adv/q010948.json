@@ -1,6 +1,0 @@
-{
-  "task_id": "q010948",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n    input  A1,\n    input  A2,\n    input  A3,\n    input  B1,\n    input  B2,\n    output Y\n);// Use an intermediate signal to simplify the logic\n    wire intermediate_signal;\n\n    // Implement the logic\n    assign intermediate_signal = (A1 & ~A1) ? ~intermediate_signal : (A1 & A2) | (A1 & A3) | (B1 & B2);\n    assign Y = intermediate_signal;\n\nendmodule"
-}

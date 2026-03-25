@@ -1,6 +1,0 @@
-{
-  "task_id": "q011609",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,      // Clock input\n    input reset,    // Asynchronous reset input\n    input d,        // Data input\n    \n    output reg q    // Data output\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset)\n        q <= 1'b0; // Reset the output to zero\n    else\n        q <= d;    // Capture the input data on rising edge of clock\nend\n\nendmodule"
-}

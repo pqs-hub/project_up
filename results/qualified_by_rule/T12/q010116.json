@@ -1,6 +1,0 @@
-{
-  "task_id": "q010116",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n    input               clk       ,\n    input               reset     ,\n    input               serial_in ,\n    output reg [3:0]    q         \n);\n\nalways @(posedge clk) begin\n    if (reset)\n        q <= 4'd0;\n    else\n        q <= {q[2:0], serial_in};\nend\n\nendmodule"
-}

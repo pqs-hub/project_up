@@ -1,6 +1,0 @@
-{
-  "task_id": "q007717",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule(\n    input wire clk,\n    input wire reset,\n    input wire [8-1:1-1] A,\n    input wire [7:0] B,\n    input wire [2:0] op,\n    output reg [7:0] result\n);always @(posedge clk) begin\n    if(reset) begin\n        result <= 8'h00;\n    end\n    else begin\n        case(op)\n            //Addition\n            3'b000: begin\n                result <= A + B;\n            end\n            //Subtraction\n            3'b001: begin\n                result <= A - B;\n            end\n            //Multiplication\n            3'b010: begin\n                result <= A * B;\n            end\n            //Division\n            3'b011: begin\n                result <= A / B;\n            end\n            default: begin\n                result <= 8'h00;\n            end\n        endcase\n    end\nend\n\nendmodule"
-}

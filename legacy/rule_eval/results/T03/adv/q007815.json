@@ -1,6 +1,0 @@
-{
-  "task_id": "q007815",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module shift_register4bit(\n\tinput clk,\n\tinput rst,\n\tinput s_in,\n\toutput reg [3:0] q);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n\talways @(posedge clk or posedge rst) begin\n\t\tif (rst)\n\t\t\tq <= 4'b0000;\n\t\telse\n\t\t\tq <= {q[2:0], s_in};\n\tend\n\t\nendmodule"
-}

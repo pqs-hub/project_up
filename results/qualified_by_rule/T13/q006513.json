@@ -1,6 +1,0 @@
-{
-  "task_id": "q006513",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(EX_MEMRegWrite,MEM_WBRegWrite,EX_MEMRegisterRd,MEM_WBRegisterRd,ID_EXRegisterRs,ID_EXRegisterRt,ForwardA,ForwardB);input EX_MEMRegWrite,MEM_WBRegWrite;\ninput [4:0] EX_MEMRegisterRd,MEM_WBRegisterRd,ID_EXRegisterRs,ID_EXRegisterRt;\noutput reg [1:0] ForwardA,ForwardB;\n\nalways@(*)begin\n\tif(EX_MEMRegWrite \n\t\t&& (EX_MEMRegisterRd!=0) \n\t\t&& ( EX_MEMRegisterRd == ID_EXRegisterRs)) begin\n\t\tForwardA = 2'b10;\n\tend\n\telse if(MEM_WBRegWrite \n\t\t&& (MEM_WBRegisterRd!=0)\n\t\t&& (EX_MEMRegisterRd!=ID_EXRegisterRs)\n\t\t&& (MEM_WBRegisterRd==ID_EXRegisterRs) )begin\n\t\tForwardA = 2'b01;\n\tend\n\telse begin\n\t\tForwardA = 2'b00;\n\tend\n\n\tif(EX_MEMRegWrite \n\t\t&& (EX_MEMRegisterRd!=0) \n\t\t&& ( EX_MEMRegisterRd == ID_EXRegisterRt)) begin\n\t\tForwardB = 2'b10;\n\tend\n\telse if(MEM_WBRegWrite \n\t\t&& (MEM_WBRegisterRd!=0)\n\t\t&& (EX_MEMRegisterRd!=ID_EXRegisterRt)\n\t\t&& (MEM_WBRegisterRd==ID_EXRegisterRt) )begin\n\t\tForwardB = 2'b01;\n\tend\n\telse begin\n\t\tForwardB = 2'b00;\n\tend\n\nend\n\n\nendmodule"
-}

@@ -1,7 +1,0 @@
-{
-  "task_id": "q014049",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module mux2to1_16bit_active_low (\n  input [15:0] in0,\n  input [15:0] in1,\n  input sel,\n  input en_n,\n  output reg [15:0] out\n);\n\n  always @(*) begin\n    if (~en_n) begin\n      case (sel)\n        1'b0: out = in0;\n        1'b1: out = in1;\n        default: out = 16'b0000000000000000;\n      endcase\n    end else begin\n      out = 16'b0000000000000000;\n    end\n  end\n\nendmodule",
-  "rename_map": {}
-}

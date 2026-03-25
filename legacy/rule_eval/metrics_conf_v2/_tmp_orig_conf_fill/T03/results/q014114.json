@@ -1,7 +1,0 @@
-{
-  "task_id": "q014114",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module decoder_2to4(A, E, Y);\n    input [1:0] A;\n    input E;\n    output reg [3:0] Y;\n\n    always @(A or E) begin\n        if (E)\n            case (A)\n                2'b00: Y = 4'b0001;\n                2'b01: Y = 4'b0010;\n                2'b10: Y = 4'b0100;\n                2'b11: Y = 4'b1000;\n                default: Y = 4'b0000;\n            endcase\n        else\n            Y = 4'b0000;\n    end\nendmodule",
-  "rename_map": {}
-}

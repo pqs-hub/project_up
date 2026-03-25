@@ -1,6 +1,0 @@
-{
-  "task_id": "q010900",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule(\n  input in,\n  input enable_l,\n  input clock,\n  input reset,\n  output reg out\n);always @(posedge clock or negedge reset) begin\n  if (!reset) begin\n    out <= 1'b0;\n  end else if (!enable_l) begin\n    out <= out;\n  end else begin\n    out <= in;\n  end\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q012706",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [15:0] parallel_in,\n    input load,\n    output reg [15:0] q);\n\nalways @(posedge clk) begin\n    if (reset)\n        q <= 16'b0;\n    else if (load)\n        q <= parallel_in;\n    else\n        q <= {q[14:0], 1'b0};\n    end\n    \nendmodule"
-}

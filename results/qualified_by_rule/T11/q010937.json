@@ -1,6 +1,0 @@
-{
-  "task_id": "q010937",
-  "rule_id": "T11",
-  "changed": true,
-  "final": "module RefModule(\n    input  A1,\n    input  A2,\n    input  A3,\n    input  A4,\n    input  B1,\n    output X\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    // AND gate implementation\n    wire and_out;\n    assign and_out = A1 & A2;\n\n    // OR gate implementation\n    wire or_out;\n    assign or_out = A3 | A4;\n\n    // Output selection based on B1\n    assign X = (B1 & and_out) | (~B1 & or_out);\n\nendmodule"
-}

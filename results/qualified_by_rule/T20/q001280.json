@@ -1,6 +1,0 @@
-{
-  "task_id": "q001280",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule RefModule (\n    input wire D,         // Data input\n    input wire clk,      // Clock (enable) input\n    output reg Q         // Output\n);\n    reg master;          // Master latch output\n\n    always @(clk or D) begin\n        if (clk) begin\n            master <= D; // Capture data on enable high\n        end\n    end\n\n    always @(negedge clk) begin\n        Q <= master;     // Output the master value on enable low\n    end\nendmodule"
-}

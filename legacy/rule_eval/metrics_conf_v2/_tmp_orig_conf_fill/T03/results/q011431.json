@@ -1,7 +1,0 @@
-{
-  "task_id": "q011431",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module top_module( input clk, input d, output q );reg [2:0] reg_out;\n  wire [2:0] reg_in;\n\n  // Master-slave D flip-flop\n  always @(posedge clk) begin\n    reg_out <= reg_in;\n  end\n\n  // Pipeline structure\n  assign reg_in = {reg_out[1:0], d};\n\n  assign q = reg_out[2];\n\nendmodule",
-  "rename_map": {}
-}

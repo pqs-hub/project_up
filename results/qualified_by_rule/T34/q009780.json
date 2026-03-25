@@ -1,6 +1,0 @@
-{
-  "task_id": "q009780",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input [3:0] data_in,\n    input load,\n    input clk,\n    output reg [3:0] data_out\n);reg [3:0] unused_stage1_data;\nreg [3:0] stage2_data;\nreg [3:0] stage3_data;\nreg [3:0] stage4_data;\n\nalways @(posedge clk) begin\n    if (load) begin\n        unused_stage1_data <= data_in;\n        stage2_data <= unused_stage1_data;\n        stage3_data <= stage2_data;\n        stage4_data <= stage3_data;\n    end else begin\n        unused_stage1_data <= stage2_data;\n        stage2_data <= stage3_data;\n        stage3_data <= stage4_data;\n        stage4_data <= data_in;\n    end\nend\n\nassign data_out = unused_stage1_data;\n\nendmodule"
-}

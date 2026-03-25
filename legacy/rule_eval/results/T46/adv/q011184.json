@@ -1,8 +1,0 @@
-{
-  "task_id": "q011184",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    input                 clk,\n    input       [7:0]     a, b, c, d,\n    output reg  [7:0]     f\n);reg [7:0] y1, y2, y3, d1, d2;\n\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk or posedge dbg_halt) begin\n    y1 <= a + b;\n    y2 <= c - d;\n    d1 <= d;\nend\n\n\nalways @ (posedge clk) begin\n    y3 <= y1 + y2;\n    d2 <=  d1;\nend\n\n\nalways @ (posedge clk) begin\n    f <= y3 * d2;\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

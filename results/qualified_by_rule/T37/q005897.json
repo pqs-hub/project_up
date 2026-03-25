@@ -1,6 +1,0 @@
-{
-  "task_id": "q005897",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(\n    input A,\n    input B,\n    input SEL,\n    output Y\n);// Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB;\n    supply0 VNB;\n\n    wire nand1_out, nand2_out;\n\n    // Using basic gates instead of missing library cells\n    wire sel_not = ~SEL;  // Inverted SEL signal\n\n    // NAND logic for the mux implementation\n    assign nand1_out = ~(A & sel_not); // Implementing NAND with A and not SEL\n    assign nand2_out = ~(B & SEL);     // Implementing NAND with B and SEL\n\n    // Final output using NAND outputs\n    assign Y = ~(nand1_out & nand2_out); // Final output to select between A and B\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q010935",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule\n(\n  input  [7:0] data_in,\n  input  clk,\n  input  load,\n  output serial_out\n);\n\nreg [7:0] obf_shift_reg;\n\nalways @(posedge clk) begin\n  if (load)\n    obf_shift_reg <= data_in;\n  else\n    obf_shift_reg <= {1'b0, obf_shift_reg[7:1]};\nend\n\nassign serial_out = obf_shift_reg[0];\n\nendmodule"
-}

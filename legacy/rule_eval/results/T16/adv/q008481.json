@@ -1,9 +1,0 @@
-{
-  "task_id": "q008481",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(obf_a, out);input [31:0] obf_a; \n  output [31:0] out; \n  wire [31:0] out, temp; \n  assign temp = obf_a; \n  genvar i; \n  generate \n  for(i=0; i<32; i=i+1) begin: reversal_loop \n  assign out[i] = temp[31-i]; \n  end \n  endgenerate \n endmodule",
-  "rename_map": {
-    "a": "obf_a"
-  }
-}

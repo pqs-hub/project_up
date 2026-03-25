@@ -1,9 +1,0 @@
-{
-  "task_id": "q005675",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module counter_6bit_set(\n    input clk,          // Chip clock signal.\n    input rst,          // Synchronous reset signal.\n    input en,           // Enable signal.\n    input set,          // Synchronous set signal.\n    input [5:0] set_value, // Value to set the counter.\n    output [5:0] count  // Counter output signal with a data width of 6 bits.\n);\n\nreg [5:0] obf_count_reg;    // Counter register.\n\nalways @(posedge clk)\n    if (rst) obf_count_reg <= 6'b000000;                // Reset counter if reset is active.\n    else if (set) obf_count_reg <= set_value;           // Set counter to set_value if set is active.\n    else if (en) obf_count_reg <= obf_count_reg + 1;        // Increment counter if enable is active.\n\nassign count = obf_count_reg;                           // Output counter value.\n\nendmodule",
-  "rename_map": {
-    "count_reg": "obf_count_reg"
-  }
-}

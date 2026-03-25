@@ -1,7 +1,0 @@
-{
-  "task_id": "q003719",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module adc_controller(\n    input clk,\n    input reset,\n    input start,\n    input [23:0] analog_input,\n    output reg [23:0] digital_output,\n    output reg valid\n);\n    reg [2:0] state;\n    parameter IDLE = 3'b000, CONVERT = 3'b001, OUTPUT = 3'b010;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n            digital_output <= 24'b0;\n            valid <= 1'b0;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start) begin\n                        state <= CONVERT;\n                        valid <= 1'b0;\n                    end\n                end\n                CONVERT: begin\n                    // Simulate conversion time\n                    digital_output <= analog_input;\n                    state <= OUTPUT;\n                end\n                OUTPUT: begin\n                    valid <= 1'b1;\n                    state <= IDLE;\n                end\n            endcase\n        end\n    end\nendmodule",
-  "rename_map": {}
-}

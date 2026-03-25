@@ -1,6 +1,0 @@
-{
-  "task_id": "q000954",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module interrupt_controller (\n    input wire clk,\n    input wire reset,\n    input wire [3:0] irq,\n    input wire enable,\n    output reg [3:0] active_irq,\n    output reg interrupt_request\n);\n\n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant\n        if (reset) begin\n            active_irq <= 4'b0000;\n            interrupt_request <= 0;\n        end else if (enable) begin\n            if (|irq) begin\n                active_irq <= irq;\n                interrupt_request <= 1;\n            end else begin\n                interrupt_request <= 0;\n            end\n        end else begin\n            interrupt_request <= 0;\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q016331",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input [7:0] A,\n    input [7:0] B,\n    input sel,\n    output [7:0] Y\n);// Voltage supply signals\n  wire [7:0] _tap_A = A & {8{1'b1}};\n\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB;\n    supply0 VNB;\n\n    // Using a behavioral description for the mux\n    assign Y = (sel == 1'b1) ? B : A;\n\nendmodule"
-}

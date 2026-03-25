@@ -1,6 +1,0 @@
-{
-  "task_id": "q002895",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule (\n    input wire request0,\n    input wire request1,\n    input wire request2,\n    input wire request3,\n    output reg grant0,\n    output reg grant1,\n    output reg grant2,\n    output reg grant3\n);\n    \n    always @(*) begin\n        // Default all grants to 0\n        grant0 = 0;\n        grant1 = 0;\n        grant2 = 0;\n        grant3 = 0;\n\n        // Grant based on priority\n        if (request0) begin\n            grant0 = 1;\n        end else if (request1) begin\n            grant1 = 1;\n        end else if (request2) begin\n            grant2 = 1;\n        end else if (request3) begin\n            grant3 = 1;\n        end\n    end\nendmodule"
-}

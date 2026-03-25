@@ -1,6 +1,0 @@
-{
-  "task_id": "q005689",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(\n    input CLK,\n    input EN,\n    input TE,\n    output ENCLK\n);wire n2;\n    reg EN_reg;\n    \n    always @ (posedge CLK, posedge TE) begin\n    begin end  // redundant\n        if (TE) begin\n            EN_reg <= 1'b0;\n        end else begin\n            EN_reg <= EN;\n        end\n    end\n    \n    assign n2 = EN_reg & CLK;\n    assign ENCLK = n2;\n    \nendmodule"
-}

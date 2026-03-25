@@ -1,6 +1,0 @@
-{
-  "task_id": "q009832",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(in0, in1, in2, in3, Op, MuxOut\n    );parameter\tW = 32;\n\t\tinput\t\t[W-1:0]in0, in1, in2, in3;\n\t\tinput\t\t[1:0]Op;\n\t\toutput reg\t[W-1:0]MuxOut;\n\nalways @ (Op, in0, in1, in2, in3)\nbegin\n\tif (Op == 2'b00) MuxOut = in0;\n\telse if (Op == 2'b01) MuxOut = in1;\n\telse if (Op == 2'b10) MuxOut = in2;\n\telse if (Op == 2'b11) MuxOut = in3;\nend\n\nendmodule"
-}

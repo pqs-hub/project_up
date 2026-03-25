@@ -1,6 +1,0 @@
-{
-  "task_id": "q002700",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [1:0] current_state,\n    input [1:0] control_input,\n    output reg [1:0] next_state\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        next_state <= 2'b00; // Reset the state\n    end else begin\n        next_state <= (current_state + control_input) % 4; // Calculate next state\n    end\nend\n\nendmodule"
-}

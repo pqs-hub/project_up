@@ -1,6 +1,0 @@
-{
-  "task_id": "q003360",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(\n    input [3:0] temperature,\n    input clk,\n    input reset,\n    output reg [2:0] alarm\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            alarm <= 3'b000;\n        end else begin\n            if (temperature > 4'b1010) begin // If temperature > 10\n                alarm <= 3'b111; // Set alarm\n            end else begin\n                alarm <= 3'b000; // Clear alarm\n            end\n        end\n    end\nendmodule"
-}

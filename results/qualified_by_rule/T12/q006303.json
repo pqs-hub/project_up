@@ -1,6 +1,0 @@
-{
-  "task_id": "q006303",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n\toutput reg [WORD_WIDTH-1:0] A_data, B_data,\n\tinput [WORD_WIDTH-1:0] D_data,\n\tinput [2:0] AA, BA, DA,\n\tinput RW, CLK\n\t);parameter WORD_WIDTH = 16;\n\nreg [WORD_WIDTH-1:0] REGS[7:0];\n\nalways@(posedge CLK)\n\tif(RW)\n\t\tcase(DA)\n\t\t\t3'b 000 : REGS[0] = D_data;\n\t\t\t3'b 001 : REGS[1] = D_data;\n\t\t\t3'b 010 : REGS[2] = D_data;\n\t\t\t3'b 011 : REGS[3] = D_data;\n\t\t\t3'b 100 : REGS[4] = D_data;\n\t\t\t3'b 101 : REGS[5] = D_data;\n\t\t\t3'b 110 : REGS[6] = D_data;\n\t\t\t3'b 111 : REGS[7] = D_data;\n\t\tendcase\n\t\t\nalways@(*)\n\tbegin\n\t\tcase(AA)\n\t\t\t3'b 000 : A_data = REGS[0];\n\t\t\t3'b 001 : A_data = REGS[1];\n\t\t\t3'b 010 : A_data = REGS[2];\n\t\t\t3'b 011 : A_data = REGS[3];\n\t\t\t3'b 100 : A_data = REGS[4];\n\t\t\t3'b 101 : A_data = REGS[5];\n\t\t\t3'b 110 : A_data = REGS[6];\n\t\t\t3'b 111 : A_data = REGS[7];\n\t\tendcase\n\t\t\n\t\tcase(BA)\n\t\t\t3'b 000 : B_data = REGS[0];\n\t\t\t3'b 001 : B_data = REGS[1];\n\t\t\t3'b 010 : B_data = REGS[2];\n\t\t\t3'b 011 : B_data = REGS[3];\n\t\t\t3'b 100 : B_data = REGS[4];\n\t\t\t3'b 101 : B_data = REGS[5];\n\t\t\t3'b 110 : B_data = REGS[6];\n\t\t\t3'b 111 : B_data = REGS[7];\n\t\tendcase\n\tend\n\t\nendmodule"
-}

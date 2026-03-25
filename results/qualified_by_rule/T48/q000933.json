@@ -1,6 +1,0 @@
-{
-  "task_id": "q000933",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule(  \n    input wire clk,  \n    input wire rst,  \n    input wire [7:0] temperature,  \n    output reg [1:0] fan_speed // 00: Off, 01: Low, 10: Medium, 11: High  \n);  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst)  \n            fan_speed <= 2'b00; // Off  \n        else begin  \n            if (temperature < 20)  \n                fan_speed <= 2'b01; // Low  \n            else if (temperature >= 20 && temperature <= 30)  \n                fan_speed <= 2'b10; // Medium  \n            else  \n                fan_speed <= 2'b11; // High  \n        end  \n    end  \nendmodule"
-}

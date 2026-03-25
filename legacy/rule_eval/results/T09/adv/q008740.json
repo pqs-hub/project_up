@@ -1,6 +1,0 @@
-{
-  "task_id": "q008740",
-  "rule_id": "T09",
-  "changed": true,
-  "final": "module top_module(\n    X   ,\n    A1  ,\n    A2  ,\n    A3  ,\n    B1  ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output X   ;\n    input  A1  ;\n    input  A2  ;\n    input  A3  ;\n    input  B1  ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n\n    wire A1_AND_A2;\n    wire A3_AND_B1;\n\n    assign A1_AND_A2 = ~(~A1 | ~A2);\n    assign A3_AND_B1 = A3 & B1;\n\n    assign X = (A1_AND_A2 | A3_AND_B1) ? 1'b1 : 1'b0;\n\nendmodule"
-}

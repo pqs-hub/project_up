@@ -1,6 +1,0 @@
-{
-  "task_id": "q012619",
-  "rule_id": "T07",
-  "changed": true,
-  "final": "module top_module(S,Z,V,N,in1,in2,ALUFun,Sign);output [31:0] S;\noutput Z,V,N;\n\ninput [31:0] in1, in2;\ninput ALUFun,Sign;\nwire [31:0]s_add,s_sub;\nwire z_add,v_add,n_add,   z_sub,v_sub,n_sub;\nwire [31:0] inv_in2;\nassign s_add = in1+in2;\nassign inv_in2 = ~in2+1;\nassign z_add = (s_add==0); \nassign n_add = Sign&s_add[31];\nassign v_add = Sign&(s_add[31]^in1[31])&~(in1[31]^in2[31]);\nassign s_sub = in1+inv_in2;\nassign z_sub = (s_sub==0);\nassign n_sub = Sign&s_sub[31];\nassign v_sub = Sign&(s_sub[31]^in1[31])&~(in1[31]^inv_in2[31]);\nassign S=ALUFun?s_sub:s_add;\nassign Z=ALUFun?z_sub:z_add;\nassign N=ALUFun?n_sub:n_add;\nassign V=ALUFun?v_sub:v_add;endmodule"
-}

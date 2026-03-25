@@ -1,6 +1,0 @@
-{
-  "task_id": "q003802",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    input send,\n    input ack,\n    input [3:0] window_size, // 4-bit window size input\n    output reg [3:0] sent_count, // number of packets sent\n    output reg [3:0] ack_count  // number of packets acknowledged\n);\n    reg [3:0] window_start; // start of the window\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            sent_count <= 0;\n            ack_count <= 0;\n            window_start <= 0;\n        end else begin\n            if (send && (sent_count - ack_count < window_size)) begin\n                sent_count <= sent_count + 1;\n            end\n            \n            if (ack) begin\n                ack_count <= ack_count + 1;\n            end\n        end\n    end\nendmodule"
-}

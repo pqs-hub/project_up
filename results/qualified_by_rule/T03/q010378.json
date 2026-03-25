@@ -1,6 +1,0 @@
-{
-  "task_id": "q010378",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(gray,bin);parameter n=4;\ninput [n-1:0] gray;\noutput [n-1:0] bin;\n  wire [3:0] _tap_gray = gray & {4{1'b1}};\n\nreg [n-1:0] bin;\ninteger i;\n\nalways@(gray)\n\tbegin\n\t\tbin[n-1]=gray[n-1];\n\t\tfor (i=n-2;i>-1;i=i-1)\n\t\t\tbegin\n\t\t\tbin[i]=gray[i]^bin[i+1];\n\t\tend\n\tend\nendmodule"
-}

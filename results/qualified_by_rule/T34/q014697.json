@@ -1,6 +1,0 @@
-{
-  "task_id": "q014697",
-  "rule_id": "T34",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire en,\n    input wire load,\n    input wire [3:0] data,\n    output reg [3:0] count\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            count <= 4'b0;\n        end else if (load) begin\n            count <= data;\n        end else if (en) begin\n            count <= count + 1;\n        end\n    end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q002210",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire req0,\n    input wire req1,\n    input wire req2,\n    input wire req3,\n    output reg [1:0] grant\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        grant <= 2'b00; // No grant\n    end else begin\n        if (req0) grant <= 2'b00; // Grant req0\n        else if (req1) grant <= 2'b01; // Grant req1\n        else if (req2) grant <= 2'b10; // Grant req2\n        else if (req3) grant <= 2'b11; // Grant req3\n        else grant <= 2'b00; // No grant\n    end\nend\n\nendmodule"
-}

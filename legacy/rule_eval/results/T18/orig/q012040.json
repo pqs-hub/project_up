@@ -1,6 +1,0 @@
-{
-  "task_id": "q012040",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module top_module(\n    input clk,\n    input reset,\n    input enable,\n    output reg [3:0] q,\n    output carry\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            // Synchronous reset: Reset the counter to 4'b0000\n            q <= 4'b0000;\n        end else if (enable) begin\n            // Counter increments when enabled\n            q <= q + 1;\n        end\n    end\n    \n    // Carry-out when counter overflows\n    assign carry = enable & (q == 4'b1111);\n\nendmodule"
-}

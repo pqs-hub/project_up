@@ -1,6 +1,0 @@
-{
-  "task_id": "q005238",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module ripple_carry_adder (\n\tinput [3:0] a,\n\tinput [3:0] b,\n\toutput [4:0] sum);\n\n\twire c1, c2, c3;\n\n\tfull_adder fa0 (a[0], b[0], 1'b0, sum[0], c1);\n\tfull_adder fa1 (a[1], b[1], c1, sum[1], c2);\n\tfull_adder fa2 (a[2], b[2], c2, sum[2], c3);\n\tfull_adder fa3 (a[3], b[3], c3, sum[3], sum[4]);\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule\n\nmodule full_adder (\n\tinput a, b, cin,\n\toutput sum, cout);\n\n\tassign {cout, sum} = a + b + cin;\nendmodule"
-}

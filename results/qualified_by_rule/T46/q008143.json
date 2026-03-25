@@ -1,6 +1,0 @@
-{
-  "task_id": "q008143",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(input clk , input reset , output q);reg [2:0] count;\nassign q = count[0];\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk ,posedge reset or posedge dbg_halt)\nbegin\n\tif(reset)\n\t\tcount <= 3'b000;\n\telse\n\t\tcount <= count + 1;\nend\n\nendmodule"
-}

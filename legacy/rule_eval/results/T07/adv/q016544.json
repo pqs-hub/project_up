@@ -1,6 +1,0 @@
-{
-  "task_id": "q016544",
-  "rule_id": "T07",
-  "changed": true,
-  "final": "module row_buf(clk,datavalid,pix_in,pix_out1,pix_out2);\nparameter length=640;\ninput clk,datavalid,pix_in;\noutput pix_out1,pix_out2;\nreg [length-1:0] R;\nalways@(posedge clk)begin\n\tif(datavalid)begin\n\t\tR[length-1:1]<=R[length-2:0];\n\t\tR[0]<=pix_in;\n\tend\nend\nassign pix_out2=R[length-2];\nassign pix_out1=R[length-1];\nendmodule"
-}

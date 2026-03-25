@@ -1,6 +1,0 @@
-{
-  "task_id": "q008256",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module top_module(write_in,byteenable_in,waitrequest_out,byteenable_out,waitrequest_in);input write_in; \n  input [1:0] byteenable_in; \n  output wire waitrequest_out; \n  output wire [1:0] byteenable_out; \n  input waitrequest_in; \n  assign byteenable_out = byteenable_in & {2{write_in}}; \n  assign waitrequest_out = (write_in == 1) & (waitrequest_in == 1); \n endmodule"
-}

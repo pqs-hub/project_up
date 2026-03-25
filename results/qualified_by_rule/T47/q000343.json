@@ -1,6 +1,0 @@
-{
-  "task_id": "q000343",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [4:0] current_temp,\n    output reg shutdown_signal\n);\n    parameter THRESHOLD = 5'd25;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) \n            shutdown_signal <= 1'b0;\n        else if (current_temp > THRESHOLD) \n            shutdown_signal <= 1'b1;\n        else \n            shutdown_signal <= 1'b0;\n    end\nendmodule"
-}

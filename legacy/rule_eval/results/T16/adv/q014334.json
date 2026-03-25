@@ -1,9 +1,0 @@
-{
-  "task_id": "q014334",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input  USER_SIGNAL_TO_GLOBAL_BUFFER,\n    output obf_GLOBAL_BUFFER_OUTPUT\n);assign obf_GLOBAL_BUFFER_OUTPUT = USER_SIGNAL_TO_GLOBAL_BUFFER;\n\n`ifdef TIMING\n    specify\n        (USER_SIGNAL_TO_GLOBAL_BUFFER => obf_GLOBAL_BUFFER_OUTPUT) = (0:0:0, 0:0:0);\n    endspecify\n`endif\n\nendmodule",
-  "rename_map": {
-    "GLOBAL_BUFFER_OUTPUT": "obf_GLOBAL_BUFFER_OUTPUT"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q013641",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input        clk,\n    input        clr,\n    input  [3:0] A,\n    input  [3:0] B,\n    input        sub,\n    output [3:0] Y\n);reg [3:0] obf_temp;\n    \n    always @(posedge clk)\n        if (clr) obf_temp <= 4'b0;\n        else if (sub) obf_temp <= A - B;\n        else obf_temp <= A + B;\n    \n    assign Y = obf_temp;\n\nendmodule",
-  "rename_map": {
-    "temp": "obf_temp"
-  }
-}

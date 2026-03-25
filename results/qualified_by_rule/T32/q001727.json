@@ -1,6 +1,0 @@
-{
-  "task_id": "q001727",
-  "rule_id": "T32",
-  "changed": false,
-  "final": "module RefModule (\n    input wire S,\n    input wire R,\n    output reg Q,\n    output reg Qn\n);\n    \n    always @(S or R) begin\n        if (S && R) begin\n            Q <= 1'bx; // Invalid state\n            Qn <= 1'bx; // Invalid state\n        end else if (S) begin\n            Q <= 1'b1; // Set state\n            Qn <= 1'b0;\n        end else if (R) begin\n            Q <= 1'b0; // Reset state\n            Qn <= 1'b1;\n        end\n    end\nendmodule"
-}

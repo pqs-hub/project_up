@@ -1,6 +1,0 @@
-{
-  "task_id": "q001900",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module voltage_regulator (\n    input wire clk,\n    input wire [4:0] input_voltage,\n    output reg [4:0] output_voltage\n);\n    parameter SCALING_FACTOR = 3;\n    always @(posedge clk) begin\n        output_voltage <= (input_voltage * SCALING_FACTOR > 31) ? 5'b11111 : input_voltage * SCALING_FACTOR;\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

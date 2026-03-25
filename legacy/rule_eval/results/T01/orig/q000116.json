@@ -1,6 +1,0 @@
-{
-  "task_id": "q000116",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module non_restoring_divider (\n    input [7:0] dividend,\n    input [7:0] divisor,\n    output reg [7:0] quotient,\n    output reg [7:0] remainder\n);\n    reg [7:0] temp_dividend;\n    reg [7:0] temp_remainder;\n    integer i;\n\n    always @(*) begin\n        temp_dividend = dividend;\n        temp_remainder = 8'b0;\n        quotient = 8'b0;\n        \n        // Non-restoring division algorithm\n        for (i = 7; i >= 0; i = i - 1) begin\n            temp_remainder = {temp_remainder[6:0], temp_dividend[i]};\n            if (temp_remainder >= divisor) begin\n                temp_remainder = temp_remainder - divisor;\n                quotient = {quotient[6:0], 1'b1};\n            end else begin\n                quotient = {quotient[6:0], 1'b0};\n            end\n        end\n        remainder = temp_remainder;\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q001473",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module sram_cell (  \n    input [8-1:1-1] D,  \n    input [2:0] A,  \n    input WE,  \n    output reg [7:0] Q  \n);  \n    reg [7:0] memory [0:7]; // 8-bit SRAM with 8 addresses  \n\n    always @(WE or D or A) begin  \n        if (WE) begin  \n            memory[A] <= D; // Write data to SRAM  \n        end else begin  \n            Q <= memory[A]; // Read data from SRAM  \n        end  \n    end  \nendmodule"
-}

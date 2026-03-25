@@ -1,6 +1,0 @@
-{
-  "task_id": "q011631",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,            // Added clock input\n  input read,\n  input write,\n  input [n-1:0] address,\n  input [m-1:0] data_in,\n  output [m-1:0] data_out\n);parameter n = 8; // number of address lines\nparameter m = 16; // number of data lines\n\nreg [m-1:0] memory [2**n-1:0]; // memory array\n\nassign data_out = (read && !write) ? memory[address] : {m{1'b0}}; // read operation, used concatenation for safety\n\nalways @ (posedge clk) begin\n  if (write && !read) begin // write operation\n    memory[address] <= data_in;\n  end\nend\n\nendmodule"
-}

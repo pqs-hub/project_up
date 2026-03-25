@@ -1,6 +1,0 @@
-{
-  "task_id": "q008996",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module reg_file_4x4(\n    input clk,        // Clock signal.\n    input rst,        // Reset signal.\n    input wr_en,      // Write enable signal.\n    input [1:0] rd_addr1, // First 2-bit read address input.\n    input [1:0] rd_addr2, // Second 2-bit read address input.\n    input [1:0] wr_addr,  // 2-bit write address input.\n    input [3:0] wr_data,  // 4-bit write data input.\n\n    output [3:0] rd_data1, // 4-bit read data output for rd_addr1.\n    output [3:0] rd_data2  // 4-bit read data output for rd_addr2.\n);\n\nreg [3:0] reg_array [3:0]; // Array of 4 registers, each 4 bits wide.\n\n//------------------------------------------------\n// Register file operation\nalways @(posedge clk) begin\n    if (rst) begin\n        reg_array[0] <= 4'b0000; // Reset all registers to 0\n        reg_array[1] <= 4'b0000;\n        reg_array[2] <= 4'b0000;\n        reg_array[3] <= 4'b0000;\n    end\n    else if (wr_en) begin\n        reg_array[wr_addr] <= wr_data; // Write data to specified register\n    end\nend\n\n//------------------------------------------------\n// Read data outputs\nassign rd_data1 = reg_array[rd_addr1]; // Read data for rd_addr1\nassign rd_data2 = reg_array[rd_addr2]; // Read data for rd_addr2\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q004257",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule (\n    input wire D,\n    input wire WE,\n    input wire CLK,\n    output reg Q\n);\n    reg obf_memory;\n\n    always @(posedge CLK) begin\n        if (WE) begin\n            obf_memory <= D;\n        end\n    end\n\n    always @(*) begin\n        Q = obf_memory;\n    end\nendmodule"
-}

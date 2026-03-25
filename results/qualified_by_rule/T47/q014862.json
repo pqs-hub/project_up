@@ -1,6 +1,0 @@
-{
-  "task_id": "q014862",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule(\n    input [3:0] in,\n    output and_out,\n    output or_out,\n    output [1:0] final_out\n);wire and1, and2, and3;\nwire or1, or2, or3;\n\n// AND Gate definitions\nassign and1 = in[0] & in[1];\nassign and2 = in[2] & in[3];\nassign and3 = and1 & and2;\nassign and_out = and3 & 1'b1; // This line can also be simplified as assign and_out = and3;\n\n// OR Gate definitions\nassign or1 = in[0] | in[1];\nassign or2 = in[2] | in[3];\nassign or3 = or1 | or2;\nassign or_out = or3 | 1'b0; // This line can also be simplified as assign or_out = or3;\n\nassign final_out = {and_out, or_out};\n\nendmodule"
-}

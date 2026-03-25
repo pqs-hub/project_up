@@ -1,6 +1,0 @@
-{
-  "task_id": "q009480",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(\n    addr,\n    dout,\n    clk,\n    rst\n);input [4-1:1-1] addr;\noutput [3:0] dout;\nreg [3:0] dout;\ninput clk;\ninput rst;\n\n\n\n\nalways @(posedge clk) begin: ROMPARMLOADSYNC_READACTION\n    if (rst) begin\n        dout <= 0;\n    end\n    else begin\n        case (addr)\n            0: dout <= 3;\n            1: dout <= 2;\n            2: dout <= 1;\n            default: dout <= 0;\n        endcase\n    end\nend\n\nendmodule"
-}

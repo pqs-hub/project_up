@@ -1,6 +1,0 @@
-{
-  "task_id": "q005435",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule adder_16bit (\n    input wire [15:0] a,\n    input wire [15:0] b,\n    output wire [15:0] sum\n);\n\n    wire [3:0] sum0, sum1, sum2, sum3;\n    wire c1, c2, c3;\n\n    adder4 adder4_inst0 (\n        .a(a[3:0]),\n        .b(b[3:0]),\n        .cin(1'b0),\n        .sum(sum0),\n        .cout(c1)\n    );\n\n    adder4 adder4_inst1 (\n        .a(a[7:4]),\n        .b(b[7:4]),\n        .cin(c1),\n        .sum(sum1),\n        .cout(c2)\n    );\n\n    adder4 adder4_inst2 (\n        .a(a[11:8]),\n        .b(b[11:8]),\n        .cin(c2),\n        .sum(sum2),\n        .cout(c3)\n    );\n\n    adder4 adder4_inst3 (\n        .a(a[15:12]),\n        .b(b[15:12]),\n        .cin(c3),\n        .sum(sum3),\n        .cout()\n    );\n\n    assign sum = {sum3, sum2, sum1, sum0};\n\nendmodule\n\nmodule adder4 (\n    input wire [3:0] a,\n    input wire [3:0] b,\n    input wire cin,\n    output wire [3:0] sum,\n    output wire cout\n);\n    assign {cout, sum} = a + b + cin;\nendmodule"
-}

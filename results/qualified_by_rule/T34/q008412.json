@@ -1,6 +1,0 @@
-{
-  "task_id": "q008412",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\ninput Reset,\ninput Clock,\ninput In, \noutput [3:0] Out\n);reg [3:0] unused_Counter;\nreg toggle;\n\n\n\n\n\n  \nalways @(posedge Clock, negedge Reset) begin\n\tif ( Reset == 0 ) \n\t\tunused_Counter <= 4'b0000;\n\telse begin\n\t\tif ((In==1) & (toggle==0)) begin\n\t\t\tunused_Counter <= unused_Counter + 1'b1;\n\t\t\ttoggle <= 1;\n\t    end\n\t\telse if (In==0) begin\n\t\t\ttoggle <= 0;\n\t\tend\n\tend\nend\n\t\nassign Out = unused_Counter;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q013772",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule(\n    output reg Q,  // Changed to reg since we use it in an always block\n    input CLK_N,\n    input D,\n    input RESET_B,\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB\n);always @(posedge CLK_N or negedge RESET_B) begin\n        if (RESET_B == 1'b0) begin\n            Q <= 1'b0;\n        end else begin\n            Q <= D;\n        end\n    end\n\nendmodule"
-}

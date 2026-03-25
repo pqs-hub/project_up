@@ -1,6 +1,0 @@
-{
-  "task_id": "q014177",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module RefModule(\n    Y,\n    A1,\n    A2,\n    B1,\n    C1,\n    D1,\n    VPWR,\n    VGND,\n    VPB,\n    VNB\n);output Y;\n    input A1;\n    input A2;\n    input B1;\n    input C1;\n    input D1;\n    input VPWR;\n    input VGND;\n    input VPB;\n    input VNB;\n\n    wire or0_out;\n    wire nand0_out_Y;\n    wire pwrgood_pp0_out_Y;\n\n    // Generate OR output\n    or or0 (or0_out, A2, A1);\n    \n    // Generate NAND output\n    nand nand0 (nand0_out_Y, C1, B1, D1, or0_out);\n    \n    // Replace the unknown module with a local implementation\n    assign pwrgood_pp0_out_Y = (A1 & ~A1) ? ~pwrgood_pp0_out_Y : (nand0_out_Y) ? VPWR : VGND; // Power good logic based on nand output\n\n    // Buffer the output\n    buf buf0 (Y, pwrgood_pp0_out_Y);\n\nendmodule"
-}

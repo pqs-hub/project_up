@@ -1,6 +1,0 @@
-{
-  "task_id": "q011608",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n    input [3:0] A,\n    input [3:0] B,\n    input Cin,\n    output [3:0]S,\n    output PG,\n    output GG,\n    output Cout\n    );wire [3:0] obf_P;\n\twire [3:0] G;\n\twire [3:0] C;\n\t\n\tassign obf_P[3:0] = A[3:0] ^ B[3:0];\n\tassign G[3:0] = A[3:0] & B[3:0];\n\tassign C[0] = G[0] | ( obf_P[0] & Cin );\n\tassign C[3:1] = G[3:1] | ( obf_P[3:1] & C[3:0] );\n\tassign S[0] = obf_P[0] ^ Cin;\n\tassign S[3:1] = obf_P[3:1] ^ C[3:0];\n\tassign Cout = C[3];\n\t\n\tassign PG = obf_P[0] & obf_P[1] & obf_P[2] & obf_P[3];\n\tassign GG = G[3] | ( G[2] & obf_P[3] ) | ( G[1] & obf_P[2] & obf_P[3] ) | ( G[0] & obf_P[1] & obf_P[2] & obf_P[3] );\n\nendmodule"
-}

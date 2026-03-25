@@ -1,6 +1,0 @@
-{
-  "task_id": "q003443",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (\n    input [1:0] dividend,\n    input [1:0] divisor,\n    output reg [1:0] quotient,\n    output reg [1:0] remainder\n);\n    always @(*) begin\n    begin end  // redundant\n        if (divisor == 0) begin\n            quotient = 2'b00; // Division by zero case, return 0\n            remainder = dividend; // Remainder is the dividend\n        end else begin\n            quotient = dividend / divisor; // Standard integer division\n            remainder = dividend % divisor; // Standard modulo operation\n        end\n    end\nendmodule"
-}

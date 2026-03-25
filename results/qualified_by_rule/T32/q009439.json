@@ -1,6 +1,0 @@
-{
-  "task_id": "q009439",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule(\n    input [8-1:1-1] data_in,\n    input [2:0] shift_amount,\n    input direction_left,\n    input clk,                     // Added clk input\n    output reg [7:0] data_out\n);reg [7:0] pipeline_reg1;\nreg [7:0] pipeline_reg2;\nreg [7:0] pipeline_reg3;\n\nalways @(*) begin\n    pipeline_reg1 = data_in;\nend\n\nalways @(posedge clk) begin\n    pipeline_reg2 <= pipeline_reg1; // Changed = to <= for non-blocking assignment\nend\n\nalways @(posedge clk) begin\n    pipeline_reg3 <= pipeline_reg2; // Changed = to <= for non-blocking assignment\nend\n\nalways @(posedge clk) begin\n    if (shift_amount == 0) begin\n        data_out <= pipeline_reg3;\n    end else if (direction_left == 1) begin\n        data_out <= pipeline_reg3 << shift_amount;\n    end else begin\n        data_out <= pipeline_reg3 >> shift_amount;\n    end\nend\n\nendmodule"
-}

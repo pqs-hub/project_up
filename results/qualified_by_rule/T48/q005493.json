@@ -1,6 +1,0 @@
-{
-  "task_id": "q005493",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module RefModule(\n  input [n-1:0] a,\n  input [n-1:0] b,\n  input ctrl,\n  output signed [2*n-1:0] res\n);parameter n = 8; // number of bits in each input number\n\nwire [2*n-1:0] unsigned_res;\nwire signed [2*n-1:0] signed_res;\n\n// Unsigned multiplication\n  assign res = (ctrl == 1) ? signed_res : unsigned_res;\n\n// Signed multiplication\n  assign signed_res = $signed(a) * $signed(b);\n\n// Select output based on control signal\n  assign unsigned_res = a * b;\n\nendmodule"
-}

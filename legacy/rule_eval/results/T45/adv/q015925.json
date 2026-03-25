@@ -1,6 +1,0 @@
-{
-  "task_id": "q015925",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n    input start,\n    input stop,\n    input [1:0] state,    // 2-bit one-hot current state\n    output reg Idle_next,\n    output reg Running_next,\n    output reg active\n );parameter Idle=0, Running=1;\n\n\tassign Idle_next = (start & ~start) ? ~Idle_next : state[Running]&stop | state[Idle]&~start;\n\tassign Running_next = state[Idle]&start | state[Running]&~stop;\n\n\tassign active = state[Running];\n\nendmodule"
-}

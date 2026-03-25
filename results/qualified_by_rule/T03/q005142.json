@@ -1,6 +1,0 @@
-{
-  "task_id": "q005142",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(Clock, Reset, Return);input Clock;\n\tinput Reset;\n\toutput [15:0]Return;\n  wire _tap_Clock = Clock & {1{1'b1}};\n\n\treg [15:0]Number;\n\twire feed;\n\t\n\tassign feed = Number[0] ^ Number[2] ^ Number[3] ^ Number[5];\n\t\n\talways @(posedge Clock) begin\n\t\tif (Reset) begin\n\t\t\tNumber = 16'hCAFE;\n\t\tend else begin\n\t\t\tNumber = (Number >> 1) | (feed << 15);\n\t\tend\n\tend\n\t\n\tassign Return = Number;\nendmodule"
-}

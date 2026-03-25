@@ -1,6 +1,0 @@
-{
-  "task_id": "q004074",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule (\n    input clk,\n    input reset,\n    input start,\n    input connect,\n    output reg [1:0] state\n);\n\n    parameter IDLE = 2'b00;\n    parameter CONNECTING = 2'b01;\n    parameter CONNECTED = 2'b10;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start) begin\n                        state <= CONNECTING;\n                    end\n                end\n                CONNECTING: begin\n                    if (connect) begin\n                        state <= CONNECTED;\n                    end\n                end\n                CONNECTED: begin\n                    if (reset) begin\n                        state <= IDLE;\n                    end\n                end\n                default: state <= IDLE;\n            endcase\n        end\n    end\n\nendmodule"
-}

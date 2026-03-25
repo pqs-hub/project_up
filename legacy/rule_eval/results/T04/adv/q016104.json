@@ -1,6 +1,0 @@
-{
-  "task_id": "q016104",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule top_module (\n    input clk,\n    input load,\n    input [4:0] initial_value,\n    output reg [4:0] count\n);\n\n    // 5-bit binary counter with loadable initial value logic\n    always @(posedge clk) begin\n        if (load) begin\n            count <= initial_value;\n        end else begin\n            count <= count + 1;\n        end\n    end\n\nendmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q010373",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module( obf_EXTop,imm16,extout);input [15:0]  imm16;\n    input [1:0]   obf_EXTop;\n    output [31:0] extout;\n    \n    assign extout = (obf_EXTop == 'b00) ? { imm16,16'b0}:\n                      (obf_EXTop == 'b01) ? { 16'b0,imm16}:\n                      (obf_EXTop == 'b10) ? { {16{imm16[15]}},imm16}:\n                      32'b0001001000110100;\nendmodule",
-  "rename_map": {
-    "EXTop": "obf_EXTop"
-  }
-}

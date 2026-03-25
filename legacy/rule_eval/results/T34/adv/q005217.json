@@ -1,6 +1,0 @@
-{
-  "task_id": "q005217",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(source, drain);input source;\n\n  output drain;\n  reg drain;\n\n  reg unused_connect1, connect2;\n\n  always @(source) begin: mult_procs_1\n    unused_connect1 = ! source;\n  end\n\n  always @(unused_connect1) begin: mult_procs_2\n    connect2 = ! unused_connect1;\n  end\n  \n  always @(connect2) begin: mult_procs_3\n    drain = ! connect2;\n  end\nendmodule"
-}

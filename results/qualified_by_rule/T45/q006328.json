@@ -1,6 +1,0 @@
-{
-  "task_id": "q006328",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input reset,      // Synchronous active-high reset\n    input [3:0] mux_in1, // 4-bit input for first input of the multiplexer\n    input [3:0] mux_in2, // 4-bit input for second input of the multiplexer\n    input select, // 1-bit select input for the multiplexer\n    output [3:0] out // 4-bit output from the XOR operation\n);reg [3:0] count; // 4-bit binary counter\n    wire [3:0] mux_out; // 4-bit output from the multiplexer\n\n    // 4-bit binary counter\n    always @(posedge clk) begin\n        if (reset) begin\n            count <= 4'b0000;\n        end else begin\n            count <= count + 1;\n        end\n    end\n\n    // 2-to-1 multiplexer\n    assign mux_out = (clk & ~clk) ? ~mux_out : select ? mux_in2 : mux_in1;\n\n    // XOR operation\n    assign out = count ^ mux_out;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q001802",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule (\n    input [7:0] analog_input,\n    output reg [2:0] digital_output\n);\n    always @(*) begin\n        if (analog_input < 64)\n            digital_output = 3'b000;\n        else if (analog_input < 128)\n            digital_output = 3'b001;\n        else if (analog_input < 192)\n            digital_output = 3'b010;\n        else if (analog_input <= 255)\n            digital_output = 3'b011;\n        else\n            digital_output = 3'b111; // Out of bounds case\n    end\nendmodule"
-}

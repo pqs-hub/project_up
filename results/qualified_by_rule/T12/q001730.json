@@ -1,6 +1,0 @@
-{
-  "task_id": "q001730",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    input load,\n    input shift_left,\n    input [15:0] parallel_in,\n    output reg [15:0] q\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        q <= 16'b0;\n    end else if (load) begin\n        q <= parallel_in;\n    end else if (shift_left) begin\n        q <= {q[14:0], 1'b0}; // Shift left\n    end else begin\n        q <= {1'b0, q[15:1]}; // Shift right\n    end\nend\n\nendmodule"
-}

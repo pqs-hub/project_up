@@ -1,6 +1,0 @@
-{
-  "task_id": "q003784",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule (\n    input [15:0] adc_input,\n    input [15:0] reference,\n    output reg greater_than_ref,\n    output reg [15:0] output_signal\n);\n    \n    always @(*) begin\n        if (adc_input > reference) begin\n            greater_than_ref = 1'b1;\n            output_signal = reference; // Output reference if input is greater\n        end else begin\n            greater_than_ref = 1'b0;\n            output_signal = adc_input; // Output input if it is less than or equal\n        end\n    end\nendmodule"
-}

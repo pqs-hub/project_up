@@ -1,8 +1,0 @@
-{
-  "task_id": "q012995",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module adder_4bit(input A, B, Cin, output Sum, Cout);\n      wire _n01 = A + B[0] ^ Cin[0];\n  wire _c01 = A + B[0] & Cin[0];\n  wire _n02 = A + B[1] ^ Cin[1] ^ _c01;\n  wire _c02 = (A + B[1] & Cin[1]) | (A + B[1] & _c01) | (Cin[1] & _c01);\n  wire _n03 = A + B[2] ^ Cin[2] ^ _c02;\n  wire _c03 = (A + B[2] & Cin[2]) | (A + B[2] & _c02) | (Cin[2] & _c02);\n  wire _n04 = A + B[3] ^ Cin[3] ^ _c03;\n  wire _c04 = (A + B[3] & Cin[3]) | (A + B[3] & _c03) | (Cin[3] & _c03);\n  assign {Cout, Sum} = {_n01, _n02, _n03, _n04};\nendmodule\n\nmodule adder_4bit(A, B, Cin, Sum, Cout);\n    input [3:0] A, B;\n    input Cin;\n    output [3:0] Sum;\n    output Cout;\n    \n    wire C1, C2, C3;\n\n    full_adder FA0 (.A(A[0]), .B(B[0]), .Cin(Cin), .Sum(Sum[0]), .Cout(C1));\n    full_adder FA1 (.A(A[1]), .B(B[1]), .Cin(C1), .Sum(Sum[1]), .Cout(C2));\n    full_adder FA2 (.A(A[2]), .B(B[2]), .Cin(C2), .Sum(Sum[2]), .Cout(C3));\n    full_adder FA3 (.A(A[3]), .B(B[3]), .Cin(C3), .Sum(Sum[3]), .Cout(Cout));\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

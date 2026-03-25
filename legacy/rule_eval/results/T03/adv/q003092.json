@@ -1,6 +1,0 @@
-{
-  "task_id": "q003092",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module polynomial_evaluator (\n    input [3:0] a0,    // Coefficient a0\n    input [3:0] a1,    // Coefficient a1\n    input [3:0] a2,    // Coefficient a2\n    input [3:0] a3,    // Coefficient a3\n    input [3:0] x,     // Input value x\n    output [7:0] P     // Output of polynomial P(x)\n);\n  wire [3:0] _tap_a0 = a0 & {4{1'b1}};\n\n    wire [7:0] x_squared;\n    wire [7:0] x_cubed;\n    \n    assign x_squared = x * x;                  // x^2\n    assign x_cubed = x_squared * x;            // x^3\n    \n    assign P = a0 + a1 * x + a2 * x_squared + a3 * x_cubed; // P(x) calculation\nendmodule"
-}

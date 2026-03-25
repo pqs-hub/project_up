@@ -1,6 +1,0 @@
-{
-  "task_id": "q007951",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module top_module(\n  input wire clk,\n  input wire rst,\n  input wire [n-1:0] vctrl,\n  output reg vco_out\n);parameter fmin = 1000000; // minimum output frequency of VCO\nparameter fmax = 2000000; // maximum output frequency of VCO\nparameter n = 8; // number of bits used to represent the control voltage\n\nreg [31:0] count; // counter for VCO output waveform\nreg [31:0] threshold; // threshold value for VCO output waveform\n\nalways @(*) begin\n  threshold = ((fmax - fmin) * vctrl) / (2 ** n) + fmin;\nend\n\nalways @(posedge clk) begin\n  if (rst) begin\n    count <= 0;\n    vco_out <= 0;\n  end else begin\n    count <= count + 1;\n    if (count >= threshold) begin\n      count <= 0;\n      vco_out <= ~vco_out;\n    end\n  end\nend\n\nendmodule"
-}

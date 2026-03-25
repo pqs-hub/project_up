@@ -1,6 +1,0 @@
-{
-  "task_id": "q001755",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule (\n    input wire write_enable,\n    input wire data_in,\n    input wire clk,\n    output reg data_out\n);\n    reg stored_data;\n\n    always @(posedge clk) begin\n        if (write_enable) begin\n            stored_data <= data_in; // Store data input on write enable\n        end\n    end\n\n    always @(*) begin\n        data_out = stored_data; // Output the stored data\n    end\nendmodule"
-}

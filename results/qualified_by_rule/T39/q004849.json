@@ -1,6 +1,0 @@
-{
-  "task_id": "q004849",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,       // Chip clock signal.\n    input reset,     // Asynchronous reset signal.\n    input d,         // Input data.\n    output q         // Flip-flop output signal.\n);\n\nreg q_reg;           // Flip-flop register.\n\nalways @(posedge clk or posedge reset)\n    if (reset) q_reg <= 1'b0;                      // Reset to zero if reset is active.\n    else q_reg <= d;                               // Capture input data otherwise.\n\nassign q = q_reg;                                  // Output flip-flop value.\n\nendmodule"
-}

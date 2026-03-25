@@ -1,6 +1,0 @@
-{
-  "task_id": "q014700",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module binary_counter(clk, enable, count);\n\n    input  clk;  \n    input  enable;  \n    output [2:0] count;  \n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg    [2:0] count; \n    initial count = 0;\n\n    always @(posedge clk)\n        begin\n            if (enable)\n                count <= count + 1;\n            else\n                count <= count;\n        end  \n\nendmodule"
-}

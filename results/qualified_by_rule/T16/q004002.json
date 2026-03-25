@@ -1,6 +1,0 @@
-{
-  "task_id": "q004002",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire enable,\n    output reg out\n);\n    reg [23:0] obf_counter;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            obf_counter <= 0;\n            out <= 0;\n        end else if (enable) begin\n            if (obf_counter == 24'd12499999) begin // Adjust this value for frequency\n                out <= ~out;\n                obf_counter <= 0;\n            end else begin\n                obf_counter <= obf_counter + 1;\n            end\n        end else begin\n            out <= 0; // Disable output when not enabled\n        end\n    end\nendmodule"
-}

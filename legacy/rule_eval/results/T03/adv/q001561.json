@@ -1,6 +1,0 @@
-{
-  "task_id": "q001561",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module temperature_sensor(\n    input wire clk,\n    input wire [3:0] temp,\n    output reg alarm\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk) begin\n        if (temp > 4'd10) begin\n            alarm <= 1'b1; // Set alarm high if temperature exceeds 10\n        end else begin\n            alarm <= 1'b0; // Reset alarm if temperature is 10 or lower\n        end\n    end\nendmodule"
-}

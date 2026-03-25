@@ -1,6 +1,0 @@
-{
-  "task_id": "q005589",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule (clk, rst, q);\n   input clk, rst;\n   output [2:0] q;\n   \n   reg [2:0] q;\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) \n    begin\n        q <= 3'b000;\n    end \n    else \n    begin\n        q <= {q[1:0], ~q[2]};\n    end\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q014118",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module top_module(\n    input clk,                // Added clock input\n    input [0:0] in,\n    output reg [2:0] out\n);reg [2:0] reg_out;\n\nalways @(posedge clk) begin\n    reg_out <= {reg_out[1:0], in};\nend\n\nassign out = reg_out & 3'b111;\n\nendmodule"
-}

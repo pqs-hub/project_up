@@ -1,9 +1,0 @@
-{
-  "task_id": "q004136",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module median_filter(  \n    input [2:0] x1,  \n    input [2:0] x2,  \n    input [2:0] x3,  \n    output reg [2:0] obf_median  \n);  \nalways @(*) begin  \n    if ((x1 <= x2 && x1 >= x3) || (x1 >= x2 && x1 <= x3))  \n        obf_median = x1;  \n    else if ((x2 <= x1 && x2 >= x3) || (x2 >= x1 && x2 <= x3))  \n        obf_median = x2;  \n    else  \n        obf_median = x3;  \nend  \nendmodule",
-  "rename_map": {
-    "median": "obf_median"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q003354",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module shift_register_2bit (  \n    input wire obf_clk,  \n    input wire reset,  \n    input wire serial_in,  \n    output reg [1:0] q  \n);  \n    always @(posedge obf_clk or posedge reset) begin  \n        if (reset) begin  \n            q <= 2'b00;  \n        end else begin  \n            q <= {q[0], serial_in};  \n        end  \n    end  \nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

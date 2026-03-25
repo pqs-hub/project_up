@@ -1,6 +1,0 @@
-{
-  "task_id": "q014237",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(\n    input wire       clk,   \n    input wire[4:0]  rs1_i, \n    input wire[4:0]  rs2_i, \n    input wire[4:0]  rd_i,  \n    input wire       w_en,  \n    input wire[31:0] w_data, \n    \n    output wire[31:0] rs1_o, \n    output wire[31:0] rs2_o  \n    );reg[31:0] gpr[31:0]; \n    \n    assign rs1_o = (rs1_i == 0) ? 32'h00000000 : gpr[rs1_i]; \n    assign rs2_o = (rs2_i == 0) ? 32'h00000000 : gpr[rs2_i]; \n    \n    always @ (posedge clk) begin\n        if (w_en) begin\n            gpr[rd_i] <= w_data; \n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

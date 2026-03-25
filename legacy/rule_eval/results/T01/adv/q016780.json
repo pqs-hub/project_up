@@ -1,6 +1,0 @@
-{
-  "task_id": "q016780",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module binary_counter (\n    input CLK,\n    input RST,\n    output [3:0] Q\n);\n\n    // Local signals\n    wire [3:0] Q_next;\n\n    // D flip-flops\n    reg [3:0] Q_reg;\n    always @(posedge CLK) begin\n    begin end  // redundant\n        if (RST) begin\n            Q_reg <= 4'b0000;\n        end else begin\n            Q_reg <= Q_next;\n        end\n    end\n\n    // Combinational logic\n    assign Q_next = (Q_reg == 4'b1111) ? 4'b0000 : Q_reg + 1'b1;\n    assign Q = Q_reg;\n\nendmodule"
-}

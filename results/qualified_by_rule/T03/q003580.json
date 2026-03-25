@@ -1,6 +1,0 @@
-{
-  "task_id": "q003580",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [11:0] raw_temperature,\n    input wire [11:0] gain,\n    input wire [11:0] offset,\n    input wire update_coefficients,\n    output reg [11:0] calibrated_temperature\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nreg [11:0] current_gain;\nreg [11:0] current_offset;\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        current_gain <= 12'd0;\n        current_offset <= 12'd0;\n        calibrated_temperature <= 12'd0;\n    end else begin\n        if (update_coefficients) begin\n            current_gain <= gain;\n            current_offset <= offset;\n        end\n        calibrated_temperature <= (raw_temperature * current_gain) + current_offset;\n    end\nend\n\nendmodule"
-}

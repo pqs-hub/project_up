@@ -1,6 +1,0 @@
-{
-  "task_id": "q007304",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    output reg [2:0] q\n);\n\n    // Always block triggered on the rising edge of the clock\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 3'd0;  // Synchronous reset to 0\n        end else begin\n            q <= q + 3'd1;  // Increment the counter\n        end\n    end\n\nendmodule"
-}

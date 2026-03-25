@@ -1,6 +1,0 @@
-{
-  "task_id": "q006512",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule(\n    input wire clk,\n    input wire rst,\n    output reg [3:0] count\n    );\n\nalways @(posedge clk) begin\n    if (rst)\n        count <= 4'b0000;\n    else begin\n        count[3] <= ~count[0];\n        count[2] <= count[3];\n        count[1] <= count[2];\n        count[0] <= count[1];\n    end\nend\n\nendmodule"
-}

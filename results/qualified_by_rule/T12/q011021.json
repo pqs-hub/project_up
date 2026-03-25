@@ -1,6 +1,0 @@
-{
-  "task_id": "q011021",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(CLK, LOAD, IN, OUT);input CLK, LOAD;\n  input [15:0] IN;\n  output reg [15:0] OUT;\n\n  always @(posedge CLK) begin\n    if (LOAD) begin\n      OUT <= IN;\n    end else begin\n      OUT <= {OUT[14:0], 1'b0};\n    end\n  end\n\nendmodule"
-}

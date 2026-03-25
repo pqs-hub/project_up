@@ -1,6 +1,0 @@
-{
-  "task_id": "q012585",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule sync_up_counter_16bit(\n    input clk,\n    input rst,\n    input load,\n    input [15:0] data,\n    output reg [15:0] q\n    );\n\n    always @(posedge clk) begin\n        if (rst) begin\n            q <= 16'b0000000000000000;\n        end else if (load) begin\n            q <= data;\n        end else begin\n            q <= q + 1;\n        end\n    end\nendmodule"
-}

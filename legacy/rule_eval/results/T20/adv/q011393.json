@@ -1,6 +1,0 @@
-{
-  "task_id": "q011393",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule top_module(clk,rst,PC_in,PC_out);input clk;\ninput rst;\ninput [31:0] PC_in;\noutput  [31:0] PC_out;\n\nreg [31:0]tmp;\nalways @(posedge clk)\nbegin\n\tif(rst)\n\t\tbegin\n\t\t\ttmp<=0;\n\t\tend\n\telse\n\t\tbegin\n\t\t\ttmp<=PC_in;\n\t\tend\n\tend\n\n\nassign PC_out=tmp;\nendmodule"
-}

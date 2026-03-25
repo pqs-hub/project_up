@@ -1,6 +1,0 @@
-{
-  "task_id": "q014164",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n    input wire clk,\n    input wire rst_n,\n    input wire [3:0] divisor,\n    output reg square_wave\n);\n\nreg [3:0] counter;\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        counter <= 4'd0;\n        square_wave <= 1'b0;\n    end else begin\n        if (counter >= (divisor - 1)) begin\n            counter <= 4'd0;\n            square_wave <= ~square_wave;\n        end else begin\n            counter <= counter + 4'd1;\n        end\n    end\nend\n\nendmodule"
-}

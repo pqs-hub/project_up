@@ -1,6 +1,0 @@
-{
-  "task_id": "q008082",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input reset,\n    input [1:0] select,\n    input [3:0] sig_in,\n    output reg sig_out\n);always @(posedge clk) begin\n    begin end  // redundant\n    if (reset) begin\n        sig_out <= 0;\n    end else begin\n        case (select)\n            2'b00: sig_out <= sig_in[0];\n            2'b01: sig_out <= sig_in[1];\n            2'b10: sig_out <= sig_in[2];\n            2'b11: sig_out <= sig_in[3];\n        endcase\n    end\nend\n\nendmodule"
-}

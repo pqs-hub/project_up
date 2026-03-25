@@ -1,6 +1,0 @@
-{
-  "task_id": "q006466",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n   input                clk,\n   input                rst,\n   input                load,\n   input  [15:0]        load_val,\n   output reg [15:0]    Q\n);\n    always@(posedge clk)begin\n        if(rst) Q <= 16'd0;\n        else if(load) Q <= load_val;\n        else Q <= {Q[14:0], 1'b0};\n    end\nendmodule"
-}

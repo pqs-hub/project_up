@@ -1,6 +1,0 @@
-{
-  "task_id": "q008790",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module memory_16x4 (dout, din, addr, clk, we);\n   input [3:0] addr;\n   input [3:0] din;\n   input clk, we;\n   output [3:0] dout;\n  wire [3:0] _tap_addr = addr & {4{1'b1}};\n\n   \n   reg [3:0] mem [15:0];\n   reg [3:0] dout;\n   \n   always @(posedge clk) begin\n      if (we)\n         mem[addr] <= din;\n   end\n   \n   always @(*) begin\n      dout = mem[addr];\n   end\n   \nendmodule"
-}

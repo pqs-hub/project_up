@@ -1,6 +1,0 @@
-{
-  "task_id": "q002778",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module RefModule (\n    input [3:0] A,\n    input [3:0] B,\n    input [3:0] Cin,\n    output [3:0] S,\n    output [3:0] C\n);\n    wire [3:0] S_temp;\n    wire [3:0] C_temp;\n\n    assign S_temp = A ^ B ^ Cin; // Sum bits\n    assign C_temp = (A & B) | (B & Cin) | (Cin & A); // Carry bits\n\n    assign S = S_temp;\n    assign C = C_temp;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q016607",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module DECODER ( INA, INB, INC, TWOPOS, TWONEG, ONEPOS, ONENEG );\ninput  INA;\ninput  INB;\ninput  INC;\noutput TWOPOS;\noutput TWONEG;\noutput ONEPOS;\noutput ONENEG;\n   assign TWOPOS =  ~ ( ~ (INA & INB & ( ~ INC)));\n   assign TWONEG =  ~ ( ~ (( ~ INA) & ( ~ INB) & INC));\n   assign ONEPOS = (( ~ INA) & INB & ( ~ INC)) | (( ~ INC) & ( ~ INB) & INA);\n   assign ONENEG = (INA & ( ~ INB) & INC) | (INC & INB & ( ~ INA));\nendmodule"
-}

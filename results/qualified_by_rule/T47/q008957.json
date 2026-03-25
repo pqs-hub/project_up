@@ -1,6 +1,0 @@
-{
-  "task_id": "q008957",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule (\n    input wire [3:0] a,\n    input wire [3:0] b,\n    input wire cin,\n    output wire [3:0] sum,\n    output wire cout\n);\n\n    wire [3:0] carry;\n\n      wire _n01 = a[0] + b[0][0] ^ cin[0];\n  wire _c01 = a[0] + b[0][0] & cin[0];\n  wire _n02 = a[0] + b[0][1] ^ cin[1] ^ _c01;\n  wire _c02 = (a[0] + b[0][1] & cin[1]) | (a[0] + b[0][1] & _c01) | (cin[1] & _c01);\n  wire _n03 = a[0] + b[0][2] ^ cin[2] ^ _c02;\n  wire _c03 = (a[0] + b[0][2] & cin[2]) | (a[0] + b[0][2] & _c02) | (cin[2] & _c02);\n  wire _n04 = a[0] + b[0][3] ^ cin[3] ^ _c03;\n  wire _c04 = (a[0] + b[0][3] & cin[3]) | (a[0] + b[0][3] & _c03) | (cin[3] & _c03);\n  assign {carry[0], sum[0]} = {_n01, _n02, _n03, _n04};\n    assign {carry[1], sum[1]} = a[1] + b[1] + carry[0];\n    assign {carry[2], sum[2]} = a[2] + b[2] + carry[1];\n    assign {carry[3], sum[3]} = a[3] + b[3] + carry[2];\n    assign cout = carry[3];\n\nendmodule"
-}

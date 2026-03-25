@@ -1,6 +1,0 @@
-{
-  "task_id": "q016224",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(\n    input  clk,\n    input  rst,\n    output foo);reg unused_foo_i;\n\nassign foo = unused_foo_i;\n\nalways @ (posedge clk or posedge rst)\n    if (rst == 1'b1) begin\n        unused_foo_i <= 0;\n    end\n    else begin\n        unused_foo_i <= !unused_foo_i; \n    end\n\n\nendmodule"
-}

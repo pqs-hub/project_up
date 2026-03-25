@@ -1,6 +1,0 @@
-{
-  "task_id": "q003528",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input req,\n    output reg rsp\n);\n\n    reg [2:0] state;\n    \n    parameter IDLE = 3'b000, REQUEST = 3'b001, RESPONSE = 3'b010;\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n            rsp <= 0;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (req) begin\n                        state <= REQUEST;\n                    end\n                end\n                REQUEST: begin\n                    state <= RESPONSE;\n                end\n                RESPONSE: begin\n                    rsp <= 1; // Generate response\n                    state <= IDLE; // Go back to IDLE\n                end\n            endcase\n        end\n    end\nendmodule"
-}

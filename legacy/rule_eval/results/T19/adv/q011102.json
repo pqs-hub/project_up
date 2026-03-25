@@ -1,6 +1,0 @@
-{
-  "task_id": "q011102",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(\n  input [depth-1:0] address,\n  input [data_width-1:0] data_in,\n  input write_en,\n  output reg [data_width-1:0] data_out\n);parameter data_width = 8; // number of bits in each data word\nparameter depth = 16; // number of words that can be stored in the memory block\n\nreg [data_width-1:0] mem [0:depth-1]; // array of data words with depth elements, each with data_width bits\n\n// read or write data to the memory block at the specified address\nalways @(*) begin\n  if (write_en) // write data to memory block\n    mem[address] = data_in;\n  else // read data from memory block\n    data_out = mem[address];\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

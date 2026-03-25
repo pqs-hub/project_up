@@ -1,6 +1,0 @@
-{
-  "task_id": "q006779",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n\tinput \tclk,\n\tinput \tclear,\n\tinput \tset,\n\toutput reg [15:0] Q\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge clear or posedge dbg_halt)\nbegin\n\tif (clear)\n\t\tQ <= 16'b0000000000000000;\n\telse if (set)\n\t\tQ <= 16'b1111111111111111;\nend\n\nendmodule"
-}

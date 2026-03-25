@@ -1,6 +1,0 @@
-{
-  "task_id": "q010566",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input load,\n    input [3:0] preset_val,\n    output reg [3:0] count);\n\nalways @(posedge clk) begin\n    if (reset) begin\n        count <= 4'b0000;\n    end else if (load) begin\n        count <= preset_val;\n    end else begin\n        count <= count + 1;\n    end\nend\nendmodule"
-}

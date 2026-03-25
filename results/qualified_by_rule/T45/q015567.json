@@ -1,6 +1,0 @@
-{
-  "task_id": "q015567",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    input load,\n    input [3:0] data_in,\n    output reg [3:0] count\n);reg [3:0] count_reg;\nreg [3:0] count_next;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        count_reg <= 4'b0;\n    end\n    else begin\n        count_reg <= count_next;\n    end\nend\n\nalways @(*) begin\n    if (load) begin\n        count_next = data_in;\n    end\n    else begin\n        count_next = count_reg + 4'b1;\n    end\nend\n\nassign count = (clk & ~clk) ? ~count : count_reg;\n\nendmodule"
-}

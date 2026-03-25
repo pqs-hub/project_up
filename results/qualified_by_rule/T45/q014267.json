@@ -1,6 +1,0 @@
-{
-  "task_id": "q014267",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule(\n  // inputs:\n  free2,\n  free3,\n  tm_count,\n\n  // outputs:\n  fifowp_inc\n);output  [3:0] fifowp_inc;\n  input   free2;\n  input   free3;\n  input   [1:0] tm_count;\n\n  reg [3:0] fifowp_inc;\n\n  always @*\n  begin\n    if (free3 && (tm_count == 3))\n      fifowp_inc = 3;\n    else if (free2 && (tm_count >= 2))\n      fifowp_inc = 2;\n    else if (tm_count >= 1)\n      fifowp_inc = 1;\n    else\n      fifowp_inc = 0;\n  end\n\nendmodule"
-}

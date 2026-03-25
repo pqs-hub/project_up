@@ -1,9 +1,0 @@
-{
-  "task_id": "q000688",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module temp_shutdown (\n    input wire clk,\n    input wire rst,\n    input wire [7:0] temp,      // 8-bit temperature input\n    input wire [7:0] threshold,  // 8-bit temperature threshold\n    output reg shutdown_signal    // Shutdown signal output\n);\n    reg [1:0] obf_state;            // State variable\n    parameter IDLE = 2'b00,     // Idle obf_state\n              SHUTDOWN = 2'b01, // Shutdown obf_state\n              WAIT = 2'b10;     // Wait obf_state\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            obf_state <= IDLE;\n            shutdown_signal <= 0;\n        end else begin\n            case (obf_state)\n                IDLE: begin\n                    if (temp > threshold) begin\n                        shutdown_signal <= 1;\n                        obf_state <= SHUTDOWN;\n                    end\n                end\n                SHUTDOWN: begin\n                    // Remain in shutdown obf_state until checked\n                    if (temp <= threshold) begin\n                        obf_state <= WAIT;\n                    end\n                end\n                WAIT: begin\n                    // After waiting, go back to IDLE obf_state\n                    shutdown_signal <= 0;\n                    obf_state <= IDLE;\n                end\n            endcase\n        end\n    end\nendmodule",
-  "rename_map": {
-    "state": "obf_state"
-  }
-}

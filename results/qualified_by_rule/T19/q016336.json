@@ -1,6 +1,0 @@
-{
-  "task_id": "q016336",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(\n  input clk,\n  input start,\n  input [7:0] num1,\n  input [7:0] num2,\n  input [1:0] mode,\n  output reg [7:0] result,\n  output reg done\n);reg [15:0] temp;\n\n  always @(posedge clk) begin\n    if (start) begin\n      case (mode)\n        0: temp = num1 + num2;\n        1: temp = num1 - num2;\n        2: temp = num1 * num2;\n        3: temp = num1 / num2;\n      endcase\n      result <= temp[7:0];\n      done <= 1;\n    end else begin\n      done <= 0;\n    end\n  end\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

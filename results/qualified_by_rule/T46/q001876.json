@@ -1,6 +1,0 @@
-{
-  "task_id": "q001876",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input wire [15:0] D,      // 16-bit data input\n    input wire WE,            // Write enable\n    input wire CLK,           // Clock signal\n    output reg [15:0] Q       // 16-bit data output\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n        if (WE) begin\n            Q <= D;           // Write data to Q on rising edge of CLK if WE is high\n        end\n    end\nendmodule"
-}

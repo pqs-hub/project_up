@@ -1,7 +1,0 @@
-{
-  "task_id": "q014764",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module ring_counter_3bit (CLK, RST, Q);\ninput CLK, RST;\noutput reg [2:0] Q;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST) begin\n        Q <= 3'b001;\n    end else begin\n        Q <= {Q[1:0], Q[2]};\n    end\nend\n\nendmodule",
-  "rename_map": {}
-}

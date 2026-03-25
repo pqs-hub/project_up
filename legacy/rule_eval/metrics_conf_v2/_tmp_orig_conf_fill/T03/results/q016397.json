@@ -1,7 +1,0 @@
-{
-  "task_id": "q016397",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module debounce(\n  input clk,\n  input rst_n,\n  input noisy_button,\n  output reg clean_button\n);\n\n  reg [3:0] shift_reg;\n  \n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      shift_reg <= 4'b0;\n      clean_button <= 1'b0;\n    end\n    else begin\n      shift_reg <= {shift_reg[2:0], noisy_button};\n      \n      if (shift_reg == 4'b1111)\n        clean_button <= 1'b1;\n      else\n        clean_button <= 1'b0;\n    end\n  end\n\nendmodule",
-  "rename_map": {}
-}

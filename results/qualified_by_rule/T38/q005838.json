@@ -1,6 +1,0 @@
-{
-  "task_id": "q005838",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(Q, CLK, RST, LOAD, D);output [3:0] Q;\n  input CLK, RST, LOAD;\n  input [3:0] D;\n\n  reg [3:0] count;\n\n  always @(posedge CLK) begin\n    if (RST) begin\n      count <= 4'b0000;\n    end\n    else if (LOAD) begin\n      count <= D;\n    end\n    else begin\n      count <= count + 1;\n    end\n  end\n\n  assign Q = count;\n\nendmodule"
-}

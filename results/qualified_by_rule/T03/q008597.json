@@ -1,6 +1,0 @@
-{
-  "task_id": "q008597",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    input [7:0] A,\n    input [7:0] B,\n    output reg [15:0] C  // Changed 'output' to 'output reg'\n);integer i, j;\n  wire [7:0] _tap_A = A & {8{1'b1}};\n\n    reg [15:0] sum;\n    \n    always @(*) begin\n        sum = 0;\n        for (i = 0; i < 8; i = i + 1) begin\n            if (B[i] == 1) begin\n                for (j = 0; j < 8; j = j + 1) begin\n                    if (A[j] == 1) begin\n                        sum = sum + (1 << (i + j));\n                    end\n                end\n            end\n        end\n        C = sum;\n    end\nendmodule"
-}

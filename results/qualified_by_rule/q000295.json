@@ -1,6 +1,0 @@
-{
-  "task_id": "q000295",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire write_enable,\n    input wire read_enable,\n    input wire reset,\n    input wire [15:0] data_in,\n    output reg [15:0] data_out\n);\n\n    reg [15:0] obf_memory;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            obf_memory <= 16'b0; // Reset obf_memory\n            data_out <= 16'b0; // Reset output\n        end else begin\n            if (write_enable) begin\n                obf_memory <= data_in; // Write input data to obf_memory\n            end\n            if (read_enable) begin\n                data_out <= obf_memory; // Read obf_memory to output\n            end\n        end\n    end\n\nendmodule"
-}

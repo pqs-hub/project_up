@@ -1,6 +1,0 @@
-{
-  "task_id": "q000818",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule (\n    input wire [7:0] Vref,  // Reference voltage input\n    input wire EN,          // Enable signal\n    input wire [7:0] Vin,   // Input voltage\n    output reg [7:0] Vout   // Regulated output voltage\n);\n\nalways @(*) begin\n    if (EN) begin\n        Vout = Vref; // Output Vref when enabled\n    end else begin\n        Vout = Vin; // Output Vin when disabled\n    end\n    // Ensure Vout does not exceed Vin\n    if (Vout > Vin) begin\n        Vout = Vin;\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

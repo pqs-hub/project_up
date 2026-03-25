@@ -1,6 +1,0 @@
-{
-  "task_id": "q003051",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(  \n    input wire clk,  \n    input wire rst,  \n    input wire int_req,  \n    input wire enable,  \n    output reg int_active  \n);  \n    always @(posedge clk or posedge rst) begin  \n        if (rst)  \n            int_active <= 0;  \n        else if (enable)  \n            int_active <= int_active | int_req;  \n        else  \n            int_active <= 0;  \n    end  \nendmodule"
-}

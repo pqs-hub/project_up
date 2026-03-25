@@ -1,6 +1,0 @@
-{
-  "task_id": "q009544",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module top_module(\n   \n   pcx_spc7_grant_bufp4_pa, spc6_pcx_req_bufp4_pq, \n   spc6_pcx_atom_bufp4_pq, spc7_pcx_req_bufp4_pq, \n   spc7_pcx_atom_bufp4_pq, \n   \n   spc6_pcx_req_bufpt_pq_l, spc6_pcx_atom_bufpt_pq_l, \n   spc7_pcx_req_bufpt_pq_l, spc7_pcx_atom_bufpt_pq_l, \n   pcx_spc7_grant_bufp3_pa_l\n   );output [4:0]\t\tpcx_spc7_grant_bufp4_pa;\n   output [4:0]\t\tspc6_pcx_req_bufp4_pq;\t\n   output \t\tspc6_pcx_atom_bufp4_pq;\t\n   output [4:0]\t\tspc7_pcx_req_bufp4_pq;\t\n   output \t\tspc7_pcx_atom_bufp4_pq;\t\n\n\n   input [4:0]\t\tspc6_pcx_req_bufpt_pq_l;\t\n   input \t\tspc6_pcx_atom_bufpt_pq_l;\t\n   input [4:0]\t\tspc7_pcx_req_bufpt_pq_l;\t\n   input \t\tspc7_pcx_atom_bufpt_pq_l;\t\n   input [4:0]\t\tpcx_spc7_grant_bufp3_pa_l;\n\n\n  assign \t\tspc7_pcx_atom_bufp4_pq\t\t\t=        ~spc7_pcx_atom_bufpt_pq_l;\n  assign        \tspc7_pcx_req_bufp4_pq[4:0]\t\t=        ~spc7_pcx_req_bufpt_pq_l[4:0];\n  assign \t\tspc6_pcx_atom_bufp4_pq\t\t\t=        ~spc6_pcx_atom_bufpt_pq_l;\n  assign        \tspc6_pcx_req_bufp4_pq[4:0]\t\t=        ~spc6_pcx_req_bufpt_pq_l[4:0];\n  assign               pcx_spc7_grant_bufp4_pa                 =        ~pcx_spc7_grant_bufp3_pa_l;\n\n\t\t\t\t\t\t\t\t                                    \n   \nendmodule"
-}

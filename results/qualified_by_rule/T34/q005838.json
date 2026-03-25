@@ -1,6 +1,0 @@
-{
-  "task_id": "q005838",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(Q, CLK, RST, LOAD, D);output [3:0] Q;\n  input CLK, RST, LOAD;\n  input [3:0] D;\n\n  reg [3:0] unused_count;\n\n  always @(posedge CLK) begin\n    if (RST) begin\n      unused_count <= 4'b0000;\n    end\n    else if (LOAD) begin\n      unused_count <= D;\n    end\n    else begin\n      unused_count <= unused_count + 1;\n    end\n  end\n\n  assign Q = unused_count;\n\nendmodule"
-}

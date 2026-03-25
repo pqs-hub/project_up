@@ -1,6 +1,0 @@
-{
-  "task_id": "q002078",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [31:0] v_addr,        // virtual address\n    input valid,                // valid bit for translation\n    output reg [31:0] p_addr    // physical address\n);\n\n    // Page size (4KB)\n    localparam PAGE_SIZE = 12; // 4KB = 2^12\n    localparam VIRTUAL_PAGE_MASK = 20'hFFFFF; // Virtual page number mask\n    localparam PHYSICAL_PAGE_BASE = 32'h00001000; // Physical page base address for page 1\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            p_addr <= 32'b0; // reset physical address\n        end else if (valid) begin\n            // Get the virtual page number\n            if (v_addr[31:12] == 20'b0) begin // Only mapping virtual page 0\n                p_addr <= {PHYSICAL_PAGE_BASE[31:12], v_addr[11:0]}; // Map to physical page 1\n            end else begin\n                p_addr <= 32'b0; // Invalid translation\n            end\n        end else begin\n            p_addr <= 32'b0; // Invalid translation\n        end\n    end\nendmodule"
-}

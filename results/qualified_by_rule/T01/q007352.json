@@ -1,6 +1,0 @@
-{
-  "task_id": "q007352",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (\n  input [1:0] in0,\n  input [1:0] in1,\n  input sel,\n  input en_n,\n  output reg [1:0] out\n);\n\n  always @(*) begin\n    begin end  // redundant\n    if (~en_n) begin\n      case (sel)\n        1'b0: out = in0;\n        1'b1: out = in1;\n        default: out = 2'b0;\n      endcase\n    end else begin\n      out = 2'b0;\n    end\n  end\n\nendmodule"
-}

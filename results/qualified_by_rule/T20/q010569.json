@@ -1,6 +1,0 @@
-{
-  "task_id": "q010569",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n    input clk,            // Added clk input\n    input [15:0] in,\n    output reg [3:0] count\n);reg [15:0] in_reg;\ninteger i;\n\nalways @(posedge clk) begin\n    in_reg <= in;\nend\n\nalways @(*) begin\n    count = 0;\n    for(i=0; i<16; i=i+1) begin\n        if(in_reg[i] == 1'b1) begin\n            count = count + 1;\n        end\n    end\nend\n\nendmodule"
-}

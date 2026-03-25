@@ -1,6 +1,0 @@
-{
-  "task_id": "q005553",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule (\n    input wire clk,\n    input wire rst,\n    output reg [2:0] q\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            q <= 3'b001;\n        else\n            q <= {q[1:0], q[2]};\n    end\n\nendmodule"
-}

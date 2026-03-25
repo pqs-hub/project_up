@@ -1,7 +1,0 @@
-{
-  "task_id": "q005186",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module top_module(\n  input trig,\n  input clk,\n  output reg out\n);parameter t = 10; // duration of output pulse, in clock cycles\n  \n  reg [3:0] counter; // 4-bit counter to count t clock cycles\n  \n  always @(posedge clk) begin\n    if (trig) begin // trigger signal is high\n      counter <= 0; // reset counter\n      out <= 1; // output pulse is high\n    end else if (counter < t) begin // counter is less than t\n      counter <= counter + 1; // increment counter\n      out <= 1; // output pulse is high\n    end else begin // counter is greater than or equal to t\n      out <= 0; // output pulse is low\n    end\n  end\n  \nendmodule",
-  "rename_map": {}
-}

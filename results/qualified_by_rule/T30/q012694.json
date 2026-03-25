@@ -1,6 +1,0 @@
-{
-  "task_id": "q012694",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input reset,\n  input [7:0] data_in,\n  output reg [8:0] byte_out\n);always @(posedge clk or posedge reset) begin\n    if (reset) begin\n      byte_out <= 9'b0;\n    end else begin\n      byte_out[8] <= ^data_in;\n      byte_out[7:0] <= data_in;\n    end\n  end\n  \nendmodule"
-}

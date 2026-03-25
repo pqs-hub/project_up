@@ -1,6 +1,0 @@
-{
-  "task_id": "q012833",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input load,\n    input up_down,\n    output reg [2:0] out\n);reg [2:0] reg1, reg2, reg3;\n\nalways @(posedge clk) begin\n    if (load) begin\n        reg1 <= 3'b0;\n        reg2 <= 3'b0;\n        reg3 <= 3'b0;\n    end else begin\n        if (up_down) begin\n            reg1 <= reg2;\n            reg2 <= reg3;\n            reg3 <= reg3 + 1;\n        end else begin\n            reg1 <= reg2;\n            reg2 <= reg3;\n            reg3 <= reg3 - 1;\n        end\n    end\nend\n\nassign out = reg1;\n\nendmodule"
-}

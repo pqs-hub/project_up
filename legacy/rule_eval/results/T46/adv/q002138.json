@@ -1,8 +1,0 @@
-{
-  "task_id": "q002138",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module dram_cell (\n    input wire clk,\n    input wire we,\n    input wire [3:0] din,\n    output reg [3:0] dout\n);\n    reg [3:0] storage; // internal storage for the DRAM cell\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (we) begin\n            storage <= din; // write data to storage\n        end\n    end\n\n    always @(*) begin\n        dout = storage; // output the stored data\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

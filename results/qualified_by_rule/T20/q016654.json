@@ -1,6 +1,0 @@
-{
-  "task_id": "q016654",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(A, B, C); \n    input [1:0] A;\n    input [1:0] B; \n    output [1:0] C;\n    wire a0, a1, b0, b1;\n    assign {a1, a0} = A;\n    assign {b1, b0} = B;\n    assign C[0] = (~a1 & a0 & ~b1 & b0) | (a1 & ~a0 & b1 & ~b0);\n    assign C[1] = (~a1 & a0 & b1 & ~b0) | (a1 & ~a0 & ~b1 & b0);\nendmodule"
-}

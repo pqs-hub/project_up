@@ -1,6 +1,0 @@
-{
-  "task_id": "q004589",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n    input a,\n    input b,\n    input sel,\n    output y\n);wire not_sel;\n    wire a_and_sel;\n    wire b_and_not_sel;\n\n    // Invert the select signal\n    not(not_sel, sel);\n\n    // AND gate between a and inverted select signal\n    and(a_and_sel, a, not_sel);\n\n    // AND gate between b and select signal\n    and(b_and_not_sel, b, sel);\n\n    // OR gate between the two AND gates\n    or(y, a_and_sel, b_and_not_sel);\n\nendmodule"
-}

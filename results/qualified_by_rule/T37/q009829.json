@@ -1,6 +1,0 @@
-{
-  "task_id": "q009829",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input rst_n,\n    input [8:0] addr_in,\n    output reg [15:0] data_out,\n    output reg [8:0] addr_out\n);reg [15:0] mem [511:0]; // ROM memory\n\n    // Initialize memory with random data\n    integer i;\n    initial begin\n        for (i = 0; i < 512; i = i + 1) begin\n            mem[i] = $random;\n        end\n    end\n\n    always @(posedge clk) begin\n        if (!rst_n) begin\n            data_out <= 16'h0;\n            addr_out <= 9'h0;\n        end\n        else begin\n            data_out <= mem[addr_in];\n            addr_out <= addr_in;\n        end\n    end\n\nendmodule"
-}

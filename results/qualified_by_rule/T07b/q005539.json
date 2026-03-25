@@ -1,6 +1,0 @@
-{
-  "task_id": "q005539",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input en,\n    input data,\n    output gated_clk\n);reg gated_clk_reg;\n\n    always @(posedge clk) begin\n        if (en && data) begin\n            gated_clk_reg <= 1'b1;\n        end else begin\n            gated_clk_reg <= 1'b0;\n        end\n    end\n\n    assign gated_clk = gated_clk_reg;\n\nendmodule"
-}

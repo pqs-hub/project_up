@@ -1,6 +1,0 @@
-{
-  "task_id": "q015349",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule( \n    input wire [7:0] in_hi,\n    input wire [7:0] in_lo,\n    output wire [16:0] out );wire obf_parity_bit;\n    wire [15:0] half_word;\n\n    // Concatenate the two input bytes into a half-word\n    assign half_word = {in_hi, in_lo};\n\n    // Generate parity bit using XOR gate\n    assign obf_parity_bit = ^half_word;\n\n    // Append parity bit to half-word output\n    assign out = {half_word, obf_parity_bit};\n\nendmodule"
-}

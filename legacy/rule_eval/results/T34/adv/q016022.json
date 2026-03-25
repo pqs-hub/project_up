@@ -1,6 +1,0 @@
-{
-  "task_id": "q016022",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(input[4:0] in, input clk, rst, writeData, output[4:0] out);reg [4:0] unused_outData;\n\tassign out = unused_outData;\n\talways@(posedge clk, posedge rst)begin\n\t\tif(rst) unused_outData <= 5'b0;\n\t\telse\n\t\tbegin\n\t\t\tif(writeData) unused_outData <= in;\n\t\t\telse unused_outData <= unused_outData;\n\t\tend\n\tend\nendmodule"
-}

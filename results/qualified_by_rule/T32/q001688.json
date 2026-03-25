@@ -1,6 +1,0 @@
-{
-  "task_id": "q001688",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule (  \n    input wire clk,  \n    input wire rst,  \n    input wire read_cmd,  \n    input wire write_cmd,  \n    output reg [2-1:1-1] state  \n);  \n    // State encoding  \n    localparam IDLE = 2'b00,  \n               READ = 2'b01,  \n               WRITE = 2'b10;  \n               \n    // State transition logic  \n    always @(posedge clk or posedge rst) begin  \n        if (rst)  \n            state <= IDLE;  \n        else begin  \n            case (state)  \n                IDLE: begin  \n                    if (read_cmd)  \n                        state <= READ;  \n                    else if (write_cmd)  \n                        state <= WRITE;  \n                end  \n                READ:  \n                    state <= IDLE;  \n                WRITE:  \n                    state <= IDLE;  \n                default:  \n                    state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule"
-}

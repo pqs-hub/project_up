@@ -1,6 +1,0 @@
-{
-  "task_id": "q007654",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module RefModule(\n    input A,\n    input B,\n    input SEL,\n    input VPWR,\n    input VGND,\n    output VOUT,\n    output VOUT_N\n);wire mux_out;\n    // Instantiate the Multiplexer\n    wire __mux_out_tmp = (SEL) ? B : A;\n    assign mux_out = __mux_out_tmp;  // Simple 2:1 multiplexer logic\n    \n    assign VOUT = mux_out;\n    assign VOUT_N = ~mux_out;\n\nendmodule"
-}

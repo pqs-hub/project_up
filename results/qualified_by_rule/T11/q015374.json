@@ -1,6 +1,0 @@
-{
-  "task_id": "q015374",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    \n    output reg [5:0] q\n);\n\nwire feedback = q[5] ^ q[4];\n\nalways @(posedge clk) begin\n    if (reset) begin\n        q <= 6'b000001;\n    end else begin\n        q <= {q[4:0], feedback};\n    end\nend\n\nendmodule"
-}

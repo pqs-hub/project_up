@@ -1,6 +1,0 @@
-{
-  "task_id": "q013786",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input async_in,\n    input reset,\n    output reg sync_out\n    );reg meta;\n\nalways @(posedge clk) \n    if (reset)\n       begin\n        meta <= 1'b0;\n        sync_out <= 1'b0;\n       end\n    else\n       begin\n        meta <= async_in;\n        sync_out <= meta;\n       end\n\n\nendmodule"
-}

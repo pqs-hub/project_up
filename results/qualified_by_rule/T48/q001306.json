@@ -1,6 +1,0 @@
-{
-  "task_id": "q001306",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule (  \n    input [7:0] A,  \n    input [7:0] B,  \n    input [2:0] opcode,  \n    output reg [7:0] result,  \n    output reg carry_out  \n);  \n    always @(*) begin  \n        case (opcode)  \n            3'b000: begin // AND  \n                result = A & B;  \n                carry_out = 0;  \n            end  \n            3'b001: begin // OR  \n                result = A | B;  \n                carry_out = 0;  \n            end  \n            3'b010: begin // XOR  \n                result = A ^ B;  \n                carry_out = 0;  \n            end  \n            3'b011: begin // ADD  \n                {carry_out, result} = A + B;  \n            end  \n            3'b100: begin // SUB  \n                {carry_out, result} = A - B;  \n            end  \n            default: begin  \n                result = 8'b00000000;  \n                carry_out = 0;  \n            end  \n        endcase  \n    end  \nendmodule"
-}

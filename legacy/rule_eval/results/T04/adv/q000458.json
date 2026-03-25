@@ -1,6 +1,0 @@
-{
-  "task_id": "q000458",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule comparator_64bit (\n    input [63:0] A,\n    input [63:0] B,\n    output reg less_than,\n    output reg equal_to,\n    output reg greater_than\n);\n\nalways @(*) begin\n    if (A < B) begin\n        less_than = 1;\n        equal_to = 0;\n        greater_than = 0;\n    end\n    else if (A == B) begin\n        less_than = 0;\n        equal_to = 1;\n        greater_than = 0;\n    end\n    else begin\n        less_than = 0;\n        equal_to = 0;\n        greater_than = 1;\n    end\nend\n\nendmodule"
-}

@@ -1,7 +1,0 @@
-{
-  "task_id": "q014948",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module top_module(\n    input clk, // clock input\n    input reset, // synchronous reset input\n    input enable, // counting enable input\n    output reg [3:0] count // 4-bit output\n);always @(posedge clk) begin\n    if(reset) begin\n        count <= 4'b0; // reset to 0\n    end else if(enable) begin\n        if(count == 4'b1001) begin\n            count <= 4'b0; // reset to 0 after counting to 9\n        end else begin\n            count <= count + 1; // increment counter\n        end\n    end\nend\n\nendmodule",
-  "rename_map": {}
-}

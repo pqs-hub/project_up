@@ -1,6 +1,0 @@
-{
-  "task_id": "q001732",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule (  \n    input wire clk,  \n    input wire reset,  \n    input wire wifi_request,  \n    input wire disconnect_request,  \n    output reg [1:0] current_state  \n);  \n    // State encoding  \n    localparam IDLE = 2'b00,  \n               CONNECTING = 2'b01,  \n               CONNECTED = 2'b10,  \n               DISCONNECTED = 2'b11;  \n               \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            current_state <= IDLE;  \n        end else begin  \n            case (current_state)  \n                IDLE: begin  \n                    if (wifi_request)  \n                        current_state <= CONNECTING;  \n                end  \n                CONNECTING: begin  \n                    current_state <= CONNECTED;  \n                end  \n                CONNECTED: begin  \n                    if (disconnect_request)  \n                        current_state <= DISCONNECTED;  \n                end  \n                DISCONNECTED: begin  \n                    current_state <= IDLE;  \n                end  \n            endcase  \n        end  \n    end  \nendmodule"
-}

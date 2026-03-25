@@ -1,7 +1,0 @@
-{
-  "task_id": "q012067",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module shift_register_8bit(\n    input clk, \n    input rst, \n    input load, \n    input [7:0] data, \n    output reg serial_out);\n\n    reg [7:0] shift_reg;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            shift_reg <= 8'b00000000;\n            serial_out <= 0;\n        end else if (load) begin\n            shift_reg <= data;\n        end else begin\n            serial_out <= shift_reg[7];\n            shift_reg <= {shift_reg[6:0], 1'b0};\n        end\n    end\nendmodule",
-  "rename_map": {}
-}

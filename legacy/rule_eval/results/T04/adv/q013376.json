@@ -1,6 +1,0 @@
-{
-  "task_id": "q013376",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule top_module(sel,clk,reset,a,b,out );parameter width=8;\n  input        [1:0] sel ;\n  input         reset,     clk;\n  input        [width-1:0] a;\n  input        [width-1:0] b;\n  output reg   [width-1:0] out;\n\nwire [7:0] MUX [0:3];\n\nassign MUX[0] = a+b;\nassign MUX[1] = a-b;\nassign MUX[2] = a^b;\nassign MUX[3] = a&b;\n\nalways@(posedge clk)\nbegin\nif (reset)\n  out<=7'b0;\n  else\n  out <= MUX[sel];\nend\n endmodule"
-}

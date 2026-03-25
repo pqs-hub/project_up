@@ -1,6 +1,0 @@
-{
-  "task_id": "q016498",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule(\n    input  clock,\n    input  reset,\n    input  M_Flush,\n    input  M_Stall,\n    input  WB_Stall,\n    input  M_RegWrite,\n    input  M_MemtoReg,\n    input  [31:0] M_ReadData,\n    input  [31:0] M_ALU_Result,\n    input  [4:0]  M_RtRd,\n    output reg WB_RegWrite,\n    output reg WB_MemtoReg,\n    output reg [31:0] WB_ReadData,\n    output reg [31:0] WB_ALU_Result,\n    output reg [4:0]  WB_RtRd\n    );\n    always @(posedge clock) begin\n        WB_RegWrite   <= (reset) ? 0     : ((WB_Stall) ? WB_RegWrite   : ((M_Stall | M_Flush) ? 0 : M_RegWrite));\n        WB_MemtoReg   <= (reset) ? 0     : ((WB_Stall) ? WB_MemtoReg                              : M_MemtoReg);\n        WB_ReadData   <= (reset) ? 32'b0 : ((WB_Stall) ? WB_ReadData                              : M_ReadData);\n        WB_ALU_Result <= (reset) ? 32'b0 : ((WB_Stall) ? WB_ALU_Result                            : M_ALU_Result);\n        WB_RtRd       <= (reset) ? 5'b0  : ((WB_Stall) ? WB_RtRd                                  : M_RtRd);\n    end\nendmodule"
-}

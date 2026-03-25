@@ -1,6 +1,0 @@
-{
-  "task_id": "q010870",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(output reg [31:0] ext, input [31:0] unext, input size, en);parameter BYTE = 1'b0;\n    parameter HALF = 1'b1;\n\n    always @ (unext) begin\n        if(en)\n            case(size)\n                BYTE: ext <= {{24{unext[7]}},unext[7:0]};\n                HALF: ext <= {{16{unext[15]}},unext[15:0]};\n            endcase\n        else\n            ext <= unext;\n    end\nendmodule"
-}

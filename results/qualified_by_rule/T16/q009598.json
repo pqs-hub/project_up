@@ -1,6 +1,0 @@
-{
-  "task_id": "q009598",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule (\n\tinput clk,\n\tinput resetn,\n\tinput key,\n\toutput reg open);\n\n\tparameter LOCKED=0, UNLOCKED=1;\n\treg state, ctrl_bus_wire;\n\n\talways @(posedge clk) begin\n\t\tif (~resetn) state <= LOCKED;\n\t\telse state <= ctrl_bus_wire;\n\tend\n\n\talways_comb begin\n\t\tcase (state)\n\t\t\tLOCKED: ctrl_bus_wire = key ? UNLOCKED : LOCKED;\n\t\t\tUNLOCKED: ctrl_bus_wire = LOCKED;\n\t\t\tdefault: ctrl_bus_wire = LOCKED;\n\t\tendcase\n\tend\n\n\talways @(state) begin\n\t\tcase (state)\n\t\t\tUNLOCKED: open = 1;\n\t\t\tdefault: open = 0;\n\t\tendcase\n\tend\nendmodule"
-}

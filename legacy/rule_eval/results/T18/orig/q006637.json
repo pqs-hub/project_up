@@ -1,6 +1,0 @@
-{
-  "task_id": "q006637",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module mux_4to1(A, B, C, D, S, Y);\n    input A, B, C, D;\n    input [1:0] S;\n    output Y;\n    \n    wire S0, S1;\n    wire nS0, nS1;\n    wire wA, wB, wC, wD;\n    \n    assign S0 = S[0];\n    assign S1 = S[1];\n    assign nS0 = ~S0;\n    assign nS1 = ~S1;\n    \n    assign wA = A & nS1 & nS0;\n    assign wB = B & nS1 & S0;\n    assign wC = C & S1 & nS0;\n    assign wD = D & S1 & S0;\n    \n    assign Y = wA | wB | wC | wD;\nendmodule"
-}

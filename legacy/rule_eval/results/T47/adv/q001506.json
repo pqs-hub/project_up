@@ -1,8 +1,0 @@
-{
-  "task_id": "q001506",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module carry_save_adder (\n    input [3:0] a,\n    input [3:0] b,\n    input [3:0] c,\n    output [3:0] sum,\n    output carry_out\n);\n    wire [4:0] tmp_sum1, tmp_sum2;\n\n    // First stage of addition: add a and b\n      wire _n01 = a[0] ^ b[0];\n  wire _c01 = a[0] & b[0];\n  wire _n02 = a[1] ^ b[1] ^ _c01;\n  wire _c02 = (a[1] & b[1]) | (a[1] & _c01) | (b[1] & _c01);\n  wire _n03 = a[2] ^ b[2] ^ _c02;\n  wire _c03 = (a[2] & b[2]) | (a[2] & _c02) | (b[2] & _c02);\n  wire _n04 = a[3] ^ b[3] ^ _c03;\n  wire _c04 = (a[3] & b[3]) | (a[3] & _c03) | (b[3] & _c03);\n  assign tmp_sum1 = {_n01, _n02, _n03, _n04};\n\n    // Second stage of addition: add the result with c\n    assign tmp_sum2 = tmp_sum1 + c;\n\n    // Final sum and carry out\n    assign sum = tmp_sum2[3:0];\n    assign carry_out = tmp_sum2[4];\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q016480",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule(\n    input   En,                 \n    input   [7:0] A,            \n    input   [7:0] B,            \n    input   Ci,                 \n    output  reg [8:0] Out,      \n    output  reg OV,             \n    output  reg Valid           \n);\nreg     [7:0] S;        \nreg     C6, C7;         \nalways @(*)\nbegin\n    {C6, S[6:0]} <= ({1'b0, A[6:0]} + {1'b0, B[6:0]} + {7'b0, Ci});\n    {C7,   S[7]} <= ({1'b0,   A[7]} + {1'b0,   B[7]} + {1'b0, C6});\nend\nalways @(*)\nbegin\n    Out   <= ((En) ? {C7, S}   : 0);\n    OV    <= ((En) ? (C7 ^ C6) : 0);\n    Valid <= En;\nend\nendmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q006185",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module freq_divider(\n  input clk,\n  input rst_n,\n  output reg clk_out\n);\n\n  reg [1:0] obf_counter;\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      obf_counter <= 2'b00;\n      clk_out <= 1'b0;\n    end else begin\n      if (obf_counter == 2'b11) begin\n        obf_counter <= 2'b00;\n        clk_out <= ~clk_out;\n      end else begin\n        obf_counter <= obf_counter + 1;\n      end\n    end\n  end\n\nendmodule",
-  "rename_map": {
-    "counter": "obf_counter"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q000054",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module sata_controller (\n    input wire obf_clk,\n    input wire reset,\n    input wire start_connection,\n    input wire connection_success,\n    input wire start_disconnection,\n    input wire disconnection_success,\n    output reg [1:0] current_state\n);\n\n    // State Encoding\n    parameter IDLE = 2'b00, CONNECTING = 2'b01, CONNECTED = 2'b10, DISCONNECTING = 2'b11;\n\n    always @(posedge obf_clk or posedge reset) begin\n        if (reset) begin\n            current_state <= IDLE;\n        end else begin\n            case (current_state)\n                IDLE: if (start_connection) current_state <= CONNECTING;\n                CONNECTING: if (connection_success) current_state <= CONNECTED;\n                CONNECTED: if (start_disconnection) current_state <= DISCONNECTING;\n                DISCONNECTING: if (disconnection_success) current_state <= IDLE;\n                default: current_state <= IDLE;\n            endcase\n        end\n    end\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

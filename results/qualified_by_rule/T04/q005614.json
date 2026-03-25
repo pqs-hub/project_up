@@ -1,6 +1,0 @@
-{
-  "task_id": "q005614",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule RefModule (\n  input clk,\n  input preset,\n  input enable,\n  output reg [3:0] count\n);\n\n  always @(posedge clk) begin\n    if (preset) begin\n      count <= 4'b0101;\n    end\n    else if (enable) begin\n      count <= count + 1'b1;\n    end\n  end\n\nendmodule"
-}

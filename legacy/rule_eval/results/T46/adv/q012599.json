@@ -1,8 +1,0 @@
-{
-  "task_id": "q012599",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module binary_counter_parallel_load_3\n(\n  input rst,\n  input clk,\n  input enable,\n  input load,\n  input [2:0] load_value,\n\n  output reg [2:0] count\n);\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n    if (rst) \n\tbegin\n      count <= 3'b000;\n    end \n\t\n\telse if (load) \n\tbegin\n      count <= load_value;\n    end \n\t\n\telse if (enable) \n\tbegin\n      count <= count + 1;\n    end\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q002461",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule (\n    input wire J,\n    input wire K,\n    input wire CLK,\n    input wire RST,\n    input wire SET,\n    output reg Q,\n    output reg Qn\n);\n    always @(posedge CLK or posedge RST or posedge SET) begin\n        if (RST) begin\n            Q <= 0;\n            Qn <= 1;\n        end else if (SET) begin\n            Q <= 1;\n            Qn <= 0;\n        end else begin\n            case ({J, K})\n                2'b00: begin // No change\n                    Q <= Q;\n                end\n                2'b01: begin // Reset\n                    Q <= 0;\n                    Qn <= 1;\n                end\n                2'b10: begin // Set\n                    Q <= 1;\n                    Qn <= 0;\n                end\n                2'b11: begin // Toggle\n                    Q <= ~Q;\n                    Qn <= ~Qn;\n                end\n            endcase\n        end\n    end\nendmodule"
-}

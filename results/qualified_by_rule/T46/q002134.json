@@ -1,6 +1,0 @@
-{
-  "task_id": "q002134",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(  \n    input wire clk,  \n    input wire [7:0] input_temp,  // Input temperature (0 to 255 degrees Celsius)  \n    input wire [7:0] cal_factor,   // Calibration factor (0 to 255)  \n    output reg [7:0] output_temp   // Calibrated temperature  \n);  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin  \n        output_temp <= input_temp + cal_factor;  \n    end  \nendmodule"
-}

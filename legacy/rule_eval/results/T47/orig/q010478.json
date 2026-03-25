@@ -1,6 +1,0 @@
-{
-  "task_id": "q010478",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module top_module(input clk,input rst,input in,output out);reg [1:0] state, nextstate; \n  parameter [1:0] Zero = 2'b00, Edge = 2'b01, One=2'b10 ; \n  always @ (*) \n  case (state) \n  Zero: if(in) nextstate = Edge; \n  else nextstate = Zero; \n  Edge: if (in) nextstate = One; \n  else nextstate = Zero; \n  One: if(in) nextstate= One; \n  else nextstate= Zero; \n  default: \n  nextstate = 2'bx; \n  endcase \n  always @ (posedge clk or posedge rst) \n  begin \n  if (rst) state <=Zero; \n  else state <= nextstate; \n  end \n  assign out = (state == Edge); \n endmodule"
-}

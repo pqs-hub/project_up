@@ -1,6 +1,0 @@
-{
-  "task_id": "q012562",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n\tinput clk,\n\tinput reset_n,\n\toutput reg enable);reg [2:0] count;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk or negedge reset_n) begin\n\tif (!reset_n) begin\n\t\tcount <= 3'b000;\n\t\tenable <= 0;\n\tend else if (count == 3'b100) begin\n\t\tcount <= 3'b000;\n\t\tenable <= 1;\n\tend else begin\n\t\tcount <= count + 1;\n\t\tenable <= 0;\n\tend\nend\n\nendmodule"
-}

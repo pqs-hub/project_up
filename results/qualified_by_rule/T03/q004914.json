@@ -1,6 +1,0 @@
-{
-  "task_id": "q004914",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n  input wire clk,         // Added clock input\n  input [n-1:0] in,\n  output [n-1:0] out\n);parameter n = 8; // number of input and output signals\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nreg [n-1:0] reg_in;\nreg [n-1:0] reg_out;\n\ninteger i;\n\nalways @(posedge clk) begin\n  for (i = 0; i < n; i = i + 1) begin\n    reg_in[i] <= in[i];\n  end\nend\n\nalways @(*) begin\n  for (i = 0; i < n; i = i + 1) begin\n    reg_out[i] = reg_in[i];\n  end\nend\n\nassign out = reg_out;\n\nendmodule"
-}

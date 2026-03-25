@@ -1,6 +1,0 @@
-{
-  "task_id": "q015730",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(\n    input CLK,\n    input RST,\n    input START,\n    input [15:0] DURATION,\n    output reg PULSE\n);reg [15:0] unused_count;\n\nalways @(posedge CLK) begin\n    if (RST) begin\n        unused_count <= 0;\n        PULSE <= 0;\n    end\n    else if (START) begin\n        if (unused_count < DURATION) begin\n            unused_count <= unused_count + 1;\n            PULSE <= 1;\n        end\n        else begin\n            unused_count <= 0;\n            PULSE <= 0;\n        end\n    end\n    else begin\n        unused_count <= 0;\n        PULSE <= 0;\n    end\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q007568",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module top_module(\n    input wire ck_in,\n    input wire enable,\n    output wire ck_out\n);wire ck_inb;\nreg enl;\n\nwire __ck_inb_tmp = ~ck_in;\nassign ck_inb = __ck_inb_tmp;\nalways @(ck_inb or enable)\nif (ck_inb)\n    enl = enable;\nassign ck_out = ck_in & enl;\n\nendmodule"
-}

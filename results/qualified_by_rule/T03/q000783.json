@@ -1,6 +1,0 @@
-{
-  "task_id": "q000783",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    input [4:0] current_level, // 5-bit input for current level\n    output reg [2:0] status    // 3-bit output for status\n);\n  wire [4:0] _tap_current_level = current_level & {5{1'b1}};\n\n\nalways @(*) begin\n    if (current_level < 5'd10)          // Current is low\n        status = 3'b000;\n    else if (current_level >= 5'd10 && current_level < 5'd20) // Current is normal\n        status = 3'b001;\n    else                                  // Current is high\n        status = 3'b010;\nend\nendmodule"
-}

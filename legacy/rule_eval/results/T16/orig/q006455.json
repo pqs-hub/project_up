@@ -1,6 +1,0 @@
-{
-  "task_id": "q006455",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module top_module(\n    Y   ,\n    A   ,\n    B   ,\n    C   ,\n    D   ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);// Module ports\n    output Y   ;\n    input  A   ;\n    input  B   ;\n    input  C   ;\n    input  D   ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n\n    // Local signals\n    wire nand0_out_Y      ;\n    wire pwrgood_pp0_out_Y;\n\n    //                                 Name         Output             Other arguments\n    nand                               nand0       (nand0_out_Y      , D, C, B, A             );\n    \n    // Simple implementation of a power-good check (replace with desired behavior)\n    assign pwrgood_pp0_out_Y = (VPWR && !VGND) ? nand0_out_Y : 1'b0;\n\n    buf                                buf0        (Y                , pwrgood_pp0_out_Y      );\n\nendmodule"
-}

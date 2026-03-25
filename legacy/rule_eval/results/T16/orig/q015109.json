@@ -1,6 +1,0 @@
-{
-  "task_id": "q015109",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module alu_32bit(\n    input [31:0] A,\n    input [31:0] B,\n    input [1:0] opcode,\n    output reg [31:0] Y\n);\n\nalways @(*)\nbegin\n    case (opcode)\n        2'b00: Y = A + B;  // ADD\n        2'b01: Y = A - B;  // SUB\n        2'b10: Y = A & B;  // AND\n        default: Y = 32'b0;\n    endcase\nend\n\nendmodule"
-}

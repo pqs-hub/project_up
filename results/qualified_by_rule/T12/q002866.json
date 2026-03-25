@@ -1,6 +1,0 @@
-{
-  "task_id": "q002866",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule (\n    input wire [7:0] D,\n    input wire SH,\n    input wire LD,\n    input wire CLK,\n    output reg [7:0] Q\n);\n    always @(posedge CLK) begin\n        if (LD) begin\n            Q <= D; // Load the input data\n        end else if (SH) begin\n            Q <= {1'b0, Q[7:1]}; // Shift right with 0 fill\n        end\n    end\nendmodule"
-}

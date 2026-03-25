@@ -1,6 +1,0 @@
-{
-  "task_id": "q007042",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input load,\n    input [3:0] data_in,\n    input shift,\n    output [3:0] data_out\n);reg [3:0] unused_shift_reg;\n\nalways @(posedge clk) begin\n    if (load) begin\n        unused_shift_reg <= data_in;\n    end else if (shift) begin\n        unused_shift_reg <= {unused_shift_reg[2:0], 1'b0};\n    end\nend\n\nassign data_out = unused_shift_reg;\n\nendmodule"
-}

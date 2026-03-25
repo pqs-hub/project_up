@@ -1,6 +1,0 @@
-{
-  "task_id": "q015304",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module RefModule(\n\tinput [31:0]Res_ALU,Fetch,target,\n\tinput [31:0]Write_Data,\n\tinput [31:0]contadorPc,\n\tinput zero_flag,\n\tinput[4:0]Write_Reg,\n\tinput Branch,MemRead,MemtoReg,MemWrite,RegWrite,ControlJump,\n\tinput clk,\n\toutput reg Sal_zf,\n\toutput reg[31:0]SRes_ALU, SFetch,Starget,\n\toutput reg[31:0]SalWD, \n\toutput reg[4:0]Sal_WR,\n\toutput reg SBranch,SMemRead,SMemtoReg,SMemWrite,SRegWrite,SControlJump,\n\toutput reg[31:0]SContadorPc\n);always @(posedge clk) begin\n  SFetch = Fetch ;\n  end\n\n  always @(posedge clk) begin\n  SRes_ALU = Res_ALU ;\n  Sal_zf = zero_flag ;\n  SalWD = Write_Data ;\n  Sal_WR = Write_Reg ;\n  SBranch = Branch ;\n  SMemRead = MemRead ;\n  SMemtoReg = MemtoReg ;\n  SMemWrite = MemWrite ;\n  SRegWrite = RegWrite ;\n  SControlJump = ControlJump ;\n  Starget = target ;\n  SContadorPc = contadorPc ;\n  end\n\nendmodule"
-}

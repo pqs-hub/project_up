@@ -1,6 +1,0 @@
-{
-  "task_id": "q001249",
-  "rule_id": "T34",
-  "changed": false,
-  "final": "module RefModule (\n    input wire S,\n    input wire R,\n    input wire clk,\n    output reg Q\n);\n    always @(posedge clk) begin\n        if (S && ~R) \n            Q <= 1;  // Set\n        else if (~S && R) \n            Q <= 0;  // Reset\n        // If S=0 and R=0, Q retains its previous state\n        // If S=1 and R=1, Q retains its previous state\n    end\nendmodule"
-}

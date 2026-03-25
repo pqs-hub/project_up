@@ -1,9 +1,0 @@
-{
-  "task_id": "q016866",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module memory (\n  input [63:0] data,\n  input [25:0] rdaddress,\n  input rdclken,\n  input [25:0] wraddress,\n  input wrclock,\n  input wren,\n  output reg [63:0] q\n);\n\n  reg [63:0] obf_mem_array [67108863:0];\n  reg [25:0] read_address;\n  \n  always @(rdaddress)\n    read_address <= rdaddress;\n\n  always @(posedge wrclock)\n    if (wren)\n      obf_mem_array[wraddress] <= data;\n\n  always @(posedge rdclken)\n    q <= obf_mem_array[read_address];\n\nendmodule",
-  "rename_map": {
-    "mem_array": "obf_mem_array"
-  }
-}

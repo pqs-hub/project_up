@@ -1,6 +1,0 @@
-{
-  "task_id": "q016619",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module gng_smul_16_18_sadd_37 (\n    input clk,                  \n    input [16-1:1-1] a,             \n    input [17:0] b,             \n    input [36:0] c,             \n    output [37:0] p             \n);\nreg signed [15:0] a_reg;\nreg signed [17:0] b_reg;\nreg signed [36:0] c_reg;\nreg signed [33:0] prod;\nwire signed [37:0] sum;\nreg [37:0] result;\nalways @ (posedge clk) begin\n    a_reg <= a;\n    b_reg <= b;\n    c_reg <= c;\nend\nalways @ (posedge clk) begin\n    prod <= a_reg * b_reg;\nend\nassign sum = c_reg + prod;\nalways @ (posedge clk) begin\n    result <= sum;\nend\nassign p = result;\nendmodule"
-}

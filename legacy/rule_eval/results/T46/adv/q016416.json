@@ -1,8 +1,0 @@
-{
-  "task_id": "q016416",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module register5_wl(datain, dataout, clock, load);\ninput [4:0] datain;\noutput [4:0] dataout;\ninput clock, load;\nreg [4:0] dataout;\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clock or posedge dbg_halt)\nbegin\n    if(load)\n       dataout <= datain;\n    else\n       dataout <= 5'b0;\nend\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

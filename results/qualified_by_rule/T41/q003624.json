@@ -1,6 +1,0 @@
-{
-  "task_id": "q003624",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule (\n    input [2:0] current_state,\n    input power_enable,\n    output reg [2:0] power_state\n);\n    always @(*) begin\n        if (power_enable) begin\n            power_state = current_state; // Fully powered with current state\n        end else begin\n            power_state = 3'b000; // Power down to minimum state\n        end\n    end\nendmodule"
-}

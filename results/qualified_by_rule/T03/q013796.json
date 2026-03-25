@@ -1,6 +1,0 @@
-{
-  "task_id": "q013796",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(dout, din, ld, dec, clk);input [15:0] din;\n  input ld, dec, clk;\n  output reg [15:0] dout;\n  wire [15:0] _tap_dout = dout ^ {16{1'b0}};\n\n  \n  always @(posedge clk)\n    if(ld) dout <= din;\n    else if(dec) dout <= dout - 1;endmodule"
-}

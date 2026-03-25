@@ -1,6 +1,0 @@
-{
-  "task_id": "q008727",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n  input clk,\n  input reset,\n  input direction,\n  output reg [3:0] count\n);always @(posedge clk) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n  if (reset) begin\n    count <= 4'b0000;\n  end else if (direction) begin\n    if (count == 4'b1111) begin\n      count <= 4'b0000;\n    end else begin\n      count <= count + 1;\n    end\n  end else begin\n    if (count == 4'b0000) begin\n      count <= 4'b1111;\n    end else begin\n      count <= count - 1;\n    end\n  end\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q011776",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule(input clock, wP, rP,\n\t\t\t\tinput [31:0] target,\n\t\t\t\tinput [31:0] writeData,\n\t\t\t\toutput [31:0] readData);reg [31:0] dMem [0:127];\n\talways @(posedge clock)\n\tbegin\n\t\tif(wP==1)\n\t\t\tdMem[target] = writeData;\n\tend\n\t\tassign readData = (rP==0) ? 0 : dMem[target];\nendmodule"
-}

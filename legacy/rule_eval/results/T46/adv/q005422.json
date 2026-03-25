@@ -1,8 +1,0 @@
-{
-  "task_id": "q005422",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module register_with_enable(\n    input clk,\n    input rst,\n    input en,\n    input [4:0] data,\n    \n    output reg [4:0] q\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (rst) begin\n            q <= 5'b00000;\n        end else if (en) begin\n            q <= data;\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

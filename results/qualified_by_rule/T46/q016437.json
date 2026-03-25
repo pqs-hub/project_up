@@ -1,6 +1,0 @@
-{
-  "task_id": "q016437",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule (dout, in0, in1, sel) ;\nparameter SIZE = 1;\noutput \t[SIZE-1:0] \tdout;\ninput\t[SIZE-1:0]\tin0;\ninput\t[SIZE-1:0]\tin1;\ninput\t\t\tsel;\nreg\t[SIZE-1:0]\tdout ;\nalways @ (sel or in0 or in1)\n begin\n\t   case (sel)\n\t     1'b1: dout = in1 ; \n\t     1'b0: dout = in0;\n\t     default: \n         begin\n            if (in0 == in1) begin\n               dout = in0;\n            end\n            else\n              dout = {SIZE{1'bx}};\n         end\n\t   endcase \n end\nendmodule"
-}

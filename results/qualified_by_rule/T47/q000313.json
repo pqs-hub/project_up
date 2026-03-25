@@ -1,6 +1,0 @@
-{
-  "task_id": "q000313",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire signed [7:0] signal_strength, // 8-bit signed input for dBm\n    output reg [2:0] strength_category // 3-bit output for strength category\n);\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            strength_category <= 3'b000; // Default to very weak\n        end else begin\n            if (signal_strength < -80) begin\n                strength_category <= 3'b000; // Very weak\n            end else if (signal_strength >= -80 && signal_strength < -70) begin\n                strength_category <= 3'b001; // Weak\n            end else if (signal_strength >= -70 && signal_strength < -60) begin\n                strength_category <= 3'b010; // Moderate\n            end else if (signal_strength >= -60 && signal_strength < -50) begin\n                strength_category <= 3'b011; // Strong\n            end else begin\n                strength_category <= 3'b100; // Very strong\n            end\n        end\n    end\nendmodule"
-}

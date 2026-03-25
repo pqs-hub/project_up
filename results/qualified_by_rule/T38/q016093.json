@@ -1,6 +1,0 @@
-{
-  "task_id": "q016093",
-  "rule_id": "T38",
-  "changed": true,
-  "final": "module RefModule(\n    Y   ,\n    A1  ,\n    A2  ,\n    B1  ,\n    B2  ,\n    C1  ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);output Y   ;\n    input  A1  ;\n    input  A2  ;\n    input  B1  ;\n    input  B2  ;\n    input  C1  ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n\n    wire a1_and_a2, b1_and_b2;\n\n    and a1_and_a2_gate (a1_and_a2, A1, A2);\n    and b1_and_b2_gate (b1_and_b2, B1, B2);\n\n    // Since sky130_fd_sc_ms__a221oi_4 is an unknown module, it will be commented out.\n    // It is assumed that this module should perform some specific logic that needs defining.\n    // sky130_fd_sc_ms__a221oi_4 base (\n    //     .Y(Y),\n    //     .A1(A1),\n    //     .A2(A2),\n    //     .B1(B1),\n    //     .B2(B2),\n    //     .C1(C1),\n    //     .VPWR(VPWR),\n    //     .VGND(VGND),\n    //     .VPB(VPB),\n    //     .VNB(VNB)\n    // );\n\n  wire temp1_a1_and_a2 | b1_and_b2 = a1_and_a2 | b1_and_b2;\n  wire temp2_C1 = C1;\n  assign Y = (temp1_a1_and_a2 | b1_and_b2 | temp2_C1);\n\nendmodule"
-}

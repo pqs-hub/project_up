@@ -1,6 +1,0 @@
-{
-  "task_id": "q000266",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule RefModule(\n    input wire clk,\n    input wire rst,\n    input wire [3:0] req,\n    output reg [3:0] grant,\n    output reg busy\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            grant <= 4'b0000;\n            busy <= 0;\n        end else begin\n            if (req[0]) begin\n                grant <= 4'b0001; // Grant req[0]\n                busy <= 1;\n            end else if (req[1]) begin\n                grant <= 4'b0010; // Grant req[1]\n                busy <= 1;\n            end else if (req[2]) begin\n                grant <= 4'b0100; // Grant req[2]\n                busy <= 1;\n            end else if (req[3]) begin\n                grant <= 4'b1000; // Grant req[3]\n                busy <= 1;\n            end else begin\n                grant <= 4'b0000; // No grants\n                busy <= 0;\n            end\n        end\n    end\nendmodule"
-}

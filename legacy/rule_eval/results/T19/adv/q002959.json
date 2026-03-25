@@ -1,6 +1,0 @@
-{
-  "task_id": "q002959",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module checksum_calculator(  \n    input wire clk,  \n    input wire rst,  \n    input wire [3:0] data_in,  \n    output reg [3:0] checksum_out,  \n    output reg valid  \n);  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            checksum_out <= 4'b0000;  \n            valid <= 1'b0;  \n        end else begin  \n            checksum_out <= data_in[0] ^ data_in[1] ^ data_in[2] ^ data_in[3];  \n            valid <= 1'b1;  \n        end  \n    end  \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

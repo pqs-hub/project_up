@@ -1,9 +1,0 @@
-{
-  "task_id": "q003235",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module data_forwarding_unit (\n    input [4:0] src1, // source register 1 from current instruction\n    input [4:0] src2, // source register 2 from current instruction\n    input [4:0] obf_dest1, // destination register from previous instruction\n    input [4:0] dest2, // another destination register from previous instruction\n    output reg forwardA, // forwarding signal for src1\n    output reg forwardB  // forwarding signal for src2\n);\n\nalways @(*) begin\n    forwardA = (src1 == obf_dest1) ? 1'b1 : (src1 == dest2) ? 1'b1 : 1'b0;\n    forwardB = (src2 == obf_dest1) ? 1'b1 : (src2 == dest2) ? 1'b1 : 1'b0;\nend\nendmodule",
-  "rename_map": {
-    "dest1": "obf_dest1"
-  }
-}

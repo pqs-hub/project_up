@@ -1,6 +1,0 @@
-{
-  "task_id": "q010272",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(\n    input wire clk,\n    input wire load,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n    );\n\nalways @(posedge clk) begin\n    if (load)\n        data_out <= data_in;\n    else\n        data_out <= data_out >> 1;\nend\n\nendmodule"
-}

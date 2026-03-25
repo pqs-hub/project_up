@@ -1,6 +1,0 @@
-{
-  "task_id": "q012425",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n\tCK, \n\tEN,\n\tRST,\n\tQ3, \n\tQ2, \n\tQ1, \n\tQ0);input CK;\n\tinput EN;\n\tinput RST;\n\toutput Q3; \n\toutput Q2; \n\toutput Q1; \n\toutput Q0;\n\t\n\treg [3:0] obf_Q;\n\t\n\tassign {Q3, Q2, Q1, Q0} = obf_Q; // Drive the individual outputs from the 4-bit register obf_Q\n\t\n\talways @(posedge CK) begin\n\t\tif (RST == 1) begin\n\t\t\tobf_Q <= 4'b0000;\n\t\tend else if (EN == 1) begin\n\t\t\tobf_Q <= obf_Q + 1;\n\t\tend\n\tend\n\t\nendmodule"
-}

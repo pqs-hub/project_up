@@ -1,6 +1,0 @@
-{
-  "task_id": "q001397",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire load,\n    input wire d,\n    output reg q\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            q <= 0;\n        end else if (load) begin\n            q <= d;\n        end else begin\n            q <= q; // hold the previous value\n        end\n    end\nendmodule"
-}

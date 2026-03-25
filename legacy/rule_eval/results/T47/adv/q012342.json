@@ -1,8 +1,0 @@
-{
-  "task_id": "q012342",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(sum, carry_out, wireA, wireB, carry_in);input [3:0] wireA;\n   input [3:0] wireB;\n   input carry_in;\n   output [3:0] sum;\n   output carry_out;\n\n     wire _n01 = wireA + wireB[0] ^ carry_in[0];\n  wire _c01 = wireA + wireB[0] & carry_in[0];\n  wire _n02 = wireA + wireB[1] ^ carry_in[1] ^ _c01;\n  wire _c02 = (wireA + wireB[1] & carry_in[1]) | (wireA + wireB[1] & _c01) | (carry_in[1] & _c01);\n  wire _n03 = wireA + wireB[2] ^ carry_in[2] ^ _c02;\n  wire _c03 = (wireA + wireB[2] & carry_in[2]) | (wireA + wireB[2] & _c02) | (carry_in[2] & _c02);\n  wire _n04 = wireA + wireB[3] ^ carry_in[3] ^ _c03;\n  wire _c04 = (wireA + wireB[3] & carry_in[3]) | (wireA + wireB[3] & _c03) | (carry_in[3] & _c03);\n  assign {carry_out, sum} = {_n01, _n02, _n03, _n04};\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

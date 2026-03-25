@@ -1,6 +1,0 @@
-{
-  "task_id": "q014449",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule(\n    Y   ,\n    A   ,\n    B   ,\n    C   ,\n    D_N ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);// Module ports\n    output Y   ;\n    input  A   ;\n    input  B   ;\n    input  C   ;\n    input  D_N ;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n\n    // Local signals\n    wire not0_out         ;\n    wire nor0_out_Y       ;\n    wire pwrgood_pp0_out_Y;\n\n    //                                 Name         Output             Other arguments\n    not                                not0        (not0_out         , D_N                   );\n    nor                                nor0        (nor0_out_Y       , A, B, C, not0_out     );\n    \n    // Updated to remove missing UDP\n    assign pwrgood_pp0_out_Y = (VPWR && nor0_out_Y) ? 1'b1 : VGND; // Simple representation of power good logic\n    buf                                buf0        (Y                , pwrgood_pp0_out_Y     );\n\nendmodule"
-}

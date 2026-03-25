@@ -1,8 +1,0 @@
-{
-  "task_id": "q008625",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module register_8bit(D, CLK, EN, Q);\ninput [7:0] D;\ninput CLK, EN;\noutput reg [7:0] Q;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n    if (EN)\n        Q <= D;\nend\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

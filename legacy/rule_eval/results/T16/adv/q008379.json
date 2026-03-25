@@ -1,9 +1,0 @@
-{
-  "task_id": "q008379",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input obf_A,\n    input enable,\n    input sleep,\n    output reg X\n);always @(obf_A, enable, sleep) begin\n    if (sleep) begin\n        // If sleep is high, hold the output at the last value of obf_A\n        X <= X;\n    end else if (enable) begin\n        // If enable is high, pass the input signal to the output\n        X <= obf_A;\n    end else begin\n        // If enable is low, hold the output at the last value of obf_A\n        X <= X;\n    end\nend\n\nendmodule",
-  "rename_map": {
-    "A": "obf_A"
-  }
-}

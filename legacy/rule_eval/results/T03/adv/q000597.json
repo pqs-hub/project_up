@@ -1,6 +1,0 @@
-{
-  "task_id": "q000597",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module chacha20_round (\n    input [31:0] key,\n    input [31:0] nonce,\n    input [31:0] block_counter,\n    output reg [31:0] result\n);\n  wire [31:0] _tap_key = key & {32{1'b1}};\n\n    always @(key, nonce, block_counter) begin\n        result <= (key + nonce + block_counter) % 32'hFFFFFFFF;\n    end\nendmodule"
-}

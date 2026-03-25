@@ -1,6 +1,0 @@
-{
-  "task_id": "q003364",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [11:0] frequency_in, // 12-bit input frequency\n    output reg match // Output signal to indicate if the pitch is detected\n);\n    parameter TARGET_FREQ = 12'd440;\n    parameter TOLERANCE = 12'd10;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            match <= 0;\n        end else begin\n            if ((frequency_in >= TARGET_FREQ - TOLERANCE) && (frequency_in <= TARGET_FREQ + TOLERANCE)) begin\n                match <= 1;\n            end else begin\n                match <= 0;\n            end\n        end\n    end\nendmodule"
-}

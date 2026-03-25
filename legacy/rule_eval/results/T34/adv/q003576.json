@@ -1,6 +1,0 @@
-{
-  "task_id": "q003576",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module pipeline_2stage(\n    input wire clk,\n    input wire reset,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n\nreg [7:0] unused_stage1;\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        unused_stage1 <= 8'b0;\n        data_out <= 8'b0;\n    end else begin\n        unused_stage1 <= data_in;  // Stage 1\n        data_out <= unused_stage1; // Stage 2\n    end\nend\n\nendmodule"
-}

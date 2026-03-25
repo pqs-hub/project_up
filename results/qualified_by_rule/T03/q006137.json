@@ -1,6 +1,0 @@
-{
-  "task_id": "q006137",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(B, SSEG_L);input  [3:0]  B;\n\n  output [6:0]  SSEG_L;\n  wire [3:0] _tap_B = B & {4{1'b1}};\n\n\n  reg    [6:0]  SSEG_L;\n\n  always @ (B)\n  begin\n    case (B)\n      // segment order: GFEDCBA (active low)\n      4'h0 : SSEG_L = 7'b1000000;\n      4'h1 : SSEG_L = 7'b1111001;\n      4'h2 : SSEG_L = 7'b0100100;\n      4'h3 : SSEG_L = 7'b0110000;\n      4'h4 : SSEG_L = 7'b0011001;\n      4'h5 : SSEG_L = 7'b0010010;\n      4'h6 : SSEG_L = 7'b0000010;\n      4'h7 : SSEG_L = 7'b1111000;\n      4'h8 : SSEG_L = 7'b0000000;\n      4'h9 : SSEG_L = 7'b0010000;\n      4'hA : SSEG_L = 7'b0001000;\n      4'hB : SSEG_L = 7'b0000011;\n      4'hC : SSEG_L = 7'b1000110;\n      4'hD : SSEG_L = 7'b0100001;\n      4'hE : SSEG_L = 7'b0000110;\n      4'hF : SSEG_L = 7'b0001110;\n      default : SSEG_L = 7'b1111111;\n    endcase\n  end\n\nendmodule"
-}

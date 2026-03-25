@@ -1,6 +1,0 @@
-{
-  "task_id": "q008661",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule(\n    input [7:0] input_x,\n    input [7:0] input_y,\n    output [7:0] output_sum,\n    output [7:0] output_and,\n    output [7:0] output_cmp\n    );  wire _n01 = input_x[0] ^ input_y[0];\n  wire _c01 = input_x[0] & input_y[0];\n  wire _n02 = input_x[1] ^ input_y[1] ^ _c01;\n  wire _c02 = (input_x[1] & input_y[1]) | (input_x[1] & _c01) | (input_y[1] & _c01);\n  wire _n03 = input_x[2] ^ input_y[2] ^ _c02;\n  wire _c03 = (input_x[2] & input_y[2]) | (input_x[2] & _c02) | (input_y[2] & _c02);\n  wire _n04 = input_x[3] ^ input_y[3] ^ _c03;\n  wire _c04 = (input_x[3] & input_y[3]) | (input_x[3] & _c03) | (input_y[3] & _c03);\n  assign output_sum = {_n01, _n02, _n03, _n04};\nassign output_and = input_x & input_y;\nassign output_cmp = (input_x == 8'b0) ? 8'b1 : 8'b0; \n\nendmodule"
-}

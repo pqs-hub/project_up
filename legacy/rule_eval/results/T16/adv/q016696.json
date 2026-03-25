@@ -1,9 +1,0 @@
-{
-  "task_id": "q016696",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module mux4 (obf_dout, in0, in1, sel0, sel1);\n\n  output obf_dout;\n  input in0, in1, sel0, sel1;\n\n  reg obf_dout;\n\n  always @ (sel1 or sel0 or in0 or in1) begin\n    case ({sel1, sel0})\n      2'b00: obf_dout = 1'b0;\n      2'b01: obf_dout = in0;\n      2'b10: obf_dout = in1;\n      2'b11: obf_dout = 1'bx;\n    endcase\n  end\n\nendmodule",
-  "rename_map": {
-    "dout": "obf_dout"
-  }
-}

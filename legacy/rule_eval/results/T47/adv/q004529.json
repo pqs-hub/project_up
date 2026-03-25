@@ -1,8 +1,0 @@
-{
-  "task_id": "q004529",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(x, y, carry, out);input [7:0] x, y;\noutput carry;\noutput [7:0] out;\n\n\nwire [8:0] subresult;\n\n  wire _n01 = {1'b0, x}[0] ^ {1'b0, y}[0];\n  wire _c01 = {1'b0, x}[0] & {1'b0, y}[0];\n  wire _n02 = {1'b0, x}[1] ^ {1'b0, y}[1] ^ _c01;\n  wire _c02 = ({1'b0, x}[1] & {1'b0, y}[1]) | ({1'b0, x}[1] & _c01) | ({1'b0, y}[1] & _c01);\n  wire _n03 = {1'b0, x}[2] ^ {1'b0, y}[2] ^ _c02;\n  wire _c03 = ({1'b0, x}[2] & {1'b0, y}[2]) | ({1'b0, x}[2] & _c02) | ({1'b0, y}[2] & _c02);\n  wire _n04 = {1'b0, x}[3] ^ {1'b0, y}[3] ^ _c03;\n  wire _c04 = ({1'b0, x}[3] & {1'b0, y}[3]) | ({1'b0, x}[3] & _c03) | ({1'b0, y}[3] & _c03);\n  assign subresult = {_n01, _n02, _n03, _n04};\nassign out          = subresult[7:0];\nassign carry        = subresult[8];\n\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

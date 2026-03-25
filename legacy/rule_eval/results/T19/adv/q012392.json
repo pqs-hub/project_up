@@ -1,6 +1,0 @@
-{
-  "task_id": "q012392",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(\n    input [15:0] a,\n    input [15:0] b,\n    input [1:0] op, // Select between addition, subtraction, and bitwise AND\n    output reg [31:0] result // Changed to reg since we're assigning in an always block\n);wire [15:0] adder_out;\nwire [15:0] sub_out;\nwire [15:0] and_out;\n\nassign adder_out = a + b;\nassign sub_out = a - b;\nassign and_out = a & b;\n\nalways @(*) begin\n    case (op)\n        2'b00: result = {16'b0, adder_out}; // Addition\n        2'b01: result = {16'b0, sub_out};   // Subtraction\n        2'b10: result = {16'b0, and_out};   // Bitwise AND\n        default: result = 32'b0;            // Default to zero if invalid op\n    endcase\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

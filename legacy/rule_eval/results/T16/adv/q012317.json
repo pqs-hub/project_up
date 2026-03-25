@@ -1,9 +1,0 @@
-{
-  "task_id": "q012317",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module fibonacci_lfsr_6 \n(\n  input rst,\n  input obf_clk,\n  \n  output reg [5:0] out\n);\n\n  always @(posedge obf_clk or posedge rst) begin\n    if (rst) \n\tbegin\n      out <= 6'b000001;\n    end \n\telse \n\tbegin\n      out <= {out[4:0], out[5] ^ out[3]};\n    end\n  end\n\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

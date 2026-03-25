@@ -1,6 +1,0 @@
-{
-  "task_id": "q008685",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule top_module(\n\tinput clk,\n\tinput enable,\n\tinput load,\n\tinput clear,\n\tinput [9:0] load_value,\n\toutput reg [9:0] count);\nalways @(posedge clk) begin\n\tif (clear)\n\t\tcount <= 0;\n\telse if (load)\n\t\tcount <= load_value;\n\telse if (enable)\n\t\tcount <= count + 1;\nend\n\t\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q009280",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(clock, reset, write_value, read_value, \n\tread_value_reg_en, led_success, led_fail);input clock, reset, read_value_reg_en;\n\tinput [3:0] write_value, read_value;\n\toutput led_success, led_fail;\n\n\t\n\treg [3:0] read_value_reg;\n\t\n\tassign led_success = (write_value == read_value_reg);\n\tassign led_fail = ~led_success;\n\t\t\t\t\n\t\n\talways @( posedge clock or posedge reset)\n\t\tbegin\n\t\t\tif(reset)\n\t\t\t\tbegin\n\t\t\t\t\tread_value_reg <= 4'b0;\n\t\t\t\tend\n\t\t\telse if (read_value_reg_en)\n\t\t\t\tbegin\n\t\t\t\t\tread_value_reg <= read_value;\n\t\t\t\tend\n\t\tend\n\t\t\nendmodule"
-}

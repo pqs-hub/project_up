@@ -1,6 +1,0 @@
-{
-  "task_id": "q000350",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    input signal_in,\n    output reg signal_out\n);\n    reg signal_in_prev;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            signal_out <= 0;\n            signal_in_prev <= 0;\n        end else begin\n            signal_out <= (signal_in && !signal_in_prev);\n            signal_in_prev <= signal_in;\n        end\n    end\nendmodule"
-}

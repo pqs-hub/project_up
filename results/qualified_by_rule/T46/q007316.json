@@ -1,6 +1,0 @@
-{
-  "task_id": "q007316",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n\tinput \tclk,\n\tinput \trst,\n\tinput \tenable,\n\tinput \t[4:0] input_data,\n\toutput reg [31:0] output_data\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt)\nbegin\n\tif (rst)\n\t\toutput_data <= 32'b0;\n\telse if (enable)\n\t\toutput_data <= 1 << input_data;\n\telse\n\t\toutput_data <= 32'b0;\nend\n\nendmodule"
-}

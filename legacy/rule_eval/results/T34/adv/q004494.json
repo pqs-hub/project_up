@@ -1,6 +1,0 @@
-{
-  "task_id": "q004494",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(\n    input [31:0] inst,\n    output [31:0] d_out \n);wire [11:0] unused_imm;\n    assign unused_imm = inst[6]?({inst[31],inst[7],inst[30:25],inst[11:8]}):\n                            (inst[5]?{inst[31:25],inst[11:7]}:inst[31:20]);\n    assign d_out = {{20{unused_imm[11]}},unused_imm};\nendmodule"
-}

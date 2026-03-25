@@ -1,6 +1,0 @@
-{
-  "task_id": "q007619",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n   \n   data_out, valid_out,\n   \n   clk, rst, data_in, valid_in\n   ) ;input clk;\n   input rst;\n   input [7:0] data_in;\n   input valid_in;\n   output [7:0] data_out;\n   output valid_out;\n\n   reg [7:0]\t\tdata_out;\n   reg\t\t\tvalid_out;\n\n   always @(posedge clk or posedge rst) begin\n      if (rst) begin\n\t data_out <= 'h0;\n\t valid_out <= 'h0;\n      end\n      else begin\n\t data_out <= data_in;\n\t valid_out <= valid_in;\n      end\n   end\nendmodule"
-}

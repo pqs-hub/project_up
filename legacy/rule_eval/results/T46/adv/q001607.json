@@ -1,8 +1,0 @@
-{
-  "task_id": "q001607",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module flash_memory_cell (\n    input wire clk,\n    input wire write_en,\n    input wire data_in,\n    output reg data_out\n);\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (write_en) begin\n            data_out <= data_in; // Store data when write_en is high\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

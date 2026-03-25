@@ -1,6 +1,0 @@
-{
-  "task_id": "q010278",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule(\n  input [n-1:0] in1,\n  input [n-1:0] in2,\n  input [1:0] ctrl,\n  output reg out\n);parameter n = 4; // number of bits in the input signals\n\nalways @(*) begin\n  case (ctrl)\n    2'b00: out = (in1 == in2);\n    2'b01: out = (in1 > in2);\n    2'b10: out = (in1 < in2);\n    default: out = 1'b0;\n  endcase\nend\n\nendmodule"
-}

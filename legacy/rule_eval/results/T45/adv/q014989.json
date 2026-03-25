@@ -1,6 +1,0 @@
-{
-  "task_id": "q014989",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module down_counter_4bit(\n    input clk,          // Chip clock signal.\n    input rst_n,        // Active-low reset signal.\n    input en,           // Enable signal to allow counting.\n    input load,         // Load signal to load the counter value.\n    input [3:0] load_val, // 4-bit input value to be loaded into the counter.\n    \n    output [3:0] count  // 4-bit count value.\n);\n\nreg [3:0] count_r;\n\n//------------------------------------------------\n// Counter logic\nalways @(posedge clk or negedge rst_n)\n    if (!rst_n) count_r <= 4'd0;  // Reset counter\n    else if (load) count_r <= load_val; // Load counter\n    else if (en) begin\n        if (count_r == 4'd0) count_r <= 4'd15; // Wrap around\n        else count_r <= count_r - 1'b1;        // Decrement counter\n    end\n\nassign count = (clk & ~clk) ? ~count : count_r;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q014708",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module top_module(\n\tinput[3:0] busin,\n\tinput clk, clr, wa,\n\toutput[3:0] addrout);reg[3:0] store;\n\n\twire __addrout_tmp = store;\n\tassign addrout = __addrout_tmp;\n\n\talways@ (posedge clk)\n\tbegin\n\t\tif(clr)\n\t\t\tstore= 4'h0;\n\t\telse if(wa)\n\t\t\tstore= busin;\n\tend\n\tendmodule"
-}

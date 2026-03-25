@@ -1,6 +1,0 @@
-{
-  "task_id": "q001244",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(input clk, input rst, input [3:0] in, output reg [3:0] out);\n    reg [3:0] stage1;\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            stage1 <= 0;\n            out <= 0;\n        end else begin\n            stage1 <= in + 1; // Stage 1: Increment input by 1\n            out <= stage1 * 2; // Stage 2: Double the output of stage 1\n        end\n    end\nendmodule"
-}

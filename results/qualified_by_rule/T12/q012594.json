@@ -1,6 +1,0 @@
-{
-  "task_id": "q012594",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n    input  rst,\n    input  [3:0] bin_in,\n    output [3:0] gray_out\n);wire [3:0] shift_right;\n    \n    assign shift_right[0] = bin_in[0];\n    assign shift_right[1] = bin_in[0] ^ bin_in[1];\n    assign shift_right[2] = bin_in[1] ^ bin_in[2];\n    assign shift_right[3] = bin_in[2] ^ bin_in[3];\n    \n    assign gray_out = {bin_in[3], shift_right[3], shift_right[2], shift_right[1]};\n\nendmodule"
-}

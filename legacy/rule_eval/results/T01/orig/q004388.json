@@ -1,6 +1,0 @@
-{
-  "task_id": "q004388",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module top_module(\n  input [n*k-1:0] in,\n  output out\n);parameter n = 2; // number of input signals\nparameter k = 2; // number of bits in the input signal\nparameter m = 4; // number of entries in the LUT (2^k)\n\nreg [m-1:0] lut [0:(2**k)-1];\ninteger index;\n\n// Define the m entries as Boolean functions of the input signals\n// In this example, we implement a 2-input XOR function\ninitial begin\n  lut[0] = 1'b0;\n  lut[1] = 1'b1;\n  lut[2] = 1'b1;\n  lut[3] = 1'b0;\nend\n\n// Generate an index into the LUT based on the input signals\nalways @(*) begin\n  index = in[k-1:0]; // Changed from in[1:k] to in[k-1:0]\nend\n\n// Output the corresponding value from the LUT\nassign out = lut[index];\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q007889",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module shiftreg16(d, clk, rst, q);\n    input d;\n    input clk;\n    input rst;\n    output reg [15:0] q;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            q <= 16'b0;\n        else\n            q <= {q[14:0], d};\n    end\nendmodule"
-}

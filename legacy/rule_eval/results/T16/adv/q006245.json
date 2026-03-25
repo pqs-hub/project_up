@@ -1,9 +1,0 @@
-{
-  "task_id": "q006245",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module PIPO_16(\n   input           clk,\n   input           rst,\n   input [15:0]    PI,\n   input           load,\n   output [15:0]   PO  \n);\n    reg [15:0] obf_Q;\n    \n    always@(posedge clk) begin\n        if(rst) obf_Q <= 16'b0; // Reset the register\n        else if(load) obf_Q <= PI; // Load parallel input\n    end\n    \n    assign PO = obf_Q; // Parallel output is the current value of the register\nendmodule",
-  "rename_map": {
-    "Q": "obf_Q"
-  }
-}

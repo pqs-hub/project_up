@@ -1,6 +1,0 @@
-{
-  "task_id": "q003093",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire we,  // Write enable\n    input wire re,  // Read enable\n    input wire d,   // Data input\n    output reg q    // Data output\n);\n    reg stored_value; // Internal storage for the DRAM cell\n\n    always @(posedge clk) begin\n        if (we) begin\n            stored_value <= d; // Write data to the cell\n        end\n        if (re) begin\n            q <= stored_value; // Read data from the cell\n        end\n    end\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

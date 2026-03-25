@@ -1,8 +1,0 @@
-{
-  "task_id": "q000145",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module pipeline_processor (  \n    input [3:0] A,  \n    input [3:0] B,  \n    input op,  \n    input clk,  \n    output reg [3:0] result  \n);  \n    reg [3:0] stage1_result;  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin  \n        if (op == 0) begin  \n            stage1_result <= A + B;  \n        end else begin  \n            stage1_result <= A - B;  \n        end  \n    end  \n\n    always @(posedge clk) begin  \n        result <= stage1_result;  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

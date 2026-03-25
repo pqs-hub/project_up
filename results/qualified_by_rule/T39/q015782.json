@@ -1,6 +1,0 @@
-{
-  "task_id": "q015782",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(\n    clk,\n    Load,\n    not_reset,\n    D,\n    Q\n);input wire clk;\ninput wire not_reset;\ninput wire Load;\ninput wire [7:0] D;\noutput wire [7:0] Q;\n\nreg [7:0] Q_ALTERA_SYNTHESIZED;\n\nalways @(posedge clk) begin\n    if (not_reset == 0) begin\n        Q_ALTERA_SYNTHESIZED <= 8'b0;\n    end else if (Load == 1) begin\n        Q_ALTERA_SYNTHESIZED <= D;\n    end\nend\n\nassign Q = Q_ALTERA_SYNTHESIZED;\n\nendmodule"
-}

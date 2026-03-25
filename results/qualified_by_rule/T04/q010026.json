@@ -1,6 +1,0 @@
-{
-  "task_id": "q010026",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(\n\tinput clk,\n\tinput rst_n,\n\tinput enable,\n\toutput reg [3:0] count,\n\toutput reg overflow\n);\nalways @(posedge clk or negedge rst_n) begin\n\tif (!rst_n) begin\n\t\tcount <= 4'd0;\n\t\toverflow <= 1'b0;\n\tend else if (enable) begin\n\t\tif (count == 4'd15) begin\n\t\t\tcount <= 4'd0;\n\t\t\toverflow <= 1'b1;\n\t\tend else begin\n\t\t\tcount <= count + 4'd1;\n\t\t\toverflow <= 1'b0;\n\t\tend\n\tend\nend\nendmodule"
-}

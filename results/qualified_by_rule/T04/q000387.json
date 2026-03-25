@@ -1,6 +1,0 @@
-{
-  "task_id": "q000387",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule (\n    input wire power_on,\n    input wire [3:0] block_input,\n    output reg [3:0] block_output\n);\n\nalways @(*) begin\n    if (power_on) \n        block_output = block_input;\n    else \n        block_output = 4'b0000; // Known state when powered off\nend\n\nendmodule"
-}

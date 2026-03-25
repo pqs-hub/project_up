@@ -1,6 +1,0 @@
-{
-  "task_id": "q000354",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [47:0] dest_addr,\n    input wire [47:0] mac_addr,\n    output reg frame_received\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n    if (rst) begin\n        frame_received <= 0;\n    end else begin\n        if (dest_addr == mac_addr) begin\n            frame_received <= 1; // Frame is received\n        end else begin\n            frame_received <= 0; // Frame is ignored\n        end\n    end\nend\n\nendmodule"
-}

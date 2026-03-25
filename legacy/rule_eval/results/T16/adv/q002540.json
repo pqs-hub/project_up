@@ -1,9 +1,0 @@
-{
-  "task_id": "q002540",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module spi_controller (\n    input clk,       // System clock\n    input start,     // Start transmission signal\n    input [7:0] data_in, // 8-bit data input\n    output reg mosi, // Master Out Slave In\n    output reg sck,   // SPI clock output\n    output reg done    // Transmission done signal\n);\n    reg [2:0] obf_bit_cnt; // Bit counter\n    reg [7:0] shift_reg; // Shift register for data\n    reg state; // State variable\n\n    always @(posedge clk) begin\n        if (start) begin\n            shift_reg <= data_in; // Load data\n            obf_bit_cnt <= 3'b000; // Reset counter\n            sck <= 0; // Initialize clock\n            done <= 0; // Reset done signal\n            state <= 1; // Start the transmission\n        end else if (state) begin\n            sck <= ~sck; // Toggle clock\n            if (sck) begin // On rising edge of SCK\n                mosi <= shift_reg[7]; // Output the most significant bit\n                shift_reg <= {shift_reg[6:0], 1'b0}; // Shift left\n                obf_bit_cnt <= obf_bit_cnt + 1; // Increment bit counter\n                if (obf_bit_cnt == 3'b111) begin\n                    done <= 1; // Set done signal after 8 bits\n                    state <= 0; // Stop the transmission\n                end\n            end\n        end\n    end\nendmodule",
-  "rename_map": {
-    "bit_cnt": "obf_bit_cnt"
-  }
-}

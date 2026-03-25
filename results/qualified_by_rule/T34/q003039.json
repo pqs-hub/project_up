@@ -1,6 +1,0 @@
-{
-  "task_id": "q003039",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire wen, // write enable\n    input wire ren, // read enable\n    input wire [15:0] d_in, // data input\n    output reg [15:0] d_out // data output\n);\n\n    reg [15:0] unused_storage; // 16-bit unused_storage for the DRAM cell\n\n    always @(posedge clk) begin\n        if (wen) begin\n            unused_storage <= d_in; // Store the input value on write enable\n        end\n    end\n\n    always @(posedge clk) begin\n        if (ren) begin\n            d_out <= unused_storage; // Output the stored value on read enable\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q011160",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n  input clk_in,\n  input reset,\n  output reg clk_out\n);parameter N = 2; // division factor\n  wire _tap_clk_in = clk_in & {1{1'b1}};\n\n\nreg [N-1:0] counter;\n\nalways @(posedge clk_in or posedge reset) begin\n  if (reset) begin\n    clk_out <= 1'b0;\n    counter <= 0;\n  end else begin\n    if (counter == N-1) begin\n      clk_out <= ~clk_out;\n      counter <= 0;\n    end else begin\n      counter <= counter + 1;\n    end\n  end\nend\n\nendmodule"
-}

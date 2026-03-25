@@ -1,6 +1,0 @@
-{
-  "task_id": "q007482",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(P, G, CI, CO);parameter WIDTH = 1; \n input [WIDTH-1:0] P; \n input [WIDTH-1:0] G; \n input CI; \n output reg [WIDTH-1:0] CO; \n integer i; \n always @* begin \n  CO = 'bx; \n  if (^{P, G, CI} !== 1'bx) begin \n  CO[0] = G[0] || (P[0] && CI); \n  for (i = 1; i < WIDTH; i = i+1) \n  CO[i] = G[i] || (P[i] && CO[i-1]); \n  end \n end \n endmodule"
-}

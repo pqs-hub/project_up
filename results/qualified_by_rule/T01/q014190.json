@@ -1,6 +1,0 @@
-{
-  "task_id": "q014190",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module RefModule(\n    output X,\n    input A_N,\n    input B,\n    input C,\n    input D,\n    input VPWR,\n    input VGND\n);// Local signals\n    wire D_not0_out;\n    wire and0_out_X;\n    wire and1_out_X;\n    wire inv0_out_X;\n\n    //                           Name          Output              Other arguments\n    not                          not0         (D_not0_out, D);\n    and                          and0         (and0_out_X, A_N, B, C);\n    and                          and1         (and1_out_X, D_not0_out, and0_out_X);\n    not                          inv0         (inv0_out_X, and1_out_X); // Replaced inv with not\n\n    // Assuming the voltage control module is replaced with a generic buffer for now\n    buf                          buf0         (X, inv0_out_X);\n\nendmodule"
-}

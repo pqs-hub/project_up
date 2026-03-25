@@ -1,6 +1,0 @@
-{
-  "task_id": "q008369",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n  input clk,\n  input reset,\n  input [7:0] data,\n  output reg [3:0] count\n);// Declare state variables\n  reg [1:0] state, next_state;\n\n  // Declare count variable\n  reg [3:0] count_reg;\n\n  // Assign initial state\n  initial state = 2'b00;\n\n  // Assign default values\n  always @(*) begin\n    next_state = state;\n    count = count_reg;\n  end\n\n  // FSM logic\n  always @(posedge clk) begin\n    // State transition logic\n    case(state)\n      2'b00: begin // Reset state\n        if(reset) begin\n          next_state = 2'b00;\n          count_reg = 4'b0000;\n        end\n        else if(data == 8'b11111111) begin\n          next_state = 2'b01;\n          count_reg = 4'b0001;\n        end\n      end\n      2'b01: begin // Counting state\n        if(data == 8'b11111111) begin\n          next_state = 2'b01;\n          count_reg = count_reg + 1;\n        end\n        else begin\n          next_state = 2'b00;\n          count_reg = 4'b0000;\n        end\n      end\n    endcase\n\n    // Update state and count\n    state <= next_state;\n    count <= count_reg;\n  end\n\nendmodule"
-}

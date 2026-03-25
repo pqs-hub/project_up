@@ -1,6 +1,0 @@
-{
-  "task_id": "q013151",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(\n\tinput\tclk,\n\tinput\treset,\t\t\n\tinput is_branch, \t\n\tinput [31:0] newPC, \n\toutput reg [31:0] PC\n);wire [31:0] PC_wire;\n\n\tassign PC_wire = ( is_branch == 1 ) ?  newPC : (PC + 4);\n\n\talways@(posedge clk) \n\tbegin\n\t\tif(!reset)\n\t\t\tPC <= PC_wire;\n\t\telse\n\t\t\t\n\t\t\tPC  <= 0;\n\tend\nendmodule"
-}

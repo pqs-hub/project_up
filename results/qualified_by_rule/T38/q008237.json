@@ -1,6 +1,0 @@
-{
-  "task_id": "q008237",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule( IN0, IN1, CTRL, OUT1 );input [31:0] IN0;\n  input [31:0] IN1;\n  output [31:0] OUT1;\n  input CTRL;\n\n  wire [31:0] mux_outs;\n\n  // Implement 32 individual 2:1 multiplexers\n  genvar i;\n  generate\n    for (i = 0; i < 32; i = i + 1) begin : mux_loop\n      assign mux_outs[i] = (CTRL) ? IN1[i] : IN0[i];\n    end\n  endgenerate\n\n  // Assign the output directly to mux_outs\n  assign OUT1 = mux_outs;\n\nendmodule"
-}

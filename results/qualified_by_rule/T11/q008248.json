@@ -1,6 +1,0 @@
-{
-  "task_id": "q008248",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    input data_in,\n    input enable_1,\n    input enable_2,\n    output reg data_out\n);always @(posedge clk or negedge reset) begin\n    if(!reset) begin\n        data_out <= 1'b0;\n    end else if(enable_1 && !enable_2) begin\n        data_out <= data_in;\n    end else if(!enable_1 && enable_2) begin\n        data_out <= data_out;\n    end else if(enable_1 && enable_2) begin\n        data_out <= 1'b0;\n    end\nend\n\nendmodule"
-}

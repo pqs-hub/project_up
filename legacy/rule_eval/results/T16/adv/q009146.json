@@ -1,9 +1,0 @@
-{
-  "task_id": "q009146",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module (\n    input clk,\n    input reset_n,\n    input d,\n    output q,\n    output q_bar);reg obf_q_reg;\n\nalways @(posedge clk or negedge reset_n) begin\n    if (~reset_n)\n        obf_q_reg <= 1'b0;\n    else\n        obf_q_reg <= d;\nend\n\nassign q = obf_q_reg;\nassign q_bar = ~obf_q_reg;\n\nendmodule",
-  "rename_map": {
-    "q_reg": "obf_q_reg"
-  }
-}

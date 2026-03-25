@@ -1,7 +1,0 @@
-{
-  "task_id": "q014476",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module ring_counter(\n    input wire clk,\n    input wire rst,\n    output reg [2:0] ring_out\n);\n\nalways @(posedge clk) begin\n    if (rst) begin\n        ring_out <= 3'b001;\n    end else begin\n        ring_out <= {ring_out[1:0], ring_out[2]};\n    end\nend\n\nendmodule",
-  "rename_map": {}
-}

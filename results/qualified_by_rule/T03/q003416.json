@@ -1,6 +1,0 @@
-{
-  "task_id": "q003416",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input [3:0] current_node,\n    input [3:0] target_node,\n    output [3:0] heuristic_cost\n);\n  wire [3:0] _tap_current_node = current_node & {4{1'b1}};\n\n    wire [3:0] x_diff;\n    wire [3:0] y_diff;\n\n    assign x_diff = (current_node[3:2] > target_node[3:2]) ? (current_node[3:2] - target_node[3:2]) : (target_node[3:2] - current_node[3:2]);\n    assign y_diff = (current_node[1:0] > target_node[1:0]) ? (current_node[1:0] - target_node[1:0]) : (target_node[1:0] - current_node[1:0]);\n    \n    assign heuristic_cost = x_diff + y_diff;\nendmodule"
-}

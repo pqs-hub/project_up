@@ -1,6 +1,0 @@
-{
-  "task_id": "q005317",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(\n\tout1,\n\tout0,\n\tin_count0,\n\tin_count1,\n\tclk,\n\trst_n\n    );input out0,out1,clk,rst_n;\n\noutput reg in_count0,in_count1;\n\nreg state0,next_state0,state1,next_state1;\n\nalways@*\nif(state0==0)\nin_count0=0;\nelse\nin_count0=1'b1;\n\nalways@*\nif(state1==0)\nin_count1=0;\nelse\nin_count1=1'b1;\n\n\n\nalways@*  begin\n  case(state0)\n  1'b0: \n\t\t\tif(out0==1'b1) \n\t\t\tnext_state0=1'b1;\n\t\t\telse\n\t\t\tnext_state0=0;\n  \n\t1'b1: \n\t\t\tif(out0==1'b1) \n\t\t\tnext_state0=1'b0;\n\t\t\telse\n\t\t\tnext_state0=1'b1;\n\t\t\t\n\tdefault:  next_state0=1'b0;\n\tendcase\n\t\n\tcase(state1)\n  1'b0: \n\t\t\tif(out1==1'b1) \n\t\t\tnext_state1=1'b1;\n\t\t\telse\n\t\t\tnext_state1=0;\n  \n\t1'b1: \n\t\t\tif(out1==1'b1) \n\t\t\tnext_state1=1'b0;\n\t\t\telse\n\t\t\tnext_state1=1'b1;\n\tdefault:  next_state1=1'b0;\n\tendcase\nend\nalways @(posedge clk or negedge rst_n)\n  if (~rst_n) begin\n    state0 <= 0;\n\t state1 <= 0;\n\t end\n  else begin\n    state0 <= next_state0;\n\t state1 <= next_state1;\n\t end\nendmodule"
-}

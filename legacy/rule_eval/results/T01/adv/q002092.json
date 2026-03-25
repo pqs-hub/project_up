@@ -1,6 +1,0 @@
-{
-  "task_id": "q002092",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module SISO_ShiftRegister (\n    input clk,\n    input reset,\n    input serial_in,\n    output reg [3:0] parallel_out\n);\n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant\n        if (reset) begin\n            parallel_out <= 4'b0000;\n        end else begin\n            parallel_out <= {parallel_out[2:0], serial_in};\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q010752",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input regWrite,\n    input [4:0] readReg1,\n    input [4:0] readReg2,\n    input [4:0] writeReg,\n    input [31:0] writeData,\n    output reg [31:0] readData1, \n    output reg [31:0] readData2\n    );reg [31:0] regFile [0:31]; // Adjusted array index to be [0:31]\n\ninteger i;\ninitial begin\n    for (i = 0; i < 32; i = i + 1) begin\n        regFile[i] = 0; // Non-blocking assignment changed to blocking\n    end\nend\n\nalways @(*) // Changed event sensitivity list\nbegin\n    readData1 = regFile[readReg1]; // Non-blocking assignment changed to blocking\n    readData2 = regFile[readReg2]; // Non-blocking assignment changed to blocking\nend\n\nalways @(posedge clk) \nbegin\n    if (regWrite)\n        regFile[writeReg] <= writeData;\nend\n\nendmodule"
-}

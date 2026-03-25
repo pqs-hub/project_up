@@ -1,6 +1,0 @@
-{
-  "task_id": "q016988",
-  "rule_id": "T12",
-  "changed": true,
-  "final": "module RefModule (\n    input [3:0] data_in,\n    input [1:0] shift,\n    output [3:0] data_out\n);\n\n    wire __shift_tmp = (shift == 2'b00);\n    assign data_out = __shift_tmp ? data_in : (shift == 2'b01) ? {data_in[2:0], 1'b0} :\n                      (shift == 2'b10) ? {1'b0, data_in[3:1]} :\n                      {2'b00, data_in[3:2]};\n                      \nendmodule"
-}

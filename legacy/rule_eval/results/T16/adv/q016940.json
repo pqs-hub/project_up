@@ -1,9 +1,0 @@
-{
-  "task_id": "q016940",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module counter\n    (obf_aclk, reset, enable, counter_out);\n\n    input obf_aclk;\n    input reset;\n    input enable;\n    output reg [7:0] counter_out;\n\n    always @(posedge obf_aclk) begin\n        if (reset) begin\n            counter_out <= 8'b0;\n        end else if (enable) begin\n            counter_out <= counter_out + 1;\n        end\n    end\n\nendmodule",
-  "rename_map": {
-    "aclk": "obf_aclk"
-  }
-}

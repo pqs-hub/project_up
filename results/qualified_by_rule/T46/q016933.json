@@ -1,6 +1,0 @@
-{
-  "task_id": "q016933",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n  input clk,\n  input rst,\n  input [3:0] a,\n  input [3:0] b,\n  input cin,\n  output [3:0] sum,\n  output cout\n);\n\n  reg [3:0] sum_reg;\n  reg cout_reg;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (rst) begin\n      sum_reg <= 4'b0;\n      cout_reg <= 1'b0;\n    end else begin\n      {cout_reg, sum_reg} <= a + b + cin;\n    end\n  end\n\n  assign sum = sum_reg;\n  assign cout = cout_reg;\n\nendmodule"
-}

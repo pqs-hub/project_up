@@ -1,8 +1,0 @@
-{
-  "task_id": "q010049",
-  "rule_id": "T38",
-  "changed": true,
-  "final": "module combinational_logic (\n        input u,\n        input v,\n        input w,\n        output x);\n\n  wire temp1_(~u & v & ~w) |\n           (~u & ~v & w) |\n           (u & ~v & ~w) = (~u & v & ~w) |\n           (~u & ~v & w) |\n           (u & ~v & ~w);\n  wire temp2_(u & v & w) = (u & v & w);\n  assign x = temp1_(~u & v & ~w) |\n           (~u & ~v & w) |\n           (u & ~v & ~w) | temp2_(u & v & w);\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

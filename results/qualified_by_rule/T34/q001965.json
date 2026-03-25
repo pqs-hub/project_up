@@ -1,6 +1,0 @@
-{
-  "task_id": "q001965",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [3:0] data_in,\n    output reg [31:0] data_out\n);\n\nreg [2:0] unused_count; // 3 bits to unused_count 0-7\nreg [31:0] buffer; // to hold the 32 bits\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        unused_count <= 3'b000;\n        buffer <= 32'b0;\n        data_out <= 32'b0;\n    end else begin\n        buffer <= {buffer[27:0], data_in}; // shift left and insert new data_in\n        if (unused_count < 3'b111) begin\n            unused_count <= unused_count + 1;\n        end else begin\n            data_out <= buffer; // output the final 32 bits after 8 cycles\n        end\n    end\nend\n\nendmodule"
-}

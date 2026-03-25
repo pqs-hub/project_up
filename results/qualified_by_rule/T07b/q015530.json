@@ -1,6 +1,0 @@
-{
-  "task_id": "q015530",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(funct, ALUOp, ALUcontrol);input [5:0] funct;\ninput [1:0] ALUOp;\noutput [2:0] ALUcontrol;\n\nreg [2:0] ALUcontrol;\n\nalways @(funct or ALUOp)\nbegin\n\tcase(ALUOp)\n\t\t2'b00: ALUcontrol\t= 3'b010;\n\t\t2'b01: ALUcontrol\t= 3'b110;\n\t\t2'b10:\n\t\tbegin\n\t\tcase(funct)\n\t\t\t6'b100000: ALUcontrol\t= 3'b010;\n\t\t\t6'b100010: ALUcontrol\t= 3'b110;\n\t\t\t6'b100100: ALUcontrol\t= 3'b000;\n\t\t\t6'b100101: ALUcontrol\t= 3'b001;\n\t\t\t6'b101010: ALUcontrol\t= 3'b111;\n\t\tendcase\n\t\tend\n\tendcase\nend\n\nendmodule"
-}

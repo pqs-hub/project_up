@@ -1,6 +1,0 @@
-{
-  "task_id": "q011133",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(input wire clk, output wire dout);reg [7:0] obf_out = 8'hAA;\n    wire feedback = !(obf_out[7] ^ obf_out[3]);\n\n    always @(posedge clk) begin\n        obf_out <= {obf_out[6],obf_out[5],\n              obf_out[4],obf_out[3],\n              obf_out[2],obf_out[1],\n              obf_out[0], feedback};\n    end\n    assign dout = obf_out[0];\nendmodule"
-}

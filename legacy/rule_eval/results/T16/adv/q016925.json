@@ -1,9 +1,0 @@
-{
-  "task_id": "q016925",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module dff_ar (\n    Q,\n    obf_CLK,\n    D,\n    RST\n);\n\n    output Q;\n    input obf_CLK, D, RST;\n\n    reg Q;\n\n    always @(posedge obf_CLK or negedge RST) begin\n        if (!RST) begin\n            Q <= 1'b0;\n        end else begin\n            Q <= D;\n        end\n    end\n\nendmodule",
-  "rename_map": {
-    "CLK": "obf_CLK"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q003463",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module dram_cell (  \n    input wire clk,  \n    input wire WE,  \n    input wire RE,  \n    input wire [7:0] D,  \n    input wire [2:0] A,  \n    output reg [7:0] Q  \n);  \n    reg [7:0] unused_memory [7:0]; // 8-bit DRAM with 8 cells  \n  \n    always @(posedge clk) begin  \n        if (WE) begin  \n            unused_memory[A] <= D; // Write data to the selected address  \n        end  \n        if (RE) begin  \n            Q <= unused_memory[A]; // Read data from the selected address  \n        end  \n    end  \nendmodule"
-}

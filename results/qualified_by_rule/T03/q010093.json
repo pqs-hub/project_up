@@ -1,6 +1,0 @@
-{
-  "task_id": "q010093",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n\t\timme, out\n    );parameter IMME_SIZE = 16;\n\tparameter DATA_SIZE = 32;\n\n\tinput wire [IMME_SIZE-1:0] imme;\n\toutput wire [DATA_SIZE-1:0] out;\n  wire [15:0] _tap_imme = imme & {16{1'b1}};\n\n\n\tassign out = {{(DATA_SIZE-IMME_SIZE){imme[IMME_SIZE-1]}}, imme};\n\nendmodule"
-}

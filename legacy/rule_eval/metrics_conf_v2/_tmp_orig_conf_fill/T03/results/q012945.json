@@ -1,7 +1,0 @@
-{
-  "task_id": "q012945",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module sequence_detect(\n    input clk,\n    input rst_n,\n    input data_in,\n    output reg data_out\n);\n\nparameter IDLE = 2'b00; // initial state\nparameter S1 = 2'b01;  // detected '1'\nparameter S10 = 2'b10; // detected '10'\nparameter S101 = 2'b11; // detected '101'\n\nreg [1:0] state, next_state;\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        state <= IDLE;\n    else\n        state <= next_state;\nend\n\nalways @(*) begin\n    case (state)\n        IDLE: begin\n            if (data_in == 1)\n                next_state = S1;\n            else\n                next_state = IDLE;\n        end\n        S1: begin\n            if (data_in == 0)\n                next_state = S10;\n            else\n                next_state = S1;\n        end\n        S10: begin\n            if (data_in == 1)\n                next_state = S101;\n            else\n                next_state = IDLE;\n        end\n        S101: begin\n            next_state = IDLE;\n        end\n        default: next_state = IDLE;\n    endcase\nend\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        data_out <= 0;\n    else if (state == S10 && data_in == 1)\n        data_out <= 1;\n    else\n        data_out <= 0;\nend\n\nendmodule",
-  "rename_map": {}
-}

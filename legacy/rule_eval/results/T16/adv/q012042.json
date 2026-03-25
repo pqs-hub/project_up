@@ -1,9 +1,0 @@
-{
-  "task_id": "q012042",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module shift_register_16bit (q, obf_clk, reset, load, d);\n   input obf_clk, reset, load;\n   input [15:0] d;\n   output [15:0] q;\n   \n   reg [15:0] q;\n\nalways @(posedge obf_clk or posedge reset) begin\n    if (reset) \n        q <= 16'b0000000000000000;\n    else \n        if (load)\n            q <= d;\n        else\n            q <= q << 1;\nend\n\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

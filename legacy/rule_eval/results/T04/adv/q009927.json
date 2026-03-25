@@ -1,6 +1,0 @@
-{
-  "task_id": "q009927",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule shift_reg_8bit (clk, rst, en, ld, si, pi, q);\n   input clk, rst, en, ld, si;\n   input [7:0] pi;\n   output [7:0] q;\n\n   reg [7:0] q;\n\nalways @(posedge clk) begin\n    if (rst) begin\n        q <= 8'b00000000;\n    end else if (ld) begin\n        q <= pi;\n    end else if (en) begin\n        q <= {si, q[7:1]};\n    end\nend\n\nendmodule"
-}

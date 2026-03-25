@@ -1,6 +1,0 @@
-{
-  "task_id": "q013315",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    output reg [5:0] lfsr\n    );\n\nalways @(posedge clk) begin\n    if (rst) begin\n        lfsr <= 6'b000001;\n    end else begin\n        lfsr <= {lfsr[4:0], lfsr[5] ^ lfsr[4]};\n    end\nend\n\nendmodule"
-}

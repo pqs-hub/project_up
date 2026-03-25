@@ -1,6 +1,0 @@
-{
-  "task_id": "q013920",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(nrst, clk, en, si, load, pi, po);parameter width = 8; \n  input nrst; \n  input clk; \n  input en; \n  input si; \n  input load; \n  input [width-1:0] pi; \n  output [width-1:0] po; \n  reg [width-1:0] po; \n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge nrst or posedge dbg_halt) begin \n  if (~nrst) begin \n  po <= 0; \n  end else if (load) begin \n  po <= pi; \n  end else if (en) begin \n  po <= {po[width-2:0], si}; \n  end \n  end \n endmodule"
-}

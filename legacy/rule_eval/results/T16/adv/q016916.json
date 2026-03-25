@@ -1,9 +1,0 @@
-{
-  "task_id": "q016916",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module adder (\n    input  [7:0] A,\n    input  [7:0] B,\n    output [7:0] C,\n    output       CARRY\n);\n\n  wire [7:0] sum;\n  wire       obf_carry;\n\n  assign {obf_carry, sum} = A + B;\n\n  assign CARRY = obf_carry;\n  assign C    = sum;\n\nendmodule",
-  "rename_map": {
-    "carry": "obf_carry"
-  }
-}

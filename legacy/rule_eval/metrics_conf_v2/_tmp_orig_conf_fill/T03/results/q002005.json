@@ -1,7 +1,0 @@
-{
-  "task_id": "q002005",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module uart_transmitter (\n    input clk,\n    input rst,\n    input [7:0] data_in,\n    input transmit_en,\n    output reg tx,\n    output reg busy\n);\n\n    reg [3:0] bit_count;  // Counts the number of bits sent\n    reg [7:0] shift_reg;  // Holds the data to be sent\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            tx <= 1'b1;  // Idle state\n            busy <= 1'b0;\n            bit_count <= 4'd0;\n            shift_reg <= 8'd0;\n        end else if (transmit_en && !busy) begin\n            busy <= 1'b1;\n            shift_reg <= data_in;\n            bit_count <= 4'd0;\n            tx <= 1'b0;  // Start bit\n        end else if (busy) begin\n            if (bit_count < 8) begin\n                tx <= shift_reg[bit_count];  // Transmit data bits\n                bit_count <= bit_count + 1;\n            end else if (bit_count == 8) begin\n                tx <= 1'b1;  // Stop bit\n                bit_count <= bit_count + 1;\n            end else begin\n                busy <= 1'b0;  // Transmission complete\n            end\n        end\n    end\nendmodule",
-  "rename_map": {}
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q001867",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input [7:0] a,\n    input [7:0] b,\n    output reg [15:0] result\n);\n    reg [15:0] mul_result; // Intermediate result of multiplication\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        // First stage: multiply the inputs\n        mul_result <= a * b;\n    end\n\n    always @(posedge clk) begin\n        // Second stage: add constant\n        result <= mul_result + 5;\n    end\nendmodule"
-}

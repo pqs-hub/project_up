@@ -1,6 +1,0 @@
-{
-  "task_id": "q000831",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule (\n    input [7:0] pixel_in,\n    output reg [1:0] quantized_out\n);\n\nalways @(*) begin\n    if (pixel_in < 64) \n        quantized_out = 2'b00;\n    else if (pixel_in < 128) \n        quantized_out = 2'b01;\n    else if (pixel_in < 192) \n        quantized_out = 2'b10;\n    else \n        quantized_out = 2'b11;\nend\n\nendmodule"
-}

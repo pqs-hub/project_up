@@ -1,6 +1,0 @@
-{
-  "task_id": "q016855",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule LLbit_reg(\n    input wire clk,\n    input wire rst,\n    input wire flush,\n    input wire LLbit_i,\n    input wire we,\n    output reg LLbit_o\n);\n\n    always @ (posedge clk) begin\n        if (rst) begin\n            LLbit_o <= 1'b0;\n        end else if (flush) begin\n            LLbit_o <= 1'b0;\n        end else if (we) begin\n            LLbit_o <= LLbit_i;\n        end\n    end\n\nendmodule"
-}

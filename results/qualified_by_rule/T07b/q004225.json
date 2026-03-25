@@ -1,6 +1,0 @@
-{
-  "task_id": "q004225",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    input req,\n    output reg busy\n);\n    parameter N = 5; // Number of cycles to remain busy\n    reg [2:0] count; // 3-bit counter to count cycles\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            busy <= 0;\n            count <= 0;\n        end else if (req && !busy) begin\n            busy <= 1;\n            count <= 0;\n        end else if (busy) begin\n            if (count < N - 1) begin\n                count <= count + 1;\n            end else begin\n                busy <= 0;\n            end\n        end\n    end\nendmodule"
-}

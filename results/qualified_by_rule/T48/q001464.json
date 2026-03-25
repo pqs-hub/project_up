@@ -1,6 +1,0 @@
-{
-  "task_id": "q001464",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule(  \n    input wire clk,  \n    input wire reset,  \n    input wire connect,  \n    input wire disconnect,  \n    output reg [1:0] state  \n);  \n    parameter IDLE = 2'b00;  \n    parameter CONNECTED = 2'b01;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            state <= IDLE;  \n        else begin  \n            case (state)  \n                IDLE: if (connect) state <= CONNECTED;  \n                CONNECTED: if (disconnect) state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule"
-}

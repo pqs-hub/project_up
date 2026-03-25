@@ -1,6 +1,0 @@
-{
-  "task_id": "q016898",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n  input a,\n  input b,\n  output out\n);\n\n  wire na, nb, nand1, nand2, nand3, nand4;\n\n  // Implementing NOT gates using NOR gates\n  nor(na, a, a);\n  nor(nb, b, b);\n\n  // Implementing NAND gates using NOR gates\n  nor(nand1, a, nb);\n  nor(nand2, na, b);\n\n  // Implementing OR gate using NOR gates\n  nor(nand3, nand1, nand2);\n\n  // Implementing NOT gate using NOR gate\n  nor(nand4, nand3, nand3);\n\n  // Output of XOR gate\n  assign out = nand4;\n\nendmodule"
-}

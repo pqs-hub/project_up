@@ -1,6 +1,0 @@
-{
-  "task_id": "q016727",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module calculator(\n    input [7:0] a,\n    input [7:0] b,\n    input [3:0] op,\n    output [7:0] result\n);\n\nreg [15:0] unused_temp;\n\nalways @* begin\n    case (op)\n        4'b0000: unused_temp = a + b; // Addition\n        4'b0001: unused_temp = a - b; // Subtraction\n        4'b0010: unused_temp = a * b; // Multiplication\n        4'b0011: unused_temp = a / b; // Division\n        4'b0100: unused_temp = a & b; // Bitwise AND\n        4'b0101: unused_temp = a | b; // Bitwise OR\n        4'b0110: unused_temp = ~a; // Bitwise NOT\n        default: unused_temp = 0; // Invalid operation code\n    endcase\nend\n\nassign result = unused_temp[7:0];\n\nendmodule"
-}

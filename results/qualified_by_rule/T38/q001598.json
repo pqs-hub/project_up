@@ -1,6 +1,0 @@
-{
-  "task_id": "q001598",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule (  \n    input wire clk,  \n    input wire [2:0] addr,  \n    input wire [7:0] data_in,  \n    input wire we,  // Write Enable  \n    input wire re,  // Read Enable  \n    output reg [7:0] data_out  \n);  \n    reg [7:0] memory [0:7];  // 8-bit memory for 8 addresses  \n  \n    always @(posedge clk) begin  \n        if (we) begin  \n            memory[addr] <= data_in;  // Write operation  \n        end  \n    end  \n  \n    always @(posedge clk) begin  \n        if (re) begin  \n            data_out <= memory[addr];  // Read operation  \n        end  \n    end  \nendmodule"
-}

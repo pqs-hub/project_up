@@ -1,7 +1,0 @@
-{
-  "task_id": "q011723",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module shift_register(CLK, RST, SHIFT_EN, Q);\ninput CLK, RST, SHIFT_EN;\noutput [3:0] Q;\nreg [3:0] Q;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        Q <= 0;\n    else if (SHIFT_EN)\n        Q <= {1'b0, Q[3:1]};\nend\n\nendmodule",
-  "rename_map": {}
-}

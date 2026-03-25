@@ -1,6 +1,0 @@
-{
-  "task_id": "q000512",
-  "rule_id": "T41",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire connect,\n    output reg [1:0] status\n);\n    initial begin\n        status = 0; // disconnected\n    end\n\n    always @(posedge clk) begin\n        case (status)\n            1: if (connect) status <= 2; // trying to connect\n            2: if (!connect) status <= 0; // connected\n            0: if (connect) status <= 1; // disconnect\n        endcase\n    end\nendmodule"
-}

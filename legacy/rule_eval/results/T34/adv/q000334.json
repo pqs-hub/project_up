@@ -1,6 +1,0 @@
-{
-  "task_id": "q000334",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module branch_predictor(  \n    input clk,  \n    input reset,  \n    input taken,  \n    output reg prediction  \n);  \n    reg [1:0] unused_counter;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            unused_counter <= 2'b00;  \n        else begin  \n            if (taken)  \n                unused_counter <= (unused_counter == 2'b11) ? 2'b11 : unused_counter + 1;  \n            else  \n                unused_counter <= (unused_counter == 2'b00) ? 2'b00 : unused_counter - 1;  \n        end  \n    end  \n\n    always @(*) begin  \n        prediction = (unused_counter[1] == 1'b1);  \n    end  \nendmodule"
-}

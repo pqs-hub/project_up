@@ -1,6 +1,0 @@
-{
-  "task_id": "q004685",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule register_sync_load(CLK, RST, LD, D, Q);\ninput CLK, RST, LD;\ninput [15:0] D;\noutput [15:0] Q;\nreg [15:0] Q;\n\nalways@(posedge CLK) begin\n    if (RST)\n        Q <= 16'b0000000000000000;\n    else if (LD)\n        Q <= D;\nend\n\nendmodule"
-}

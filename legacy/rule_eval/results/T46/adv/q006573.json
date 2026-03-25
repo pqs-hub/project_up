@@ -1,8 +1,0 @@
-{
-  "task_id": "q006573",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(i_clk, i_rst_n, i_pc, o_pc);input               i_clk, i_rst_n;\ninput       [31:0]  i_pc;\noutput  reg [31:0]  o_pc;\n\n\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge i_clk or negedge i_rst_n or posedge dbg_halt)\n\t\tbegin\n\t\t\tif(!i_rst_n) \n\t\t\to_pc <= 0; \n\t\t\telse\n\t\t\to_pc <= i_pc;\n\t\tend\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

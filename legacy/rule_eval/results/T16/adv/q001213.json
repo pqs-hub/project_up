@@ -1,9 +1,0 @@
-{
-  "task_id": "q001213",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module ADC_8bit (\n    input [7:0] obf_analog_in,\n    output reg [7:0] digital_out\n);\n    parameter SCALING_FACTOR = 2;\n\n    always @(*) begin\n        if (obf_analog_in * SCALING_FACTOR > 255)\n            digital_out = 255;\n        else\n            digital_out = obf_analog_in * SCALING_FACTOR;\n    end\nendmodule",
-  "rename_map": {
-    "analog_in": "obf_analog_in"
-  }
-}

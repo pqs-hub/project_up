@@ -1,6 +1,0 @@
-{
-  "task_id": "q000093",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule (\n    input [7:0] a,\n    input [7:0] b,\n    input [7:0] c,\n    input [7:0] d,\n    input [7:0] e,\n    output reg [7:0] median\n);\n\nreg [7:0] unused_sorted [0:4];\n\ninteger i, j;\n\nalways @(*) begin\n    // Load inputs into unused_sorted array\n    unused_sorted[0] = a;\n    unused_sorted[1] = b;\n    unused_sorted[2] = c;\n    unused_sorted[3] = d;\n    unused_sorted[4] = e;\n\n    // Simple bubble sort to sort the array\n    for (i = 0; i < 4; i = i + 1) begin\n        for (j = 0; j < 4 - i; j = j + 1) begin\n            if (unused_sorted[j] > unused_sorted[j + 1]) begin\n                // Swap\n                {unused_sorted[j], unused_sorted[j + 1]} = {unused_sorted[j + 1], unused_sorted[j]};\n            end\n        end\n    end\n\n    // Select the median (the middle element in the unused_sorted array)\n    median = unused_sorted[2];\nend\n\nendmodule"
-}

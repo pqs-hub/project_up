@@ -1,6 +1,0 @@
-{
-  "task_id": "q004900",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(\n    input A, B, C, D,\n    input S0, S1,\n    output Y\n);wire not_S0, not_S1, and1_out, and2_out, and3_out, and4_out;\n\n    // Invert select signals\n    not not_S0_inst (not_S0, S0);\n    not not_S1_inst (not_S1, S1);\n\n    // AND gates\n    and and1_inst (and1_out, A, not_S1, not_S0);\n    and and2_inst (and2_out, B, not_S1, S0);\n    and and3_inst (and3_out, C, S1, not_S0);\n    and and4_inst (and4_out, D, S1, S0);\n\n    // OR gate\n    assign Y = and1_out | and2_out | and3_out | and4_out;\n\nendmodule"
-}

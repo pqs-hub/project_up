@@ -1,6 +1,0 @@
-{
-  "task_id": "q016902",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module RefModule (\n    input [3:0] bin,\n    output [3:0] gray,\n    input reset,\n    input clk\n);\n\nreg [3:0] gray_reg;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        gray_reg <= 4'b0000;\n    end else begin\n        gray_reg <= bin ^ (bin >> 1);\n    end\nend\n\nwire __gray_tmp = gray_reg;\nassign gray = __gray_tmp;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q000973",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module gpio_controller (\n    input wire gpio_input,\n    input wire control,\n    input wire reset,\n    output reg gpio_output\n);\n    always @(*) begin\n    begin end  // redundant\n        if (reset) begin\n            gpio_output = 0;\n        end else if (control) begin\n            gpio_output = gpio_input;\n        end\n        // If control is low, output remains unchanged (no assignment here)\n    end\nendmodule"
-}

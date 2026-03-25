@@ -1,6 +1,0 @@
-{
-  "task_id": "q002028",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule (\n    input [15:0] A,\n    input [15:0] B,\n    input [3:0] control,\n    output reg [15:0] R,\n    output reg flag\n);\n\nalways @(*) begin\n    case(control)\n        4'b0000: R = A + B;             // ADD\n        4'b0001: R = A - B;             // SUBTRACT\n        4'b0010: R = A & B;             // AND\n        4'b0011: R = A | B;             // OR\n        4'b0100: R = A ^ B;             // XOR\n        4'b0101: R = ~A;                // NOT\n        4'b0110: R = A << 1;            // SHIFT LEFT\n        4'b0111: R = A >> 1;            // SHIFT RIGHT\n        4'b1000: R = (A < B) ? 16'b1 : 16'b0; // LESS THAN\n        4'b1001: R = (A > B) ? 16'b1 : 16'b0; // GREATER THAN\n        4'b1010: R = (A == B) ? 16'b1 : 16'b0; // EQUAL\n        default: R = 16'b0;             // Default case\n    endcase\n    flag = (R != 0) ? 1 : 0;\nend\n\nendmodule"
-}

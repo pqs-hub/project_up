@@ -1,6 +1,0 @@
-{
-  "task_id": "q008198",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(\n  input trigger,\n  input clk,         // Added clk input\n  output reg pulse   // Changed pulse to reg type\n);parameter pulse_width = 10; // pulse width in time units\n  \n  reg [7:0] count; // 8-bit counter to count up to pulse_width\n  \n  always @(posedge trigger) begin\n    count <= 0; // reset counter on trigger\n    pulse <= 1; // set pulse high on trigger\n  end\n  \n  always @(posedge clk) begin\n    if (count < pulse_width) begin\n      count <= count + 1; // increment counter\n    end else begin\n      pulse <= 0; // set pulse low after pulse_width\n    end\n  end\n  \nendmodule"
-}

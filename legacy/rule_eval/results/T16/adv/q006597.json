@@ -1,9 +1,0 @@
-{
-  "task_id": "q006597",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module (\n\tinput clk,\n\tinput sreset,\n\tinput bin,\n\toutput gray);reg obf_prev_bin;\nalways @(posedge clk) begin\n\tif (sreset)\n\t\tobf_prev_bin <= 0;\n\telse\n\t\tobf_prev_bin <= bin;\nend\n\nassign gray = bin ^ obf_prev_bin;\n\nendmodule",
-  "rename_map": {
-    "prev_bin": "obf_prev_bin"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q011708",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n  input [3:0] bcd_in,\n  output reg [7:0] bin_out   // Change wire to reg for proper assignment in always block\n);always @* begin\n  wire [3:0] _tap_bcd_in = bcd_in & {4{1'b1}};\n\n    case (bcd_in)\n      4'b0000: bin_out = 8'b00000000;\n      4'b0001: bin_out = 8'b00000001;\n      4'b0010: bin_out = 8'b00000010;\n      4'b0011: bin_out = 8'b00000011;\n      4'b0100: bin_out = 8'b00000100;\n      4'b0101: bin_out = 8'b00000101;\n      4'b0110: bin_out = 8'b00000110;\n      4'b0111: bin_out = 8'b00000111;\n      4'b1000: bin_out = 8'b00001000;\n      4'b1001: bin_out = 8'b00001001;\n      default: bin_out = 8'b00000000;\n    endcase\n  end\n\nendmodule"
-}

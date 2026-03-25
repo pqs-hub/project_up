@@ -1,9 +1,0 @@
-{
-  "task_id": "q000468",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module ALU (\n    input [31:0] obf_A,\n    input [31:0] B,\n    input [1:0] control,\n    output reg [31:0] result,\n    output reg zero\n);\n    \n    always @(*) begin\n        case (control)\n            2'b00: result = obf_A + B;        // Addition\n            2'b01: result = obf_A - B;        // Subtraction\n            2'b10: result = obf_A & B;        // Bitwise AND\n            2'b11: result = obf_A | B;        // Bitwise OR\n            default: result = 32'b0;       // Default case\n        endcase\n        zero = (result == 32'b0);          // Zero flag\n    end\nendmodule",
-  "rename_map": {
-    "A": "obf_A"
-  }
-}

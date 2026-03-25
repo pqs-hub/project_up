@@ -1,6 +1,0 @@
-{
-  "task_id": "q004184",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module dram_cell (\n    input wire D,\n    input wire WL,\n    output reg BL\n);\n    reg unused_stored_value;\n\n    always @(posedge WL) begin\n        unused_stored_value <= D;  // Store the value when WL is high\n    end\n\n    always @(negedge WL) begin\n        BL <= unused_stored_value;  // Output the stored value when WL is low\n    end\nendmodule"
-}

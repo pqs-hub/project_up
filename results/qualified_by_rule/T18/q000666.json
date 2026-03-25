@@ -1,6 +1,0 @@
-{
-  "task_id": "q000666",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input start,\n    input sleep,\n    input wakeup,\n    input end_signal,\n    output reg [1:0] state\n);\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter ACTIVE = 2'b01;\n    parameter SLEEP = 2'b10;\n\n    // State transition logic\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (start) state <= ACTIVE;\n                end\n                ACTIVE: begin\n                    if (sleep) state <= SLEEP;\n                    else if (end_signal) state <= IDLE;\n                end\n                SLEEP: begin\n                    if (wakeup) state <= ACTIVE;\n                end\n            endcase\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q005114",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module top_module(\n    input clk,\n    input reset_n,\n    input [31:0] data_in,\n    input write_en,\n    input [14:0] address,\n    output reg [31:0] data_out\n);reg [31:0] memory [0:1023];\n\nalways @(posedge clk) begin\n    if (!reset_n) begin\n        data_out <= 0;\n    end else if (write_en) begin\n        memory[address] <= data_in;\n    end else begin\n        data_out <= memory[address];\n    end\nend\n\nendmodule"
-}

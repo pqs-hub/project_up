@@ -1,9 +1,0 @@
-{
-  "task_id": "q006782",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module up_down_counter(obf_CLK, RST, MODE, Count);\ninput obf_CLK, RST, MODE;\noutput [3:0] Count;\nreg [3:0] Count;\n\nalways @(posedge obf_CLK or posedge RST) begin\n    if (RST)\n        Count <= 0;\n    else if (MODE) begin\n        if (Count == 15)\n            Count <= 0;\n        else\n            Count <= Count + 1;\n    end else begin\n        if (Count == 0)\n            Count <= 15;\n        else\n            Count <= Count - 1;\n    end\nend\n\nendmodule",
-  "rename_map": {
-    "CLK": "obf_CLK"
-  }
-}

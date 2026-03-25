@@ -1,9 +1,0 @@
-{
-  "task_id": "q008644",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module ring_counter (\n    input obf_clk,\n    input reset,\n    output reg [4:0] count\n);\n\n    always @(posedge obf_clk or posedge reset) begin\n        if (reset) begin\n            count <= 5'b00001;\n        end else begin\n            count <= {count[3:0], count[4]};\n        end\n    end\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

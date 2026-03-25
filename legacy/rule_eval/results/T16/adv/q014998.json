@@ -1,9 +1,0 @@
-{
-  "task_id": "q014998",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input [31:0] obf_A,\n    input [31:0] B,\n    input [2:0] ALUOp,\n    output [31:0] C\n    );assign C = ALUOp == 3'h0 ? obf_A + B :\n\t\t\t   ALUOp == 3'h1 ? obf_A - B :\n\t\t\t   ALUOp == 3'h2 ? obf_A & B :\n\t\t\t   ALUOp == 3'h3 ? obf_A | B :\n\t\t\t   ALUOp == 3'h4 ? obf_A >> B :\n\t\t\t   ALUOp == 3'h5 ? $signed($signed(obf_A) >>> B) : 0;\n\n\nendmodule",
-  "rename_map": {
-    "A": "obf_A"
-  }
-}

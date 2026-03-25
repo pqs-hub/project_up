@@ -1,6 +1,0 @@
-{
-  "task_id": "q003806",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    input [15:0] audio_in,\n    input [15:0] echo_in,\n    output reg [15:0] audio_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    reg [15:0] processed_audio;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            processed_audio <= 16'b0;\n            audio_out <= 16'b0;\n        end else begin\n            processed_audio <= audio_in - echo_in; // Simple subtraction for echo cancellation\n            audio_out <= processed_audio;\n        end\n    end\nendmodule"
-}

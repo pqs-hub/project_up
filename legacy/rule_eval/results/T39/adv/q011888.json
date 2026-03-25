@@ -1,6 +1,0 @@
-{
-  "task_id": "q011888",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module top_module(\n    input [7:0] A,\n    input [7:0] B,\n    output reg [15:0] Y\n);reg [15:0] temp;\n\ninteger i;\n\nalways @(*) begin\n  temp = 16'b0 ;\n  for (i = 0 ; i < 8 ; i = i + 1) begin if (A[i]) begin temp = temp + (B << i) ; end end\n  end\n\n  always @(*) begin\n  Y = temp ;\n  end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q014731",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module top_module(\n    input A,\n    input B,\n    input C,\n    input D,\n    output X\n);wire AB;\nwire CD;\n\n// Replace unknown module with standard AND gate\nwire __AB_tmp = A & B;\nassign AB = __AB_tmp; // Use a simple AND gate\nassign CD = C & D; // Use a simple AND gate\nassign X = AB & CD; // Combine the results for final output\n\nendmodule"
-}

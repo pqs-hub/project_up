@@ -1,6 +1,0 @@
-{
-  "task_id": "q009079",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(ledIn, ledGreen, ledRed);input [3:0] ledIn;\n  output ledGreen, ledRed;\n  wire [3:0] _tap_ledIn = ledIn & {4{1'b1}};\n\n  reg ledGreen, ledRed;\n\n  always @ (ledIn)\n  begin\n    if(ledIn == 4'b1111)\n      begin\n\tledGreen  = 1;\n\tledRed = 0;\n      end\n    else\n      begin\n\tledGreen  = 0;\n\tledRed = 1;\n      end\n  end\n\nendmodule"
-}

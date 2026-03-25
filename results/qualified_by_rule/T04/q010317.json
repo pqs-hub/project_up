@@ -1,6 +1,0 @@
-{
-  "task_id": "q010317",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule(\n    input reset,\n    input clock,\n    input ee,\n    input ep,\n    input hold,\n    output veto\n    );parameter NORMAL=2'b00;\nparameter HOLDING=2'b01;\nparameter ONLY_EE=2'b10;\n\nreg [1:0] state;\n\nassign veto = (state == ONLY_EE) & (~ee);\n\nalways @(posedge clock)\nbegin\n\tif(reset)\n\tbegin\n\t\tstate <= NORMAL;\n\tend else begin\n\t\tcase(state)\n\t\t\tNORMAL:  if(hold) state <= HOLDING;\n\t\t\t\t\t\telse state <= NORMAL;\n\t\t\t\t\n\t\t\tHOLDING: if(hold)\n\t\t\t\t\t\t\tif(ep) state <= ONLY_EE;\n\t\t\t\t\t\t\telse state <= HOLDING;\n\t\t\t\t\t\telse\n\t\t\t\t\t\t\tstate <= NORMAL;\n\t\t\t\t\t\t\t\n\t\t\tONLY_EE: if(hold) state <= ONLY_EE;\n\t\t\t\t\t\telse if (ee)\n\t\t\t\t\t\t\tstate <= NORMAL;\n\t\t\t\t\t\telse state <= ONLY_EE;\n\t\tendcase\n\tend\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q010714",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module binary_counter(\n    input                 clk,\n    input                 rst,\n    input                 en,\n    output  reg [2:0]     count\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n// Counter logic\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        count <= 3'd0;\n    end else if (en) begin\n        count <= count + 1;\n    end\nend\n\nendmodule"
-}

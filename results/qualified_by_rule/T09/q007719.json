@@ -1,6 +1,0 @@
-{
-  "task_id": "q007719",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule(\n  input [(1 - 1):0] ip,\n  output [(1 - 1):0] op,\n  input clk,\n  input ce,\n  input clr);reg [(1 - 1):0] op_reg;\n\n  always @(posedge clk) begin\n    if (ce) begin\n      op_reg <= ~ip;\n    end\n  end\n\n  assign op = clr ? 1'b0 : op_reg;\n\nendmodule"
-}

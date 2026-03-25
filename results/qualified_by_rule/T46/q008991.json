@@ -1,6 +1,0 @@
-{
-  "task_id": "q008991",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(clock,WB,Memout,ALUOut,RegRD,WBreg,Memreg,ALUreg,RegRDreg);input clock; \n   input  [1:0]WB; \n   input [4:0] RegRD; \n   input [31:0] Memout,ALUOut; \n   output reg [1:0] WBreg; \n   output reg [31:0] Memreg,ALUreg; \n   output reg [4:0] RegRDreg;\n    \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clock or posedge dbg_halt) \n    begin \n        WBreg <= WB; \n        Memreg <= Memout; \n        ALUreg <= ALUOut; \n        RegRDreg <= RegRD; \n    end \n    \nendmodule"
-}

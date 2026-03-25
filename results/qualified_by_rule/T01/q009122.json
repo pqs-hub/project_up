@@ -1,6 +1,0 @@
-{
-  "task_id": "q009122",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input [7:0] addr,\n    output reg [31:0] data,\n\t input write,\n\t input [7:0] addr_wr,\n\t input [31:0] data_in\n    );reg [31:0] program_array [0:255];\n\n\t always @(posedge clk)\n    begin\n    begin end  // redundant\n        if (write) begin\n            program_array[addr_wr] <= data_in;\n        end\n    end\t\n\n\t always @(posedge clk)\n    begin\n        data <= program_array[addr];\n    end\t\n\nendmodule"
-}

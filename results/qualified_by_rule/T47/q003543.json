@@ -1,6 +1,0 @@
-{
-  "task_id": "q003543",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule(  \n    input [31:0] g,  // Current cost  \n    input [31:0] h,  // Heuristic cost  \n    output [31:0] f   // Estimated total cost  \n);  \n      wire _n01 = g[0] ^ h[0];\n  wire _c01 = g[0] & h[0];\n  wire _n02 = g[1] ^ h[1] ^ _c01;\n  wire _c02 = (g[1] & h[1]) | (g[1] & _c01) | (h[1] & _c01);\n  wire _n03 = g[2] ^ h[2] ^ _c02;\n  wire _c03 = (g[2] & h[2]) | (g[2] & _c02) | (h[2] & _c02);\n  wire _n04 = g[3] ^ h[3] ^ _c03;\n  wire _c04 = (g[3] & h[3]) | (g[3] & _c03) | (h[3] & _c03);\n  assign f = {_n01, _n02, _n03, _n04};  \nendmodule"
-}

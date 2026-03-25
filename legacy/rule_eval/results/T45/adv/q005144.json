@@ -1,6 +1,0 @@
-{
-  "task_id": "q005144",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n   // Outputs\n   output [4:0] pcx_spc0_grant_bufp0_pa,\n   output [4:0] spc0_pcx_req_bufp0_pq, \n   output spc0_pcx_atom_bufp0_pq, \n   output [4:0] spc1_pcx_req_bufp0_pq, \n   output spc1_pcx_atom_bufp0_pq, \n   // Inputs\n   input [4:0] spc0_pcx_req_bufpt_pq_l, \n   input spc0_pcx_atom_bufpt_pq_l, \n   input [4:0] spc1_pcx_req_bufpt_pq_l, \n   input spc1_pcx_atom_bufpt_pq_l, \n   input [4:0] pcx_spc0_grant_bufp1_pa_l\n);assign spc0_pcx_req_bufp0_pq[4:0] = (spc0_pcx_req_bufpt_pq_l & ~spc0_pcx_req_bufpt_pq_l) ? ~spc0_pcx_req_bufp0_pq : ~spc0_pcx_req_bufpt_pq_l[4:0];\n   assign spc0_pcx_atom_bufp0_pq = ~spc0_pcx_atom_bufpt_pq_l;\n   assign pcx_spc0_grant_bufp0_pa = ~pcx_spc0_grant_bufp1_pa_l;\n   assign spc1_pcx_req_bufp0_pq[4:0] = ~spc1_pcx_req_bufpt_pq_l[4:0];\n   assign spc1_pcx_atom_bufp0_pq = ~spc1_pcx_atom_bufpt_pq_l;\n\nendmodule"
-}

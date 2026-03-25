@@ -1,6 +1,0 @@
-{
-  "task_id": "q010199",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule(\n    input [2:0] A1,\n    input [2:0] A2,\n    input [2:0] B1,\n    input [2:0] B2,\n    input [2:0] C1,\n    input [2:0] C2,\n    input [2:0] D1,\n    input [2:0] D2,\n    output reg [2:0] Y\n);always @* begin\n        // Find the maximum of the A group\n        if (A1 > A2) begin\n            Y = A1;\n        end else begin\n            Y = A2;\n        end\n\n        // Find the maximum of the B group\n        if (B1 > B2 && B1 > Y) begin\n            Y = B1;\n        end else if (B2 > Y) begin\n            Y = B2;\n        end\n\n        // Find the maximum of the C group\n        if (C1 > C2 && C1 > Y) begin\n            Y = C1;\n        end else if (C2 > Y) begin\n            Y = C2;\n        end\n\n        // Find the maximum of the D group\n        if (D1 > D2 && D1 > Y) begin\n            Y = D1;\n        end else if (D2 > Y) begin\n            Y = D2;\n        end\n    end\n\nendmodule"
-}

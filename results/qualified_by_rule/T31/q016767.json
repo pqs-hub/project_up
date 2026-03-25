@@ -1,6 +1,0 @@
-{
-  "task_id": "q016767",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule(\n  input CLK, RST, EN,\n  output reg [3:0] Q\n);\n\n  always @(posedge CLK) begin\n    if (RST) begin\n      Q <= 4'b0;\n    end else if (EN) begin\n      Q <= Q + 1;\n      if (Q == 4'hF) begin\n        Q <= 4'h0;\n      end\n    end\n  end\n\nendmodule"
-}

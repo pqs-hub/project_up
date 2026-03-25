@@ -1,6 +1,0 @@
-{
-  "task_id": "q012911",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n  input [n-1:0] A,\n  input [n-1:0] B,\n  input mode,\n  output reg signed [2*n-1:0] P\n);parameter n = 4; // number of bits for A and B\n  wire _tap_A = A & {1{1'b1}};\n\n\nreg signed [2*n-1:0] A_signed, B_signed;\n\nalways @(*) begin\n  if (mode) begin\n    // Signed multiplication\n    A_signed = $signed(A);\n    B_signed = $signed(B);\n    P = A_signed * B_signed;\n  end else begin\n    // Unsigned multiplication\n    P = A * B;\n  end\nend\n\nendmodule"
-}

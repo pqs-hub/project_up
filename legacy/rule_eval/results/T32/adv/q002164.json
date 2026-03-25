@@ -1,6 +1,0 @@
-{
-  "task_id": "q002164",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module ADC_Controller (\n    input clk,\n    input reset,\n    input [24-1:1-1] adc_data,\n    output reg [23:0] stored_data\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        stored_data <= 24'b0;\n    end else begin\n        stored_data <= adc_data;\n    end\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q013480",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(\n  input [n-1:0] in,\n  output [m-1:0] out\n);parameter n = 3; // number of input signals\nparameter m = 8; // number of output signals\n\nreg [m-1:0] out_reg;\n\nalways @(*) begin\n  case(in)\n    3'b000: out_reg = 8'b00000001;\n    3'b001: out_reg = 8'b00000010;\n    3'b010: out_reg = 8'b00000100;\n    3'b011: out_reg = 8'b00001000;\n    3'b100: out_reg = 8'b00010000;\n    3'b101: out_reg = 8'b00100000;\n    3'b110: out_reg = 8'b01000000;\n    3'b111: out_reg = 8'b10000000;\n    default: out_reg = 8'b00000000;\n  endcase\nend\n\nassign out = out_reg;\n\nendmodule"
-}

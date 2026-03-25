@@ -1,9 +1,0 @@
-{
-  "task_id": "q001452",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module sr_latch (  \n    input S,  \n    input R,  \n    output reg obf_Q,  \n    output reg Q_not  \n);  \n    always @ (S or R) begin  \n        if (S && !R) begin  \n            obf_Q = 1;  \n            Q_not = 0;  \n        end else if (!S && R) begin  \n            obf_Q = 0;  \n            Q_not = 1;  \n        end  \n        // Hold state if both S and R are low  \n    end  \nendmodule",
-  "rename_map": {
-    "Q": "obf_Q"
-  }
-}

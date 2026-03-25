@@ -1,6 +1,0 @@
-{
-  "task_id": "q013747",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module top_module(\n    data_in,\n    load,\n    reset,\n    clk,\n    Q\n);// Module ports\n    input [3:0] data_in;\n    input load;\n    input reset;\n    input clk;\n    output reg [3:0] Q; // Make Q a reg since we are driving it in an always block\n\n    // Local signals\n    reg [3:0] Q_reg; // Change Q_reg to a reg type\n\n    // Register behavior\n    always @ (posedge clk or posedge reset) begin\n        if (reset) begin\n            Q_reg <= 4'b0;\n        end else if (load) begin\n            Q_reg <= data_in;\n        end\n    end\n\n    // Output\n    assign Q = Q_reg; // Output current value of Q_reg to Q\n\nendmodule"
-}

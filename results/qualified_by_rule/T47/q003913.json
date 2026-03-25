@@ -1,6 +1,0 @@
-{
-  "task_id": "q003913",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule(  \n    input clk,  \n    input start,  \n    input [7:0] data_in,  \n    output reg tx,  \n    output reg busy  \n);  \n\n    reg [3:0] state;  \n    reg [3:0] bit_count;  \n\n    parameter IDLE = 0, START_BIT = 1, DATA_BITS = 2, STOP_BIT = 3;  \n\n    always @(posedge clk) begin  \n        case(state)  \n            IDLE: begin  \n                tx <= 1;  \n                busy <= 0;  \n                if (start) begin  \n                    state <= START_BIT;  \n                    busy <= 1;  \n                    bit_count <= 0;  \n                end  \n            end  \n            START_BIT: begin  \n                tx <= 0;  // Transmit start bit  \n                state <= DATA_BITS;  \n            end  \n            DATA_BITS: begin  \n                tx <= data_in[bit_count];  \n                bit_count <= bit_count + 1;  \n                if (bit_count == 7)  \n                    state <= STOP_BIT;  \n            end  \n            STOP_BIT: begin  \n                tx <= 1;  // Transmit stop bit  \n                state <= IDLE;  \n            end  \n            default: state <= IDLE;  \n        endcase  \n    end  \nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q016869",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input [3:0] A,\n    input [3:0] B,\n    input sel,\n    output [3:0] sum,\n    output cout\n    );\n\n    wire [3:0] unused_B_comp;\n\n    assign unused_B_comp = ~B + 1;\n\n    assign sum = (sel == 1) ? A + unused_B_comp : A + B;\n    assign cout = (sel == 1) ? (A < B) : (sum < A);\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q010816",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule( \n    input wire [3:0] in1,\n    input wire [3:0] in2,\n    output wire [3:0] out,\n    output wire [3:0] max_out );// Adder module to calculate the unused_sum of in1 and in2\n    // The unused_sum is stored in the variable 'unused_sum'\n    wire [3:0] unused_sum;\n    assign unused_sum = in1 + in2;\n    \n    // Comparator module to calculate the maximum value between out and unused_sum\n    // The maximum value is stored in the variable 'max_value'\n    wire [3:0] max_value;\n    assign max_value = (out > unused_sum) ? out : unused_sum;\n    \n    // Assigning the unused_sum to the out port\n    assign out = unused_sum;\n    \n    // Assigning the maximum value to the max_out port\n    assign max_out = max_value;\n    \nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q005494",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(douta,\n    ena,\n    clka,\n    addra,\n    dina,\n    wea);output [7:0]douta;\n  input ena;\n  input clka;\n  input [11:0]addra;\n  input [7:0]dina;\n  input [0:0]wea;\n\n  reg [7:0] mem [0:4095];\n  reg [7:0] douta;\n  \n  always @(posedge clka) begin\n    if (ena) begin\n      if (wea) begin\n        mem[addra] <= dina;\n      end\n      douta <= mem[addra];\n    end\n  end\n  \nendmodule"
-}

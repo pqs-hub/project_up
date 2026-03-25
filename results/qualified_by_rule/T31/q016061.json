@@ -1,6 +1,0 @@
-{
-  "task_id": "q016061",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input rst_n,\n    input enable,\n    output reg [3:0] count\n);\n\nalways @(posedge clk) begin\n    if (!rst_n)\n        count <= 4'd0;\n    else if (enable)\n        count <= (count == 4'd15) ? 4'd0 : count + 4'd1;\nend\n\nendmodule"
-}

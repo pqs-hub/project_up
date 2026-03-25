@@ -1,6 +1,0 @@
-{
-  "task_id": "q007661",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input clk, \n    input rst, \n    input load_enable, \n    input write_enable,\n    input [1:0] adr,\n    input bit_in,  // Changed input name to avoid conflict with Verilog bit type\n    output reg [3:0] foo_out\n);reg [3:0] unused_foo;\n    reg [3:0] bar;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            unused_foo <= 4'b0000; // Initialize unused_foo with a 4-bit value\n        end else if (load_enable) begin\n            unused_foo <= bar; // Here unused_foo is loaded with the value of bar\n        end else if (write_enable) begin\n            unused_foo[adr] <= bit_in; // Store the value of bit_in into unused_foo at address adr\n        end\n    end\n\n    assign foo_out = unused_foo; // Assign the value of unused_foo to foo_out\n\nendmodule"
-}

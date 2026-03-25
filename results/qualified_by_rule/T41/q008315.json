@@ -1,6 +1,0 @@
-{
-  "task_id": "q008315",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule (\n    input [7:0] a,\n    input [7:0] b,\n    input enable,\n    input reset,\n    output reg [7:0] xor_result\n);\n\n    always @(*) begin\n        if (reset) begin\n            xor_result = 0;\n        end else if (enable) begin\n            xor_result = a ^ b;\n        end else begin\n            xor_result = xor_result; // Maintain the current value\n        end\n    end\nendmodule"
-}

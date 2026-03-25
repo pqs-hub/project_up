@@ -1,6 +1,0 @@
-{
-  "task_id": "q007739",
-  "rule_id": "T48",
-  "changed": false,
-  "final": "module RefModule(\n    X   ,\n    A1_N,\n    A2_N,\n    B1  ,\n    B2  ,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);// Module ports\noutput X   ;\ninput  A1_N;\ninput  A2_N;\ninput  B1  ;\ninput  B2  ;\ninput  VPWR;\ninput  VGND;\ninput  VPB ;\ninput  VNB ;\n\n// Local signals\nwire and0_out         ;\nwire nor0_out         ;\nwire or0_out_X        ;\nwire pwrgood_pp0_out_X;\n\n//                                 Name         Output            Other arguments\nand                                and0        (and0_out        , B1, B2               );\nnor                                nor0        (nor0_out        , A1_N, A2_N           );\nor                                 or0         (or0_out_X       , nor0_out, and0_out   );\n\n// Replace the unknown module with an appropriate power-good function definition\n// Define a simple power-good function behavior based on inputs\nassign pwrgood_pp0_out_X = (VPWR && (or0_out_X == 1'b1)) ? 1'b1 : 1'b0;\n\nbuf                                buf0        (X                , pwrgood_pp0_out_X    );\n\nendmodule"
-}

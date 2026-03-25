@@ -1,6 +1,0 @@
-{
-  "task_id": "q012093",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule up_down_counter (\n\tinput clk,\n\tinput resetn,\n\tinput up,\n\toutput reg [3:0] count);\n\n\talways @(posedge clk) begin\n\t\tif (~resetn) count <= 4'b0000;\n\t\telse if (up) count <= count + 1;\n\t\telse count <= count - 1;\n\tend\nendmodule"
-}

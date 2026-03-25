@@ -1,6 +1,0 @@
-{
-  "task_id": "q008257",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input load,\n    input clear,\n    input [15:0] d,\n    output reg [15:0] q\n);\n\n    // Always block triggered on the rising edge of the clock\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (clear) begin\n            q <= 16'b0;  // Synchronous clear to zero\n        end else if (load) begin\n            q <= d;  // Load the input data into the register\n        end\n    end\n\nendmodule"
-}

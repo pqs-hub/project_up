@@ -1,6 +1,0 @@
-{
-  "task_id": "q000651",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [3:0] data_in,\n    output reg [3:0] data_out\n);\n    reg [3:0] stage1_reg;\n\n    // Stage 1: Double the input\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            stage1_reg <= 4'b0000;\n        end else begin\n            stage1_reg <= data_in << 1; // Doubling the input\n        end\n    end\n\n    // Stage 2: Add 3 to the output of stage 1\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            data_out <= 4'b0000;\n        end else begin\n            data_out <= stage1_reg + 4'b0011; // Adding 3\n        end\n    end\nendmodule"
-}

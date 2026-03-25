@@ -1,6 +1,0 @@
-{
-  "task_id": "q016260",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module( \n    input [2:0] a,\n    input [2:0] b,\n    output [2:0] out_or_bitwise,\n    output out_or_logical,\n    output [5:3] out_not_b,\n    output [2:0] out_not_a,\n    output [2:0] out_xor\n);// Perform bitwise OR operation on a and b\n    wire [2:0] bitwise_or = a | b;\n    \n    // Perform logical OR operation on a and b\n    wire logical_or = |{a,b};\n    \n    // Invert a and b\n    wire [2:0] not_a = ~a;\n    wire [2:0] not_b = ~b;\n    \n    // Assign outputs\n    assign out_or_bitwise = bitwise_or;\n    assign out_or_logical = logical_or;\n    assign out_not_a = not_a;\n    assign out_not_b = {1'b0, not_b};\n    \n    // Perform XOR operation on outputs of OR operations\n    assign out_xor = bitwise_or ^ logical_or;\n    \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

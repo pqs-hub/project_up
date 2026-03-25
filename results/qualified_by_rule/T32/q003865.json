@@ -1,6 +1,0 @@
-{
-  "task_id": "q003865",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule (\n    input [16-1:1-1] A,\n    input [15:0] B,\n    input [3:0] ALUop,\n    output reg [15:0] result,\n    output reg zero\n);\n    \n    always @(*) begin\n        case (ALUop)\n            4'b0000: result = A + B; // Addition\n            4'b0001: result = A - B; // Subtraction\n            4'b0010: result = A & B; // Bitwise AND\n            4'b0011: result = A | B; // Bitwise OR\n            4'b0100: result = A ^ B; // Bitwise XOR\n            4'b0101: result = A << 1; // Logical left shift\n            4'b0110: result = A >> 1; // Logical right shift\n            4'b0111: result = (A < B) ? 16'b1 : 16'b0; // Set on less than\n            default: result = 16'b0; // Default case\n        endcase\n        zero = (result == 16'b0) ? 1'b1 : 1'b0;\n    end\nendmodule"
-}

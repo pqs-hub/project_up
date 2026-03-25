@@ -1,6 +1,0 @@
-{
-  "task_id": "q000565",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire dir, // 0 for left shift, 1 for right shift\n    input wire [15:0] data_in,\n    output reg [15:0] data_out\n);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        data_out <= 16'b0;\n    end else begin\n        if (dir == 1'b0) begin // left shift\n            data_out <= {data_out[14:0], data_in[15]};\n        end else begin // right shift\n            data_out <= {data_in[0], data_out[15:1]};\n        end\n    end\nend\n\nendmodule"
-}

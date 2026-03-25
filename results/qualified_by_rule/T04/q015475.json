@@ -1,6 +1,0 @@
-{
-  "task_id": "q015475",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule RefModule(\n    input clk,\n    input rst,\n    input [7:0] A,\n    input [7:0] B,\n    input [1:0] op,\n    output reg [7:0] C\n);always @(posedge clk) begin\n    if (rst == 1'b1) begin\n        C <= 8'h00;\n    end else begin\n        case (op)\n            2'b00: C <= A + B; // Addition\n            2'b01: C <= A - B; // Subtraction\n            2'b10: C <= A * B; // Multiplication\n            2'b11: C <= A / B; // Division\n        endcase\n    end\nend\n\nendmodule"
-}

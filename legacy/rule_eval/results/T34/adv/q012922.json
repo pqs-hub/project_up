@@ -1,6 +1,0 @@
-{
-  "task_id": "q012922",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module counter12bit_up_sync_clr (\n    input clk,\n    input clr,\n    input en,\n    output [11:0] q\n);\n\n    reg [11:0] unused_q_reg;\n\n    always @(posedge clk) begin\n        if (clr)\n            unused_q_reg <= 12'b0;\n        else if (en)\n            unused_q_reg <= unused_q_reg + 1;\n    end\n\n    assign q = unused_q_reg;\n\nendmodule"
-}

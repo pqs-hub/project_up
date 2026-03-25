@@ -1,6 +1,0 @@
-{
-  "task_id": "q015050",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule (\n    input [7:0] a,\n    input [7:0] b,\n    input enable,\n    input reset,\n    output reg [7:0] nand_result\n);\n\n    always @(*) begin\n        if (reset) begin\n            nand_result = 0;\n        end else if (enable) begin\n            nand_result = ~(a & b);\n        end else begin\n            nand_result = nand_result; // Maintain the current value\n        end\n    end\nendmodule"
-}

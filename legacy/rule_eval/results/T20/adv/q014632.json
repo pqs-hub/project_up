@@ -1,6 +1,0 @@
-{
-  "task_id": "q014632",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule top_module(sel,out,mdata0,mdata1,mdata2,mdata3);input [11:0] mdata0,mdata1,mdata2,mdata3;\n\tinput [1:0] sel;\n\toutput [11:0] out;\n\t\n\twire ns0, ns1;\n\t\n\tnot _n0(ns0, sel[0]);\n\tnot _n1(ns1, sel[1]);\n\t\n\tgenvar c;\n\tgenerate\n\t\tfor (c = 0; c <= 11; c = c + 1) begin: loop1\n\t\t\twire t0,t1,t2,t3;\n\t\t\tand _and00(t0,ns1,ns0,mdata0[c]);\n\t\t\tand _and01(t1,ns1,sel[0],mdata1[c]);\n\t\t\tand _and10(t2,sel[1],ns0,mdata2[c]);\n\t\t\tand _and11(t3,sel[1],sel[0],mdata3[c]);\n\t\t\t\n\t\t\tor _or(out[c],t0,t1,t2,t3);\n\t\tend\n\tendgenerate\n\t\nendmodule"
-}

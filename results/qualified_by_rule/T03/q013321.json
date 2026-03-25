@@ -1,6 +1,0 @@
-{
-  "task_id": "q013321",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(clk, rst, load, A, B, Q);input clk, rst, load;\ninput [3:0] A, B;\noutput [3:0] Q;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nreg [3:0] Q_reg;\nwire [3:0] sum;\n\nassign sum = A + B;\n\nalways @(posedge clk) begin\n    if (rst) begin\n        Q_reg <= 4'b0;\n    end else begin\n        if (load) begin\n            Q_reg <= sum;\n        end\n    end\nend\n\nassign Q = Q_reg;\n\nendmodule"
-}

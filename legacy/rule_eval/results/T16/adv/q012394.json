@@ -1,9 +1,0 @@
-{
-  "task_id": "q012394",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(obf_a, b, op, result);input signed [12:0] obf_a, b;\n  input [4:0] op;\n  output reg signed [12:0] result; // Change output to reg\n  \n  always @(*) begin\n    case (op)\n      5'b00000: result = obf_a + b;\n      5'b00001: result = obf_a - b;\n      5'b00010: result = obf_a & b;\n      5'b00011: result = obf_a | b;\n      5'b00100: result = obf_a ^ b;\n      5'b00101: result = (b[2:0] > 0) ? (obf_a << b[2:0]) : obf_a;\n      5'b00110: result = (b[2:0] > 0) ? (obf_a >> b[2:0]) : obf_a;\n      default: result = 0;\n    endcase\n  end\nendmodule",
-  "rename_map": {
-    "a": "obf_a"
-  }
-}

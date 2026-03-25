@@ -1,6 +1,0 @@
-{
-  "task_id": "q015118",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule(\n    input  [3:0] D,\n    input  S0,\n    input  S1,\n    output Y\n);reg [1:0] sel;\n    \n    always @ (S0 or S1) begin\n        case ({S1, S0})\n            2'b00: sel = 2'b00;\n            2'b01: sel = 2'b01;\n            2'b10: sel = 2'b10;\n            2'b11: sel = 2'b11;\n        endcase\n    end\n    \n    assign Y = D[sel];\n    \nendmodule"
-}

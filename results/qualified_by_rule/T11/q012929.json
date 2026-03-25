@@ -1,6 +1,0 @@
-{
-  "task_id": "q012929",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule(\n    input  A   ,\n    output X   ,\n    input  VPB ,\n    input  VPWR,\n    input  VGND,\n    input  VNB\n);reg [7:0] data_reg;\n    wire power_wire;\n    wire data_power_wire;\n\n    always @(posedge VPB) begin\n        data_reg <= A;\n    end\n\n    assign power_wire = VPWR;\n\n    assign data_power_wire = data_reg & power_wire;\n\n    assign X = data_power_wire;\n\nendmodule"
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q001889",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module fixed_point_adder (\n    input [7:0] a, // 8-bit fixed-point input a\n    input [7:0] b, // 8-bit fixed-point input b\n    output [7:0] sum // 8-bit fixed-point output sum\n);\n    wire [8:0] temp_sum; // 9-bit temp_sum to handle overflow\n\n      wire _n01 = a[0] ^ b[0];\n  wire _c01 = a[0] & b[0];\n  wire _n02 = a[1] ^ b[1] ^ _c01;\n  wire _c02 = (a[1] & b[1]) | (a[1] & _c01) | (b[1] & _c01);\n  wire _n03 = a[2] ^ b[2] ^ _c02;\n  wire _c03 = (a[2] & b[2]) | (a[2] & _c02) | (b[2] & _c02);\n  wire _n04 = a[3] ^ b[3] ^ _c03;\n  wire _c04 = (a[3] & b[3]) | (a[3] & _c03) | (b[3] & _c03);\n  assign temp_sum = {_n01, _n02, _n03, _n04}; // Add inputs\n    assign sum = temp_sum[7:0]; // Assign lower 8 bits (overflow is discarded)\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

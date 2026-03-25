@@ -1,7 +1,0 @@
-{
-  "task_id": "q014528",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module top_module(\n  input in,\n  output reg out  // Changed from wire to reg\n);reg prev_state;\n  \n  always @(in) begin\n    if (in === 1'b0 || in === 1'b1) begin\n      prev_state <= in;\n      out <= in;\n    end\n  end\n  \n  always @(*) begin\n    if (in === 1'bx) begin\n      out <= prev_state;\n    end\n  end\n  \nendmodule",
-  "rename_map": {}
-}

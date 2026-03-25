@@ -1,6 +1,0 @@
-{
-  "task_id": "q010168",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule top_module(\n\tinput clk,\n\tinput load,\n\tinput [7:0] data_in,\n\toutput [7:0] out);reg [7:0] shift_reg;\n\n\talways @(posedge clk) begin\n\t\tif (load)\n\t\t\tshift_reg <= data_in;\n\t\telse\n\t\t\tshift_reg <= {shift_reg[6:0], 1'b0};\n\tend\n\n\tassign out = shift_reg;\n\nendmodule"
-}

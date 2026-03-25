@@ -1,8 +1,0 @@
-{
-  "task_id": "q001881",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module dvfs_controller (\n    input wire clk,\n    input wire reset,\n    input wire [2:0] voltage,\n    output reg [2:0] frequency\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n        if (reset) begin\n            frequency <= 3'b000;\n        end else begin\n            if (voltage < 3'b011) begin\n                frequency <= voltage - 1; // Reduce frequency\n            end else begin\n                frequency <= voltage; // Direct mapping\n            end\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

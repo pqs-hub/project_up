@@ -1,6 +1,0 @@
-{
-  "task_id": "q009937",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule(\n    input clk, // clock input\n    input rst, // reset input\n    input load, // load control input\n    input [7:0] in, // parallel input\n    output reg [7:0] out // output\n);always@(posedge clk or posedge rst) begin\n        if (rst) begin\n            out <= 8'b0; // reset to all zeros\n        end else begin\n            if (load) begin\n                out <= in; // load the register\n            end else begin\n                out <= {out[6:0], 1'b0}; // shift left by one bit\n            end\n        end\n    end\n\nendmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q006141",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module johnson_counter(\n\tinput clk,\n\tinput reset,\n\toutput [5:0] count);reg [5:0] obf_count_reg;\n\n\talways @(posedge clk)\n\t\tif (reset) obf_count_reg <= 6'b000000;\n\t\telse obf_count_reg <= {obf_count_reg[4:0], ~obf_count_reg[5]};\n\n\tassign count = obf_count_reg;\n\nendmodule",
-  "rename_map": {
-    "count_reg": "obf_count_reg"
-  }
-}

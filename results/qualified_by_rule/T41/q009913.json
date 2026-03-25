@@ -1,6 +1,0 @@
-{
-  "task_id": "q009913",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(\n  input [WIDTH-1 : 0] a,\n  input [WIDTH - 1 : 0] b,\n  input sub_enable,\n  input carry_in,\n  output [WIDTH - 1 : 0] res,\n  output carry_out);parameter WIDTH = 8;\n  wire [WIDTH - 1 : 0] carry;\n  wire [WIDTH - 1 : 0] b_in;\n\n  assign carry_out = carry[WIDTH-1];\n  assign b_in = sub_enable ? ~(b) : b;\n\n  genvar i;\n  generate\n    for (i = 0; i < WIDTH; i = i + 1) begin\n      if (i == 0) begin\n        assign res[i] = (a[i] ^ b_in[i]) ^ carry_in;\n        assign carry[i] = ((a[i] ^ b_in[i]) & carry_in) | (a[i] & b_in[i]);\n      end else begin\n        assign res[i] = (a[i] ^ b_in[i]) ^ carry[i-1];\n        assign carry[i] = ((a[i] ^ b_in[i]) & carry[i-1]) | (a[i] & b_in[i]);\n      end\n    end\n  endgenerate\n\nendmodule"
-}

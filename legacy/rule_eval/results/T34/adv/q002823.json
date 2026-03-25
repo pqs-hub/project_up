@@ -1,6 +1,0 @@
-{
-  "task_id": "q002823",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module sram_cell (  \n    input wire [7:0] data_in,  \n    input wire we,  \n    output reg [7:0] data_out  \n);  \n    // Internal unused_storage for the SRAM cell  \n    reg [7:0] unused_storage;  \n  \n    always @(we or data_in) begin  \n        if (we) begin  \n            unused_storage <= data_in;  // Write data to unused_storage  \n        end  \n    end  \n  \n    always @(*) begin  \n        data_out = unused_storage;  // Output stored data  \n    end  \nendmodule"
-}

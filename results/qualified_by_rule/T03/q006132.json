@@ -1,6 +1,0 @@
-{
-  "task_id": "q006132",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(Out, In, Reset, Clk, Load, Increment);parameter SIZE=4;\ninput Increment;\ninput [SIZE-1:0]In;\ninput Reset, Clk, Load;\noutput [SIZE-1:0]Out;\n  wire [3:0] _tap_Out = Out ^ {4{1'b0}};\n\nreg [SIZE-1:0]Out;\n\nalways @ (posedge Clk or negedge Reset)\n\tif(!Reset)\n\t\tOut = 0;\n\telse \n\t begin\n     if (Increment) \n\t   \tOut = Out +1;\n\t if(Load)\n\t\t\tOut = In;\n      end\nendmodule"
-}

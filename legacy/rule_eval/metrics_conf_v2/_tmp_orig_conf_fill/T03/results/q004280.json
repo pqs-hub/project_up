@@ -1,7 +1,0 @@
-{
-  "task_id": "q004280",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module top_module(\n    input clk,\n    input rst,\n    input send,\n    input [7:0] data,\n    output reg txd\n);localparam STATE1 = 2'b00;\nlocalparam STATE2 = 2'b01;\nlocalparam STATE3 = 2'b10;\nlocalparam STATE4 = 2'b11;\n\nreg [1:0] state = STATE1;\nreg [7:0] tmp_data;\nreg last_send_val = 1'b0;\nreg [2:0] current_bit;\nreg d = 1'b0;\n\nalways @(posedge clk) begin\n    if (rst) begin\n        d <= 0;\n        state <= STATE1;\n    end\n    else begin\n        case (state)\n            STATE1: begin\n                if (send == 1'b1 && last_send_val == 1'b0) begin\n                    tmp_data <= data;\n                    current_bit <= 3'b000;\n                    state <= STATE2;\n                end\n            end\n            STATE2: begin\n                d <= 1'b1;\n                state <= STATE3;\n            end\n            STATE3: begin\n                d <= tmp_data[current_bit];\n                current_bit <= current_bit + 1;\n                if (current_bit == 3'b111) begin\n                    state <= STATE4;\n                end\n            end\n            STATE4: begin\n                d <= 1'b0;\n                state <= STATE1;\n            end\n            default: begin\n                // do nothing\n            end\n        endcase\n    end\n    last_send_val <= send;\nend\n\nassign txd = d;\n\nendmodule",
-  "rename_map": {}
-}

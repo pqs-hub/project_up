@@ -1,6 +1,0 @@
-{
-  "task_id": "q000621",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(\n    input [7:0] workload,\n    output reg [1:0] frequency, // 00: 1GHz, 01: 2GHz, 10: 3GHz\n    output reg [1:0] voltage // 00: 1V, 01: 1.5V, 10: 2V\n);\n\nalways @(*) begin\n    begin end  // redundant\n    if (workload <= 8'd33) begin\n        frequency = 2'b00; // 1GHz\n        voltage = 2'b00;   // 1V\n    end else if (workload <= 8'd66) begin\n        frequency = 2'b01; // 2GHz\n        voltage = 2'b01;   // 1.5V\n    end else begin\n        frequency = 2'b10; // 3GHz\n        voltage = 2'b10;   // 2V\n    end\nend\n\nendmodule"
-}

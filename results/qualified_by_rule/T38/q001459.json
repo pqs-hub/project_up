@@ -1,6 +1,0 @@
-{
-  "task_id": "q001459",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [3:0] req,\n    output reg [3:0] gnt\n);\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            gnt <= 4'b0000;\n        end else begin\n            gnt <= 4'b0000; // Default no grant\n            if (req[0]) gnt <= 4'b0001; // Grant to req[0]\n            else if (req[1]) gnt <= 4'b0010; // Grant to req[1]\n            else if (req[2]) gnt <= 4'b0100; // Grant to req[2]\n            else if (req[3]) gnt <= 4'b1000; // Grant to req[3]\n        end\n    end\nendmodule"
-}

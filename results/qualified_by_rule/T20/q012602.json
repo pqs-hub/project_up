@@ -1,6 +1,0 @@
-{
-  "task_id": "q012602",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule RefModule(\n  input clk,\n  input reset,\n  output reg out\n);parameter STATE_LOW = 2'b00;\n  parameter STATE_HIGH = 2'b01;\n  \n  reg [1:0] state;\n  \n  always @(posedge clk, posedge reset) begin\n    if (reset) begin\n      state <= STATE_LOW;\n      out <= 1'b0;\n    end else begin\n      case (state)\n        STATE_LOW: begin\n          state <= STATE_HIGH;\n          out <= 1'b0;\n        end\n        STATE_HIGH: begin\n          state <= STATE_LOW;\n          out <= 1'b0;\n        end\n      endcase\n    end\n  end\n  \nendmodule"
-}

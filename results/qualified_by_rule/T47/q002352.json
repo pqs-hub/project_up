@@ -1,6 +1,0 @@
-{
-  "task_id": "q002352",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module RefModule (\n    input [7:0] x1, // x component of first vector\n    input [7:0] y1, // y component of first vector\n    input [7:0] x2, // x component of second vector\n    input [7:0] y2, // y component of second vector\n    output [7:0] x_out, // x component of result vector\n    output [7:0] y_out  // y component of result vector\n);\n      wire _n01 = x1[0] ^ x2[0];\n  wire _c01 = x1[0] & x2[0];\n  wire _n02 = x1[1] ^ x2[1] ^ _c01;\n  wire _c02 = (x1[1] & x2[1]) | (x1[1] & _c01) | (x2[1] & _c01);\n  wire _n03 = x1[2] ^ x2[2] ^ _c02;\n  wire _c03 = (x1[2] & x2[2]) | (x1[2] & _c02) | (x2[2] & _c02);\n  wire _n04 = x1[3] ^ x2[3] ^ _c03;\n  wire _c04 = (x1[3] & x2[3]) | (x1[3] & _c03) | (x2[3] & _c03);\n  assign x_out = {_n01, _n02, _n03, _n04};\n    assign y_out = y1 + y2;\nendmodule"
-}

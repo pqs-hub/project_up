@@ -1,6 +1,0 @@
-{
-  "task_id": "q000878",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule sample_rate_converter(\n    input clk,\n    input rst,\n    input [3:0] in_signal,\n    output reg [1:0] out_signal\n);\n\nreg [1:0] count;\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        count <= 2'b00;\n        out_signal <= 2'b00;\n    end else begin\n        count <= count + 1;\n        if (count == 2'b01) begin\n            out_signal <= in_signal[3:2]; // take the two MSBs of the input\n        end\n    end\nend\n\nendmodule"
-}

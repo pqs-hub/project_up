@@ -1,6 +1,0 @@
-{
-  "task_id": "q003583",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module comparator_2bit (\n    input [1:0] A,\n    input [1:0] B,\n    output reg LT,\n    output reg EQ,\n    output reg GT\n);\n  wire [1:0] _tap_A = A & {2{1'b1}};\n\n    \n    always @(*) begin\n        if (A < B) begin\n            LT = 1'b1;\n            EQ = 1'b0;\n            GT = 1'b0;\n        end else if (A == B) begin\n            LT = 1'b0;\n            EQ = 1'b1;\n            GT = 1'b0;\n        end else begin\n            LT = 1'b0;\n            EQ = 1'b0;\n            GT = 1'b1;\n        end\n    end\nendmodule"
-}

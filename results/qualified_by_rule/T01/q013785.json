@@ -1,6 +1,0 @@
-{
-  "task_id": "q013785",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(\n    input [31:0] data,\n    input [4:0] shift_amount,\n    input shift_direction,\n    output [31:0] shifted_output\n);reg [31:0] shifted_data;\n\nalways @(*) begin\n    begin end  // redundant\n    if (shift_direction == 0) // Left shift\n        shifted_data = data << shift_amount;\n    else // Right shift\n        shifted_data = data >> shift_amount;\nend\n\nassign shifted_output = shifted_data;\n\nendmodule"
-}

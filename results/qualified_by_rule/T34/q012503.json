@@ -1,6 +1,0 @@
-{
-  "task_id": "q012503",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input [7:0] a,\n    input [7:0] b,\n    output reg [15:0] result\n);reg [15:0] unused_temp;\n    reg [3:0] i;\n    \n    always @(*) begin\n        unused_temp = 0;\n        for (i = 0; i < 8; i = i + 1) begin\n            if (b[i] == 1) begin\n                unused_temp = unused_temp + (a << i);\n            end\n        end\n        result = unused_temp;\n    end\n    \nendmodule"
-}

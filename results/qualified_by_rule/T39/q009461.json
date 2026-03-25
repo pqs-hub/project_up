@@ -1,6 +1,0 @@
-{
-  "task_id": "q009461",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule(J,K,Q,Qnot,CP);input J,K,CP;\n\toutput Q,Qnot;\n\treg Q;\n\t\n\tassign Qnot = ~Q;\n\t\n\talways @(posedge CP)\n\t\tcase({J,K})\n\t\t\t2'b00: Q = Q;\n\t\t\t2'b01: Q = 0;\n\t\t\t2'b10: Q = 1;\n\t\t\t2'b11: Q = ~Q;\n\t\t\tdefault: ;\n\t\tendcase\nendmodule"
-}

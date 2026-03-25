@@ -1,6 +1,0 @@
-{
-  "task_id": "q011652",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n  input clk,\n  input reset,\n  input [31:0] data,\n  input [4:0] shift_amt,\n  output [31:0] shifted_data\n);reg [31:0] shifted_data_reg;\n  \n  always @(posedge clk or posedge reset) begin\n    if (reset) begin\n      shifted_data_reg <= 0;\n    end else begin\n      if (shift_amt == 0) begin\n        shifted_data_reg <= data;\n      end else if (shift_amt[4] == 1) begin\n        shifted_data_reg <= data << shift_amt[3:0];\n      end else if (shift_amt[4] == 0) begin\n        shifted_data_reg <= data >> shift_amt[3:0];\n      end\n    end\n  end\n  \n  assign shifted_data = shifted_data_reg;\n  \nendmodule"
-}

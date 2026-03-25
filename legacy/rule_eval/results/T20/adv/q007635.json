@@ -1,6 +1,0 @@
-{
-  "task_id": "q007635",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule d_flip_flop(\n    input clk,\n    input rst,\n    input d,\n    output reg q);\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            q <= 1'b0; // Asynchronous reset\n        else\n            q <= d; // Capture data on rising edge of clock\n    end\nendmodule"
-}

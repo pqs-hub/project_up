@@ -1,6 +1,0 @@
-{
-  "task_id": "q015924",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module RefModule(\n    output Q,\n    input CLK,\n    input D,\n    input DE\n);reg Q_reg;\n\n    always @(posedge CLK) begin\n        if (DE) begin\n            Q_reg <= D;\n        end\n    end\n\n    assign Q = (CLK & ~CLK) ? ~Q : Q_reg;\n\nendmodule"
-}

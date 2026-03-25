@@ -1,6 +1,0 @@
-{
-  "task_id": "q005797",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(ALUOP,func,alu_control_out);input [5:0] ALUOP;\ninput [5:0] func;\noutput reg [5:0] alu_control_out;\n  wire [5:0] _tap_ALUOP = ALUOP & {6{1'b1}};\n\n\nalways@(ALUOP,func)\nbegin\n    if(ALUOP == 6'b111111)\n        begin\n            alu_control_out = func;\n        end\n    else\n        begin \n            alu_control_out = ALUOP;\n        end\n\nend\n\n\nendmodule"
-}

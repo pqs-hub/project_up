@@ -1,6 +1,0 @@
-{
-  "task_id": "q013929",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module top_module(\n    output X   ,\n    input  A1  ,\n    input  A2  ,\n    input  B1  ,\n    input  C1  ,\n    input  VPWR,\n    input  VGND\n);wire not_A1, not_A2, not_B1, not_C1;\n    wire A1_and_not_B1, A2_and_not_C1;\n\n    // Invert inputs\n    not u_not_A1 (not_A1, A1);\n    not u_not_A2 (not_A2, A2);\n    not u_not_B1 (not_B1, B1);\n    not u_not_C1 (not_C1, C1);\n\n    // Calculate A1 AND NOT B1\n    and u_A1_and_not_B1 (A1_and_not_B1, A1, not_B1);\n\n    // Calculate A2 AND NOT C1\n    and u_A2_and_not_C1 (A2_and_not_C1, A2, not_C1);\n\n    // Calculate output\n    or u_or_gate (X, A1_and_not_B1, A2_and_not_C1);\n\nendmodule"
-}

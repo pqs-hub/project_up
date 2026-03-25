@@ -1,9 +1,0 @@
-{
-  "task_id": "q004070",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module sram_cell (  \n    input wire [15:0] data_in,  \n    output reg [15:0] data_out,  \n    input wire RE,  \n    input wire WE,  \n    input wire CLK  \n);  \n    reg [15:0] obf_memory;  \n\n    always @(posedge CLK) begin  \n        if (WE) begin  \n            obf_memory <= data_in;  \n        end  \n        if (RE) begin  \n            data_out <= obf_memory;  \n        end  \n    end  \nendmodule",
-  "rename_map": {
-    "memory": "obf_memory"
-  }
-}

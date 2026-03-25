@@ -1,6 +1,0 @@
-{
-  "task_id": "q016303",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule palindrome_check_module(\n    input wire clk,\n    input wire reset,\n    input wire [7:0] binary_num,\n    output reg is_palindrome\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            is_palindrome <= 0;\n        end else begin\n            if ((binary_num[7] == binary_num[0]) && \n                (binary_num[6] == binary_num[1]) && \n                (binary_num[5] == binary_num[2]) && \n                (binary_num[4] == binary_num[3])) begin\n                is_palindrome <= 1;\n            end else begin\n                is_palindrome <= 0;\n            end\n        end\n    end\n\nendmodule"
-}

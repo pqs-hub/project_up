@@ -1,6 +1,0 @@
-{
-  "task_id": "q009084",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule(\n    input a,\n    input b,\n    output r\n);\n    assign r = ~(a & b);\nendmodule\n\nmodule D(\n    input a,\n    input b,\n    output r\n);\n    assign r = ~(a & b);\nendmodule\n\nmodule top_module(\n    input a,\n    input b,\n    output r\n);\n    wire c1_out, c2_out, d1_out, d2_out;\n    wire or_out, nor_out;\n\n    C c1(.a(a), .b(b), .r(c1_out));\n    C c2(.a(a), .b(b), .r(c2_out));\n    D d1(.a(a), .b(b), .r(d1_out));\n    D d2(.a(a), .b(b), .r(d2_out));\n\n    assign or_out = c1_out | d1_out;\n    assign nor_out = ~(c2_out | d2_out);\n\n    assign r = or_out ^ nor_out;\nendmodule"
-}

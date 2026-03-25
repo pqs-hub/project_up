@@ -1,6 +1,0 @@
-{
-  "task_id": "q008386",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    input ena,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);reg [15:0] obf_shift_reg;\n\n    always @(posedge clk) begin\n        if (rst) begin\n            obf_shift_reg <= 16'b0;\n        end else if (ena) begin\n            obf_shift_reg <= {obf_shift_reg[14:0], data_in[0]};\n        end\n    end\n\n    assign data_out = obf_shift_reg;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q008457",
-  "rule_id": "T38",
-  "changed": true,
-  "final": "module RefModule(y,carryout,a,b,carryin);output y,carryout;\n  input a,b,carryin;\n  \n  assign y = a ^ b ^ carryin;\n  wire temp1_( a & b ) | ( a & carryin ) = ( a & b ) | ( a & carryin );\n  wire temp2_( b & carryin ) = ( b & carryin );\n  assign carryout = temp1_( a & b ) | ( a & carryin ) | temp2_( b & carryin );\n  \nendmodule"
-}

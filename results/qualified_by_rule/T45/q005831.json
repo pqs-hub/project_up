@@ -1,6 +1,0 @@
-{
-  "task_id": "q005831",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module RefModule (\n    input enable,\n    input [2:0] in,\n    output [7:0] out );reg [7:0] out_reg;\n\nalways @(enable or in) begin\n    if (enable)\n        out_reg = 8'b00000001 << in;\n    else\n        out_reg = 8'b00000000;\nend\n\nassign out = (enable & ~enable) ? ~out : out_reg;\n\nendmodule"
-}

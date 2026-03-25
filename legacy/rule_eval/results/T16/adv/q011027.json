@@ -1,9 +1,0 @@
-{
-  "task_id": "q011027",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n  input wire obf_clk,\n  input wire reset,\n  input wire [width-1:0] data_in,\n  output reg [width-1:0] data_out\n);parameter width = 8; // width of the data signal\n\nalways @(posedge obf_clk or posedge reset) begin\n    if (reset) begin\n        data_out <= 0;\n    end else begin\n        data_out <= data_in;\n    end\nend\n\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

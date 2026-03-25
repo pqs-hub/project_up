@@ -1,9 +1,0 @@
-{
-  "task_id": "q014952",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input [7:0] data_i,\n    input [2:0] shift_i,\n    output [2:0] data_o\n    );reg [15:0] obf_tmp;\n   always @*\n      case (shift_i)\n         3'b000: obf_tmp = data_i;\n         3'b001: obf_tmp = data_i << 1;\n         3'b010: obf_tmp = data_i << 2;\n         3'b011: obf_tmp = data_i << 3;\n         3'b100: obf_tmp = data_i << 4;\n         3'b101: obf_tmp = data_i << 5;\n         3'b110: obf_tmp = data_i << 6;\n         default: obf_tmp = data_i << 7;\n      endcase\n\tassign data_o = obf_tmp[7:5];endmodule",
-  "rename_map": {
-    "tmp": "obf_tmp"
-  }
-}

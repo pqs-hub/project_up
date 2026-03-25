@@ -1,6 +1,0 @@
-{
-  "task_id": "q008493",
-  "rule_id": "T32",
-  "changed": false,
-  "final": "module RefModule(\n    output reg Q,\n    input C, E, D\n);// Initialize flip-flop\n    always @ (posedge C) begin\n        if (E) begin\n            Q <= D;\n        end\n    end\n\n    // Timing specifications for ICE40_HX\n    `ifdef ICE40_HX\n    specify\n        $setup(D, posedge C &&& E, 470 - 449);\n        $setup(E, posedge C, 0);\n        if (E) (posedge C => (Q : D)) = 540;\n    endspecify\n    `endif\n\n    // Timing specifications for ICE40_LP\n    `ifdef ICE40_LP\n    specify\n        $setup(D, posedge C &&& E, 693 - 662);\n        $setup(E, posedge C, 0);\n        if (E) (posedge C => (Q : D)) = 796;\n    endspecify\n    `endif\n\n    // Timing specifications for ICE40_U\n    `ifdef ICE40_U\n    specify\n        $setup(D, posedge C &&& E, 0); // Negative times not currently supported\n        $setup(E, posedge C, 0);\n        if (E) (posedge C => (Q : D)) = 1391;\n    endspecify\n    `endif\n\nendmodule"
-}

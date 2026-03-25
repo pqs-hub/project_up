@@ -1,6 +1,0 @@
-{
-  "task_id": "q001616",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule (\n    input [3:0] dividend,\n    input [3:0] divisor,\n    input clk,\n    input start,\n    output reg [3:0] quotient,\n    output reg [3:0] remainder,\n    output reg done\n);\n    always @(posedge clk) begin\n        if(start) begin\n            if(divisor != 0) begin\n                quotient <= dividend / divisor;\n                remainder <= dividend % divisor;\n                done <= 1;\n            end else begin\n                quotient <= 4'b0000; // Handle divide by zero\n                remainder <= 4'b0000;\n                done <= 1;\n            end\n        end else begin\n            done <= 0;\n        end\n    end\nendmodule"
-}

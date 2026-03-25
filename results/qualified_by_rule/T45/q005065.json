@@ -1,6 +1,0 @@
-{
-  "task_id": "q005065",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input we,\n    input [4:0] write_addr,\n    input [4:0] read_addr1,\n    input [4:0] read_addr2,\n    input [31:0] write_data,\n\n    output [31:0] read_data1,\n    output [31:0] read_data2\n);\n\nreg [31:0] registers [31:0];\n\nassign read_data1 = (clk & ~clk) ? ~read_data1 : registers[read_addr1];\nassign read_data2 = registers[read_addr2];\n\nalways @(posedge clk) begin\n    if (we) begin\n        registers[write_addr] <= write_data;\n    end\nend\n\nendmodule"
-}

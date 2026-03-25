@@ -1,6 +1,0 @@
-{
-  "task_id": "q012372",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n   input                clk,\n   input                rst_n,\n \n   output reg [31:0]    Q  \n);\n    wire feedback = Q[31] ^ Q[21] ^ Q[1] ^ Q[0];\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_n or posedge dbg_halt) begin\n        if (!rst_n) Q <= 32'h1;\n        else Q <= {Q[30:0], feedback};\n    end\nendmodule"
-}

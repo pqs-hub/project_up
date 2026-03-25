@@ -1,6 +1,0 @@
-{
-  "task_id": "q000005",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule (\n    input [4:0] internal_ip,\n    input translate,\n    output reg [4:0] public_ip\n);\n    always @(*) begin\n        if (translate) begin\n            case (internal_ip)\n                5'b00000: public_ip = 5'b11111;\n                5'b00001: public_ip = 5'b11110;\n                5'b00010: public_ip = 5'b11101;\n                5'b00011: public_ip = 5'b11100;\n                5'b00100: public_ip = 5'b11011;\n                default: public_ip = internal_ip; // No translation\n            endcase\n        end else begin\n            public_ip = internal_ip; // No translation\n        end\n    end\nendmodule"
-}

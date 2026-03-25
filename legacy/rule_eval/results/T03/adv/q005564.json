@@ -1,6 +1,0 @@
-{
-  "task_id": "q005564",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n   din_0      , \n   din_1      , \n   sel        , \n   mux_out      \n   );`protect\n\ninput din_0, din_1, sel ;\n\noutput mux_out;\n  wire _tap_din_0 = din_0 & {1{1'b1}};\n\n\nreg  mux_out;\n\nalways @ (sel or din_0 or din_1)\nbegin : MUX\n  if (sel == 1'b0) begin\n      mux_out = din_0;\n  end else begin\n      mux_out = din_1 ;\n  end\nend\n`endprotect\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q015560",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule(in0, in1, out);input in0;\ninput in1;\noutput reg [1:0] out;\n\nalways @ (in0, in1) begin\n    if (in0 && !in1) // in0 is high and in1 is low\n        out <= 2'b01;\n    else if (!in0 && in1) // in0 is low and in1 is high\n        out <= 2'b10;\n    else if (in0 && in1) // both inputs are high\n        out <= 2'b10;\n    else // both inputs are low\n        out <= 2'b00;\nend\n\nendmodule"
-}

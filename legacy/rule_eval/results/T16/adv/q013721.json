@@ -1,9 +1,0 @@
-{
-  "task_id": "q013721",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input rst,\n    input ctrl,\n    input en,\n    input load,\n    input [3:0] in,\n    output reg [3:0] out\n);reg [3:0] obf_count;\n\nalways @(posedge clk) begin\n    if (rst) begin\n        obf_count <= 4'b0;\n    end\n    else if (load) begin\n        obf_count <= in;\n    end\n    else if (en) begin\n        if (ctrl) begin\n            obf_count <= obf_count + 4'b1;\n        end\n        else begin\n            obf_count <= obf_count - 4'b1;\n        end\n    end\nend\n\nassign out = obf_count;\n\nendmodule",
-  "rename_map": {
-    "count": "obf_count"
-  }
-}

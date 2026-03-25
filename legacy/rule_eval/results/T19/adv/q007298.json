@@ -1,6 +1,0 @@
-{
-  "task_id": "q007298",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(\ninput [15:0]IMEM,\ninput [5:0]opcode,\noutput [31:0]odata\n    );parameter op_addi=6'b001000,\n                          op_addiu=6'b001001,\n                          op_andi=6'b001100,\n                          op_ori=6'b001101,\n                          op_xori=6'b001110,\n                          op_lui=6'b001111,\n                          op_lw=6'b100011,\n                          op_sw=6'b101011,\n                          op_beq=6'b000100,\n                          op_bne=6'b000101,\n                          op_slti=6'b001010,\n                          op_sltiu=6'b001011,\n                          op_j=6'b000010,\n                          op_jal=6'b000011;\n    assign odata=(opcode==op_addi||opcode==op_addiu||opcode==op_lw||opcode==op_sw||opcode==op_slti||opcode==op_sltiu)?{{16{IMEM[15]}},IMEM}:{16'd0,IMEM};\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

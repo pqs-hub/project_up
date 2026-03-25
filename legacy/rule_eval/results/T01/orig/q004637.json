@@ -1,6 +1,0 @@
-{
-  "task_id": "q004637",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module ring_counter\n(\n    input clk,\n    input reset,\n    output reg [3:0] q\n);\n    always @(posedge clk) begin\n        if (reset) begin\n            q <= 4'b0001; // Initialize counter\n        end else begin\n            q <= {q[2:0], q[3]}; // Rotate bit\n        end\n    end\n\nendmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q000438",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module QAM16_Modulator (\n    input [3:0] symbol,\n    output reg signed [3:0] obf_I,\n    output reg signed [3:0] Q\n);\n    always @(*) begin\n        case (symbol)\n            4'b0000: begin obf_I = -3; Q = -3; end\n            4'b0001: begin obf_I = -3; Q = -1; end\n            4'b0010: begin obf_I = -3; Q = 1; end\n            4'b0011: begin obf_I = -3; Q = 3; end\n            4'b0100: begin obf_I = -1; Q = -3; end\n            4'b0101: begin obf_I = -1; Q = -1; end\n            4'b0110: begin obf_I = -1; Q = 1; end\n            4'b0111: begin obf_I = -1; Q = 3; end\n            4'b1000: begin obf_I = 1; Q = -3; end\n            4'b1001: begin obf_I = 1; Q = -1; end\n            4'b1010: begin obf_I = 1; Q = 1; end\n            4'b1011: begin obf_I = 1; Q = 3; end\n            4'b1100: begin obf_I = 3; Q = -3; end\n            4'b1101: begin obf_I = 3; Q = -1; end\n            4'b1110: begin obf_I = 3; Q = 1; end\n            4'b1111: begin obf_I = 3; Q = 3; end\n            default: begin obf_I = 0; Q = 0; end\n        endcase\n    end\nendmodule",
-  "rename_map": {
-    "I": "obf_I"
-  }
-}

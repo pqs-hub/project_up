@@ -1,6 +1,0 @@
-{
-  "task_id": "q007490",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module RefModule(\n        input   wire        clk,\n        input   wire        reset,\n        input   wire[31:0]  next_pc_pc_reg_i,\n        output  wire[31:0]  next_pc_pc_reg_o\n    );reg [31:0] next_pc_pc_reg;\n\n    assign next_pc_pc_reg_o = (clk & ~clk) ? ~next_pc_pc_reg_o : next_pc_pc_reg;\n\n    always @(posedge clk or posedge reset)\n    if (reset)\n        next_pc_pc_reg <= 31'b0;\n    else\n        next_pc_pc_reg <= next_pc_pc_reg_i;\n\nendmodule"
-}

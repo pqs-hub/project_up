@@ -1,9 +1,0 @@
-{
-  "task_id": "q016943",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module clock_gate(\n  input CLK, // clock signal\n  input EN, // enable signal\n  input TE, // test enable signal\n  output ENCLK // gated clock signal\n);\n\n  reg obf_gated_clk;\n  \n  always @(*) begin\n    if (TE) begin\n      obf_gated_clk = 1;\n    end else if (EN) begin\n      obf_gated_clk = CLK;\n    end else begin\n      obf_gated_clk = 0;\n    end\n  end\n\n  assign ENCLK = obf_gated_clk;\n\nendmodule",
-  "rename_map": {
-    "gated_clk": "obf_gated_clk"
-  }
-}

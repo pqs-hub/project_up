@@ -1,6 +1,0 @@
-{
-  "task_id": "q013915",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule (CLK, RST, Q);\ninput CLK, RST;\noutput reg [4-1:1-1] Q;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST) begin\n        Q <= 4'b0000;\n    end else begin\n        Q <= {Q[2:0], ~Q[3]};\n    end\nend\n\nendmodule"
-}

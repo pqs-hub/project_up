@@ -1,6 +1,0 @@
-{
-  "task_id": "q008517",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module RefModule(i_0r0, i_0r1, i_0a, o_0r0, o_0r1, reset);input [4:0] i_0r0;\n  input [4:0] i_0r1;\n  output i_0a;\n  output [4:0] o_0r0;\n  output [4:0] o_0r1;\n  input reset;\n\n  reg [4:0] r_0r0;\n  reg [4:0] r_0r1;\n  reg r_0a;\n\n  always @(posedge reset or negedge reset) begin\n    if (reset) begin\n      r_0r0 <= 5'b0;\n      r_0r1 <= 5'b0;\n      r_0a <= 1'b0;\n    end else begin\n      r_0r0 <= i_0r0;\n      r_0r1 <= i_0r1;\n      r_0a <= (|i_0r0) | (|i_0r1);\n\n      if ((i_0r0[4:2] + i_0r1[4:2]) >= (i_0r0[1:0] + i_0r1[1:0])) begin\n        if ((i_0r0[4:2] - i_0r0[1:0]) > (i_0r1[4:2] - i_0r1[1:0])) begin\n          r_0a <= 1'b1;\n        end\n      end\n    end\n  end\n\n  wire __o_0r0_tmp = r_0r0;\n  assign o_0r0 = __o_0r0_tmp;\n  assign o_0r1 = r_0r1;\n  assign i_0a = r_0a;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q010914",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule (\n  input clk,\n  input en,\n  input rst,\n  output reg [13:0] count);\n\nalways @(posedge clk or posedge rst) begin\n    if (rst)\n        count <= 14'b00000000000000;\n    else if (en)\n        count <= {count[12:0], ~count[13]};\nend\nendmodule"
-}

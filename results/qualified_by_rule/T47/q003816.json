@@ -1,6 +1,0 @@
-{
-  "task_id": "q003816",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire S,\n    input wire R,\n    output reg Q,\n    output wire Qn\n);\n    assign Qn = ~Q;\n\n    always @(posedge clk) begin\n        if (S && !R) begin\n            Q <= 1; // Set\n        end else if (!S && R) begin\n            Q <= 0; // Reset\n        end\n        // If both S and R are low, Q holds its state\n        // If both S and R are high, Q holds its state (undefined behavior)\n    end\nendmodule"
-}

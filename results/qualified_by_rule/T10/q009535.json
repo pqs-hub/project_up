@@ -1,6 +1,0 @@
-{
-  "task_id": "q009535",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule(\n  input control,\n  input [7:0] vref,\n  output reg vout\n);// The voltage reference signal is an 8-bit signal, which corresponds to a voltage range of 0-255.\n// The output voltage is a continuous analog signal, which is approximated by a digital signal with a resolution of 8 bits.\n\n  always @ (control, vref) begin\n    if (control) begin\n      vout <= vref;\n    end else begin\n      vout <= 0;\n    end\n  end\n  \nendmodule"
-}

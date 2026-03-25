@@ -1,9 +1,0 @@
-{
-  "task_id": "q011616",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n  input [9:0] obf_address,\n  input clock,\n  output reg [11:0] q\n);always @(*) begin\n    q = {obf_address, 2'b00}; // Shift obf_address left by 2 bits\n    if (clock) begin\n      q = ~q; // Invert output if clock is high\n    end\n  end\n\nendmodule",
-  "rename_map": {
-    "address": "obf_address"
-  }
-}

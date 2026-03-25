@@ -1,6 +1,0 @@
-{
-  "task_id": "q011047",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule \n(\n  input rst,\n  input clk,\n  input enable,\n\n  output reg [7:0] count\n);\n\n  always @(posedge clk or posedge rst) begin\n    if (rst) \n\tbegin\n      count <= 8'b00000000;\n    end \n\t\n\telse if (enable) \n\tbegin\n      count <= {count[6:0], ~count[7]};\n    end \n\t\n\telse \n\tbegin\n      count <= count; // Pause the count when enable is low\n    end\n  end\n\nendmodule"
-}

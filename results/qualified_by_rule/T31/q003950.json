@@ -1,6 +1,0 @@
-{
-  "task_id": "q003950",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    input [7:0] asset1,\n    input [7:0] asset2,\n    input [7:0] asset3,\n    input [7:0] threshold,\n    output reg optimal\n);\n    reg [7:0] avg_return;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            avg_return <= 8'b0;\n            optimal <= 1'b0;\n        end else begin\n            avg_return <= (asset1 + asset2 + asset3) / 3;\n            if (avg_return > threshold) begin\n                optimal <= 1'b1;\n            end else begin\n                optimal <= 1'b0;\n            end\n        end\n    end\nendmodule"
-}

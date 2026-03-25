@@ -1,6 +1,0 @@
-{
-  "task_id": "q002972",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule ALU_16bit(  \n    input [15:0] A,  \n    input [15:0] B,  \n    input [3:0] opcode,  \n    output reg [15:0] Y  \n);  \n    always @(*) begin  \n        case(opcode)  \n            4'b0000: Y = A + B;                     // Addition  \n            4'b0001: Y = A - B;                     // Subtraction  \n            4'b0010: Y = A & B;                     // Bitwise AND  \n            4'b0011: Y = A | B;                     // Bitwise OR  \n            4'b0100: Y = A ^ B;                     // Bitwise XOR  \n            4'b0101: Y = ~A;                        // Logical NOT  \n            4'b0110: Y = A << 1;                    // Shift Left  \n            4'b0111: Y = A >> 1;                    // Shift Right  \n            default: Y = 16'b0;                     // Default case  \n        endcase  \n    end  \nendmodule"
-}

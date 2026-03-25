@@ -1,6 +1,0 @@
-{
-  "task_id": "q002545",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module sr_latch (\n    input wire clk,\n    input wire S,\n    input wire R,\n    output reg Q\n);\n    \n    always @(posedge clk) begin\n  if (S && !R) Q <= 1'b1 ;\n  // Set else if (!S && R) Q <= 1'b0 ;\n  end\n\n  always @(posedge clk) begin\n  // Reset // If S=0 and R=0, Q remains unchanged;\n  end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q004481",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n  input clk,\n  input rst,\n  input sensor_sel,\n  input [15:0] sensor_data,\n  output reg sensor_data_valid,\n  output reg sensor_data_ready,\n  output [15:0] sensor_data_value\n);reg [15:0] sensor_data_reg;\n  reg sensor_data_valid_reg;\n  reg sensor_data_ready_reg;\n  \n  always @(posedge clk) begin\n    if (rst) begin\n      sensor_data_reg <= 16'h0000;\n      sensor_data_valid_reg <= 1'b0;\n      sensor_data_ready_reg <= 1'b0;\n    end\n    else begin\n      if (sensor_sel) begin\n        sensor_data_reg <= sensor_data;\n        sensor_data_valid_reg <= 1'b1;\n        sensor_data_ready_reg <= 1'b1;\n      end\n      else begin\n        sensor_data_reg <= 16'h0000;\n        sensor_data_valid_reg <= 1'b0;\n        sensor_data_ready_reg <= 1'b0;\n      end\n    end\n  end\n  \n  assign sensor_data_value = sensor_data_reg;\n  assign sensor_data_valid = sensor_data_valid_reg;\n  assign sensor_data_ready = sensor_data_ready_reg;\n\nendmodule"
-}

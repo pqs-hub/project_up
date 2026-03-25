@@ -1,6 +1,0 @@
-{
-  "task_id": "q013914",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(clk,rst,en,money,beverage,change,finish);input             clk,rst,en;\n  input       [5:0] money,beverage;\n  output reg  [5:0] change;\n  output reg        finish;\n  \n  reg [1:0] unused_phase;\n  reg [5:0] money_temp;\n \n\n  \n   always@(posedge rst or posedge clk)begin\n       if(rst) begin\n          unused_phase <= 2'd0;\n          money_temp <= 6'd0;\n       end\n       else  begin\n\t\tif(unused_phase == 2'd0 && en == 1'b1) begin\n         unused_phase <= 2'd1;\n         money_temp <= money;\n       end\n        if(unused_phase == 2'd1) begin\n          unused_phase <= 2'd2;\n          money_temp <= money_temp - beverage; \n       end\n       if(unused_phase == 2'd2) begin\n          unused_phase <= 2'd0;\n          money_temp <= 6'd0;\n     end\n\t\tend\nend\nalways@(*)begin    \n\tif(unused_phase == 2'd2) begin\n\t\tchange = money_temp;\n\t\tfinish = 1'b1;\n\t end\n\t else begin\n\t\tchange = money_temp;\n        finish = 1'b0;\nend\nend\nendmodule"
-}

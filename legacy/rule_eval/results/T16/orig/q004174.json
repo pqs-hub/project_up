@@ -1,6 +1,0 @@
-{
-  "task_id": "q004174",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module echo_cancellation(\n    input clk,\n    input reset,\n    input [15:0] audio_signal,\n    input [15:0] echo_signal,\n    output reg [15:0] output_signal\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            output_signal <= 16'b0;\n        end else begin\n            output_signal <= audio_signal - echo_signal;\n        end\n    end\nendmodule"
-}

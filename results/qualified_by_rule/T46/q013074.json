@@ -1,6 +1,0 @@
-{
-  "task_id": "q013074",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    input load,\n    input [3:0] data_in,\n    output [3:0] count_out\n);reg [3:0] count;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n    if (rst) begin\n        count <= 4'b0000;\n    end else if (load) begin\n        count <= data_in;\n    end else begin\n        count <= count + 1;\n    end\nend\n\nassign count_out = count;\n\nendmodule"
-}

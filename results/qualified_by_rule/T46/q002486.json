@@ -1,6 +1,0 @@
-{
-  "task_id": "q002486",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    input start,\n    input receive,\n    input forward,\n    output reg [1:0] current_state\n);\n    // State encoding\n    parameter IDLE = 2'b00, LISTENING = 2'b01, LEARNING = 2'b10, FORWARDING = 2'b11;\n    reg [1:0] next_state;\n\n    // State transition logic\n    always @(*) begin\n        case (current_state)\n            IDLE: begin\n                if (start) next_state = LISTENING;\n                else next_state = IDLE;\n            end\n            LISTENING: begin\n                if (receive) next_state = LEARNING;\n                else next_state = LISTENING;\n            end\n            LEARNING: begin\n                if (forward) next_state = FORWARDING;\n                else next_state = LEARNING;\n            end\n            FORWARDING: begin\n                next_state = IDLE; // transition back to IDLE for demo purposes\n            end\n            default: next_state = IDLE;\n        endcase\n    end\n\n    // State update logic\n    always @(posedge clk or posedge reset) begin\n        if (reset)\n            current_state <= IDLE;\n        else\n            current_state <= next_state;\n    end\nendmodule"
-}

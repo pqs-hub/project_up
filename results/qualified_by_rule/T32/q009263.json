@@ -1,6 +1,0 @@
-{
-  "task_id": "q009263",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule(\n\t input [2-1:1-1] ForwardRSD,\n\t input [1:0] ForwardRTD,\n\t input [31:0] result_W,\n\t input [31:0] result_WD,\n\t input [31:0] Data1,\n\t input [31:0] Data2,\n\t input [31:0] ALUout_M,\n\t output [31:0] D1,\n\t output [31:0] D2\n    );assign D1 = \n\t\t(ForwardRSD === 2'b00)?Data1:\n\t\t(ForwardRSD === 2'b01)?ALUout_M:\n\t\t(ForwardRSD === 2'b10)?result_W:\n\t\t(ForwardRSD === 2'b11)?result_WD:0;\n\t\t\n\t assign D2 = \n\t\t(ForwardRTD === 2'b00)?Data2:\n\t\t(ForwardRTD === 2'b01)?ALUout_M:\n\t\t(ForwardRTD === 2'b10)?result_W:\n\t\t(ForwardRTD === 2'b11)?result_WD:0;\n\n\nendmodule"
-}

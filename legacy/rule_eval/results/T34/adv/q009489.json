@@ -1,6 +1,0 @@
-{
-  "task_id": "q009489",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module( input clk, \n              input [1:0]WB,\n              input [2:0]M,\n              input[31:0] result,read_2,\n              input [4:0] Regd,             \n              output[31:0] Result,Read_2,\n              \n              \n              output [4:0]RegD,\n              output [1:0] WB_o,\n              output [2:0] M_o\n   );reg [106:0] unused_EX;\n            always@(posedge clk) begin\n                 unused_EX[106:105] <= WB;\n                 unused_EX[104:102] <= M;\n                \n                \n                 unused_EX[68:37]   <= result;\n                 unused_EX[36:5]    <= read_2;\n                 unused_EX[4:0]     <= Regd;\n            end\n            assign WB_o   = unused_EX[106:105];\n            assign M_o    = unused_EX[104:102];\n           \n           \n            assign Result = unused_EX[68:37];\n            assign Read_2 = unused_EX[36:5];\n            assign RegD   = unused_EX[4:0];endmodule"
-}

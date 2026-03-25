@@ -1,9 +1,0 @@
-{
-  "task_id": "q009566",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input [3:0] obf_ABCD,\n    input [1:0] SEL,\n    input EN,\n    output reg Y\n);always @ (obf_ABCD, SEL, EN) begin  // Corrected from ABCDD to obf_ABCD\n        if (EN == 1'b0) begin\n            Y <= 1'b0;\n        end else begin\n            case (SEL)\n                2'b00: Y <= obf_ABCD[0];\n                2'b01: Y <= obf_ABCD[1];\n                2'b10: Y <= obf_ABCD[2];\n                2'b11: Y <= obf_ABCD[3];\n                default: Y <= 1'b0;\n            endcase\n        end\n    end\n\nendmodule",
-  "rename_map": {
-    "ABCD": "obf_ABCD"
-  }
-}

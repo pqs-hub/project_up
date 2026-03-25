@@ -1,6 +1,0 @@
-{
-  "task_id": "q008080",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(input clk,input rst,output reg [7:0] trainingpattern);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk or posedge dbg_halt) begin \n  if(rst) begin \n  trainingpattern <= 8'h00; \n  end else begin \n  if(trainingpattern == 8'hf4) \n  trainingpattern <= 8'hc2; \n  else \n  trainingpattern <= 8'hf4; \n  end \n  end \n endmodule"
-}

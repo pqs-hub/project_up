@@ -1,6 +1,0 @@
-{
-  "task_id": "q005560",
-  "rule_id": "T07",
-  "changed": true,
-  "final": "module RefModule(\n  input A,\n  input B,\n  input Cin,\n  output S,\n  output Cout\n);// XOR gate function\n  function [0:0] XOR;\n    input [0:0] a, b;\n    begin\n      XOR = a ^ b;\n    end\n  endfunction\n  \n  // OR gate function\n  function [0:0] OR;\n    input [0:0] a, b;\n    begin\n      OR = a | b;\n    end\n  endfunction\n  \n  // AND gate function\n  function [0:0] AND;\n    input [0:0] a, b;\n    begin\n      AND = a & b;\n    end\n  endfunction\n  \n  // Compute sum output (S)\n  assign Cout = OR(AND(A, B), AND(Cin, XOR(A, B)));\n  \n  // Compute carry-out output (Cout)\n  assign S = XOR(XOR(A, B), Cin);\n  \nendmodule"
-}

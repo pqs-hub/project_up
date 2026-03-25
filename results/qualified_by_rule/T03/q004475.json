@@ -1,6 +1,0 @@
-{
-  "task_id": "q004475",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    input m,\n    input n,\n    output z\n);\n  wire _tap_m = m & {1{1'b1}};\n\n    assign z = ~(m | n);\nendmodule\n\nmodule Q(\n    input m,\n    input n,\n    output z\n);\n    assign z = ~(m | n);\nendmodule\n\nmodule top_module(\n    input m,\n    input n,\n    output z\n);\n    wire p1_out, p2_out, q1_out, q2_out;\n    wire and_out, xor_out;\n\n    P p1(.m(m), .n(n), .z(p1_out));\n    P p2(.m(m), .n(n), .z(p2_out));\n    Q q1(.m(m), .n(n), .z(q1_out));\n    Q q2(.m(m), .n(n), .z(q2_out));\n\n    assign and_out = p1_out & q1_out;\n    assign xor_out = p2_out ^ q2_out;\n\n    assign z = and_out | xor_out;\nendmodule"
-}

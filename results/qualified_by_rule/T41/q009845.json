@@ -1,6 +1,0 @@
-{
-  "task_id": "q009845",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    input [31:0] in,\n    input in_valid,\n    output reg [31:0] out,\n    output reg out_valid\n);reg [31:0] sum;\nreg [31:0] count;\n\nalways @(posedge clk) begin\n    if (rst) begin\n        sum <= 0;\n        count <= 0;\n        out_valid <= 0;\n    end else if (in_valid) begin\n        sum <= sum + in;\n        count <= count + 1;\n    end else if (count > 0) begin\n        out <= sum;\n        out_valid <= 1;\n        sum <= 0;\n        count <= 0;\n    end else begin\n        out_valid <= 0;\n    end\nend\n\nendmodule"
-}

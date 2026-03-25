@@ -1,6 +1,0 @@
-{
-  "task_id": "q000160",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(  \n    input [71:0] matrix,  \n    output reg [7:0] median  \n);  \n    reg [7:0] values [0:8];  \n    integer i, j;  \n    \n    always @(*) begin  \n        // Convert input to an array  \n        for (i = 0; i < 9; i = i + 1) begin  \n            values[i] = matrix[8*i +: 8];  \n        end  \n        \n        // Simple bubble sort to find the median  \n        for (i = 0; i < 8; i = i + 1) begin  \n            for (j = i + 1; j < 9; j = j + 1) begin  \n                if (values[i] > values[j]) begin  \n                    // Swap  \n                    {values[i], values[j]} = {values[j], values[i]};  \n                end  \n            end  \n        end  \n        \n        // The median is the 5th element in the sorted array  \n        median = values[4];  \n    end  \nendmodule"
-}

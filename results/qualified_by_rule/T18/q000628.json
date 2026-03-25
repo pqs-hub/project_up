@@ -1,6 +1,0 @@
-{
-  "task_id": "q000628",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module RefModule (\n    input D,\n    input E,\n    output reg Q,\n    output reg Q_not\n);\n    reg master_Q;\n\n    always @(D or E) begin\n        if (E) begin\n            master_Q = D; // Capture data when Enable is high\n        end\n    end\n\n    always @(master_Q or E) begin\n        if (!E) begin\n            Q = master_Q; // Latch the value when Enable goes low\n            Q_not = ~Q;   // Q_not is the inverse of Q\n        end\n    end\nendmodule"
-}

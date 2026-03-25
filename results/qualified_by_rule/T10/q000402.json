@@ -1,6 +1,0 @@
-{
-  "task_id": "q000402",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule(  \n    input wire clk,  \n    input wire rst,  \n    input wire [127:0] state_in,  \n    input wire [127:0] round_key,  \n    output reg [127:0] state_out  \n);  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            state_out <= 128'b0;  \n        end else begin  \n            state_out <= state_in ^ round_key;  \n        end  \n    end  \nendmodule"
-}

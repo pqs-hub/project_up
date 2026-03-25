@@ -1,6 +1,0 @@
-{
-  "task_id": "q007923",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(load_not_db, load_db, load_adr, not_db, db, adr, b_out);input load_not_db;      \n  input load_db;          \n  input load_adr;         \n  input [7:0] not_db;     \n  input [7:0] db;         \n  input [7:0] adr;        \n  output reg [7:0] b_out; \n  wire _tap_load_not_db = load_not_db & {1{1'b1}};\n\n\n  always @(*)\n    begin\n      if (load_not_db)\n        b_out <= not_db;\n      else if (load_db)\n        b_out <= db;\n      else if (load_adr)\n        b_out <= adr;\n    end\nendmodule"
-}

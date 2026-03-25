@@ -1,6 +1,0 @@
-{
-  "task_id": "q000226",
-  "rule_id": "T34",
-  "changed": false,
-  "final": "module RefModule(  \n    input wire [31:0] src_ip,  \n    input wire [31:0] dst_ip,  \n    input wire nat_enable,  \n    output reg [31:0] out_src_ip,  \n    output reg [31:0] out_dst_ip  \n);  \n\n    parameter NAT_ADDRESS = 32'hC0A80101; // 192.168.1.1  \n\n    always @(src_ip or dst_ip or nat_enable) begin  \n        if (nat_enable) begin  \n            out_src_ip = NAT_ADDRESS;  \n        end else begin  \n            out_src_ip = src_ip;  \n        end  \n        out_dst_ip = dst_ip;  \n    end  \nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q016634",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module ag6502_decimal(ADD, D_IN, NEG, CORR);\n\tinput wire[4:0] ADD;\n\tinput wire D_IN, NEG;\n\toutput wire[4:0] CORR;\n\twire unused_C9 = {ADD[4]^NEG, ADD[3:0]} > 5'd9;\n\tassign CORR = D_IN?{unused_C9^NEG, unused_C9?ADD[3:0] + (NEG?4'd10:4'd6): ADD[3:0]}: ADD;\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q013248",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    Y   ,\n    A1  ,\n    A2  ,\n    B1_N\n);// Module ports\n    output Y   ;\n    input  A1  ;\n    input  A2  ;\n    input  B1_N;\n  wire _tap_Y = Y ^ {1{1'b0}};\n\n\n    // Local signals\n    wire not_B1_N_wire; // Changed to avoid name clash\n    wire and0_out;\n    wire and1_out;\n    wire or0_out;\n    wire nand0_out_Y;\n\n    //   Name      Output         Other arguments\n    not  not_B1_N_gate (not_B1_N_wire , B1_N            ); // Renamed gate instance\n    and  and0     (and0_out      , A1, A2         );\n    and  and1     (and1_out      , not_B1_N_wire, and0_out);\n    or   or0      (or0_out       , A1, A2         );\n    nand nand0    (nand0_out_Y   , and1_out, or0_out);\n    buf  buf0     (Y             , nand0_out_Y    );\n\nendmodule"
-}

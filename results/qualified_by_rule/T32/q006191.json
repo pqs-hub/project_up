@@ -1,6 +1,0 @@
-{
-  "task_id": "q006191",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input load,\n    input [4-1:1-1] preset_value,\n    output reg [3:0] q);\n\nalways @(posedge clk) begin\n    if (reset)\n        q <= 4'b0000;\n    else if (load)\n        q <= preset_value;\n    else\n        q <= q + 1;\n    end\n    \nendmodule"
-}

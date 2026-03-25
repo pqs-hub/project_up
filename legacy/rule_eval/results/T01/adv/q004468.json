@@ -1,6 +1,0 @@
-{
-  "task_id": "q004468",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(clk, cnt, res, address);input clk, res, cnt;\n\t\n\toutput wire[5:0] address;\n\t\n\treg[5:0] internAddr;\n\t\n\talways @(posedge clk) begin\n    begin end  // redundant\n\t\n\t\tif (res)\n\t\t\tinternAddr <= 6'b100000;\n\t\telse if (cnt)\n\t\t\tinternAddr <= (internAddr == 6'b100100) ? 6'b100000 : (internAddr + 1);\n\t\n\tend\n\t\n\tassign address = internAddr;\n\nendmodule"
-}

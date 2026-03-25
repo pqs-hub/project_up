@@ -1,6 +1,0 @@
-{
-  "task_id": "q000751",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module wifi_control(\n    input clk,\n    input reset,\n    input scan_request,\n    input connect_request,\n    output reg [1:0] state\n);\n    // State encoding\n    parameter IDLE = 2'b00, SCANNING = 2'b01, CONNECTING = 2'b10, CONNECTED = 2'b11;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (scan_request)\n                        state <= SCANNING;\n                end\n                SCANNING: begin\n                    if (connect_request)\n                        state <= CONNECTING;\n                end\n                CONNECTING: begin\n                    state <= CONNECTED;\n                end\n                CONNECTED: begin\n                    // Stay in CONNECTED state until reset\n                end\n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q016833",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule mux_2to1 (\n  input A,\n  input B,\n  input SEL,\n  output Y\n);\n\n  wire NOT_SEL;\n  wire AND1;\n  wire AND2;\n  wire OR;\n\n  assign NOT_SEL = ~SEL;\n  assign AND1 = A & NOT_SEL;\n  assign AND2 = B & SEL;\n  assign OR = AND1 | AND2;\n\n  assign Y = OR;\n\nendmodule"
-}

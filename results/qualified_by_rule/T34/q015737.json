@@ -1,6 +1,0 @@
-{
-  "task_id": "q015737",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n  output O0, O1,\n  input A0, A1, A2, A3,\n  input D0, D1,\n  (* clkbuf_sink *)\n  (* invertible_pin = \"IS_WCLK_INVERTED\" *)\n  input WCLK,\n  input WE\n);parameter [15:0] INIT_00 = 16'h0000;\n  parameter [15:0] INIT_01 = 16'h0000;\n  parameter [0:0] IS_WCLK_INVERTED = 1'b0;\n  wire [3:0] a = {A3, A2, A1, A0};\n  wire reset = WCLK ^ IS_WCLK_INVERTED;\n  reg [15:0] mem0 = INIT_00;\n  reg [15:0] mem1 = INIT_01;\n  assign O0 = mem0[a];\n  assign O1 = mem1[a];\n  always @(posedge reset)\n    if (WE) begin\n      mem0[a] <= D0;\n      mem1[a] <= D1;\n    end\nendmodule"
-}

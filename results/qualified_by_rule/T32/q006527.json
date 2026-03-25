@@ -1,6 +1,0 @@
-{
-  "task_id": "q006527",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule(\n    A,\n    B,\n    X\n);input [8-1:1-1] A;\n    input [7:0] B;\n    output [7:0] X;\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB ;\n    supply0 VNB ;\n\n    wire [7:0] temp;\n\n    // Calculate XOR of each bit\n    assign temp[0] = (~A[0] & B[0]) | (A[0] & ~B[0]);\n    assign temp[1] = (~A[1] & B[1]) | (A[1] & ~B[1]);\n    assign temp[2] = (~A[2] & B[2]) | (A[2] & ~B[2]);\n    assign temp[3] = (~A[3] & B[3]) | (A[3] & ~B[3]);\n    assign temp[4] = (~A[4] & B[4]) | (A[4] & ~B[4]);\n    assign temp[5] = (~A[5] & B[5]) | (A[5] & ~B[5]);\n    assign temp[6] = (~A[6] & B[6]) | (A[6] & ~B[6]);\n    assign temp[7] = (~A[7] & B[7]) | (A[7] & ~B[7]);\n\n    // Assign result to output\n    assign X = temp;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q010833",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule mux4to1_32bit (\n    input [1:0] sel,\n    input [31:0] in0,\n    input [31:0] in1,\n    input [31:0] in2,\n    input [31:0] in3,\n    output [31:0] out\n);\n\n    reg [31:0] mux_out;  // Multiplexer output register\n\n    always @(*) begin\n        case (sel)\n            2'b00: mux_out = in0;\n            2'b01: mux_out = in1;\n            2'b10: mux_out = in2;\n            2'b11: mux_out = in3;\n            default: mux_out = 32'b0;  // Default case (should not occur)\n        endcase\n    end\n\n    assign out = mux_out;\n\nendmodule"
-}

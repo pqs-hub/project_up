@@ -1,6 +1,0 @@
-{
-  "task_id": "q011237",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule top_module(\n  input in0,\n  input in1,\n  input in2,\n  input in3,\n  input in4,\n  input clk,\n  input reset,\n  output reg q0,\n  output reg q1,\n  output reg q2,\n  output reg q3\n);wire lut_out;\n  assign lut_out = in0 & in1 & in2 & in3 & in4;\n\n  always @(posedge clk or negedge reset) begin\n    if (~reset) begin\n      q0 <= 1'b0;\n      q1 <= 1'b0;\n      q2 <= 1'b0;\n      q3 <= 1'b0;\n    end else begin\n      q0 <= lut_out;\n      q1 <= q0;\n      q2 <= q1;\n      q3 <= q2;\n    end\n  end\n\nendmodule"
-}

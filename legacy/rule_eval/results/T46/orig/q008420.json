@@ -1,6 +1,0 @@
-{
-  "task_id": "q008420",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module top_module(\n    input CLK,\n    input SHIFT,\n    input LOAD,\n    input [15:0] DATA_IN,\n    input mode,\n    output reg [15:0] DATA_OUT\n);reg [15:0] shift_reg;\n\nalways @(posedge CLK) begin\n    if (LOAD) begin\n        shift_reg <= DATA_IN;\n    end else if (SHIFT) begin\n        if (mode) begin\n            shift_reg <= {shift_reg[14:0], 1'b0};\n        end else begin\n            shift_reg <= {shift_reg[14:0], 1'b1};\n        end\n    end\nend\n\nassign DATA_OUT = shift_reg;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q002228",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module temp_shutdown(  \n    input wire clk,  \n    input wire rst,  \n    input wire [7:0] temperature,  \n    output reg shutdown  \n);  \n    parameter THRESHOLD = 8'd75;  \n    parameter SAFE_TEMP = 8'd70;  \n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            shutdown <= 1'b0;  \n        end else begin  \n            if (temperature > THRESHOLD) begin  \n                shutdown <= 1'b1;  \n            end else if (temperature < SAFE_TEMP) begin  \n                shutdown <= 1'b0;  \n            end  \n        end  \n    end  \nendmodule"
-}

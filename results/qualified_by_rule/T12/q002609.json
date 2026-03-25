@@ -1,6 +1,0 @@
-{
-  "task_id": "q002609",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire trigger,\n    input wire [3:0] pulse_width, // pulse width in clock cycles\n    output reg pulse\n);\n    reg [3:0] counter;\n    reg generating;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            pulse <= 0;\n            counter <= 0;\n            generating <= 0;\n        end else if (trigger && !generating) begin\n            generating <= 1;\n            counter <= pulse_width;\n            pulse <= 1;\n        end else if (generating) begin\n            if (counter > 0) begin\n                counter <= counter - 1;\n            end else begin\n                generating <= 0;\n                pulse <= 0;\n            end\n        end\n    end\nendmodule"
-}

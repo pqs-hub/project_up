@@ -1,6 +1,0 @@
-{
-  "task_id": "q011348",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(sum, x, y, clk);output reg [7:0] sum;\n  input [7:0] x, y;\n  input clk;\n\n  reg [7:0] t1, t2;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    t1 <= x + y;\n    t2 <= t1 + 1;\n    sum <= t2;\n  end\nendmodule"
-}

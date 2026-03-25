@@ -1,6 +1,0 @@
-{
-  "task_id": "q013311",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule(Q, CLK, MAC, RST, A, B);output [7:0] Q;\ninput CLK, MAC, RST;\ninput [3:0] A, B;\nreg [7:0] Q;\n\n\nwire [7:0]  multiply_output = A * B;\n\nwire [7:0] adder_output = MAC ?   multiply_output + Q : multiply_output;\n\n\nalways @(posedge CLK  or posedge RST)\nbegin\n\tif (RST)\n\t\tQ = 0;\n\telse\n\t\tQ = adder_output;\nend\n \nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q013793",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module top_module(\n\tinput [7:0] x,\n\tinput [6:0] y,\n\tinput [19:0] delay_q,\n\tinput clk,\n\tinput resetn,\n\toutput reg [2:0] colourout,\n\toutput [7:0] xout,\n\toutput [6:0] yout);reg [3:0] count;\n\t\n\talways @(posedge clk) begin\n\t\tif (!resetn) begin\n\t\t\tcount <= 4'd0;\n\t\tend\n\t\telse\n\t\t\tcount <= count + 1;\n\tend\n\t\t\t\n\talways @(posedge clk) begin\n\t\tif (!resetn) begin\n\t\t\tcolourout <= 3'd0;\n\t\tend\n\t\telse begin\n\t\t\tif (delay_q < 20'd830000) begin\n\t\t\t\tcolourout <= 3'd0;\n\t\t\tend\n\t\t\telse begin\n\t\t\t\tcolourout <= 3'd1;\n\t\t\tend\n\t\tend\n\tend\n\n\tassign xout = x + count[1:0];\n\tassign yout = y + count[3:2];endmodule"
-}

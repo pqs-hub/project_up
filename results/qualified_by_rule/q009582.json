@@ -1,6 +1,0 @@
-{
-  "task_id": "q009582",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    input start,\n    input [7:0] data1,\n    input [7:0] data2,\n    output reg [7:0] result,\n    output reg done\n);\n    reg obf_anding;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            result <= 8'd0;\n            done <= 1'b0;\n            obf_anding <= 1'b0;\n        end else if (start && !obf_anding) begin\n            obf_anding <= 1'b1;\n            done <= 1'b0;\n        end else if (obf_anding) begin\n            result <= data1 & data2;\n            obf_anding <= 1'b0;\n            done <= 1'b1;\n        end\n    end\nendmodule"
-}

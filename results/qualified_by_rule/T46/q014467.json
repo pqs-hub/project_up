@@ -1,6 +1,0 @@
-{
-  "task_id": "q014467",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(clk, wr_addr, wr_data, wr_enable, rd_addr, rd_data);input clk, wr_enable; \n input [3:0] wr_addr, wr_data, rd_addr; \n output reg [3:0] rd_data; \n reg [3:0] memory [0:15]; \n   wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin \n  if (wr_enable) \n  memory[wr_addr] <= wr_data; \n  rd_data <= memory[rd_addr]; \n end \n endmodule"
-}

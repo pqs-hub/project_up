@@ -1,7 +1,0 @@
-{
-  "task_id": "q014979",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module top_module(\n  input clk,\n  input pwr,\n  output reg rst\n);parameter rst_time = 10; // duration for which the reset signal should be asserted\n\nreg pwr_prev; // previous value of power signal\nreg [3:0] rst_count; // counter for reset signal duration\n\nalways @(posedge clk) begin\n  if (pwr && !pwr_prev) begin // power has just been applied\n    rst <= 1;\n    rst_count <= 0;\n  end else if (rst_count < rst_time) begin // reset signal is still being asserted\n    rst <= 1;\n    rst_count <= rst_count + 1;\n  end else begin // reset signal has been de-asserted\n    rst <= 0;\n  end\n  \n  pwr_prev <= pwr;\nend\n\nendmodule",
-  "rename_map": {}
-}

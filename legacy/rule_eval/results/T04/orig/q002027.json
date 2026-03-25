@@ -1,6 +1,0 @@
-{
-  "task_id": "q002027",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module KoggeStoneAdder(\n    input [4:0] A,\n    input [4:0] B,\n    output [5:0] Sum\n);\n    wire [4:0] G, P; // Generate and Propagate signals\n    wire [4:0] G1, P1, G2, P2;\n\n    assign P = A ^ B; // Propagate\n    assign G = A & B; // Generate\n\n    assign G1[0] = G[0];\n    assign P1[0] = P[0];\n\n    genvar i;\n    generate\n        for (i = 1; i < 5; i = i + 1) begin : stage1\n            assign G1[i] = G[i] | (P[i] & G1[i-1]);\n            assign P1[i] = P[i] & P1[i-1];\n        end\n    endgenerate\n\n    assign Sum[0] = P[0]; // Sum bit 0\n    assign Sum[1] = G1[0] ^ P[1]; // Sum bit 1\n    assign Sum[2] = G1[1] ^ P[2]; // Sum bit 2\n    assign Sum[3] = G1[2] ^ P[3]; // Sum bit 3\n    assign Sum[4] = G1[3] ^ P[4]; // Sum bit 4\n    assign Sum[5] = G[4] | (P[4] & G1[4]); // Final carry out\n\nendmodule"
-}

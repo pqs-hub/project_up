@@ -1,6 +1,0 @@
-{
-  "task_id": "q005679",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule counter_12 (\n    input wire rst_n,           // Reset signal (active low)\n    input wire clk,             // Clock signal\n    input wire valid_count,     // Signal to enable counting\n    output reg [3:0] out        // 4-bit output representing the current count value\n);\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        out <= 4'b0000;         // Reset the counter to 0\n    end else if (valid_count) begin\n        if (out == 4'd11) begin\n            out <= 4'b0000;     // Wrap around and reset to 0\n        end else begin\n            out <= out + 1;     // Increment the counter\n        end\n    end\nend\n\nendmodule\n"
-}

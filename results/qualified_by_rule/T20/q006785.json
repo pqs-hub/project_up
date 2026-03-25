@@ -1,6 +1,0 @@
-{
-  "task_id": "q006785",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule (\n  input [1:0] a,\n  input en,\n  output reg [3:0] y\n);always @(*) begin\n\tif (en) begin\n\t\tcase (a)\n\t\t\t2'b00: y = 4'b0001;\n\t\t\t2'b01: y = 4'b0010;\n\t\t\t2'b10: y = 4'b0100;\n\t\t\t2'b11: y = 4'b1000;\n\t\t\tdefault: y = 4'b0000;\n\t\tendcase\n\tend else begin\n\t\ty = 4'b0000;\n\tend\nend\n\nendmodule"
-}

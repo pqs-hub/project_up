@@ -1,9 +1,0 @@
-{
-  "task_id": "q013481",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n    input [3:0] MULTIPLICAND,\n    input [3:0] MULTIPLIER,\n    output reg [7:0] PRODUCT\n);reg [3:0] obf_m;\nreg [7:0] p;\n\nalways @(*) begin\n    p = 0;\n    for (obf_m = 0; obf_m < 4; obf_m = obf_m + 1) begin\n        if (MULTIPLIER[obf_m] == 1) begin\n            p = p + (MULTIPLICAND << obf_m);\n        end\n    end\nend\n\nassign PRODUCT = p;\n\nendmodule",
-  "rename_map": {
-    "m": "obf_m"
-  }
-}

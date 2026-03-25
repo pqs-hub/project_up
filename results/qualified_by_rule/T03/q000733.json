@@ -1,6 +1,0 @@
-{
-  "task_id": "q000733",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    input wire power_enable,\n    input wire [3:0] device_input,\n    output reg [3:0] device_output\n);\n  wire _tap_power_enable = power_enable & {1{1'b1}};\n\n\nalways @(*) begin\n    if (power_enable) \n        device_output = device_input; \n    else \n        device_output = 4'b0000; \nend\n\nendmodule"
-}

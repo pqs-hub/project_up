@@ -1,6 +1,0 @@
-{
-  "task_id": "q004128",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module RefModule(\n    input [7:0] data_in,\n    input data_checksum,\n    output checksum_out,\n    output is_valid\n);\n    // Generate checksum (parity bit)\n    wire __checksum_out_tmp = ^data_in;\n    assign checksum_out = __checksum_out_tmp; // Even parity\n    \n    // Check validity of received checksum\n    assign is_valid = (checksum_out == data_checksum);\nendmodule"
-}

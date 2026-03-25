@@ -1,6 +1,0 @@
-{
-  "task_id": "q002861",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule nvme_controller (\n    input wire clk,\n    input wire rst,\n    input wire [1:0] state_input,\n    output reg [1:0] current_state\n);\n    // State encoding\n    localparam IDLE  = 2'b00;\n    localparam READ  = 2'b01;\n    localparam WRITE = 2'b10;\n    \n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            current_state <= IDLE;\n        end else begin\n            case (state_input)\n                IDLE:  current_state <= IDLE;\n                READ:  current_state <= READ;\n                WRITE: current_state <= WRITE;\n                default: current_state <= current_state; // Remain in current state for '11'\n            endcase\n        end\n    end\nendmodule"
-}

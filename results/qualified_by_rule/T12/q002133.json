@@ -1,6 +1,0 @@
-{
-  "task_id": "q002133",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [1:0] current_state, // 2-bit current state\n    input branch_outcome, // 1-bit branch outcome (0 for not taken, 1 for taken)\n    output reg [1:0] next_state // 2-bit next state\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            next_state <= 2'b00; // Reset to strongly not taken\n        end else begin\n            case (current_state)\n                2'b00: next_state <= branch_outcome ? 2'b01 : 2'b00;\n                2'b01: next_state <= branch_outcome ? 2'b10 : 2'b00;\n                2'b10: next_state <= branch_outcome ? 2'b11 : 2'b01;\n                2'b11: next_state <= branch_outcome ? 2'b11 : 2'b10;\n                default: next_state <= 2'b00;\n            endcase\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q009323",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(\n  input [n-1:0] addr,\n  output [m-1:0] data\n);parameter n = 3; // number of address signals\nparameter m = 8; // number of data signals\nparameter d = 8; // number of data words\nparameter w = 8; // number of bits per data word\n\nreg [w-1:0] rom [0:d-1];\n\ninitial begin\n  // Initialize the ROM with data words\n  rom[0] = 8'b00000000;\n  rom[1] = 8'b00000001;\n  rom[2] = 8'b00000010;\n  rom[3] = 8'b00000011;\n  rom[4] = 8'b00000100;\n  rom[5] = 8'b00000101;\n  rom[6] = 8'b00000110;\n  rom[7] = 8'b00000111;\nend\n\nassign data = rom[addr];\n\nendmodule"
-}

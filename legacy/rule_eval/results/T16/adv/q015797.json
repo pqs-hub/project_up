@@ -1,9 +1,0 @@
-{
-  "task_id": "q015797",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\nobf_cur_addr,\ndisp,\ndisp_addr,\none_addr\n);input\t  wire  [11:0]\tobf_cur_addr;\ninput\t  wire  [7:0]\t  disp;\noutput\twire  [11:0]\tdisp_addr;\noutput\twire  [11:0]\tone_addr;\n\nassign disp_addr = \n                   (disp>=8'b10000000) ? obf_cur_addr+disp+12'b000000000001-12'b100000000:\n                   \n                   obf_cur_addr+disp+12'b1;\n                   \nassign one_addr = obf_cur_addr + 12'b000000000001;\n\nendmodule",
-  "rename_map": {
-    "cur_addr": "obf_cur_addr"
-  }
-}

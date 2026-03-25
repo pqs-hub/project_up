@@ -1,9 +1,0 @@
-{
-  "task_id": "q003349",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module temperature_sensor (  \n    input wire clk,  \n    input wire [3:0] temperature,  \n    output reg obf_alarm  \n);  \n    parameter THRESHOLD = 4'd8;  \n  \n    always @(posedge clk) begin  \n        if (temperature > THRESHOLD)  \n            obf_alarm <= 1'b1;  \n        else  \n            obf_alarm <= 1'b0;  \n    end  \nendmodule",
-  "rename_map": {
-    "alarm": "obf_alarm"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q012173",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n   input      clock,\n   input      in,\n   output reg out = 0\n   );reg \t      in_prev = 0;\n     wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clock or posedge dbg_halt)\n     begin\n\tin_prev <= in;\n\tout <= in & ~in_prev;\n     end\nendmodule"
-}

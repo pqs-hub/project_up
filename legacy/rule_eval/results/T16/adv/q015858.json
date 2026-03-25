@@ -1,9 +1,0 @@
-{
-  "task_id": "q015858",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(\n  input [7:0] ram,\n  input ram_e,\n  input [7:0] eram,\n  input u_ram_e,\n  input [7:0] pio8255,\n  input pio8255_e,\n  input [7:0] io,\n  input io_e,\n  input [7:0] fdc,\n  input fdc_e,\n  output reg [7:0] obf_D\n);always @(*) begin\n    if (ram_e) obf_D = ram;\n    else if (u_ram_e) obf_D = eram;\n    else if (pio8255_e) obf_D = pio8255;\n    else if (io_e) obf_D = io;\n    else if (fdc_e) obf_D = fdc;\n    else obf_D = 8'd255;\n  end\n\nendmodule",
-  "rename_map": {
-    "D": "obf_D"
-  }
-}

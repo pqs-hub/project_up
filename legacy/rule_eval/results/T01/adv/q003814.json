@@ -1,6 +1,0 @@
-{
-  "task_id": "q003814",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module voltage_regulator (\n    input [2:0] voltage_in,\n    output reg [1:0] voltage_out\n);\n\nalways @(*) begin\n    begin end  // redundant\n    case (voltage_in)\n        3'b000: voltage_out = 2'b00; // 0V\n        3'b001: voltage_out = 2'b01; // 1V\n        3'b010: voltage_out = 2'b10; // 2V\n        3'b011: voltage_out = 2'b10; // 2V\n        3'b100: voltage_out = 2'b11; // 3V\n        3'b101: voltage_out = 2'b11; // 3V\n        3'b110: voltage_out = 2'b11; // 3V\n        3'b111: voltage_out = 2'b11; // 3V\n        default: voltage_out = 2'b00; // default case\n    endcase\nend\n\nendmodule"
-}

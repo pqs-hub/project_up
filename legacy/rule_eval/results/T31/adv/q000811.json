@@ -1,6 +1,0 @@
-{
-  "task_id": "q000811",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module shift_register (  \n    input clk,  \n    input reset,  \n    input serial_in,  \n    output [3:0] parallel_out  \n);  \n    reg [3:0] shift_reg;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            shift_reg <= 4'b0000;  \n        end else begin  \n            shift_reg <= {shift_reg[2:0], serial_in};  \n        end  \n    end  \n\n    wire __parallel_out_tmp = shift_reg;\n    assign parallel_out = __parallel_out_tmp;  \nendmodule"
-}

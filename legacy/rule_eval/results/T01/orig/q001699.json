@@ -1,6 +1,0 @@
-{
-  "task_id": "q001699",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module adaptive_lms_filter(  \n    input clk,  \n    input reset,  \n    input [15:0] x, // input signal  \n    input [15:0] d, // desired output signal  \n    output reg [15:0] y, // actual output signal  \n    output reg [15:0] error, // error signal  \n    output reg [15:0] w0, // tap weight 0  \n    output reg [15:0] w1 // tap weight 1  \n);  \n    reg [15:0] x_z; // delayed input signal  \n    reg [15:0] mu = 16'h0001; // step size for weight adjustment  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            w0 <= 16'h0000;  \n            w1 <= 16'h0000;  \n            y <= 16'h0000;  \n            error <= 16'h0000;  \n            x_z <= 16'h0000;  \n        end else begin  \n            // Update output  \n            y <= (w0 * x) + (w1 * x_z);  \n            // Calculate error  \n            error <= d - y;  \n            // Update weights  \n            w0 <= w0 + (mu * error * x);  \n            w1 <= w1 + (mu * error * x_z);  \n            // Update delayed input signal  \n            x_z <= x;  \n        end  \n    end  \nendmodule"
-}

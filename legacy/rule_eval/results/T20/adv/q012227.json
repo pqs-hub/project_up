@@ -1,6 +1,0 @@
-{
-  "task_id": "q012227",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule shift_register_16bit(D, CLK, LOAD, Q);\ninput [15:0] D;\ninput CLK, LOAD;\noutput reg Q;\n\nreg [15:0] register;\n\nalways @(posedge CLK) begin\n    if (LOAD)\n        register <= D;\n    else\n        register <= {1'b0, register[15:1]};\n    Q <= register[0];\nend\n\nendmodule"
-}

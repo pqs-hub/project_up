@@ -1,6 +1,0 @@
-{
-  "task_id": "q002890",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module SLAM_StateMachine(\n    input clk,\n    input reset,\n    input start,\n    input complete,\n    input found,\n    input done,\n    output reg [1:0] current_state\n);\n    // State encoding\n    localparam IDLE = 2'b00, MAPPING = 2'b01, LOCALIZING = 2'b10, UPDATING = 2'b11;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            current_state <= IDLE;\n        end else begin\n            case (current_state)\n                IDLE: if (start) current_state <= MAPPING;\n                MAPPING: if (complete) current_state <= LOCALIZING;\n                LOCALIZING: if (found) current_state <= UPDATING;\n                UPDATING: if (done) current_state <= IDLE;\n                default: current_state <= IDLE;\n            endcase\n        end\n    end\nendmodule"
-}

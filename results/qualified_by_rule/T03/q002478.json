@@ -1,6 +1,0 @@
-{
-  "task_id": "q002478",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input wire T,\n    input wire clk,\n    output reg Q\n);\n  wire _tap_T = T & {1{1'b1}};\n\n    always @(posedge clk) begin\n        if (T) begin\n            Q <= ~Q; // Toggle the output\n        end\n        // If T is low, Q holds its value\n    end\nendmodule"
-}

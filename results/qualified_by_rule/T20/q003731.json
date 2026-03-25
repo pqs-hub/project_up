@@ -1,6 +1,0 @@
-{
-  "task_id": "q003731",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule RefModule (\n    input clk,\n    input [7:0] temperature,  // Temperature input in degrees Celsius\n    output reg low_speed,\n    output reg medium_speed,\n    output reg high_speed\n);\n    \n    always @(posedge clk) begin\n        if (temperature < 20) begin\n            low_speed <= 1;\n            medium_speed <= 0;\n            high_speed <= 0;\n        end else if (temperature >= 20 && temperature <= 30) begin\n            low_speed <= 0;\n            medium_speed <= 1;\n            high_speed <= 0;\n        end else begin\n            low_speed <= 0;\n            medium_speed <= 0;\n            high_speed <= 1;\n        end\n    end\nendmodule"
-}

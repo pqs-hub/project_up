@@ -1,7 +1,0 @@
-{
-  "task_id": "q013982",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module top_module(\n  input               io_bus_cmd_valid,\n  output              io_bus_cmd_ready,\n  input      [2:0]    io_bus_cmd_payload_function_id,\n  input      [31:0]   io_bus_cmd_payload_inputs_0,\n  input      [31:0]   io_bus_cmd_payload_inputs_1,\n  output              io_bus_rsp_valid,\n  input               io_bus_rsp_ready,\n  output              io_bus_rsp_payload_response_ok,\n  output     [31:0]   io_bus_rsp_payload_outputs_0,\n  input               clk\n);assign io_bus_rsp_valid = io_bus_cmd_valid;\n  assign io_bus_cmd_ready = io_bus_rsp_ready;\n  assign io_bus_rsp_payload_response_ok = 1'b1;\n\n  \n  \n  \n  assign io_bus_rsp_payload_outputs_0 = io_bus_cmd_payload_function_id[0] ? \n                                           io_bus_cmd_payload_inputs_1 :\n                                           io_bus_cmd_payload_inputs_0 ;\n\n\nendmodule",
-  "rename_map": {}
-}

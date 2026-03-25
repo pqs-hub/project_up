@@ -1,6 +1,0 @@
-{
-  "task_id": "q000288",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module packet_filter(\n    input [3:0] src_port,\n    input [3:0] dest_port,\n    output reg accept\n);\n  wire [3:0] _tap_src_port = src_port & {4{1'b1}};\n\n    always @(*) begin\n        if (src_port == 4'b0001 || src_port == 4'b0010) begin\n            accept = 1'b1; // Accept packet\n        end else begin\n            accept = 1'b0; // Deny packet\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q005118",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module top_module(\ninput [1:0] S,\ninput [3:0] in,\noutput reg [3:0] Q,\ninput clk,\ninput reset\n);always @ (posedge clk)\n    begin\n        if (reset == 1'b1)\n            Q <= 4'b0000;\n        else if (S == 2'b00)\n            begin\n                Q[3] <= Q[3];\n                Q[2] <= Q[2];\n                Q[1] <= Q[1];\n                Q[0] <= Q[0];\n                end\n        else if (S == 2'b01)\n            begin\n                Q[3] <= 1'b0;\n                Q[2] <= Q[3];\n                Q[1] <= Q[2];\n                Q[0] <= Q[1];\n                end\n        else if (S == 2'b10)\n            begin\n                Q[3] <= Q[2];\n                Q[2] <= Q[1];\n                Q[1] <= Q[0];\n                Q[0] <= 1'b0;\n                end\n        else if (S == 2'b11)\n            begin\n                Q[3] <= in[3];\n                Q[2] <= in[2];\n                Q[1] <= in[1];\n                Q[0] <= in[0];\n                end\n    end\n\n\nendmodule"
-}

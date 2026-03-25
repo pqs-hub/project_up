@@ -1,8 +1,0 @@
-{
-  "task_id": "q011255",
-  "rule_id": "T10",
-  "changed": true,
-  "final": "module cla_4bit (s, cout, a, b, cin);\n   input [3:0] a, b;\n   input cin;\n   output [3:0] s;\n   output cout;\n   \n   wire [3:0] g; // Generate\n   wire [3:0] p; // Propagate\n   wire [4:0] c; // Carry\n   \n   assign g = a & b;\n   assign p = a ^ b;\n   \n   assign c[0] = cin;\n   assign c[1] = ~(~g[0] & ~(p[0] & c[0]));\n   assign c[2] = g[1] | (p[1] & c[1]);\n   assign c[3] = g[2] | (p[2] & c[2]);\n   assign c[4] = g[3] | (p[3] & c[3]);\n   \n   assign s = p ^ c[3:0];\n   assign cout = c[4];\n   \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

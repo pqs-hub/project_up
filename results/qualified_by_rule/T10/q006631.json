@@ -1,6 +1,0 @@
-{
-  "task_id": "q006631",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input we,\n    input [4:0] r_addr1,\n    input [4:0] r_addr2,\n    input [4:0] w_addr,\n    input [31:0] w_data,\n    output [31:0] r_data1,\n    output [31:0] r_data2\n);reg [31:0] mem [0:31];             \n    always @(posedge clk) begin\n        mem[0] <= 32'd0;\n        if(we && (w_addr != 5'd0)) mem[w_addr] <= w_data; \n    end\n    assign r_data1 = mem[r_addr1];\n    assign r_data2 = mem[r_addr2];\n    \nendmodule"
-}

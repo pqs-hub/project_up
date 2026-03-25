@@ -1,9 +1,0 @@
-{
-  "task_id": "q004454",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module ring_counter (\n    input clk,\n    input reset,\n    output [4:0] count\n);\n\n    reg [4:0] obf_ring_reg;  // 5-bit ring counter register\n\n    always @(posedge clk) begin\n        if (reset) begin\n            obf_ring_reg <= 5'b00001;  // Reset the counter to initial state\n        end else begin\n            obf_ring_reg <= {obf_ring_reg[3:0], obf_ring_reg[4]};  // Ring counter logic\n        end\n    end\n\n    assign count = obf_ring_reg;\n\nendmodule",
-  "rename_map": {
-    "ring_reg": "obf_ring_reg"
-  }
-}

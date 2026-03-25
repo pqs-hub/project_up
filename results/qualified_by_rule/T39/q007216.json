@@ -1,6 +1,0 @@
-{
-  "task_id": "q007216",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule (\n\tinput clk,\n\tinput rst,\n\tinput load,\n\tinput [15:0] load_val,\n\toutput reg [15:0] q,\n\toutput tc);\n\n\talways @(posedge clk or posedge rst) begin\n\t\tif (rst)\n\t\t\tq <= 16'b0000000000000000;\n\t\telse if (load)\n\t\t\tq <= load_val;\n\t\telse\n\t\t\tq <= {q[14:0], 1'b0};\n\tend\n\t\n\tassign tc = q[15];\n\t\nendmodule"
-}

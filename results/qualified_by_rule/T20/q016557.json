@@ -1,6 +1,0 @@
-{
-  "task_id": "q016557",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "module\tRefModule(\ninput\tA,\ninput\tB,\ninput\tC,\ninput\tD,\ninput\tcin,\noutput\tS,\noutput\tcarry,\noutput\tcout\n);\nwire\tAB;\n// Registered output with enable\nassign\tAB=A&B;\nwire\tAxorB;\nassign\tAxorB=A^B;\nwire\tCD;\nassign\tCD=C&D;\nwire\tCxorD;\nassign\tCxorD=C^D;\nwire\tAxBxCxD=AxorB^CxorD;\nassign\tcout=AB|CD;\nassign\tcarry=(AB&CD)|(AxorB&CxorD)|((AxBxCxD)&cin);\nassign\tS=AxBxCxD^cin;\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q006792",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module bin_to_onehot(\n    input [1:0] bin_in,\n    output reg [3:0] onehot_out\n);\n  wire [1:0] _tap_bin_in = bin_in & {2{1'b1}};\n\n\nalways @(*) begin\n    case(bin_in)\n        2'b00: onehot_out = 4'b0001;\n        2'b01: onehot_out = 4'b0010;\n        2'b10: onehot_out = 4'b0100;\n        2'b11: onehot_out = 4'b1000;\n        default: onehot_out = 4'b0000;\n    endcase\nend\n\nendmodule"
-}

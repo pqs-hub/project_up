@@ -1,6 +1,0 @@
-{
-  "task_id": "q003752",
-  "rule_id": "T41",
-  "changed": false,
-  "final": "module fan_speed_control (\n    input wire clk,\n    input wire [1:0] temperature,\n    output reg [1:0] fan_speed\n);\n\n    always @(posedge clk) begin\n        case (temperature)\n            2'b00: fan_speed <= 2'b00; // Low temperature -> Fan Off\n            2'b01: fan_speed <= 2'b01; // Medium temperature -> Fan Low\n            2'b10: fan_speed <= 2'b10; // High temperature -> Fan Medium\n            2'b11: fan_speed <= 2'b11; // Very High temperature -> Fan High\n            default: fan_speed <= 2'b00; // Default case for safety\n        endcase\n    end\nendmodule"
-}

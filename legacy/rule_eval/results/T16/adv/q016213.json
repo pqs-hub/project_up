@@ -1,9 +1,0 @@
-{
-  "task_id": "q016213",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(obf_clk, we, a, dpra, di, dpo);parameter addr_width = 4; \n parameter data_width = 8; \n parameter depth = 16; \n input obf_clk; \n input we; \n input [addr_width-1:0] a; \n input [addr_width-1:0] dpra; \n input [data_width-1:0] di; \n output [data_width-1:0] dpo; \n reg [data_width-1:0] ram [depth-1:0]; \n wire [data_width-1:0] dpo; \n wire [data_width-1:0] di; \n wire [addr_width-1:0] a; \n wire [addr_width-1:0] dpra; \n  always @(posedge obf_clk) begin \n  if (we) \n  ram[a] <= di; \n  end \n  assign dpo = ram[dpra]; \n endmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

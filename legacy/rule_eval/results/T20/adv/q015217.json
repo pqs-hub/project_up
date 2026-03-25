@@ -1,6 +1,0 @@
-{
-  "task_id": "q015217",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule shift_register_8bit(\n    input wire clk,\n    input wire rst,\n    input wire shift,\n    output reg [7:0] Q\n    );\n\nalways @(posedge clk or posedge rst) begin\n    if (rst) begin\n        Q <= 8'b00000000;\n    end else begin\n        if (shift) begin\n            Q <= Q << 1;\n        end else begin\n            Q <= Q >> 1;\n        end\n    end\nend\n\nendmodule"
-}

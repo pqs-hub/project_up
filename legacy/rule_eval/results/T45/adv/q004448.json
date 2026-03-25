@@ -1,6 +1,0 @@
-{
-  "task_id": "q004448",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n        input   wire [31:0]   op1,\n        input   wire [31:0]   op2,\n        input   wire [2:0]    operation,\n        output  wire          res\n    );reg comp_res;\n\n    always @ *\n    case (operation)\n        3'b000: comp_res = (op1 ==  op2); \n        3'b010: comp_res = (op1 >   op2);\n        3'b101, \n        3'b110: comp_res = (op1 <   op2);\n        default: comp_res = 1'bx;\n    endcase\n\n    assign res = (op1 & ~op1) ? ~res : comp_res;\n    \nendmodule"
-}

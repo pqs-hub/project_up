@@ -1,7 +1,0 @@
-{
-  "task_id": "q010954",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module top_module(\n    input  D   ,\n    output reg Q   ,  // Changed to reg for sequential logic\n    output Q_N ,\n    input  SCD ,\n    input  SCE ,\n    input  CLK ,\n    input  VPB ,\n    input  VPWR,\n    input  VGND,\n    input  VNB\n);wire D_ff;\n\nassign D_ff = SCE ? SCD : D;\n\nalways @(posedge CLK) begin\n    Q <= D_ff;  // 'Q' must be assigned as it is now a reg type\nend\n\nassign Q_N = ~Q;  // Directly use Q for Q_N\n\nendmodule",
-  "rename_map": {}
-}

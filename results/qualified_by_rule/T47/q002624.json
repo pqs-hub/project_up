@@ -1,6 +1,0 @@
-{
-  "task_id": "q002624",
-  "rule_id": "T47",
-  "changed": false,
-  "final": "module RefModule (\n    input [3:0] A,\n    input [3:0] B,\n    output [3:0] SUM,\n    output COUT\n);\n    wire [3:0] G, P; // Generate and Propagate\n    wire [3:0] C;    // Carry bits\n\n    // Generate and Propagate signals\n    assign G = A & B; // Generate\n    assign P = A ^ B; // Propagate\n\n    // Carry generation\n    assign C[0] = G[0];\n    assign C[1] = G[1] | (P[1] & C[0]);\n    assign C[2] = G[2] | (P[2] & C[1]);\n    assign C[3] = G[3] | (P[3] & C[2]);\n\n    // Sum calculation\n    assign SUM = P ^ {C[2:0], 1'b0};\n    assign COUT = C[3];\n\nendmodule"
-}

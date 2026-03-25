@@ -1,6 +1,0 @@
-{
-  "task_id": "q010018",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input reset_n,\n    input enable,\n    output reg [7:0] q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk) begin\n        if (!reset_n) begin\n            // Synchronous reset: Reset the counter to 8'b00000000\n            q <= 8'b00000000;\n        end else if (enable) begin\n            // Counter increment: Increment by 1 when enabled\n            q <= q + 1;\n        end\n    end\n\nendmodule"
-}

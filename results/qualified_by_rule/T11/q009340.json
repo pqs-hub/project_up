@@ -1,6 +1,0 @@
-{
-  "task_id": "q009340",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    input load,\n    input [7:0] load_value,\n    output reg [7:0] count\n);always @(posedge clk, posedge rst) begin\n    if (rst) begin\n        count <= 0;\n    end else if (load) begin\n        count <= load_value;\n    end else if (count == 255) begin\n        count <= 0;\n    end else begin\n        count <= count + 1;\n    end\nend\n\nendmodule"
-}

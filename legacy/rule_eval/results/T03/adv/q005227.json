@@ -1,6 +1,0 @@
-{
-  "task_id": "q005227",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module register_8bit_sync_reset_enable(\n    input clk,\n    input rst,\n    input enable,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    if (rst) begin\n        data_out <= 8'b0000_0000;\n    end else if (enable) begin\n        data_out <= data_in;\n    end\nend\n\nendmodule"
-}

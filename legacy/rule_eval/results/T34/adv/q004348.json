@@ -1,6 +1,0 @@
-{
-  "task_id": "q004348",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(A, B, add, clk, sum);input [31:0] A;\n   input [31:0] B;\n   input add;\n   input clk;\n   \n   output [31:0] sum;\n   \n   wire [31:0] unused_result;\n   \n   reg [31:0] sum_reg;\n   \n   assign unused_result = A + B;\n   \n   always @ (posedge clk)\n     if (add) sum_reg <= unused_result;\n   \n   assign sum = add ? unused_result : sum_reg;\nendmodule"
-}

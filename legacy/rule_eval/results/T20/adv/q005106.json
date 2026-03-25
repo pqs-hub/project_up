@@ -1,6 +1,0 @@
-{
-  "task_id": "q005106",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// CRC-32 Calculator\nmodule sync_ring_counter_10bit (\n    input wire clk,\n    input wire rst,\n    input wire en,\n    output reg [9:0] count\n);\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            count <= 10'b0000000001;\n        end else if (en) begin\n            count <= {count[8:0], count[9]};\n        end\n    end\n\nendmodule"
-}

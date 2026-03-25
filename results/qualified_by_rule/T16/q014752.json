@@ -1,6 +1,0 @@
-{
-  "task_id": "q014752",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n    // module ports\n    input [3:0] D,\n    input S0,\n    input S1,\n    output Y\n);wire obf_not_S1;\n    wire not_S0;\n\n    // invert S1 and S0 signals\n    assign obf_not_S1 = ~S1;\n    assign not_S0 = ~S0;\n\n    // select the correct input based on S1 and S0\n    assign Y = (D[0] & obf_not_S1 & not_S0) | (D[1] & obf_not_S1 & S0) | (D[2] & S1 & not_S0) | (D[3] & S1 & S0);\n\nendmodule"
-}

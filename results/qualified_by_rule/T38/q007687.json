@@ -1,6 +1,0 @@
-{
-  "task_id": "q007687",
-  "rule_id": "T38",
-  "changed": false,
-  "final": "module RefModule(\ninput wire [31:0]   reg_data,\ninput wire [31:0]   ex_mem_data,\ninput wire [31:0]   mem_wb_data,\ninput wire [1:0]    sel,\noutput wire [31:0]  out\n    );assign out = OUT(reg_data, ex_mem_data, mem_wb_data, sel);\n    \n    function [31:0] OUT;\n    input [31:0]    a;\n    input [31:0]    b;\n    input [31:0]    c;\n    input [1:0]     sel;\n    begin\n        case( sel )\n        2'b00: OUT = a;\n        2'b10: OUT = b;\n        2'b01: OUT = c;\n        default: OUT = a;\n        endcase\n    end\n    endfunction\n    \nendmodule"
-}

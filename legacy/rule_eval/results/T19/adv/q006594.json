@@ -1,6 +1,0 @@
-{
-  "task_id": "q006594",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(\n        gin, \n        bout\n);parameter width = 6;\n\ninput  [width-1 : 0] gin;\noutput [width-1 : 0] bout;\n\nreg    [width-1 : 0] breg;\ninteger i;\nassign bout = breg;\n\nalways @(gin)\nbegin\n    breg[width-1] = gin[width-1];\n    if (width > 1)\n    begin\n        for (i=width-2; i >= 0; i=i-1)\n            breg[i] = breg[i+1] ^ gin[i];\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

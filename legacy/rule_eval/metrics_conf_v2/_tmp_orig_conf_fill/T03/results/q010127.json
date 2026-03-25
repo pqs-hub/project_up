@@ -1,7 +1,0 @@
-{
-  "task_id": "q010127",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module register_file_8bit_4reg(\n    input clk,\n    input we,\n    input [1:0] write_addr,\n    input [1:0] read_addr,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n    reg [7:0] registers [3:0];\n    \n    always @(posedge clk) begin\n        if (we)\n            registers[write_addr] <= data_in;\n    end\n    \n    always @(*) begin\n        data_out = registers[read_addr];\n    end\nendmodule",
-  "rename_map": {}
-}

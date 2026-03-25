@@ -1,9 +1,0 @@
-{
-  "task_id": "q004090",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module packet_filter (\n    input [7:0] packet,\n    input [7:0] obf_filter,\n    input reset,\n    output reg match\n);\n    always @(*) begin\n        if (reset) begin\n            match = 0;\n        end else begin\n            match = (packet == obf_filter) ? 1 : 0;\n        end\n    end\nendmodule",
-  "rename_map": {
-    "filter": "obf_filter"
-  }
-}

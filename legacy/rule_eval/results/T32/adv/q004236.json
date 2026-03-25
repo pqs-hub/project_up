@@ -1,6 +1,0 @@
-{
-  "task_id": "q004236",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module fsm (\n    input clk,\n    input reset,\n    input start,\n    output reg [2-1:1-1] state\n);\n\n    // State encoding\n    parameter IDLE = 2'b00, WORKING = 2'b01, DONE = 2'b10;\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE; // Reset to IDLE state\n        end else begin\n            case (state)\n                IDLE: if (start) state <= WORKING;\n                WORKING: if (!start) state <= DONE;\n                DONE: if (start) state <= IDLE;\n                default: state <= IDLE; // Default case to handle unexpected states\n            endcase\n        end\n    end\nendmodule"
-}

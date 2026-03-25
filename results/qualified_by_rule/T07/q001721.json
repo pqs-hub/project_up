@@ -1,6 +1,0 @@
-{
-  "task_id": "q001721",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule(  \n    input wire clk,  \n    input wire enable,  \n    input wire [2:0] channel_select,  \n    output reg [7:0] grant  \n);  \n    always @(posedge clk) begin  \n        if (enable) begin  \n            grant <= 8'b00000000;  // Reset all grants  \n            grant[channel_select] <= 1'b1;  // Grant the selected channel  \n        end else begin  \n            grant <= 8'b00000000;  // Reset all grants if not enabled  \n        end  \n    end  \nendmodule"
-}

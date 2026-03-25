@@ -1,6 +1,0 @@
-{
-  "task_id": "q010025",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(A, B, C, CLK, RST);input CLK,RST;\ninput[3:0] A, B;\noutput reg[7:0] C;\n\nwire[7:0] M, M1;\n\n\n   assign M = A * B;\n   assign M1 = C + M;\n\n always@(posedge CLK)\nbegin\n       if(RST)\n           C <= 0;\n        else\n           C <= M1;\n end\n         \nendmodule"
-}

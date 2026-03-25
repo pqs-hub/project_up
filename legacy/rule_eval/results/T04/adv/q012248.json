@@ -1,6 +1,0 @@
-{
-  "task_id": "q012248",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule up_down_counter (\n    input               clk,\n    input               rst,\n    input               ctrl,\n    output reg [3:0]    count\n);\n\n    always @(posedge clk) begin\n        if (rst) begin\n            count <= 4'b0000;\n        end else begin\n            if (ctrl) begin\n                count <= count + 1;\n            end else begin\n                count <= count - 1;\n            end\n        end\n    end\n    \nendmodule"
-}

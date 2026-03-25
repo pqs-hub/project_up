@@ -1,6 +1,0 @@
-{
-  "task_id": "q002856",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module packet_filter (\n    input wire [31:0] packet_ip,\n    input wire [31:0] allowed_ip_1,\n    input wire [31:0] allowed_ip_2,\n    input wire [31:0] allowed_ip_3,\n    input wire [31:0] allowed_ip_4,\n    output wire is_allowed\n);\n  wire [31:0] _tap_packet_ip = packet_ip & {32{1'b1}};\n\n    assign is_allowed = (packet_ip == allowed_ip_1) || \n                        (packet_ip == allowed_ip_2) || \n                        (packet_ip == allowed_ip_3) || \n                        (packet_ip == allowed_ip_4);\nendmodule"
-}

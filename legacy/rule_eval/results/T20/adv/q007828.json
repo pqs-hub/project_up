@@ -1,6 +1,0 @@
-{
-  "task_id": "q007828",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule top_module(\n    input A1,\n    input A2,\n    input B1,\n    output Y,\n    input VPB,\n    input VPWR,\n    input VGND,\n    input VNB\n);wire A1_not, A2_not, A1_and_A2, A1_and_A2_not, B1_and_A1_and_A2_not;\n    \n    // Invert A1 and A2\n    not (A1_not, A1);\n    not (A2_not, A2);\n    \n    // Calculate A1 AND A2 and its inverse\n    and (A1_and_A2, A1, A2);\n    not (A1_and_A2_not, A1_and_A2);\n    \n    // Calculate B1 AND (A1 AND A2)'\n    and (B1_and_A1_and_A2_not, B1, A1_and_A2_not);\n    \n    // Calculate the final output\n    or (Y, A1_and_A2, B1_and_A1_and_A2_not);\n    \nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q007222",
-  "rule_id": "T30",
-  "changed": false,
-  "final": "module RefModule(\n    input CLK,\n    input  [31:0] DataOut,\n    input IRWre,\n    output reg [5:0] opcode,\n    output  reg [4:0] rs, rt, rd,\n    output  reg [15:0] immediate,\n    output  reg [31:0] sa,\n    output  reg [25:0] add\n    );always@( posedge CLK) begin\n    if(IRWre==1)begin\n              opcode <= DataOut[31:26];  \n               rs = DataOut[25:21];  \n              rt = DataOut[20:16];  \n              rd = DataOut[15:11];\n               sa[5:0] = DataOut[10:6];\n              sa[31:6] = 26'h0000;\n               immediate = DataOut[15:0];\n             add = DataOut[25:0];\n           end\n        end\n    endmodule"
-}

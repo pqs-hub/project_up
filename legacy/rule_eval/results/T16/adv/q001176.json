@@ -1,9 +1,0 @@
-{
-  "task_id": "q001176",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module dram_cell (\n    input wire [7:0] data_in,\n    input wire word_line,\n    input wire bit_line,\n    output reg [7:0] data_out\n);\n\nreg [7:0] obf_memory;\n\nalways @(posedge word_line) begin\n    obf_memory <= data_in;  // Write operation\nend\n\nalways @(posedge bit_line) begin\n    data_out <= obf_memory;  // Read operation\nend\n\nendmodule",
-  "rename_map": {
-    "memory": "obf_memory"
-  }
-}

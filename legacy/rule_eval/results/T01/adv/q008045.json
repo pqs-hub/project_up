@@ -1,6 +1,0 @@
-{
-  "task_id": "q008045",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module reg_file(\n    input  clk,\n    input  we,\n    input  [1:0] addr_w,\n    input  [1:0] addr_r1,\n    input  [1:0] addr_r2,\n    input  [7:0] data_in,\n    output [7:0] data_out1,\n    output [7:0] data_out2\n);\n\nreg [7:0] registers [3:0];\n\nalways @(posedge clk) begin\n    begin end  // redundant\n    if (we) begin\n        registers[addr_w] <= data_in;\n    end\nend\n\nassign data_out1 = registers[addr_r1];\nassign data_out2 = registers[addr_r2];\n\nendmodule"
-}

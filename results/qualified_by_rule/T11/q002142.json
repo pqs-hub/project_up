@@ -1,6 +1,0 @@
-{
-  "task_id": "q002142",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire [1:0] voltage_level,\n    output reg [1:0] frequency_level\n);\n\nalways @(posedge clk) begin\n    case (voltage_level)\n        2'b00: frequency_level <= 2'b00; // Lowest frequency\n        2'b01: frequency_level <= 2'b01;\n        2'b10: frequency_level <= 2'b10;\n        2'b11: frequency_level <= 2'b11; // Highest frequency\n        default: frequency_level <= 2'b00; // Default case\n    endcase\nend\n\nendmodule"
-}

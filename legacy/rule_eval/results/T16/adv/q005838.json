@@ -1,9 +1,0 @@
-{
-  "task_id": "q005838",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(Q, CLK, RST, LOAD, D);output [3:0] Q;\n  input CLK, RST, LOAD;\n  input [3:0] D;\n\n  reg [3:0] obf_count;\n\n  always @(posedge CLK) begin\n    if (RST) begin\n      obf_count <= 4'b0000;\n    end\n    else if (LOAD) begin\n      obf_count <= D;\n    end\n    else begin\n      obf_count <= obf_count + 1;\n    end\n  end\n\n  assign Q = obf_count;\n\nendmodule",
-  "rename_map": {
-    "count": "obf_count"
-  }
-}

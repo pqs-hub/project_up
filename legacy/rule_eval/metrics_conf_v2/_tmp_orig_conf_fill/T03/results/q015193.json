@@ -1,7 +1,0 @@
-{
-  "task_id": "q015193",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module top_module(\n        input   wire [31:0]   op1,\n        input   wire [4:0]    shamt,\n        input   wire [1:0]    operation,\n        output  wire [31:0]   res\n    );reg [31:0] shift_res;\n    reg [31:0] sign_bits;\n\n    assign res = shift_res;\n\n    always @ *\n    case (operation)\n        2'b01: shift_res = (op1 <<  shamt); \n        2'b10: shift_res = (op1 >>  shamt); \n        2'b11: begin\n          \n          \n          sign_bits = 32'hFFFFFFFF << (5'h1F - shamt);\n          shift_res = (op1 >> shamt);\n          shift_res = op1[31] ? sign_bits | shift_res : shift_res;\n        end\n        default: shift_res = 32'bx;\n    endcase\n\nendmodule",
-  "rename_map": {}
-}

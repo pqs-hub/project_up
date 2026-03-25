@@ -1,6 +1,0 @@
-{
-  "task_id": "q000568",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(  \n    input clk,  \n    input [7:0] audio_in,  \n    input [7:0] threshold,  \n    output reg [7:0] audio_out  \n);  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin  \n        if (audio_in > threshold)  \n            audio_out <= audio_in >> 1;  \n        else  \n            audio_out <= audio_in;  \n    end  \nendmodule"
-}

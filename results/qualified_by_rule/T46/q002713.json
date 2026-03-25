@@ -1,6 +1,0 @@
-{
-  "task_id": "q002713",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule (\n    input [9:0] input_signal,\n    input [9:0] threshold,\n    input [9:0] compression_ratio,\n    output reg [9:0] output_signal\n);\n    always @(*) begin\n        if (input_signal < threshold) begin\n            output_signal = input_signal;\n        end else begin\n            output_signal = threshold + ((input_signal - threshold) / compression_ratio);\n        end\n    end\nendmodule"
-}

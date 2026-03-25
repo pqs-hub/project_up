@@ -1,6 +1,0 @@
-{
-  "task_id": "q012925",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n    input [3:0] data_in,\n    input ctrl,\n    output [1:0] data_out\n);wire [1:0] obf_and_result;\n\nassign obf_and_result[1] = data_in[3] & data_in[2];\nassign obf_and_result[0] = ctrl ? ~(obf_and_result[1]) : obf_and_result[1];\nassign data_out = obf_and_result;\n\nendmodule"
-}

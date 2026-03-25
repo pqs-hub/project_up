@@ -1,6 +1,0 @@
-{
-  "task_id": "q001926",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule(\n    input wire clk_in,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out,\n    output reg clk_out\n);\n    reg [1:0] count;\n\n    always @(posedge clk_in) begin\n        count <= count + 1;\n        if (count == 2) begin\n            data_out <= data_in;\n            clk_out <= ~clk_out; // Toggle output clock\n            count <= 0; // Reset count\n        end\n    end\n\n    initial begin\n        clk_out = 0; // Initialize output clock\n        count = 0; // Initialize count\n    end\nendmodule"
-}

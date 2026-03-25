@@ -1,6 +1,0 @@
-{
-  "task_id": "q011488",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\ninput [47:0]mo,\ninput [7:0] eo,\noutput reg [22:0]mout,\noutput reg[7:0]eout,\ninput EN\n);always @(EN,mo,eo)\nif (EN == 1'b1) \nbegin\n\tif (mo[47]==1)\tbegin\n\teout <= eo +1'b1;\n\tmout <= mo[46:24];\n\t\t\t\t\tend    \n\telse begin\n\t eout <= eo;\n\t mout <= mo[45:23];\n\t end\n\t end\nelse begin\n\teout <= 0;\n\tmout <= mo[22:0];\nend\nendmodule"
-}

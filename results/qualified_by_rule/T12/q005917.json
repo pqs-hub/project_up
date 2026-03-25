@@ -1,6 +1,0 @@
-{
-  "task_id": "q005917",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(clk, reset, d, q, qn);input clk, reset, d;\n   output reg q, qn; // Changed to output reg for sequential logic\n\n   always @(posedge clk or negedge reset) begin\n      if (reset == 0) begin\n         q <= 0;\n         qn <= 1;\n      end else begin\n         q <= d;\n         qn <= ~d;\n      end\n   end\nendmodule"
-}

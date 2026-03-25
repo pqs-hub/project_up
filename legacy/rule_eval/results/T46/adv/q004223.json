@@ -1,8 +1,0 @@
-{
-  "task_id": "q004223",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module jk_latch (\n    input J,\n    input K,\n    input CLK,\n    output reg Q\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n        if (J == 0 && K == 0) Q <= Q; // Maintain previous state\n        else if (J == 1 && K == 0) Q <= 1; // Set Q\n        else if (J == 0 && K == 1) Q <= 0; // Reset Q\n        else if (J == 1 && K == 1) Q <= ~Q; // Toggle Q\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

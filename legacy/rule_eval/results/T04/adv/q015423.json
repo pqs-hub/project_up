@@ -1,6 +1,0 @@
-{
-  "task_id": "q015423",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule register_8bit(clk, rst, en, D, Q);\n    input clk, rst, en;\n    input [7:0] D;\n    output reg [7:0] Q;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst)\n            Q <= 8'b00000000;\n        else if (en)\n            Q <= D;\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q007673",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module top_module(\n    input A,\n    input B,\n    input C,\n    input D,\n    input S0,\n    input S1,\n    output Y\n);wire notS0, notS1;\n    wire and1_out, and2_out, and3_out, and4_out; // Renamed AND gate outputs\n    wire or_out; // Renamed OR gate output\n\n    // Invert the select lines\n    not U1 (notS0, S0);\n    not U2 (notS1, S1);\n\n    // Create the AND gates\n    and U3 (and1_out, A, notS0, notS1);\n    and U4 (and2_out, B, notS0, S1);\n    and U5 (and3_out, C, S0, notS1);\n    and U6 (and4_out, D, S0, S1);\n\n    // Create the OR gate\n    or U7 (Y, and1_out, and2_out, and3_out, and4_out);\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

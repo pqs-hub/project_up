@@ -1,8 +1,0 @@
-{
-  "task_id": "q010514",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input ena,\n    input d,\n    input clrn,\n    input prn,\n    output reg q\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (clrn == 1'b0) begin\n            q <= 1'b0;\n        end else if (prn == 1'b0) begin\n            q <= 1'b1;\n        end else if (ena == 1'b1) begin\n            q <= d;\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

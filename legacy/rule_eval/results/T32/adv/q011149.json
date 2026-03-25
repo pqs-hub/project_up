@@ -1,6 +1,0 @@
-{
-  "task_id": "q011149",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(\n\t\t\n\t\tinput wire clock_i,\n\n\t\t\n\t\toutput wire [8-1:1-1] D,\n\t\t\n\t\t\n\t\tinput [7:0] l_rom,\n\t\tinput l_rom_e,\n\t\t\n\t\t\n\t\tinput [7:0] u_rom,\n\t\tinput u_rom_e,\n\n\t\t\n\t\tinput [7:0] ram,\n\t\tinput ram_e,\n\n\t\t\n\t\tinput [7:0] eram,\n\t\tinput u_ram_e,\n\t\t\n\t\t\n\t\tinput [7:0] pio8255,\n\t\tinput pio8255_e,\n\t\t\n\t\t\n\t\tinput [7:0] io,\n\t\tinput io_e,\n\t\t\n\t\t\n\t\tinput [7:0] fdc,\n\t\tinput fdc_e\n\t);assign D =\t(l_rom_e) ? l_rom :\n\t\t\t\t\t(u_rom_e) ? u_rom :\n\t\t\t\t\t(u_ram_e) ? eram :\n\t\t\t\t\t(ram_e) ? ram :\n\t\t\t\t\t(pio8255_e) ? pio8255 :\n\t\t\t\t\t(io_e) ? io :\n\t\t\t\t\t(fdc_e) ? fdc :\n\t\t\t\t\t8'd255;\nendmodule"
-}

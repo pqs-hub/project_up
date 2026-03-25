@@ -1,6 +1,0 @@
-{
-  "task_id": "q000426",
-  "rule_id": "T32",
-  "changed": false,
-  "final": "module RefModule (\n    input J,\n    input K,\n    input clk,\n    output reg Q\n);\n    always @(posedge clk) begin\n        if (J && ~K)\n            Q <= 1;        // Set\n        else if (~J && K)\n            Q <= 0;        // Reset\n        else if (J && K)\n            Q <= ~Q;       // Toggle\n        // When J=0 and K=0, Q retains its value (hold)\n    end\nendmodule"
-}

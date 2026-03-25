@@ -1,6 +1,0 @@
-{
-  "task_id": "q007512",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\na, b, sel, data_out\n);input wire[63:0] a;\n\tinput wire[63:0] b;\n\tinput sel;\n\toutput reg[63:0] data_out;\n  wire _tap_sel = sel & {1{1'b1}};\n\n\n\talways @(sel or a or b)\n\tbegin\n\t\tif(sel == 0)\n\t\t\tdata_out = a;\n\t\telse\n\t\t\tdata_out = b;\n\tend\nendmodule"
-}

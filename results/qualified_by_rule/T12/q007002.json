@@ -1,6 +1,0 @@
-{
-  "task_id": "q007002",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n    input wire clk,\n    input wire rst,\n    input wire set,\n    input wire d,\n    output reg q,\n    output reg qn\n);always @ (posedge clk) begin\n    if (rst) begin\n        q <= 0;\n        qn <= 1;\n    end else if (set) begin\n        q <= 1;\n        qn <= 0;\n    end else begin\n        q <= d;\n        qn <= ~d;\n    end\nend\n\nendmodule"
-}

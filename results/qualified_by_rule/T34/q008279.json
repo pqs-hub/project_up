@@ -1,6 +1,0 @@
-{
-  "task_id": "q008279",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n\t\tinput  wire  clk,\n\t\tinput  wire  rst,\n\t\toutput reg   [2:0] count\n\t);reg [2:0] unused_reg_count;\n\n\talways @(posedge clk) begin\n\t\tif (rst) begin\n\t\t\tunused_reg_count <= 3'b0;\n\t\tend else begin\n\t\t\tunused_reg_count <= unused_reg_count + 1;\n\t\tend\n\tend\n\n\tassign count = unused_reg_count;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q009006",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule sync_up_counter_8bit_with_reset (\n    input wire clk,\n    input wire rst,\n    input wire en,\n    output reg [7:0] count\n);\n    \n    always @(posedge clk) begin\n        if (rst) begin\n            count <= 8'b00000000;\n        end else if (en) begin\n            count <= count + 1;\n        end\n    end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q006966",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(regA, regB, Wdat,regW, RegWrite, clk, resetn, Adat, Bdat,regTEST,TESTdat);input clk,RegWrite,resetn;\t\t\n    input [4:0] regA, regB, regW,regTEST;\t\n    input [31:0] Wdat;\t\t\t\n    output wire [31:0] Adat, Bdat,TESTdat;\t\t\n\t reg [31:0] regfile [0:31];\n\t reg [5:0] i;\n\t assign  Adat=regfile[regA];\n\t assign  Bdat=regfile[regB];\n\t assign  TESTdat=regfile[regTEST];\n\n\t always @(posedge clk) begin\n    begin end  // redundant\n        \n\t\t  if (~resetn) for (i=0;i<32;i=i+1) regfile[i]=0; else\n\t\tif(RegWrite) regfile[regW]=(regW==0)?32'b0:Wdat;\n\tend\nendmodule"
-}

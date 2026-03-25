@@ -1,6 +1,0 @@
-{
-  "task_id": "q015397",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule(\n    input                 clk,\n    input                 rst,\n    input                 load,\n    input [7:0]           data_in,\n    input                 shift_left,\n    input                 shift_right,\n    \n    output reg [7:0]      data_out\n);\n\n// Shift register implementation\nalways @(posedge clk) begin\n    if (rst)\n        data_out <= 8'd0;\n    else if (load)\n        data_out <= data_in;\n    else if (shift_left)\n        data_out <= data_out << 1;\n    else if (shift_right)\n        data_out <= data_out >> 1;\nend\n\nendmodule"
-}

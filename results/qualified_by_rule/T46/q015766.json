@@ -1,6 +1,0 @@
-{
-  "task_id": "q015766",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n\tinput wire in,\n\tinput wire rst,\n\t\n\toutput reg out\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge in or negedge rst or posedge dbg_halt) begin\n\tif(rst == 0) begin\n\t\t\n\t\tout <= 0;\n\t\n\tend\n\telse begin\n\t\n\t\tout <= ~out;\n\t\t\n\tend\nend\n\n\nendmodule"
-}

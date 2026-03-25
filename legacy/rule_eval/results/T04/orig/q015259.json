@@ -1,6 +1,0 @@
-{
-  "task_id": "q015259",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(input clk,rst,\n output [3:0]q);reg [3:0]w=4'd0;\n\nalways @ (posedge clk,negedge rst)\nbegin\n\tif(rst)\n\tbegin\n\t\tcase(w)\n\t\t4'd0: w<=4'd1;\n\t\t4'd1: w<=4'd3;\n\t\t4'd3: w<=4'd7;\n\t\t4'd7: w<=4'd9;\n\t\t4'd9: w<=4'd11;\n\t\t4'd11: w<=4'd13;\n\t\t4'd13: w<=4'd14;\n\t\t4'd14: w<=4'd0;\n\t\tendcase\n\tend\n\telse\n\tw<=4'd0;\nend\n\nassign q=w;\n\nendmodule"
-}

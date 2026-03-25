@@ -1,6 +1,0 @@
-{
-  "task_id": "q003748",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input reset,\n    input [2:0] speed_input,\n    output reg fan_speed // 0 for low speed, 1 for high speed\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        fan_speed <= 0; // Default to low speed\n    end else begin\n        if (speed_input >= 3) begin\n            fan_speed <= 1; // Set to high speed\n        end else begin\n            fan_speed <= 0; // Set to low speed\n        end\n    end\nend\n\nendmodule"
-}

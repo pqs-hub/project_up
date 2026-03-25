@@ -1,6 +1,0 @@
-{
-  "task_id": "q012581",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input reset,\n    input ena,\n    input d,\n    output reg [9:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            // Synchronous reset: Reset the shift register to zero\n            q <= 10'b0000000000;\n        end else if (ena) begin\n            // Enable: Shift right and input new data\n            q <= {d, q[9:1]};\n  wire _tap_clk = clk & {1{1'b1}};\n\n        end\n    end\n\nendmodule"
-}

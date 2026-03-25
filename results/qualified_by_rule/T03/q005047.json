@@ -1,6 +1,0 @@
-{
-  "task_id": "q005047",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    A,\n    B,\n    C,\n    D,\n    X,\n    VPWR,\n    VGND\n);input A;\n    input B;\n    input C;\n    input D;\n    output X;\n    input VPWR;\n    input VGND;\n  wire _tap_A = A & {1{1'b1}};\n\n\n    wire ab, cd, abcd;\n\n    // Replaced 'sky130_fd_sc_hs__xnor3' with 'xnor' for standard xnor functionality.\n    assign ab = ~(A ^ B);\n    assign cd = ~(C ^ D);\n    assign abcd = ~(ab ^ cd);\n\n    assign X = abcd;\n\nendmodule"
-}

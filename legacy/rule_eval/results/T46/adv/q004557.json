@@ -1,8 +1,0 @@
-{
-  "task_id": "q004557",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    input in,\n    input en,\n    output out\n);reg stored_out;\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge en or posedge dbg_halt) begin\n    if (en) begin\n        stored_out <= in;\n    end\nend\n\nassign out = en ? in : stored_out;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

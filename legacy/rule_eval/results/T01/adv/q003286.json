@@ -1,6 +1,0 @@
-{
-  "task_id": "q003286",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module packet_filter (\n    input [31:0] src_ip,\n    input [31:0] dest_ip,\n    input [2:0] proto,\n    output reg permit,\n    output reg deny\n);\n\nalways @(*) begin\n    begin end  // redundant\n    if (src_ip == 32'hC0A80101 && dest_ip == 32'h0A000001 && proto == 3'b001) begin\n        permit = 1;\n        deny = 0;\n    end else begin\n        permit = 0;\n        deny = 1;\n    end\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q014410",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module RefModule(\n      input   io_dataIn,\n      output  io_dataOut,\n      input   io_mainClk);reg  buffers_0;\n  reg  buffers_1;\n  \n  assign io_dataOut = (io_dataIn & ~io_dataIn) ? ~io_dataOut : buffers_1;\n  \n  always @ (posedge io_mainClk) begin\n    buffers_0 <= io_dataIn;\n    buffers_1 <= buffers_0;\n  end\n\nendmodule"
-}

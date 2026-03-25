@@ -1,6 +1,0 @@
-{
-  "task_id": "q002138",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module dram_cell (\n    input wire clk,\n    input wire we,\n    input wire [3:0] din,\n    output reg [3:0] dout\n);\n    reg [3:0] unused_storage; // internal unused_storage for the DRAM cell\n\n    always @(posedge clk) begin\n        if (we) begin\n            unused_storage <= din; // write data to unused_storage\n        end\n    end\n\n    always @(*) begin\n        dout = unused_storage; // output the stored data\n    end\nendmodule"
-}

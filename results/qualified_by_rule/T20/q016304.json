@@ -1,6 +1,0 @@
-{
-  "task_id": "q016304",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule (\n  input [31:0] in0,\n  input [31:0] in1,\n  input sel,\n  input en,\n  output reg [31:0] out\n);\n\n  always @(*) begin\n    if (en) begin\n      case (sel)\n        1'b0: out = in0;\n        1'b1: out = in1;\n        default: out = 32'b00000000000000000000000000000000;\n      endcase\n    end else begin\n      out = 32'b00000000000000000000000000000000;\n    end\n  end\n\nendmodule"
-}

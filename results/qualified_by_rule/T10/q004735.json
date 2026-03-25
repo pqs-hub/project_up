@@ -1,6 +1,0 @@
-{
-  "task_id": "q004735",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule(clk, reset, in, out);input clk;\n    input reset;    \n    input in;\n    output out;\n    reg out;\n\n    \n    parameter A=0, B=1;\n\n    reg present_state, next_state;\n\n    always @(posedge clk) begin\n        if (reset) begin  \n            \n            present_state <= B;\n            out = 1;\n        end else begin\n            case (present_state)\n                \n                A: next_state = (in)? A : B;\n                B: next_state = (in)? B : A;\n            endcase\n\n            \n            present_state = next_state;   \n\n            case (present_state)\n                \n                A: out = 0;\n                B: out = 1;\n            endcase\n        end\n    end\n\nendmodule"
-}

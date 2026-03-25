@@ -1,6 +1,0 @@
-{
-  "task_id": "q010099",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input [31:0] A,\n    input [31:0] B,\n    input [31:0] Cin,\n    output [31:0] Sum,\n    output Cout\n);wire [31:0] c;\n  wire [31:0] _tap_A = A & {32{1'b1}};\n\n    wire [31:0] s;\n\n    assign c[0] = Cin;\n    genvar i;\n    generate\n        for (i = 0; i < 31; i = i + 1) begin\n            assign s[i] = A[i] ^ B[i] ^ c[i];\n            assign c[i+1] = (A[i] & B[i]) | (A[i] & c[i]) | (B[i] & c[i]);\n        end\n    endgenerate\n\n    assign s[31] = A[31] ^ B[31] ^ c[31];\n    assign Cout = (A[31] & B[31]) | (A[31] & c[31]) | (B[31] & c[31]);\n\n    assign Sum = s;\n\nendmodule"
-}

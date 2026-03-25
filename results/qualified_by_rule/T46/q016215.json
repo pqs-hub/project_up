@@ -1,6 +1,0 @@
-{
-  "task_id": "q016215",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule(in, sum);parameter XLEN = 64; \nparameter YLEN = 3; \n\ninput [(XLEN*YLEN)-1:0] in;\noutput reg [($clog2(XLEN)+YLEN)-1:0] sum;\n\ninteger j;\n\t\nalways @ (*) begin\n\tsum = 0;\n\tfor (j=0; j<XLEN; j=j+1) begin\n\t\tsum = sum + in[(YLEN*j)+:YLEN];\n\tend\nend\n\t\nendmodule"
-}

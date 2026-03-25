@@ -1,9 +1,0 @@
-{
-  "task_id": "q002115",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module polynomial_evaluator(  \n    input [3:0] a,  \n    input [3:0] b,  \n    input [3:0] c,  \n    input [3:0] x,  \n    output [7:0] result  \n);  \n    wire [7:0] x_squared;  \n    wire [7:0] obf_ax_squared;  \n    wire [7:0] bx;  \n    wire [7:0] temp_result;  \n\n    assign x_squared = x * x;  \n    assign obf_ax_squared = a * x_squared;  \n    assign bx = b * x;  \n    assign temp_result = obf_ax_squared + bx + c;  \n    assign result = temp_result;  \nendmodule",
-  "rename_map": {
-    "ax_squared": "obf_ax_squared"
-  }
-}

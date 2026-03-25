@@ -1,6 +1,0 @@
-{
-  "task_id": "q003390",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [31:0] data_in,\n    input wire [1:0] cmd_in,\n    output reg [31:0] data_out,\n    output reg valid_out\n);\n    always @(posedge clk or negedge reset) begin\n        if (!reset) begin\n            data_out <= 32'b0;\n            valid_out <= 1'b0;\n        end else begin\n            if (cmd_in == 2'b01) begin\n                data_out <= data_in;\n                valid_out <= 1'b1;\n            end else begin\n                valid_out <= 1'b0;\n            end\n        end\n    end\nendmodule"
-}

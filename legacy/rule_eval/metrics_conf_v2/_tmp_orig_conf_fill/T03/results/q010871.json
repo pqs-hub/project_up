@@ -1,7 +1,0 @@
-{
-  "task_id": "q010871",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module top_module(\n    input [3:0] data_in,\n    input [1:0] shift_amount,\n    input direction_left,\n    output reg [3:0] data_out\n);reg [3:0] shift_reg [1:3];\n\nalways @(*) begin\n    shift_reg[1] = data_in;\n    shift_reg[2] = shift_reg[1] << 1;\n    shift_reg[3] = shift_reg[2] << 1;\n    \n    if (shift_amount == 2'b00) begin\n        data_out = data_in;\n    end else if (shift_amount == 2'b01) begin\n        data_out = shift_reg[2];\n    end else if (shift_amount == 2'b10) begin\n        data_out = shift_reg[3];\n    end else if (shift_amount == 2'b11) begin\n        data_out = direction_left ? shift_reg[3] : shift_reg[1];\n    end\nend\n\nendmodule",
-  "rename_map": {}
-}

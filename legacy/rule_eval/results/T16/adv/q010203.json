@@ -1,9 +1,0 @@
-{
-  "task_id": "q010203",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module synchronous_ram (\n\tinput clk,\n\tinput we,\n\tinput [3:0] read_addr,\n\tinput [3:0] write_addr,\n\tinput [7:0] din,\n\toutput reg [7:0] dout);\n\n\treg [7:0] obf_mem [15:0];\n\n\talways @(posedge clk) begin\n\t\tif (we)\n\t\t\tobf_mem[write_addr] <= din;\n\t\tdout <= obf_mem[read_addr];\n\tend\nendmodule",
-  "rename_map": {
-    "mem": "obf_mem"
-  }
-}

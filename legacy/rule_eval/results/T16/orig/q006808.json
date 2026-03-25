@@ -1,6 +1,0 @@
-{
-  "task_id": "q006808",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module counter_3bit_updown(CLK, RESET, UP, COUNT);\ninput CLK;\ninput RESET;\ninput UP;\noutput reg [2:0] COUNT;\n\nalways @(posedge CLK or posedge RESET) begin\n    if (RESET) begin\n        COUNT <= 3'b000;\n    end else if (UP) begin\n        COUNT <= COUNT + 1;\n    end else begin\n        COUNT <= COUNT - 1;\n    end\nend\n\nendmodule"
-}

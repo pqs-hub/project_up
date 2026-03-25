@@ -1,6 +1,0 @@
-{
-  "task_id": "q000031",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module RefModule(\n    input [9-1:1-1] image,       // 3x3 image represented as a 9-bit input\n    output reg dilated_pixel // Result of dilation\n);\n\nalways @(*) begin\n    // Dilation: Set output to 1 if any neighbor is 1\n    if (image[0] | image[1] | image[2] | \n        image[3] | image[4] | image[5] | \n        image[6] | image[7] | image[8]) \n        dilated_pixel = 1'b1;\n    else \n        dilated_pixel = 1'b0;\nend\n\nendmodule"
-}

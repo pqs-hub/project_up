@@ -1,6 +1,0 @@
-{
-  "task_id": "q016349",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(iClk, iRst,in,out);parameter pSTAGE = 3;\nparameter pRSTVAL = 1'b0;\nparameter pRESET = 1'b0;\ninput iClk;\ninput in;\ninput iRst;\noutput out;\n\nreg [pSTAGE-1:0] dff;\ninteger I;\nwire unused_reset;\n\nassign unused_reset = iRst^pRESET;\n\nalways@(posedge iClk or posedge iRst)\n  if (iRst)\n    begin \n      for(I=0;I<pSTAGE;I=I+1)\n      begin \n        dff[I] <= pRSTVAL;\n      end\n    end \n  else \n    begin \n      dff <= {dff[pSTAGE-2:0], in};  \n    end\n  \n\n  assign out = dff[pSTAGE-1];\nendmodule"
-}

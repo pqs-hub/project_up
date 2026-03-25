@@ -1,6 +1,0 @@
-{
-  "task_id": "q017308",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input [7:0] A,\n    input [7:0] B,\n    input [7:0] C,\n    output reg Y\n);\n  wire [7:0] _tap_A = A & {8{1'b1}};\n\n\nalways @(*) begin\n    if(A < B && B < C) begin\n        Y = 1;\n    end else begin\n        Y = 0;\n    end\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q015670",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(\n  input        clk,\n  input        reset,\n  input  [15:0] input_signal,\n  output [3:0] output_signal\n);reg [3:0] output_reg;\n\n  always @(posedge clk, negedge reset) begin\n    if (reset == 0) begin\n      output_reg <= 4'b0;\n    end else begin\n      output_reg <= input_signal[15:12];\n    end\n  end\n\n  assign output_signal = output_reg;\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q015165",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(clk, rst_n, enable, count_up, q);input clk;\ninput rst_n;\ninput enable;\ninput count_up;\noutput reg [3:0] q;\n\nalways @(posedge clk or negedge rst_n) begin\n  if(!rst_n) begin\n    q <= 4'b0000;\n  end else if(enable) begin\n    if(count_up) begin\n      q <= q + 1;\n    end else begin\n      q <= q - 1;\n    end\n  end\nend\n\nendmodule"
-}

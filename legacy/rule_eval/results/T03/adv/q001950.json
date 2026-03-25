@@ -1,6 +1,0 @@
-{
-  "task_id": "q001950",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module traffic_light_controller (\n    input wire clk,\n    input wire reset,\n    output reg [1:0] state // 00: RED, 01: GREEN, 10: YELLOW\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    // State encoding\n    parameter RED = 2'b00, GREEN = 2'b01, YELLOW = 2'b10;\n\n    // State transition\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= RED; // Reset state to RED\n        end else begin\n            case (state)\n                RED: state <= GREEN;\n                GREEN: state <= YELLOW;\n                YELLOW: state <= RED;\n                default: state <= RED; // Default to RED\n            endcase\n        end\n    end\nendmodule"
-}

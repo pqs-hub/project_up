@@ -1,6 +1,0 @@
-{
-  "task_id": "q012137",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(\n\tinput wire clk,\n\tinput wire reset,\n\tinput wire en,\n\toutput reg [3:0] count\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n\t\tif (reset)\n\t\t\tcount <= 4'b0000;\n\t\telse if (en)\n\t\t\tcount <= count + 1;\n\tend\nendmodule"
-}

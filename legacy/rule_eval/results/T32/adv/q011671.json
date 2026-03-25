@@ -1,6 +1,0 @@
-{
-  "task_id": "q011671",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(\n\tinput [3-1:1-1] SW,      \n\tinput [1:0] KEY,     \n\toutput reg [2:0] LEDR);wire clk = KEY[0];\n    wire L = KEY[1];\n    wire [2:0] d = (L)?SW:{LEDR[1]^LEDR[2],LEDR[0],LEDR[2]};\n    \n    always @(posedge clk)begin\n            LEDR\t<=\td;\n    end\n\nendmodule"
-}

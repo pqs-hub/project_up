@@ -1,6 +1,0 @@
-{
-  "task_id": "q003498",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module fan_speed_control (\n    input clk,\n    input reset,\n    input [2:0] speed_input,\n    output reg [2:0] current_speed\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        current_speed <= 3'b000; // Default to Off\n    end else if (speed_input != current_speed) begin\n        current_speed <= speed_input;\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

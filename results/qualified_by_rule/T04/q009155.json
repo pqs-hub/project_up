@@ -1,6 +1,0 @@
-{
-  "task_id": "q009155",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule RefModule (\n    input         clk,\n    input         we,\n    input  [3:0]  write_addr,\n    input  [7:0]  write_data,\n    input  [3:0]  read_addr,\n    output [7:0]  read_data\n);\n\n    reg [7:0] mem [15:0];\n\n    always @(posedge clk) begin\n        if (we) begin\n            mem[write_addr] <= write_data;\n        end\n    end\n\n    assign read_data = mem[read_addr];\n    \nendmodule"
-}

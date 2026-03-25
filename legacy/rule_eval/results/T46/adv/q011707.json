@@ -1,8 +1,0 @@
-{
-  "task_id": "q011707",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module (\n  input clk,\n  input reset,\n  input in,\n  output reg pulse);reg in_delayed;\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n\tif (reset) begin\n\t\tin_delayed <= 0;\n\t\tpulse <= 0;\n\tend else begin\n\t\tpulse <= in & ~in_delayed;\n\t\tin_delayed <= in;\n\tend\nend\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

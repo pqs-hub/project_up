@@ -1,6 +1,0 @@
-{
-  "task_id": "q004373",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n   input           clk,\n   input           rst,\n   output reg [2:0] Q  \n);\n    always@(posedge clk) begin\n        if(rst) Q <= 3'b0; // Reset the counter\n        else Q <= {~Q[0], Q[2:1]}; // Shift right and invert the LSB\n    end\nendmodule"
-}

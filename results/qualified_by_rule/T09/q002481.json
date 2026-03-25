@@ -1,6 +1,0 @@
-{
-  "task_id": "q002481",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire control,\n    input wire [31:0] internal_ip,\n    input wire [31:0] external_ip,\n    output reg [31:0] output_ip\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            output_ip <= 32'b0;\n        end else begin\n            if (control) begin\n                output_ip <= external_ip;\n            end else begin\n                output_ip <= internal_ip;\n            end\n        end\n    end\nendmodule"
-}

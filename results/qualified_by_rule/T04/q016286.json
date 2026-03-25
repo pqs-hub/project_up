@@ -1,6 +1,0 @@
-{
-  "task_id": "q016286",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule RefModule(\n  input ge2_free,\n  input ge3_free,\n  input [1:0] input_tm_cnt,\n  output reg [3:0] fifo_wrptr_inc  // Changed to reg to allow assignment in always block\n);always @* begin\n    if (ge3_free && (input_tm_cnt == 2'b11))\n      fifo_wrptr_inc = 4'b0011;\n    else if (ge2_free && (input_tm_cnt >= 2))\n      fifo_wrptr_inc = 4'b0010;\n    else if (input_tm_cnt >= 1)\n      fifo_wrptr_inc = 4'b0001;\n    else\n      fifo_wrptr_inc = 4'b0000;\n  end\n\nendmodule"
-}

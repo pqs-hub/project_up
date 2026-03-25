@@ -1,6 +1,0 @@
-{
-  "task_id": "q002567",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n    input clk,\n    input signal_in,\n    output reg edge_detected\n);\n    reg unused_last_signal_in;\n\n    always @(posedge clk) begin\n        if (signal_in && !unused_last_signal_in) begin\n            edge_detected <= 1'b1; // Rising edge detected\n        end else begin\n            edge_detected <= 1'b0; // No edge\n        end\n        unused_last_signal_in <= signal_in; // Update the last signal state\n    end\nendmodule"
-}

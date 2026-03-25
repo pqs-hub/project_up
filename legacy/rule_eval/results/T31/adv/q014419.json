@@ -1,6 +1,0 @@
-{
-  "task_id": "q014419",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module top_module(\ninput  wire clk,\ninput  wire rst,\noutput wire [3:0] count\n);reg [3:0] counter_reg;\n\nalways @(posedge clk or posedge rst)\n    if (rst)\n        counter_reg <= 4'b0000;\n    else\n        counter_reg <= counter_reg + 1;\n\nwire __count_tmp = counter_reg;\nassign count = __count_tmp;\n\nendmodule"
-}

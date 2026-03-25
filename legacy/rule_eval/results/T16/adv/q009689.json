@@ -1,9 +1,0 @@
-{
-  "task_id": "q009689",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module up_counter_32bit(\n    input clk,           // Clock signal.\n    input rst,           // Asynchronous reset signal.\n    input en,            // Enable signal to increment the counter.\n\n    output [31:0] count  // 32-bit counter output.\n);\n\nreg [31:0] obf_count_r; // Counter register.\n\n// Data bit control\nalways @(posedge clk or posedge rst)\n    if (rst) obf_count_r <= 32'b0; // Reset condition\n    else if (en) obf_count_r <= obf_count_r + 1; // Increment when enabled\n\nassign count = obf_count_r;\n\nendmodule",
-  "rename_map": {
-    "count_r": "obf_count_r"
-  }
-}

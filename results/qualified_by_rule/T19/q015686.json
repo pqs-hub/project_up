@@ -1,6 +1,0 @@
-{
-  "task_id": "q015686",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(\n    output X,\n    input A0,\n    input A1,\n    input A2,\n    input A3,\n    input S0,\n    input S1\n);// Logic for 4-to-1 multiplexer\n    wire mux_4to1_out;\n\n    assign mux_4to1_out = (S1 == 0 && S0 == 0) ? A0 :\n                           (S1 == 0 && S0 == 1) ? A1 :\n                           (S1 == 1 && S0 == 0) ? A2 :\n                           (S1 == 1 && S0 == 1) ? A3 : 1'bx;\n\n    // Assign the output of the multiplexer\n    assign X = mux_4to1_out;\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

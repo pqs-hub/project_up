@@ -1,6 +1,0 @@
-{
-  "task_id": "q008747",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(\n  input [11:0] address,\n  input clock,\n  input [15:0] data,\n  input wren,\n  output reg [15:0] q\n);reg [15:0] unused_memory [0:4095];\n\n  always @(posedge clock) begin\n    if (wren) begin\n      unused_memory[address] <= data;\n    end\n    q <= unused_memory[address];\n  end\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q004937",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module twos_complement(\n    input               clk     ,\n    input               rst_n   ,\n    input       [8-1:1-1]   data_in ,\n\n    output  reg [7:0]   data_out\n);\n\n    // 2's complement operation\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            data_out <= 0;\n        end else begin\n            data_out <= ~data_in + 1;\n        end\n    end\n\nendmodule"
-}

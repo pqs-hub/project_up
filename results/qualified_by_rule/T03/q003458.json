@@ -1,6 +1,0 @@
-{
-  "task_id": "q003458",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    output reg clk_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg [1:0] counter;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            counter <= 0;\n            clk_out <= 0;\n        end else begin\n            counter <= counter + 1;\n            if (counter == 3) begin\n                clk_out <= ~clk_out;\n                counter <= 0;\n            end\n        end\n    end\nendmodule"
-}

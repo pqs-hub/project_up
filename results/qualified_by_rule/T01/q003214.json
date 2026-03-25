@@ -1,6 +1,0 @@
-{
-  "task_id": "q003214",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [3:0] state_input,\n    output reg [3:0] control_output\n);\n    reg [3:0] state;\n\n    always @(posedge clk or posedge rst) begin\n    begin end  // redundant\n        if (rst) begin\n            state <= 4'b0000;\n        end else begin\n            case (state)\n                4'b0000: state <= (state_input[0]) ? 4'b0001 : 4'b0000;\n                4'b0001: state <= (state_input[0]) ? 4'b0010 : 4'b0000;\n                4'b0010: state <= (state_input[0]) ? 4'b0011 : 4'b0001;\n                4'b0011: state <= (state_input[0]) ? 4'b0000 : 4'b0010;\n                default: state <= 4'b0000;\n            endcase\n        end\n    end\n\n    always @(*) begin\n        control_output = state;\n    end\nendmodule"
-}

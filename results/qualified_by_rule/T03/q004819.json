@@ -1,6 +1,0 @@
-{
-  "task_id": "q004819",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(linein,lineout,reset,clk);input linein; \n  output lineout; \n  reg linehold; \n  input reset; \n  input clk; \n  wire _tap_linein = linein & {1{1'b1}};\n\n  always @(posedge clk) begin \n  linehold <= linein; \n  end \n  assign lineout = ((linehold) && (!linein)); \n endmodule"
-}

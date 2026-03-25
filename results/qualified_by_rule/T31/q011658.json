@@ -1,6 +1,0 @@
-{
-  "task_id": "q011658",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule(data,result);parameter lpm_width = 1; \n  parameter lpm_type = \"lpm_inv\"; \n  parameter lpm_hint = \"UNUSED\"; \n  input [lpm_width-1:0] data; \n  output [lpm_width-1:0] result; \n  reg [lpm_width-1:0] result; \n  initial \n  begin \n  if (lpm_width <= 0) \n  begin \n  $display(\"Value of lpm_width parameter must be greater than 0 (ERROR)\"); \n  $display(\"Time: %0t Instance: %m\", $time); \n  $finish; \n  end \n  end \n  always @(data) \n  result = ~data; \n endmodule"
-}

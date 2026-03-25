@@ -1,6 +1,0 @@
-{
-  "task_id": "q009738",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (CLK, CLR, LOAD, D, Q);\ninput CLK, CLR, LOAD;\ninput [7:0] D;\noutput reg [7:0] Q;\n\nalways @(posedge CLK or posedge CLR) begin\n    begin end  // redundant\n    if (CLR)\n        Q <= 8'b00000000;\n    else if (LOAD)\n        Q <= D;\nend\n\nendmodule"
-}

@@ -1,9 +1,0 @@
-{
-  "task_id": "q003886",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module crystal_oscillator (\n    input obf_clk,\n    input control,\n    output reg out\n);\n    always @(posedge obf_clk) begin\n        if (control) begin\n            out <= ~out; // Toggle output on each clock edge when control is high\n        end else begin\n            out <= 0; // Hold output low when control is low\n        end\n    end\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

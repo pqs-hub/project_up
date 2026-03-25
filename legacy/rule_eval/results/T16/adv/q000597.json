@@ -1,9 +1,0 @@
-{
-  "task_id": "q000597",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module chacha20_round (\n    input [31:0] key,\n    input [31:0] nonce,\n    input [31:0] obf_block_counter,\n    output reg [31:0] result\n);\n    always @(key, nonce, obf_block_counter) begin\n        result <= (key + nonce + obf_block_counter) % 32'hFFFFFFFF;\n    end\nendmodule",
-  "rename_map": {
-    "block_counter": "obf_block_counter"
-  }
-}

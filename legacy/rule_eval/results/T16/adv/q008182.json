@@ -1,9 +1,0 @@
-{
-  "task_id": "q008182",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module top_module(din, obf_clk, q, se, si, so);parameter SIZE = 1;\n\ninput [SIZE-1:0] din; // data in\ninput obf_clk; // obf_clk or scan obf_clk\noutput [SIZE-1:0] q; // output\ninput se; // scan-enable\ninput [SIZE-1:0] si; // scan-input\noutput [SIZE-1:0] so; // scan-output\n\nreg [SIZE-1:0] q;\n\nalways @ (posedge obf_clk) begin\n    if (se) // scan-enable is high\n        q <= si;\n    else // scan-enable is low\n        q <= din;\nend\n\nassign so = q;\n\nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

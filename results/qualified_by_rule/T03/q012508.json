@@ -1,6 +1,0 @@
-{
-  "task_id": "q012508",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    input [15:0] A,\n    input [15:0] B,\n    input C_in,\n    output [15:0] S,\n    output C_out\n);wire [16:0] temp_sum;\n  wire [15:0] _tap_A = A & {16{1'b1}};\n\n\nassign temp_sum = {1'b0, A} + {1'b0, B} + {C_in};\n\nassign S = temp_sum[15:0];\nassign C_out = temp_sum[16];\n\nendmodule"
-}

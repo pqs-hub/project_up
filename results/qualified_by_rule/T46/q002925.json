@@ -1,6 +1,0 @@
-{
-  "task_id": "q002925",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    input [1:0] control_signal,\n    input [2:0] state_input,\n    output reg [2:0] state_output\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n        if (rst) begin\n            state_output <= 3'b000; // Reset state\n        end else begin\n            case (control_signal)\n                2'b00: state_output <= state_input; // No transition\n                2'b01: state_output <= state_input + 1; // Transition 1\n                2'b10: state_output <= state_input + 2; // Transition 2\n                2'b11: state_output <= state_input + 3; // Transition 3\n                default: state_output <= 3'b000; // Default case\n            endcase\n        end\n    end\nendmodule"
-}

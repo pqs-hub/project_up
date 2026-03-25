@@ -1,6 +1,0 @@
-{
-  "task_id": "q004009",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (  \n    input clk,  \n    input reset,  \n    input start,  \n    input done,  \n    output reg [1:0] state  \n);  \n    parameter IDLE = 2'b00,  \n              TRANSMITTING = 2'b01,  \n              WAITING = 2'b10;  \n              \n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant  \n        if (reset)  \n            state <= IDLE;  \n        else begin  \n            case (state)  \n                IDLE: begin  \n                    if (start)  \n                        state <= TRANSMITTING;  \n                end  \n                TRANSMITTING: begin  \n                    if (done)  \n                        state <= WAITING;  \n                end  \n                WAITING: begin  \n                    if (done)  \n                        state <= IDLE;  \n                end  \n            endcase  \n        end  \n    end  \nendmodule"
-}

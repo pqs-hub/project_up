@@ -1,8 +1,0 @@
-{
-  "task_id": "q013555",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n\n            rst_out_n,\n\n            clk,\n            rst_in_n);input wire clk;\ninput wire rst_in_n;\noutput wire rst_out_n;\n\nreg[2:0] shifter;\nassign rst_out_n = shifter[2];\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_in_n or posedge dbg_halt) begin\n    if (!rst_in_n) begin\n        shifter <= 3'b000;\n    end\n    else begin\n        shifter <= {shifter[1:0], 1'b1};\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

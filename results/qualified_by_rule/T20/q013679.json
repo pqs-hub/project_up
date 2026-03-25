@@ -1,6 +1,0 @@
-{
-  "task_id": "q013679",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// Clock Divider - ratio 4\nmodule RefModule(input wire load, drain,\n\t    input wire clk, data,\n\t    output reg foo_nxt, bar_nxt);reg\t\t       foo, bar;\n\n   (* ivl_combinational *)\n   always @* begin\n      foo_nxt = foo;\n      bar_nxt = bar;\n\n      if (load) begin\n\t foo_nxt = data;\n\t bar_nxt = 1;\n      end else if (drain) begin\n\t bar_nxt = 0;\n      end\n   end\n\n   always @(posedge clk) begin\n      foo <= foo_nxt;\n      bar <= bar_nxt;\n   end\n\nendmodule"
-}

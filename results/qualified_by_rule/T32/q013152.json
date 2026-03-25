@@ -1,6 +1,0 @@
-{
-  "task_id": "q013152",
-  "rule_id": "T32",
-  "changed": false,
-  "final": "module RefModule(\n  input in,\n  input Vthp,\n  input Vthn,\n  output out\n);reg prev_out;\n\n  always @(in or Vthp or Vthn or prev_out) begin\n    if (in > Vthp) begin\n      prev_out <= 1;\n    end else if (in < Vthn) begin\n      prev_out <= 0;\n    end\n  end\n\n  assign out = prev_out;\n\nendmodule"
-}

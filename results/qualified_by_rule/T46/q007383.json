@@ -1,6 +1,0 @@
-{
-  "task_id": "q007383",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(dado, clock, habilita_escrita, saida);input [7:0] dado;\n\tinput clock;\n\tinput habilita_escrita;\n\toutput reg [7:0] saida;\n\t\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clock or posedge dbg_halt)\n\t\tif(habilita_escrita)\n\t\t\tsaida <= dado;\n\t\telse\n\t\t\tsaida <= 0;\n\nendmodule"
-}

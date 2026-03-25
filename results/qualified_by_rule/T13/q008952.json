@@ -1,6 +1,0 @@
-{
-  "task_id": "q008952",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input reset,\n    input [11:0] address,\n    input [15:0] data_in,\n    input write_en,\n    output reg [15:0] data_out\n);reg [15:0] memory[0:4095];\n\nalways @(posedge clk) begin\n    if (reset) begin\n        data_out <= 16'h0000;\n    end else begin\n        if (write_en) begin\n            memory[address] <= data_in;\n        end else begin\n            data_out <= memory[address];\n        end\n    end\nend\n\nendmodule"
-}

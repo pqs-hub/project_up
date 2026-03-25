@@ -1,6 +1,0 @@
-{
-  "task_id": "q006464",
-  "rule_id": "T31",
-  "changed": true,
-  "final": "module top_module(x, y, Cin, Cout, s);input x, y, Cin;\n\toutput Cout, s;\n\t\n\twire __Cout_tmp = (x & y) | (x & Cin) | (y & Cin);\n\tassign Cout = __Cout_tmp;\n\tassign s = (~x & ~y & Cin) | (~x & y & ~Cin) |\n\t\t\t\t  (x & y & Cin) | (x & ~y & ~Cin);\n\nendmodule"
-}

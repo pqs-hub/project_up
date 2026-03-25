@@ -1,6 +1,0 @@
-{
-  "task_id": "q014081",
-  "rule_id": "T16",
-  "changed": false,
-  "final": "module top_module(\n    input[3:0] g,\n    input[3:0] p,\n    input c,\n    output P,\n    output G,\n    output C3,\n    output C2,\n    output C1,\n    output C0\n    );assign G = g[3] | (p[3] & g[2]) | (p[3] & p[2] & g[1]) | (p[3] & p[2] & p[1] & g[0]);\n    assign P = p[3] & p[2] & p[1] & p[0];\n    assign C0 = g[0] | (p[0] & c);\n    assign C1 = g[1] | (p[1] & g[0]) |  (p[1] & p[0] & c);\n    assign C2 = g[2] | (p[2] & g[1]) | (p[2] & p[1] & g[0]) | (p[2] & p[1] & p[0] & c);\n    assign C3 = g[3] | (p[3] & g[2]) | (p[3] & p[2] & g[1]) | (p[3] & p[2] & p[1] & g[0]) | (p[3] & p[2] & p[1] & p[0] &c);\nendmodule"
-}

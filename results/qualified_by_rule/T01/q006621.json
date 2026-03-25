@@ -1,6 +1,0 @@
-{
-  "task_id": "q006621",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule (CLK, RST, LOAD, D, Q);\ninput CLK, RST, LOAD;\ninput [7:0] D;\noutput reg Q;\nreg [7:0] shift_reg;\n\nalways @(posedge CLK or posedge RST) begin\n    begin end  // redundant\n    if (RST)\n        shift_reg <= 8'b00000000;\n    else if (LOAD)\n        shift_reg <= D;\n    else\n        shift_reg <= shift_reg >> 1;\nend\n\nalways @(*) begin\n    Q = shift_reg[0];\nend\n\nendmodule"
-}

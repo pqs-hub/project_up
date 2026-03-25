@@ -1,6 +1,0 @@
-{
-  "task_id": "q000594",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module median_filter(input [8:0] pixels, output reg [7:0] median);  \n    integer i, j;  \n    reg [7:0] sorted[0:8];  \n    reg [7:0] temp;  \n\n    always @(*) begin\n  // Copy input pixels to sorted array for (i = 0 ; i < 9 ; i = i + 1) sorted[i] = pixels[i] ;\n   // Simple bubble sort to sort the pixel values for (i = 0 ; i < 8 ; i = i + 1) begin for (j = 0 ; j < 8 - i ; j = j + 1) begin if (sorted[j] > sorted[j + 1]) begin temp = sorted[j] ; sorted[j] = sorted[j + 1] ; sorted[j + 1] = temp ; end end\n  end\n  end\n\n  always @(*) begin\n  // The median is the middle value in the sorted array median = sorted[4] ;\n  end  \nendmodule"
-}

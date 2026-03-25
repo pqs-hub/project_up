@@ -1,6 +1,0 @@
-{
-  "task_id": "q016522",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(\n\tinput [2:0]SEL,\n\tinput rstatus,\t\t\t\n\toutput reg [2:0]RAMSEL\n\t);\n\talways @* begin\n\t\tcase(SEL)\n\t\t\t0: RAMSEL = 3'b000;\t\n\t\t\t1: RAMSEL = rstatus ? 3'b010 : 3'b001;\t\n\t\t\t2: RAMSEL = rstatus ? 3'b001 : 3'b010;\t\n\t\t\t3: RAMSEL = 3'b011; \t\t\t\t\t\n\t\t\tdefault: RAMSEL = 3'b100;\t\n\t\tendcase\n\tend\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q001894",
-  "rule_id": "T34",
-  "changed": false,
-  "final": "module RefModule (\n    input [4:0] Vin,\n    input EN,\n    output reg [4:0] Vout\n);\n    parameter THRESHOLD = 5; // 5V threshold\n\n    always @(*) begin\n        if (EN == 1'b0) begin\n            Vout = 5'b00000; // Vout = 0V\n        end else if (Vin < THRESHOLD) begin\n            Vout = Vin; // Vout = Vin\n        end else begin\n            Vout = THRESHOLD; // Vout = 5V\n        end\n    end\nendmodule"
-}

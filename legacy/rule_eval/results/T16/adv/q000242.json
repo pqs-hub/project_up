@@ -1,9 +1,0 @@
-{
-  "task_id": "q000242",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module dvfs_controller (\n    input wire [1:0] workload,\n    output reg [1:0] obf_frequency\n);\n\nalways @(workload) begin\n    case (workload)\n        2'b00: obf_frequency = 2'b00; // Low workload -> Low obf_frequency\n        2'b01: obf_frequency = 2'b01; // Medium workload -> Medium obf_frequency\n        2'b10: obf_frequency = 2'b10; // High workload -> High obf_frequency\n        2'b11: obf_frequency = 2'b11; // Very high workload -> Very high obf_frequency\n        default: obf_frequency = 2'b00; // Default case to low obf_frequency\n    endcase\nend\n\nendmodule",
-  "rename_map": {
-    "frequency": "obf_frequency"
-  }
-}

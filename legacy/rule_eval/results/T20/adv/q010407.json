@@ -1,6 +1,0 @@
-{
-  "task_id": "q010407",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// UART Transmitter - 9600 baud\nmodule priority_encoder_8bit (out, valid, in);\n   input [7:0] in;\n   output reg [2:0] out;\n   output reg valid;\n   \n   always @(*) begin\n      if (in[7]) begin\n         out = 3'b111;\n         valid = 1;\n      end else if (in[6]) begin\n         out = 3'b110;\n         valid = 1;\n      end else if (in[5]) begin\n         out = 3'b101;\n         valid = 1;\n      end else if (in[4]) begin\n         out = 3'b100;\n         valid = 1;\n      end else if (in[3]) begin\n         out = 3'b011;\n         valid = 1;\n      end else if (in[2]) begin\n         out = 3'b010;\n         valid = 1;\n      end else if (in[1]) begin\n         out = 3'b001;\n         valid = 1;\n      end else if (in[0]) begin\n         out = 3'b000;\n         valid = 1;\n      end else begin\n         out = 3'b000;\n         valid = 0;\n      end\n   end\n   \nendmodule"
-}

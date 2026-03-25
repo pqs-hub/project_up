@@ -1,6 +1,0 @@
-{
-  "task_id": "q008375",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule(\n    clk,\n    data,\n    ce,\n    a,\n    q);parameter DATA_WIDTH = 32'd8;\nparameter ADDR_WIDTH = 32'd2;\nparameter DEPTH = 32'd4;\n\ninput clk;\ninput [DATA_WIDTH-1:0] data;\ninput ce;\ninput [ADDR_WIDTH-1:0] a;\noutput [DATA_WIDTH-1:0] q;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nreg[DATA_WIDTH-1:0] SRL_SIG [0:DEPTH-1];\ninteger i;\n\nalways @ (posedge clk)\n    begin\n        if (ce)\n        begin\n            for (i=0;i<DEPTH-1;i=i+1)\n                SRL_SIG[i+1] <= SRL_SIG[i];\n            SRL_SIG[0] <= data;\n        end\n    end\n\nassign q = SRL_SIG[a];\n\nendmodule"
-}

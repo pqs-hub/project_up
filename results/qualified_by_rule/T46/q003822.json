@@ -1,6 +1,0 @@
-{
-  "task_id": "q003822",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule(  \n    input wire clk,  \n    input wire reset,  \n    input wire IRQ1,  \n    input wire IRQ2,  \n    output reg IRQ_OUT  \n);  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin  \n        if (reset) begin  \n            IRQ_OUT <= 0;  \n        end else begin  \n            IRQ_OUT <= IRQ1 | IRQ2;  \n        end  \n    end  \nendmodule"
-}

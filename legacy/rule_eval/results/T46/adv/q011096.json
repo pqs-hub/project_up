@@ -1,8 +1,0 @@
-{
-  "task_id": "q011096",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    input clock,\n    input [63:0] data,\n    input [63:0] key,\n    output reg match\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clock or posedge dbg_halt)\nbegin\n    if (data == key)\n        match <= 1;\n    else\n        match <= 0;\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

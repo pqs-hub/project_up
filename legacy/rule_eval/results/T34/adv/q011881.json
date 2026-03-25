@@ -1,6 +1,0 @@
-{
-  "task_id": "q011881",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(A, B, Cin, Clk, Sum, Cout);input [3:0] A;\ninput [3:0] B;\ninput Cin;\ninput Clk;\noutput [3:0] Sum;\noutput Cout;\n\nreg [3:0] unused_Sum_reg;\nreg Cout_reg;\n\nalways @(posedge Clk) begin\n    unused_Sum_reg <= A + B + Cin;\n    Cout_reg <= (A[3] & B[3]) | (A[3] & Cin) | (B[3] & Cin);\nend\n\nassign Sum = unused_Sum_reg;\nassign Cout = Cout_reg;\n\nendmodule"
-}

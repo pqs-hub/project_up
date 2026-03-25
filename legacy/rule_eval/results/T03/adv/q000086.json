@@ -1,6 +1,0 @@
-{
-  "task_id": "q000086",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module switching_regulator (\n    input [1:0] voltage_select,\n    output reg regulator_enable\n);\n  wire [1:0] _tap_voltage_select = voltage_select & {2{1'b1}};\n\n\nalways @(*) begin\n    case (voltage_select)\n        2'b00: regulator_enable = 1'b0; // 0V\n        2'b01: regulator_enable = 1'b1; // 1.2V\n        2'b10: regulator_enable = 1'b1; // 2.5V\n        2'b11: regulator_enable = 1'b0; // 5V\n        default: regulator_enable = 1'b0; // Default case\n    endcase\nend\n\nendmodule"
-}

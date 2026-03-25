@@ -1,6 +1,0 @@
-{
-  "task_id": "q014961",
-  "rule_id": "T11",
-  "changed": false,
-  "final": "module RefModule(\n\taddress_a,\n\taddress_b,\n\tclock,\n\tdata_a,\n\tdata_b,\n\twren_a,\n\twren_b,\n\tq_a,\n\tq_b\n);input \t[5:0]\taddress_a;\n\tinput \t[5:0]\taddress_b;\n\tinput \t\tclock;\n\tinput \t[15:0]\tdata_a;\n\tinput \t[15:0]\tdata_b;\n\tinput \t\twren_a;\n\tinput \t\twren_b;\n\toutput \t[15:0]\tq_a;\n\toutput \t[15:0]\tq_b;\n\n\treg [15:0] ram [0:63];\n\n\talways @(posedge clock) begin\n\t\tif (wren_a) ram[address_a] <= data_a;\n\t\tif (wren_b) ram[address_b] <= data_b;\n\tend\n\n\tassign q_a = ram[address_a];\n\tassign q_b = ram[address_b];\n\nendmodule"
-}

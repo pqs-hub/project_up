@@ -1,9 +1,0 @@
-{
-  "task_id": "q012227",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module shift_register_16bit(D, CLK, LOAD, Q);\ninput [15:0] D;\ninput CLK, LOAD;\noutput reg Q;\n\nreg [15:0] obf_register;\n\nalways @(posedge CLK) begin\n    if (LOAD)\n        obf_register <= D;\n    else\n        obf_register <= {1'b0, obf_register[15:1]};\n    Q <= obf_register[0];\nend\n\nendmodule",
-  "rename_map": {
-    "register": "obf_register"
-  }
-}

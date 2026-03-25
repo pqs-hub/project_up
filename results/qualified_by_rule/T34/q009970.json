@@ -1,6 +1,0 @@
-{
-  "task_id": "q009970",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n  output [(1 - 1):0] op,\n  input clk,\n  input ce,\n  input clr\n);reg [(1 - 1):0] unused_op_reg;\n  \n  always @(posedge clk) begin\n    if (clr) begin\n      unused_op_reg <= 1'b0;\n    end else if (ce) begin\n      unused_op_reg <= 1'b1;\n    end\n  end\n  \n  assign op = unused_op_reg;\nendmodule"
-}

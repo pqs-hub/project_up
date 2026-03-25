@@ -1,6 +1,0 @@
-{
-  "task_id": "q011077",
-  "rule_id": "T04",
-  "changed": true,
-  "final": "// I2C Slave Interface\nmodule top_module(s,r,clk,rst,q,qb);input s,r,clk,rst;\n\toutput q,qb;\n\twire s,r,clk,rst,qb;\n\treg q;\nalways @ (posedge clk)\n\tbegin\n\tif(rst)\n\tq<=1'b0;\n\t\telse if (s==1'b0 && r==1'b0)\n\t\t\t\tq<=q;\n\t\telse if (s==1'b0&& r==1'b1)\n\t\t\t\tq<=1'b0;\n\t\telse if (s==1'b1 && r==1'b0)\n\t\t\t\tq<=1'b1;\n\t\telse if (s==1'b1 && r==1'b1)\n\t\tq<=1'bx;\n\t\tend\n\t\tassign qb=~q;endmodule"
-}

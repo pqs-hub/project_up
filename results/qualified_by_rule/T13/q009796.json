@@ -1,6 +1,0 @@
-{
-  "task_id": "q009796",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(\n  input wire clk,\n  input wire reset,\n  input wire count,\n  input wire direction,\n  output reg [Size-1:0] data_o\n);parameter Size = 8;\n  \n  always @(posedge clk) begin\n    if(reset) begin\n      data_o <= 0;\n    end else if(count) begin\n      if(direction) begin\n        data_o <= data_o - 1;\n      end else begin\n        data_o <= data_o + 1;\n      end\n    end\n  end\n  \nendmodule"
-}

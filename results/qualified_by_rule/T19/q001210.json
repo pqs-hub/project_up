@@ -1,6 +1,0 @@
-{
-  "task_id": "q001210",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule(\n    input wire clk,\n    input wire rst_n,\n    input wire [4:0] gpio_data,\n    input wire [4:0] config_reg,\n    output reg [4:0] gpio_output\n);\n    \n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            gpio_output <= 5'b00000; // Reset output to 0\n        end else begin\n            gpio_output <= gpio_data & config_reg; // Output based on config reg\n        end\n    end\n    \n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

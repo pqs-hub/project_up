@@ -1,8 +1,0 @@
-{
-  "task_id": "q008284",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module binary_counter(\n    input            clk  ,\n    input            rstn ,\n\n    output reg [3:0] count\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rstn or posedge dbg_halt)\nbegin\n    if (!rstn)       count <= 0;\n    else if (count == 4'b1111) count <= 0;\n    else              count <= count + 1;\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

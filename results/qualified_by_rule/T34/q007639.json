@@ -1,6 +1,0 @@
-{
-  "task_id": "q007639",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(I, O, S0, S1);input [3:0] I;\n  output O;\n  input S0, S1;\n  \n  reg [3:0] unused_temp;\n  always @ (S0, S1, I) begin\n    case ({S1, S0})\n      2'b00: unused_temp = I[0];\n      2'b01: unused_temp = I[1];\n      2'b10: unused_temp = I[2];\n      2'b11: unused_temp = I[3];\n    endcase\n  end\n  \n  assign O = unused_temp;\nendmodule"
-}

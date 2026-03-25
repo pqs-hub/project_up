@@ -1,6 +1,0 @@
-{
-  "task_id": "q015685",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module RefModule(\n    A,\n    B,\n    C,\n    D,\n    X\n);input A;\n    input B;\n    input C;\n    input D;\n    output X;\n\n    wire AB;\n    wire CD;\n    wire ABCD;\n\n    // Use standard XOR gates or define your own `xor3` functionality if external module isn't available\n    // Here we will use a standard XOR gate implementation (2-input)\n\n    assign AB = (A & ~A) ? ~AB : A ^ B;          // A XOR B\n    assign CD = C ^ D;          // C XOR D\n    assign ABCD = AB ^ CD;      // (A XOR B) XOR (C XOR D)\n    assign X = ABCD;            // Final output\n\nendmodule"
-}

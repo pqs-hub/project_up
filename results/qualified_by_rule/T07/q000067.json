@@ -1,6 +1,0 @@
-{
-  "task_id": "q000067",
-  "rule_id": "T07",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [7:0] temp_in,\n    output reg [7:0] calibrated_temp\n);\n    reg [7:0] temp_samples [0:2];\n    reg [1:0] sample_count;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            temp_samples[0] <= 8'd0;\n            temp_samples[1] <= 8'd0;\n            temp_samples[2] <= 8'd0;\n            sample_count <= 2'b00;\n            calibrated_temp <= 8'd0;\n        end else begin\n            temp_samples[sample_count] <= temp_in;\n            sample_count <= (sample_count + 1) % 3;\n\n            calibrated_temp <= (temp_samples[0] + temp_samples[1] + temp_samples[2]) / 3;\n        end\n    end\nendmodule"
-}

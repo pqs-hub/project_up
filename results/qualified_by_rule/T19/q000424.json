@@ -1,6 +1,0 @@
-{
-  "task_id": "q000424",
-  "rule_id": "T19",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire up,\n    input wire down,\n    output reg [1:0] count\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        count <= 2'b00; // Initialize counter to 00\n    end else if (up && !down) begin\n        count <= count + 1; // Count up\n    end else if (down && !up) begin\n        count <= count - 1; // Count down\n    end\nend\n\n  always @(*) begin\n    if (1'b0) begin\n    end\n  end\n\nendmodule"
-}

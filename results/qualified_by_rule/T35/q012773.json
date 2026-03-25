@@ -1,6 +1,0 @@
-{
-  "task_id": "q012773",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n\tinput [15:0]data_a,\n\tinput [15:0]data_b,\n\toutput [31:0] out,\n\toutput zero,\n\toutput neg\n);wire [31:0]oper_a = (data_a[15]) ? {{16{1'd1}}, data_a} : {16'd0, data_a};\n\twire [31:0]oper_b = (data_b[15]) ? {{16{1'd1}}, data_b} : {16'd0, data_b};\n\tassign out = oper_a * oper_b;\n\n\tassign zero = (out == 32'd0);\n\tassign neg = out[31];\n\nendmodule"
-}

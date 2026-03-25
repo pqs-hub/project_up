@@ -1,6 +1,0 @@
-{
-  "task_id": "q000814",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module RefModule (\n    input wire clk,\n    input wire rst,\n    input wire [1:0] select,\n    input wire valid,\n    output reg [3:0] channel_ack\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            channel_ack <= 4'b0000;\n        end else if (valid) begin\n            channel_ack <= (1 << select);\n        end else begin\n            channel_ack <= 4'b0000;\n        end\n    end\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q001923",
-  "rule_id": "T18",
-  "changed": false,
-  "final": "module RefModule (  \n    input clk,  \n    input reset,  \n    input enable,  \n    output reg [4:0] lfsr_out  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            lfsr_out <= 5'b00001; // Non-zero seed  \n        end else if (enable) begin  \n            lfsr_out <= {lfsr_out[3:0], lfsr_out[4] ^ lfsr_out[2]}; // Feedback polynomial: x^5 + x^3 + 1  \n        end  \n    end  \nendmodule"
-}

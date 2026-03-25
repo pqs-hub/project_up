@@ -1,8 +1,0 @@
-{
-  "task_id": "q009892",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n\tinput wire clk,reset, we4,bt,\n\tinput wire [31:0]d,\n\toutput reg [31:0]q\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or posedge dbg_halt) begin \n\t\tif(reset) begin\n\t\t\tq<=32'd0;\n\t\tend else begin \n\t\t\tif(we4) begin\n\t\t\t\tq<=d;\t\t\t\t\n\t\t\tend \n\t\tend\n\tend\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

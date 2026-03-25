@@ -1,6 +1,0 @@
-{
-  "task_id": "q006102",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module top_module(\n    input Clk,ShiftIn,load,ShiftEn,\n    input [3:0] ParallelIn,\n    output ShiftOut, \n    output [3:0] RegContent\n    );reg [3:0] unused_shift_reg;\n    always @(posedge Clk)\n        if(load)\n            unused_shift_reg <= ParallelIn;\n        else if (ShiftEn)\n            unused_shift_reg <= {unused_shift_reg[2:0], ShiftIn};\n    assign ShiftOut = unused_shift_reg[3];\n    assign RegContent = unused_shift_reg;\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q016252",
-  "rule_id": "T09",
-  "changed": false,
-  "final": "module RefModule(CLK, RESET, UP_DOWN, COUNT);\ninput CLK, RESET, UP_DOWN;\noutput reg [2:0] COUNT;\n\nalways @(posedge CLK or posedge RESET) begin\n    if (RESET)\n        COUNT <= 3'b000;\n    else if (UP_DOWN)\n        COUNT <= COUNT + 1;\n    else\n        COUNT <= COUNT - 1;\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q013727",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// PWM Generator - 8bit resolution\nmodule mux_4to1_8bit (out, in0, in1, in2, in3, sel);\n   input [7:0] in0, in1, in2, in3;\n   input [1:0] sel;\n   output [7:0] out;\n   \n   reg [7:0] out;\n\nalways @(*) begin\n    case (sel)\n        2'b00: out = in0;\n        2'b01: out = in1;\n        2'b10: out = in2;\n        2'b11: out = in3;\n        default: out = 8'b0;\n    endcase\nend\n\nendmodule"
-}

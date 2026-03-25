@@ -1,9 +1,0 @@
-{
-  "task_id": "q015164",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module mux4to1(\n    input [7:0] obf_a,\n    input [7:0] b,\n    input [7:0] c,\n    input [7:0] d,\n    input [1:0] sel,\n\n    output reg [7:0] y\n);\n\nalways @(*) begin\n    case (sel)\n        2'b00: y = obf_a;\n        2'b01: y = b;\n        2'b10: y = c;\n        2'b11: y = d;\n        default: y = 8'b00000000;\n    endcase\nend\n\nendmodule",
-  "rename_map": {
-    "a": "obf_a"
-  }
-}

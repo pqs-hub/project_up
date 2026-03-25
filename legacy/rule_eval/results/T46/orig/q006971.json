@@ -1,6 +1,0 @@
-{
-  "task_id": "q006971",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module counter_4bit(\n    input clk,\n    input reset,\n    input en,\n    output reg [3:0] count\n);\n\nalways @(posedge clk) begin\n    if (reset)\n        count <= 4'b0000;\n    else if (en)\n        count <= (count == 4'b1111) ? 4'b0000 : count + 1;\nend\n\nendmodule"
-}

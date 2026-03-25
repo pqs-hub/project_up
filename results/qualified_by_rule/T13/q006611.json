@@ -1,6 +1,0 @@
-{
-  "task_id": "q006611",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(\n  input [n-1:0] A,\n  input [n-1:0] B,\n  input ctrl,\n  output reg [2*n-1:0] P\n);parameter n = 4; // number of bits\n\nreg [2*n-1:0] product;\nreg signed [n-1:0] signed_A;\nreg signed [n-1:0] signed_B;\nreg signed [2*n-1:0] signed_product;\n\ninteger i; // Declare i as an integer\n\nalways @(*) begin\n  if (ctrl == 0) begin // unsigned multiplication\n    product = {2*n{1'b0}}; // initialize product to 0, corrected to use 2*n\n    for (i = 0; i < n; i = i + 1) begin\n      if (B[i] == 1'b1) begin\n        product = product + (A << i);\n      end\n    end\n    P = product;\n  end\n  else begin // signed multiplication\n    signed_A = $signed(A);\n    signed_B = $signed(B);\n    signed_product = signed_A * signed_B;\n    P = signed_product; // use the full signed_product without sign extension\n  end\nend\n\nendmodule"
-}

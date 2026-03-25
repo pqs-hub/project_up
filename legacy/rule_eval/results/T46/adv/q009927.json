@@ -1,8 +1,0 @@
-{
-  "task_id": "q009927",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module shift_reg_8bit (clk, rst, en, ld, si, pi, q);\n   input clk, rst, en, ld, si;\n   input [7:0] pi;\n   output [7:0] q;\n\n   reg [7:0] q;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (rst) begin\n        q <= 8'b00000000;\n    end else if (ld) begin\n        q <= pi;\n    end else if (en) begin\n        q <= {si, q[7:1]};\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

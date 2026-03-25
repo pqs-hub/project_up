@@ -1,6 +1,0 @@
-{
-  "task_id": "q001833",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (  \n    input clk,  \n    input rst,  \n    input [4:0] x,  \n    output reg [4:0] state  \n);  \n    parameter weight = 5'b00011; // Weight multiplier (3)  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin  \n        if (rst)  \n            state <= 5'b00000;  \n        else  \n            state <= (state * weight) + x;  \n    end  \nendmodule"
-}

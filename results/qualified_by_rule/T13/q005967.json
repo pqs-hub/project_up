@@ -1,6 +1,0 @@
-{
-  "task_id": "q005967",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule(\n    input A0, A1, A2, A3,\n    input [1:0] S,\n    output X\n);// Declare intermediate wires\n    wire and0_out, and1_out, and2_out, and3_out;\n    wire or0_out, or1_out;\n\n    // Implement AND gates using standard Verilog operators\n    assign and0_out = A0 & ~S[1] & ~S[0];\n    assign and1_out = A1 & ~S[1] & S[0];\n    assign and2_out = A2 & S[1] & ~S[0];\n    assign and3_out = A3 & S[1] & S[0];\n\n    // Implement OR gate using standard Verilog operators\n    assign or0_out = and0_out | and1_out;\n    assign or1_out = and2_out | and3_out;\n\n    // Assign output\n    assign X = or0_out | or1_out;\n\nendmodule"
-}

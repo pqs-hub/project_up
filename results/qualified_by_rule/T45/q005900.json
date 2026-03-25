@@ -1,6 +1,0 @@
-{
-  "task_id": "q005900",
-  "rule_id": "T45",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input rst,\n    output reg [2:0] out,\n    output reg carry_out\n);always @(posedge clk) begin\n        if (rst) begin\n            out <= 3'b0;\n            carry_out <= 1'b0;\n        end\n        else if (out == 3'b111) begin\n            out <= 3'b0;\n            carry_out <= 1'b1;\n        end\n        else begin\n            out <= out + 1;\n            carry_out <= 1'b0;\n        end\n    end\n\nendmodule"
-}

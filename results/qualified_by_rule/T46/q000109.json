@@ -1,6 +1,0 @@
-{
-  "task_id": "q000109",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module RefModule (\n    input wire [31:0] data_in,\n    input wire [31:0] key,\n    input wire start,\n    output reg [31:0] data_out\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge start or posedge dbg_halt) begin\n    data_out <= data_in ^ key;\nend\n\nendmodule"
-}

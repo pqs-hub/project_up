@@ -1,6 +1,0 @@
-{
-  "task_id": "q012946",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule(address, WE,dataIn, dataOut, clock, testStart);input [7:0] dataIn;\ninput [4:0] address;\ninput WE, clock;\ninput testStart;\noutput reg[7:0] dataOut;\n\nreg [7:0] RAM[31:0];\n\nalways @ (posedge clock)\nbegin\n\tif(testStart == 1'b1)\n\t\tbegin\n\t\t\tRAM[5'd0] <= 8'b10000000;\n\t\t\tRAM[5'd1] <= 8'b00111110;\n\t\t\tRAM[5'd2] <= 8'b10000000;\n\t\t\tRAM[5'd3] <= 8'b00111111;\n\t\t\tRAM[5'd4] <= 8'b00011110;\n\t\t\tRAM[5'd5] <= 8'b01111111;\n\t\t\tRAM[5'd6] <= 8'b10110000;\n\t\t\tRAM[5'd7] <= 8'b11001100;\n\t\t\tRAM[5'd8] <= 8'b00011111;\n\t\t\tRAM[5'd9] <= 8'b01111110;\n\t\t\tRAM[5'd10] <= 8'b00111111;\n\t\t\tRAM[5'd11] <= 8'b11000100;\n\t\t\tRAM[5'd12] <= 8'b00011110;\n\t\t\tRAM[5'd13] <= 8'b01111111;\n\t\t\tRAM[5'd14] <= 8'b00111110;\n\t\t\tRAM[5'd15] <= 8'b11000100;\n\t\t\tRAM[5'd16] <= 8'b00011110;\n\t\t\tRAM[5'd17] <= 8'b11111111;\n\t\t\t\n\t\t\t\n\t\tend\n\t\t\n\tif( WE == 1'b1)\n\t\tRAM[address] <= dataIn;\n\n\telse\n\t\tdataOut <= RAM[address];\nend\n\nendmodule"
-}

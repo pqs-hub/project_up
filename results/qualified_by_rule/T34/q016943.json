@@ -1,6 +1,0 @@
-{
-  "task_id": "q016943",
-  "rule_id": "T34",
-  "changed": true,
-  "final": "module RefModule(\n  input CLK, // clock signal\n  input EN, // enable signal\n  input TE, // test enable signal\n  output ENCLK // gated clock signal\n);\n\n  reg unused_gated_clk;\n  \n  always @(*) begin\n    if (TE) begin\n      unused_gated_clk = 1;\n    end else if (EN) begin\n      unused_gated_clk = CLK;\n    end else begin\n      unused_gated_clk = 0;\n    end\n  end\n\n  assign ENCLK = unused_gated_clk;\n\nendmodule"
-}

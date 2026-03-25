@@ -1,6 +1,0 @@
-{
-  "task_id": "q008638",
-  "rule_id": "T12",
-  "changed": false,
-  "final": "module RefModule(\n    out,\n    D,\n    Q_reg_reg,\n    m_aclk,\n    reset\n);output [3:0] out;\ninput [0:0] D;\ninput [3:0] Q_reg_reg;\ninput m_aclk;\ninput [0:0] reset;\n\nreg [3:0] Q_reg;\n\nassign out = Q_reg;\n\nalways @(posedge m_aclk or posedge reset) begin\n    if (reset) begin\n        Q_reg <= 4'b0000;\n    end else begin\n        Q_reg <= Q_reg_reg;\n    end\nend\n\nwire D_wire;\nassign D_wire = (Q_reg[2] & ~Q_reg[3]) | (Q_reg[3] & Q_reg[2]); // Logic equivalent to LUT2 with INIT 4'h6\nassign D = D_wire;\n\nendmodule"
-}

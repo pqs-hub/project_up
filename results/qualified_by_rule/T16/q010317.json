@@ -1,6 +1,0 @@
-{
-  "task_id": "q010317",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module RefModule(\n    input reset,\n    input clock,\n    input ee,\n    input ep,\n    input hold,\n    output veto\n    );parameter NORMAL=2'b00;\nparameter HOLDING=2'b01;\nparameter ONLY_EE=2'b10;\n\nreg [1:0] pipeline_reg;\n\nassign veto = (pipeline_reg == ONLY_EE) & (~ee);\n\nalways @(posedge clock)\nbegin\n\tif(reset)\n\tbegin\n\t\tpipeline_reg <= NORMAL;\n\tend else begin\n\t\tcase(pipeline_reg)\n\t\t\tNORMAL:  if(hold) pipeline_reg <= HOLDING;\n\t\t\t\t\t\telse pipeline_reg <= NORMAL;\n\t\t\t\t\n\t\t\tHOLDING: if(hold)\n\t\t\t\t\t\t\tif(ep) pipeline_reg <= ONLY_EE;\n\t\t\t\t\t\t\telse pipeline_reg <= HOLDING;\n\t\t\t\t\t\telse\n\t\t\t\t\t\t\tpipeline_reg <= NORMAL;\n\t\t\t\t\t\t\t\n\t\t\tONLY_EE: if(hold) pipeline_reg <= ONLY_EE;\n\t\t\t\t\t\telse if (ee)\n\t\t\t\t\t\t\tpipeline_reg <= NORMAL;\n\t\t\t\t\t\telse pipeline_reg <= ONLY_EE;\n\t\tendcase\n\tend\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q010915",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(\n\n  input clk, rst, w_en,\n  input [16-1:1-1] data_in,\n\n  output reg [15:0] data_out\n);always@(posedge clk or negedge rst) begin\n    if(rst == 1'b0) begin\n      data_out <= 16'd0;\n    end else begin\n      if(w_en == 1'b1) begin\n        data_out <= data_in;\n      end else begin\n\t\t  data_out <= data_out;\n\t\tend\n    end \n  end \n \nendmodule"
-}

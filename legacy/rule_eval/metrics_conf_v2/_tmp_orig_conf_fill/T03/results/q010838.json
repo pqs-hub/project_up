@@ -1,7 +1,0 @@
-{
-  "task_id": "q010838",
-  "rule_id": "T03",
-  "changed": false,
-  "final": "module top_module(\n    input [AWIDTH-1:0] addr0,\n    input ce0,\n    input [DWIDTH-1:0] d0,\n    input we0,\n    output reg [DWIDTH-1:0] q0,\n    input [AWIDTH-1:0] addr1,\n    input ce1,\n    output reg [DWIDTH-1:0] q1,\n    input clk\n);parameter DWIDTH = 32;\nparameter AWIDTH = 10;\nparameter MEM_SIZE = 1024;\n\n(* ram_style = \"block\" *) reg [DWIDTH-1:0] ram [MEM_SIZE-1:0];\n\nalways @(posedge clk) begin\n    if (ce0) begin\n        if (we0) begin\n            ram[addr0] <= d0;\n        end\n        q0 <= ram[addr0];\n    end\nend\n\nalways @(posedge clk) begin\n    if (ce1) begin\n        q1 <= ram[addr1];\n    end\nend\n\nendmodule",
-  "rename_map": {}
-}

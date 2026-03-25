@@ -1,9 +1,0 @@
-{
-  "task_id": "q001502",
-  "rule_id": "T16",
-  "changed": true,
-  "final": "module tcp_segmentation_controller(  \n    input wire obf_clk,  \n    input wire reset,  \n    input wire [15:0] payload_size, // Current payload size  \n    input wire [15:0] mss,          // Maximum segment size  \n    output reg segment_required      // Output signal indicating if segmentation is required  \n);  \n    always @(posedge obf_clk or posedge reset) begin  \n        if (reset) begin  \n            segment_required <= 0;  \n        end else begin  \n            if (payload_size > mss)  \n                segment_required <= 1;  \n            else  \n                segment_required <= 0;  \n        end  \n    end  \nendmodule",
-  "rename_map": {
-    "clk": "obf_clk"
-  }
-}

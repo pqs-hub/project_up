@@ -1,6 +1,0 @@
-{
-  "task_id": "q009049",
-  "rule_id": "T20",
-  "changed": true,
-  "final": "// SPI Master Controller\nmodule RefModule(IN1, IN2, SEL, OUT);input IN1;\n  input IN2;\n  input SEL;\n  output OUT;\n\n  wire NOT_SEL;\n  assign NOT_SEL = ~SEL;\n\n  wire AND1;\n  assign AND1 = IN1 & NOT_SEL;\n\n  wire AND2;\n  assign AND2 = IN2 & SEL;\n\n  assign OUT = AND1 | AND2;\n\nendmodule"
-}

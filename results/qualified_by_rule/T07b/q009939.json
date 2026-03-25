@@ -1,6 +1,0 @@
-{
-  "task_id": "q009939",
-  "rule_id": "T07b",
-  "changed": false,
-  "final": "module RefModule(\n    data,   // Data input to the inv. (Required)\n    result  // inverted result. (Required)\n);// GLOBAL PARAMETER DECLARATION\n    parameter lpm_width = 1; // Width of the data[] and result[] ports. (Required)\n    parameter lpm_type = \"lpm_inv\";\n    parameter lpm_hint = \"UNUSED\";\n\n// INPUT PORT DECLARATION\n    input  [lpm_width-1:0] data;\n\n// OUTPUT PORT DECLARATION\n    output [lpm_width-1:0] result;\n\n// INTERNAL REGISTERS DECLARATION\n    reg    [lpm_width-1:0] result;\n\n// INITIAL CONSTRUCT BLOCK\n    initial\n    begin\n        if (lpm_width <= 0)\n        begin\n            $display(\"Value of lpm_width parameter must be greater than 0 (ERROR)\");\n            $display(\"Time: %0t  Instance: %m\", $time);\n            $finish;\n        end\n    end\n\n// ALWAYS CONSTRUCT BLOCK\n    always @(data)\n        result = ~data;\n\nendmodule"
-}

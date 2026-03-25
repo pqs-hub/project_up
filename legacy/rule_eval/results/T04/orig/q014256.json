@@ -1,6 +1,0 @@
-{
-  "task_id": "q014256",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module adder_16bit(\n    input wire [15:0] A,\n    input wire [15:0] B,\n    output wire [15:0] sum,\n    output wire carry_out\n    );\n\nwire [3:0] carry;\n\nadder_4bit u0 (\n    .A(A[3:0]),\n    .B(B[3:0]),\n    .carry_in(1'b0),\n    .sum(sum[3:0]),\n    .carry_out(carry[0])\n    );\n\nadder_4bit u1 (\n    .A(A[7:4]),\n    .B(B[7:4]),\n    .carry_in(carry[0]),\n    .sum(sum[7:4]),\n    .carry_out(carry[1])\n    );\n\nadder_4bit u2 (\n    .A(A[11:8]),\n    .B(B[11:8]),\n    .carry_in(carry[1]),\n    .sum(sum[11:8]),\n    .carry_out(carry[2])\n    );\n\nadder_4bit u3 (\n    .A(A[15:12]),\n    .B(B[15:12]),\n    .carry_in(carry[2]),\n    .sum(sum[15:12]),\n    .carry_out(carry_out)\n    );\n\nendmodule\n\nmodule adder_4bit(\n    input wire [3:0] A,\n    input wire [3:0] B,\n    input wire carry_in,\n    output wire [3:0] sum,\n    output wire carry_out\n    );\n\nassign {carry_out, sum} = A + B + carry_in;\n\nendmodule"
-}

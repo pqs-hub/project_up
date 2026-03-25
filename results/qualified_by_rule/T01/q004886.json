@@ -1,6 +1,0 @@
-{
-  "task_id": "q004886",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(A, B, Z);input [7:0] A;\n    input [7:0] B;\n    output [7:0] Z;\n    \n    reg [7:0] Z;\n    \n    always @(*)\n    begin\n    begin end  // redundant\n        case({A,B})\n            16'hAB: Z = A + B; // Addition\n            16'hAA: Z = A - B; // Subtraction\n            16'h50: Z = A * B; // Multiplication\n            16'h32: Z = A / B; // Division\n            default: Z = 0; // Default case\n        endcase\n    end\nendmodule"
-}

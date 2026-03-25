@@ -1,6 +1,0 @@
-{
-  "task_id": "q003684",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule (\n    input [31:0] A,\n    input [31:0] B,\n    input [2:0] control,\n    output reg [31:0] result,\n    output reg zero\n);\n\nalways @(*) begin\n    case(control)\n        3'b000: result = A & B;          // AND\n        3'b001: result = A | B;          // OR\n        3'b010: result = A + B;          // ADD\n        3'b011: result = A - B;          // SUBTRACT\n        3'b100: result = ~(A | B);       // NOR\n        3'b101: result = ~(A & B);       // NAND\n        3'b110: result = A ^ B;          // XOR\n        3'b111: result = ~(A ^ B);       // XNOR\n        default: result = 32'b0;         // default case\n    endcase\n    zero = (result == 32'b0) ? 1'b1 : 1'b0; // Set zero flag\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q001144",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module pipeline_adder(\n    input clk,\n    input rst,\n    input [7:0] a,\n    input [7:0] b,\n    output reg [7:0] sum\n);\n    reg [7:0] IF_a, IF_b;\n    reg [7:0] ID_a, ID_b;\n    reg [7:0] EX_sum;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            IF_a <= 0;\n            IF_b <= 0;\n            ID_a <= 0;\n            ID_b <= 0;\n            EX_sum <= 0;\n            sum <= 0;\n        end else begin\n            // Stage 1: Instruction Fetch\n            IF_a <= a;\n            IF_b <= b;\n\n            // Stage 2: Instruction Decode\n            ID_a <= IF_a;\n            ID_b <= IF_b;\n\n            // Stage 3: Execute\n            EX_sum <= ID_a + ID_b;\n\n            // Stage 4: Memory Access\n            // No memory access in this simple example\n\n            // Stage 5: Write Back\n            sum <= EX_sum;\n        end\n    end\nendmodule"
-}

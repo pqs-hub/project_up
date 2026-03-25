@@ -1,6 +1,0 @@
-{
-  "task_id": "q006715",
-  "rule_id": "T10",
-  "changed": false,
-  "final": "module RefModule(datain, sel, dataout);parameter DATA_WIDTH = 8; \n  parameter SELECT_WIDTH = 1; \n  parameter NUMBER_OF_CHANNELS = 2; \n  input [NUMBER_OF_CHANNELS * DATA_WIDTH - 1 : 0] datain; \n  input [SELECT_WIDTH - 1 : 0] sel; \n  output [DATA_WIDTH - 1 : 0] dataout; \n  wire [DATA_WIDTH - 1 : 0] vectorized_data [0 : NUMBER_OF_CHANNELS - 1]; \n  assign dataout = vectorized_data[sel]; \n  genvar c; \n  generate \n  for(c = 0 ; c < NUMBER_OF_CHANNELS ; c = c + 1) \n  begin : channel_iterator \n  assign vectorized_data[c] = datain[(c + 1) * DATA_WIDTH - 1 : c * DATA_WIDTH]; \n  end \n  endgenerate \n `ifdef ADD_UNIPHY_SIM_SVA \n  assert property (@datain NUMBER_OF_CHANNELS == 2**SELECT_WIDTH) else \n  $error(\"%t, [DATAMUX ASSERT] NUMBER_OF_CHANNELS PARAMETER is incorrect, NUMBER_OF_CHANNELS = %d, 2**SELECT_WIDTH = %d\", $time, NUMBER_OF_CHANNELS, 2**SELECT_WIDTH); \n `endif \n endmodule"
-}

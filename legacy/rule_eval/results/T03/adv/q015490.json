@@ -1,6 +1,0 @@
-{
-  "task_id": "q015490",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module reg_file(\n    input clk,\n    input rst,\n    input we,\n    input [2:0] ra1,\n    input [2:0] ra2,\n    input [2:0] wa,\n    input [31:0] wd,\n\n    output reg [31:0] rd1,\n    output reg [31:0] rd2\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nreg [31:0] regs[7:0];\n\nalways@(posedge clk or posedge rst)\nbegin\n    if(rst)\n    begin\n        regs[0] <= 0;\n        regs[1] <= 0;\n        regs[2] <= 0;\n        regs[3] <= 0;\n        regs[4] <= 0;\n        regs[5] <= 0;\n        regs[6] <= 0;\n        regs[7] <= 0;\n    end\n    else if(we)\n        regs[wa] <= wd;\nend\n\nalways@(*)\nbegin\n    rd1 = regs[ra1];\n    rd2 = regs[ra2];\nend\n\nendmodule"
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q004160",
-  "rule_id": "T37",
-  "changed": false,
-  "final": "module RefModule (\n    input [4:0] signal_strength,\n    output reg [2:0] strength_level\n);\n    always @(*) begin\n        case (signal_strength)\n            5'b00000, 5'b00001, 5'b00010, 5'b00011: strength_level = 3'b000; // Weak\n            5'b00100, 5'b00101, 5'b00110: strength_level = 3'b001; // Moderate\n            5'b00111, 5'b01000, 5'b01001, 5'b01010, 5'b01011: strength_level = 3'b010; // Good\n            5'b01100, 5'b01101, 5'b01110, 5'b01111: strength_level = 3'b011; // Strong\n            default: strength_level = 3'b100; // Very Strong\n        endcase\n    end\nendmodule"
-}

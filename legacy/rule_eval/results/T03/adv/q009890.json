@@ -1,6 +1,0 @@
-{
-  "task_id": "q009890",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module square_wave_generator(\n  input clk,\n  input rst_n,\n  output reg wave\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      wave <= 1'b0;\n    end\n    else begin\n      wave <= ~wave;\n    end\n  end\n\nendmodule"
-}

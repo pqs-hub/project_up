@@ -1,6 +1,0 @@
-{
-  "task_id": "q002264",
-  "rule_id": "T31",
-  "changed": false,
-  "final": "module RefModule (\n    input wire clk,\n    input wire reset,\n    input wire [1:0] input_signal,\n    output reg [1:0] state\n);\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter PROCESSING = 2'b01;\n    parameter COMPLETE = 2'b10;\n    parameter ERROR = 2'b11;\n\n    // State transition logic\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE; // Reset to IDLE state\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (input_signal == 2'b01)\n                        state <= PROCESSING;\n                end\n                PROCESSING: begin\n                    if (input_signal == 2'b10)\n                        state <= COMPLETE;\n                end\n                COMPLETE: begin\n                    if (input_signal == 2'b11)\n                        state <= ERROR;\n                end\n                ERROR: begin\n                    if (input_signal == 2'b00)\n                        state <= IDLE;\n                end\n                default: state <= state; // Remain in the same state\n            endcase\n        end\n    end\nendmodule"
-}

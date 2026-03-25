@@ -1,6 +1,0 @@
-{
-  "task_id": "q003505",
-  "rule_id": "T39",
-  "changed": false,
-  "final": "module RefModule (\n    input clk,\n    input rst,\n    output reg [4:0] lfsr_out\n);\n\n    // Initial seed value\n    initial begin\n        lfsr_out = 5'b00001; // Example initial seed\n    end\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            lfsr_out <= 5'b00001; // Reset to initial seed\n        end else begin\n            // Feedback polynomial: x^5 + x^3 + 1\n            lfsr_out <= {lfsr_out[3], lfsr_out[2], lfsr_out[1], lfsr_out[0], lfsr_out[4] ^ lfsr_out[2]};\n        end\n    end\nendmodule"
-}

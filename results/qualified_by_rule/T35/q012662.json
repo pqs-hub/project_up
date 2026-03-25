@@ -1,6 +1,0 @@
-{
-  "task_id": "q012662",
-  "rule_id": "T35",
-  "changed": false,
-  "final": "module RefModule(\n    input clk,\n    input rst_n,\n    input rd,\n    input fifo_empty,\n    output reg [4:0] rptr,\n    output reg fifo_rd\n);reg [4:0] read_pointer = 0;\n    wire read_enable = (!fifo_empty) && rd;\n\n    always @(posedge clk, negedge rst_n) begin\n        if (!rst_n) begin\n            read_pointer <= 0;\n        end\n        else if (read_enable) begin\n            read_pointer <= read_pointer + 1;\n        end\n    end\n\n    assign rptr = read_pointer;\n    assign fifo_rd = read_enable;\n\n    always @(posedge clk) begin\n        $write(\"%h %h %h %h %h %h\\n\", rd, fifo_empty, rptr, fifo_rd, clk, rst_n);\n    end\n\nendmodule"
-}

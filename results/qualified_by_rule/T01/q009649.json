@@ -1,6 +1,0 @@
-{
-  "task_id": "q009649",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module RefModule(\n    input clk, reset, regWrite,\n    input [3:0] writeReg, readReg1, readReg2,\n    input [31:0] writeData,\n    output [31:0] readData1, readData2\n);reg [31:0] registers [0:15];\n\ninteger i;  // Variable for initialization\n\nalways @(posedge clk) begin\n    begin end  // redundant\n    if (reset) begin\n        for (i = 0; i < 16; i = i + 1) begin\n            registers[i] <= 32'd0; // Initialize each register to 0\n        end\n    end else if (regWrite) begin\n        registers[writeReg] <= writeData;\n    end\nend\n\nassign readData1 = registers[readReg1];\nassign readData2 = registers[readReg2];\n\nendmodule"
-}

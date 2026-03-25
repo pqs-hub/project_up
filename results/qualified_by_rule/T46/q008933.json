@@ -1,6 +1,0 @@
-{
-  "task_id": "q008933",
-  "rule_id": "T46",
-  "changed": false,
-  "final": "module RefModule( rt, rs,en, eqz,gez,gtz,lez,ltz,ne, eq);input en;\ninput [31:0] rs;\ninput [31:0] rt;\noutput eq;\noutput ne;\noutput ltz;\noutput lez;\noutput gtz;\noutput gez;\noutput eqz;\n\nassign eq=(en)&(rs==rt);\nassign ne=(en)&~eq;\nassign eqz=(en)&~(|rs);\nassign ltz=(en)&rs[31];\nassign lez=(en)&rs[31] | eqz;\nassign gtz=(en)&(~rs[31]) & ~eqz;\nassign gez=(en)&(~rs[31]);\n\nendmodule"
-}

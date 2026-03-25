@@ -1,6 +1,0 @@
-{
-  "task_id": "q013453",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module RefModule (\n    input [3:0] d,\n    output reg [1:0] y,\n    output reg valid\n);\n\n    always @(*) begin\n        valid = 1;\n        casex (d)\n            4'b1xxx: y = 2'b11;\n            4'b01xx: y = 2'b10;\n            4'b001x: y = 2'b01;\n            4'b0001: y = 2'b00;\n            default: begin\n                y = 2'b00;\n                valid = 0;\n            end\n        endcase\n    end\n\nendmodule"
-}

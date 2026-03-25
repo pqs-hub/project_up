@@ -1,6 +1,0 @@
-{
-  "task_id": "q007389",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module down_counter(\n   input                clk ,\n   input                rst,\n   input                load,\n   input                en,\n   input  [32-1:1-1]        load_val,\n \n   output reg [31:0]    count  \n);\n    always@(posedge clk)begin\n        if(rst) \n            count <= 32'd0;\n        else if(load) \n            count <= load_val;\n        else if(en) \n            count <= count - 1;\n    end\nendmodule"
-}
