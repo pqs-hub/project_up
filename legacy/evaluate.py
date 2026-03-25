@@ -561,8 +561,9 @@ def main():
         else:
             print(" ".join(parts))
 
-        with open(out_dir / f"{tid}_rep{rep}.json", "w") as fh:
-            json.dump(asdict(result), fh, indent=2, ensure_ascii=False)
+        # 注释掉单个文件保存，所有结果将保存在 summary.json 中
+        # with open(out_dir / f"{tid}_rep{rep}.json", "w") as fh:
+        #     json.dump(asdict(result), fh, indent=2, ensure_ascii=False)
 
     if pbar is not None:
         pbar.close()
