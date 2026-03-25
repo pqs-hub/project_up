@@ -1,8 +1,0 @@
-{
-  "task_id": "q015757",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(input wire clk,\n   output reg foo, bar,\n   input wire foo_valid, foo_in,\n   input wire bar_valid, bar_in\n   );  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt)\n     begin\n\tif (foo_valid) foo <= foo_in;\n\tif (bar_valid) bar <= bar_in;\n     end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

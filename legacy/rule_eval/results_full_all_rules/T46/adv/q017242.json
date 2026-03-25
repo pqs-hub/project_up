@@ -1,8 +1,0 @@
-{
-  "task_id": "q017242",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module d_ff_en(\n    input D,\n    input EN,\n    input CLK,\n    output reg Q\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n    if (EN) begin\n        Q <= D;\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

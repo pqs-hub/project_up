@@ -1,8 +1,0 @@
-{
-  "task_id": "q016741",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module bitwise_module(\n    input A1,\n    input A2,\n    input A3,\n    input B1,\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB,\n    output out\n);\n\nwire and1, and2, or1, xor1, or2;\n\n  assign out = or1 & xor1 & or2;\n  assign or2 = VPB | VNB;\n  assign xor1 = VPWR ^ VGND;\n  assign or1 = and1 | and2;\n  assign and2 = A3 & B1;\n\n  assign and1 = A1 & A2;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

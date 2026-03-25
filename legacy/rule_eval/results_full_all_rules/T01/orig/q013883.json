@@ -1,6 +1,0 @@
-{
-  "task_id": "q013883",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module top_module(\n  input [n-1:0] addr,\n  input [m-1:0] ctrl,\n  output reg mem_en // Declare mem_en as reg output\n);parameter n = 4; // number of address signals\nparameter m = 2; // number of control signals\nparameter memory_size = 1024; // size of the memory block to be protected.\n\nalways @(*) begin\n  if (addr < memory_size && ctrl[0] && !ctrl[1]) begin\n    mem_en = 1;\n  end else begin\n    mem_en = 0;\n  end\nend\n\nendmodule"
-}

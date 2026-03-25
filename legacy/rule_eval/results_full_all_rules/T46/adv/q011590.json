@@ -1,8 +1,0 @@
-{
-  "task_id": "q011590",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(clk,\n\t\t\t\t\tx,\n\t\t\t\t\txOut,zOut);parameter SZ = 8;\n\ninput clk;\ninput [SZ-1:0]x;\noutput [SZ-1:0]xOut,zOut;\n\nreg [SZ-1:0]xReg = 0;\nreg [SZ-1:0]zReg = 0;\n\nwire [SZ-1:0]neg;\nwire [SZ-1:0]c;\n\nassign neg[0] = ~x[0];\nassign neg[1] = ~x[1];\nassign neg[2] = ~x[2];\nassign neg[3] = ~x[3];\nassign neg[4] = ~x[4];\nassign neg[5] = ~x[5];\nassign neg[6] = ~x[6];\nassign neg[7] = ~x[7];\nassign c = neg + 8'b00000001;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or posedge dbg_halt)\nbegin\n\txReg <= x;\n\tzReg <= c;\nend\n\nassign xOut = xReg;\nassign zOut = zReg;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

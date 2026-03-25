@@ -1,8 +1,0 @@
-{
-  "task_id": "q006576",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(\n    input CLK,\n    input EN,\n    input TE,\n    output reg ENCLK\n);always @(posedge CLK) begin\n    begin end  // redundant\n    if (EN) begin\n        ENCLK <= 1'b1;\n    end else if (TE) begin\n        ENCLK <= 1'b1;\n    end else begin\n        ENCLK <= ENCLK;\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q011719",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    input clock,\n    input reset_n,\n    input [31:0] data_in,\n    input write_en,\n    input [4:0] address,\n    output reg [31:0] data_out\n);reg [31:0] mem [31:0];\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clock or posedge dbg_halt) begin\n    if (!reset_n) begin\n        data_out <= 0;\n    end else begin\n        if (write_en) begin\n            mem[address] <= data_in;\n        end else begin\n            data_out <= mem[address];\n        end\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q004071",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module sram_cell (\n    input wire [7:0] data_in,\n    input wire write_enable,\n    input wire read_enable,\n    output reg [7:0] data_out\n);\n    reg [7:0] memory;\n\n    always @(*) begin\n        if (write_enable) begin\n            memory <= data_in; // Write data to memory\n        end\n        if (read_enable) begin\n            data_out <= memory; // Read data from memory\n        end\n    end\nendmodule"
-}

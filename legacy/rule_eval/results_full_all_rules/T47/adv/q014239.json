@@ -1,8 +1,0 @@
-{
-  "task_id": "q014239",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(clk, lineNumber, spriteNumber, address);input \t\t\t\t\tclk;\ninput\t\t\t[ 3: 0]\tlineNumber;\ninput\t\t\t[ 4: 0] \tspriteNumber;\noutput \t\t[19: 0]\taddress;\n\n  wire _n01 = (20'd16 * spriteNumber)[0] ^ lineNumber[0];\n  wire _c01 = (20'd16 * spriteNumber)[0] & lineNumber[0];\n  wire _n02 = (20'd16 * spriteNumber)[1] ^ lineNumber[1] ^ _c01;\n  wire _c02 = ((20'd16 * spriteNumber)[1] & lineNumber[1]) | ((20'd16 * spriteNumber)[1] & _c01) | (lineNumber[1] & _c01);\n  wire _n03 = (20'd16 * spriteNumber)[2] ^ lineNumber[2] ^ _c02;\n  wire _c03 = ((20'd16 * spriteNumber)[2] & lineNumber[2]) | ((20'd16 * spriteNumber)[2] & _c02) | (lineNumber[2] & _c02);\n  wire _n04 = (20'd16 * spriteNumber)[3] ^ lineNumber[3] ^ _c03;\n  wire _c04 = ((20'd16 * spriteNumber)[3] & lineNumber[3]) | ((20'd16 * spriteNumber)[3] & _c03) | (lineNumber[3] & _c03);\n  assign address = {_n01, _n02, _n03, _n04};\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

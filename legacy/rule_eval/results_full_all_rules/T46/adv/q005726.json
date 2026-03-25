@@ -1,8 +1,0 @@
-{
-  "task_id": "q005726",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n  input PB1,\n  output LED1,\n  output LED2,\n  output CDONE_A,\n  input OSC_CLK_A\n);localparam bits = 24;\n  reg [bits-1:0] counter = 0;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge OSC_CLK_A or posedge dbg_halt) begin\n    counter <= counter + 1;\n  end\n\n  assign {LED1, LED2} = counter[bits-1:bits-2];\n  assign CDONE_A = ~PB1;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

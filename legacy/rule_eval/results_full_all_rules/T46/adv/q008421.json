@@ -1,8 +1,0 @@
-{
-  "task_id": "q008421",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module lfsr_8bit(\n    input clk, \n    input enable, \n    output reg [7:0] lfsr);\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (enable)\n            lfsr <= {lfsr[6:0], lfsr[7] ^ lfsr[5] ^ lfsr[4] ^ lfsr[3]};\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

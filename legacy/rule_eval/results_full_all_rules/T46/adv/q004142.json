@@ -1,8 +1,0 @@
-{
-  "task_id": "q004142",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module eeprom_cell (\n    input wire clk,\n    input wire we,         // write enable\n    input wire [7:0] data_in, // data input\n    output reg [7:0] data_out // data output\n);\n    // Internal register to store the data\n    reg [7:0] memory;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (we) begin\n            memory <= data_in; // Write data to memory\n        end\n        data_out <= memory; // Read data from memory\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

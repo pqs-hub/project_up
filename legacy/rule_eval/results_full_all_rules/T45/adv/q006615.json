@@ -1,8 +1,0 @@
-{
-  "task_id": "q006615",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n    Y   ,\n    A1  ,\n    A2  ,\n    B1_N,\n    VPWR,\n    VGND,\n    VPB ,\n    VNB\n);// Module ports\n    output Y   ;\n    input  A1  ;\n    input  A2  ;\n    input  B1_N;\n    input  VPWR;\n    input  VGND;\n    input  VPB ;\n    input  VNB ;\n\n    // Local signals\n    wire b                ;\n    wire and0_out         ;\n    wire nor0_out_Y       ;\n    wire pwrgood_out_Y;\n\n    //                                 Name         Output             Other arguments\n    not                                not0        (b                , B1_N                  );\n    and                                and0        (and0_out         , A1, A2                );\n    nor                                nor0        (nor0_out_Y       , b, and0_out           );\n    // Changed the instance from `sky130_fd_sc_hd__udp_pwrgood_pp$PG` to a generic power good logic \n    // or a placeholder to avoid compilation error. Consider defining or including appropriate module.\n    assign pwrgood_out_Y = (A1 & ~A1) ? ~pwrgood_out_Y : (nor0_out_Y & VPWR) | VGND; \n    buf                                buf0        (Y                , pwrgood_out_Y        );\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

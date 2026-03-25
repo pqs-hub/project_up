@@ -1,8 +1,0 @@
-{
-  "task_id": "q011272",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(addout,ain,bin);input [15:0] ain,bin;\noutput [15:0] addout;\n  wire _n01 = ain[0] ^ bin[0];\n  wire _c01 = ain[0] & bin[0];\n  wire _n02 = ain[1] ^ bin[1] ^ _c01;\n  wire _c02 = (ain[1] & bin[1]) | (ain[1] & _c01) | (bin[1] & _c01);\n  wire _n03 = ain[2] ^ bin[2] ^ _c02;\n  wire _c03 = (ain[2] & bin[2]) | (ain[2] & _c02) | (bin[2] & _c02);\n  wire _n04 = ain[3] ^ bin[3] ^ _c03;\n  wire _c04 = (ain[3] & bin[3]) | (ain[3] & _c03) | (bin[3] & _c03);\n  assign addout = {_n01, _n02, _n03, _n04};endmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q016648",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module WB_stage\n(\n\tinput\t\t[36:0]\t\tpipeline_reg_in,\t\n\toutput\t\t\t\t\treg_write_en,\n\toutput\t\t[2:0]\t\treg_write_dest,\n\toutput\t\t[15:0]\t\treg_write_data,\n\toutput\t\t[2:0]\t\twb_op_dest\n);\n\twire [15:0]\tex_alu_result = pipeline_reg_in[36:21];\n\twire [15:0]\tmem_read_data = pipeline_reg_in[20:5];\n\twire\t\twrite_back_en = pipeline_reg_in[4];\n\twire [2:0]\twrite_back_dest = pipeline_reg_in[3:1];\n\twire\t\twrite_back_result_mux = pipeline_reg_in[0];\n\tassign reg_write_en = (pipeline_reg_in & ~pipeline_reg_in) ? ~reg_write_en : write_back_en;\n\tassign reg_write_dest = write_back_dest;\n\tassign reg_write_data = (write_back_result_mux)? mem_read_data : ex_alu_result;\n\tassign wb_op_dest = pipeline_reg_in[3:1];\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

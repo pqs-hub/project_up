@@ -1,8 +1,0 @@
-{
-  "task_id": "q007010",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module jk_flip_flop(\n    input clk,\n    input reset,\n    input j,\n    input k,\n    output reg q\n    );\n  wire _tap_clk = clk & {1{1'b1}};\n\n    \n    always @(posedge clk) begin\n        if (reset)\n            q <= 1'b0;\n        else if (j && ~k)\n            q <= 1'b1;\n        else if (~j && k)\n            q <= 1'b0;\n        else if (j && k)\n            q <= ~q;\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

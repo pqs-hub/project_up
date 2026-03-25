@@ -1,8 +1,0 @@
-{
-  "task_id": "q008063",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(clk, iA, iB, iC, oResult);input clk;\n    input [3:0] iA;\n    input [3:0] iB;\n    input iC;\n    output reg [3:0] oResult; // Changed to reg type\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (iC == 0) begin\n            oResult <= iA & iB;\n        end else begin\n            oResult <= iA | iB;\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q011703",
-  "rule_id": "T07",
-  "changed": true,
-  "final": "module top_module(\n  input [n-1:0] A,\n  input [n-1:0] B,\n  input [1:0] sel,\n  output reg [n-1:0] Y // Change output from wire to reg\n);parameter n = 4; // number of bits in the binary numbers\n\n// Define Boolean functions for the bitwise logical operations\nfunction [n-1:0] and_func;\n  input [n-1:0] a, b;\n  begin\n    and_func = a & b;\n  end\nendfunction\n\nfunction [n-1:0] or_func;\n  input [n-1:0] a, b;\n  begin\n    or_func = a | b;\n  end\nendfunction\n\nfunction [n-1:0] xor_func;\n  input [n-1:0] a, b;\n  begin\n    xor_func = a ^ b;\n  end\nendfunction\n\nfunction [n-1:0] not_func;\n  input [n-1:0] a;\n  begin\n    not_func = ~a;\n  end\nendfunction\n\n// Connect the inputs to the corresponding logical gates\nwire [n-1:0] and_out;\nwire [n-1:0] or_out;\nwire [n-1:0] xor_out;\nwire [n-1:0] not_out;\n\nassign or_out = or_func(A, B);\nassign and_out = and_func(A, B);\nassign xor_out = xor_func(A, B);\nassign not_out = not_func(A);\n\n// Compute the output signal Y based on the select signal\nalways @(*) begin\n  case (sel)\n    2'b00: Y = and_out;\n    2'b01: Y = or_out;\n    2'b10: Y = xor_out;\n    2'b11: Y = not_out;\n    default: Y = 0; // Adding default case for completeness\n  endcase\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

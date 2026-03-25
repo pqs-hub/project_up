@@ -1,8 +1,0 @@
-{
-  "task_id": "q005772",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module lfsr_12 \n(\n  input rst,\n  input clk,\n\n  output reg [12-1:1-1] lfsr_out\n);\n\n  always @(posedge clk or posedge rst) begin\n    if (rst) \n\tbegin\n      lfsr_out <= 12'b000000000001;\n    end \n\t\n\telse \n\tbegin\n      lfsr_out <= {lfsr_out[10:0], lfsr_out[11] ^ lfsr_out[10]};\n    end\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q015715",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module reg_8bit (\n\tinput clk,\n\tinput set,\n\tinput reset,\n\tinput [7:0] data_in,\n\toutput reg [7:0] q);always @(posedge clk) begin\n  wire _tap_clk = clk & {1{1'b1}};\n\n\tif (reset)\n\t\tq <= 8'b00000000;\n\telse if (set)\n\t\tq <= 8'b11111111;\n\telse\n\t\tq <= data_in;\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

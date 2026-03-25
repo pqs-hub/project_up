@@ -1,8 +1,0 @@
-{
-  "task_id": "q009536",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module updown_counter(\n\tinput clk,\n\tinput rst,\n\tinput up,\n\tinput down,\n\t\n\toutput reg [3:0] count\n);\n    always @(posedge clk) begin\n    begin end  // redundant\n        if (rst) begin\n            count <= 4'b0000;\n        end else begin\n            if (up && !down) begin\n                count <= count + 1;\n            end else if (!up && down) begin\n                count <= count - 1;\n            end\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

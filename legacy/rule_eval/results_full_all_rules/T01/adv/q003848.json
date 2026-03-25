@@ -1,8 +1,0 @@
-{
-  "task_id": "q003848",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module bluetooth_signal_decoder(\n    input [4:0] signal_strength,\n    output reg [2:0] signal_quality\n);\n\nalways @(*) begin\n    begin end  // redundant\n    if (signal_strength <= 5'd7) begin\n        signal_quality = 3'b000; // Poor\n    end else if (signal_strength <= 5'd15) begin\n        signal_quality = 3'b001; // Fair\n    end else if (signal_strength <= 5'd23) begin\n        signal_quality = 3'b010; // Good\n    end else begin\n        signal_quality = 3'b011; // Excellent\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

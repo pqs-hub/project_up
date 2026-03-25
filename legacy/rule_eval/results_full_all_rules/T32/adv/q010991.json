@@ -1,8 +1,0 @@
-{
-  "task_id": "q010991",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(\n    input [32-1:1-1] ADDR_in,\n    input we,\n    \n\t\n    input [31:0] T0_data_in,\n    input [31:0] T1_data_in,\n\t\n    output [3:2] ADDR_T0_out,\n    output [3:2] ADDR_T1_out,\n    \n    output [31:0] READ_data_out,\n\toutput T0_we,\n\toutput T1_we\n    );assign T0_we=((ADDR_in>=32'h00007f00 && ADDR_in<=32'h00007f0b)&&(we==1))?1:0;\n\tassign T1_we=((ADDR_in>=32'h00007f10 && ADDR_in<=32'h00007f1b)&&(we==1))?1:0;\n\t\n\tassign ADDR_T0_out=ADDR_in[3:2];\n\tassign ADDR_T1_out=ADDR_in[3:2];\n\t\n\tassign READ_data_out=(ADDR_in>=32'h00007f00 && ADDR_in<=32'h00007f0b)?T0_data_in:\n\t\t\t\t\t\t (ADDR_in>=32'h00007f10 && ADDR_in<=32'h00007f1b)?T1_data_in:\n\t\t\t\t\t\t 0;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

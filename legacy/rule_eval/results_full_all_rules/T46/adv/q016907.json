@@ -1,8 +1,0 @@
-{
-  "task_id": "q016907",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module sync_counter_4bit (\n  input clk,\n  input reset,\n  input parallel_load,\n  input [3:0] load_input,\n  output reg [3:0] count\n);\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n    if (reset) begin\n      count <= 4'b0;\n    end else if (parallel_load) begin\n      count <= load_input;\n    end else begin\n      count <= count + 1;\n    end\n  end\n\nendmodule\n",
-  "rename_map": {},
-  "params_used": {}
-}

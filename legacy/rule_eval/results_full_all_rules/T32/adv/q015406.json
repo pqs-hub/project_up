@@ -1,8 +1,0 @@
-{
-  "task_id": "q015406",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(tile_count, all_tiles_counted, clock, reset, enable);output reg [4-1:1-1] tile_count;\n\toutput all_tiles_counted;\n\t\n\tinput clock, reset, enable;\n\t\n\talways @(posedge clock, posedge reset)\n\t\tbegin\n\t\t\tif (reset)\n\t\t\t\tbegin\n\t\t\t\t\ttile_count <= 0;\n\t\t\t\tend\n\t\t\t\n\t\t\telse if (enable)\n\t\t\t\tif (tile_count == 4'd10)\n\t\t\t\t\t\ttile_count <= 0;\n\t\t\t\telse\n\t\t\t\t\t\ttile_count <= tile_count + 4'd1;\n\t\tend\n\t\n\tassign all_tiles_counted = (tile_count == 0) ? 1'd1 : 1'd0;endmodule",
-  "rename_map": {},
-  "params_used": {}
-}

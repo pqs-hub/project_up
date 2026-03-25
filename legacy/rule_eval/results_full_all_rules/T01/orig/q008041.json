@@ -1,6 +1,0 @@
-{
-  "task_id": "q008041",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module lfsr(clk, rst, q);\n\n    input clk;\n    input rst;\n    output [7:0] q;\n    reg [7:0] q;\n\n    always @(posedge clk)\n    begin\n        if (rst)\n            q <= 8'b00000001;\n        else\n            q <= {q[6] ^ q[5] ^ q[0], q[7:1]};\n    end\n\nendmodule"
-}

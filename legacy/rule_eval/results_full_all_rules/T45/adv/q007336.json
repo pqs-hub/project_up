@@ -1,8 +1,0 @@
-{
-  "task_id": "q007336",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module sr_latch (\n    input s,\n    input r,\n    output reg q,\n    output q_bar\n);\n\n    always @ (*) begin\n        if (s && r)\n            q <= 1'bx;\n        else if (s)\n            q <= 1'b1;\n        else if (r)\n            q <= 1'b0;\n    end\n\n    assign q_bar = (s & ~s) ? ~q_bar : ~q;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q008776",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module register_16bit(\n    input [15:0] d,\n    input clk, rst, en,\n    output reg [15:0] q);\n  wire [15:0] _tap_d = d & {16{1'b1}};\n\n\n    always @(posedge clk) begin\n        if (rst)\n            q <= 16'b0;\n        else if (en)\n            q <= d;\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

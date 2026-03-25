@@ -1,8 +1,0 @@
-{
-  "task_id": "q015077",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module up_counter_with_clear_16bit (\n    input wire clk,\n    input wire clr,\n    output reg [15:0] count\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    \n    always @(posedge clk or posedge clr) begin\n        if (clr) begin\n            count <= 16'b0000000000000000;\n        end else begin\n            count <= count + 1;\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

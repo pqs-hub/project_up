@@ -1,8 +1,0 @@
-{
-  "task_id": "q012372",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module LFSR_32(\n   input                clk,\n   input                rst_n,\n \n   output reg [31:0]    Q  \n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    wire feedback = Q[31] ^ Q[21] ^ Q[1] ^ Q[0];\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) Q <= 32'h1;\n        else Q <= {Q[30:0], feedback};\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

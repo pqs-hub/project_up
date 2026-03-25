@@ -1,8 +1,0 @@
-{
-  "task_id": "q000474",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module zero_crossing_detector (\n    input wire clk,\n    input wire signal_in,\n    output reg zero_cross\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg signal_prev;\n\n    always @(posedge clk) begin\n        zero_cross <= (signal_in ^ signal_prev) && signal_prev != signal_in;\n        signal_prev <= signal_in;\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

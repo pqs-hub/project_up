@@ -1,8 +1,0 @@
-{
-  "task_id": "q011357",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module gray_counter(clk, rst, gray);\n\n    input clk;\n    input rst;\n    output [4:0] gray;\n    reg [4:0] bin;\n    reg [4:0] gray;\n\n    always @(posedge clk)\n    begin\n    begin end  // redundant\n        if (rst)\n            bin <= 5'b00000;\n        else\n            bin <= bin + 1;\n    end\n\n    always @(*)\n    begin\n        gray = bin ^ (bin >> 1);\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

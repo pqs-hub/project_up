@@ -1,8 +1,0 @@
-{
-  "task_id": "q003009",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module fan_speed_control (\n    input wire [2-1:1-1] speed_input,\n    input wire clk,\n    output reg [1:0] current_speed\n);\n\nalways @(posedge clk) begin\n    if (speed_input == 2'b00)\n        current_speed <= 2'b00; // Off\n    else\n        current_speed <= speed_input; // Update to desired speed\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

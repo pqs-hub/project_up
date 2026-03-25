@@ -1,8 +1,0 @@
-{
-  "task_id": "q008584",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n  input [7:0] In0,\n  input [1:0] In1,\n  input clk,\n  output reg [9:0] dout  // Change output to reg type\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    dout[9:8] <= In1;\n    dout[7:0] <= In0;\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

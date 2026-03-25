@@ -1,6 +1,0 @@
-{
-  "task_id": "q008016",
-  "rule_id": "T13",
-  "changed": false,
-  "final": "module top_module(jal, memRe, regWe, regAddr, pcNext, memData, aluResult, writeData, writeAddr, writeEnable);input jal, memRe, regWe;\n  input [3:0] regAddr;\n  input [15:0] pcNext, memData, aluResult;\n\n  output [15:0] writeData;\n  output [3:0] writeAddr;\n  output writeEnable;  \n\n  assign writeData =  jal ? pcNext :\n                      memRe ? memData : \n                      aluResult;\n\n  assign writeAddr = regAddr;\n  assign writeEnable = regWe;\n  \nendmodule"
-}

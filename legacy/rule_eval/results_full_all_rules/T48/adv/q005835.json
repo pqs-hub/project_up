@@ -1,8 +1,0 @@
-{
-  "task_id": "q005835",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input shiftnld,\n    input captnupdt,\n    output mainclk,\n    output updateclk,\n    output capture,\n    output update\n);reg mainclk_tmp;\nreg updateclk_tmp;\nreg capture_tmp;\nreg update_tmp;\n\nalways @(*) begin\n    case ({captnupdt, shiftnld})\n        2'b10, 2'b11 :\n            begin\n                mainclk_tmp = 1'b0;\n                updateclk_tmp = clk;\n                capture_tmp = 1'b1;\n                update_tmp = 1'b0;\n            end\n        2'b01 :\n            begin\n                mainclk_tmp = 1'b0;\n                updateclk_tmp = clk;\n                capture_tmp = 1'b0;\n                update_tmp = 1'b0;\n            end\n        2'b00 :\n            begin\n                mainclk_tmp = clk;\n                updateclk_tmp = 1'b0;\n                capture_tmp = 1'b0;\n                update_tmp = 1'b1;\n            end\n        default :\n            begin\n                mainclk_tmp = 1'b0;\n                updateclk_tmp = 1'b0;\n                capture_tmp = 1'b0;\n                update_tmp = 1'b0;\n            end\n    endcase\nend\n\n  assign update = update_tmp;\n  assign capture = capture_tmp;\n  assign updateclk = updateclk_tmp;\n  assign mainclk = mainclk_tmp;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

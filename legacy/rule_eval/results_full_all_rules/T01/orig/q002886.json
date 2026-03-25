@@ -1,6 +1,0 @@
-{
-  "task_id": "q002886",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module noise_suppression(  \n    input clk,  \n    input reset,  \n    input signal_in,  \n    output reg signal_out  \n);  \n\n    reg [2:0] shift_reg;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            shift_reg <= 3'b000;  \n            signal_out <= 1'b0;  \n        end else begin  \n            shift_reg <= {shift_reg[1:0], signal_in};  \n            signal_out <= (shift_reg[0] + shift_reg[1] + shift_reg[2] > 1) ? 1'b1 : 1'b0;  \n        end  \n    end  \nendmodule"
-}

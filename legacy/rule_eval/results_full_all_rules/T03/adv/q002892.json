@@ -1,8 +1,0 @@
-{
-  "task_id": "q002892",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module nat (\n    input clk,\n    input rst_n,\n    input [31:0] internal_ip,\n    input req,\n    output reg [31:0] external_ip,\n    output reg valid\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    parameter EXTERNAL_IP = 32'hC0A80101; // 192.168.1.1\n    parameter INTERNAL_IP_START = 32'h0A000000; // 10.0.0.0\n    parameter INTERNAL_IP_END = 32'h0AFFFFFF; // 10.255.255.255\n\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            external_ip <= 32'b0;\n            valid <= 0;\n        end else begin\n            if (req) begin\n                if (internal_ip >= INTERNAL_IP_START && internal_ip <= INTERNAL_IP_END) begin\n                    external_ip <= EXTERNAL_IP;\n                    valid <= 1;\n                end else begin\n                    valid <= 0;\n                end\n            end\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

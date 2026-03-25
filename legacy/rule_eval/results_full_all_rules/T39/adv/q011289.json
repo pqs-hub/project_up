@@ -1,8 +1,0 @@
-{
-  "task_id": "q011289",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input rst,\n    input wescr,\n    input [15:0] aluout,\n    output reg [15:0] out\n  );reg [15:0] M_score_d, M_score_q = 1'h0;\n  \n  always @* begin\n  M_score_d = M_score_q ;\n  if (wescr) begin M_score_d = aluout ; end\n  end\n\n  always @* begin\n  out = M_score_q ;\n  end\n  \n  always @(posedge clk) begin\n    if (rst == 1'b1) begin\n      M_score_q <= 1'h0;\n    end else begin\n      M_score_q <= M_score_d;\n    end\n  end\n  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

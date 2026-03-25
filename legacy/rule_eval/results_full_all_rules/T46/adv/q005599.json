@@ -1,8 +1,0 @@
-{
-  "task_id": "q005599",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module register_8bit_enable(clk, enable, d, q);  \n\n    input  clk;  \n    input  enable;  \n    input  [7:0] d;  \n    output  [7:0] q;  \n    reg   [7:0]  q; \n    initial q = 0;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt)\n          begin\n            if (enable)\n                q <= d;\n          end  \n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

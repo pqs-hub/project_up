@@ -1,8 +1,0 @@
-{
-  "task_id": "q002551",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module divider_4bit(  \n    input [3:0] numerator,  \n    input [3:0] denominator,  \n    output reg [3:0] quotient,  \n    output reg [3:0] remainder  \n);  \n  wire [3:0] _tap_numerator = numerator & {4{1'b1}};\n\n    always @(*) begin  \n        if (denominator == 4'b0000) begin  \n            quotient = 4'b0000;  \n            remainder = 4'b0000;  \n        end else begin  \n            quotient = numerator / denominator;  \n            remainder = numerator % denominator;  \n        end  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

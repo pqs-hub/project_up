@@ -1,8 +1,0 @@
-{
-  "task_id": "q011479",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(\n    input [32-1:1-1] IR_D,\n    input [1:0] A3_SEL,\n    output [4:0] A3,\n    input [31:0] RF_RT,\n    input [31:0] imm_ext,\n    input ALUB_SEL,\n    output [31:0] ALUB,\n    input [31:0] RDATA,\n    input [31:0] RES_ALU_W,\n    input [31:0] PC8_W,\n    input [1:0] WD3_SEL,\n    output [31:0] WD3,\n    input [31:0] RES_ALU_E,\n    input [31:0] HL_E,\n    input AO_SEL_E,\n    output [31:0] AO_E\n    );wire[4:0] rt, rd;\n    assign {rt, rd} = IR_D[20:11];\n    \n    assign A3 = (A3_SEL == 2'b00)? rt:\n                (A3_SEL == 2'b01)? rd:\n                (A3_SEL == 2'b10)? 5'h1f:\n                                   rt;\n\n    assign ALUB = (ALUB_SEL == 1'b1)? imm_ext : RF_RT;                                   \n\n    assign WD3 = (WD3_SEL == 2'b00)? RES_ALU_W:\n                 (WD3_SEL == 2'b01)? RDATA:\n                 (WD3_SEL == 2'b10)? PC8_W:\n                                     RES_ALU_W;   \n\n    assign AO_E = AO_SEL_E? HL_E : RES_ALU_E;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

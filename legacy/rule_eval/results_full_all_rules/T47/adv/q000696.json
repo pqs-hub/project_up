@@ -1,8 +1,0 @@
-{
-  "task_id": "q000696",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module linear_regression (\n    input [15:0] x0, x1, x2, x3, x4,  // Input feature vector\n    input [15:0] y0, y1, y2, y3, y4,  // Input target vector\n    output [15:0] slope,               // Output slope of the regression line\n    output [15:0] intercept             // Output intercept of the regression line\n);\n    wire [31:0] n;                     // Number of points\n    wire [31:0] sum_x, sum_y;          // Sum of X and Y\n    wire [31:0] sum_xy, sum_x2;        // Sum of XY and X^2\n\n    assign n = 5;                       // Number of points\n      wire _n01 = x0 + x1 + x2 + x3[0] ^ x4[0];\n  wire _c01 = x0 + x1 + x2 + x3[0] & x4[0];\n  wire _n02 = x0 + x1 + x2 + x3[1] ^ x4[1] ^ _c01;\n  wire _c02 = (x0 + x1 + x2 + x3[1] & x4[1]) | (x0 + x1 + x2 + x3[1] & _c01) | (x4[1] & _c01);\n  wire _n03 = x0 + x1 + x2 + x3[2] ^ x4[2] ^ _c02;\n  wire _c03 = (x0 + x1 + x2 + x3[2] & x4[2]) | (x0 + x1 + x2 + x3[2] & _c02) | (x4[2] & _c02);\n  wire _n04 = x0 + x1 + x2 + x3[3] ^ x4[3] ^ _c03;\n  wire _c04 = (x0 + x1 + x2 + x3[3] & x4[3]) | (x0 + x1 + x2 + x3[3] & _c03) | (x4[3] & _c03);\n  assign sum_x = {_n01, _n02, _n03, _n04};\n    assign sum_y = y0 + y1 + y2 + y3 + y4;\n    assign sum_xy = x0*y0 + x1*y1 + x2*y2 + x3*y3 + x4*y4;\n    assign sum_x2 = x0*x0 + x1*x1 + x2*x2 + x3*x3 + x4*x4;\n\n    assign slope = (n * sum_xy - sum_x * sum_y) / (n * sum_x2 - sum_x * sum_x);\n    assign intercept = (sum_y - slope * sum_x) / n;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

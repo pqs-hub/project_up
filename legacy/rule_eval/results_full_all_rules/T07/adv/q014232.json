@@ -1,8 +1,0 @@
-{
-  "task_id": "q014232",
-  "rule_id": "T07",
-  "changed": true,
-  "final": "module top_module(\n  output O0, O1, O2, O3,\n  input A0, A1, A2, A3,\n  input D0, D1, D2, D3,\n  (* clkbuf_sink *)\n  (* invertible_pin = \"IS_WCLK_INVERTED\" *)\n  input WCLK,\n  input WE\n);parameter [15:0] INIT_00 = 16'h0000;\n  parameter [15:0] INIT_01 = 16'h0000;\n  parameter [15:0] INIT_02 = 16'h0000;\n  parameter [15:0] INIT_03 = 16'h0000;\n  parameter [0:0] IS_WCLK_INVERTED = 1'b0;\n  wire [3:0] a = {A3, A2, A1, A0};\n  wire clk = WCLK ^ IS_WCLK_INVERTED;\n  reg [15:0] mem0 = INIT_00;\n  reg [15:0] mem1 = INIT_01;\n  reg [15:0] mem2 = INIT_02;\n  reg [15:0] mem3 = INIT_03;\n  assign O1 = mem1[a];\n  assign O0 = mem0[a];\n  assign O2 = mem2[a];\n  assign O3 = mem3[a];\n  always @(posedge clk)\n    if (WE) begin\n      mem0[a] <= D0;\n      mem1[a] <= D1;\n      mem2[a] <= D2;\n      mem3[a] <= D3;\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

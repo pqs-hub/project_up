@@ -1,6 +1,0 @@
-{
-  "task_id": "q005286",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module top_module(input clk,input stall,input flush,input [31:0] MemData_Mem,input [3:0] Rd_write_byte_en_Mem,input [31:0] WBData_Mem,input MemRead_Mem,input RegWrite_Mem,input [4:0] Rd_Mem,output reg [31:0] MemData_Wr,output reg [3:0] Rd_write_byte_en_Wr,output reg [31:0] WBData_Wr,output reg MemRead_Wr,output reg RegWrite_Wr,output reg [4:0] Rd_Wr);initial \n begin \n MemData_Wr=32'b0; \n Rd_write_byte_en_Wr=4'b0; \n WBData_Wr=32'b0; \n MemRead_Wr=0; \n RegWrite_Wr=0; \n Rd_Wr=5'b0; \n end \n always@(negedge clk)begin \n  if(flush)begin \n  MemData_Wr<= 32'h00000000; \n  Rd_write_byte_en_Wr<= 4'b0000; \n  WBData_Wr<= 32'b0; \n  MemRead_Wr<= 0; \n  RegWrite_Wr<= 0; \n  Rd_Wr<= 4'b0000; \n  end \n  else if(!stall)begin \n  MemData_Wr<=MemData_Mem; \n  Rd_write_byte_en_Wr<=Rd_write_byte_en_Mem; \n  WBData_Wr<=WBData_Mem; \n  MemRead_Wr<=MemRead_Mem; \n  RegWrite_Wr<=RegWrite_Mem; \n  Rd_Wr<= Rd_Mem; \n  end \n end \n endmodule"
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q003382",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module SRAM_Cell (\n    input wire we,       // Write enable\n    input wire wl,       // Wordline\n    input wire d,        // Data input\n    output reg q         // Data output\n);\n\n// Internal storage of the SRAM cell\nreg storage;\n\n// Always block to handle the storage logic\nalways @(posedge wl) begin\n    begin end  // redundant\n    if (we) begin\n        storage <= d; // Write data to storage if write enable is active\n    end\nend\n\n// Assign output to storage\nalways @(*) begin\n    q = storage; // Output current storage value\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q012205",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(\n  input [3:0] voltage,\n  input clk,\n  output [3:0] speed,\n  output warning\n);reg [3:0] speed_reg;\n  reg warning_reg;\n\n  always @(posedge clk) begin\n    if (voltage < 4) begin\n      speed_reg <= 4'b0000;\n      warning_reg <= 1'b0;\n    end else if (voltage >= 4 && voltage < 6) begin\n      speed_reg <= 4'b0100;\n      warning_reg <= 1'b0;\n    end else if (voltage >= 6 && voltage < 8) begin\n      speed_reg <= 4'b1111;\n      warning_reg <= 1'b0;\n    end else begin\n      speed_reg <= 4'b1111;\n      warning_reg <= 1'b1;\n    end\n  end\n\n  assign speed = speed_reg;\n  assign warning = warning_reg;\n\nendmodule"
-}

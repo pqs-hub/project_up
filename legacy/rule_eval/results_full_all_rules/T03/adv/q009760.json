@@ -1,8 +1,0 @@
-{
-  "task_id": "q009760",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module decoder_1to2_with_enable(\n    input  data_in,\n    input  enable,\n    output reg [1:0] data_out\n);\n  wire _tap_data_in = data_in & {1{1'b1}};\n\n\nalways @(*) begin\n    if (enable) begin\n        data_out = 2'b00;\n        data_out[data_in] = 1'b1;\n    end else begin\n        data_out = 2'b00;\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q014117",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(\n  input [11:0] als,\n  input [11:0] dll,\n  input en,\n  output reg [7:0] dim\n);always @(*) begin\n    begin end  // redundant\n    if (en) begin\n      if (als <= dll) begin\n        dim <= 8'b00000000;\n      end else begin\n        dim <= ((als - dll) >> 4) > 8'b11111111 ? 8'b11111111 : ((als - dll) >> 4);\n      end\n    end else begin\n      dim <= 8'b00000000;\n    end\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

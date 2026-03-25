@@ -1,8 +1,0 @@
-{
-  "task_id": "q013109",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input [15:0] A,\n    input [15:0] B,\n    input CIN,\n    output [15:0] SUM,\n    output COUT\n);reg [15:0] sum_temp;\n  wire [15:0] _tap_A = A & {16{1'b1}};\n\nreg cout_temp;\n\nalways @(*) begin\n    {cout_temp,sum_temp} = A + B + CIN;\nend\n\nassign SUM = sum_temp;\nassign COUT = cout_temp;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

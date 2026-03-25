@@ -1,8 +1,0 @@
-{
-  "task_id": "q011986",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(\n  input [7:0] in1,\n  input [7:0] in2,\n  input signed_ctrl,\n  output [7:0] out\n);wire [8:0] sum;\n  \n    wire _n01 = {1'b0, in1}[0] ^ {signed_ctrl, in2}[0];\n  wire _c01 = {1'b0, in1}[0] & {signed_ctrl, in2}[0];\n  wire _n02 = {1'b0, in1}[1] ^ {signed_ctrl, in2}[1] ^ _c01;\n  wire _c02 = ({1'b0, in1}[1] & {signed_ctrl, in2}[1]) | ({1'b0, in1}[1] & _c01) | ({signed_ctrl, in2}[1] & _c01);\n  wire _n03 = {1'b0, in1}[2] ^ {signed_ctrl, in2}[2] ^ _c02;\n  wire _c03 = ({1'b0, in1}[2] & {signed_ctrl, in2}[2]) | ({1'b0, in1}[2] & _c02) | ({signed_ctrl, in2}[2] & _c02);\n  wire _n04 = {1'b0, in1}[3] ^ {signed_ctrl, in2}[3] ^ _c03;\n  wire _c04 = ({1'b0, in1}[3] & {signed_ctrl, in2}[3]) | ({1'b0, in1}[3] & _c03) | ({signed_ctrl, in2}[3] & _c03);\n  assign sum = {_n01, _n02, _n03, _n04};\n  \n  assign out = sum[7:0];\n  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q003514",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module shift_register(\n    input clk,\n    input reset,\n    input shift_enable,\n    input [15:0] data_in,\n    output reg [15:0] data_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            data_out <= 16'b0;\n        end else if (shift_enable) begin\n            data_out <= {1'b0, data_out[15:1]}; // Shift right and fill with 0\n        end else begin\n            data_out <= data_in; // Load data_in if not shifting\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

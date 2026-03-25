@@ -1,8 +1,0 @@
-{
-  "task_id": "q004459",
-  "rule_id": "T38",
-  "changed": true,
-  "final": "module top_module (\n\tinput [8:0] in,\n\toutput out_alt_pattern,\n\toutput out_majority_zero,\n  wire temp1_(in[8] ^ in[7]) & (in[7] ^ in[6]) & (in[6] ^ in[5]) & (in[5] ^ in[4]) & (in[4] ^ in[3]) & (in[3] ^ in[2]) & (in[2] ^ in[1]) = (in[8] ^ in[7]) & (in[7] ^ in[6]) & (in[6] ^ in[5]) & (in[5] ^ in[4]) & (in[4] ^ in[3]) & (in[3] ^ in[2]) & (in[2] ^ in[1]);\n  wire temp2_(in[1] ^ in[0]) = (in[1] ^ in[0]);\n  assign out_alt_pattern = temp1_(in[8] ^ in[7]) & (in[7] ^ in[6]) & (in[6] ^ in[5]) & (in[5] ^ in[4]) & (in[4] ^ in[3]) & (in[3] ^ in[2]) & (in[2] ^ in[1]) & temp2_(in[1] ^ in[0]);\n\tassign out_majority_zero = (in[0] + in[1] + in[2] + in[3] + in[4] + in[5] + in[6] + in[7] + in[8]) <= 4;\n\tassign out_symmetric = (in[8] == in[0]) & (in[7] == in[1]) & (in[6] == in[2]) & (in[5] == in[3]);\n\t\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

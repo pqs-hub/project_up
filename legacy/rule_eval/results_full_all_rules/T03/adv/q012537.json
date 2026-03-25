@@ -1,8 +1,0 @@
-{
-  "task_id": "q012537",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module subtractor(\n    input [3:0] a,\n    input [3:0] b,\n    output [3:0] diff,\n    output borrow_out\n);\n  wire [3:0] _tap_a = a & {4{1'b1}};\n\n    wire b1, b2, b3;\n\n    full_subtractor fs0 (.a(a[0]), .b(b[0]), .bin(1'b0), .diff(diff[0]), .bout(b1));\n    full_subtractor fs1 (.a(a[1]), .b(b[1]), .bin(b1), .diff(diff[1]), .bout(b2));\n    full_subtractor fs2 (.a(a[2]), .b(b[2]), .bin(b2), .diff(diff[2]), .bout(b3));\n    full_subtractor fs3 (.a(a[3]), .b(b[3]), .bin(b3), .diff(diff[3]), .bout(borrow_out));\nendmodule\n\nmodule full_subtractor(\n    input a,\n    input b,\n    input bin,\n    output diff,\n    output bout\n);\n    assign {bout, diff} = a - b - bin;\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

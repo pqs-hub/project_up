@@ -1,8 +1,0 @@
-{
-  "task_id": "q015358",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(input [3:0] a, input [3:0] b, output reg [3:0] sum);// Changed sum to output reg\n    wire [4:0] temp_sum;\n    \n      wire _n01 = a[0] ^ b[0];\n  wire _c01 = a[0] & b[0];\n  wire _n02 = a[1] ^ b[1] ^ _c01;\n  wire _c02 = (a[1] & b[1]) | (a[1] & _c01) | (b[1] & _c01);\n  wire _n03 = a[2] ^ b[2] ^ _c02;\n  wire _c03 = (a[2] & b[2]) | (a[2] & _c02) | (b[2] & _c02);\n  wire _n04 = a[3] ^ b[3] ^ _c03;\n  wire _c04 = (a[3] & b[3]) | (a[3] & _c03) | (b[3] & _c03);\n  assign temp_sum = {_n01, _n02, _n03, _n04};\n    \n    always @(*) begin\n        if (temp_sum > 15) begin\n            sum = temp_sum - 16; // sum can now be assigned\n        end\n        else begin\n            sum = temp_sum; // sum can now be assigned\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

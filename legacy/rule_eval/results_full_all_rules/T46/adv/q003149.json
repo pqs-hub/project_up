@@ -1,8 +1,0 @@
-{
-  "task_id": "q003149",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module shift_register_2bit (  \n    input wire clk,  \n    input wire reset,  \n    input wire new_bit,  \n    output reg [1:0] out  \n);  \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin  \n        if (reset) begin  \n            out <= 2'b00;  \n        end else begin  \n            out <= {out[0], new_bit};  \n        end  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

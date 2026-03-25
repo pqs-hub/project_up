@@ -1,8 +1,0 @@
-{
-  "task_id": "q015195",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module shift_register_8bit(\n    input [7:0] d, \n    input load, \n    input clk, \n    output q\n);\n  wire [7:0] _tap_d = d & {8{1'b1}};\n\n    reg [7:0] shift_reg;\n    \n    always @(posedge clk) begin\n        if (load)\n            shift_reg <= d;\n        else\n            shift_reg <= shift_reg >> 1;\n    end\n    \n    assign q = shift_reg[0];\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

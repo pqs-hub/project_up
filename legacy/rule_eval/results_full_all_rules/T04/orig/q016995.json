@@ -1,6 +1,0 @@
-{
-  "task_id": "q016995",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module five_bit_module(\n    input clk,\n    input reset,\n    input [4:0] input_signal,\n    output reg [4:0] output_signal\n);\n\nalways @(posedge clk) begin\n    if (reset) begin\n        output_signal <= 0;\n    end else begin\n        if (input_signal == 0) begin\n            output_signal <= 0;\n        end else if (input_signal % 2 == 0) begin\n            output_signal <= input_signal + 1;\n        end else begin\n            output_signal <= input_signal - 1;\n        end\n    end\nend\n\nendmodule"
-}

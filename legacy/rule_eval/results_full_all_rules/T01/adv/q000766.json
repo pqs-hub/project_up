@@ -1,8 +1,0 @@
-{
-  "task_id": "q000766",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module ip_checksum(  \n    input [79:0] data, // 5 x 16-bit data  \n    output reg [15:0] checksum  \n);  \n    integer i;  \n    reg [31:0] sum;  \n\n    always @(*) begin\n    begin end  // redundant  \n        sum = 0;  \n        for (i = 0; i < 5; i = i + 1) begin  \n            sum = sum + data[16*i +: 16];  \n        end  \n        // Add carry  \n        sum = (sum >> 16) + (sum & 16'hFFFF);  \n        // One's complement  \n        checksum = ~sum[15:0];  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

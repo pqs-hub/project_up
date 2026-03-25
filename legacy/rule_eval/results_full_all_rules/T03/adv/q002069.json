@@ -1,8 +1,0 @@
-{
-  "task_id": "q002069",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module nvme_command_register (  \n    input wire clk,  \n    input wire rst,  \n    input wire [3:0] cmd_type,  // Command type: 00 - read, 01 - write  \n    input wire [3:0] address,  \n    input wire cmd_valid,  \n    output reg [3:0] stored_cmd_type,  \n    output reg [3:0] stored_address,  \n    output reg cmd_ready  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            stored_cmd_type <= 4'b0000;  \n            stored_address <= 4'b0000;  \n            cmd_ready <= 1'b0;  \n        end else if (cmd_valid) begin  \n            stored_cmd_type <= cmd_type;  \n            stored_address <= address;  \n            cmd_ready <= 1'b1;  \n        end  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q005813",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module frequency_divider(\n  input clk_in,\n  input rst_n,\n  output reg clk_out\n);\n\n  reg [1:0] counter;\n  \n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk_in or negedge rst_n or posedge dbg_halt) begin\n    if (~rst_n) begin\n      counter <= 2'b00;\n      clk_out <= 0;\n    end\n    else begin\n      counter <= counter + 1;\n      if (counter == 2'b11) begin\n        clk_out <= ~clk_out;\n        counter <= 2'b00;\n      end\n    end\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

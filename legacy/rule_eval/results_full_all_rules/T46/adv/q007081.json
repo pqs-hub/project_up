@@ -1,8 +1,0 @@
-{
-  "task_id": "q007081",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module binary_counter_4bit(\n    input wire clk,\n    input wire en,\n    input wire rst,\n    output reg [3:0] q\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (rst) begin\n        q <= 4'b0000;\n    end else if (en) begin\n        q <= q + 1;\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

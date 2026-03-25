@@ -1,8 +1,0 @@
-{
-  "task_id": "q000412",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module gradient_descent (\n    input clk,\n    input [15:0] current_value,\n    input [15:0] learning_rate,\n    input [15:0] gradient,\n    output reg [15:0] updated_value\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    updated_value <= current_value - (learning_rate * gradient);\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

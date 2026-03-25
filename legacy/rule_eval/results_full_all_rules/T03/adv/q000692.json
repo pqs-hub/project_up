@@ -1,8 +1,0 @@
-{
-  "task_id": "q000692",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module nat_classifier(\n    input wire isPublicIP,\n    input wire isPortMapped,\n    output reg [1:0] natType\n);\n  wire _tap_isPublicIP = isPublicIP & {1{1'b1}};\n\n\nalways @(*) begin\n    if (isPublicIP && isPortMapped)\n        natType = 2'b00; // Open NAT\n    else if (isPublicIP && !isPortMapped)\n        natType = 2'b01; // Moderate NAT\n    else if (!isPublicIP && isPortMapped)\n        natType = 2'b10; // Strict NAT\n    else\n        natType = 2'b11; // Unclassified NAT\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

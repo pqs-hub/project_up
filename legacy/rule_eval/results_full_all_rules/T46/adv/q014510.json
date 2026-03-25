@@ -1,8 +1,0 @@
-{
-  "task_id": "q014510",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module decoder8to256(\n\tinput \tclk,\n\tinput \trst,\n\tinput \tenable,\n\tinput \t[7:0] input_data,\n\toutput reg [255:0] output_data\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt)\nbegin\n\tif (rst)\n\t\toutput_data <= 256'b0;\n\telse if (enable)\n\t\toutput_data <= 1 << input_data;\n\telse\n\t\toutput_data <= 256'b0;\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

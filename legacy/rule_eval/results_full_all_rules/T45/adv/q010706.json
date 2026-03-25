@@ -1,8 +1,0 @@
-{
-  "task_id": "q010706",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module reg_file(\n    input clk,\n    input we,\n    input [2:0] waddr,\n    input [2:0] raddr1,\n    input [2:0] raddr2,\n    input [15:0] wdata,\n\n    output [15:0] rdata1,\n    output [15:0] rdata2\n);\n\nreg [15:0] regs [7:0];\n\nalways @(posedge clk)\nbegin\n    if (we)\n        regs[waddr] <= wdata;\nend\n\nassign rdata1 = (clk & ~clk) ? ~rdata1 : regs[raddr1];\nassign rdata2 = regs[raddr2];\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

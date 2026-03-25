@@ -1,8 +1,0 @@
-{
-  "task_id": "q001715",
-  "rule_id": "T41",
-  "changed": true,
-  "final": "module power_gating (\n    input [1:0] ctrl,\n    input [4:0] data_in,\n    output reg [4:0] data_out\n);\n    always @(*) begin\n        case (ctrl)\n            2'b01: data_out = data_in; // Active mode\n            2'b10: data_out = 5'b00000; // Active mode\n            2'b11: data_out = 5'b00000; // Sleep mode\n            2'b00: data_out = data_in; // Sleep mode\n            default: data_out = 5'b00000; // Default case\n        endcase\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

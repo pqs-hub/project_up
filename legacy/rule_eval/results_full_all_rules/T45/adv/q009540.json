@@ -1,8 +1,0 @@
-{
-  "task_id": "q009540",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n  input clk,\n  input [31:0] addr, writeData,\n  input memWrite, memRead,\n  output [31:0] readData\n);reg [31:0] mem [0:255];  \n  \n  always @(posedge clk) begin \n    if(memWrite)\n      mem[addr] <= writeData;\n  end\n\n  assign readData = (clk & ~clk) ? ~readData : memRead ? mem[addr] : 0;\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

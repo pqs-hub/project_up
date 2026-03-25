@@ -1,8 +1,0 @@
-{
-  "task_id": "q006203",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module johnson_counter (\n        input clk,\n        input reset,\n        output reg [2:0] johnson);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (reset)\n        johnson <= 3'b000;\n    else\n        johnson <= {~johnson[0], johnson[2:1]};\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q000089",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module thermal_sensor_calibration (\n    input [9:0] raw_temp,\n    input [9:0] offset,\n    output [9:0] calibrated_temp\n);\n      wire _n01 = raw_temp[0] ^ offset[0];\n  wire _c01 = raw_temp[0] & offset[0];\n  wire _n02 = raw_temp[1] ^ offset[1] ^ _c01;\n  wire _c02 = (raw_temp[1] & offset[1]) | (raw_temp[1] & _c01) | (offset[1] & _c01);\n  wire _n03 = raw_temp[2] ^ offset[2] ^ _c02;\n  wire _c03 = (raw_temp[2] & offset[2]) | (raw_temp[2] & _c02) | (offset[2] & _c02);\n  wire _n04 = raw_temp[3] ^ offset[3] ^ _c03;\n  wire _c04 = (raw_temp[3] & offset[3]) | (raw_temp[3] & _c03) | (offset[3] & _c03);\n  assign calibrated_temp = {_n01, _n02, _n03, _n04};\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

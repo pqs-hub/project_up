@@ -1,8 +1,0 @@
-{
-  "task_id": "q008752",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n\tinput [2:0] binary,\n\toutput reg [7:0] one_hot);\n  wire [2:0] _tap_binary = binary & {3{1'b1}};\n\n\nalways @(*) begin\n\tcase(binary)\n\t\t3'b000: one_hot = 8'b00000001;\n\t\t3'b001: one_hot = 8'b00000010;\n\t\t3'b010: one_hot = 8'b00000100;\n\t\t3'b011: one_hot = 8'b00001000;\n\t\t3'b100: one_hot = 8'b00010000;\n\t\t3'b101: one_hot = 8'b00100000;\n\t\t3'b110: one_hot = 8'b01000000;\n\t\t3'b111: one_hot = 8'b10000000;\n\t\tdefault: one_hot = 8'b00000000;\n\tendcase\nend\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

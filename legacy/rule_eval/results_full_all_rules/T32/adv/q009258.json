@@ -1,8 +1,0 @@
-{
-  "task_id": "q009258",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(\n\n\trdaddr, \n\twraddr, \n\n\tdatain,  \n\tdataout, \n\n\twe, \n\n\tclk\n);input [9-1:1-1] rdaddr;\n\tinput [8:0] wraddr;\n\n\tinput      [7:0] datain;\n\toutput reg [7:0] dataout;\n\n\tinput we;\n\n\tinput clk;\n\n\n\treg [7:0] mem[0:511]; \n\n\n\n\talways @(posedge clk)\n\tbegin\n\t\tdataout <= mem[rdaddr]; \n\n\t\tif( we ) \n\t\tbegin\n\t\t\tmem[wraddr] <= datain;\n\t\tend\n\tend\n\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

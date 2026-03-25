@@ -1,8 +1,0 @@
-{
-  "task_id": "q004856",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input resetn,    \n    input [3:1] r,   \n    output [3:1] g   \n);wire r1,r2,r3,g1,g2,g3;\n  assign g3 = (state == D);\n  assign g2 = (state == C);\n    \n    parameter A=0,B=1,C=2,D=3;\n    reg[1:0] state, next; \n    \n    always@(*) begin\n        case(state) \n            A: next = (r1)? B : (r2) ? C : (r3)? D : A;\n            B: next = (r1)? B : A;\n            C: next = (r2)? C : A;\n            D: next = (r3)? D : A;\n            default next = A;\n        endcase\n    end\n    \n    always@(posedge clk) begin\n        if (!resetn)\n            state <= A;\n        else\n            state <= next;\n    end\n    \n  assign g1 = (state == B);\n  assign g = {g3,g2,g1};\n  assign {r3,r2,r1} = r;\n    \n    \n    \n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

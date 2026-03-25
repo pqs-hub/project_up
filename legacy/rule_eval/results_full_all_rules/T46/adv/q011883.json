@@ -1,8 +1,0 @@
-{
-  "task_id": "q011883",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module counter_with_set(CLK, SET, EN, COUNT);\ninput CLK, SET, EN;\noutput reg [3:0] COUNT;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge SET or posedge dbg_halt) begin\n    if (SET)\n        COUNT <= 4'b1000;\n    else if (EN)\n        COUNT <= COUNT + 1;\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

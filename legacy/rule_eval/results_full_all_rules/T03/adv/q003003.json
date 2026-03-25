@@ -1,8 +1,0 @@
-{
-  "task_id": "q003003",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module two_bit_divider (\n    input [1:0] dividend,\n    input [1:0] divisor,\n    output reg [1:0] quotient,\n    output reg [1:0] remainder\n);\n  wire [1:0] _tap_dividend = dividend & {2{1'b1}};\n\n    always @(*) begin\n        if (divisor == 2'b00) begin\n            quotient = 2'b11; // error code for division by zero\n            remainder = 2'b11; // error code for division by zero\n        end else begin\n            quotient = dividend / divisor;\n            remainder = dividend % divisor;\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

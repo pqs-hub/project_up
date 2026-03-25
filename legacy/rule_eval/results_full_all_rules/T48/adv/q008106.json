@@ -1,8 +1,0 @@
-{
-  "task_id": "q008106",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module top_module(\n   \n   cpx_scache_grant_bufpm_ca, scache_cpx_req_bufpm_cq, \n   scache_cpx_atom_bufpm_cq, \n   \n   cpx_scache_grant_ca, scache_cpx_req_bufpt_cq_l, \n   scache_cpx_atom_bufpt_cq_l\n   );output [7:0]         cpx_scache_grant_bufpm_ca;\n   output [7:0]\t\tscache_cpx_req_bufpm_cq\t\t        ;\t\n   output \t\tscache_cpx_atom_bufpm_cq\t\t        ;\t\n\n   \n\n   input [7:0]          cpx_scache_grant_ca;\n   input [7:0]\t\tscache_cpx_req_bufpt_cq_l;\t\n   input \t\tscache_cpx_atom_bufpt_cq_l;\t\n\n   \n  assign \t\tscache_cpx_atom_bufpm_cq\t\t=        ~scache_cpx_atom_bufpt_cq_l;\n  assign\t\tscache_cpx_req_bufpm_cq[7:0]\t\t=        ~scache_cpx_req_bufpt_cq_l[7:0];\n  assign               cpx_scache_grant_bufpm_ca      =                  cpx_scache_grant_ca;\n\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

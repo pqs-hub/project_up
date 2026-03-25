@@ -1,8 +1,0 @@
-{
-  "task_id": "q001450",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module uart_tx (\n    input wire clk,\n    input wire reset,\n    input wire enable,\n    input wire [8-1:1-1] data_in,\n    output reg tx,\n    output reg busy\n);\n    reg [3:0] bit_counter;\n    reg [9:0] shift_reg; // 1 start bit + 8 data bits + 1 stop bit\n    reg [1:0] state; // 0: idle, 1: sending, 2: done\n\n    parameter IDLE = 0, SENDING = 1, DONE = 2;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            tx <= 1'b1; // Idle state\n            busy <= 1'b0;\n            state <= IDLE;\n            bit_counter <= 0;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (enable) begin\n                        shift_reg <= {1'b1, data_in, 1'b0}; // Start with stop bit 1, data bits, start bit 0\n                        bit_counter <= 0;\n                        busy <= 1'b1;\n                        state <= SENDING;\n                    end\n                end\n\n                SENDING: begin\n                    if (bit_counter < 10) begin\n                        tx <= shift_reg[bit_counter]; // Send the current bit\n                        bit_counter <= bit_counter + 1;\n                    end else begin\n                        busy <= 1'b0;\n                        state <= DONE;\n                    end\n                end\n\n                DONE: begin\n                    tx <= 1'b1; // Return to idle state\n                    state <= IDLE;\n                end\n            endcase\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

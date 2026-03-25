@@ -1,8 +1,0 @@
-{
-  "task_id": "q013441",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(ctrl,\n    D0,\n    D1,\n    S);parameter INIT_VALUE = 8'hB8;\n  \n  input ctrl;\n  input [0:0] D0;\n  input [0:0] D1;\n  output [0:0] S;\n  wire _tap_ctrl = ctrl & {1{1'b1}};\n\n\n  // Removing redundant wire declarations for inputs and output\n  // wire [0:0] D0;\n  // wire [0:0] D1;\n  // wire [0:0] S;\n  // wire ctrl;\n\n  assign S = ctrl ? D1 : D0; // Keep the assign statement for the MUX logic\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

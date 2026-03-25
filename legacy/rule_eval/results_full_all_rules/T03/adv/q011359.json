@@ -1,8 +1,0 @@
-{
-  "task_id": "q011359",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n  input clock,\n  input reset,\n  output reg [3:0] out\n);always @(posedge clock) begin\n  wire _tap_clock = clock & {1{1'b1}};\n\n    if (reset) begin\n      out <= 4'b0000;\n    end\n    else if (out == 4'b1111) begin\n      out <= 4'b0000;\n    end\n    else begin\n      out <= out + 1;\n    end\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

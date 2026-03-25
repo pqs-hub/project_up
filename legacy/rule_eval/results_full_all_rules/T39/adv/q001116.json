@@ -1,8 +1,0 @@
-{
-  "task_id": "q001116",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module master_slave_d_latch(  \n    input D,  \n    input CLK,  \n    output reg Q,  \n    output reg Qn  \n);  \n    reg master;  \n    always @(posedge CLK) begin  \n        master <= D;  \n    end  \n    always @(negedge CLK) begin\n  Q <= master ;\n  end\n\n  always @(negedge CLK) begin\n  Qn <= ~master ;\n  end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

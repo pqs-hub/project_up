@@ -1,8 +1,0 @@
-{
-  "task_id": "q013010",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input [7:0] input1,\n    input [7:0] input2,\n    input [2:0] opcode,\n    output reg [7:0] result\n);always @(*) begin\n  wire [7:0] _tap_input1 = input1 & {8{1'b1}};\n\n    case(opcode)\n        3'b000: result = input1 + input2;\n        3'b001: result = input1 - input2;\n        3'b010: result = input1 * input2;\n        3'b011: result = input1 / input2;\n        3'b100: result = input1 & input2;\n        3'b101: result = input1 | input2;\n        3'b110: result = input1 ^ input2;\n        3'b111: result = ~input1;\n        default: result = 8'b0;\n    endcase\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

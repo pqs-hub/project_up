@@ -1,8 +1,0 @@
-{
-  "task_id": "q003383",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module sram_16bit (  \n    input wire clk,  \n    input wire [7:0] addr,  \n    input wire [15:0] data_in,  \n    input wire we,  \n    input wire re,  \n    output reg [15:0] data_out  \n);  \n    reg [15:0] memory [0:255];  \n\n    always @(posedge clk) begin\n  if (we) begin memory[addr] <= data_in ; end\n  end\n\n  always @(posedge clk) begin\n  if (re) begin data_out <= memory[addr] ; end\n  end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

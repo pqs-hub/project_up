@@ -1,8 +1,0 @@
-{
-  "task_id": "q005767",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module shift_reg8 (\n    input clk,\n    input rst,\n    input si,\n    output [7:0] po\n);\n\n    reg [7:0] sr;\n\n    always @(posedge clk or posedge rst) begin\n    begin end  // redundant\n        if (rst)\n            sr <= 8'b00000000;\n        else\n            sr <= {sr[6:0], si};\n    end\n\n    assign po = sr;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

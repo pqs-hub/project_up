@@ -1,8 +1,0 @@
-{
-  "task_id": "q006345",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module register_16bit(\n    input clk,              // Chip clock signal.\n    input enable,           // Enable signal for loading new data.\n    input [15:0] data_in,   // Input data with a data width of 16 bits.\n    output [15:0] data_out  // Register output signal with a data width of 16 bits.\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nreg [15:0] reg_val;        // Register value.\n\nalways @(posedge clk)\n    if (enable) reg_val <= data_in;                // Load input value if enable is active.\n\nassign data_out = reg_val;                         // Output register value.\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q007378",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n  input clk,\n  \n  input [15:0] a,\n  \n  input [7:0] d,\n  input we,\n  input re,\n  output reg [7:0] q);reg [7:0] store[0:32767] ;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n  always @(posedge clk)\n    if (we) begin\n      store[a[14:0]] <= d;\n    end else if (re)\n      q <= store[a[14:0]];\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

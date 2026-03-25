@@ -1,8 +1,0 @@
-{
-  "task_id": "q010680",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(din, en, clk, q);parameter SIZE = 1;\n\ninput [SIZE-1:0] din;\ninput en, clk;\noutput [SIZE-1:0] q;\n  wire _tap_din = din & {1{1'b1}};\n\n\nreg [SIZE-1:0] q;\n\nalways @(posedge clk) begin\n    if (en) begin\n        q <= din;\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

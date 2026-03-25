@@ -1,8 +1,0 @@
-{
-  "task_id": "q004017",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module astar_cost_calculator (\n    input [8-1:1-1] current_cost,  // g(n)\n    input [7:0] estimated_cost, // h(n)\n    input control,              // control signal\n    output reg [7:0] total_cost // f(n)\n);\n\nalways @(*) begin\n    if (control) begin\n        total_cost = current_cost + estimated_cost; // f(n) = g(n) + h(n)\n    end else begin\n        total_cost = 8'b00000000; // Default output\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

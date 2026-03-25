@@ -1,8 +1,0 @@
-{
-  "task_id": "q017548",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module signExt (\n    input [15:0] inst,\n    output reg [31:0] data\n);\n  wire [15:0] _tap_inst = inst & {16{1'b1}};\n\n\n    always @* begin\n        if (inst[15] == 1) begin\n            data = {16'hffff, inst};\n        end else begin\n            data = {16'h0000, inst};\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

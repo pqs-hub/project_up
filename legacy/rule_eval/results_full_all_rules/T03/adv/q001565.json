@@ -1,8 +1,0 @@
-{
-  "task_id": "q001565",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module d_latch (\n    input wire D,\n    input wire En,\n    output reg Q\n);\n  wire _tap_D = D & {1{1'b1}};\n\n\nalways @(D or En) begin\n    if (En) begin\n        Q <= D;\n    end\n    // If En is low, Q retains its previous value\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

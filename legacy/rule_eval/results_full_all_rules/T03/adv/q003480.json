@@ -1,8 +1,0 @@
-{
-  "task_id": "q003480",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module sr_latch (\n    input wire clk,\n    input wire S,\n    input wire R,\n    output reg Q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk) begin\n        if (S && !R)\n            Q <= 1;  // Set\n        else if (!S && R)\n            Q <= 0;  // Reset\n        // If both S and R are low, Q retains its state\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

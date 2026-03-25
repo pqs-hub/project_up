@@ -1,8 +1,0 @@
-{
-  "task_id": "q008715",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(clk, hardreset, reset);input clk, hardreset; \n output reset; \n reg [3:0] reset_reg, next_reset_reg; \n assign reset = reset_reg[3]; \n initial reset_reg = 4'hF; \n   wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk or posedge hardreset or posedge dbg_halt) \n begin \n  if (hardreset) \n  reset_reg = 4'hF; \n  else reset_reg = next_reset_reg; \n end \n always @* \n begin \n  next_reset_reg = {reset_reg,1'b0}; \n end \n endmodule",
-  "rename_map": {},
-  "params_used": {}
-}

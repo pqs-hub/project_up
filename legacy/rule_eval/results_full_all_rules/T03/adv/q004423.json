@@ -1,8 +1,0 @@
-{
-  "task_id": "q004423",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module counter_4bit_ud (\n    input wire clk,\n    input wire rst,\n    input wire en,\n    input wire up_down,\n    output reg [3:0] count\n    );\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    if (rst) begin\n        count <= 4'b0000;\n    end else if (en) begin\n        if (up_down) begin\n            count <= count + 1;\n        end else begin\n            count <= count - 1;\n        end\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

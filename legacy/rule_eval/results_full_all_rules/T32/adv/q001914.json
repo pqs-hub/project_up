@@ -1,8 +1,0 @@
-{
-  "task_id": "q001914",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module shift_register (\n    input wire clk,\n    input wire reset,\n    input wire serial_in,\n    output reg [4-1:1-1] parallel_out\n);\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        parallel_out <= 4'b0000;\n    end else begin\n        parallel_out <= {parallel_out[2:0], serial_in};\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

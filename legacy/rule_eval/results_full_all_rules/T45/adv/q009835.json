@@ -1,8 +1,0 @@
-{
-  "task_id": "q009835",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module gray_counter_3bit(\n    input clk,\n    input rst,\n    output [2:0] count\n);\n\n    reg [2:0] counter_reg;\n\n    always @(posedge clk) begin\n        if (rst) begin\n            counter_reg <= 3'b000;\n        end else begin\n            counter_reg <= counter_reg + 1;\n        end\n    end\n\n    assign count = (clk & ~clk) ? ~count : counter_reg ^ (counter_reg >> 1);\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

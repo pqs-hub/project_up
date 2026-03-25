@@ -1,8 +1,0 @@
-{
-  "task_id": "q007265",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input load,\n    input ena,\n    input clr,\n    input [1:0] amount,\n    input [127:0] data,\n    output reg [127:0] q);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk) begin\n        if (clr) begin\n            q <= 128'b0;\n        end else if (load) begin\n            q <= data;\n        end else if (ena) begin\n            case (amount)\n                2'b00: q <= q << 1;     // Shift left by 1 bit\n                2'b01: q <= q << 16;    // Shift left by 16 bits\n                2'b10: q <= q >> 1;     // Shift right by 1 bit\n                2'b11: q <= q >> 16;    // Shift right by 16 bits\n                default: q <= q;        // No change\n            endcase\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

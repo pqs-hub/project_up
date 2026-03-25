@@ -1,6 +1,0 @@
-{
-  "task_id": "q013457",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module gray_counter(\n    input clk,\n    input reset,\n    output reg [3:0] gray\n    );\n\n    reg [3:0] count;\n\n    always @(posedge clk) begin\n        if (reset) begin\n            count <= 4'b0000;\n        end else begin\n            count <= count + 1;\n        end\n    end\n\n    always @(count) begin\n        gray = (count >> 1) ^ count;\n    end\nendmodule"
-}

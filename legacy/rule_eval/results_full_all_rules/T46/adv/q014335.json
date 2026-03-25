@@ -1,8 +1,0 @@
-{
-  "task_id": "q014335",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n  input wire address,\n  input wire clock,\n  input wire reset_n,\n  output reg [31:0] readdata\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clock or negedge reset_n or posedge dbg_halt) begin\n  if (!reset_n) begin\n    readdata <= 0;\n  end else begin\n    case (address)\n      1'b0: readdata <= 32'h560F6F0F;\n      1'b1: readdata <= 32'hADC3C2C2;\n      default: readdata <= 32'h0;\n    endcase\n  end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

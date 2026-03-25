@@ -1,8 +1,0 @@
-{
-  "task_id": "q014728",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(clk, rst, sensor,reprogram, walk_btn, rst_out, sensor_out, walk_register,reprogram_out);input clk; \n  input rst; \n  input sensor; \n  input reprogram; \n  input walk_btn; \n  output rst_out; \n  output sensor_out; \n  output walk_register; \n  output reprogram_out; \n  reg rst_out, sensor_out, walk_register, reprogram_out; \n  initial \n  begin \n  rst_out <= 0; \n  sensor_out <= 0; \n  walk_register <= 0; \n  reprogram_out <= 0; \n  end \n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk or posedge dbg_halt) \n  begin \n  rst_out <= rst; \n  sensor_out <= sensor; \n  walk_register <= walk_btn; \n  reprogram_out <= reprogram; \n  end \n endmodule",
-  "rename_map": {},
-  "params_used": {}
-}

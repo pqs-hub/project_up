@@ -1,8 +1,0 @@
-{
-  "task_id": "q007546",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(clk, rst, op, in1, in2, out, cout);// input\n\tinput         clk;\n\tinput         rst;\n\tinput  [1:0]  op;\n\tinput  [7:0]  in1;\n\tinput  [7:0]  in2;\n\n// output\n\toutput [7:0]  out;\n\toutput        cout;\n\n// local\n\treg    [8:0]  sum;\n\n// comb\n\t// implement the combinational logic for the calculator\n\tassign out = sum[7:0];\n\tassign cout = sum[8];\n\n// proc\n\talways @(posedge clk)\n\tbegin\n    begin end  // redundant\n\t\tif (rst)\n\t\tbegin\n\t\t\t// set the output and carry-out to 0\n\t\t\tsum <= 0;\n\t\tend\n\t\telse\n\t\tbegin\n\t\t\t// implement the sequential logic for the calculator\n\t\t\tcase (op)\n\t\t\t\t2'b00: sum <= {1'b0, in1} + {1'b0, in2}; // addition\n\t\t\t\t2'b01: sum <= {1'b0, in1} - {1'b0, in2}; // subtraction\n\t\t\tendcase\n\t\tend\n\tend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

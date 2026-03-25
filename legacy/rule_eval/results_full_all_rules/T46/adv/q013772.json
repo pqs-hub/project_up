@@ -1,8 +1,0 @@
-{
-  "task_id": "q013772",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    output reg Q,  // Changed to reg since we use it in an always block\n    input CLK_N,\n    input D,\n    input RESET_B,\n    input VPWR,\n    input VGND,\n    input VPB,\n    input VNB\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK_N or negedge RESET_B or posedge dbg_halt) begin\n        if (RESET_B == 1'b0) begin\n            Q <= 1'b0;\n        end else begin\n            Q <= D;\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

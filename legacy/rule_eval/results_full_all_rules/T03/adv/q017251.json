@@ -1,8 +1,0 @@
-{
-  "task_id": "q017251",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module BOTTOM_MUX (\n    input [4:0] a,\n    input [4:0] b,\n    input sel,\n    output reg [4:0] y\n);\n  wire [4:0] _tap_a = a & {5{1'b1}};\n\n\nalways @(*) begin\n    if (sel == 1) begin\n        y = a;\n    end else begin\n        y = b;\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

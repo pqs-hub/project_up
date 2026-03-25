@@ -1,8 +1,0 @@
-{
-  "task_id": "q003769",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module dram_cell (\n    input wire clk,\n    input wire [3:0] data,\n    input wire control,\n    output reg [3:0] q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk) begin\n        if (control) begin\n            q <= data; // Write data to cell\n        end\n        // No need for an else case, as q will retain its value (read)\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

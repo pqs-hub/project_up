@@ -1,8 +1,0 @@
-{
-  "task_id": "q015792",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(\n    data_i,\n    data_o\n    );input [25:0] data_i;\n\noutput [27:0] data_o;\n\nreg [27:0] i,data_o;\n\n\n\nalways @( * )\n\tbegin\n    begin end  // redundant\n\t\n\tdata_o[0] = 1'b0;\n\tdata_o[1] = 1'b0;\n\n\tfor(i=2; i<=27; i=i+1)\n\t\tbegin\n\t\tdata_o[i] = data_i[i-2];\n\t\tend\n\t\t\n\tend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

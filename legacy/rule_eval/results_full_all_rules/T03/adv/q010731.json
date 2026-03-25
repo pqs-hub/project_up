@@ -1,8 +1,0 @@
-{
-  "task_id": "q010731",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module shift_register(CLK, RST, LOAD, D, Q);\ninput CLK, RST, LOAD;\ninput [3:0] D;\noutput reg [3:0] Q;\n  wire _tap_CLK = CLK & {1{1'b1}};\n\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        Q <= 4'b0000;\n    else begin\n        if (LOAD)\n            Q <= D;\n        else\n            Q <= {1'b0, Q[3:1]};\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

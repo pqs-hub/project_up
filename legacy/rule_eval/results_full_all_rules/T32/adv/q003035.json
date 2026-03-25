@@ -1,8 +1,0 @@
-{
-  "task_id": "q003035",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module mpc_controller (\n    input wire clk,\n    input wire reset,\n    input wire [8-1:1-1] current_state,\n    input wire [7:0] control_signal,\n    output reg [7:0] next_state\n);\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            next_state <= 8'b0;\n        end else begin\n            // Simple linear model: next_state = current_state + control_signal\n            next_state <= current_state + control_signal;\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

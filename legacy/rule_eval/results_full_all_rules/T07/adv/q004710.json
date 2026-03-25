@@ -1,8 +1,0 @@
-{
-  "task_id": "q004710",
-  "rule_id": "T07",
-  "changed": true,
-  "final": "module top_module(\n    input d,\n    input clk,\n    input clr,\n    input pr,\n    input en,\n    input sel,\n    input in0,\n    input in1,\n    output q,\n    output out\n);reg q_reg;\nwire mux_out;\n\nassign out = mux_out;\n\nalways @ (posedge clk) begin\n    if (clr) begin\n        q_reg <= 0;\n    end else if (pr) begin\n        q_reg <= 1;\n    end else if (en) begin\n        q_reg <= d;\n    end\nend\n\nassign q = q_reg;\n\nassign mux_out = sel ? in1 : in0;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

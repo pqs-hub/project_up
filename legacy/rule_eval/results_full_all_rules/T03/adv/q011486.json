@@ -1,8 +1,0 @@
-{
-  "task_id": "q011486",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(input clock,input [3:0] io_w_addr,input [31:0] io_w_data,input io_w_en,input [3:0] io_r_addr,output [31:0] io_output_data);reg [31:0] _T_14 [0:15]; \n  wire _tap_clock = clock & {1{1'b1}};\n\n  reg [31:0] _RAND_0; \n  wire [31:0] _T_14__T_17_data; \n  wire [3:0] _T_14__T_17_addr; \n  wire [31:0] _T_14__T_16_data; \n  wire [3:0] _T_14__T_16_addr; \n  wire _T_14__T_16_mask; \n  wire _T_14__T_16_en; \n  assign _T_14__T_17_addr = io_r_addr; \n  assign _T_14__T_17_data = _T_14[_T_14__T_17_addr]; \n  assign _T_14__T_16_data = io_w_data; \n  assign _T_14__T_16_addr = io_w_addr; \n  assign _T_14__T_16_mask = io_w_en; \n  assign _T_14__T_16_en = io_w_en; \n  assign io_output_data = _T_14__T_17_data; \n `ifdef RANDOMIZE \n  integer initvar; \n  initial begin \n  `ifndef verilator \n  #0.002 begin end \n  `endif \n  _RAND_0 = {1{$random}}; \n  `ifdef RANDOMIZE_MEM_INIT \n  for (initvar = 0; initvar < 16; initvar = initvar+1) \n  _T_14[initvar] = _RAND_0[31:0]; \n  `endif \n  end \n `endif \n  always @(posedge clock) begin \n  if(_T_14__T_16_en & _T_14__T_16_mask) begin \n  _T_14[_T_14__T_16_addr] <= _T_14__T_16_data; \n  end \n  end \n endmodule",
-  "rename_map": {},
-  "params_used": {}
-}

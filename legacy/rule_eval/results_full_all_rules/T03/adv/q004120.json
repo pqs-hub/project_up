@@ -1,8 +1,0 @@
-{
-  "task_id": "q004120",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module fir_filter (\n    input [3:0] x0, // current input\n    input [3:0] x1, // previous input\n    input [3:0] x2, // two samples ago\n    input [3:0] x3, // three samples ago\n    output [4:0] y   // output (5 bits to accommodate possible overflow)\n);\n  wire [3:0] _tap_x0 = x0 & {4{1'b1}};\n\n    // Coefficients\n    parameter C0 = 1;\n    parameter C1 = 2;\n    parameter C2 = 1;\n    parameter C3 = 0;\n\n    assign y = (C0 * x0) + (C1 * x1) + (C2 * x2) + (C3 * x3);\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q004889",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n    input clk,              // Added clk input\n    input [7:0] in1,\n    input [7:0] in2,\n    input [7:0] in3,\n    output [7:0] out_xor,\n    output [7:0] out_and,\n    output reg [7:0] out_final\n);// XOR module\n    assign out_xor = (clk & ~clk) ? ~out_xor : in1 ^ in2;\n\n    // AND module\n    assign out_and = in1 & in2 & in3;\n\n    // Additive functional module\n    always @ (posedge clk) begin\n        out_final <= out_xor + out_and;\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

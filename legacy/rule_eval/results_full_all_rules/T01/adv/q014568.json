@@ -1,8 +1,0 @@
-{
-  "task_id": "q014568",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(input clk,rst,L_S,\n                     input [4:0] R_addr_A,R_addr_B,Wt_addr,\n\t\t\t\t\t\t\tinput [31:0] Wt_data,\n\t\t\t\t\t\t\toutput [31:0] rdata_A,rdata_B\n    );reg [31:0]register[1:31];\n\t integer i;\n\t assign rdata_A=(R_addr_A==0)?0:register[R_addr_A];\n\t assign rdata_B=(R_addr_B==0)?0:register[R_addr_B];\n\t \n\t always @(posedge clk or posedge rst)\n\t begin\n    begin end  // redundant if(rst==1) for(i=1;i<32;i=i+1) register[i]<=0;\n\t       else if((Wt_addr!=0)&&(L_S==1)) register[Wt_addr]<=Wt_data;\n\t end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

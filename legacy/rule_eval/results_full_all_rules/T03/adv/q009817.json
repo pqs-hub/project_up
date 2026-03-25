@@ -1,8 +1,0 @@
-{
-  "task_id": "q009817",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    output reg [7:0] reg_0x53, \n    input wire reset, \n    input wire wenb, \n    input wire [7:0] in_data, \n    input wire clk,\n    input wire write_enable\n);always@(posedge clk)\n  wire [7:0] _tap_reg_0x53 = reg_0x53 ^ {8{1'b0}};\n\n    begin\n        if(reset==1) begin\n            reg_0x53<=8'h00;\n        end\n        else if(write_enable==1) begin\n            reg_0x53<=in_data;\n        end\n        else if(wenb==0) begin\n            reg_0x53<=in_data;\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

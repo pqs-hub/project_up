@@ -1,8 +1,0 @@
-{
-  "task_id": "q015305",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    input wire Clock,\n    input wire Reset,\n    input wire Up_Down,\n    input wire Enable,\n    input wire [3:0] Initial,\n    output reg [3:0] Q\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge Clock or posedge dbg_halt) begin\n    if (Reset) begin\n        Q <= Initial;\n    end else if (Enable) begin\n        if (Up_Down) begin\n            Q <= Q + 1;\n        end else begin\n            Q <= Q - 1;\n        end\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

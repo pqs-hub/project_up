@@ -1,8 +1,0 @@
-{
-  "task_id": "q014146",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module memory_32x8 (\n\tinput clk,\n\tinput we,\n\tinput [4:0] addr,\n\tinput [7:0] data_in,\n\toutput reg [7:0] data_out);reg [7:0] mem [31:0];\n\nalways @(posedge clk) begin\n  if (we) mem[addr] <= data_in ;\n  end\n\n  always @(posedge clk) begin\n  data_out <= mem[addr] ;\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

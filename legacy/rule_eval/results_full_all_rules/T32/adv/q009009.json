@@ -1,8 +1,0 @@
-{
-  "task_id": "q009009",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module shift_register_8bit (D, CLK, LOAD, SHIFT, Q);\ninput [8-1:1-1] D;\ninput CLK, LOAD, SHIFT;\noutput reg [7:0] Q;\n\nalways @(posedge CLK) begin\n    if (LOAD) begin\n        Q <= D;\n    end\n    else if (SHIFT) begin\n        Q <= Q << 1;\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

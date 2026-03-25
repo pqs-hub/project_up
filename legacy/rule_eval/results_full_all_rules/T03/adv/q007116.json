@@ -1,8 +1,0 @@
-{
-  "task_id": "q007116",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module ring_counter\n(\n    input clk,\n    input reset,\n    output reg [2:0] count\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk) begin\n        if (reset) begin\n            count <= 3'b001; // Set counter to initial value\n        end else begin\n            count <= {count[1:0], count[2]}; // Rotate left\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

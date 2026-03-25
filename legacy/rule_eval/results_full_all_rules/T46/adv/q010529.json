@@ -1,8 +1,0 @@
-{
-  "task_id": "q010529",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module accumulator_32bit(\n    input               clk     ,\n    input               load    ,\n    input               clr     ,\n    input      [31:0]   data_in ,\n    output reg [31:0]   acc_out \n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (clr)\n        acc_out <= 32'd0;\n    else if (load)\n        acc_out <= data_in;\n    else\n        acc_out <= acc_out + data_in;\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

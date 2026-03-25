@@ -1,8 +1,0 @@
-{
-  "task_id": "q007704",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(ALUCtrl , ALUop, FuncCode ) ;input [4-1:1-1] ALUop;\ninput [5 : 0] FuncCode ;\noutput reg [3:0] ALUCtrl;\n\n\nalways@(*) begin\nif(ALUop==4'b1111) begin \n\tcase(FuncCode)\n\t\t6'b000000: ALUCtrl=4'b0011; \n\t\t6'b000010: ALUCtrl=4'b0100; \n\t\t6'b100000: ALUCtrl=4'b0010; \n\t\t6'b100010: ALUCtrl=4'b0110; \n\t\t6'b100100: ALUCtrl=4'b0000; \n\t\t6'b100101: ALUCtrl=4'b0001; \n\t\t6'b101010: ALUCtrl=4'b0111; \n\t\t\n\t\t6'b111000: ALUCtrl=4'b0101; \n\t\t6'b101011: ALUCtrl=4'b1011; \n\t\t6'b100111: ALUCtrl=4'b1100; \n\t\t6'b100110: ALUCtrl=4'b1010; \n\t\t6'b100011: ALUCtrl=4'b1001; \n\t\t6'b100001: ALUCtrl=4'b1000; \n\t\t6'b000011: ALUCtrl=4'b1101; \n\tendcase\nend\nelse begin\n\tALUCtrl=ALUop; \n\tend\nend\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q003202",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module data_forwarding_unit(\n    input [7:0] data1,\n    input [7:0] data2,\n    input select,\n    output reg [7:0] output_data\n);\n  wire [7:0] _tap_data1 = data1 & {8{1'b1}};\n\n    always @(*) begin\n        if (select) begin\n            output_data = data2; // Forward data2\n        end else begin\n            output_data = data1; // Forward data1\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

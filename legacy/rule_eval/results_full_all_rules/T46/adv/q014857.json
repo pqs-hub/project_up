@@ -1,8 +1,0 @@
-{
-  "task_id": "q014857",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module shift_register (\n\tinput clk,\n\tinput reset,\n\tinput enable,\n\toutput reg [6:0] data_out\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n\tif (reset)\n\t\tdata_out <= 7'b0000000;\n\telse if (enable)\n\t\tdata_out <= data_out >> 1;\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

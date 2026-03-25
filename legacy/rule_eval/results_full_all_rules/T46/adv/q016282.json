@@ -1,8 +1,0 @@
-{
-  "task_id": "q016282",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(x,y,CLR,C,Q);input x,y;\nwire g;\ninput CLR, C;\nreg tmp;\noutput Q;\n\n\nassign g = x*y;\n\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge C or posedge CLR or posedge dbg_halt)\n    begin \n      if (CLR) \n        tmp <= 4'b0000; \n      else \n        tmp <= tmp + g; \n    end \n\nassign Q = tmp; \n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

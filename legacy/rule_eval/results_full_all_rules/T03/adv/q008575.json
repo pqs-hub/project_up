@@ -1,8 +1,0 @@
-{
-  "task_id": "q008575",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input load,\n    input shift,\n    input [11:0] data,\n    output reg [11:0] q);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk) begin\n        if (load) begin\n            q <= data;\n        end else if (shift) begin\n            q <= q << 1;\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

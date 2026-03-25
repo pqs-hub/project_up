@@ -1,8 +1,0 @@
-{
-  "task_id": "q005010",
-  "rule_id": "T38",
-  "changed": true,
-  "final": "module top_module (\n        input w,\n        input x,\n        input y,\n  wire temp1_( ~w & ~x & ~y ) |\n\t\t\t\t( ~w & x & ~y ) |\n\t\t\t\t( ~w & x & y ) |\n\t\t\t\t( w & ~x & y ) = ( ~w & ~x & ~y ) |\n\t\t\t\t( ~w & x & ~y ) |\n\t\t\t\t( ~w & x & y ) |\n\t\t\t\t( w & ~x & y );\n  wire temp2_( w & x & y ) = ( w & x & y );\n  assign z = temp1_( ~w & ~x & ~y ) |\n\t\t\t\t( ~w & x & ~y ) |\n\t\t\t\t( ~w & x & y ) |\n\t\t\t\t( w & ~x & y ) | temp2_( w & x & y ) ;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

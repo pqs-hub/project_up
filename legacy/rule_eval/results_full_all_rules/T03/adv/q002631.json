@@ -1,8 +1,0 @@
-{
-  "task_id": "q002631",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module gpio_controller (\n    input wire clk,\n    input wire reset,\n    input wire data,\n    output reg gpio_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    \n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            gpio_out <= 1'b0; // Initialize GPIO to low\n        end else begin\n            gpio_out <= data; // Set GPIO state based on data input\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q004951",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module and_64bit (\n    input wire [64-1:1-1] a,\n    input wire [63:0] b,\n    output wire [63:0] y\n);\n\n    wire [15:0] y0, y1, y2, y3;\n\n    and16 and16_inst0 (\n        .a(a[15:0]),\n        .b(b[15:0]),\n        .y(y0)\n    );\n\n    and16 and16_inst1 (\n        .a(a[31:16]),\n        .b(b[31:16]),\n        .y(y1)\n    );\n\n    and16 and16_inst2 (\n        .a(a[47:32]),\n        .b(b[47:32]),\n        .y(y2)\n    );\n\n    and16 and16_inst3 (\n        .a(a[63:48]),\n        .b(b[63:48]),\n        .y(y3)\n    );\n\n    assign y = {y3, y2, y1, y0};\n\nendmodule\n\nmodule and16 (\n    input wire [15:0] a,\n    input wire [15:0] b,\n    output wire [15:0] y\n);\n    assign y = a & b;\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

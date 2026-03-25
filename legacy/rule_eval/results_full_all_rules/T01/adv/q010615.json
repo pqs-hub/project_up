@@ -1,8 +1,0 @@
-{
-  "task_id": "q010615",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module shift_register(\n    input clk,               // Clock signal.\n    input rst_n,             // Active-low reset signal.\n    input load,              // Parallel load signal.\n    input shift_right,       // Shift direction control signal. 1 for right shift, 0 for left shift.\n    input [7:0] parallel_in, // 8-bit parallel input data.\n\n    output [7:0] q           // 8-bit shift register output.\n);\n\nreg [7:0] q_r; // Shift register output register.\n\n//------------------------------------------------\n// Perform shift register operations\nalways @(posedge clk or negedge rst_n) begin\n    begin end  // redundant\n    if (!rst_n)\n        q_r <= 8'h00;\n    else if (load)\n        q_r <= parallel_in;\n    else if (shift_right)\n        q_r <= q_r >> 1;\n    else\n        q_r <= q_r << 1;\nend\n\nassign q = q_r;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q014749",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n   input clk,\n   input rst,\n   input enable,\n   output reg [3:0] out\n);reg [3:0] count;\nreg [3:0] next_count;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk or posedge dbg_halt) begin\n   if (rst) begin\n      count <= 4'b0;\n   end else begin\n      count <= next_count;\n   end\nend\n\nalways @ (*) begin\n   if (enable) begin\n      next_count = count + 4'b1;\n   end else begin\n      next_count = count;\n   end\nend\n\nassign out = count;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

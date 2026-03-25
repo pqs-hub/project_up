@@ -1,8 +1,0 @@
-{
-  "task_id": "q003611",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module dram_cell (\n    input wire clk,\n    input wire we,\n    input wire d_in,\n    output reg d_out\n);\n    reg stored_bit;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (we) begin\n            stored_bit <= d_in; // Store data on write enable\n        end\n    end\n\n    always @(negedge clk) begin\n        if (!we) begin\n            d_out <= stored_bit; // Output the stored data on negative edge if we is low\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

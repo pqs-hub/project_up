@@ -1,8 +1,0 @@
-{
-  "task_id": "q014015",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    input wire clk,\n    input wire [13:0] width,\n    output reg pulse\n);reg [13:0] counter = 0;\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    counter <= counter + 1;\n    if (counter < width) pulse <= 1'b1;\n    else pulse <= 1'b0;\n  end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

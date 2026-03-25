@@ -1,8 +1,0 @@
-{
-  "task_id": "q003572",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module sd_card_interface (\n    input [3:0] command,\n    output reg [2:0] response\n);\n  wire [3:0] _tap_command = command & {4{1'b1}};\n\n    always @(*) begin\n        case (command)\n            4'b0000: response = 3'b000; // 0\n            4'b0001: response = 3'b001; // 1\n            4'b0010: response = 3'b010; // 2\n            4'b0011: response = 3'b011; // 3\n            default: response = 3'b111;   // invalid\n        endcase\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

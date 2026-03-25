@@ -1,8 +1,0 @@
-{
-  "task_id": "q015995",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(input wire clk,input wire [10:0] addrwrite,input wire [10:0] addrread,input wire we,input wire [8:0] din,output reg [8:0] dout);reg [8:0] scan[0:2047]; \n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin \n  dout <= scan[addrread]; \n  if (we == 1'b1) \n  scan[addrwrite] <= din; \n  end \n endmodule",
-  "rename_map": {},
-  "params_used": {}
-}

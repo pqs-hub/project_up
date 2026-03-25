@@ -1,8 +1,0 @@
-{
-  "task_id": "q002117",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module voltage_regulator (\n    input wire [7:0] Vin,\n    input wire [7:0] Vref,\n    output reg [7:0] Vout\n);\n  wire [7:0] _tap_Vin = Vin & {8{1'b1}};\n\n    always @(*) begin\n        if (Vin > Vref) \n            Vout = Vref;\n        else \n            Vout = Vin;\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

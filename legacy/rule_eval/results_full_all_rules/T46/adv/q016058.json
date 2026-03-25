@@ -1,8 +1,0 @@
-{
-  "task_id": "q016058",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module reg18 (\n\tinput clk,\n\tinput load,\n\tinput reset,\n\tinput [17:0] d,\n\toutput reg [17:0] q\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n\tif (reset)\n\t\tq <= 18'b000000000000000000;\n\telse if (load)\n\t\tq <= d;\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

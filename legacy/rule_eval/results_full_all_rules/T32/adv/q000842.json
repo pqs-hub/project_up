@@ -1,8 +1,0 @@
-{
-  "task_id": "q000842",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module iir_filter (\n    input clk,\n    input reset,\n    input signed [16-1:1-1] x, // Input sample\n    output reg signed [15:0] y // Output sample\n);\n    // Filter coefficients (example values)\n    parameter signed [15:0] b0 = 16'h1; // Feedforward coefficient\n    parameter signed [15:0] b1 = 16'h1; // Feedforward coefficient\n    parameter signed [15:0] b2 = 16'h1; // Feedforward coefficient\n    parameter signed [15:0] a1 = 16'h1; // Feedback coefficient\n    parameter signed [15:0] a2 = 16'h1; // Feedback coefficient\n\n    // Internal states\n    reg signed [15:0] x1, x2; // Previous inputs\n    reg signed [15:0] y1, y2; // Previous outputs\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            y <= 0;\n            x1 <= 0;\n            x2 <= 0;\n            y1 <= 0;\n            y2 <= 0;\n        end else begin\n            // IIR filter difference equation\n            y <= (b0 * x) + (b1 * x1) + (b2 * x2) - (a1 * y1) - (a2 * y2);\n            // Update previous inputs and outputs\n            x2 <= x1;\n            x1 <= x;\n            y2 <= y1;\n            y1 <= y;\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

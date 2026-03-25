@@ -1,8 +1,0 @@
-{
-  "task_id": "q012433",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(op, a, b, result, zero);input [2:0] op;\n  input [15:0] a;\n  input [15:0] b;\n  output reg [15:0] result; // Changed to reg\n  output reg zero;          // Changed to reg\n  wire [2:0] _tap_op = op & {3{1'b1}};\n\n\n  reg [16:0] temp; // to hold intermediate results\n\n  always @* begin\n    case(op)\n      3'b000: // addition\n        temp = a + b;\n      3'b001: // subtraction\n        temp = a - b;\n      3'b010: // bitwise AND\n        temp = a & b;\n      3'b011: // bitwise OR\n        temp = a | b;\n      3'b100: // bitwise XOR\n        temp = a ^ b;\n      3'b101: // logical shift left\n        temp = a << b;\n      3'b110: // logical shift right\n        temp = a >> b;\n      3'b111: // arithmetic shift right\n        temp = $signed(a) >>> b;\n      default: // safeguard for undefined operations\n        temp = 0;\n    endcase\n    result = temp[15:0];\n    zero = (result == 0);\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q012071",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module load_register(clk, reset, load, data_in, data_out);  \n\n    input  clk;  \n    input  reset;  \n    input  load;  \n    input  [15:0] data_in;  \n    output  [15:0] data_out;  \n    reg   [15:0] data_out; \n    initial data_out = 0;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt)\n        begin\n            if (reset)\n                data_out <= 0;\n            else if (load)\n                data_out <= data_in;\n        end  \n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

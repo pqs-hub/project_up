@@ -1,6 +1,0 @@
-{
-  "task_id": "q003987",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module SRAM_8bit (\n    input wire [7:0] D_IN,\n    input wire WE,\n    input wire CS,\n    input wire CLK,\n    output reg [7:0] D_OUT\n);\n    reg [7:0] memory;\n\n    always @(posedge CLK) begin\n        if (!CS) begin\n            if (WE) begin\n                memory <= D_IN;  // Write data to memory\n            end\n            D_OUT <= memory; // Output the memory contents\n        end\n    end\nendmodule"
-}

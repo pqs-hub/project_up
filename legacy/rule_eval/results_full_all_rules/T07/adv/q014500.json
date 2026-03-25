@@ -1,8 +1,0 @@
-{
-  "task_id": "q014500",
-  "rule_id": "T07",
-  "changed": true,
-  "final": "module top_module(\n    Y   ,\n    A   ,\n    B   ,\n    C_N ,\n    VPWR,\n    VGND\n);output Y   ;\n    input  A   ;\n    input  B   ;\n    input  C_N ;\n    input  VPWR;\n    input  VGND;\n\n    wire  n1, n2, n3, n4;\n\n    // Changed the module instance from sky130_fd_sc_lp__nor3b to an equivalent logic implementation\n    assign n1 = ~(A | B | C_N);\n\n    assign n3 = ~C_N;\n    assign n2 = ~n1;\n    assign n4 = n2 & n3;\n    assign Y = ~n4;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

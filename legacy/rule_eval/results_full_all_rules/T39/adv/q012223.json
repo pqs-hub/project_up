@@ -1,8 +1,0 @@
-{
-  "task_id": "q012223",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module top_module(clk, load, addr, d, q);parameter DWIDTH=16,AWIDTH=12,WORDS=4096;\n\n\n input clk,load;\n input [AWIDTH-1:0] addr;\n input [DWIDTH-1:0] d;\n output [DWIDTH-1:0] q;\n reg [DWIDTH-1:0] q;\n reg [DWIDTH-1:0] mem [WORDS-1:0];\n\n always @(posedge clk) begin\n  if(load) mem[addr] <= d ;\n  end\n\n  always @(posedge clk) begin\n  q <= mem[addr] ;\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

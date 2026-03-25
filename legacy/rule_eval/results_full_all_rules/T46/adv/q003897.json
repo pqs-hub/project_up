@@ -1,8 +1,0 @@
-{
-  "task_id": "q003897",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module PID_Controller (\n    input clk,\n    input reset,\n    input signed [15:0] error,\n    output reg signed [31:0] control_signal\n);\n    parameter signed [15:0] Kp = 16'd2;   // Proportional gain\n    parameter signed [15:0] Ki = 16'd1;   // Integral gain\n    parameter signed [15:0] Kd = 16'd1;   // Derivative gain\n\n    reg signed [15:0] prev_error;\n    reg signed [31:0] integral;\n    \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n        if (reset) begin\n            control_signal <= 32'd0;\n            integral <= 32'd0;\n            prev_error <= 16'd0;\n        end else begin\n            integral <= integral + error; // Integral term\n            control_signal <= (Kp * error) + (Ki * integral) + (Kd * (error - prev_error)); // PID formula\n            prev_error <= error; // Update previous error\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

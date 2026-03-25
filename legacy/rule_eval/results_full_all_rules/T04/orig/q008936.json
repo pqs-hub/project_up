@@ -1,6 +1,0 @@
-{
-  "task_id": "q008936",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(\n    input [3:0] flag,\n    output reg  [11:0] overflow,\n    output reg  [11:0] carry,\n    output reg  [11:0] zero,\n    output reg  [11:0] negative\n     );always @(*) begin\n    if (flag[3]==1'b1) \n        overflow= 12'h0F0;\n        \n    else\n        overflow= 12'h000;\n    end\nalways @(*) begin\n        if (flag[2]==1'b1) \n            carry= 12'h0F0;\n            \n        else\n            carry= 12'h000;\n        end\nalways @(*) begin\n            if (flag[1]==1'b1) \n                zero= 12'h0F0;\n                \n            else\n                zero= 12'h000;\n            end\nalways @(*) begin\n                if (flag[0]==1'b1) \n                    negative= 12'h0F0;\n                    \n                else\n                    negative= 12'h000;\n                end              \nendmodule"
-}

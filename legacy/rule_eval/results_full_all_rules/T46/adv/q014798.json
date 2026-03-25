@@ -1,8 +1,0 @@
-{
-  "task_id": "q014798",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n  input clk,\n  input reset,\n  input up_down,\n  output reg [2:0] q,\n  output reg carry_out\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if(reset) begin\n      q <= 3'b0;\n      carry_out <= 1'b0;\n    end\n    else if(up_down) begin\n      if(q == 3'b111) begin\n        q <= 3'b000;\n        carry_out <= 1'b1;\n      end\n      else begin\n        q <= q + 1;\n        carry_out <= 1'b0;\n      end\n    end\n    else begin\n      if(q == 3'b000) begin\n        q <= 3'b111;\n        carry_out <= 1'b1;\n      end\n      else begin\n        q <= q - 1;\n        carry_out <= 1'b0;\n      end\n    end\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

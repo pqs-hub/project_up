@@ -1,8 +1,0 @@
-{
-  "task_id": "q008003",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module parallel_load_register (\n\tinput clk,\n\tinput rst,\n\tinput load,\n\tinput [7:0] data_in,\n\toutput reg [7:0] data_out);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n\talways @(posedge clk) begin\n\t\tif (rst)\n\t\t\tdata_out <= 8'b00000000;\n\t\telse if (load)\n\t\t\tdata_out <= data_in;\n\tend\n\t\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

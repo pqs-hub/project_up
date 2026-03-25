@@ -1,8 +1,0 @@
-{
-  "task_id": "q007493",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\ndata  ,\nclk    ,\nreset ,\nq     \n);input data, clk, reset ; \noutput q;\n  wire _tap_data = data & {1{1'b1}};\n\n(*ASYNC_REG = \"TRUE\" *) reg q;\nalways @ ( posedge clk or posedge reset) begin\n  if (reset) begin\n    q <= 1'b1;\n  end  else begin\n    q <= data;\n  end\nend\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

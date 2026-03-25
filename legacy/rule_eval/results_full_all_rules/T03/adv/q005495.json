@@ -1,8 +1,0 @@
-{
-  "task_id": "q005495",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module johnson_counter_3bit(\n    input clk,\n    input rst_n,\n\n    output reg [2:0] q\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n// Johnson Counter logic\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        q <= 3'b000;\n    else\n        q <= {q[1:0], ~q[2]};\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q011651",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module ring_counter(\n    input wire clk,\n    input wire rst,\n    input wire en,\n    output reg [3:0] ring\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk or negedge rst) begin\n    if (~rst) begin\n        ring <= 4'b0001;\n    end else if (en) begin\n        ring <= {ring[2:0], ring[3]};\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

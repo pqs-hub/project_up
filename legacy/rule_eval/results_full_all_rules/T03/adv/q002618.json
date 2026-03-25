@@ -1,8 +1,0 @@
-{
-  "task_id": "q002618",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module nearest_neighbor_interpolation(\n    input [7:0] pixel1,\n    input [7:0] pixel2,\n    input select, // 0 for pixel1, 1 for pixel2\n    output reg [7:0] output_pixel\n);\n  wire [7:0] _tap_pixel1 = pixel1 & {8{1'b1}};\n\n\nalways @(*) begin\n    if (select) \n        output_pixel = pixel2;\n    else \n        output_pixel = pixel1;\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

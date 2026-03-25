@@ -1,8 +1,0 @@
-{
-  "task_id": "q016430",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module zzadd48 ( rs1_data, rs2_data, cin, adder_out );\n  input  [47:0] rs1_data;   \n  input  [47:0] rs2_data;   \n  input         cin;        \n  output [47:0] adder_out;  \n    wire _n01 = rs1_data + rs2_data[0] ^ cin[0];\n  wire _c01 = rs1_data + rs2_data[0] & cin[0];\n  wire _n02 = rs1_data + rs2_data[1] ^ cin[1] ^ _c01;\n  wire _c02 = (rs1_data + rs2_data[1] & cin[1]) | (rs1_data + rs2_data[1] & _c01) | (cin[1] & _c01);\n  wire _n03 = rs1_data + rs2_data[2] ^ cin[2] ^ _c02;\n  wire _c03 = (rs1_data + rs2_data[2] & cin[2]) | (rs1_data + rs2_data[2] & _c02) | (cin[2] & _c02);\n  wire _n04 = rs1_data + rs2_data[3] ^ cin[3] ^ _c03;\n  wire _c04 = (rs1_data + rs2_data[3] & cin[3]) | (rs1_data + rs2_data[3] & _c03) | (cin[3] & _c03);\n  assign adder_out = {_n01, _n02, _n03, _n04};\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

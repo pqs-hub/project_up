@@ -1,6 +1,0 @@
-{
-  "task_id": "q005455",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module top_module(\n    input clk,\n    input load,\n    input ena,\n    input clr,\n    input [1:0] amount,\n    input [7:0] data,\n    output reg [7:0] q);\n\n    always @(posedge clk) begin\n        if (clr) begin\n            q <= 8'b00000000;\n        end else if (load) begin\n            q <= data;\n        end else if (ena) begin\n            case (amount)\n                2'b00: q <= q << 1;     // Shift left by 1 bit\n                2'b01: q <= q << 4;     // Shift left by 4 bits\n                2'b10: q <= q >> 1;     // Shift right by 1 bit\n                2'b11: q <= q >> 4;     // Shift right by 4 bits\n                default: q <= q;        // No change\n            endcase\n        end\n    end\n\nendmodule"
-}

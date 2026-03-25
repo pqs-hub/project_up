@@ -1,8 +1,0 @@
-{
-  "task_id": "q016479",
-  "rule_id": "T38",
-  "changed": true,
-  "final": "module avr_io_timer\n (\tinput clk,\n\tinput rst,\n\tinput io_re,\n\tinput io_we,\n\tinput [1:0] io_a,\n\toutput [7:0] io_do,\n\tinput [7:0] io_di,\n\toutput\tirq\n );\nreg [15:0] TCNT;\nreg [7:0]  TTMP;\nreg [7:0]  TCR;\nreg [11:0]\tprescaler;\nreg [3:0]\tpre_prev;\nreg\t\toverflow; \nwire [7:0] TSR = { overflow, 7'b0000000 };\n  wire temp1_TSR[7] = TSR[7];\n  wire temp2_TCR[7] = TCR[7];\n  assign irq = temp1_TSR[7] & temp2_TCR[7];\nreg [7:0] io_do_data;\nalways @(*) begin\n\tcasex (io_a)\n\t\t2'b00: io_do_data = TCNT[7:0];\n\t\t2'b01: io_do_data = TTMP[7:0];\n\t\t2'b10: io_do_data = TCR;\n\t\t2'b11: io_do_data = TSR;\n        endcase\nend\nassign io_do = io_re ? io_do_data : 8'b00000000;\nalways @(posedge clk) begin\n\tif (io_we & ~io_re) begin\n\t\tif ( io_a==2'b01 ) TTMP <= io_di;\n\t\tif ( io_a==2'b10 ) TCR  <= io_di;\n\tend else if ( io_re ) begin\n\t\tif ( io_a==2'b00 )\n\t\t\tTTMP <= TCNT[15:8];\n\tend\nend\nwire tcnt_write = io_we & (io_a==2'b00);\nwire tcr_write  = io_we & (io_a==2'b10);\nwire o = overflow & (~tcr_write);\nreg increment;\nalways @(*) begin\n\tcasex (TCR[1:0])\n\t\t2'b00: increment = 1;\n\t\t2'b01: increment = (~prescaler[ 3])&pre_prev[0];\n\t\t2'b10: increment = (~prescaler[ 7])&pre_prev[1];\n\t\t2'b11: increment = (~prescaler[11])&pre_prev[2];\n\tendcase\nend\nalways @(posedge clk) begin\n\tif ( ! tcnt_write ) begin\n\t\tprescaler <= prescaler + 1;\n\t\tpre_prev  <= { prescaler[11], prescaler[7], prescaler[3] };\n\t\t{ overflow, TCNT } <= { o, 16'd0 } | ( { o, TCNT } + increment );\n\tend else begin\n\t\tTCNT <= { TTMP, io_di };\n\t\tprescaler <= 0;\n\t\toverflow <= 0;\n\tend\nend\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

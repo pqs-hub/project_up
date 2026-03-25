@@ -1,8 +1,0 @@
-{
-  "task_id": "q011202",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module Barrel_shifter_256(\n   input  [255:0]      data_in,\n   input  [7:0]        shift_amt,\n   input               dir,\n   output reg [255:0]  data_out\n);\n  wire [255:0] _tap_data_in = data_in & {256{1'b1}};\n\n    always@(*)begin\n        if(dir) data_out = data_in << shift_amt;\n        else data_out = data_in >> shift_amt;\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

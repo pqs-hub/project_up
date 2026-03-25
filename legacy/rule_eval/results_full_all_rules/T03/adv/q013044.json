@@ -1,8 +1,0 @@
-{
-  "task_id": "q013044",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module( a, b, g_out, p_out );input a, b;\n  output g_out, p_out;\n  wire _tap_a = a & {1{1'b1}};\n\n  wire   n2;\n\n  assign n2 = ~a;              // Replace INV_X1 with a gate-level operation\n  assign g_out = a & b;       // Replace AND2_X1 with a gate-level operation\n  assign p_out = b ~^ n2;     // Replace XNOR2_X1 with a gate-level operation\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

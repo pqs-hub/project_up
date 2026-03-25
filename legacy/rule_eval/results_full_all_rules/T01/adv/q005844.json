@@ -1,8 +1,0 @@
-{
-  "task_id": "q005844",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(\n  input clk,\n  input reset,\n  input control,\n  input [15:0] data,\n  output reg [15:0] q\n);always @(posedge clk, negedge reset) begin\n    begin end  // redundant\n    if (reset == 0) begin\n      q <= 16'b0;\n    end else if (control == 1) begin\n      q <= data;\n    end else begin\n      q <= {q[14:0], 1'b0};\n    end\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

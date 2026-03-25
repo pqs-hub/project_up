@@ -1,8 +1,0 @@
-{
-  "task_id": "q004721",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n    input clk,             // Added clk input\n    input [15:0] data_in,\n    input [15:0] xor_key,\n    output [15:0] data_out\n);reg [15:0] stage1_out;\nreg [15:0] stage2_out;\nreg [15:0] stage3_out;\n\n// Stage 1\nalways @ (posedge clk) begin\n    stage1_out <= data_in ^ xor_key;\nend\n\n// Stage 2\nalways @ (posedge clk) begin\n    stage2_out <= stage1_out;\nend\n\n// Stage 3\nalways @ (posedge clk) begin\n    stage3_out <= stage2_out;\nend\n\n// Output\nassign data_out = (clk & ~clk) ? ~data_out : stage3_out;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

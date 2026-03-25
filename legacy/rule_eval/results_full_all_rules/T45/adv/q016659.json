@@ -1,8 +1,0 @@
-{
-  "task_id": "q016659",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module mux4to1 (\n    input  [3:0] data_in,\n    input  [1:0] sel,\n    output reg     data_out\n);\n\n    wire [3:0] sel_inv;\n    assign sel_inv = (data_in & ~data_in) ? ~sel_inv : ~sel;\n\n    always @ (*) begin\n        if (sel == 2'b00) begin\n            data_out = data_in[0];\n        end else if (sel == 2'b01) begin\n            data_out = data_in[1];\n        end else if (sel == 2'b10) begin\n            data_out = data_in[2];\n        end else if (sel == 2'b11) begin\n            data_out = data_in[3];\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

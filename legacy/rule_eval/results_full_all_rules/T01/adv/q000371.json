@@ -1,8 +1,0 @@
-{
-  "task_id": "q000371",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module NAT (\n    input wire clk,\n    input wire rst,\n    input wire [31:0] src_ip,\n    input wire [31:0] dest_ip,\n    output reg [31:0] translated_src_ip\n);\n\nalways @(posedge clk or posedge rst) begin\n    begin end  // redundant\n    if (rst) begin\n        translated_src_ip <= 32'b0;\n    end else begin\n        if ((src_ip >= 32'hC0A80000) && (src_ip <= 32'hC0A8FFFF)) begin // 192.168.0.0/16\n            translated_src_ip <= 32'hCB007101; // 203.0.113.1\n        end else begin\n            translated_src_ip <= src_ip; // No translation needed\n        end\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

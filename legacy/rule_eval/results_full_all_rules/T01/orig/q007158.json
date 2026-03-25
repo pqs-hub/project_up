@@ -1,6 +1,0 @@
-{
-  "task_id": "q007158",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module shift_register(CLK, RST, load, shift_left, shift_right, parallel_in, q);\ninput CLK, RST, load, shift_left, shift_right;\ninput [3:0] parallel_in;\noutput [3:0] q;\nreg [3:0] q;\n\nalways@(posedge CLK or posedge RST) begin\n    if (RST)\n        q <= 0;\n    else if (load)\n        q <= parallel_in;\n    else if (shift_left)\n        q <= q << 1;\n    else if (shift_right)\n        q <= q >> 1;\n    else\n        q <= q;\nend\n\nendmodule"
-}

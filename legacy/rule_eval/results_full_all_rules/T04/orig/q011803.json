@@ -1,6 +1,0 @@
-{
-  "task_id": "q011803",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(\n    input [3:0] in0,\n    input [3:0] in1,\n    input [3:0] in2,\n    input [3:0] in3,\n    input [1:0] sel,\n    input clk, // Added clk input to resolve the error\n    output reg [3:0] out\n);reg [3:0] stage1_out;\nreg [3:0] stage2_out;\n\nalways @(*) begin // Changed to combinational logic\n    case (sel)\n        2'b00: stage1_out = in0; // Changed <= to = for combinational logic\n        2'b01: stage1_out = in1;\n        2'b10: stage1_out = in2;\n        2'b11: stage1_out = in3;\n        default: stage1_out = 4'b0000; // Added default case for safety\n    endcase\nend\n\nalways @(posedge clk) begin\n    stage2_out <= stage1_out;\nend\n\nassign out = stage2_out;\n\nendmodule"
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q015817",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(clk_i, rst_i,IFID_write,address_i, instr_i, address_o, instr_o);input clk_i ;\n\tinput rst_i;\n\tinput IFID_write;\n\tinput [32-1:1-1] address_i;\n\tinput [31:0] instr_i;\n\toutput reg [31:0] address_o;\n\toutput reg [31:0] instr_o;\n\n\talways@(posedge clk_i)\n\tbegin\n\t\tif (!rst_i)\n\t\tbegin\n\t\t\taddress_o <= 0;\n\t\t\tinstr_o <= 0;\n\t\tend\n\t\telse if(IFID_write)begin\n\t\t\t\taddress_o <= address_i;\n\t\t\t\tinstr_o <= instr_i;\n\t\tend\n\tend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

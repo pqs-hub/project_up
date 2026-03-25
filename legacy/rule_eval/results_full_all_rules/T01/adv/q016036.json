@@ -1,8 +1,0 @@
-{
-  "task_id": "q016036",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(clk, reset, d, q, qn);input clk, reset, d;\n    output q, qn;\n    reg q, qn;\n\n    always @(posedge clk or negedge reset) begin\n    begin end  // redundant\n        if (!reset) begin\n            q <= 0;\n            qn <= 1;\n        end\n        else begin\n            q <= d;\n            qn <= ~d;\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

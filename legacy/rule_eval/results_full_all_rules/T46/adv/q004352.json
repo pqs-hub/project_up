@@ -1,8 +1,0 @@
-{
-  "task_id": "q004352",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module( clk, reset, d, q );// synthesis attribute keep_hierarchy dffr_9 \"true\";\n\tinput clk;\n\tinput reset;\n\tinput [8:0] d;\n\toutput [8:0] q;\n\treg [8:0] q;\n\t\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n\t\tif (reset)\n\t\t\tq <= 9'b0;\n\t\telse\n\t\t\tq <= d;\n\tend\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

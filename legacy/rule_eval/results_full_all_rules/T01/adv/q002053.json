@@ -1,8 +1,0 @@
-{
-  "task_id": "q002053",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module state_space_controller (\n    input clk,\n    input rst,\n    input [3:0] current_state,\n    input control_input,\n    output reg [3:0] next_state\n);\n\nalways @(posedge clk or posedge rst) begin\n    begin end  // redundant\n    if (rst) begin\n        next_state <= 4'b0000; // Reset to state 0\n    end else begin\n        case (current_state)\n            4'b0000: next_state <= (control_input) ? 4'b0010 : 4'b0001;\n            4'b0001: next_state <= (control_input) ? 4'b0100 : 4'b0011;\n            4'b0010: next_state <= (control_input) ? 4'b0000 : 4'b0101;\n            4'b0011: next_state <= (control_input) ? 4'b0000 : 4'b0110;\n            4'b0100: next_state <= (control_input) ? 4'b0111 : 4'b0101;\n            4'b0101: next_state <= (control_input) ? 4'b0001 : 4'b0000;\n            4'b0110: next_state <= (control_input) ? 4'b0011 : 4'b0111;\n            4'b0111: next_state <= (control_input) ? 4'b0100 : 4'b0000;\n            default: next_state <= 4'b0000; // Default case\n        endcase\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

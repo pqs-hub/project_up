@@ -1,8 +1,0 @@
-{
-  "task_id": "q015293",
-  "rule_id": "T38",
-  "changed": true,
-  "final": "module carry_lookahead_adder_4bit (\n    input wire [3:0] a,\n    input wire [3:0] b,\n    input wire cin,\n    output wire [3:0] sum,\n    output wire cout\n);\n\n    wire [3:0] p, g, c;\n\n    assign p = a ^ b; // Propagate\n  wire temp1_a = a;\n  wire temp2_b = b;\n  assign g = temp1_a & temp2_b; // Generate\n\n    assign c[0] = cin;\n    assign c[1] = g[0] | (p[0] & c[0]);\n    assign c[2] = g[1] | (p[1] & c[1]);\n    assign c[3] = g[2] | (p[2] & c[2]);\n    assign cout = g[3] | (p[3] & c[3]);\n\n    assign sum = p ^ c[3:0];\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

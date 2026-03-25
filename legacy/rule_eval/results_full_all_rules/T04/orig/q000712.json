@@ -1,6 +1,0 @@
-{
-  "task_id": "q000712",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module dram_cell (\n    input clk,\n    input read_en,\n    input write_en,\n    input [7:0] data_in,\n    input [2:0] addr,\n    output reg [7:0] data_out\n);\n    reg [7:0] memory [0:7]; // 8-bit DRAM cell with 8 addresses\n\n    always @(posedge clk) begin\n        if (write_en) begin\n            memory[addr] <= data_in; // Write data to memory\n        end\n        if (read_en) begin\n            data_out <= memory[addr]; // Read data from memory\n        end\n    end\nendmodule"
-}

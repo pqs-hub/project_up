@@ -1,8 +1,0 @@
-{
-  "task_id": "q006528",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input wire clk,       // Added clk input\n    input wire data,\n    output wire to_pad\n);reg delayed_data;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    delayed_data <= data;\nend\n\nassign to_pad = delayed_data;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

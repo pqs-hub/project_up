@@ -1,8 +1,0 @@
-{
-  "task_id": "q008829",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n\tinput clk,\n\tinput reset,\n\toutput [3:0] count);reg [3:0] count_reg = 4'b0000;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n\talways @(posedge clk or posedge reset) begin\n\t\tif (reset)\n\t\t\tcount_reg <= 4'b0000;\n\t\telse\n\t\t\tcount_reg <= count_reg + 1;\n\tend\n\n\tassign count = count_reg;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

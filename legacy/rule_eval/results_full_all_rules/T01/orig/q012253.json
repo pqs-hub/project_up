@@ -1,6 +1,0 @@
-{
-  "task_id": "q012253",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module shift_left_register(\n    input clk,\n    input reset_n,\n    input shift_left_enable,\n    input data_in,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (!reset_n) begin\n            // Synchronous reset: Reset the register to 4'b0000\n            q <= 4'b0000;\n        end else if (shift_left_enable) begin\n            // Shift left operation: Shift left by one bit and input data_in\n            q <= {q[2:0], data_in};\n        end\n    end\n\nendmodule"
-}

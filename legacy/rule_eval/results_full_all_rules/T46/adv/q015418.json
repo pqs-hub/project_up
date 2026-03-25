@@ -1,8 +1,0 @@
-{
-  "task_id": "q015418",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module Register_16(\n   input               clk,\n   input               load,\n   input               clr,\n   input  [15:0]       D,\n   output reg [15:0]   Q  \n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or posedge dbg_halt) begin\n        if(clr) Q <= 16'b0; // Clear the register\n        else if(load) Q <= D; // Load the register with input data\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

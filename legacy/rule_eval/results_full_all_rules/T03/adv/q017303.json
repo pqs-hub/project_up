@@ -1,8 +1,0 @@
-{
-  "task_id": "q017303",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module binary_to_gray_4bit (\n    input [3:0] B,\n    output reg [3:0] G\n);\n  wire [3:0] _tap_B = B & {4{1'b1}};\n\n\nalways @(*) begin\n    G[3] = B[3];\n    G[2] = B[3] ^ B[2];\n    G[1] = B[2] ^ B[1];\n    G[0] = B[1] ^ B[0];\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

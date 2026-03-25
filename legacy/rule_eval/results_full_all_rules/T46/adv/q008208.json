@@ -1,8 +1,0 @@
-{
-  "task_id": "q008208",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n  input D,\n  input S,\n  input R,\n  input CLK,\n  output reg Q,   // Change made here to specify Q as a reg type\n  output QN\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or negedge R or negedge S or posedge dbg_halt) begin\n  if (!R) begin\n    Q <= 1'b0;\n  end else if (!S) begin\n    Q <= 1'b1;\n  end else begin\n    Q <= D;\n  end\nend\n\nassign QN = ~Q;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

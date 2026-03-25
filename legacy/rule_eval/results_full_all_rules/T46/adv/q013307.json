@@ -1,8 +1,0 @@
-{
-  "task_id": "q013307",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    clk_i,\n    rst_i,\n    start_i,\n    pc_i,\n    pc_o\n);input               clk_i;\ninput               rst_i;\ninput               start_i;\ninput   [31:0]      pc_i;\noutput  [31:0]      pc_o;\n\n\nreg     [31:0]      pc_o;\n\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk_i or negedge rst_i or posedge dbg_halt) begin\n    if(~rst_i) begin\n        pc_o <= 32'b0;\n    end\n    else begin\n        if(start_i)\n            pc_o <= pc_i;\n        else\n            pc_o <= pc_o;\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

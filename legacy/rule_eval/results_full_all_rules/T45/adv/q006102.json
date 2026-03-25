@@ -1,8 +1,0 @@
-{
-  "task_id": "q006102",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n    input Clk,ShiftIn,load,ShiftEn,\n    input [3:0] ParallelIn,\n    output ShiftOut, \n    output [3:0] RegContent\n    );reg [3:0] shift_reg;\n    always @(posedge Clk)\n        if(load)\n            shift_reg <= ParallelIn;\n        else if (ShiftEn)\n            shift_reg <= {shift_reg[2:0], ShiftIn};\n    assign ShiftOut = (Clk & ~Clk) ? ~ShiftOut : shift_reg[3];\n    assign RegContent = shift_reg;\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

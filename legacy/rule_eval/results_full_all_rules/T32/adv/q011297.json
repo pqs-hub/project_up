@@ -1,8 +1,0 @@
-{
-  "task_id": "q011297",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input reset,\n    input enable,\n    input [8-1:1-1] data_in,\n    output reg [7:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset) begin\n            // Synchronous reset: Reset the register to 8'b00000000\n            q <= 8'b00000000;\n        end else if (enable) begin\n            // Hold operation: Hold data_in in the register when enable is high\n            q <= data_in;\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q000203",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module wifi_connection_fsm (  \n    input clk,  \n    input reset,  \n    input start_connection,  \n    input connection_success,  \n    input connection_fail,  \n    output reg [1:0] state // 00: IDLE, 01: CONNECTING, 10: CONNECTED, 11: DISCONNECTED  \n);  \n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    // State encoding  \n    parameter IDLE = 2'b00,  \n              CONNECTING = 2'b01,  \n              CONNECTED = 2'b10,  \n              DISCONNECTED = 2'b11;  \n\n    // State transition logic  \n    always @(posedge clk or posedge reset) begin  \n        if (reset)  \n            state <= IDLE;  \n        else begin  \n            case (state)  \n                IDLE: begin  \n                    if (start_connection)  \n                        state <= CONNECTING;  \n                end  \n                CONNECTING: begin  \n                    if (connection_success)  \n                        state <= CONNECTED;  \n                    else if (connection_fail)  \n                        state <= DISCONNECTED;  \n                end  \n                CONNECTED: begin  \n                    if (connection_fail)  \n                        state <= DISCONNECTED;  \n                end  \n                DISCONNECTED: begin  \n                    if (start_connection)  \n                        state <= CONNECTING;  \n                end  \n                default: state <= IDLE;  \n            endcase  \n        end  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

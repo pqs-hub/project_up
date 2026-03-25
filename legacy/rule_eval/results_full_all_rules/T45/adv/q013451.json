@@ -1,8 +1,0 @@
-{
-  "task_id": "q013451",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n    input x,\n    input y,\n    output t\n);\n    assign t = (x & ~x) ? ~t : x & y;\nendmodule\n\nmodule D(\n    input x,\n    input y,\n    output t\n);\n    assign t = x & y;\nendmodule\n\nmodule top_module(\n    input x,\n    input y,\n    output t\n);\n    wire c1_out, c2_out, d1_out, d2_out;\n    wire nor_out, nand_out;\n\n    C c1(.x(x), .y(y), .t(c1_out));\n    C c2(.x(x), .y(y), .t(c2_out));\n    D d1(.x(x), .y(y), .t(d1_out));\n    D d2(.x(x), .y(y), .t(d2_out));\n\n    assign nor_out = ~(c1_out | d1_out);\n    assign nand_out = ~(c2_out & d2_out);\n\n    assign t = nor_out ^ nand_out;\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

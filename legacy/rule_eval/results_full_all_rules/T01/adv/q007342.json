@@ -1,8 +1,0 @@
-{
-  "task_id": "q007342",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(\n\tinput clk,\n\tinput reset,\n\tinput load,\n\tinput [4:0] load_value,\n\toutput reg [4:0] count);\n\nalways @(posedge clk) begin\n    begin end  // redundant\n\t\tif (reset)\n\t\t\tcount <= 5'b00001;\n\t\telse if (load)\n\t\t\tcount <= load_value;\n\t\telse\n\t\t\tcount <= {count[3:0], count[4]};\n\tend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

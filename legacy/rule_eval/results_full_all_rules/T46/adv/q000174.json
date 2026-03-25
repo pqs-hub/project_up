@@ -1,8 +1,0 @@
-{
-  "task_id": "q000174",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module pitch_detector (  \n    input clk,  \n    input [7:0] freq_input,  \n    output reg valid_freq  \n);  \n    // Frequency range constants  \n    parameter MIN_FREQ = 8'd50;  \n    parameter MAX_FREQ = 8'd200;  \n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin  \n        if (freq_input >= MIN_FREQ && freq_input <= MAX_FREQ)  \n            valid_freq <= 1;  \n        else  \n            valid_freq <= 0;  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

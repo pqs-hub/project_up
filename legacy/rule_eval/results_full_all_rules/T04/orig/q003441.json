@@ -1,6 +1,0 @@
-{
-  "task_id": "q003441",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module divider_2bit(\n    input [1:0] A,   // Dividend\n    input [1:0] B,   // Divisor\n    output reg [1:0] Q, // Quotient\n    output reg [1:0] R  // Remainder\n);\n    always @(*) begin\n        if (B == 2'b00) begin\n            Q = 2'b11; // Error condition: Division by zero\n            R = 2'b11; // Error condition: Division by zero\n        end else begin\n            Q = A / B; // Perform integer division\n            R = A % B; // Calculate remainder\n        end\n    end\nendmodule"
-}

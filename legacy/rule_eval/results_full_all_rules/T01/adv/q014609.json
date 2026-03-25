@@ -1,8 +1,0 @@
-{
-  "task_id": "q014609",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module johnson_counter(\n    input wire clk,\n    input wire rst,\n    output reg [11:0] q\n);\n\n    always @(posedge clk) begin\n    begin end  // redundant\n        if (rst) begin\n            q <= 12'b100000000000;\n        end else begin\n            q <= {~q[0], q[11:1]};\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

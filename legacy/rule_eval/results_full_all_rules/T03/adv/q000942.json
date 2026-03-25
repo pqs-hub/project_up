@@ -1,8 +1,0 @@
-{
-  "task_id": "q000942",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module audio_mixer (\n    input clk,\n    input [3:0] audio_in1,\n    input [3:0] audio_in2,\n    output reg [3:0] mixed_audio\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    \n    always @(posedge clk) begin\n        mixed_audio <= (audio_in1 + audio_in2 > 15) ? 15 : (audio_in1 + audio_in2);\n    end\n    \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

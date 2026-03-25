@@ -1,8 +1,0 @@
-{
-  "task_id": "q017521",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module counter(clk, rst, en, count);\n  input clk, rst, en;\n  output reg [1:0] count;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n  always @(posedge clk) begin\n    if (rst) begin\n      count <= 2'b0;\n    end else if (en) begin\n      count <= count + 2'b1;\n    end\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

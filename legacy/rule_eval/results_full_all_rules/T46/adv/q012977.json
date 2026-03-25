@@ -1,8 +1,0 @@
-{
-  "task_id": "q012977",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module register_with_enable (\n    input [7:0] d,\n    input clk,\n    input en,\n    output [7:0] q\n);\n\n    reg [7:0] q_reg;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (en) begin\n            q_reg <= d;\n        end\n    end\n\n    assign q = q_reg;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

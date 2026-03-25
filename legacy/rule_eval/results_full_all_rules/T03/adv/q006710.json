@@ -1,8 +1,0 @@
-{
-  "task_id": "q006710",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module mux_4to1(I0,I1,I2,I3,SEL,Y);\ninput I0,I1,I2,I3;\ninput [1:0] SEL;\noutput Y;\n  wire _tap_I0 = I0 & {1{1'b1}};\n\nreg Y;\n\nalways@(*) begin\n    case(SEL)\n        2'b00: Y = I0;\n        2'b01: Y = I1;\n        2'b10: Y = I2;\n        2'b11: Y = I3;\n    endcase\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

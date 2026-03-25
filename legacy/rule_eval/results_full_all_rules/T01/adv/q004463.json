@@ -1,8 +1,0 @@
-{
-  "task_id": "q004463",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(\n    input [3:0] A,\n    input [3:0] B,\n    input [1:0] C,\n    input clk,          // Added clk input\n    output reg [3:0] out\n);reg [3:0] stage1_out;\nreg [3:0] stage2_out;\n\nalways @(*) begin\n    begin end  // redundant\n    case(C)\n        2: stage1_out = A ^ B;\n        1: stage1_out = B;\n        default: stage1_out = A;\n    endcase\nend\n\nalways @(posedge clk) begin\n    stage2_out <= stage1_out; // Use non-blocking assignment for sequential logic\nend\n\nassign out = stage2_out;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

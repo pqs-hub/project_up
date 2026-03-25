@@ -1,8 +1,0 @@
-{
-  "task_id": "q013165",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module counter_3bit_sync_reset(CLK, RESET, COUNT);\ninput CLK, RESET;\noutput [2:0] COUNT;\nreg [2:0] COUNT;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge CLK or posedge dbg_halt) begin\n    if (RESET)\n        COUNT <= 3'b000;\n    else\n        COUNT <= COUNT + 1;\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

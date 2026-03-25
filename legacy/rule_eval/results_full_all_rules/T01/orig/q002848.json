@@ -1,6 +1,0 @@
-{
-  "task_id": "q002848",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module pcie_endpoint_controller(\n    input wire clk,\n    input wire rst_n,\n    input wire req,\n    output reg rsp\n);\n\n    reg req_d;\n\n    always @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            rsp <= 1'b0;\n            req_d <= 1'b0;\n        end else begin\n            req_d <= req;\n            rsp <= req_d;\n        end\n    end\nendmodule"
-}

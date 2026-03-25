@@ -1,6 +1,0 @@
-{
-  "task_id": "q000158",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module nvme_controller(  \n    input clk,  \n    input reset,  \n    input start,  \n    input done,  \n    output reg [1:0] state  \n);  \n    parameter IDLE = 2'b00;  \n    parameter PROCESSING = 2'b01;  \n    parameter COMPLETE = 2'b10;  \n\n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            state <= IDLE;  \n        end else begin  \n            case (state)  \n                IDLE: begin  \n                    if (start)  \n                        state <= PROCESSING;  \n                end  \n                PROCESSING: begin  \n                    if (done)  \n                        state <= COMPLETE;  \n                end  \n                COMPLETE: begin  \n                    if (!start)  \n                        state <= IDLE;  \n                end  \n            endcase  \n        end  \n    end  \nendmodule"
-}

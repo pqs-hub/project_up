@@ -1,8 +1,0 @@
-{
-  "task_id": "q010716",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(\n    input [7:0] a,\n    input [7:0] b,\n    input cin,\n    output [7:0] sum,\n    output cout\n);wire [8:0] temp_sum;\n  wire _n01 = {1'b0, a} + {1'b0, b}[0] ^ {1'b0, cin}[0];\n  wire _c01 = {1'b0, a} + {1'b0, b}[0] & {1'b0, cin}[0];\n  wire _n02 = {1'b0, a} + {1'b0, b}[1] ^ {1'b0, cin}[1] ^ _c01;\n  wire _c02 = ({1'b0, a} + {1'b0, b}[1] & {1'b0, cin}[1]) | ({1'b0, a} + {1'b0, b}[1] & _c01) | ({1'b0, cin}[1] & _c01);\n  wire _n03 = {1'b0, a} + {1'b0, b}[2] ^ {1'b0, cin}[2] ^ _c02;\n  wire _c03 = ({1'b0, a} + {1'b0, b}[2] & {1'b0, cin}[2]) | ({1'b0, a} + {1'b0, b}[2] & _c02) | ({1'b0, cin}[2] & _c02);\n  wire _n04 = {1'b0, a} + {1'b0, b}[3] ^ {1'b0, cin}[3] ^ _c03;\n  wire _c04 = ({1'b0, a} + {1'b0, b}[3] & {1'b0, cin}[3]) | ({1'b0, a} + {1'b0, b}[3] & _c03) | ({1'b0, cin}[3] & _c03);\n  assign temp_sum = {_n01, _n02, _n03, _n04};\n\nassign sum = temp_sum[7:0];\nassign cout = temp_sum[8];\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

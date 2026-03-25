@@ -1,6 +1,0 @@
-{
-  "task_id": "q013886",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(\n    input clk,\n    input reset,\n    input enable,\n    output reg [3:0] count_out\n);always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            count_out <= 4'b0000;\n        end else if (enable) begin\n            if (count_out == 4'b1001) begin\n                count_out <= 4'b0000;\n            end else begin\n                count_out <= count_out + 1;\n            end\n        end\n    end\n\nendmodule"
-}

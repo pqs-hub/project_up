@@ -1,8 +1,0 @@
-{
-  "task_id": "q002301",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module pitch_detection(  \n    input clk,  \n    input rst,  \n    input [7:0] pitch_input,  \n    output reg pitch_detected  \n);  \n    parameter THRESHOLD = 8'd128;  \n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin  \n        if (rst) begin  \n            pitch_detected <= 0;  \n        end else begin  \n            if (pitch_input > THRESHOLD)  \n                pitch_detected <= 1;  \n            else  \n                pitch_detected <= 0;  \n        end  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

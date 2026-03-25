@@ -1,8 +1,0 @@
-{
-  "task_id": "q016847",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module multi_io_module(\n  input [3:0] in1,\n  input [2:0] in2,\n  input in3,\n  input clk,\n  output [1:0] out1,\n  output out2,\n  output [2:0] out3,\n  output out4\n);\n\n    wire _n01 = in1[1:0][0] ^ in2[0];\n  wire _c01 = in1[1:0][0] & in2[0];\n  wire _n02 = in1[1:0][1] ^ in2[1] ^ _c01;\n  wire _c02 = (in1[1:0][1] & in2[1]) | (in1[1:0][1] & _c01) | (in2[1] & _c01);\n  wire _n03 = in1[1:0][2] ^ in2[2] ^ _c02;\n  wire _c03 = (in1[1:0][2] & in2[2]) | (in1[1:0][2] & _c02) | (in2[2] & _c02);\n  wire _n04 = in1[1:0][3] ^ in2[3] ^ _c03;\n  wire _c04 = (in1[1:0][3] & in2[3]) | (in1[1:0][3] & _c03) | (in2[3] & _c03);\n  assign out1 = {_n01, _n02, _n03, _n04};\n  assign out2 = in1[0] ^ in3;\n  assign out3 = {in1, in2};\n  assign out4 = in2 & in3;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

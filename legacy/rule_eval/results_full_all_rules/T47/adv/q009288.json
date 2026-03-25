@@ -1,8 +1,0 @@
-{
-  "task_id": "q009288",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(\n    clk,\n\t clr,\n\t def,\n\t phase,\n\t clk2,\n    adr\n);input clk;\ninput clr;\ninput [31:0]def;\ninput [7:0]phase;\noutput clk2;\noutput [7:0]adr;\n\nreg [31:0]cnt = 0;\n\n  wire _n01 = cnt[31:24][0] ^ phase[7:0][0];\n  wire _c01 = cnt[31:24][0] & phase[7:0][0];\n  wire _n02 = cnt[31:24][1] ^ phase[7:0][1] ^ _c01;\n  wire _c02 = (cnt[31:24][1] & phase[7:0][1]) | (cnt[31:24][1] & _c01) | (phase[7:0][1] & _c01);\n  wire _n03 = cnt[31:24][2] ^ phase[7:0][2] ^ _c02;\n  wire _c03 = (cnt[31:24][2] & phase[7:0][2]) | (cnt[31:24][2] & _c02) | (phase[7:0][2] & _c02);\n  wire _n04 = cnt[31:24][3] ^ phase[7:0][3] ^ _c03;\n  wire _c04 = (cnt[31:24][3] & phase[7:0][3]) | (cnt[31:24][3] & _c03) | (phase[7:0][3] & _c03);\n  assign adr = {_n01, _n02, _n03, _n04};\n\nassign clk2 = cnt[31];\n\nalways @(posedge clk or posedge clr) begin\n    if (clr)\n        cnt <= 0;\n    else\n        cnt <= cnt + def;\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

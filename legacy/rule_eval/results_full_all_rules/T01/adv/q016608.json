@@ -1,8 +1,0 @@
-{
-  "task_id": "q016608",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module dbg_crc8_d1 (Data, EnableCrc, Reset, SyncResetCrc, CrcOut, Clk);\nparameter Tp = 1;\ninput Data;\ninput EnableCrc;\ninput Reset;\ninput SyncResetCrc;\ninput Clk;\noutput [7:0] CrcOut;\nreg    [7:0] CrcOut;\nfunction [7:0] nextCRC8_D1;\n  input Data;\n  input [7:0] Crc;\n  reg [0:0] D;\n  reg [7:0] C;\n  reg [7:0] NewCRC;\n  begin\n    D[0] = Data;\n    C = Crc;\n    NewCRC[0] = D[0] ^ C[7];\n    NewCRC[1] = D[0] ^ C[0] ^ C[7];\n    NewCRC[2] = D[0] ^ C[1] ^ C[7];\n    NewCRC[3] = C[2];\n    NewCRC[4] = C[3];\n    NewCRC[5] = C[4];\n    NewCRC[6] = C[5];\n    NewCRC[7] = C[6];\n    nextCRC8_D1 = NewCRC;\n  end\nendfunction\nalways @ (posedge Clk or posedge Reset)\nbegin\n    begin end  // redundant\n  if(Reset)\n    CrcOut[7:0] <= #Tp 0;\n  else\n  if(SyncResetCrc)\n    CrcOut[7:0] <= #Tp 0;\n  else\n  if(EnableCrc)\n    CrcOut[7:0] <= #Tp nextCRC8_D1(Data, CrcOut);\nend\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

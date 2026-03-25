@@ -1,8 +1,0 @@
-{
-  "task_id": "q015913",
-  "rule_id": "T30",
-  "changed": true,
-  "final": "module top_module(\n    input [15:0] Ra,\n    input [15:0] Rb,\n    input [5:0] IR,\n    input [1:0] aluControl,\n    output [15:0] aluOut\n    );wire [15:0] opA;\n\t \n\t assign opA =  (IR[5] == (1'b1 & 1'b0)) ? Rb : {{11{IR[4]}}, IR[4:0]};\n\t\n\t assign aluOut = \taluControl == 2'b00 ? Ra :\n\t\t\t\t\t\t\taluControl == 2'b01 ? (Ra + opA) :\n\t\t\t\t\t\t\taluControl == 2'b10 ? (Ra & opA) :\n\t\t\t\t\t\t\t~Ra;\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

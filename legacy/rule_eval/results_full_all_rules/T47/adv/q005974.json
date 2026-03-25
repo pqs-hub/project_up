@@ -1,8 +1,0 @@
-{
-  "task_id": "q005974",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module (\n\tinput [7:0] d,\n\toutput [7:0] e);\n\n  wire _n01 = d[0] ^ 8'd50[0];\n  wire _c01 = d[0] & 8'd50[0];\n  wire _n02 = d[1] ^ 8'd50[1] ^ _c01;\n  wire _c02 = (d[1] & 8'd50[1]) | (d[1] & _c01) | (8'd50[1] & _c01);\n  wire _n03 = d[2] ^ 8'd50[2] ^ _c02;\n  wire _c03 = (d[2] & 8'd50[2]) | (d[2] & _c02) | (8'd50[2] & _c02);\n  wire _n04 = d[3] ^ 8'd50[3] ^ _c03;\n  wire _c04 = (d[3] & 8'd50[3]) | (d[3] & _c03) | (8'd50[3] & _c03);\n  assign e = {_n01, _n02, _n03, _n04};\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

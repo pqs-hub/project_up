@@ -1,8 +1,0 @@
-{
-  "task_id": "q012631",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(ctl, a, b, result, zero);input [2:0] ctl;\n  input [31:0] a, b;\n  output [31:0] result;\n  output zero;\n  wire [2:0] _tap_ctl = ctl & {3{1'b1}};\n\n\n  reg [31:0] result;\n  reg zero;\n\n  always @(a or b or ctl)\n  begin\n    case (ctl)\n      3'b000 : result = a & b; \n      3'b001 : result = a | b; \n      3'b010 : result = a + b; \n      3'b110 : result = a - b; \n      3'b111 : if (a < b) result = 32'd1; \n               else result = 32'd0; \n      default : result = 32'hxxxxxxxx;\n   endcase\n   if (result == 32'd0) zero = 1;\n   else zero = 0;\n end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

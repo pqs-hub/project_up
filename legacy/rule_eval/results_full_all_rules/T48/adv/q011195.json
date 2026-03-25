@@ -1,8 +1,0 @@
-{
-  "task_id": "q011195",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module top_module(branchPC, isBranchTaken,\n\t\t  branchTarget, op1, isRet, isUBranch, isBeq, flagsE, isBgt, flagsGT);input [31:0] branchTarget, op1;\n   input \tisUBranch, isBeq, isBgt, flagsGT, flagsE, isRet;\n   output [31:0] branchPC;\n   output \t isBranchTaken;\n  assign isBranchTaken = isUBranch | (isBeq & flagsE) | (isBgt & flagsGT);\n  assign branchPC = (isRet) ? op1 : branchTarget;\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

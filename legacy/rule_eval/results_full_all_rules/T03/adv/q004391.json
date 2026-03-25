@@ -1,8 +1,0 @@
-{
-  "task_id": "q004391",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n\tinput [NUM_BITS-1:0] in,\n\tinput out_resetn,\n\tinput out_clk,\n\toutput [NUM_BITS-1:0] out\n);parameter NUM_BITS = 1;\n  wire _tap_in = in & {1{1'b1}};\n\n\n\nparameter CLK_ASYNC = 1;\n\nreg [NUM_BITS-1:0] cdc_sync_stage1 = 'h0;\nreg [NUM_BITS-1:0] cdc_sync_stage2 = 'h0;\n\nalways @(posedge out_clk)\nbegin\n\tif (out_resetn == 1'b0) begin\n\t\tcdc_sync_stage1 <= 'b0;\n\t\tcdc_sync_stage2 <= 'b0;\n\tend else begin\n\t\tcdc_sync_stage1 <= in;\n\t\tcdc_sync_stage2 <= cdc_sync_stage1;\n\tend\nend\n\nassign out = CLK_ASYNC ? cdc_sync_stage2 : in;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

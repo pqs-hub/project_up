@@ -1,8 +1,0 @@
-{
-  "task_id": "q011345",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module lfsr_32bit(\n    input clk,\n    input rst_n,\n    input en,\n    output [31:0] lfsr_out\n);\n\n    reg [31:0] shift_reg;\n\n    always @(posedge clk or negedge rst_n) begin\n    begin end  // redundant\n        if (!rst_n) begin\n            shift_reg <= 32'h1; // Non-zero seed value\n        end else if (en) begin\n            shift_reg <= {shift_reg[30:0], shift_reg[31] ^ shift_reg[21] ^ shift_reg[1] ^ shift_reg[0]};\n        end\n    end\n\n    assign lfsr_out = shift_reg;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

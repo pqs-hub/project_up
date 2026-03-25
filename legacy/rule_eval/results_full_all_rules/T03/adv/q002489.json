@@ -1,8 +1,0 @@
-{
-  "task_id": "q002489",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module thermal_sensor_calibration (\n    input wire [9:0] temperature_input,\n    input wire [3:0] calibration_factor,\n    output reg [9:0] calibrated_temperature\n);\n  wire [9:0] _tap_temperature_input = temperature_input & {10{1'b1}};\n\n    \n    always @(temperature_input, calibration_factor) begin\n        calibrated_temperature = temperature_input + calibration_factor;\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

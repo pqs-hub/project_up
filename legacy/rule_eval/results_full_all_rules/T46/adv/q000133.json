@@ -1,8 +1,0 @@
-{
-  "task_id": "q000133",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module fan_speed_controller (\n    input clk,\n    input rst,\n    input [6:0] temperature,\n    output reg [1:0] fan_speed\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n    if (rst) begin\n        fan_speed <= 2'b00; // Default to Low speed\n    end else begin\n        if (temperature <= 20) begin\n            fan_speed <= 2'b00; // Low speed\n        end else if (temperature <= 30) begin\n            fan_speed <= 2'b01; // Medium speed\n        end else begin\n            fan_speed <= 2'b10; // High speed\n        end\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

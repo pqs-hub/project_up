@@ -1,8 +1,0 @@
-{
-  "task_id": "q011119",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(n, ena, e);input [3:0] n;\n  input ena;\n  output reg [15:0] e;\n  wire [3:0] _tap_n = n & {4{1'b1}};\n\n  \n  function [15:0] decoder;\n    input [3:0] n;\n    input ena;\n    if(ena == 1'b0) decoder = 16'h0000;\n    else begin\n      case(n)\n       4'b0000: decoder = 16'h0001;\n       4'b0001: decoder = 16'h0002;\n       4'b0010: decoder = 16'h0004;\n       4'b0011: decoder = 16'h0008;\n       4'b0100: decoder = 16'h0010;\n       4'b0101: decoder = 16'h0020;\n       4'b0110: decoder = 16'h0040;\n       4'b0111: decoder = 16'h0080;\n       4'b1000: decoder = 16'h0100;\n       4'b1001: decoder = 16'h0200;\n       4'b1010: decoder = 16'h0400;\n       4'b1011: decoder = 16'h0800;\n       4'b1100: decoder = 16'h1000;\n       4'b1101: decoder = 16'h2000;\n       4'b1110: decoder = 16'h4000;\n       4'b1111: decoder = 16'h8000;\n      endcase\n    end\n  endfunction\n  \n  always @(*) begin\n    e = decoder(n, ena);\n  end\n  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q016717",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module shift_register(clk, reset, load, data_in, shift_out, data_out);\n\n\tinput clk;\n\tinput reset;\n\tinput load;\n\tinput [3:0] data_in;\n\toutput shift_out;\n\toutput [3:0] data_out;\n\n\treg [3:0] reg_data;\n\n\t  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n\t\tif (reset) begin\n\t\t\treg_data <= 4'b0;\n\t\tend else if (load) begin\n\t\t\treg_data <= data_in;\n\t\tend else begin\n\t\t\treg_data[3] <= reg_data[2];\n\t\t\treg_data[2] <= reg_data[1];\n\t\t\treg_data[1] <= reg_data[0];\n\t\t\treg_data[0] <= 1'b0;\n\t\tend\n\tend\n\n\tassign shift_out = reg_data[3];\n\tassign data_out = reg_data;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

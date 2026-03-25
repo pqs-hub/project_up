@@ -1,8 +1,0 @@
-{
-  "task_id": "q002252",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module nvme_command_register (\n    input wire clk,\n    input wire reset,\n    input wire load,\n    input wire [15:0] cid_in,\n    input wire [3:0] ct_in,\n    output reg [15:0] cid_out,\n    output reg [3:0] ct_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            cid_out <= 16'b0;\n            ct_out <= 4'b0;\n        end else if (load) begin\n            cid_out <= cid_in;\n            ct_out <= ct_in;\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q000414",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module lfsr (\n    input clk,\n    input reset,\n    output reg [4:0] lfsr_out\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            lfsr_out <= 5'b00001; // Initial state\n        end else begin\n            lfsr_out <= {lfsr_out[3:0], lfsr_out[4] ^ lfsr_out[3]}; // Feedback polynomial x^5 + x^4 + 1\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

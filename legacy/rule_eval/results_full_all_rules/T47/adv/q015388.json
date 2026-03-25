@@ -1,8 +1,0 @@
-{
-  "task_id": "q015388",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(\n    input input1,\n    input input2,\n    input input3,\n    input input4,\n    input input5,\n    input input6,\n    input input7,\n    input input8,\n    output output1\n);wire sum;\n      wire _n01 = input1 + input2 + input3 + input4 + input5 + input6 + input7[0] ^ input8[0];\n  wire _c01 = input1 + input2 + input3 + input4 + input5 + input6 + input7[0] & input8[0];\n  wire _n02 = input1 + input2 + input3 + input4 + input5 + input6 + input7[1] ^ input8[1] ^ _c01;\n  wire _c02 = (input1 + input2 + input3 + input4 + input5 + input6 + input7[1] & input8[1]) | (input1 + input2 + input3 + input4 + input5 + input6 + input7[1] & _c01) | (input8[1] & _c01);\n  wire _n03 = input1 + input2 + input3 + input4 + input5 + input6 + input7[2] ^ input8[2] ^ _c02;\n  wire _c03 = (input1 + input2 + input3 + input4 + input5 + input6 + input7[2] & input8[2]) | (input1 + input2 + input3 + input4 + input5 + input6 + input7[2] & _c02) | (input8[2] & _c02);\n  wire _n04 = input1 + input2 + input3 + input4 + input5 + input6 + input7[3] ^ input8[3] ^ _c03;\n  wire _c04 = (input1 + input2 + input3 + input4 + input5 + input6 + input7[3] & input8[3]) | (input1 + input2 + input3 + input4 + input5 + input6 + input7[3] & _c03) | (input8[3] & _c03);\n  assign sum = {_n01, _n02, _n03, _n04};\n    \n    assign output1 = (sum % 2 == 1) ? 1'b1 : 1'b0;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

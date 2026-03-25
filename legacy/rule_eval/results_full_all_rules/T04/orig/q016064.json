@@ -1,6 +1,0 @@
-{
-  "task_id": "q016064",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(\n  input [2:0] A,\n  input [2:0] B,\n  input [1:0] sel,\n  output reg [1:0] out\n);reg [2:0] selA;\n  reg [2:0] selB;\n\n  always @* begin\n    case(sel)\n      2'b00: begin\n        selA = A[0];\n        selB = B[0];\n      end\n      2'b01: begin\n        selA = A[1];\n        selB = B[1];\n      end\n      2'b10: begin\n        selA = A[2];\n        selB = B[2];\n      end\n      2'b11: begin\n        selA = 3'b0;\n        selB = 3'b0;\n      end\n    endcase\n\n    if(sel == 2'b11) begin\n      out = 2'b11;\n    end\n    else if(selA > selB) begin\n      out = 2'b10;\n    end\n    else if(selA < selB) begin\n      out = 2'b01;\n    end\n    else begin\n      out = 2'b00;\n    end\n  end\n\nendmodule"
-}

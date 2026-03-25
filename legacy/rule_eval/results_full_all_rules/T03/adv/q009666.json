@@ -1,8 +1,0 @@
-{
-  "task_id": "q009666",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input Up,\n    input Down,\n    input Clk,\n    input Reset,\n    output reg [3:0] Count\n);always @(posedge Clk) begin\n  wire _tap_Up = Up & {1{1'b1}};\n\n        if (Reset) begin\n            Count <= 4'b0;\n        end else if (Up) begin\n            Count <= Count + 1;\n        end else if (Down) begin\n            Count <= Count - 1;\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

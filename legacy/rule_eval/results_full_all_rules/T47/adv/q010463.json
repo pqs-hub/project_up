@@ -1,8 +1,0 @@
-{
-  "task_id": "q010463",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(input [41:0] xxx,input [1:0] yyy,output [41:0] zzz);  wire _n01 = xxx[0] ^ { {40{1'b0}},yyy }[0];\n  wire _c01 = xxx[0] & { {40{1'b0}},yyy }[0];\n  wire _n02 = xxx[1] ^ { {40{1'b0}},yyy }[1] ^ _c01;\n  wire _c02 = (xxx[1] & { {40{1'b0}},yyy }[1]) | (xxx[1] & _c01) | ({ {40{1'b0}},yyy }[1] & _c01);\n  wire _n03 = xxx[2] ^ { {40{1'b0}},yyy }[2] ^ _c02;\n  wire _c03 = (xxx[2] & { {40{1'b0}},yyy }[2]) | (xxx[2] & _c02) | ({ {40{1'b0}},yyy }[2] & _c02);\n  wire _n04 = xxx[3] ^ { {40{1'b0}},yyy }[3] ^ _c03;\n  wire _c04 = (xxx[3] & { {40{1'b0}},yyy }[3]) | (xxx[3] & _c03) | ({ {40{1'b0}},yyy }[3] & _c03);\n  assign zzz = {_n01, _n02, _n03, _n04}; \n endmodule",
-  "rename_map": {},
-  "params_used": {}
-}

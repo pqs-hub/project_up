@@ -1,8 +1,0 @@
-{
-  "task_id": "q008580",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module binary_counter_3bit(\n    input clk,           // Clock signal.\n    input rst,           // Synchronous reset signal.\n\n    output [2:0] count   // 3-bit counter output.\n);\n\nreg [2:0] count_r;\n\n//------------------------------------------------\n// 3-bit Binary Counter logic\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (rst) begin\n        count_r <= 3'b000;\n    end else begin\n        count_r <= count_r + 1;\n    end\nend\n\nassign count = count_r;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

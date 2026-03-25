@@ -1,8 +1,0 @@
-{
-  "task_id": "q017016",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module counter(\n    input clk,\n    input rst,\n    input enable,\n    output reg [31:0] count\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n    if (rst) begin\n        count <= 0;\n    end else if (enable) begin\n        count <= count + 1;\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

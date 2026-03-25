@@ -1,6 +1,0 @@
-{
-  "task_id": "q011602",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module top_module(nrst, clk, cs, sck, si, cs_s, sck_p, sck_n, si_s);input nrst;\n    input clk;\n    input cs;\n    input sck;\n    input si;\n    output cs_s;\n    output sck_p;\n    output sck_n;\n    output si_s;\n    reg [1:0] cs_r;\n    reg [1:0] si_r;\n    reg [2:0] sck_r;\n    \n    always @(posedge clk or negedge nrst) begin\n        if (~nrst) begin\n            sck_r <= 3'b111;\n            cs_r <= 2'b11;\n            si_r <= 2'b00;\n        end else begin\n            sck_r <= {sck_r[1:0], sck};\n            cs_r <= {cs_r[0], cs};\n            si_r <= {si_r[0], si};\n        end\n    end\n    \n    assign sck_p = (sck_r[2:1] == 2'b01);\n    assign sck_n = (sck_r[2:1] == 2'b10);\n    assign cs_s = cs_r[1];\n    assign si_s = si_r[1];\nendmodule"
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q016688",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module mux_3input (\n  input x,\n  input y,\n  input z,\n  input [1:0] sel,\n  output reg out\n);\n  wire _tap_x = x & {1{1'b1}};\n\n\n  always @(*) begin\n    case (sel)\n      2'b00: out = x;\n      2'b01: out = y;\n      2'b10: out = z;\n      default: out = 1'bx;\n    endcase\n  end\n\nendmodule\n",
-  "rename_map": {},
-  "params_used": {}
-}

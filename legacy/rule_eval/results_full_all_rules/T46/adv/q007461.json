@@ -1,8 +1,0 @@
-{
-  "task_id": "q007461",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    input [31:0] Din,\n    output [31:0] Dout,\n\t input CLK\n);reg [31:0]tmp_out ;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt)\nbegin\n\ttmp_out <= Din;\nend\n\nassign Dout = tmp_out;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

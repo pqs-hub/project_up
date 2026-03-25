@@ -1,8 +1,0 @@
-{
-  "task_id": "q010796",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module( input clk, input d, output reg [2:0] q );reg [2:0] temp;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\nalways @(posedge clk) begin\n    temp <= {temp[1:0], d};\nend\n\nassign q = {temp[2], temp[1], temp[0]};\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

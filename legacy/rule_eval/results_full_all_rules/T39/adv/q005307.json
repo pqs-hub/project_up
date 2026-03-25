@@ -1,8 +1,0 @@
-{
-  "task_id": "q005307",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module top_module(\n    input [3:0] in,\n    output reg [1:0] pos,\n    output reg valid\n);\n\n    // Always block to determine the highest-order '1' bit position\n    always @(*) begin\n  casez (in) 4'b1???: pos = 2'b11 ;\n  4'b01??: pos = 2'b10 ;\n  4'b001?: pos = 2'b01 ;\n  4'b0001: pos = 2'b00 ;\n  default: pos = 2'b00 ;\n  end\n\n  always @(*) begin\n  valid = |in ;\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

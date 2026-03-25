@@ -1,8 +1,0 @@
-{
-  "task_id": "q016008",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    input probe,\n    input source_clk,\n    output reg [2:0] source\n);  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge source_clk or posedge dbg_halt) begin\n        if (probe) begin\n            source <= 3'b0;\n        end else begin\n            source <= {source[1:0], 1'b0};\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

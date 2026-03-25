@@ -1,8 +1,0 @@
-{
-  "task_id": "q002186",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module rrt_fsm(\n    input wire clk,\n    input wire reset,\n    input wire start,\n    input wire node_generated, // Signal indicating a new node has been generated\n    input wire done, // Signal indicating the process is completed\n    output reg [1:0] state // 2-bit state output (00: IDLE, 01: EXPLORE, 10: CONNECT)\n);\n\n    // State encoding\n    localparam IDLE = 2'b00;\n    localparam EXPLORE = 2'b01;\n    localparam CONNECT = 2'b10;\n\n    // State transition\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: if (start) state <= EXPLORE;\n                EXPLORE: if (node_generated) state <= CONNECT;\n                CONNECT: if (done) state <= IDLE;\n                default: state <= IDLE;\n            endcase\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

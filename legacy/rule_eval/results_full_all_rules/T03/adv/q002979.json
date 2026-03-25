@@ -1,8 +1,0 @@
-{
-  "task_id": "q002979",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module flash_memory_cell (\n    input wire data_in,\n    input wire write_enable,\n    output reg data_out\n);\n  wire _tap_data_in = data_in & {1{1'b1}};\n\n    always @(*) begin\n        if (write_enable) begin\n            data_out = data_in; // Store the input data when write_enable is high\n        end\n        // When write_enable is low, data_out retains its previous value\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

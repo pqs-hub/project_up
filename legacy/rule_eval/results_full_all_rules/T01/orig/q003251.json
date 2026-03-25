@@ -1,6 +1,0 @@
-{
-  "task_id": "q003251",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module bluetooth_address_checker (\n    input [47:0] address, // 6-byte Bluetooth address\n    output reg valid       // Output signal indicating validity\n);\n\nalways @(*) begin\n    // Check if address is all zeros\n    if (address == 48'h000000000000) begin\n        valid = 1'b0; // Invalid address\n    end else begin\n        valid = 1'b1; // Valid address\n    end\nend\n\nendmodule"
-}

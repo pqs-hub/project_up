@@ -1,8 +1,0 @@
-{
-  "task_id": "q005058",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(m3,alu_out,shift_out,pc_p1,mem_frwd_data);input [2-1:1-1] m3;\ninput [15:0] alu_out,shift_out,pc_p1;\noutput reg [15:0] mem_frwd_data;\n\nalways @(*)\nbegin\n\ncase(m3)\n\n2'b00:\nmem_frwd_data = 16'bx; \n\n2'b01:\nmem_frwd_data = alu_out;\n\n2'b10:\nmem_frwd_data = shift_out;\n\n2'b11:\nmem_frwd_data = pc_p1;\n\ndefault:\nmem_frwd_data = 16'bx;\n\nendcase\n\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

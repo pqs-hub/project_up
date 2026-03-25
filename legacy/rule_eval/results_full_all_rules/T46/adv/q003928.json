@@ -1,8 +1,0 @@
-{
-  "task_id": "q003928",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module divide_by_8 (  \n    input clk,  \n    input rst,  \n    output reg out  \n);  \n    reg [2:0] counter;  // 3-bit counter to count up to 7  \n      \n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin  \n        if (rst) begin  \n            counter <= 3'b000;  \n            out <= 0;  \n        end else begin  \n            if (counter == 3'b111) begin  \n                counter <= 3'b000;  \n                out <= ~out;  // toggle output  \n            end else begin  \n                counter <= counter + 1;  \n            end  \n        end  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

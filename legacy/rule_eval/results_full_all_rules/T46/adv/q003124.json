@@ -1,8 +1,0 @@
-{
-  "task_id": "q003124",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module DAC_Controller (\n    input wire clk,\n    input wire rst,\n    input wire [15:0] digital_input,\n    output reg [15:0] analog_output\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n    if (rst) begin\n        analog_output <= 16'b0;\n    end else begin\n        analog_output <= digital_input;\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

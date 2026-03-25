@@ -1,8 +1,0 @@
-{
-  "task_id": "q001583",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module echo_cancellation(\n    input clk,\n    input reset,\n    input [15:0] signal_in,\n    input [15:0] echo_ref,\n    output reg [15:0] signal_out\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n        if (reset) begin\n            signal_out <= 16'b0;\n        end else begin\n            // Simple echo cancellation logic\n            signal_out <= signal_in - echo_ref;\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

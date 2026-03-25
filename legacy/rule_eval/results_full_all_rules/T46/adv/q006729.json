@@ -1,8 +1,0 @@
-{
-  "task_id": "q006729",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module counter_with_enable(\n    input clk,\n    input rst_n,\n    input en,\n    output reg [3:0] count\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge rst_n or posedge dbg_halt) begin\n        if (~rst_n) begin\n            count <= 4'b0000;\n        end else if (en) begin\n            count <= count + 1;\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

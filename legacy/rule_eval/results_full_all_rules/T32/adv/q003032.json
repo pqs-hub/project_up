@@ -1,8 +1,0 @@
-{
-  "task_id": "q003032",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module logistic_regression (\n    input wire x1,\n    input wire x2,\n    output wire y\n);\n    wire [2-1:1-1] weighted_sum;\n    \n    // Linear combination: y = w1*x1 + w2*x2\n    assign weighted_sum = {1'b0, x1} + {1'b0, x2}; // w1 = w2 = 1 for simplicity\n\n    // Logistic function approximation: threshold at 1\n    assign y = (weighted_sum > 2'b01) ? 1'b1 : 1'b0; // Activation function\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

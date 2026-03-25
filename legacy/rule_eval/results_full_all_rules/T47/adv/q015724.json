@@ -1,8 +1,0 @@
-{
-  "task_id": "q015724",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(\n    i_data0,\n    i_data1,\n    o_data0\n);// Port mode declarations:\n  input   [31:0] i_data0, i_data1;\n  output  [31:0] o_data0;\n\n  //Adder:\n  wire [31:0] w1;\n    wire _n01 = i_data0[0] ^ i_data1[0];\n  wire _c01 = i_data0[0] & i_data1[0];\n  wire _n02 = i_data0[1] ^ i_data1[1] ^ _c01;\n  wire _c02 = (i_data0[1] & i_data1[1]) | (i_data0[1] & _c01) | (i_data1[1] & _c01);\n  wire _n03 = i_data0[2] ^ i_data1[2] ^ _c02;\n  wire _c03 = (i_data0[2] & i_data1[2]) | (i_data0[2] & _c02) | (i_data1[2] & _c02);\n  wire _n04 = i_data0[3] ^ i_data1[3] ^ _c03;\n  wire _c04 = (i_data0[3] & i_data1[3]) | (i_data0[3] & _c03) | (i_data1[3] & _c03);\n  assign w1 = {_n01, _n02, _n03, _n04};\n  assign o_data0 = w1;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

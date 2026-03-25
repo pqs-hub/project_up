@@ -1,8 +1,0 @@
-{
-  "task_id": "q005213",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(clk, data_in, shamt, fnc, data_out);input clk;\n    input [31:0] data_in;\n    input [4:0] shamt;\n    input [1:0] fnc;\n    output reg [31:0] data_out;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n  always @(posedge clk) begin\n    if (fnc == 2'b00) begin\n      \n      data_out <= data_in << shamt;\n    end else\n    if (fnc == 2'b01) begin\n      \n      data_out <= data_in >> shamt;\n    end else\n    if (fnc == 2'b10) begin\n      \n      if (data_in[31] == 1) begin\n        data_out <= ~(32'hFFFFFFFF >> shamt) |\n                    (data_in >> shamt);\n      end else begin\n        data_out <= data_in >> shamt;\n      end\n    end else begin\n      data_out <= 32'hxxxxxxxx;\n    end\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

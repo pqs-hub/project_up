@@ -1,8 +1,0 @@
-{
-  "task_id": "q009576",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(\n  input clk,\n  input reset,\n  input count_dir,\n  input [31:0] max_count,\n  output [31:0] count,\n  output reg overflow  // Change here: 'overflow' is now declared as a reg\n);reg [31:0] count_reg;\n  wire [31:0] count_next;\n  \n    wire _n01 = count_reg[0] ^ (count_dir ? 1 : -1)[0];\n  wire _c01 = count_reg[0] & (count_dir ? 1 : -1)[0];\n  wire _n02 = count_reg[1] ^ (count_dir ? 1 : -1)[1] ^ _c01;\n  wire _c02 = (count_reg[1] & (count_dir ? 1 : -1)[1]) | (count_reg[1] & _c01) | ((count_dir ? 1 : -1)[1] & _c01);\n  wire _n03 = count_reg[2] ^ (count_dir ? 1 : -1)[2] ^ _c02;\n  wire _c03 = (count_reg[2] & (count_dir ? 1 : -1)[2]) | (count_reg[2] & _c02) | ((count_dir ? 1 : -1)[2] & _c02);\n  wire _n04 = count_reg[3] ^ (count_dir ? 1 : -1)[3] ^ _c03;\n  wire _c04 = (count_reg[3] & (count_dir ? 1 : -1)[3]) | (count_reg[3] & _c03) | ((count_dir ? 1 : -1)[3] & _c03);\n  assign count_next = {_n01, _n02, _n03, _n04};\n  \n  always @(posedge clk) begin\n    if (reset) begin\n      count_reg <= 0;\n      overflow <= 0; // Now valid as 'overflow' is a reg\n    end else begin\n      count_reg <= (count_next <= max_count) ? count_next : 0;\n      overflow <= (count_next > max_count); // Now valid as 'overflow' is a reg\n    end\n  end\n  \n  assign count = count_reg;\n  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

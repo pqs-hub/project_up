@@ -1,8 +1,0 @@
-{
-  "task_id": "q016276",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module full_adder_4bit(A, B, Cin, Sum, Cout);\n    input [4-1:1-1] A, B;\n    input Cin;\n    output [3:0] Sum;\n    output Cout;\n    wire [3:0] carry;\n\n    assign {carry[0], Sum[0]} = A[0] + B[0] + Cin;\n    assign {carry[1], Sum[1]} = A[1] + B[1] + carry[0];\n    assign {carry[2], Sum[2]} = A[2] + B[2] + carry[1];\n    assign {carry[3], Sum[3]} = A[3] + B[3] + carry[2];\n    assign Cout = carry[3];\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

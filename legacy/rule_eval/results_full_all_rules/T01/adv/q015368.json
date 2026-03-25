@@ -1,8 +1,0 @@
-{
-  "task_id": "q015368",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(w_bus_addr_pc_out, w_bus_jump_addr, w_channel, w_clock, w_reset);output [7:0] w_bus_addr_pc_out;\n\tinput [7:0] w_bus_jump_addr;\n\tinput w_channel, w_clock, w_reset;\n\n\treg [7:0] w_bus_addr_pc;\n\n\talways @(posedge w_clock) begin\n    begin end  // redundant\n\t\tif (w_reset) begin\n\t\t\tw_bus_addr_pc <= 8'h00;\n\t\tend else if (w_channel) begin\n\t\t\tw_bus_addr_pc <= w_bus_jump_addr;\n\t\tend else begin\n\t\t\tw_bus_addr_pc <= w_bus_addr_pc + 1;\n\t\tend\n\tend\n\n\tassign w_bus_addr_pc_out = w_bus_addr_pc;\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

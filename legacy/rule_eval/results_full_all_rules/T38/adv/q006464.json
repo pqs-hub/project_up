@@ -1,8 +1,0 @@
-{
-  "task_id": "q006464",
-  "rule_id": "T38",
-  "changed": true,
-  "final": "module top_module(x, y, Cin, Cout, s);input x, y, Cin;\n\toutput Cout, s;\n\t\n  wire temp1_(x & y) | (x & Cin) = (x & y) | (x & Cin);\n  wire temp2_(y & Cin) = (y & Cin);\n  assign Cout = temp1_(x & y) | (x & Cin) | temp2_(y & Cin);\n\tassign s = (~x & ~y & Cin) | (~x & y & ~Cin) |\n\t\t\t\t  (x & y & Cin) | (x & ~y & ~Cin);\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q003862",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module temperature_shutdown (\n    input clk,\n    input rst_n,\n    input enable,\n    input [8-1:1-1] temperature, // 8-bit temperature input\n    input [7:0] threshold,   // 8-bit threshold input\n    output reg shutdown       // shutdown signal\n);\n\nreg [7:0] last_temperature;\n\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n) begin\n        last_temperature <= 8'b0;\n        shutdown <= 1'b0;\n    end else if (enable) begin\n        last_temperature <= temperature; // Update last known temperature\n        if (last_temperature > threshold) begin\n            shutdown <= 1'b1; // Trigger shutdown if temperature exceeds threshold\n        end else begin\n            shutdown <= 1'b0; // Otherwise, do not shutdown\n        end\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

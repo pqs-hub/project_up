@@ -1,8 +1,0 @@
-{
-  "task_id": "q003179",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module timer_32bit (  \n    input wire clk,  \n    input wire reset,  \n    input wire enable,  \n    output reg [32-1:1-1] count  \n);  \n    always @(posedge clk or posedge reset) begin  \n        if (reset) begin  \n            count <= 32'b0;  \n        end else if (enable) begin  \n            if (count == 32'hFFFFFFFF)  \n                count <= 32'b0;  \n            else  \n                count <= count + 1;  \n        end  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

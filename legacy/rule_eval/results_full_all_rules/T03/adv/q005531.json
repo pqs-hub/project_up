@@ -1,8 +1,0 @@
-{
-  "task_id": "q005531",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input in,\n    input reset,\n    output reg out\n);     // State Encoding\n  wire _tap_clk = clk & {1{1'b1}};\n\n    parameter A = 0, B = 1;\n    reg [1:0] state, next;\n\n    // State Transition Logic\n    always @(*) begin\n        case (state)\n            A: next = in ? A : A;\n            B: next = in ? A : A;\n        endcase\n    end\n\n    // State Register with synchronous Reset\n    always @(posedge clk) begin\n        if (reset) state <= A;\n        else state <= next;\n    end\n\n    // Output Logic\n    always @(*) begin\n        case (state)\n            A: out = 0;\n            B: out = 1;\n        endcase\n    end\nendmodule\n",
-  "rename_map": {},
-  "params_used": {}
-}

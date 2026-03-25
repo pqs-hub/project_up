@@ -1,8 +1,0 @@
-{
-  "task_id": "q010203",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module synchronous_ram (\n\tinput clk,\n\tinput we,\n\tinput [3:0] read_addr,\n\tinput [3:0] write_addr,\n\tinput [7:0] din,\n\toutput reg [7:0] dout);\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n\treg [7:0] mem [15:0];\n\n\talways @(posedge clk) begin\n\t\tif (we)\n\t\t\tmem[write_addr] <= din;\n\t\tdout <= mem[read_addr];\n\tend\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

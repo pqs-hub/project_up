@@ -1,8 +1,0 @@
-{
-  "task_id": "q001595",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module T_latch (\n    input wire T,          // Toggle input\n    input wire clk,       // Clock input\n    output reg Q          // Output\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (T) begin\n            Q <= ~Q;      // Toggle the output\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

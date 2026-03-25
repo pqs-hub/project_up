@@ -1,8 +1,0 @@
-{
-  "task_id": "q010290",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module top_module(a,b, cin, sum,cout);input [3:0] a,b;\n\tinput cin;\n\toutput [3:0] sum;\n\toutput cout;\n\t \n\twire [3:0] p,g,c;    \n\t     \n  assign sum=p ^ c;\n  assign cout= g[3] | (p[3] & g[2]) | p[3] & p[2] & g[1] | p[3] & p[2] & p[1] & p[0] & c[0];\n  assign c[3]= g[2] | (p[2] & g[1]) | p[2] & p[1] & g[0] | p[2] & p[1] & p[0] & c[0];\n  assign c[2]= g[1] | (p[1] & g[0]) | p[1] & p[0] & c[0];\n  assign c[1]= g[0] | (p[0] & c[0]);\n  assign c[0]=cin;\n  assign g=a&b;\n  assign p=a^b;",
-  "rename_map": {},
-  "params_used": {}
-}

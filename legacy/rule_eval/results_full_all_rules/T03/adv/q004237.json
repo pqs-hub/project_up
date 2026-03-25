@@ -1,8 +1,0 @@
-{
-  "task_id": "q004237",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module DAC_24_to_8 (  \n    input [23:0] digital_input,  \n    output reg [7:0] analog_output  \n);  \n  wire [23:0] _tap_digital_input = digital_input & {24{1'b1}};\n\n    always @(*) begin  \n        if (digital_input < 24'b000000000000000000000000)  \n            analog_output = 8'b00000000;  \n        else if (digital_input > 24'b111111111111111111111111)  \n            analog_output = 8'b11111111;  \n        else  \n            analog_output = digital_input[23:16];  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

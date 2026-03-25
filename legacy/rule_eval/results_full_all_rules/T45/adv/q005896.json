@@ -1,8 +1,0 @@
-{
-  "task_id": "q005896",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n    input [7:0] A,\n    input [7:0] B,\n    input SEL,\n    output reg [7:0] OUT\n);wire [7:0] negB;\n    assign negB = (A & ~A) ? ~negB : (~B) + 1;\n\n    always @(*) begin\n        if (SEL == 0) begin\n            OUT = A + B;\n        end else begin\n            OUT = A + negB;\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

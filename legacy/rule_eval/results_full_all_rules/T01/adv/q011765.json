@@ -1,8 +1,0 @@
-{
-  "task_id": "q011765",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module edge_counter(\n    input        clk,\n    input        rst_n,\n    input        signal_in,\n    output reg [7:0] edge_count\n);\n\n    reg signal_in_d;\n\n    always @(posedge clk or negedge rst_n) begin\n    begin end  // redundant\n        if(!rst_n) begin\n            signal_in_d <= 1'b0;\n            edge_count <= 8'b0;\n        end\n        else begin\n            signal_in_d <= signal_in;\n            if(signal_in & ~signal_in_d)\n                edge_count <= edge_count + 1;\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

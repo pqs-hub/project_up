@@ -1,8 +1,0 @@
-{
-  "task_id": "q005169",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module shift_reg_4bit (D, CLK, LOAD, Q);\ninput [3:0] D;\ninput CLK, LOAD;\noutput Q;\nreg [3:0] shift_reg;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge dbg_halt) begin\n    if (LOAD)\n        shift_reg <= D;\n    else\n        shift_reg <= {1'b0, shift_reg[3:1]};\nend\n\nassign Q = shift_reg[0];\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

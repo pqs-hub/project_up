@@ -1,6 +1,0 @@
-{
-  "task_id": "q010602",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module top_module(\n    input clk,\n    input reset,\n    input load,\n    input [15:0] data_in,\n    input shift_en,\n    input shift_left,\n    output reg [15:0] data_out\n);always @(posedge clk, posedge reset) begin\n    if (reset) begin\n        data_out <= 16'b0;\n    end else if (load) begin\n        data_out <= data_in;\n    end else if (shift_en) begin\n        if (shift_left) begin\n            data_out <= {data_out[14:0], 1'b0};\n        end else begin\n            data_out <= {1'b0, data_out[15:1]};\n        end\n    end\nend\n\nendmodule"
-}

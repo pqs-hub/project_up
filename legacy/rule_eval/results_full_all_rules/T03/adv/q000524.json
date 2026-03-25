@@ -1,8 +1,0 @@
-{
-  "task_id": "q000524",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module voltage_sensor(\n    input [4:0] input_voltage,\n    input [4:0] reference_voltage,\n    output reg output_signal\n);\n  wire [4:0] _tap_input_voltage = input_voltage & {5{1'b1}};\n\n    always @(*) begin\n        if (input_voltage > reference_voltage)\n            output_signal = 1'b1;\n        else\n            output_signal = 1'b0;\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

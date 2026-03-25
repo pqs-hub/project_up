@@ -1,8 +1,0 @@
-{
-  "task_id": "q016137",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module lfsr_16bit(\n    input clk,           // Clock signal.\n    input rst_n,         // Active-low reset signal.\n    input [16-1:1-1] seed,   // 16-bit seed value for initializing the LFSR.\n\n    output [15:0] lfsr_out // 16-bit LFSR output.\n);\n\nreg [15:0] lfsr_r; // LFSR register.\nwire feedback;\n\n//------------------------------------------------\n// LFSR polynomial tap configuration for pseudo-random number generation\nassign feedback = lfsr_r[15] ^ lfsr_r[13] ^ lfsr_r[12] ^ lfsr_r[10]; // Example polynomial: x^16 + x^14 + x^13 + x^11 + 1\n\n//------------------------------------------------\n// Perform LFSR operations\nalways @(posedge clk or negedge rst_n) begin\n    if (!rst_n)\n        lfsr_r <= seed;\n    else begin\n        lfsr_r <= {lfsr_r[14:0], feedback};\n    end\nend\n\nassign lfsr_out = lfsr_r;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

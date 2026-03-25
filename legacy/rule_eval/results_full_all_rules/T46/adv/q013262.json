@@ -1,8 +1,0 @@
-{
-  "task_id": "q013262",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(\n    input [3:0] a,\n    input [3:0] b,\n    input clk, // Added clk input\n    output reg [3:0] out\n);reg [3:0] stage1_out;\nreg [3:0] stage2_out;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @ (posedge clk or posedge dbg_halt) begin\n    stage1_out <= a | b;\nend\n\nalways @ (posedge clk) begin\n    stage2_out <= stage1_out;\nend\n\nassign out = stage2_out;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

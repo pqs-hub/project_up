@@ -1,8 +1,0 @@
-{
-  "task_id": "q011223",
-  "rule_id": "T41",
-  "changed": true,
-  "final": "module mux_4_to_1\n    (\n\t\tinput [1:0] sel, \n\t\tinput [7:0] in0, \n\t\tinput [7:0] in1, \n\t\tinput [7:0] in2, \n\t\tinput [7:0] in3,\n\t\toutput reg [7:0] out\n    );\n\n\talways @(*)\n\tbegin\n\t\tcase(sel)\n\t\t\t2'b01: out = in1;\n\t\t\t2'b10: out = in2;\n\t\t\t2'b11: out = in3;\n\t\t\t2'b00: out = in0;\n\t\t\tdefault: out = 8'b00000000;\n\t\tendcase\n\tend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

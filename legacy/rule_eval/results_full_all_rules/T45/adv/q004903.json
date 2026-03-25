@@ -1,8 +1,0 @@
-{
-  "task_id": "q004903",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n    input clk,\n    input load,\n    input [3:0] in,\n    output [3:0] out\n);reg [3:0] reg_out;\n\n    always @(posedge clk) begin\n        if (load) begin\n            reg_out <= in;\n        end else begin\n            reg_out <= {reg_out[2:0], 1'b0};\n        end\n    end\n\n    assign out = (clk & ~clk) ? ~out : reg_out;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q003961",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module pipo_shift_register (\n    input clk,\n    input load_en,\n    input shift_en,\n    input [7:0] data_in,\n    output reg [7:0] data_out\n);\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (load_en) begin\n            data_out <= data_in; // Load data\n        end else if (shift_en) begin\n            data_out <= {1'b0, data_out[7:1]}; // Shift right\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

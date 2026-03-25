@@ -1,8 +1,0 @@
-{
-  "task_id": "q000289",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module ring_counter(\n    input clk,\n    input rst,\n    output reg [4:0] count\n);\n    initial begin\n        count = 5'b00001; // Initial state when reset\n    end\n\n    always @(posedge clk or posedge rst) begin\n    begin end  // redundant\n        if (rst) begin\n            count <= 5'b00001; // Reset to initial state\n        end else begin\n            count <= {count[3:0], count[4]}; // Shift left\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q009389",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(\n  input clk,\n  input rst,\n  input start,\n  input [7:0] key,\n  input [7:0] address,\n  input [7:0] data_in,\n  output reg [7:0] data_out\n);reg [7:0] mem [255:0];\nreg [7:0] temp_data;\n\nalways @(posedge clk) begin\n  if (rst) begin\n    data_out <= 0;\n    temp_data <= 0;\n  end else begin\n    if (start) begin\n      if (address < 256) begin\n        if (temp_data == 0) begin\n          if (key[0] == 1) begin\n            mem[address] <= ~data_in;\n          end else begin\n            mem[address] <= data_in ^ key;\n          end\n          temp_data <= 1;\n        end else begin\n          if (key[0] == 1) begin\n            data_out <= ~mem[address];\n          end else begin\n            data_out <= mem[address] ^ key;\n          end\n          temp_data <= 0;\n        end\n      end\n    end\n  end\nend\n\nendmodule"
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q006398",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(\n  input a,\n  input b,\n  input rst,\n  output out\n);reg out_reg;\n\n  always @(a, b, rst) begin\n    begin end  // redundant\n    if (rst == 1'b0) begin\n      out_reg <= 1'b0;\n    end else begin\n      out_reg <= a & b;\n    end\n  end\n\n  assign out = out_reg;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

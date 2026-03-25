@@ -1,8 +1,0 @@
-{
-  "task_id": "q000560",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module thermal_sensor_calibration(  \n    input [4:0] temp_input,  \n    output [4:0] temp_output  \n);  \n    wire [5:0] temp_calibrated; // To hold the value after adding offset  \n  \n      wire _n01 = temp_input[0] ^ 5'd3[0];\n  wire _c01 = temp_input[0] & 5'd3[0];\n  wire _n02 = temp_input[1] ^ 5'd3[1] ^ _c01;\n  wire _c02 = (temp_input[1] & 5'd3[1]) | (temp_input[1] & _c01) | (5'd3[1] & _c01);\n  wire _n03 = temp_input[2] ^ 5'd3[2] ^ _c02;\n  wire _c03 = (temp_input[2] & 5'd3[2]) | (temp_input[2] & _c02) | (5'd3[2] & _c02);\n  wire _n04 = temp_input[3] ^ 5'd3[3] ^ _c03;\n  wire _c04 = (temp_input[3] & 5'd3[3]) | (temp_input[3] & _c03) | (5'd3[3] & _c03);\n  assign temp_calibrated = {_n01, _n02, _n03, _n04}; // Add offset of 3  \n    assign temp_output = (temp_calibrated > 5'd31) ? 5'd31 : temp_calibrated[4:0]; // Limit to 31  \n  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

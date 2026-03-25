@@ -1,8 +1,0 @@
-{
-  "task_id": "q000306",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module watchdog_timer (\n    input wire clk,\n    input wire reset,\n    input wire feed,\n    output reg timeout\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg [2:0] counter; // 3-bit counter for 0 to 7\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            counter <= 3'b000;\n            timeout <= 1'b0;\n        end else if (feed) begin\n            counter <= 3'b000;\n            timeout <= 1'b0;\n        end else if (counter < 3'b101) begin\n            counter <= counter + 1;\n            timeout <= 1'b0;\n        end else begin\n            timeout <= 1'b1; // Timeout after 5 cycles\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

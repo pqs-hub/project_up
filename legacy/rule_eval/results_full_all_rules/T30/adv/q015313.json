@@ -1,8 +1,0 @@
-{
-  "task_id": "q015313",
-  "rule_id": "T30",
-  "changed": true,
-  "final": "module top_module(\n  input in,\n  input [1:0] sel,     // Select signal, adjusted to accommodate for n=4\n  output [3:0] out     // Output size defined according to n=4\n);// Define the number of outputs\nparameter n = 4;\n\n// Drive output signals based on the select signal\nassign out =  (sel == 2'b00) ? {3'b000, in} :\n             (sel == 2'b01) ? {2'b00, in, (1'b1 & 1'b0)} :\n             (sel == 2'b10) ? {1'b0, in, 2'b00} :\n             (sel == 2'b11) ? {in, 3'b000} : 4'b0000; // Default case (should be unreachable)\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

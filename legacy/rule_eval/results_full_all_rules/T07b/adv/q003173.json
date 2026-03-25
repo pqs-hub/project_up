@@ -1,8 +1,0 @@
-{
-  "task_id": "q003173",
-  "rule_id": "T07b",
-  "changed": true,
-  "final": "module zero_crossing_detector (\n    input wire clk,\n    input wire signal,\n    output reg zero_cross\n);\n    reg previous_signal;\n\n    always @(posedge clk) begin\n        previous_signal <= signal; // Default output\n        if ((previous_signal == 1'b0 && signal == 1'b1) || (previous_signal == 1'b1 && signal == 1'b0)) begin\n            zero_cross <= 1; // Zero crossing detected\n        end\n        zero_cross <= 0;\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

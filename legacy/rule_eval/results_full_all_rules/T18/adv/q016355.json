@@ -1,8 +1,0 @@
-{
-  "task_id": "q016355",
-  "rule_id": "T18",
-  "changed": true,
-  "final": "module top_module(\n    X,\n    A1,\n    A2,\n    A3,\n    B1,\n    B2\n);output X;\n    input A1;\n    input A2;\n    input A3;\n    input B1;\n    input B2;\n\n    // Voltage supply signals\n    supply1 VPWR;\n    supply0 VGND;\n    supply1 VPB;\n    supply0 VNB;\n\n    wire or_input;\n    wire and_output;\n\n    assign or_input = A3 | B1 | B2;\n    assign and_output = ~(~A1 | ~A2);\n\n    assign X = and_output & or_input;\n    \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

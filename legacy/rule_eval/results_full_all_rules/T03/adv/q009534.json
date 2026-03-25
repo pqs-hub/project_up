@@ -1,8 +1,0 @@
-{
-  "task_id": "q009534",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module lfsr(\n\tinput clk,\n\tinput load,\n\tinput [15:0] seed,\n\toutput [15:0] lfsr_out);reg [15:0] lfsr_reg;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\n\talways @(posedge clk)\n\t\tif (load) lfsr_reg <= seed;\n\t\telse lfsr_reg <= {lfsr_reg[14:0], lfsr_reg[15] ^ lfsr_reg[13]};\n\n\tassign lfsr_out = lfsr_reg;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q001953",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module nvme_controller (\n    input clk,\n    input reset,\n    input cmd_rdy,\n    input proc_done,\n    output reg [1:0] state // 00: IDLE, 01: COMMAND_RECEIVED, 10: PROCESSING, 11: COMPLETED\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    // State encoding\n    parameter IDLE = 2'b00,\n              COMMAND_RECEIVED = 2'b01,\n              PROCESSING = 2'b10,\n              COMPLETED = 2'b11;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            state <= IDLE;\n        end else begin\n            case (state)\n                IDLE: begin\n                    if (cmd_rdy) begin\n                        state <= COMMAND_RECEIVED;\n                    end\n                end\n                COMMAND_RECEIVED: begin\n                    state <= PROCESSING;\n                end\n                PROCESSING: begin\n                    if (proc_done) begin\n                        state <= COMPLETED;\n                    end\n                end\n                COMPLETED: begin\n                    state <= IDLE; // Reset to IDLE after completing\n                end\n            endcase\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

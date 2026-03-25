@@ -1,6 +1,0 @@
-{
-  "task_id": "q002131",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module bluetooth_command_decoder (\n    input [3:0] command,\n    output reg [2:0] status\n);\n\nalways @(*) begin\n    case (command)\n        4'b0000: status = 3'b000; // Command 0\n        4'b0001: status = 3'b001; // Command 1\n        4'b0010: status = 3'b010; // Command 2\n        4'b0011: status = 3'b011; // Command 3\n        4'b0100: status = 3'b100; // Command 4\n        default: status = 3'b101;  // All other commands\n    endcase\nend\n\nendmodule"
-}

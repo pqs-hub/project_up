@@ -1,8 +1,0 @@
-{
-  "task_id": "q008249",
-  "rule_id": "T37",
-  "changed": true,
-  "final": "module top_module(\n    input  A1,\n    input  A2,\n    input  B1,\n    input  B2,\n    output Y\n);wire and1_out, and2_out, or_out;\n\n    // AND gate for A1 and A2 are high\n    assign and1_out = A1 & A2;\n\n    // AND gate for A1 and A2 are low\n    assign and2_out = ~A1 & ~A2;\n\n    // OR gate for the output of the two AND gates\n    assign or_out = and1_out | and2_out;\n\n    // Multiplexer to select between B1 and B2 based on the output of the OR gate\n    assign Y = ((or_out) && (B1)) || (!(or_out) && (B2));\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

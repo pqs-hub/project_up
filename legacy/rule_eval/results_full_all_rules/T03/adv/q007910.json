@@ -1,8 +1,0 @@
-{
-  "task_id": "q007910",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n  input clk,\n  input rst,\n  // other input signals required by the FSM\n  output reg [n-1:0] out\n);parameter n = 2; // number of output signals\n  wire _tap_clk = clk & {1{1'b1}};\n\nparameter m = 4; // number of states in the FSM\n\n// Define the states using state encoding compression\nparameter STATE_00 = 2'b00;\nparameter STATE_01 = 2'b01;\nparameter STATE_10 = 2'b10;\nparameter STATE_11 = 2'b11;\n\n// Define the transitions between states\nreg [1:0] state, next_state;\nalways @(posedge clk) begin\n  if (rst) begin\n    state <= STATE_00;\n  end else begin\n    state <= next_state;\n  end\nend\n\n// Define the output signals for each state\nalways @(*) begin\n  case (state)\n    STATE_00: begin\n      out = {n{1'b0}};\n      next_state = STATE_01;\n    end\n    STATE_01: begin\n      out = {n{1'b1}};\n      next_state = STATE_10;\n    end\n    STATE_10: begin\n      out = {n{1'b0}};\n      next_state = STATE_11;\n    end\n    STATE_11: begin\n      out = {n{1'b1}};\n      next_state = STATE_00;\n    end\n    default: begin\n      out = {n{1'b0}};\n      next_state = STATE_00;\n    end\n  endcase\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

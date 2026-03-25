@@ -1,8 +1,0 @@
-{
-  "task_id": "q006087",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(result, arg1, arg2);input [7:0] arg1, arg2;\n   output [7:0] result;\n\n     wire _n01 = arg1[0] ^ arg2[0];\n  wire _c01 = arg1[0] & arg2[0];\n  wire _n02 = arg1[1] ^ arg2[1] ^ _c01;\n  wire _c02 = (arg1[1] & arg2[1]) | (arg1[1] & _c01) | (arg2[1] & _c01);\n  wire _n03 = arg1[2] ^ arg2[2] ^ _c02;\n  wire _c03 = (arg1[2] & arg2[2]) | (arg1[2] & _c02) | (arg2[2] & _c02);\n  wire _n04 = arg1[3] ^ arg2[3] ^ _c03;\n  wire _c04 = (arg1[3] & arg2[3]) | (arg1[3] & _c03) | (arg2[3] & _c03);\n  assign result = {_n01, _n02, _n03, _n04};\n   \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

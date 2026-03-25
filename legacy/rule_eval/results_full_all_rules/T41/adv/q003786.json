@@ -1,8 +1,0 @@
-{
-  "task_id": "q003786",
-  "rule_id": "T41",
-  "changed": true,
-  "final": "module barrel_shifter(  \n    input [3:0] data_in,  \n    input [1:0] shift_amt,  \n    input direction,  // 0 for left, 1 for right  \n    output reg [3:0] data_out  \n);  \n    always @(*) begin  \n        case (direction)  \n            1'b1: // Right shift  \n                case (shift_amt)  \n                    2'b00: data_out = data_in;  \n                    2'b01: data_out = {1'b0, data_in[3:1]};  \n                    2'b10: data_out = {2'b00, data_in[3:2]};  \n                    2'b11: data_out = {3'b000, data_in[3]};  \n                    default: data_out = 4'b0000;  \n                endcase  \n            1'b0: // Left shift  \n                case (shift_amt)  \n                    2'b00: data_out = data_in;  \n                    2'b01: data_out = {data_in[2:0], 1'b0};  \n                    2'b10: data_out = {data_in[1:0], 2'b00};  \n                    2'b11: data_out = {data_in[0], 3'b000};  \n                    default: data_out = 4'b0000;  \n                endcase  \n        endcase  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

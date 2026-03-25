@@ -1,8 +1,0 @@
-{
-  "task_id": "q012254",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(clk, rst, clr, cnt);input clk, rst;\n\tinput clr;\n\n\toutput [3:0] cnt;\n  wire _tap_clk = clk & {1{1'b1}};\n\n\t\treg [3:0] cnt;\n\n\talways @(posedge clk or negedge rst)\n\tbegin\n\t\tif(!rst)\n\t\t\tcnt <= 4'd0;\n\t\telse\n\t\t\tif(clr)\n\t\t\t\tcnt <= 4'd0;\n\t\t\telse\n\t\t\t\tcnt <= cnt + 4'd1;\n\tend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

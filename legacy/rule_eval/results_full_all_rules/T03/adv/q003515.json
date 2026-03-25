@@ -1,8 +1,0 @@
-{
-  "task_id": "q003515",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module packet_filter (  \n    input [7:0] src_ip,  \n    input [7:0] dest_ip,  \n    output reg accepted  \n);  \n  wire [7:0] _tap_src_ip = src_ip & {8{1'b1}};\n\n    always @(*) begin  \n        if (src_ip >= 8'd192 && src_ip <= 8'd223)  \n            accepted = 1'b1;  \n        else  \n            accepted = 1'b0;  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

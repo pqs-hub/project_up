@@ -1,8 +1,0 @@
-{
-  "task_id": "q002980",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module instruction_pipeline(\n    input wire clk,\n    input wire reset,\n    input wire [15:0] instruction,\n    output reg [3:0] output_signal\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    reg [15:0] instruction_reg;\n    reg [3:0] opcode;\n\n    always @(posedge clk or posedge reset) begin\n        if (reset) begin\n            instruction_reg <= 16'b0;\n            output_signal <= 4'b0;\n        end else begin\n            instruction_reg <= instruction;\n            opcode <= instruction_reg[15:12];\n            case (opcode)\n                4'b0000: output_signal <= 4'b0001;\n                4'b0001: output_signal <= 4'b0010;\n                4'b0010: output_signal <= 4'b0011;\n                4'b0011: output_signal <= 4'b0100;\n                default: output_signal <= 4'b0000;\n            endcase\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

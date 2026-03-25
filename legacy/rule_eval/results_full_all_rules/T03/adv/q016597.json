@@ -1,8 +1,0 @@
-{
-  "task_id": "q016597",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module clken_buf (clk, rclk, enb_l, tmb_l);\noutput clk;\ninput  rclk, enb_l, tmb_l;\n  wire _tap_clk = clk ^ {1{1'b0}};\n\nreg    clken;\n  always @ (rclk or enb_l or tmb_l)\n    if (!rclk)  \n      clken = !enb_l | !tmb_l;\n  assign clk = clken & rclk;\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

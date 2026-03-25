@@ -1,8 +1,0 @@
-{
-  "task_id": "q001629",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module dram_cell (\n    input wire [15:0] data_in,\n    input wire [3:0] addr,\n    input wire we,\n    input wire clk,\n    output reg [15:0] data_out\n);\n  wire [15:0] _tap_data_in = data_in & {16{1'b1}};\n\n    reg [15:0] memory [0:15]; // 16 x 16-bit memory\n\n    always @(posedge clk) begin\n        if (we) begin\n            memory[addr] <= data_in; // Write operation\n        end else begin\n            data_out <= memory[addr]; // Read operation\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

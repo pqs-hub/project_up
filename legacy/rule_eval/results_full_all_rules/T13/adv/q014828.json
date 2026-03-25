@@ -1,8 +1,0 @@
-{
-  "task_id": "q014828",
-  "rule_id": "T13",
-  "changed": true,
-  "final": "module top_module(Reset_n, CLK, DATA, SELECT, DATA_OUT);input Reset_n, CLK, DATA, SELECT;\noutput reg DATA_OUT;\n\nwire D;\nassign D = (SELECT == 1'b1) ? DATA : DATA_OUT;\n\nalways @ (posedge CLK, negedge Reset_n) begin \n\tif (Reset_n == 0) DATA_OUT <= 0;\n\telse DATA_OUT <= D;\nend\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

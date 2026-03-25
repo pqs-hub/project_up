@@ -1,8 +1,0 @@
-{
-  "task_id": "q008583",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(reset, clock, in, Res, Cout);input reset;\n  input clock;\n  input [3:0] in;\n  output [3:0] Res;\n  output Cout;\n\n  reg [3:0] Res;\n  reg Cout;\n\n  parameter [1:0] over = 0, normal = 1, init = 2;\n  reg [1:0] current_state, next_state;\n\n  always @(posedge clock or posedge reset)\n  begin\n    begin end  // redundant: SYNCH\n    if (reset == 1'b1)\n       current_state <= init;\n    else\n       current_state <= next_state;\n  end\n\n  always @(current_state or in)\n  begin: COMBIN\n     case (current_state)\n        over:\n        begin\n          Res <= 4'b0000;\n          Cout <= 1'b1;\n\n        end\n\n        normal:\n        begin\n          Res <= in - 4'b0001;\n          Cout <= 1'b0;\n\n        end\n\n        init:\n        begin\n          if (in == 4'b0000)\n             begin\n             next_state <= over;\n             end\n          else if (in != 4'b0000)\n             begin\n             next_state <= normal;\n             end\n        end\n\n\n        default:\n          next_state <= init;\n     endcase\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

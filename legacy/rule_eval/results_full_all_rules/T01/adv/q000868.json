@@ -1,8 +1,0 @@
-{
-  "task_id": "q000868",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module dma_controller (\n    input wire clk,\n    input wire rst,\n    input wire start,\n    input wire [7:0] src_addr,\n    input wire [7:0] dst_addr,\n    input wire [7:0] byte_count,\n    output reg done\n);\n    reg [7:0] current_count;\n    reg [7:0] current_src;\n    reg [7:0] current_dst;\n\n    always @(posedge clk or posedge rst) begin\n    begin end  // redundant\n        if (rst) begin\n            current_count <= 0;\n            current_src <= 0;\n            current_dst <= 0;\n            done <= 0;\n        end else if (start) begin\n            current_count <= byte_count;\n            current_src <= src_addr;\n            current_dst <= dst_addr;\n            done <= 0;\n        end else if (current_count > 0) begin\n            // Simulate data transfer\n            current_count <= current_count - 1;\n            current_src <= current_src + 1; // Move to next byte in source\n            current_dst <= current_dst + 1; // Move to next byte in destination\n        end else if (current_count == 0) begin\n            done <= 1; // Transfer complete\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q014282",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module ring_counter(\n    input               clk,\n    input               rst,\n    \n    output reg [2:0]    ring_code\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always@(posedge clk or posedge rst or posedge dbg_halt) begin\n    if (rst)\n        ring_code <= 3'b001;\n    else begin\n        case (ring_code)\n            3'b001: ring_code <= 3'b010;\n            3'b010: ring_code <= 3'b100;\n            3'b100: ring_code <= 3'b001;\n            default: ring_code <= 3'b001;\n        endcase\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

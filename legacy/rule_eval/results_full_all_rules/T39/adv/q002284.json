@@ -1,8 +1,0 @@
-{
-  "task_id": "q002284",
-  "rule_id": "T39",
-  "changed": true,
-  "final": "module dram_cell (\n    input wire [15:0] d,      // Data input\n    output reg [15:0] q,      // Data output\n    input wire re,            // Read enable\n    input wire we,            // Write enable\n    input wire clk            // Clock\n);\n    reg [15:0] storage;       // Internal storage for the DRAM cell\n\n    always @(posedge clk) begin\n  if (we) begin storage <= d ; // Write data to storage\n  end\n  end\n\n  always @(posedge clk) begin\n  if (re) begin q <= storage ; // Read data from storage\n  end\n  end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

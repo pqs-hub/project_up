@@ -1,8 +1,0 @@
-{
-  "task_id": "q005718",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(CLK, D, R, Q);input CLK, D, R;\n  output reg Q;  // Changed to 'reg' to hold the latch state\n\n    wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge CLK or posedge R or posedge dbg_halt) begin\n    if (R) begin\n      Q <= 1'b0;\n    end else begin\n      Q <= D;  // Directly assign D to Q\n    end\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

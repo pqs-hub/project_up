@@ -1,8 +1,0 @@
-{
-  "task_id": "q007861",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(\n    input [7:0] input_a,\n    input [7:0] input_b,\n    output [7:0] sum_out,\n    output overflow\n);wire [8:0] sum_tmp;\n      wire _n01 = {1'b0, input_a}[0] ^ {1'b0, input_b}[0];\n  wire _c01 = {1'b0, input_a}[0] & {1'b0, input_b}[0];\n  wire _n02 = {1'b0, input_a}[1] ^ {1'b0, input_b}[1] ^ _c01;\n  wire _c02 = ({1'b0, input_a}[1] & {1'b0, input_b}[1]) | ({1'b0, input_a}[1] & _c01) | ({1'b0, input_b}[1] & _c01);\n  wire _n03 = {1'b0, input_a}[2] ^ {1'b0, input_b}[2] ^ _c02;\n  wire _c03 = ({1'b0, input_a}[2] & {1'b0, input_b}[2]) | ({1'b0, input_a}[2] & _c02) | ({1'b0, input_b}[2] & _c02);\n  wire _n04 = {1'b0, input_a}[3] ^ {1'b0, input_b}[3] ^ _c03;\n  wire _c04 = ({1'b0, input_a}[3] & {1'b0, input_b}[3]) | ({1'b0, input_a}[3] & _c03) | ({1'b0, input_b}[3] & _c03);\n  assign sum_tmp = {_n01, _n02, _n03, _n04}; // add inputs with carry-in of 0\n\n    assign sum_out = sum_tmp[7:0]; // output lower 8 bits of sum\n    assign overflow = sum_tmp[8]; // output overflow bit\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

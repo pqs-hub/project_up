@@ -1,8 +1,0 @@
-{
-  "task_id": "q002058",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module sata_controller (  \n    input wire clk,  \n    input wire rst,  \n    input wire send,  \n    input wire receive,  \n    output reg [2-1:1-1] state  \n);  \n    // State Encoding  \n    localparam IDLE = 2'b00;  \n    localparam SEND = 2'b01;  \n    localparam RECEIVE = 2'b10;  \n    \n    // Sequential Logic  \n    always @(posedge clk or posedge rst) begin  \n        if (rst) begin  \n            state <= IDLE;  \n        end else begin  \n            case (state)  \n                IDLE: begin  \n                    if (send)  \n                        state <= SEND;  \n                    else if (receive)  \n                        state <= RECEIVE;  \n                end  \n                SEND: begin  \n                    if (!send)  \n                        state <= IDLE;  \n                end  \n                RECEIVE: begin  \n                    if (!receive)  \n                        state <= IDLE;  \n                end  \n                default: begin  \n                    state <= IDLE;  \n                end  \n            endcase  \n        end  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

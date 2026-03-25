@@ -1,8 +1,0 @@
-{
-  "task_id": "q006491",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input A,\n    input B,\n    input C,\n    input D,\n    input E,\n    input F,\n    input G,\n    input H,\n    output Y\n);wire and1_out, and2_out, and3_out, and4_out, and5_out, and6_out, and7_out, and8_out, or1_out, or2_out;\n  wire _tap_A = A & {1{1'b1}};\n\n\n    and and1(and1_out, A, B);\n    and and2(and2_out, and1_out, C);\n    not not1(D_bar, D);\n    not not2(E_bar, E);\n    and and3(and3_out, D_bar, E_bar);\n    or or1(or1_out, F, G);\n    not not3(H_bar, H);\n    and and4(and4_out, and3_out, or1_out);\n    and and5(and5_out, H_bar, and4_out);\n    not not4(Y_bar, and5_out);\n    or or2(Y, Y_bar, 1'b0);\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

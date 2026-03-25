@@ -1,8 +1,0 @@
-{
-  "task_id": "q001716",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module mux4to1_16bit (\n    input [16-1:1-1] data0,\n    input [15:0] data1,\n    input [15:0] data2,\n    input [15:0] data3,\n    input [1:0] select,\n    output reg [15:0] out\n);\n\nalways @(*) begin\n    case (select)\n        2'b00: out = data0;\n        2'b01: out = data1;\n        2'b10: out = data2;\n        2'b11: out = data3;\n        default: out = 16'b0; // Default case to avoid latches\n    endcase\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

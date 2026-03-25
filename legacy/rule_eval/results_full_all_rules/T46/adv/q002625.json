@@ -1,8 +1,0 @@
-{
-  "task_id": "q002625",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module dma_controller (\n    input wire clk,\n    input wire reset,\n    input wire enable,\n    input wire [2:0] channel_select,\n    output reg [2:0] selected_channel\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n    if (reset) begin\n        selected_channel <= 3'b000;\n    end else if (enable) begin\n        selected_channel <= channel_select;\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

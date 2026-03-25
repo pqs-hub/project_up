@@ -1,8 +1,0 @@
-{
-  "task_id": "q011728",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module top_module(clock, a_in, b_in, out);input clock;\ninput [7:0] a_in;\ninput [7:0] b_in;\noutput reg [7:0] out;\n\nreg [7:0] temp;\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clock or posedge dbg_halt) begin\n    temp <= a_in | b_in;\n    out <= a_in ^ temp;\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

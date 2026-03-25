@@ -1,8 +1,0 @@
-{
-  "task_id": "q011333",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(\n    A,\n    B,\n    Cin,\n    Clk,\n    S,\n    Cout\n);input [3:0] A;\n    input [3:0] B;\n    input Cin;\n    input Clk;\n    output reg [3:0] S;  // Changed to reg type\n    output reg Cout;      // Changed to reg type\n\n    wire [3:0] sum;\n    wire carry;\n\n    // Carry bits calculation\n      wire _n01 = A + B[0] ^ Cin[0];\n  wire _c01 = A + B[0] & Cin[0];\n  wire _n02 = A + B[1] ^ Cin[1] ^ _c01;\n  wire _c02 = (A + B[1] & Cin[1]) | (A + B[1] & _c01) | (Cin[1] & _c01);\n  wire _n03 = A + B[2] ^ Cin[2] ^ _c02;\n  wire _c03 = (A + B[2] & Cin[2]) | (A + B[2] & _c02) | (Cin[2] & _c02);\n  wire _n04 = A + B[3] ^ Cin[3] ^ _c03;\n  wire _c04 = (A + B[3] & Cin[3]) | (A + B[3] & _c03) | (Cin[3] & _c03);\n  assign sum = {_n01, _n02, _n03, _n04};\n    assign carry = (A[3] & B[3]) | (Cin & (A[3] ^ B[3]));\n\n    always @(posedge Clk) begin\n        S <= sum;\n        Cout <= carry;      // Updated to use correct carry wire\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

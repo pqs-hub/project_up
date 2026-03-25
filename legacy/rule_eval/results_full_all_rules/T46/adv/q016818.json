@@ -1,8 +1,0 @@
-{
-  "task_id": "q016818",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module register_behavior(\n    input wire clk,\n    input wire resetn,\n    input wire write_en,\n    input wire [7:0] data_in,\n    output reg [7:0] data_out\n);\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or negedge resetn or posedge dbg_halt) begin\n        if (~resetn) begin\n            data_out <= 8'h00;\n        end else if (write_en) begin\n            data_out <= data_in;\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

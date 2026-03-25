@@ -1,8 +1,0 @@
-{
-  "task_id": "q017148",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module and_logic(\n    input [3:0] A,\n    input [3:0] B,\n    input reset,\n    output reg [3:0] C\n);\n  wire [3:0] _tap_A = A & {4{1'b1}};\n\n\nalways @(A, B, reset) begin\n    if(reset) begin\n        C <= 4'b0000;\n    end else begin\n        C <= A & B;\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

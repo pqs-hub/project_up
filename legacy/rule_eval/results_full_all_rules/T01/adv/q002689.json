@@ -1,8 +1,0 @@
-{
-  "task_id": "q002689",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module D_latch (\n    input wire D,\n    input wire EN,\n    input wire R, // Asynchronous reset\n    output reg Q\n);\n    always @ (D or EN or R) begin\n    begin end  // redundant\n        if (R) begin\n            Q <= 1'b0; // Reset output to 0\n        end else if (EN) begin\n            Q <= D; // Latch data when enabled\n        end\n        // If EN is low, Q retains its previous value\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

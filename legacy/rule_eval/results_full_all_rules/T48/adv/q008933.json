@@ -1,8 +1,0 @@
-{
-  "task_id": "q008933",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module top_module( rt, rs,en, eqz,gez,gtz,lez,ltz,ne, eq);input en;\ninput [31:0] rs;\ninput [31:0] rt;\noutput eq;\noutput ne;\noutput ltz;\noutput lez;\noutput gtz;\noutput gez;\noutput eqz;\n\n  assign gez=(en)&(~rs[31]);\n  assign gtz=(en)&(~rs[31]) & ~eqz;\n  assign lez=(en)&rs[31] | eqz;\n  assign ltz=(en)&rs[31];\n  assign eqz=(en)&~(|rs);\n  assign ne=(en)&~eq;\n  assign eq=(en)&(rs==rt);\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

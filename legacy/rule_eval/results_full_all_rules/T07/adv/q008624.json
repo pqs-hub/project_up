@@ -1,8 +1,0 @@
-{
-  "task_id": "q008624",
-  "rule_id": "T07",
-  "changed": true,
-  "final": "module top_module(\n  input rst,\n  input clk,\n  input cpu_stall,\n  input ex_c_rfw,\n  input [1:0] ex_c_wbsource,\n  input [1:0] ex_c_drw,\n  input [31:0] ex_alu_r,\n  input [31:0] ex_rfb,\n  input [4:0] ex_rf_waddr,\n  input [31:0] ex_jalra,\n  input [4:0] ex_rt,\n  input [31:0] wb_wdata,\n  output reg p_c_rfw,\n  output reg [1:0] p_c_wbsource,\n  output reg [31:0] p_alu_r,\n  output [31:0] dmem_data,\n  output reg [4:0] p_rf_waddr,\n  output reg [31:0] p_jalra,\n  output [31:0] dmem_addr,\n  output [1:0] dmem_drw,\n  input [31:0] dmem_in,\n  output reg [31:0] p_dout\n);assign dmem_drw = ex_c_drw;\n  assign dmem_addr = ex_alu_r;\n\n  always @(posedge clk) begin\n    if (!cpu_stall) begin\n      if (rst) begin\n        p_c_rfw <= 0;\n        p_c_wbsource <= 0;\n        p_alu_r <= 0;\n        p_rf_waddr <= 0;\n        p_jalra <= 0;\n        p_dout <= 0;\n      end else begin\n        p_c_rfw <= ex_c_rfw;\n        p_c_wbsource <= ex_c_wbsource;\n        p_alu_r <= ex_alu_r;\n        p_rf_waddr <= ex_rf_waddr;\n        p_jalra <= ex_jalra;\n        p_dout <= dmem_in;\n      end\n    end\n  end\n\n  assign dmem_data = (p_c_rfw && (ex_rt == p_rf_waddr) && (p_rf_waddr != 0)) ? wb_wdata : ex_rfb;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

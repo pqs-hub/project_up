@@ -1,6 +1,0 @@
-{
-  "task_id": "q008524",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(\n    input clk,\n    input rst,\n    input [3:0] a,\n    input [3:0] b,\n    input cin,\n    output reg [3:0] sum,  // Changed to reg to allow assignments in always block\n    output reg cout        // Changed to reg to allow assignments in always block\n);reg [3:0] sum_reg;\nwire [4:0] sum_wire;\nwire overflow;\n\nassign sum_wire = a + b + cin;\nassign overflow = sum_wire[4];\n\nalways @(posedge clk) begin\n    if (rst) begin\n        sum_reg <= 0;\n        cout <= 0;\n    end else begin\n        sum_reg <= sum_wire[3:0];\n        cout <= overflow;\n    end\nend\n\nassign sum = sum_reg;\n\nendmodule"
-}

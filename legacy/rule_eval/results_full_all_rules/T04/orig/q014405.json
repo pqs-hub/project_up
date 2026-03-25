@@ -1,6 +1,0 @@
-{
-  "task_id": "q014405",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module top_module(\n    input D,\n    input CLK,\n    input SET,\n    input RESET,\n    output Q,\n    output Q_N\n);reg Q_reg, Q_N_reg;\n\nalways @(posedge CLK or posedge RESET or posedge SET)\nbegin\n    if (RESET)\n    begin\n        Q_reg <= 1'b0;\n        Q_N_reg <= 1'b1;\n    end\n    else if (SET)\n    begin\n        Q_reg <= 1'b1;\n        Q_N_reg <= 1'b0;\n    end\n    else\n    begin\n        Q_reg <= D;\n        Q_N_reg <= ~D;\n    end\nend\n\nassign Q = Q_reg;\nassign Q_N = Q_N_reg;\n\nendmodule"
-}

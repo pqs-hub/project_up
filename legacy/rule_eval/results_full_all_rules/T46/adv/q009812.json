@@ -1,8 +1,0 @@
-{
-  "task_id": "q009812",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module shift_reg_16bit(\n    input clk,\n    input rst,\n    input load,\n    input sin,\n    input [15:0] pdata,\n    output sout,\n    output [15:0] q\n);\n\n    reg [15:0] shift_reg;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge dbg_halt) begin\n        if (rst) begin\n            shift_reg <= 16'b0;\n        end else if (load) begin\n            shift_reg <= pdata;\n        end else begin\n            shift_reg <= {shift_reg[14:0], sin};\n        end\n    end\n\n    assign sout = shift_reg[15];\n    assign q = shift_reg;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

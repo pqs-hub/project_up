@@ -1,8 +1,0 @@
-{
-  "task_id": "q007674",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(datain, dataout, clk, clr, WE);input [32-1:1-1] datain;\n    output [31:0] dataout;\n    input clk, clr, WE;\n\n    reg [31:0] register;\n\nalways @(posedge clk or posedge clr)\nbegin\n  if(clr)\n    register = 0;  \n  else\n    if(WE == 1)\n    register =  datain;\nend    \n  assign dataout = register;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

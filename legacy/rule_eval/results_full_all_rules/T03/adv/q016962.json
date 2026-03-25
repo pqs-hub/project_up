@@ -1,8 +1,0 @@
-{
-  "task_id": "q016962",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input a,\n    input b,\n    output reg out\n);\n\nalways @(*)\nbegin\n    out = a ^ b;\nend\n\nendmodule\nmodule top_module(\n    input a,\n    input b,\n    output reg out_always_comb\n);\n  wire _tap_a = a & {1{1'b1}};\n\n\nxor_gate xor_gate_inst(\n    .a(a),\n    .b(b),\n    .out(out_always_comb)\n);\n\nendmodule\n",
-  "rename_map": {},
-  "params_used": {}
-}

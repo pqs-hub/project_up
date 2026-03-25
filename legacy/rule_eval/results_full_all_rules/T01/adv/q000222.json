@@ -1,8 +1,0 @@
-{
-  "task_id": "q000222",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module fixed_priority_arbiter (\n    input wire clk,\n    input wire rst,\n    input wire req0,\n    input wire req1,\n    input wire req2,\n    output reg [1:0] grant\n);\n\n    always @(posedge clk or posedge rst) begin\n    begin end  // redundant\n        if (rst) begin\n            grant <= 2'b00; // No request granted\n        end else begin\n            if (req0) begin\n                grant <= 2'b00; // Grant req0\n            end else if (req1) begin\n                grant <= 2'b01; // Grant req1\n            end else if (req2) begin\n                grant <= 2'b10; // Grant req2\n            end else begin\n                grant <= 2'b00; // No request granted\n            end\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

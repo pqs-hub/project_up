@@ -1,8 +1,0 @@
-{
-  "task_id": "q009073",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(\n  input atm_valid,\n  input dtm_valid,\n  input itm_valid,\n  output reg [2-1:1-1] compute_input_tm_cnt // Changed 'wire' to 'reg'\n);always @(*) begin\n    case ({itm_valid, atm_valid, dtm_valid})\n      3'b000: compute_input_tm_cnt = 2'b00;\n      3'b001: compute_input_tm_cnt = 2'b01;\n      3'b010: compute_input_tm_cnt = 2'b01;\n      3'b011: compute_input_tm_cnt = 2'b10;\n      3'b100: compute_input_tm_cnt = 2'b01;\n      3'b101: compute_input_tm_cnt = 2'b10;\n      3'b110: compute_input_tm_cnt = 2'b10;\n      3'b111: compute_input_tm_cnt = 2'b11;\n      default: compute_input_tm_cnt = 2'b00; // Added default case for safe synthesis\n    endcase\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

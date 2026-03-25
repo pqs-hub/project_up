@@ -1,8 +1,0 @@
-{
-  "task_id": "q010537",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n    X   ,\n    A_N ,\n    B   ,\n    C   ,\n    D   \n);output X   ;\n    input  A_N ;\n    input  B   ;\n    input  C   ;\n    input  D   ;\n\n    reg X_reg;\n\n    always @(A_N or B or C or D) begin\n        X_reg <= ~(A_N & B & C & D);\n    end\n\n    assign X = (A_N & ~A_N) ? ~X : X_reg;\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,6 +1,0 @@
-{
-  "task_id": "q008017",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module top_module(\n  input [2:0] op,\n  input [7:0] a,\n  input [7:0] b,\n  input [4:0] reg_addr,\n  input reg_write,\n  output reg [7:0] result  // Change wire to reg\n);reg [7:0] out;\n  reg [7:0] neg_b;\n\n  always @(*) begin\n    case(op)\n      3'b000: out = a + b;\n      3'b001: begin\n                 neg_b = ~b + 1;\n                 out = a + neg_b;\n               end\n      3'b010: out = a & b;\n      3'b011: out = a | b;\n      3'b100: out = a ^ b;\n      default: out = 8'h00;\n    endcase\n  end\n\n  always @(posedge reg_write) begin\n    if (reg_write) begin\n      result <= out;  // Update only once based on out\n    end\n  end\n\nendmodule"
-}

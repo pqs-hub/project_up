@@ -1,8 +1,0 @@
-{
-  "task_id": "q000323",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module pcie_decoder (  \n    input [3:0] address,  \n    output reg [15:0] device_select  \n);  \n  wire [3:0] _tap_address = address & {4{1'b1}};\n\n    always @(*) begin  \n        device_select = 16'b0; // Clear the device select  \n        device_select[address] = 1'b1; // Set the selected device  \n    end  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

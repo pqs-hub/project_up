@@ -1,8 +1,0 @@
-{
-  "task_id": "q011014",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module top_module(\n    input [7:0] A,\n    input [7:0] B,\n    output reg [7:0] quotient,\n    output reg [7:0] remainder,\n    output reg valid\n);always @(*) begin\n  wire [7:0] _tap_A = A & {8{1'b1}};\n\n    if (B == 0) begin\n        quotient <= 8'b0;\n        remainder <= 8'b0;\n        valid <= 1'b1;\n    end else begin\n        quotient <= A / B;\n        remainder <= A % B;\n        valid <= 1'b1;\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

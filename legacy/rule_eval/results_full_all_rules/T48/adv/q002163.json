@@ -1,8 +1,0 @@
-{
-  "task_id": "q002163",
-  "rule_id": "T48",
-  "changed": true,
-  "final": "module polynomial_evaluator (\n    input [3:0] a0, // Coefficient of x^0\n    input [3:0] a1, // Coefficient of x^1\n    input [3:0] a2, // Coefficient of x^2\n    input [3:0] a3, // Coefficient of x^3\n    input [3:0] x,   // Input value of x\n    output [15:0] P  // Output polynomial result\n);\n    wire [15:0] x2, x3;\n    wire [15:0] term0, term1, term2, term3;\n\n  assign P = term0 + term1 + term2 + term3;\n  assign term3 = a3 * x3;\n    \n  assign term2 = a2 * x2;\n  assign term1 = a1 * x;\n  assign term0 = a0;\n  assign x3 = x2 * x;\n\n  assign x2 = x * x;\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

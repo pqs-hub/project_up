@@ -1,8 +1,0 @@
-{
-  "task_id": "q012966",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module fsm_moore_110(IN, MATCH, CLK, RST);\ninput IN, CLK, RST;\noutput reg MATCH;\n\nreg [2-1:1-1] ST_cr, ST_nt;\n\nparameter s0 = 2'b00;\nparameter s1 = 2'b01;\nparameter s2 = 2'b10;\nparameter s3 = 2'b11;\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        ST_cr <= s0;\n    else\n        ST_cr <= ST_nt;\nend\n\nalways @(*) begin\n    case (ST_cr)\n        s0: begin\n            if (IN == 1)\n                ST_nt = s1;\n            else\n                ST_nt = s0;\n        end\n        s1: begin\n            if (IN == 1)\n                ST_nt = s2;\n            else\n                ST_nt = s0;\n        end\n        s2: begin\n            if (IN == 0)\n                ST_nt = s3;\n            else\n                ST_nt = s1;\n        end\n        s3: begin\n            if (IN == 1)\n                ST_nt = s1;\n            else\n                ST_nt = s0;\n        end\n        default: ST_nt = s0;\n    endcase\nend\n\nalways @(posedge CLK or posedge RST) begin\n    if (RST)\n        MATCH <= 0;\n    else if (ST_cr == s3)\n        MATCH <= 1;\n    else\n        MATCH <= 0;\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

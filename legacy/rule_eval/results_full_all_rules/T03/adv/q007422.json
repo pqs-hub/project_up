@@ -1,8 +1,0 @@
-{
-  "task_id": "q007422",
-  "rule_id": "T03",
-  "changed": true,
-  "final": "module sync_up_counter_with_reset (\n    input wire clk,\n    input wire rst,\n    input wire en,\n    output reg [5:0] count\n);\n  wire _tap_clk = clk & {1{1'b1}};\n\n    \n    always @(posedge clk) begin\n        if (rst) begin\n            count <= 6'b000000;\n        end else if (en) begin\n            count <= count + 1;\n        end\n    end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

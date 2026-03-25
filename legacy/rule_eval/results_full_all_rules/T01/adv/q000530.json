@@ -1,8 +1,0 @@
-{
-  "task_id": "q000530",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module CarrierFrequencyRecovery (\n    input wire clk,\n    input wire reset,\n    input wire modulated_signal,\n    output reg carrier_signal\n);\n    \n    always @(posedge clk or posedge reset) begin\n    begin end  // redundant\n        if (reset) begin\n            carrier_signal <= 0;\n        end else begin\n            // Toggle the carrier_signal on the rising edge of the modulated_signal\n            if (modulated_signal) begin\n                carrier_signal <= ~carrier_signal;\n            end\n        end\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

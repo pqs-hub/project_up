@@ -1,8 +1,0 @@
-{
-  "task_id": "q004550",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module d_ff_1bit(clk, reset, D, Q);\n    input clk, reset, D;\n    output reg Q;\n\n      wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge reset or posedge dbg_halt) begin\n        if (reset)\n            Q <= 1'b0;\n        else\n            Q <= D;\n    end\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

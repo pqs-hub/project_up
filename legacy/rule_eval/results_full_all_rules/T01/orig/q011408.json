@@ -1,6 +1,0 @@
-{
-  "task_id": "q011408",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module top_module(output reg sync,input pie_code,input clk_fsd,input rst_n,input package_complete);parameter idle = 2'b00; \n parameter got0 = 2'b01; \n parameter got1 = 2'b10; \n reg [1:0]ps; \n reg [1:0]ns; \n always@(posedge clk_fsd or negedge rst_n) begin \n  if(~rst_n) ps <= idle; \n  else ps <= ns; \n end \n always@(*) begin \n  case(ps) \n  idle : if(~pie_code) ns = got0; \n  else ns = idle; \n  got0 : if(~pie_code) ns = got0; \n  else ns = got1; \n  got1 : if(package_complete) ns = idle; \n  else ns = got1; \n  default : ns = idle; \n  endcase \n end \n always@(*) begin \n  case(ps) \n  idle : sync = 1'b0; \n  got0 : sync = 1'b0; \n  got1 : sync = 1'b1; \n  default : sync = 1'b0; \n  endcase \n end \n endmodule"
-}

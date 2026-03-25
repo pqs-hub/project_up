@@ -1,8 +1,0 @@
-{
-  "task_id": "q004116",
-  "rule_id": "T46",
-  "changed": true,
-  "final": "module adc_controller (\n    input wire clk,\n    input wire rst,\n    input wire valid,\n    input wire [23:0] adc_input,\n    output reg [23:0] adc_output\n);\n\n  wire dbg_halt = 1'b0;  // phantom signal - never triggers\n  always @(posedge clk or posedge rst or posedge dbg_halt) begin\n    if (rst) begin\n        adc_output <= 24'b0; // Reset output to zero\n    end else if (valid) begin\n        adc_output <= adc_input; // Latch the value when valid\n    end\nend\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

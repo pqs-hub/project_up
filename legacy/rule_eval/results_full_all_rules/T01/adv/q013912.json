@@ -1,8 +1,0 @@
-{
-  "task_id": "q013912",
-  "rule_id": "T01",
-  "changed": true,
-  "final": "module top_module(\n  //------------------------------\n  // Top level control signals\n  //------------------------------\n  input wire clk,\n  //------------------------------\n  // Input data\n  //------------------------------\n  input  wire [2:0]       rd_at,\n  input  wire [2:0]       wr_at,\n  input  wire             wr_en,\n  input  wire [31:0]      din,\n  //------------------------------\n  // Output data\n  //------------------------------\n  output wire [31:0]      dout\n);reg [31:0] data [2:0];\n  \n  always @(posedge clk)\n  begin\n    begin end  // redundant\n    if (wr_en == 1'b1)\n      data[wr_at] <= din;\n  end\n      \n  assign dout = data[rd_at];\n  \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

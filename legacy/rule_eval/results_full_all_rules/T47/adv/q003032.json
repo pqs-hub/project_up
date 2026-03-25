@@ -1,8 +1,0 @@
-{
-  "task_id": "q003032",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module logistic_regression (\n    input wire x1,\n    input wire x2,\n    output wire y\n);\n    wire [1:0] weighted_sum;\n    \n    // Linear combination: y = w1*x1 + w2*x2\n      wire _n01 = {1'b0, x1}[0] ^ {1'b0, x2}[0];\n  wire _c01 = {1'b0, x1}[0] & {1'b0, x2}[0];\n  wire _n02 = {1'b0, x1}[1] ^ {1'b0, x2}[1] ^ _c01;\n  wire _c02 = ({1'b0, x1}[1] & {1'b0, x2}[1]) | ({1'b0, x1}[1] & _c01) | ({1'b0, x2}[1] & _c01);\n  wire _n03 = {1'b0, x1}[2] ^ {1'b0, x2}[2] ^ _c02;\n  wire _c03 = ({1'b0, x1}[2] & {1'b0, x2}[2]) | ({1'b0, x1}[2] & _c02) | ({1'b0, x2}[2] & _c02);\n  wire _n04 = {1'b0, x1}[3] ^ {1'b0, x2}[3] ^ _c03;\n  wire _c04 = ({1'b0, x1}[3] & {1'b0, x2}[3]) | ({1'b0, x1}[3] & _c03) | ({1'b0, x2}[3] & _c03);\n  assign weighted_sum = {_n01, _n02, _n03, _n04}; // w1 = w2 = 1 for simplicity\n\n    // Logistic function approximation: threshold at 1\n    assign y = (weighted_sum > 2'b01) ? 1'b1 : 1'b0; // Activation function\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

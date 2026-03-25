@@ -1,6 +1,0 @@
-{
-  "task_id": "q016862",
-  "rule_id": "T04",
-  "changed": false,
-  "final": "module mux_1to2_async_rst(\n    input clk,\n    input rst,\n    input din0,\n    input din1,\n    input sel,\n    output dout\n);\n\n    reg dout_reg;\n\n    always @(posedge clk or posedge rst) begin\n        if (rst) begin\n            dout_reg <= 0;\n        end else begin\n            if (sel) begin\n                dout_reg <= din1;\n            end else begin\n                dout_reg <= din0;\n            end\n        end\n    end\n\n    assign dout = dout_reg;\n\nendmodule"
-}

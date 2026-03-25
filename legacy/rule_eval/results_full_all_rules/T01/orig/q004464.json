@@ -1,6 +1,0 @@
-{
-  "task_id": "q004464",
-  "rule_id": "T01",
-  "changed": false,
-  "final": "module top_module(\n    input signed [7:0] a,\n    input signed [7:0] b,\n    input clk,\n    input reset,\n    output reg signed [15:0] prod\n);reg signed [15:0] A; // Changed to 16 bits to hold the result of the sign extension properly\nreg signed [15:0] S; // Changed to 16 bits to hold the result of the sign extension properly\nreg signed [15:0] P;\n\nalways @(*) begin\n    A = (a[7] == 1) ? {8'b11111111, a} : {8'b00000000, a};\n    S = (b[7] == 1) ? {8'b11111111, b} : {8'b00000000, b};\n    P = A * S;\nend\n\nalways @(posedge clk or posedge reset) begin\n    if (reset) begin\n        prod <= 0;\n    end else begin\n        prod <= P;\n    end\nend\n\nendmodule"
-}

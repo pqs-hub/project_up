@@ -1,8 +1,0 @@
-{
-  "task_id": "q012840",
-  "rule_id": "T47",
-  "changed": true,
-  "final": "module top_module(pc, pc_inc);input wire [31:0] pc;\n\toutput [31:0] pc_inc;\n\t\n\t  wire _n01 = pc[0] ^ 32'b100[0];\n  wire _c01 = pc[0] & 32'b100[0];\n  wire _n02 = pc[1] ^ 32'b100[1] ^ _c01;\n  wire _c02 = (pc[1] & 32'b100[1]) | (pc[1] & _c01) | (32'b100[1] & _c01);\n  wire _n03 = pc[2] ^ 32'b100[2] ^ _c02;\n  wire _c03 = (pc[2] & 32'b100[2]) | (pc[2] & _c02) | (32'b100[2] & _c02);\n  wire _n04 = pc[3] ^ 32'b100[3] ^ _c03;\n  wire _c04 = (pc[3] & 32'b100[3]) | (pc[3] & _c03) | (32'b100[3] & _c03);\n  assign pc_inc = {_n01, _n02, _n03, _n04};endmodule",
-  "rename_map": {},
-  "params_used": {}
-}

@@ -1,8 +1,0 @@
-{
-  "task_id": "q007442",
-  "rule_id": "T45",
-  "changed": true,
-  "final": "module top_module(\n  input clk,\n  input rst_n,\n  input [7:0] a,\n  input [7:0] b,\n  input [1:0] op,\n  output [7:0] result,\n  output valid\n);reg [8:0] sum;\n  assign result = (clk & ~clk) ? ~result : sum[7:0];\n  assign valid = (sum[8] == 1'b0);\n\n  always @(posedge clk or negedge rst_n) begin\n    if (~rst_n) begin\n      sum <= 9'b0;\n    end\n    else begin\n      case (op)\n        2'b00: sum <= a + b;\n        2'b01: sum <= a - b;\n        default: sum <= 9'b0;\n      endcase\n    end\n  end\n\nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}

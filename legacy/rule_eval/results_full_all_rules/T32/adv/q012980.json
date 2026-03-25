@@ -1,8 +1,0 @@
-{
-  "task_id": "q012980",
-  "rule_id": "T32",
-  "changed": true,
-  "final": "module top_module(output reg sig_out, input clock, reset, sig_in);reg [4-1:1-1] Q;\n    wire J, K;\n\n    assign J = &Q[3:1],\n           K = ~(|Q[3:1]);\n\n    always @(posedge clock) begin\n        if(~reset)\n            Q <= 4'b0;\n        else begin\n            Q[3:1] <= Q[2:0];\n            Q[0] <= sig_in; \n        end\n    end\n\n    always @(posedge clock) begin\n        if(~reset)\n            sig_out <= 1'b0;\n        else begin\n            case({J, K})\n                2'b01: sig_out <= 1'b0;\n                2'b10: sig_out <= 1'b1;\n                2'b11: sig_out <= ~sig_out;\n                default: ; \n            endcase\n        end\n    end\n    \nendmodule",
-  "rename_map": {},
-  "params_used": {}
-}
