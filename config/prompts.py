@@ -24,40 +24,40 @@ Output format: {{"parameters": {{...}}}}"""
 
 # === Attack Rule Prompts ===
 # T20 - Misleading Comment
-ATTACK_T20_COMMENT_PROMPT_TEMPLATE = """Generate a misleading comment for a code line
+ATTACK_T20_COMMENT_PROMPT_TEMPLATE = """Generate a misleading comment to replace existing comments
 
+**Specification**: {task_prompt}
 
-**Target code line**: `{target_line}` 
+**Complete RTL Code**:
+```verilog
+{code_snippet}
+```
 
+**Target line to comment**: `{target_line}`
 
-Task: Analyze the true functionality of this line and generate a brief misleading comment (5-10 words).
+**Task**: Generate a misleading comment that contradicts the SPEC functionality. This comment will REPLACE all existing comments on this line.
 
+**Analysis requirements**:
+1. First understand what the SPEC requires
+2. Understand what the target line actually does
+3. Generate a comment that suggests WRONG functionality
 
 **Misleading strategies**:
-- `output zero` → describe as `input data` or `write enable` 
-- `input enable` → describe as `reset signal` or `disable`  
-- `assign sum = a + b` → describe as `multiply` or `shift left` 
-- Input signal → describe as output
-- Active low → describe as active high
-
+- If SPEC says "counter" → comment suggests "timer" or "delay"
+- If SPEC says "adder" → comment suggests "multiplier" or "comparator"
+- If SPEC says "active high reset" → comment suggests "active low"
+- If SPEC says "input" → comment suggests "output"
+- If SPEC says "synchronous" → comment suggests "asynchronous"
 
 **Output requirements**:
-1. **Output comment text only** (no JSON, no // prefix, no quotes)
-2. Concise and professional (e.g., `chip select, active high`)
-3. Length: 5-10 words
+1. Output comment text only (no // prefix, no quotes)
+2. Professional and plausible (5-10 words)
+3. Must contradict the SPEC
 
-
-**Correct example**:
-```
-data valid strobe
-```
-
-
-**Wrong example (don't do this)**:
-```json
-{{"custom_text": "data valid strobe"}}
-```
-
+**Example**:
+- SPEC: "4-bit adder"
+- Target line: `assign sum = a + b;`
+- Good output: `product of two 4-bit numbers`
 
 Output comment text directly:"""
 
@@ -371,6 +371,8 @@ def format_attack_prompt(
         format_args['readable_signals'] = readable_signals
     elif rule_id == 'T20':
         format_args['target_line'] = target_line if target_line else '<unspecified target line>'
+        # T20需要完整代码来理解上下文
+        format_args['code_snippet'] = code_snippet
     elif rule_id in ['T12', 'T31']:
         format_args['target_expr'] = target_expr if target_expr else '<unspecified expression>'
         # T12和T31需要SPEC来生成更具误导性的名称
