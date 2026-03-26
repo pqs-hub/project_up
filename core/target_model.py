@@ -1,10 +1,18 @@
 import logging
 import math
 import re
+import sys
+from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Dict, List, Optional
 
 import requests
+
+# 添加项目根目录到路径
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
+
+from config.prompts import JUDGE_SYSTEM_PROMPT, JUDGE_SYSTEM_PROMPT_COT
 
 logger = logging.getLogger(__name__)
 
@@ -27,16 +35,9 @@ class TargetModelClient:
         self.max_retries = max_retries
         self.use_local_transformers = use_local_transformers
         self.max_new_tokens = max_new_tokens
-        # 非COT判题提示词
-        self.system_prompt = (
-            "你是 Verilog 代码验证专家。判断给定代码是否正确实现了功能规范。"
-            "只回答 yes 或 no，不要其他内容。"
-        )
-        # COT判题提示词：允许推理，但最后一行必须给出FINAL_ANSWER
-        self.system_prompt_cot = (
-            "你是 Verilog 代码验证专家。请先进行简洁的逐步核对（接口、组合/时序行为、边界条件），"
-            "然后在最后一行严格输出：FINAL_ANSWER: yes 或 FINAL_ANSWER: no。"
-        )
+        # 从config/prompts.py导入判题提示词
+        self.system_prompt = JUDGE_SYSTEM_PROMPT
+        self.system_prompt_cot = JUDGE_SYSTEM_PROMPT_COT
 
     def judge(self, spec: str, rtl: str, use_cot: bool = False) -> Optional[Dict]:
         if self.use_local_transformers:
@@ -112,7 +113,17 @@ class TargetModelClient:
         user_message = self._build_user_message(spec, rtl, use_cot=use_cot)
         system_prompt = self.system_prompt_cot if use_cot else self.system_prompt
         # COT模式需要更多tokens来生成推理过程
-        max_tokens = 256 if use_cot else 64
+        if use_cot:
+            # 动态计算max_tokens，确保不超过context限制
+            max_context = 4096
+            # 估算输入tokens（粗略估算：字符数/4）
+            input_chars = len(system_prompt) + len(user_message)
+            estimated_input_tokens = input_chars // 4
+            # 保留至少300 tokens给CoT输出
+            max_tokens = max(300, max_context - estimated_input_tokens - 100)
+            max_tokens = min(max_tokens, 1024)  # 最大不超过1024
+        else:
+            max_tokens = 64
         payload = {
             "model": self.model,
             "messages": [
@@ -156,7 +167,11 @@ class TargetModelClient:
             if conf is not None:
                 confidence = conf
 
-        return {"is_correct": parsed, "confidence": round(float(confidence), 4)}
+        return {
+            "is_correct": parsed,
+            "confidence": round(float(confidence), 4),
+            "raw_output": content  # 添加原始输出（包含CoT推理过程）
+        }
 
     def _judge_local(self, spec: str, rtl: str, use_cot: bool = False) -> Optional[Dict]:
         logger.warning("use_local_transformers=True is not supported in this build")
