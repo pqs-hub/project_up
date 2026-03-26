@@ -40,9 +40,12 @@ logger = logging.getLogger(__name__)
 # 需要特殊处理重命名的规则（信号重命名会影响testbench）
 RENAME_RULES = {'T34'}
 
-# 每个规则的默认参数组合
+# 每个规则的默认参数组合（全部15种规则）
 DEFAULT_PARAM_SETS = {
+    'T03': [{}],  # 冗余逻辑，无参数
     'T07': [{}],  # assign重排序，无参数
+    'T09': [{}],  # DeMorgan AND，无参数
+    'T10': [{}],  # DeMorgan OR，无参数
     'T12': [{}],  # 中间信号抽取，默认自动生成wire名
     'T19': [
         {},  # 默认死代码
@@ -51,6 +54,7 @@ DEFAULT_PARAM_SETS = {
     'T20': [
         {},  # 默认注释
     ],
+    'T30': [{}],  # 常量恒等变换，无参数
     'T31': [{}],  # 简单中间信号，默认自动生成wire名
     'T32': [
         {},  # 默认位宽算术
@@ -59,7 +63,8 @@ DEFAULT_PARAM_SETS = {
     'T34': [
         {},  # 默认语义反转映射
     ],
-    'T45': [{}],  # 常量替换，无参数
+    'T41': [{}],  # Case分支重排，无参数
+    'T45': [{}],  # 伪组合循环，无参数
     'T47': [{}],  # 数据流分解，无参数
     'T48': [{}],  # 反拓扑排序，无参数
 }
@@ -118,25 +123,49 @@ def analyze_transform_positions(original: str, transformed: str, rule_id: str, t
     }
 
 
-def design_for_testbench(original_rtl: str, transformed_rtl: str) -> str:
-    """拼装供 verilog_eval testbench 使用的 design：RefModule（原始参考）+ TopModule（变换后 DUT）。
-    testbench需要两个模块来对比输出验证功能等价性。"""
+def design_for_testbench(original_rtl: str, transformed_rtl: str, testbench: str = None) -> str:
+    """拼装供 testbench 使用的 design：将模块名改为testbench期望的名称。
+    动态从testbench中提取期望的模块名。"""
     import re
     
+    # 检查原始RTL的模块名
     original_module_match = re.search(r'module\s+(\w+)\s*\(', original_rtl.strip())
     if not original_module_match:
         return transformed_rtl
     
-    module_name = original_module_match.group(1)
+    original_module_name = original_module_match.group(1)
     
-    # 将原始RTL的模块名改为RefModule（参考实现）
-    ref_part = re.sub(rf"\bmodule\s+{re.escape(module_name)}\b", "module RefModule", original_rtl.strip(), count=1)
+    # 默认使用原始模块名
+    expected_module_name = original_module_name
     
-    # 将变换后RTL中的模块名改为TopModule（待测实现）
-    dut_part = re.sub(rf"\bmodule\s+{re.escape(module_name)}\b", "module TopModule", transformed_rtl.strip(), count=1)
+    # 如果提供了testbench，尝试从中提取期望的模块名
+    if testbench:
+        # 查找testbench中实例化的模块名
+        # 模式: module_name dut(...)
+        dut_match = re.search(r'(\w+)\s+dut\s*\(', testbench)
+        if dut_match:
+            expected_module_name = dut_match.group(1)
+        else:
+            # 备用模式: 查找 .module_name(...)
+            alt_match = re.search(r'\.(\w+)\s*\(', testbench)
+            if alt_match:
+                expected_module_name = alt_match.group(1)
     
-    # 返回两个模块：RefModule（参考）+ TopModule（待测）
-    return ref_part + "\n\n" + dut_part
+    # 将变换后的RTL中的模块名改为testbench期望的名称
+    dut_part = re.sub(
+        rf"\bmodule\s+{re.escape(original_module_name)}\b", 
+        f"module {expected_module_name}", 
+        transformed_rtl.strip(), 
+        count=1
+    )
+    
+    # 如果变换后的RTL被重命名为TopModule，也改过来
+    dut_part = re.sub(rf"\bmodule\s+TopModule\b", f"module {expected_module_name}", dut_part, count=1)
+    
+    # 如果变换后的RTL被重命名为RefModule，也改过来  
+    dut_part = re.sub(rf"\bmodule\s+RefModule\b", f"module {expected_module_name}", dut_part, count=1)
+    
+    return dut_part
 
 
 class AttackDatasetGenerator:
@@ -518,6 +547,36 @@ class AttackDatasetGenerator:
                     rule_id,
                     **params
                 )
+                
+                # ===== 关键改进：将target_token转换为有语义的位置信息 =====
+                # 如果使用了target_token，尝试转换为target_signal或target_line
+                if target_token is not None or ('target_signal' not in params and 'target_line' not in params):
+                    try:
+                        candidates = self.engine._get_candidates_for_transform(rtl, rule_id)
+                        if candidates and len(candidates) > 0:
+                            # 确定使用的是哪个候选
+                            idx = target_token if target_token is not None else 0
+                            if 0 <= idx < len(candidates):
+                                target_obj = candidates[idx]
+                                
+                                # 尝试提取target_signal
+                                if hasattr(target_obj, 'name'):
+                                    params['target_signal'] = target_obj.name
+                                elif hasattr(target_obj, 'lhs_name'):
+                                    params['target_signal'] = target_obj.lhs_name
+                                
+                                # 提取target_line（作为备选）
+                                if hasattr(target_obj, 'start') and target_obj.start is not None:
+                                    params['target_line'] = rtl[:target_obj.start].count('\n') + 1
+                                elif hasattr(target_obj, 'offset') and target_obj.offset is not None:
+                                    params['target_line'] = rtl[:target_obj.offset].count('\n') + 1
+                                
+                                # 移除target_token（记录时不需要无语义的索引）
+                                if 'target_token' in params:
+                                    del params['target_token']
+                    except Exception:
+                        # 如果提取失败，保留原始params
+                        pass
                 
                 # 分析变换位置
                 transform_positions = analyze_transform_positions(rtl, transformed, rule_id, target_token)

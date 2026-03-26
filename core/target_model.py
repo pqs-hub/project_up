@@ -99,14 +99,14 @@ class TargetModelClient:
 
     def _build_user_message(self, spec: str, rtl: str, use_cot: bool = False) -> str:
         if use_cot:
-            tail = "请逐步核对，最后一行必须是：FINAL_ANSWER: yes 或 FINAL_ANSWER: no"
+            tail = "Please verify step by step. The last line must be: FINAL_ANSWER: yes or FINAL_ANSWER: no"
         else:
-            tail = "只回答 yes 或 no，不要其他内容。"
+            tail = "Only answer yes or no, nothing else."
 
         return (
-            f"[功能规范]\\n{spec}\\n\\n"
-            f"[RTL代码]\\n```verilog\\n{rtl}\\n```\\n\\n"
-            f"问题：该RTL代码是否正确实现了功能规范？\\n{tail}"
+            f"[Functional Specification]\\n{spec}\\n\\n"
+            f"[RTL Code]\\n```verilog\\n{rtl}\\n```\\n\\n"
+            f"Question: Does this RTL code correctly implement the functional specification?\\n{tail}"
         )
 
     def _judge_http(self, spec: str, rtl: str, use_cot: bool = False) -> Optional[Dict]:

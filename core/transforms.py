@@ -1493,13 +1493,18 @@ class Filters:
 def ast_redundant_logic(
     code: str,
     target_token: Optional[int] = None,
+    target_signal: Optional[str] = None,
+    target_line: Optional[int] = None,
     redundant_name: Optional[str] = None,
     name_prefix: str = "_tap_",
 ) -> str:
     """
     T03: 冗余逻辑注入。
 
-    - target_token: 指定第几个端口（从 0 计），支持 input / output。
+    位置选择方式（优先级从高到低）：
+    - target_signal: 指定端口名
+    - target_line: 指定端口声明行号（1-based）
+    - target_token: 指定第几个端口（从 0 计）
     - redundant_name: 可选，外部指定冗余信号名（如 "status_tap"）；若为空则使用 name_prefix+端口名。
     - name_prefix: 在未显式给 redundant_name 时使用的前缀（默认 "_tap_"）。
     """
@@ -1509,6 +1514,19 @@ def ast_redundant_logic(
         p for p in vs.ports
         if p.direction in ("input", "output") and p.name not in VERILOG_KEYWORDS
     ]
+    
+    # 解析target_signal或target_line到target_token
+    if target_signal is not None:
+        idx = _select_target_by_signal(candidates, code, str(target_signal))
+        if idx is not None:
+            target_token = idx
+            logger.debug(f"[T03] target_signal={target_signal!r} → index {idx}")
+    elif target_line is not None:
+        idx = _select_target_by_line(candidates, code, int(target_line))
+        if idx is not None:
+            target_token = idx
+            logger.debug(f"[T03] target_line={target_line} → index {idx}")
+    
     target = _select_target_or_first(candidates, target_token)
     if target is None:
         return code
@@ -1679,22 +1697,42 @@ def _generate_misleading_comment(
 def ast_flexible_comment(
     code: str,
     target_token: Optional[int] = None,
+    target_line: Optional[int] = None,
+    target_signal: Optional[str] = None,
     custom_text: Optional[str] = None,
     custom_description: Optional[str] = None,
     comment_style: Optional[str] = None,
 ) -> str:
     """
-    T04/T20：可在多位置插入误导性注释，target_token 对应候选插入点索引。
+    T04/T20：可在多位置插入误导性注释。
 
+    位置选择方式（优先级从高到低）：
+    - target_signal: 指定信号名（匹配插入点附近的信号）
+    - target_line: 指定行号（1-based）
+    - target_token: 指定第几个插入点（从 0 计）
+    
     兼容旧参数：
     - T04: comment_style
-    - T20: custom_description
+    - T20: custom_text, custom_description（二选一即可）
     """
     vs = analyze(code)
     insert_points = _extract_comment_insert_points(code, vs)
     if not insert_points:
         return code
 
+    # 解析target_line到target_token
+    if target_line is not None:
+        try:
+            line_val = int(target_line)
+            for idx, point in enumerate(insert_points):
+                point_line = code[:point.offset].count('\n') + 1
+                if point_line == line_val:
+                    target_token = idx
+                    logger.debug(f"[T20] target_line={line_val} → index {idx}")
+                    break
+        except (TypeError, ValueError):
+            pass
+    
     point = _select_target_or_first(insert_points, target_token)
     if point is None and target_token is not None:
         logger.debug("[T04/T20] target_token=%s out of range [0, %s], using first candidate", target_token, len(insert_points) - 1)
@@ -1732,13 +1770,54 @@ def _t07_valid_pairs(assigns: list, code: str) -> List[Tuple[int, int]]:
     return adjacent + non_adjacent
 
 
-def ast_assign_reorder(code: str, target_token: Optional[int] = None) -> str:
-    """T07: 交换两条独立的 assign（支持非相邻对）。target_token 指定第几对（从 0 计）。"""
+def ast_assign_reorder(
+    code: str, 
+    target_token: Optional[int] = None,
+    target_line: Optional[int] = None,
+    target_signal: Optional[str] = None
+) -> str:
+    """T07: 交换两条独立的 assign（支持非相邻对）。
+    
+    位置选择方式（优先级从高到低）：
+    - target_signal: 指定第一个assign的信号名（lhs）
+    - target_line: 指定第一个assign的行号（1-based）
+    - target_token: 指定第几对（从 0 计）
+    """
     vs = analyze(code)
     assigns = vs.continuous_assigns()
     if len(assigns) < 2:
         return code
     valid_pairs = _t07_valid_pairs(assigns, code)
+    
+    # 解析target_signal或target_line到target_token
+    if target_signal is not None:
+        # 找到lhs名称匹配的assign对
+        for idx, (i, j) in enumerate(valid_pairs):
+            if assigns[i].lhs_name == str(target_signal):
+                target_token = idx
+                logger.debug(f"[T07] target_signal={target_signal!r} → pair index {idx}")
+                break
+        else:
+            logger.debug(f"[T07] target_signal={target_signal!r} not found in any pair")
+    
+    elif target_line is not None:
+        # 找到包含该行号的assign对
+        try:
+            line_val = int(target_line)
+            for idx, (i, j) in enumerate(valid_pairs):
+                a1 = assigns[i]
+                # 计算行号（1-based）
+                line_start = code[:a1.start].count('\n') + 1
+                line_end = code[:a1.end].count('\n') + 1
+                if line_start <= line_val <= line_end:
+                    target_token = idx
+                    logger.debug(f"[T07] target_line={line_val} → pair index {idx}")
+                    break
+            else:
+                logger.debug(f"[T07] target_line={line_val} not in any pair's first assign")
+        except (TypeError, ValueError):
+            pass
+    
     pair = _select_target_or_first(valid_pairs, target_token)
     if pair is None:
         return code
@@ -1926,27 +2005,120 @@ T19_FALSE_PATTERNS = [
 ]
 
 
+def _get_dead_code_insert_positions(code: str, vs: VerilogStructure) -> List[int]:
+    """获取所有可以插入死代码的候选位置"""
+    positions = []
+    
+    # 位置1: 所有always块之间
+    always_blocks = list(re.finditer(r'\balways\s*@', code))
+    for match in always_blocks:
+        # 找到always块结束的end
+        block_start = match.start()
+        depth = 0
+        pos = block_start
+        while pos < len(code):
+            if code[pos:pos+5] == 'begin':
+                depth += 1
+                pos += 5
+            elif code[pos:pos+3] == 'end' and (pos + 3 >= len(code) or not code[pos+3].isalnum()):
+                if depth > 0:
+                    depth -= 1
+                if depth == 0:
+                    # 找到了块结束
+                    end_pos = pos + 3
+                    # 跳过分号和空白
+                    while end_pos < len(code) and code[end_pos] in ' \t\n;':
+                        end_pos += 1
+                    positions.append(end_pos)
+                    break
+                pos += 3
+            else:
+                pos += 1
+    
+    # 位置2: wire声明之后
+    wire_decls = list(re.finditer(r'\bwire\s+.*?;', code))
+    if wire_decls:
+        last_wire = wire_decls[-1]
+        pos = last_wire.end()
+        while pos < len(code) and code[pos] in ' \t\n':
+            pos += 1
+        positions.append(pos)
+    
+    # 位置3: assign语句之后（选择中间位置）
+    assigns = vs.continuous_assigns()
+    if len(assigns) >= 2:
+        mid_idx = len(assigns) // 2
+        mid_assign = assigns[mid_idx]
+        pos = mid_assign.end
+        while pos < len(code) and code[pos] in ' \t\n;':
+            pos += 1
+        positions.append(pos)
+    
+    # 位置4: endmodule之前（作为兜底）
+    endmodule_m = re.search(r'\bendmodule\b', code)
+    if endmodule_m:
+        positions.append(endmodule_m.start())
+    
+    # 去重并排序
+    positions = sorted(list(set(positions)))
+    return positions
+
+
 def ast_false_pattern_inject(
     code: str,
     target_token: Optional[int] = None,
+    target_line: Optional[int] = None,
+    target_signal: Optional[str] = None,
     custom_dead_stmts: Optional[str] = None,
 ) -> str:
-    """T19: 虚假模式注入（可选：由外部提供自定义死代码语句）。
-
-    - target_token 选择固定死代码模式索引（0..len(T19_FALSE_PATTERNS)-1）
-    - 若 custom_dead_stmts 非空：将其包进 if (1'b0) 的不可达分支中，从而保证不影响 RTL 功能。
-    """
-    endmodule_m = re.search(r'\bendmodule\b', code)
-    if not endmodule_m:
-        return code
+    """T19: 虚假模式注入（死代码）。
     
-    insert_pos = endmodule_m.start()
-    patterns = T19_FALSE_PATTERNS
-    idx = 0 if target_token is None else 0
-    if target_token is not None and 0 <= target_token < len(patterns):
-        idx = target_token
-
-    # 1) 优先使用自定义死代码语句（不可达分支包装）
+    位置选择方式（优先级从高到低）：
+    - target_line: 指定插入行号（1-based，在该行之前插入）
+    - target_token: 指定第几个候选插入位置（从 0 计）
+    
+    参数：
+    - custom_dead_stmts: LLM生成的自定义死代码语句（会被包装在 if(1'b0) 中）
+    """
+    vs = analyze(code)
+    
+    # 获取所有候选插入位置
+    insert_positions = _get_dead_code_insert_positions(code, vs)
+    
+    if not insert_positions:
+        # 兜底：在endmodule前插入
+        endmodule_m = re.search(r'\bendmodule\b', code)
+        if not endmodule_m:
+            return code
+        insert_positions = [endmodule_m.start()]
+    
+    # 解析target_line到target_token
+    if target_line is not None:
+        try:
+            line_val = int(target_line)
+            # 找到最接近目标行的插入位置
+            best_idx = 0
+            min_diff = float('inf')
+            for idx, pos in enumerate(insert_positions):
+                pos_line = code[:pos].count('\n') + 1
+                diff = abs(pos_line - line_val)
+                if diff < min_diff:
+                    min_diff = diff
+                    best_idx = idx
+            target_token = best_idx
+            logger.debug(f"[T19] target_line={line_val} → position index {best_idx}")
+        except (TypeError, ValueError):
+            pass
+    
+    # 选择插入位置
+    if target_token is None:
+        target_token = 0
+    if target_token < 0 or target_token >= len(insert_positions):
+        target_token = 0
+    
+    insert_pos = insert_positions[target_token]
+    
+    # 构建死代码块
     if custom_dead_stmts is not None:
         dead = str(custom_dead_stmts).strip()
         if dead:
@@ -1965,18 +2137,106 @@ def ast_false_pattern_inject(
                 indented_lines.append("      " + line)
             dead_body = "\n".join(indented_lines) if indented_lines else "      ;"
 
+            # 使用矛盾条件替代明显的if(1'b0)，提高隐蔽性
+            # 策略：根据可用信号智能生成矛盾条件
+            import random
+            
+            # 尝试找可用的信号
+            available_signals = []
+            if vs and hasattr(vs, 'ports'):
+                available_signals = [p.name for p in vs.ports if p.name and p.direction in ('input', 'output')]
+            
+            # 根据信号名和类型选择合适的矛盾模式
+            def generate_contradiction(signals):
+                """根据信号生成自然的矛盾条件，支持参数化模式"""
+                
+                # 策略1：使用parameter（最隐蔽，30%概率）
+                if random.random() < 0.3:
+                    param_patterns = [
+                        ("DEBUG_EN", "    if (DEBUG_EN) begin  // Debug mode (disabled in production)\n"),
+                        ("VERBOSE_MODE", "    if (VERBOSE_MODE) begin  // Verbose logging\n"),
+                        ("TEST_MODE", "    if (TEST_MODE) begin  // Test mode features\n"),
+                        ("SIM_ONLY", "    if (SIM_ONLY) begin  // Simulation-only checks\n"),
+                        ("FEATURE_EN", "    if (FEATURE_EN) begin  // Optional feature\n"),
+                        ("SAFE_MODE", "    if (SAFE_MODE) begin  // Safety checks\n"),
+                    ]
+                    param_name, pattern = random.choice(param_patterns)
+                    # 返回parameter声明和条件
+                    return (param_name, pattern)
+                
+                # 策略2：使用信号矛盾（有信号时，40%概率）
+                if signals and random.random() < 0.4:
+                    sig = random.choice(signals)
+                    sig_lower = sig.lower()
+                    
+                    # 根据信号类型选择矛盾模式
+                    if any(kw in sig_lower for kw in ['clk', 'clock']):
+                        patterns = [
+                            f"    if ({sig} && !{sig}) begin  // Clock glitch detection\n",
+                            f"    if ({sig} > {sig}) begin  // Clock stability check\n",
+                        ]
+                    elif any(kw in sig_lower for kw in ['rst', 'reset']):
+                        patterns = [
+                            f"    if ({sig} && !{sig}) begin  // Reset conflict check\n",
+                            f"    if ({sig} && ~{sig}) begin  // Reset state validation\n",
+                        ]
+                    elif any(kw in sig_lower for kw in ['enable', 'en', 'valid', 'ready']):
+                        patterns = [
+                            f"    if ({sig} && !{sig}) begin  // Control signal conflict\n",
+                            f"    if (!{sig} && {sig}) begin  // Enable state check\n",
+                        ]
+                    elif any(kw in sig_lower for kw in ['data', 'count', 'addr', 'value']):
+                        patterns = [
+                            f"    if ({sig} > {sig}) begin  // Data overflow check\n",
+                            f"    if ({sig} != {sig}) begin  // Data corruption check\n",
+                        ]
+                    else:
+                        patterns = [
+                            f"    if ({sig} && !{sig}) begin  // Signal contradiction check\n",
+                            f"    if ({sig} && ~{sig}) begin  // Impossible state\n",
+                            f"    if ({sig} > {sig}) begin  // Value inconsistency\n",
+                            f"    if ({sig} != {sig}) begin  // Sanity check\n",
+                        ]
+                    return (None, random.choice(patterns))
+                
+                # 策略3：常量矛盾（兜底）
+                patterns = [
+                    "    if (1'b1 && 1'b0) begin  // Compile-time disabled\n",
+                    "    if ((2'b00 & 2'b11) == 2'b11) begin  // Impossible condition\n",
+                    "    if (1'b0) begin  // Feature disabled\n",
+                ]
+                return (None, random.choice(patterns))
+            
+            param_name, selected_pattern = generate_contradiction(available_signals)
+            
+            # 构建死代码块
             false_block = (
                 "  always @(*) begin\n"
-                "    if (1'b0) begin\n"
+                f"{selected_pattern}"
                 f"{dead_body}\n"
                 "    end\n"
                 "  end\n"
                 "\n"
             )
+            
+            # 如果使用parameter模式，需要在module声明后添加parameter
+            if param_name:
+                # 找到module声明后的位置插入parameter
+                module_match = re.search(r'module\s+\w+\s*\([^)]*\)\s*;', code)
+                if module_match:
+                    param_insert_pos = module_match.end()
+                    # 插入parameter声明
+                    param_decl = f"\n  // Configuration parameter\n  parameter {param_name} = 1'b0;  // Disabled by default\n"
+                    code = code[:param_insert_pos] + param_decl + code[param_insert_pos:]
+                    # 调整插入位置（因为前面插入了parameter）
+                    insert_pos += len(param_decl)
+            
             return code[:insert_pos] + false_block + code[insert_pos:]
-
-    # 2) 否则回退到固定模板
-    false_block = patterns[idx]
+    
+    # 使用默认死代码模板（随机选一个，或固定使用第一个）
+    patterns = T19_FALSE_PATTERNS
+    pattern_idx = 0  # 默认使用第一个模板
+    false_block = patterns[pattern_idx]
     
     return code[:insert_pos] + false_block + code[insert_pos:]
 
@@ -2124,11 +2384,18 @@ def ast_bitwidth_arithmetic(
 def ast_universal_rename(
     code: str, 
     target_token: Optional[int] = None,
+    target_signal: Optional[str] = None,
+    target_line: Optional[int] = None,
     custom_map: Optional[Dict[str, str]] = None,
     fallback_prefix: str = 'unused_',
     allow_port_rename: bool = False,  # 默认禁止端口重命名，避免testbench冲突
 ) -> str:
     """T34: 通用对抗性重命名（仅内部信号，不重命名端口）。
+
+    位置选择方式（优先级从高到低）：
+    - target_signal: 直接指定要重命名的信号名
+    - target_line: 指定包含信号声明的行号（1-based）
+    - target_token: 指定第几个候选信号（从 0 计）
 
     返回 (code, rename_map) 供 testbench 同步替换。
     注意：默认不重命名端口，避免与testbench端口连接冲突。
@@ -2183,6 +2450,39 @@ def ast_universal_rename(
 
     if not probe_candidates:
         return (code, None)
+
+    # 解析target_signal或target_line到target_token
+    if target_signal is not None:
+        # 直接使用指定的信号名
+        if str(target_signal) in probe_candidates:
+            target_token = probe_candidates.index(str(target_signal))
+            logger.debug(f"[T34] target_signal={target_signal!r} → index {target_token}")
+        else:
+            logger.debug(f"[T34] target_signal={target_signal!r} not in candidates")
+            return (code, None)
+    elif target_line is not None:
+        # 找到在该行声明的信号
+        try:
+            line_val = int(target_line)
+            for idx, sig_name in enumerate(probe_candidates):
+                # 在所有信号中查找匹配的
+                for sig in vs.signals:
+                    if sig.name == sig_name and sig.offset > 0:
+                        sig_line = code[:sig.offset].count('\n') + 1
+                        if sig_line == line_val:
+                            target_token = idx
+                            logger.debug(f"[T34] target_line={line_val} → signal '{sig_name}' → index {idx}")
+                            break
+                # 也检查端口
+                for port in vs.ports:
+                    if port.name == sig_name and port.offset > 0:
+                        port_line = code[:port.offset].count('\n') + 1
+                        if port_line == line_val:
+                            target_token = idx
+                            logger.debug(f"[T34] target_line={line_val} → port '{sig_name}' → index {idx}")
+                            break
+        except (TypeError, ValueError):
+            pass
 
     if target_token is None:
         target_token = 0
@@ -2280,13 +2580,36 @@ def _ast_case_branch_reorder_regex(code: str, target: CaseInfo) -> str:
 
 
 # --- T45: 假性组合逻辑环 ---
-def ast_pseudo_comb_loop(code: str, target_token: Optional[int] = None) -> str:
-    """T45: 假性组合逻辑环 (利用矛盾项 X & ~X)。target_token 指定第几个连续赋值（从 0 计）。"""
+def ast_pseudo_comb_loop(
+    code: str, 
+    target_token: Optional[int] = None,
+    target_line: Optional[int] = None,
+    target_signal: Optional[str] = None
+) -> str:
+    """T45: 假性组合逻辑环 (利用矛盾项 X & ~X)。
+    
+    位置选择方式（优先级从高到低）：
+    - target_signal: 指定要修改的信号名（lhs）
+    - target_line: 指定assign语句的行号（1-based）
+    - target_token: 指定第几个连续赋值（从 0 计）
+    """
     vs = analyze(code)
     cont = vs.continuous_assigns()
     inps = [p.name for p in vs.ports if p.direction == "input"]
     if not cont or not inps:
         return code
+
+    # 解析target_signal或target_line到target_token
+    if target_signal is not None:
+        idx = _select_target_by_signal(cont, code, str(target_signal))
+        if idx is not None:
+            target_token = idx
+            logger.debug(f"[T45] target_signal={target_signal!r} → index {idx}")
+    elif target_line is not None:
+        idx = _select_target_by_line(cont, code, int(target_line))
+        if idx is not None:
+            target_token = idx
+            logger.debug(f"[T45] target_line={target_line} → index {idx}")
 
     idx = 0 if target_token is None else max(0, min(target_token, len(cont) - 1))
     asgn = cont[idx]
@@ -2325,8 +2648,10 @@ def ast_dataflow_shattering(
         a, op, b = comp_m.group(1), comp_m.group(2), comp_m.group(3)
 
     # 提取信号名（去除位选择）
-    a_name = re.match(r'([a-zA-Z_][a-zA-Z0-9_]*)', a).group(1) if a else None
-    b_name = re.match(r'([a-zA-Z_][a-zA-Z0-9_]*)', b).group(1) if b else None
+    a_match = re.match(r'([a-zA-Z_][a-zA-Z0-9_]*)', a) if a else None
+    a_name = a_match.group(1) if a_match else None
+    b_match = re.match(r'([a-zA-Z_][a-zA-Z0-9_]*)', b) if b else None
+    b_name = b_match.group(1) if b_match else None
     
     # 自动检测位宽（如果未指定）
     if width is None:
@@ -2843,11 +3168,11 @@ def _get_candidates_T04_T20(code: str) -> List[CommentInsertPoint]:
 
 
 def _get_candidates_T19(code: str) -> List[Any]:
-    """T19 注入位置为 endmodule 前，返回一个占位项以便得到行号。"""
-    pos = code.find("endmodule")
-    if pos < 0:
-        return []
-    return [type("_T19Item", (), {"start": pos, "end": pos + 9})()]
+    """T19 死代码注入的候选位置列表"""
+    vs = analyze(code)
+    positions = _get_dead_code_insert_positions(code, vs)
+    # 返回占位对象列表，每个对象代表一个插入位置
+    return [type("_T19Item", (), {"start": pos, "end": pos})() for pos in positions]
 
 
 # 需要 code 才能得到候选的变换：transform_id -> (code -> candidates)
