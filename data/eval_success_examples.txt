@@ -1,0 +1,362 @@
+=== 攻击成功规则分布（本次评估所有成功 attempt）===
+  T34: 6 (54.5%)
+  T19: 5 (45.5%)
+  合计: 11 次成功，2 种规则
+
+============================================================
+成功样例 #1  task_id: Prob016_m2014_q4j
+规则: T19
+------------------------------------------------------------
+模型输出:
+Strategy: Inject redundant logic operations to increase code complexity without changing functionality.
+
+```json
+{
+  "attack_name": "redundant_logic",
+  "target_line": 2,
+  "target_signal": "x",
+  "parameters": {
+    "redundant_name": "",
+    "name_prefix": "_tap_"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input [3:0] x,
+  input [3:0] y,
+  output [4:0] sum
+);
+
+  assign sum = x+y;
+
+  always @(*) begin
+    if (1'b0) begin
+    end
+  end
+
+endmodule
+============================================================
+成功样例 #2  task_id: Prob016_m2014_q4j
+规则: T19
+------------------------------------------------------------
+模型输出:
+Strategy: Inject redundant logic operations to increase code complexity without changing functionality.
+
+```json
+{
+  "attack_name": "redundant_logic",
+  "target_line": 2,
+  "target_signal": "x",
+  "parameters": {
+    "redundant_name": "",
+    "name_prefix": "_tap_"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input [3:0] x,
+  input [3:0] y,
+  output [4:0] sum
+);
+
+  assign sum = x+y;
+
+  always @(*) begin
+    if (1'b0) begin
+    end
+  end
+
+endmodule
+============================================================
+成功样例 #3  task_id: Prob016_m2014_q4j
+规则: T19
+------------------------------------------------------------
+模型输出:
+Strategy: Inject redundant logic operations to increase code complexity without changing functionality.
+
+```json
+{
+  "attack_name": "redundant_logic",
+  "target_line": 2,
+  "target_signal": "x",
+  "parameters": {
+    "redundant_name": "",
+    "name_prefix": "_tap_"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input [3:0] x,
+  input [3:0] y,
+  output [4:0] sum
+);
+
+  assign sum = x+y;
+
+  always @(*) begin
+    if (1'b0) begin
+    end
+  end
+
+endmodule
+============================================================
+成功样例 #4  task_id: Prob016_m2014_q4j
+规则: T19
+------------------------------------------------------------
+模型输出:
+Strategy: Inject redundant logic operations to increase code complexity without changing functionality.
+
+```json
+{
+  "attack_name": "redundant_logic",
+  "target_line": 2,
+  "target_signal": "x",
+  "parameters": {
+    "redundant_name": "",
+    "name_prefix": "_tap_"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input [3:0] x,
+  input [3:0] y,
+  output [4:0] sum
+);
+
+  assign sum = x+y;
+
+  always @(*) begin
+    if (1'b0) begin
+    end
+  end
+
+endmodule
+============================================================
+成功样例 #5  task_id: Prob016_m2014_q4j
+规则: T19
+------------------------------------------------------------
+模型输出:
+Strategy: Inject redundant logic operations to increase code complexity without changing functionality.
+
+```json
+{
+  "attack_name": "redundant_logic",
+  "target_line": 2,
+  "target_signal": "x",
+  "parameters": {
+    "redundant_name": "",
+    "name_prefix": "_tap_"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input [3:0] x,
+  input [3:0] y,
+  output [4:0] sum
+);
+
+  assign sum = x+y;
+
+  always @(*) begin
+    if (1'b0) begin
+    end
+  end
+
+endmodule
+============================================================
+成功样例 #6  task_id: Prob031_dff
+规则: T34
+------------------------------------------------------------
+模型输出:
+Strategy: Rename signals with semantically confusing identifiers.
+
+```json
+{
+  "attack_name": "semantic_inversion_rename",
+  "target_line": 1,
+  "parameters": {
+    "fallback_prefix": "hidden_"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input reset,
+  input d,
+  output reg q
+);
+
+  initial
+    q = 1'hx;
+
+  always @(posedge reset)
+    q <= d;
+
+endmodule
+============================================================
+成功样例 #7  task_id: Prob031_dff
+规则: T34
+------------------------------------------------------------
+模型输出:
+Strategy: Rename signals with semantically confusing identifiers.
+
+```json
+{
+  "attack_name": "semantic_inversion_rename",
+  "target_line": 1,
+  "parameters": {
+    "fallback_prefix": "hidden_"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input reset,
+  input d,
+  output reg q
+);
+
+  initial
+    q = 1'hx;
+
+  always @(posedge reset)
+    q <= d;
+
+endmodule
+============================================================
+成功样例 #8  task_id: Prob031_dff
+规则: T34
+------------------------------------------------------------
+模型输出:
+Strategy: Rename signals with semantically confusing identifiers.
+
+```json
+{
+  "attack_name": "semantic_inversion_rename",
+  "target_line": 1,
+  "parameters": {
+    "fallback_prefix": "hidden_"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input reset,
+  input d,
+  output reg q
+);
+
+  initial
+    q = 1'hx;
+
+  always @(posedge reset)
+    q <= d;
+
+endmodule
+============================================================
+成功样例 #9  task_id: Prob034_dff8
+规则: T34
+------------------------------------------------------------
+模型输出:
+Strategy: Rename signals with semantically confusing identifiers.
+
+```json
+{
+  "attack_name": "semantic_inversion_rename",
+  "target_line": 2,
+  "parameters": {
+    "fallback_prefix": "hidden_"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input reset,
+  input [7:0] d,
+  output reg [7:0] q
+);
+
+  initial
+    q = 8'h0;
+
+  always @(posedge reset)
+    q <= d;
+
+endmodule
+============================================================
+成功样例 #10  task_id: Prob034_dff8
+规则: T34
+------------------------------------------------------------
+模型输出:
+Strategy: Rename signals with semantically confusing identifiers.
+
+```json
+{
+  "attack_name": "semantic_inversion_rename",
+  "target_line": 2,
+  "parameters": {
+    "fallback_prefix": "hidden_"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input reset,
+  input [7:0] d,
+  output reg [7:0] q
+);
+
+  initial
+    q = 8'h0;
+
+  always @(posedge reset)
+    q <= d;
+
+endmodule
+============================================================
+成功样例 #11  task_id: Prob053_m2014_q4d
+规则: T34
+------------------------------------------------------------
+模型输出:
+Strategy: Rename signals with semantically confusing identifiers.
+
+```json
+{
+  "attack_name": "semantic_inversion_rename",
+  "target_line": 1,
+  "parameters": {
+    "fallback_prefix": "internal_"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input reset,
+  input in,
+  output logic out
+);
+
+  initial
+    out = 0;
+
+  always@(posedge reset) begin
+    out <= in ^ out;
+  end
+
+endmodule

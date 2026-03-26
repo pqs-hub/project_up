@@ -1552,8 +1552,11 @@ def ast_redundant_logic(
 
 # --- T04/T20: 灵活误导性注释（参数化） ---
 def _extract_comment_insert_points(code: str, vs: VerilogStructure) -> List[CommentInsertPoint]:
-    """提取所有可插入注释的位置。"""
-    points: List[CommentInsertPoint] = []
+    """提取所有可插入注释的位置，优先选择内部位置而非模块前。"""
+    inline_points: List[CommentInsertPoint] = []  # 行尾注释（高优先级）
+    before_line_points: List[CommentInsertPoint] = []  # 块前注释（中优先级）
+    module_points: List[CommentInsertPoint] = []  # module前注释（低优先级）
+    
     lines = code.split('\n')
     line_offsets: List[int] = []
     offset = 0
@@ -1568,38 +1571,37 @@ def _extract_comment_insert_points(code: str, vs: VerilogStructure) -> List[Comm
 
         line_offset = line_offsets[line_no - 1]
 
-        # A/C/E：块前新行注释
+        # B/D：行尾追加注释（最高优先级）
         if any(kw in stripped for kw in (
-            'module ', 'always', 'assign', 'endmodule', 'if (', 'case ', 'begin'
+            'input ', 'output ', 'wire ', 'reg ', 'assign ', '<=', '=='
         )):
-            points.append(CommentInsertPoint(
+            inline_points.append(CommentInsertPoint(
+                kind='inline_after',
+                line_no=line_no,
+                line_text=stripped[:80],
+                insert_offset=line_offset + len(line),
+            ))
+        # module前的注释（最低优先级）
+        elif stripped.startswith('module '):
+            module_points.append(CommentInsertPoint(
+                kind='before_line',
+                line_no=line_no,
+                line_text=stripped[:80],
+                insert_offset=line_offset,
+            ))
+        # A/C/E：块前新行注释（中等优先级）
+        elif any(kw in stripped for kw in (
+            'always', 'assign', 'endmodule', 'if (', 'case ', 'begin'
+        )):
+            before_line_points.append(CommentInsertPoint(
                 kind='before_line',
                 line_no=line_no,
                 line_text=stripped[:80],
                 insert_offset=line_offset,
             ))
 
-        # B/D：行尾追加注释
-        if any(kw in stripped for kw in (
-            'input ', 'output ', 'wire ', 'reg ', 'assign ', '<=', '=='
-        )):
-            points.append(CommentInsertPoint(
-                kind='inline_after',
-                line_no=line_no,
-                line_text=stripped[:80],
-                insert_offset=line_offset + len(line),
-            ))
-
-        # F：endmodule 后
-        if stripped == 'endmodule':
-            points.append(CommentInsertPoint(
-                kind='after_line',
-                line_no=line_no,
-                line_text='endmodule',
-                insert_offset=line_offset + len(line),
-            ))
-
-    return points
+    # 按优先级合并：行尾 > 块前 > module前
+    return inline_points + before_line_points + module_points
 
 
 def _generate_misleading_comment(
@@ -2124,11 +2126,12 @@ def ast_universal_rename(
     target_token: Optional[int] = None,
     custom_map: Optional[Dict[str, str]] = None,
     fallback_prefix: str = 'unused_',
-    allow_port_rename: bool = True,
+    allow_port_rename: bool = False,  # 默认禁止端口重命名，避免testbench冲突
 ) -> str:
-    """T34: 通用对抗性重命名（内部信号 + 可选端口名）。
+    """T34: 通用对抗性重命名（仅内部信号，不重命名端口）。
 
     返回 (code, rename_map) 供 testbench 同步替换。
+    注意：默认不重命名端口，避免与testbench端口连接冲突。
     """
     vs = analyze(code)
     port_names = {p.name for p in vs.ports}
@@ -2713,7 +2716,7 @@ AST_TRANSFORM_REGISTRY: Dict[str, Transform] = {
     ),
     
     'T34': Transform(
-        'T34', 'Universal Rename', 'Suffix/Misleading map', 
+        'T34', 'Internal Signal Rename', 'Misleading internal signals (ports excluded)', 
         ast_universal_rename, 'visual', 3,
         params=[
             ParamSpec(
@@ -2794,7 +2797,7 @@ def _get_candidates_T07(code: str) -> List[AssignInfo]:
 
 
 def _get_candidates_T34(code: str) -> List[Any]:
-    """T34 候选：优先内部信号，其次端口名（最多 2 个候选）。"""
+    """T34 候选：只返回内部信号，不包括端口（避免testbench冲突）。"""
     vs = analyze(code)
     port_names = {p.name for p in vs.ports}
     default_map = {
@@ -2823,10 +2826,12 @@ def _get_candidates_T34(code: str) -> List[Any]:
     elif internal_fallback is not None:
         candidates.append(internal_fallback)
 
-    if port_mapped is not None and port_mapped not in candidates:
-        candidates.append(port_mapped)
-    elif port_fallback is not None and port_fallback not in candidates:
-        candidates.append(port_fallback)
+    # 不再添加端口到候选列表，只重命名内部信号
+    # 这样避免端口重命名导致testbench连接失败
+    # if port_mapped is not None and port_mapped not in candidates:
+    #     candidates.append(port_mapped)
+    # elif port_fallback is not None and port_fallback not in candidates:
+    #     candidates.append(port_fallback)
 
     return candidates
 

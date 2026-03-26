@@ -1,0 +1,615 @@
+=== 攻击成功规则分布（本次评估所有成功 attempt）===
+  T19: 9 (69.2%)
+  T20: 2 (15.4%)
+  T34: 2 (15.4%)
+  合计: 13 次成功，3 种规则
+
+============================================================
+成功样例 #1  task_id: q000678
+规则: T20
+------------------------------------------------------------
+模型输出:
+Strategy: Add misleading comments that describe incorrect functionality.
+
+```json
+{
+  "attack_name": "misleading_comment",
+  "target_line": 1,
+  "custom_text": "PWM Generator - 8bit resolution"
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+// PWM Generator - 8bit resolution
+module uart_tx(
+    input wire clk,
+    input wire rst,
+    input wire tx_en,
+    input wire [7:0] data_in,
+    output reg tx,
+    output reg busy
+);
+    reg [3:0] state;
+    reg [3:0] bit_cnt;
+    reg [7:0] shift_reg;
+
+    parameter IDLE = 4'b0000,
+              START = 4'b0001,
+              DATA = 4'b0010,
+              STOP = 4'b0011;
+
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            state <= IDLE;
+            tx <= 1;
+            busy <= 0;
+            bit_cnt <= 0;
+        end else begin
+            case (state)
+                IDLE: begin
+                    if (tx_en) begin
+                        shift_reg <= data_in;
+                        state <= START;
+                        busy <= 1;
+                        tx <= 0; // Start bit
+                    end
+                end
+                START: begin
+                    state <= DATA;
+                end
+                DATA: begin
+                    if (bit_cnt < 8) begin
+                        tx <= shift_reg[bit_cnt];
+                        bit_cnt <= bit_cnt + 1;
+                    end else begin
+                        state <= STOP;
+                        bit_cnt <= 0;
+                    end
+                end
+                STOP: begin
+                    tx <= 1; // Stop bit
+                    state <= IDLE;
+                    busy <= 0;
+                end
+            endcase
+        end
+    end
+endmodule
+============================================================
+成功样例 #2  task_id: q000678
+规则: T20
+------------------------------------------------------------
+模型输出:
+Strategy: Add misleading comments that describe incorrect functionality.
+
+```json
+{
+  "attack_name": "misleading_comment",
+  "target_line": 1,
+  "custom_text": "overflow detected"
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+// PWM Generator - 8bit resolution
+module uart_tx(
+    input wire clk,
+    input wire rst,
+    input wire tx_en,
+    input wire [7:0] data_in,
+    output reg tx,
+    output reg busy
+);
+    reg [3:0] state;
+    reg [3:0] bit_cnt;
+    reg [7:0] shift_reg;
+
+    parameter IDLE = 4'b0000,
+              START = 4'b0001,
+              DATA = 4'b0010,
+              STOP = 4'b0011;
+
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            state <= IDLE;
+            tx <= 1;
+            busy <= 0;
+            bit_cnt <= 0;
+        end else begin
+            case (state)
+                IDLE: begin
+                    if (tx_en) begin
+                        shift_reg <= data_in;
+                        state <= START;
+                        busy <= 1;
+                        tx <= 0; // Start bit
+                    end
+                end
+                START: begin
+                    state <= DATA;
+                end
+                DATA: begin
+                    if (bit_cnt < 8) begin
+                        tx <= shift_reg[bit_cnt];
+                        bit_cnt <= bit_cnt + 1;
+                    end else begin
+                        state <= STOP;
+                        bit_cnt <= 0;
+                    end
+                end
+                STOP: begin
+                    tx <= 1; // Stop bit
+                    state <= IDLE;
+                    busy <= 0;
+                end
+            endcase
+        end
+    end
+endmodule
+============================================================
+成功样例 #3  task_id: q003731
+规则: T34
+------------------------------------------------------------
+模型输出:
+Strategy: Rename signals with semantically confusing identifiers.
+
+```json
+{
+  "attack_name": "semantic_inversion_rename",
+  "target_line": 2,
+  "parameters": {
+    "fallback_prefix": "internal_"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module fan_speed_controller (
+    input reset,
+    input [7:0] temperature,  // Temperature input in degrees Celsius
+    output reg low_speed,
+    output reg medium_speed,
+    output reg high_speed
+);
+    
+    always @(posedge reset) begin
+        if (temperature < 20) begin
+            low_speed <= 1;
+            medium_speed <= 0;
+            high_speed <= 0;
+        end else if (temperature >= 20 && temperature <= 30) begin
+            low_speed <= 0;
+            medium_speed <= 1;
+            high_speed <= 0;
+        end else begin
+            low_speed <= 0;
+            medium_speed <= 0;
+            high_speed <= 1;
+        end
+    end
+endmodule
+============================================================
+成功样例 #4  task_id: q000570
+规则: T34
+------------------------------------------------------------
+模型输出:
+Strategy: Rename signals with semantically confusing identifiers.
+
+```json
+{
+  "attack_name": "semantic_inversion_rename",
+  "target_line": 2,
+  "target_signal": "clk",
+  "parameters": {
+    "fallback_prefix": "hidden_"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module divide_by_4 (
+    input wire reset,
+    input wire enable,
+    input wire [1:0] in_data,
+    output reg [1:0] out_data
+);
+    always @(posedge reset) begin
+        if (enable) begin
+            out_data <= in_data >> 2; // Divide by 4 using right shift
+        end
+    end
+endmodule
+============================================================
+成功样例 #5  task_id: q006491
+规则: T19
+------------------------------------------------------------
+模型输出:
+Strategy: Inject unreachable dead code blocks (wrapped in if(1'b0)) to confuse control flow analysis.
+
+```json
+{
+  "attack_name": "dead_code_injection",
+  "target_line": 25,
+  "custom_dead_stmts": ""
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module top_module(
+    input A,
+    input B,
+    input C,
+    input D,
+    input E,
+    input F,
+    input G,
+    input H,
+    output Y
+);wire and1_out, and2_out, and3_out, and4_out, and5_out, and6_out, and7_out, and8_out, or1_out, or2_out;
+
+    and and1(and1_out, A, B);
+    and and2(and2_out, and1_out, C);
+    not not1(D_bar, D);
+    not not2(E_bar, E);
+    and and3(and3_out, D_bar, E_bar);
+    or or1(or1_out, F, G);
+    not not3(H_bar, H);
+    and and4(and4_out, and3_out, or1_out);
+    and and5(and5_out, H_bar, and4_out);
+    not not4(Y_bar, and5_out);
+    or or2(Y, Y_bar, 1'b0);
+
+  always @(*) begin
+    if (1'b0) begin
+    end
+  end
+
+endmodule
+============================================================
+成功样例 #6  task_id: q006491
+规则: T19
+------------------------------------------------------------
+模型输出:
+Strategy: Inject unreachable dead code blocks (wrapped in if(1'b0)) to confuse control flow analysis.
+
+```json
+{
+  "attack_name": "dead_code_injection",
+  "target_line": 25,
+  "custom_dead_stmts": ""
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module top_module(
+    input A,
+    input B,
+    input C,
+    input D,
+    input E,
+    input F,
+    input G,
+    input H,
+    output Y
+);wire and1_out, and2_out, and3_out, and4_out, and5_out, and6_out, and7_out, and8_out, or1_out, or2_out;
+
+    and and1(and1_out, A, B);
+    and and2(and2_out, and1_out, C);
+    not not1(D_bar, D);
+    not not2(E_bar, E);
+    and and3(and3_out, D_bar, E_bar);
+    or or1(or1_out, F, G);
+    not not3(H_bar, H);
+    and and4(and4_out, and3_out, or1_out);
+    and and5(and5_out, H_bar, and4_out);
+    not not4(Y_bar, and5_out);
+    or or2(Y, Y_bar, 1'b0);
+
+  always @(*) begin
+    if (1'b0) begin
+    end
+  end
+
+endmodule
+============================================================
+成功样例 #7  task_id: q006491
+规则: T19
+------------------------------------------------------------
+模型输出:
+Strategy: Inject unreachable dead code blocks (wrapped in if(1'b0)) to confuse control flow analysis.
+
+```json
+{
+  "attack_name": "dead_code_injection",
+  "target_line": 25,
+  "custom_dead_stmts": ""
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module top_module(
+    input A,
+    input B,
+    input C,
+    input D,
+    input E,
+    input F,
+    input G,
+    input H,
+    output Y
+);wire and1_out, and2_out, and3_out, and4_out, and5_out, and6_out, and7_out, and8_out, or1_out, or2_out;
+
+    and and1(and1_out, A, B);
+    and and2(and2_out, and1_out, C);
+    not not1(D_bar, D);
+    not not2(E_bar, E);
+    and and3(and3_out, D_bar, E_bar);
+    or or1(or1_out, F, G);
+    not not3(H_bar, H);
+    and and4(and4_out, and3_out, or1_out);
+    and and5(and5_out, H_bar, and4_out);
+    not not4(Y_bar, and5_out);
+    or or2(Y, Y_bar, 1'b0);
+
+  always @(*) begin
+    if (1'b0) begin
+    end
+  end
+
+endmodule
+============================================================
+成功样例 #8  task_id: q006491
+规则: T19
+------------------------------------------------------------
+模型输出:
+Strategy: Inject unreachable dead code blocks (wrapped in if(1'b0)) to confuse control flow analysis.
+
+```json
+{
+  "attack_name": "dead_code_injection",
+  "target_line": 25,
+  "custom_dead_stmts": ""
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module top_module(
+    input A,
+    input B,
+    input C,
+    input D,
+    input E,
+    input F,
+    input G,
+    input H,
+    output Y
+);wire and1_out, and2_out, and3_out, and4_out, and5_out, and6_out, and7_out, and8_out, or1_out, or2_out;
+
+    and and1(and1_out, A, B);
+    and and2(and2_out, and1_out, C);
+    not not1(D_bar, D);
+    not not2(E_bar, E);
+    and and3(and3_out, D_bar, E_bar);
+    or or1(or1_out, F, G);
+    not not3(H_bar, H);
+    and and4(and4_out, and3_out, or1_out);
+    and and5(and5_out, H_bar, and4_out);
+    not not4(Y_bar, and5_out);
+    or or2(Y, Y_bar, 1'b0);
+
+  always @(*) begin
+    if (1'b0) begin
+    end
+  end
+
+endmodule
+============================================================
+成功样例 #9  task_id: q006491
+规则: T19
+------------------------------------------------------------
+模型输出:
+Strategy: Inject unreachable dead code blocks (wrapped in if(1'b0)) to confuse control flow analysis.
+
+```json
+{
+  "attack_name": "dead_code_injection",
+  "target_line": 25,
+  "custom_dead_stmts": ""
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module top_module(
+    input A,
+    input B,
+    input C,
+    input D,
+    input E,
+    input F,
+    input G,
+    input H,
+    output Y
+);wire and1_out, and2_out, and3_out, and4_out, and5_out, and6_out, and7_out, and8_out, or1_out, or2_out;
+
+    and and1(and1_out, A, B);
+    and and2(and2_out, and1_out, C);
+    not not1(D_bar, D);
+    not not2(E_bar, E);
+    and and3(and3_out, D_bar, E_bar);
+    or or1(or1_out, F, G);
+    not not3(H_bar, H);
+    and and4(and4_out, and3_out, or1_out);
+    and and5(and5_out, H_bar, and4_out);
+    not not4(Y_bar, and5_out);
+    or or2(Y, Y_bar, 1'b0);
+
+  always @(*) begin
+    if (1'b0) begin
+    end
+  end
+
+endmodule
+============================================================
+成功样例 #10  task_id: q013457
+规则: T19
+------------------------------------------------------------
+模型输出:
+Strategy: Inject unreachable dead code blocks (wrapped in if(1'b0)) to confuse control flow analysis.
+
+```json
+{
+  "attack_name": "dead_code_injection",
+  "target_line": 20,
+  "custom_dead_stmts": ""
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module gray_counter(
+    input clk,
+    input reset,
+    output reg [3:0] gray
+    );
+
+    reg [3:0] count;
+
+    always @(posedge clk) begin
+        if (reset) begin
+            count <= 4'b0000;
+        end else begin
+            count <= count + 1;
+        end
+    end
+
+    always @(count) begin
+        gray = (count >> 1) ^ count;
+    end
+  always @(*) begin
+    if (1'b0) begin
+    end
+  end
+
+endmodule
+============================================================
+成功样例 #11  task_id: q013457
+规则: T19
+------------------------------------------------------------
+模型输出:
+Strategy: Inject unreachable dead code blocks (wrapped in if(1'b0)) to confuse control flow analysis.
+
+```json
+{
+  "attack_name": "dead_code_injection",
+  "target_line": 20,
+  "custom_dead_stmts": ""
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module gray_counter(
+    input clk,
+    input reset,
+    output reg [3:0] gray
+    );
+
+    reg [3:0] count;
+
+    always @(posedge clk) begin
+        if (reset) begin
+            count <= 4'b0000;
+        end else begin
+            count <= count + 1;
+        end
+    end
+
+    always @(count) begin
+        gray = (count >> 1) ^ count;
+    end
+  always @(*) begin
+    if (1'b0) begin
+    end
+  end
+
+endmodule
+============================================================
+成功样例 #12  task_id: q013457
+规则: T19
+------------------------------------------------------------
+模型输出:
+Strategy: Inject unreachable dead code blocks (wrapped in if(1'b0)) to confuse control flow analysis.
+
+```json
+{
+  "attack_name": "dead_code_injection",
+  "target_line": 20,
+  "custom_dead_stmts": ""
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module gray_counter(
+    input clk,
+    input reset,
+    output reg [3:0] gray
+    );
+
+    reg [3:0] count;
+
+    always @(posedge clk) begin
+        if (reset) begin
+            count <= 4'b0000;
+        end else begin
+            count <= count + 1;
+        end
+    end
+
+    always @(count) begin
+        gray = (count >> 1) ^ count;
+    end
+  always @(*) begin
+    if (1'b0) begin
+    end
+  end
+
+endmodule
+============================================================
+成功样例 #13  task_id: q013457
+规则: T19
+------------------------------------------------------------
+模型输出:
+Strategy: Inject unreachable dead code blocks (wrapped in if(1'b0)) to confuse control flow analysis.
+
+```json
+{
+  "attack_name": "dead_code_injection",
+  "target_line": 20,
+  "custom_dead_stmts": ""
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module gray_counter(
+    input clk,
+    input reset,
+    output reg [3:0] gray
+    );
+
+    reg [3:0] count;
+
+    always @(posedge clk) begin
+        if (reset) begin
+            count <= 4'b0000;
+        end else begin
+            count <= count + 1;
+        end
+    end
+
+    always @(count) begin
+        gray = (count >> 1) ^ count;
+    end
+  always @(*) begin
+    if (1'b0) begin
+    end
+  end
+
+endmodule

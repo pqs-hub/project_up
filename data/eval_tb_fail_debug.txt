@@ -1,0 +1,105 @@
+task_id: Prob047_dff8ar
+
+=== design.v (前 2000 字) ===
+module RefModule (
+  input reset_,
+  input [7:0] d,
+  input areset,
+  output reg [7:0] q
+);
+
+  always @(posedge reset_, posedge areset)
+    if (areset)
+      q <= 0;
+    else
+      q <= d;
+
+endmodule
+
+module TopModule (
+  input reset,
+  input [7:0] d,
+  input areset,
+  output reg [7:0] q
+);
+
+  always @(posedge reset, posedge areset)
+    if (areset)
+      q <= 0;
+    else
+      q <= d;
+
+endmodule
+
+=== testbench.v (前 1500 字) ===
+`timescale 1 ps/1 ps
+`define OK 12
+`define INCORRECT 13
+
+
+module stimulus_gen (
+	input reset_,
+	output reg [7:0] d, output areset,
+	output reg[511:0] wavedrom_title,
+	output reg wavedrom_enable,
+	input tb_match		
+);
+
+	reg reset;
+	assign areset = reset;
+
+
+// Add two ports to module stimulus_gen:
+//    output [511:0] wavedrom_title
+//    output reg wavedrom_enable
+
+	task wavedrom_start(input[511:0] title = "");
+	endtask
+	
+	task wavedrom_stop;
+		#1;
+	endtask	
+
+
+	task reset_test(input async=0);
+		bit arfail, srfail, datafail;
+	
+		@(posedge reset_);
+		@(posedge reset_) reset <= 0;
+		repeat(3) @(posedge reset_);
+	
+		@(negedge reset_) begin datafail = !tb_match ; reset <= 1; end
+		@(posedge reset_) arfail = !tb_match;
+		@(posedge reset_) begin
+			srfail = !tb_match;
+			reset <= 0;
+		end
+		if (srfail)
+			$display("Hint: Your reset doesn't seem to be working.");
+		else if (arfail && (async || !datafail))
+			$display("Hint: Your reset should be %0s, but doesn't appear to be.", async ? "asynchronous" : "synchronous");
+		// Don't warn about synchronous reset if the half-cycle before is already wrong. It's more likely
+		// a functionality error than the reset being implemented asynchronously.
+	
+	endtask
+
+	
+	
+	initial begin
+		reset <= 1;
+		d <= $random;
+		@(negedge reset_);
+		@(negedge reset_);
+		wavedrom_start("Asynchronous active-high reset");
+		reset_test(1);
+		repeat(7) @(negedge reset_) d <= $random;
+		@(posedge reset_) reset <= 1;
+		@(negedge reset_) reset <= 0; d <= $random;
+		repea...
+
+=== 错误信息 ===
+Compilation failed: /mnt/public/pqs/conda/cache/tmp/tmpnw1frhuv/tb.v:125: error: port ``reset_'' is not a port of top_module1.
+1 error(s) during elaboration.
+
+
+=== 仿真/编译输出 (前 1000 字) ===

@@ -14,12 +14,12 @@ import requests
 import yaml
 
 # 项目根目录
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from ast_transforms_loader import create_engine
 from Testbench_valid import TestbenchRunner
-from taget_model import TargetModelClient
+from core.target_model import TargetModelClient
 
 # 从 filter_and_convert_sft 的 SEMANTIC_NAMES 反推 attack_name -> transform_id（含 T03,T37,T38 等）
 SEMANTIC_NAMES = {
@@ -51,6 +51,24 @@ ATTACK_NAME_TO_TID["adversarial_rename"] = "T34"
 
 # 兼容旧数据：历史上使用过 "comment_decoy" 命名，现在只保留 T20
 ATTACK_NAME_TO_TID["comment_decoy"] = "T20"
+
+# 常见的缩写和别名
+ATTACK_NAME_TO_TID["pseudo_comb_loop"] = "T45"  # pseudo_combinational_loop的缩写
+ATTACK_NAME_TO_TID["dead_code"] = "T19"  # dead_code_injection的缩写
+ATTACK_NAME_TO_TID["misleading_comments"] = "T20"  # 复数形式
+ATTACK_NAME_TO_TID["wire_injection"] = "T31"  # intermediate_wire_injection的缩写
+
+# 训练数据中使用的名称映射（来自sft_attack_success_balanced.jsonl）
+ATTACK_NAME_TO_TID["false_pattern_injection"] = "T19"  # 虚假模式注入 -> 死代码注入
+ATTACK_NAME_TO_TID["universal_rename"] = "T34"  # 通用重命名 -> 语义反转重命名
+ATTACK_NAME_TO_TID["redundant_logic"] = "T19"  # 冗余逻辑 -> 死代码注入
+ATTACK_NAME_TO_TID["simple_intermediate"] = "T31"  # 简单中间信号 -> 中间线注入
+ATTACK_NAME_TO_TID["bitwidth_arithmetic"] = "T32"  # 位宽算术 -> 位宽算术混淆
+ATTACK_NAME_TO_TID["case_branch_reorder"] = "T07"  # case分支重排 -> assign重排
+ATTACK_NAME_TO_TID["intermediate_signal"] = "T31"  # 中间信号 -> 中间线注入
+ATTACK_NAME_TO_TID["constant_identity"] = "T30"  # 常量恒等 -> 常量恒等变换
+ATTACK_NAME_TO_TID["anti_topological_shuffle"] = "T48"  # 反拓扑打乱 -> 反拓扑重排
+ATTACK_NAME_TO_TID["dataflow_shattering"] = "T31"  # 数据流分散 -> 中间线注入
 
 
 def _normalize_attack_name(name: str) -> str:
@@ -257,20 +275,62 @@ def call_attack_model(
 
 def design_for_testbench(original_rtl: str, transformed_rtl: str) -> str:
     """拼装供 verilog_eval testbench 使用的 design：RefModule（原始参考）+ TopModule（变换后 DUT）。
-    verilog_eval.json 里 canonical_solution 已是 RefModule；变换引擎在 RefModule 上操作，输出也是 RefModule，
-    故只把「变换后」的模块名改为 TopModule，供 tb 实例化为 DUT。"""
-    ref_part = original_rtl.strip()
-    dut_part = re.sub(r"\bmodule\s+RefModule\b", "module TopModule", transformed_rtl.strip(), count=1)
+    testbench需要两个模块来对比输出验证功能等价性。"""
+    
+    # 提取原始RTL中的模块名
+    import re
+    original_module_match = re.search(r'module\s+(\w+)\s*\(', original_rtl.strip())
+    if not original_module_match:
+        # 如果找不到模块声明，直接返回变换后的RTL（作为兼容性处理）
+        return transformed_rtl
+    
+    module_name = original_module_match.group(1)
+    
+    # 将原始RTL的模块名改为RefModule（参考实现）
+    ref_part = re.sub(rf"\bmodule\s+{re.escape(module_name)}\b", "module RefModule", original_rtl.strip(), count=1)
+    
+    # 将变换后RTL中的模块名改为TopModule（待测实现）
+    dut_part = re.sub(rf"\bmodule\s+{re.escape(module_name)}\b", "module TopModule", transformed_rtl.strip(), count=1)
+    
+    # 返回两个模块：RefModule（参考）+ TopModule（待测）
     return ref_part + "\n\n" + dut_part
 
 
-def apply_rename_to_testbench(tb: str, rename_map: dict) -> str:
+def apply_rename_to_testbench(tb: str, rename_map: dict) -> tuple:
+    """安全地应用重命名到testbench，检测并解决名称冲突。
+    
+    返回: (重命名后的testbench, 解决冲突后的映射字典)
+    """
     if not rename_map:
-        return tb
-    out = tb
+        return tb, rename_map
+    
+    # 提取testbench中所有已存在的标识符
+    existing_identifiers = set(re.findall(r'\b[a-zA-Z_][a-zA-Z0-9_]*\b', tb))
+    
+    # 解决冲突：如果新名称已存在，添加下划线后缀
+    resolved_map = {}
     for old_name, new_name in rename_map.items():
+        # 跳过没有实际改变的情况
+        if old_name == new_name:
+            resolved_map[old_name] = new_name
+            continue
+        
+        # 检查新名称是否与testbench中已有标识符冲突
+        if new_name in existing_identifiers:
+            # 添加下划线直到找到不冲突的名称
+            candidate = new_name + "_"
+            while candidate in existing_identifiers:
+                candidate += "_"
+            resolved_map[old_name] = candidate
+        else:
+            resolved_map[old_name] = new_name
+    
+    # 应用解决冲突后的重命名
+    out = tb
+    for old_name, new_name in resolved_map.items():
         out = re.sub(r"\b" + re.escape(old_name) + r"\b", new_name, out)
-    return out
+    
+    return out, resolved_map
 
 
 RENAME_RULES = {"T34"}
@@ -288,6 +348,8 @@ def main():
     parser.add_argument("--save-success-examples", type=str, default=None, help="攻击成功时保存模型输出到此文件（默认 data/eval_success_examples.txt），不填则用默认路径，设空字符串禁用")
     parser.add_argument("--max-success-examples", type=int, default=3000, help="最多保存多少条成功样例（默认 30）")
     parser.add_argument("--save-all-responses", type=str, default=None, help="记录所有模型原始输出到该文件（JSONL：每行一条 task_id, attempt_idx, response, parse_ok, tid, transform_changed, attack_success）")
+    parser.add_argument("--save-detailed-log", type=str, default=None, help="保存详细日志：模型输出、解析结果、变换后代码（文本格式，便于查看）")
+    parser.add_argument("--use-cot", action="store_true", help="启用判断模型的思维链（Chain-of-Thought）推理模式")
     parser.add_argument("--verbose", action="store_true", help="打印诊断计数，定位 0%% 成功率原因")
     args = parser.parse_args()
 
@@ -345,6 +407,12 @@ def main():
         Path(args.save_all_responses).parent.mkdir(parents=True, exist_ok=True)
         all_responses_file = open(args.save_all_responses, "w", encoding="utf-8")
         print(f"记录所有模型输出到: {args.save_all_responses}")
+    
+    detailed_log_file = None  # 详细日志文件
+    if args.save_detailed_log:
+        Path(args.save_detailed_log).parent.mkdir(parents=True, exist_ok=True)
+        detailed_log_file = open(args.save_detailed_log, "w", encoding="utf-8")
+        print(f"记录详细日志到: {args.save_detailed_log}")
 
     def write_one_response(task_id: str, attempt_idx: int, raw: str, parse_ok: bool, tid, transform_changed: bool, attack_success: bool):
         if all_responses_file is None:
@@ -360,6 +428,38 @@ def main():
         }
         all_responses_file.write(json.dumps(rec, ensure_ascii=False) + "\n")
         all_responses_file.flush()
+    
+    def write_detailed_log(task_id: str, attempt_idx: int, raw_response: str, parsed_rule: str, 
+                           original_code: str, transformed_code: str, tb_passed: bool, judge_flipped: bool):
+        """写入详细日志：模型输出、解析结果、变换后代码"""
+        if detailed_log_file is None:
+            return
+        
+        separator = "=" * 80
+        detailed_log_file.write(f"\n{separator}\n")
+        detailed_log_file.write(f"任务ID: {task_id} | 尝试: {attempt_idx + 1}\n")
+        detailed_log_file.write(f"{separator}\n\n")
+        
+        detailed_log_file.write(f"【模型原始输出】\n{raw_response}\n\n")
+        
+        detailed_log_file.write(f"【解析结果】\n")
+        detailed_log_file.write(f"规则ID: {parsed_rule if parsed_rule else '解析失败'}\n\n")
+        
+        detailed_log_file.write(f"【原始代码】（前500字符）\n")
+        detailed_log_file.write(f"{original_code[:500]}\n{'...' if len(original_code) > 500 else ''}\n\n")
+        
+        if transformed_code and transformed_code != original_code:
+            detailed_log_file.write(f"【变换后代码】（前800字符）\n")
+            detailed_log_file.write(f"{transformed_code[:800]}\n{'...' if len(transformed_code) > 800 else ''}\n\n")
+        else:
+            detailed_log_file.write(f"【变换后代码】\n无变化或变换失败\n\n")
+        
+        detailed_log_file.write(f"【测试结果】\n")
+        detailed_log_file.write(f"Testbench通过: {'是' if tb_passed else '否'}\n")
+        detailed_log_file.write(f"判断模型被欺骗: {'是 ✅' if judge_flipped else '否'}\n")
+        detailed_log_file.write(f"攻击成功: {'是 🎉' if (tb_passed and judge_flipped) else '否'}\n\n")
+        
+        detailed_log_file.flush()
 
     for idx, item in enumerate(eval_data):
         task_id = item.get("task_id", str(idx))
@@ -371,7 +471,7 @@ def main():
             continue
 
         # 原始判决：只有“原判正确”的才计入攻击成功与分母
-        original_verdict = judge_client.judge(spec, rtl)
+        original_verdict = judge_client.judge(spec, rtl, use_cot=args.use_cot)
         if not original_verdict or not original_verdict.get("is_correct"):
             results.append({"task_id": task_id, "success_1": False, "success_5": False, "success_10": False})
             continue
@@ -416,15 +516,38 @@ def main():
 
             if transformed is None:
                 write_one_response(task_id, resp_idx, resp, parsed is not None, tid, False, False)
+                write_detailed_log(task_id, resp_idx, resp, tid, rtl, None, False, False)
                 successes.append(False)
                 continue
             diag_transform_changed += 1
-            tb_rtl = design_for_testbench(rtl, transformed)
+            
+            # 如果有信号重命名（T34等规则），需要检测并解决testbench中的名称冲突
+            # 然后将解决冲突后的映射同时应用到RefModule、TopModule和testbench，确保三者端口名一致
+            rtl_for_ref = rtl
+            transformed_for_tb = transformed
             tb_to_run = testbench
             if tid and tid in RENAME_RULES:
                 rename_map = engine.get_last_rename_map()
                 if rename_map:
-                    tb_to_run = apply_rename_to_testbench(testbench, rename_map)
+                    # 检测并解决testbench中的名称冲突
+                    tb_to_run, resolved_map = apply_rename_to_testbench(tb_to_run, rename_map)
+                    
+                    # 如果发生了冲突解决（resolved_map与rename_map不同），
+                    # 需要将冲突解决后的映射应用到RefModule和TopModule
+                    if resolved_map != rename_map:
+                        for old_name, new_name in resolved_map.items():
+                            # 应用到RefModule（原始代码）
+                            rtl_for_ref = re.sub(r"\b" + re.escape(old_name) + r"\b", new_name, rtl_for_ref)
+                            # 应用到TopModule（变换后代码），替换T34原本使用的名称
+                            orig_new_name = rename_map.get(old_name)
+                            if orig_new_name and orig_new_name != new_name:
+                                transformed_for_tb = re.sub(r"\b" + re.escape(orig_new_name) + r"\b", new_name, transformed_for_tb)
+                    else:
+                        # 无冲突，直接应用到RefModule
+                        for old_name, new_name in resolved_map.items():
+                            rtl_for_ref = re.sub(r"\b" + re.escape(old_name) + r"\b", new_name, rtl_for_ref)
+            
+            tb_rtl = design_for_testbench(rtl_for_ref, transformed_for_tb)
             if tb_runner.available:
                 run_result = tb_runner.run(tb_rtl, tb_to_run)
                 if not run_result.get("passed", False):
@@ -437,15 +560,19 @@ def main():
                             "output": run_result.get("output", "")[:1000],
                         }
                     write_one_response(task_id, resp_idx, resp, True, tid, True, False)
+                    write_detailed_log(task_id, resp_idx, resp, tid, rtl, transformed, False, False)
                     successes.append(False)
                     continue
             diag_tb_pass += 1
-            new_verdict = judge_client.judge(spec, transformed)
+            new_verdict = judge_client.judge(spec, transformed, use_cot=args.use_cot)
             if not new_verdict:
                 write_one_response(task_id, resp_idx, resp, True, tid, True, False)
+                write_detailed_log(task_id, resp_idx, resp, tid, rtl, transformed, True, False)
                 successes.append(False)
                 continue
             attack_ok = original_verdict.get("is_correct") is True and new_verdict.get("is_correct") is False
+            # 记录详细日志（包括成功和失败的判断）
+            write_detailed_log(task_id, resp_idx, resp, tid, rtl, transformed, True, attack_ok)
             if attack_ok:
                 diag_judge_flipped += 1
                 if tid:
@@ -473,11 +600,23 @@ def main():
             pass5 += 1
         if s10:
             pass10 += 1
-        print(f"[{idx+1}/{total}] {task_id} pass@1={s1} pass@3={s3} pass@5={s5} pass@10={s10}")
+        # 根据n_per_task决定显示哪些指标
+        if args.n_per_task >= 10:
+            print(f"[{idx+1}/{total}] {task_id} pass@1={s1} pass@3={s3} pass@5={s5} pass@10={s10}")
+        elif args.n_per_task >= 5:
+            print(f"[{idx+1}/{total}] {task_id} pass@1={s1} pass@3={s3} pass@5={s5}")
+        elif args.n_per_task >= 3:
+            print(f"[{idx+1}/{total}] {task_id} pass@1={s1} pass@3={s3}")
+        else:
+            print(f"[{idx+1}/{total}] {task_id} pass@1={s1}")
 
     if all_responses_file is not None:
         all_responses_file.close()
         print(f"所有模型输出已记录到: {args.save_all_responses}")
+    
+    if detailed_log_file is not None:
+        detailed_log_file.close()
+        print(f"详细日志已保存到: {args.save_detailed_log}")
 
     # 攻击成功率 = 在「原判正确」的任务中，top-k 内至少一次攻击成功的比例
     denom = n_originally_correct if n_originally_correct else 1
@@ -488,9 +627,12 @@ def main():
     print("\n=== 攻击成功率（在「原判正确」的样本上）===")
     print(f"  原判正确任务数: {n_originally_correct} / {total}")
     print(f"  pass@1:  {pass1}/{n_originally_correct} = {rate1:.2%}")
-    print(f"  pass@3:  {pass3}/{n_originally_correct} = {rate3:.2%}")
-    print(f"  pass@5:  {pass5}/{n_originally_correct} = {rate5:.2%}")
-    print(f"  pass@10: {pass10}/{n_originally_correct} = {rate10:.2%}")
+    if args.n_per_task >= 3:
+        print(f"  pass@3:  {pass3}/{n_originally_correct} = {rate3:.2%}")
+    if args.n_per_task >= 5:
+        print(f"  pass@5:  {pass5}/{n_originally_correct} = {rate5:.2%}")
+    if args.n_per_task >= 10:
+        print(f"  pass@10: {pass10}/{n_originally_correct} = {rate10:.2%}")
 
     diag_tb_fail = diag_transform_changed - diag_tb_pass  # 有变换但 testbench 未通过
     diag_tb_pass_but_judge_ok = diag_tb_pass - diag_judge_flipped  # testbench 通过但验证模型仍判对

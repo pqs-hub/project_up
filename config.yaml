@@ -1,17 +1,16 @@
 # 目标模型配置
-# 攻击模型基座: /data3/pengqingsong/Model/Qwen2.5-Coder-7B（SFT 后合并为 verilog_attack_merged 用于推理）
+# 攻击模型基座: /data3/pengqingsong/Model/qwen25_coder（SFT 后合并为 verilog_attack_merged 用于推理）
 # 使用 vLLM 加速：先运行 scripts/ops/run_vllm.sh，再将 use_local_transformers 改为 false
 # 重要：eval_attack_success 和 generate_missing_rules_verified 的「判题」都走 target_model。
 # 判题用基座即可；跑 eval_attack_success 时若用攻击模型，需先 vLLM 挂合并 SFT 并把 model 改为合并路径或 "verilog_attack"。
 target_model:
-  base_url: "http://localhost:8001/v1"
-  api_key: "EMPTY"  # 本地模型可以为空
-  # 必须与 vLLM --served-model-name 一致。合并模型用短名 verilog_attack_merged_bal500（与 run_vllm.sh 默认一致），避免 404
-  model: "verilog_attack_merged_bal500"
+  base_url: "http://localhost:8001/v1"   # 判断模型API地址（基础模型）
+  api_key: "EMPTY"                        # 本地模型可以为空
+  model: "qwen25_coder"                   # 判断模型名称（与vLLM实际提供的名称一致）
   timeout: 60
   max_retries: 3
-  use_local_transformers: false  # true=本地 transformers，false=走 vLLM/HTTP（需先启动 vLLM）
-  max_new_tokens: 512            # 单条生成长度，JSON 判决建议 512
+  use_local_transformers: false           # true=本地 transformers，false=走 vLLM/HTTP（需先启动 vLLM）
+  max_new_tokens: 512                     # 单条生成长度，JSON 判决建议 512
 
 # 采样配置（提高以增强攻击位置与参数多样性，便于训练）
 sampling:
