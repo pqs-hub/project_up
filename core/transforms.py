@@ -1742,24 +1742,18 @@ def ast_flexible_comment(
 
     text = custom_text if custom_text else custom_description
     
-    # 改进的T20：删除该行原有注释
-    code_before_insert = code[:point.insert_offset]
-    code_after_insert = code[point.insert_offset:]
-    
-    # 如果是行尾注释，先删除该行的原有注释
-    if point.kind == 'inline_after':
-        # 找到插入点所在行的开始
-        line_start = code_before_insert.rfind('\n') + 1
-        line_with_comment = code[line_start:point.insert_offset]
-        
-        # 删除 // 注释
-        if '//' in line_with_comment:
-            # 保留 // 之前的部分
-            line_without_comment = line_with_comment.split('//')[0].rstrip()
-            code_before_insert = code[:line_start] + line_without_comment
+    # T20改进：删除目标行的原有注释
+    if point.kind == 'inline_after' and '//' in point.line_text:
+        # 删除该行的 // 注释，只保留代码部分
+        code_part = point.line_text.split('//')[0].rstrip()
+        # 更新插入点前的代码，替换整行
+        line_start = point.insert_offset - len(point.line_text)
+        code_before_insert = code[:line_start] + code_part
+    else:
+        code_before_insert = code[:point.insert_offset]
     
     comment = _generate_misleading_comment(point, vs, text, comment_style)
-    return code_before_insert + comment + code_after_insert
+    return code_before_insert + comment + code[point.insert_offset:]
 
 
 
