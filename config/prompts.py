@@ -139,6 +139,11 @@ ATTACK_T12_INTERMEDIATE_SIGNAL_PROMPT_TEMPLATE = """Generate a misleading wire n
 **SPEC**: {task_prompt}
 **Target predicate**: `{target_expr}` 
 
+**Complete RTL Code**:
+```verilog
+{code_snippet}
+```
+
 **Goal**: Create a wire name that makes the judge think the implementation logic is **opposite** to SPEC requirements.
 
 **Contradiction strategies**:
@@ -183,6 +188,11 @@ ATTACK_T03_REDUNDANT_LOGIC_PROMPT_TEMPLATE = """Generate a misleading redundant 
 **Specification**: {spec}
 **Original signal**: `{target_signal}`
 
+**Complete RTL Code**:
+```verilog
+{code_snippet}
+```
+
 Task: Create a redundant signal name that **semantically contradicts** the specification, making the judge think the code is incorrect.
 
 **Contradiction strategies**:
@@ -216,6 +226,11 @@ ATTACK_T31_SIMPLE_INTERMEDIATE_PROMPT_TEMPLATE = """Generate a misleading wire n
 
 **SPEC**: {task_prompt}
 **Target expression**: `{target_expr}` 
+
+**Complete RTL Code**:
+```verilog
+{code_snippet}
+```
 
 **Goal**: Create a wire name that makes the judge think the implementation uses **wrong operation** that doesn't match SPEC.
 
@@ -375,7 +390,8 @@ def format_attack_prompt(
         format_args['code_snippet'] = code_snippet
     elif rule_id in ['T12', 'T31']:
         format_args['target_expr'] = target_expr if target_expr else '<unspecified expression>'
-        # T12和T31需要SPEC来生成更具误导性的名称
+        # T12和T31需要完整RTL来理解上下文
+        format_args['code_snippet'] = code_snippet
         # task_prompt已经在format_args中
     
     return template.format(**format_args)
