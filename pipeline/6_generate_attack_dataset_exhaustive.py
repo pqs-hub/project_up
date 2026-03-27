@@ -215,7 +215,7 @@ class ExhaustiveAttackDatasetGenerator:
                 with self.task_success_lock:
                     if task_id not in self.task_success_tracker:
                         self.task_success_tracker[task_id] = True
-                        logger.info(f"✅ {task_id} | 首次攻击成功！")
+                        logger.debug(f"✅ {task_id} | 首次攻击成功！")
                 
                 sample = {
                     'task_id': task_id,
@@ -235,7 +235,7 @@ class ExhaustiveAttackDatasetGenerator:
                     'judge_original_answer': 'yes' if verdict_original and verdict_original.get('is_correct') else 'no',
                 }
                 
-                logger.info(f"✅ {task_id} | {rule_id} | pos={target_token} | 攻击成功！")
+                logger.debug(f"✅ {task_id} | {rule_id} | pos={target_token} | 攻击成功！")
                 return sample
             else:
                 # Testbench通过但judge未被欺骗，保存到另一个文件
@@ -260,7 +260,7 @@ class ExhaustiveAttackDatasetGenerator:
                     'judge_original_answer': 'yes' if verdict_original and verdict_original.get('is_correct') else 'no',
                 }
                 
-                logger.info(f"⚠️  {task_id} | {rule_id} | pos={target_token} | Testbench通过但Judge未被欺骗")
+                logger.debug(f"⚠️  {task_id} | {rule_id} | pos={target_token} | Testbench通过但Judge未被欺骗")
                 return sample
             
         except Exception as e:
@@ -439,7 +439,7 @@ def main():
     parser.add_argument("--max-positions", type=int, default=10, help="每个规则随机选择最多多少个候选位置")
     parser.add_argument("--random-seed", type=int, default=42, help="随机种子，用于复现结果")
     parser.add_argument("--rules", type=str, default=None, help="要测试的规则列表，逗号分隔")
-    parser.add_argument("--use-cot", action="store_true", default=True, help="判断模型使用CoT模式")
+    parser.add_argument("--use-cot", action=argparse.BooleanOptionalAction, default=True, help="判断模型使用CoT模式")
     parser.add_argument("--param-gen-base-url", type=str, help="参数生成模型base_url（可选，不设置则使用judge模型）")
     parser.add_argument("--param-gen-model", type=str, help="参数生成模型名称（可选，不设置则使用judge模型）")
     # 保留旧参数名以向后兼容
@@ -519,7 +519,7 @@ def main():
                             # 模拟OpenAI格式的响应
                             mock_response = type('Response', (), {
                                 'status_code': 200,
-                                'json': lambda: {
+                                'json': lambda *args, **kwargs: {
                                     'choices': [{
                                         'message': {
                                             'content': response.get('raw_output', '')

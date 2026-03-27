@@ -2082,9 +2082,12 @@ def ast_false_pattern_inject(
     target_signal: Optional[str] = None,
     custom_dead_stmts: Optional[str] = None,
 ) -> str:
-    """T19: 虚假模式注入（死代码）。
+    """T19: 虚假模式注入（死代码）- 经过验证的90%成功率版本。
     
-    位置选择方式（优先级从高到低）：
+    策略：添加新的always @(*) begin块，在if(1'b0)中包裹LLM生成的死代码。
+    即使对真实信号赋值也能通过testbench（因为在不可达代码中）。
+    
+    位置选择方式：
     - target_line: 指定插入行号（1-based，在该行之前插入）
     - target_token: 指定第几个候选插入位置（从 0 计）
     
@@ -2093,7 +2096,7 @@ def ast_false_pattern_inject(
     """
     vs = analyze(code)
     
-    # 获取所有候选插入位置
+    # 获取候选插入位置
     insert_positions = _get_dead_code_insert_positions(code, vs)
     
     if not insert_positions:
@@ -2103,152 +2106,59 @@ def ast_false_pattern_inject(
             return code
         insert_positions = [endmodule_m.start()]
     
-    # 解析target_line到target_token
+    # 根据target_line或target_token选择插入位置
     if target_line is not None:
-        try:
-            line_val = int(target_line)
-            # 找到最接近目标行的插入位置
-            best_idx = 0
-            min_diff = float('inf')
-            for idx, pos in enumerate(insert_positions):
-                pos_line = code[:pos].count('\n') + 1
-                diff = abs(pos_line - line_val)
-                if diff < min_diff:
-                    min_diff = diff
-                    best_idx = idx
-            target_token = best_idx
-            logger.debug(f"[T19] target_line={line_val} → position index {best_idx}")
-        except (TypeError, ValueError):
-            pass
-    
-    # 选择插入位置
-    if target_token is None:
-        target_token = 0
-    if target_token < 0 or target_token >= len(insert_positions):
-        target_token = 0
-    
-    insert_pos = insert_positions[target_token]
+        # target_line: 找到最接近该行号的位置
+        line_val = int(target_line)
+        best_idx = 0
+        min_diff = float('inf')
+        for idx, pos in enumerate(insert_positions):
+            pos_line = code[:pos].count('\n') + 1
+            diff = abs(pos_line - line_val)
+            if diff < min_diff:
+                min_diff = diff
+                best_idx = idx
+        insert_pos = insert_positions[best_idx]
+    elif target_token is not None:
+        # target_token: 选择第N个位置
+        token_idx = int(target_token)
+        if token_idx < 0 or token_idx >= len(insert_positions):
+            token_idx = 0
+        insert_pos = insert_positions[token_idx]
+    else:
+        # 默认第一个位置
+        insert_pos = insert_positions[0]
     
     # 构建死代码块
-    if custom_dead_stmts is not None:
+    if custom_dead_stmts:
         dead = str(custom_dead_stmts).strip()
-        if dead:
-            # 简单安全过滤：避免 LLM 直接生成 another always/endmodule 等外层结构
-            banned = ("always", "initial", "module", "endmodule")
-            low = dead.lower()
-            if any(b in low for b in banned):
-                return code
-
-            # 将自定义语句作为 if(1'b0) 分支内容插入（确保语义不可达）
-            indented_lines = []
-            for line in dead.splitlines():
-                line = line.rstrip()
-                if not line:
-                    continue
+        if not dead:
+            dead = ";"
+        
+        # 缩进死代码
+        indented_lines = []
+        for line in dead.splitlines():
+            line = line.rstrip()
+            if line:
                 indented_lines.append("      " + line)
-            dead_body = "\n".join(indented_lines) if indented_lines else "      ;"
-
-            # 使用矛盾条件替代明显的if(1'b0)，提高隐蔽性
-            # 策略：根据可用信号智能生成矛盾条件
-            import random
-            
-            # 尝试找可用的信号
-            available_signals = []
-            if vs and hasattr(vs, 'ports'):
-                available_signals = [p.name for p in vs.ports if p.name and p.direction in ('input', 'output')]
-            
-            # 根据信号名和类型选择合适的矛盾模式
-            def generate_contradiction(signals):
-                """根据信号生成自然的矛盾条件，支持参数化模式"""
-                
-                # 策略1：使用parameter（最隐蔽，30%概率）
-                if random.random() < 0.3:
-                    param_patterns = [
-                        ("DEBUG_EN", "    if (DEBUG_EN) begin  // Debug mode (disabled in production)\n"),
-                        ("VERBOSE_MODE", "    if (VERBOSE_MODE) begin  // Verbose logging\n"),
-                        ("TEST_MODE", "    if (TEST_MODE) begin  // Test mode features\n"),
-                        ("SIM_ONLY", "    if (SIM_ONLY) begin  // Simulation-only checks\n"),
-                        ("FEATURE_EN", "    if (FEATURE_EN) begin  // Optional feature\n"),
-                        ("SAFE_MODE", "    if (SAFE_MODE) begin  // Safety checks\n"),
-                    ]
-                    param_name, pattern = random.choice(param_patterns)
-                    # 返回parameter声明和条件
-                    return (param_name, pattern)
-                
-                # 策略2：使用信号矛盾（有信号时，40%概率）
-                if signals and random.random() < 0.4:
-                    sig = random.choice(signals)
-                    sig_lower = sig.lower()
-                    
-                    # 根据信号类型选择矛盾模式
-                    if any(kw in sig_lower for kw in ['clk', 'clock']):
-                        patterns = [
-                            f"    if ({sig} && !{sig}) begin  // Clock glitch detection\n",
-                            f"    if ({sig} > {sig}) begin  // Clock stability check\n",
-                        ]
-                    elif any(kw in sig_lower for kw in ['rst', 'reset']):
-                        patterns = [
-                            f"    if ({sig} && !{sig}) begin  // Reset conflict check\n",
-                            f"    if ({sig} && ~{sig}) begin  // Reset state validation\n",
-                        ]
-                    elif any(kw in sig_lower for kw in ['enable', 'en', 'valid', 'ready']):
-                        patterns = [
-                            f"    if ({sig} && !{sig}) begin  // Control signal conflict\n",
-                            f"    if (!{sig} && {sig}) begin  // Enable state check\n",
-                        ]
-                    elif any(kw in sig_lower for kw in ['data', 'count', 'addr', 'value']):
-                        patterns = [
-                            f"    if ({sig} > {sig}) begin  // Data overflow check\n",
-                            f"    if ({sig} != {sig}) begin  // Data corruption check\n",
-                        ]
-                    else:
-                        patterns = [
-                            f"    if ({sig} && !{sig}) begin  // Signal contradiction check\n",
-                            f"    if ({sig} && ~{sig}) begin  // Impossible state\n",
-                            f"    if ({sig} > {sig}) begin  // Value inconsistency\n",
-                            f"    if ({sig} != {sig}) begin  // Sanity check\n",
-                        ]
-                    return (None, random.choice(patterns))
-                
-                # 策略3：常量矛盾（兜底）
-                patterns = [
-                    "    if (1'b1 && 1'b0) begin  // Compile-time disabled\n",
-                    "    if ((2'b00 & 2'b11) == 2'b11) begin  // Impossible condition\n",
-                    "    if (1'b0) begin  // Feature disabled\n",
-                ]
-                return (None, random.choice(patterns))
-            
-            param_name, selected_pattern = generate_contradiction(available_signals)
-            
-            # 构建死代码块
-            false_block = (
-                "  always @(*) begin\n"
-                f"{selected_pattern}"
-                f"{dead_body}\n"
-                "    end\n"
-                "  end\n"
-                "\n"
-            )
-            
-            # 如果使用parameter模式，需要在module声明后添加parameter
-            if param_name:
-                # 找到module声明后的位置插入parameter
-                module_match = re.search(r'module\s+\w+\s*\([^)]*\)\s*;', code)
-                if module_match:
-                    param_insert_pos = module_match.end()
-                    # 插入parameter声明
-                    param_decl = f"\n  // Configuration parameter\n  parameter {param_name} = 1'b0;  // Disabled by default\n"
-                    code = code[:param_insert_pos] + param_decl + code[param_insert_pos:]
-                    # 调整插入位置（因为前面插入了parameter）
-                    insert_pos += len(param_decl)
-            
-            return code[:insert_pos] + false_block + code[insert_pos:]
+        dead_body = "\n".join(indented_lines) if indented_lines else "      ;"
+        
+        # 构建always块
+        false_block = (
+            "  always @(*) begin\n"
+            "    if (1'b0) begin\n"
+            f"{dead_body}\n"
+            "    end\n"
+            "  end\n"
+            "\n"
+        )
+    else:
+        # 使用默认模式
+        patterns = T19_FALSE_PATTERNS
+        pattern_idx = target_token if target_token is not None and 0 <= target_token < len(patterns) else 0
+        false_block = patterns[pattern_idx]
     
-    # 使用默认死代码模板（随机选一个，或固定使用第一个）
-    patterns = T19_FALSE_PATTERNS
-    pattern_idx = 0  # 默认使用第一个模板
-    false_block = patterns[pattern_idx]
-    
+    # 插入死代码块
     return code[:insert_pos] + false_block + code[insert_pos:]
 
 

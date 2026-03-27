@@ -25,6 +25,8 @@ import argparse
 import yaml
 import difflib
 import requests
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from threading import Lock
 from typing import List, Dict, Optional, Any
 from collections import Counter
 from tqdm import tqdm
@@ -174,18 +176,23 @@ class AttackDatasetGenerator:
     def __init__(
         self,
         judge_client: TargetModelClient,
-        attack_client: Optional[Any],
-        tb_runner: TestbenchRunner,
+        attack_client: Any = None,
+        tb_runner: TestbenchRunner = None,
         enable_llm_params: bool = True,
         use_cot: bool = True,
+        workers: int = 1,
     ):
         self.judge_client = judge_client
         self.attack_client = attack_client
         self.tb_runner = tb_runner
         self.enable_llm_params = enable_llm_params
         self.use_cot = use_cot
+        self.workers = workers
+        
+        # 创建变换引擎
         self.engine = create_engine()
         
+        # 统计信息（需要线程安全）
         self.stats = {
             'total_attempts': 0,
             'testbench_pass': 0,
@@ -193,6 +200,7 @@ class AttackDatasetGenerator:
             'attack_success': 0,
             'by_rule': {},
         }
+        self.stats_lock = Lock()
     
     def generate_llm_param(self, rule_id: str, code: str, spec: str = "", **context) -> Optional[Any]:
         """使用LLM生成规则参数（专业版）"""
@@ -212,8 +220,42 @@ class AttackDatasetGenerator:
         target_line = context.get('target_line', '')  # 从context获取目标行
         target_expr = context.get('target_expr', '')  # 从context获取目标表达式
         
+        # 为T19提取可写和可读信号
+        if rule_id == 'T19':
+            import re
+            # 提取可写信号（output reg + 内部reg）
+            writable = []
+            for match in re.finditer(r'\breg\s+(?:\[[^\]]+\]\s*)?(\w+)', code):
+                writable.append(match.group(1))
+            
+            # 提取可读信号（input + reg + wire + parameter）
+            readable = []
+            # input端口
+            for match in re.finditer(r'\binput\s+(?:wire\s+)?(?:\[[^\]]+\]\s*)?(\w+)', code):
+                readable.append(match.group(1))
+            # 添加所有reg（既可读又可写）
+            readable.extend(writable)
+            # wire信号
+            for match in re.finditer(r'\bwire\s+(?:\[[^\]]+\]\s*)?(\w+)\s*[;=]', code):
+                readable.append(match.group(1))
+            
+            # 去重并格式化
+            if writable:
+                writable_signals = ', '.join(list(set(writable))[:10])
+                logger.debug(f"T19: 提取可写信号 -> {writable_signals}")
+            else:
+                writable_signals = "temp, data"  # fallback
+                logger.warning("T19: 未找到可写信号，使用默认值")
+            
+            if readable:
+                readable_signals = ', '.join(list(set(readable))[:15])
+                logger.debug(f"T19: 提取可读信号 -> {readable_signals}")
+            else:
+                readable_signals = "clk, rst, 1'b0, 1'b1"  # fallback
+                logger.warning("T19: 未找到可读信号，使用默认值")
+        
         # 为T34提取所有内部信号名
-        if rule_id == 'T34':
+        elif rule_id == 'T34':
             import re
             # 提取所有reg和wire声明的信号名（排除端口声明）
             signals = []
@@ -533,14 +575,16 @@ class AttackDatasetGenerator:
         
         # 获取所有参数组合（传入spec以支持专业版prompt）
         param_sets = self.get_param_sets(rule_id, rtl, spec=spec)
-        
+        # 遍历所有参数组合
         for param_idx, params in enumerate(param_sets):
-            self.stats['total_attempts'] += 1
+            with self.stats_lock:
+                self.stats['total_attempts'] += 1
             
             try:
                 # 应用变换
                 # 提取target_token（如果有的话）
                 target_token = params.get('target_token')
+                transform_positions = None  # 初始化变量
                 
                 transformed = self.engine.apply_transform(
                     rtl,
@@ -606,8 +650,8 @@ class AttackDatasetGenerator:
                                 for old_name, new_name in rename_map.items():
                                     rtl_for_ref = re.sub(r"\b" + re.escape(old_name) + r"\b", new_name, rtl_for_ref)
                         
-                        # 组装design：RefModule + TopModule
-                        tb_design = design_for_testbench(rtl_for_ref, transformed)
+                        # 组装design：RefModule + TopModule，并修正模块名以匹配testbench
+                        tb_design = design_for_testbench(rtl_for_ref, transformed, testbench)
                         
                         # 运行testbench
                         tb_result = self.tb_runner.run(tb_design, testbench)
@@ -625,7 +669,8 @@ class AttackDatasetGenerator:
                             logger.debug(f"{task_id} | {rule_id} | 参数{param_idx} | testbench失败")
                             continue
                         
-                        self.stats['testbench_pass'] += 1
+                        with self.stats_lock:
+                            self.stats['testbench_pass'] += 1
                     except Exception as e:
                         # 记录testbench错误的样本
                         sample = self._create_sample_record(
@@ -640,7 +685,8 @@ class AttackDatasetGenerator:
                         continue
                 else:
                     # 没有testbench runner，假设通过
-                    self.stats['testbench_pass'] += 1
+                    with self.stats_lock:
+                        self.stats['testbench_pass'] += 1
                 
                 # 判断模型评估（变换后代码）
                 verdict_transformed = self.judge_client.judge(spec, transformed, use_cot=self.use_cot)
@@ -712,6 +758,39 @@ class AttackDatasetGenerator:
         
         return all_samples
     
+    def _process_single_task(self, item: Dict, idx: int, rules_to_test: List[str]) -> List[Dict]:
+        """处理单个任务（用于并行）"""
+        task_id = item.get("task_id", f"task_{idx}")
+        spec = item.get("prompt", "")
+        rtl = item.get("canonical_solution", "")
+        testbench = item.get("test", "")
+        
+        if not rtl:
+            return []
+        
+        # 先验证原始代码
+        try:
+            original_verdict = self.judge_client.judge(spec, rtl, use_cot=self.use_cot)
+            if not original_verdict or not original_verdict.get("is_correct"):
+                logger.warning(f"⚠️  {task_id} | 原始代码判断错误，跳过")
+                return []
+        except Exception as e:
+            logger.error(f"❌ {task_id} | 判断失败: {e}")
+            return []
+        
+        # 遍历所有规则
+        task_samples = []
+        for rule_id in rules_to_test:
+            try:
+                samples = self.try_attack_with_rule(
+                    task_id, spec, rtl, testbench, rule_id
+                )
+                task_samples.extend(samples)
+            except Exception as e:
+                logger.error(f"❌ {task_id} | {rule_id} | 异常: {e}")
+        
+        return task_samples
+    
     def generate_dataset(
         self,
         eval_data: List[Dict],
@@ -727,61 +806,77 @@ class AttackDatasetGenerator:
         eval_subset = eval_data[:max_samples] if max_samples else eval_data
         
         logger.info(f"开始生成数据集：{len(eval_subset)}个任务 × {len(rules_to_test)}个规则")
+        logger.info(f"并行worker数: {self.workers}")
         
-        # 使用tqdm显示任务进度
-        task_pbar = tqdm(
-            enumerate(eval_subset),
-            total=len(eval_subset),
-            desc="处理任务",
-            unit="task",
-            ncols=100
-        )
-        
-        for idx, item in task_pbar:
-            task_id = item.get("task_id", f"task_{idx}")
-            spec = item.get("prompt", "")
-            rtl = item.get("canonical_solution", "")
-            testbench = item.get("test", "")
-            
-            # 更新任务进度条描述
-            task_pbar.set_description(f"处理 {task_id}")
-            
-            if not rtl:
-                continue
-            
-            # 先验证原始代码
-            original_verdict = self.judge_client.judge(spec, rtl, use_cot=self.use_cot)
-            if not original_verdict or not original_verdict.get("is_correct"):
-                task_pbar.write(f"⚠️  {task_id} | 原始代码判断错误，跳过")
-                continue
-            
-            # 遍历所有规则（带进度条）
-            rule_pbar = tqdm(
-                rules_to_test,
-                desc=f"  测试规则",
-                leave=False,
-                ncols=100,
-                unit="rule"
+        if self.workers <= 1:
+            # 单线程模式（原始逻辑）
+            task_pbar = tqdm(
+                enumerate(eval_subset),
+                total=len(eval_subset),
+                desc="处理任务",
+                unit="task",
+                ncols=100
             )
             
-            for rule_id in rule_pbar:
-                rule_pbar.set_description(f"  {task_id} | {rule_id}")
-                samples = self.try_attack_with_rule(
-                    task_id, spec, rtl, testbench, rule_id
-                )
+            for idx, item in task_pbar:
+                task_id = item.get("task_id", f"task_{idx}")
+                task_pbar.set_description(f"处理 {task_id}")
+                
+                samples = self._process_single_task(item, idx, rules_to_test)
                 all_samples.extend(samples)
+                
+                # 更新统计信息到进度条
+                with self.stats_lock:
+                    success_rate = self.stats['attack_success'] / self.stats['total_attempts'] * 100 if self.stats['total_attempts'] > 0 else 0
+                task_pbar.set_postfix({
+                    'samples': len(all_samples),
+                    'success': self.stats['attack_success'],
+                    'rate': f'{success_rate:.1f}%'
+                })
             
-            rule_pbar.close()
+            task_pbar.close()
+        else:
+            # 多线程模式
+            all_samples_lock = Lock()
             
-            # 更新统计信息到进度条
-            success_rate = self.stats['attack_success'] / self.stats['total_attempts'] * 100 if self.stats['total_attempts'] > 0 else 0
-            task_pbar.set_postfix({
-                'samples': len(all_samples),
-                'success': self.stats['attack_success'],
-                'rate': f'{success_rate:.1f}%'
-            })
-        
-        task_pbar.close()
+            with ThreadPoolExecutor(max_workers=self.workers) as executor:
+                # 提交所有任务
+                future_to_idx = {
+                    executor.submit(self._process_single_task, item, idx, rules_to_test): (idx, item)
+                    for idx, item in enumerate(eval_subset)
+                }
+                
+                # 使用tqdm显示进度
+                task_pbar = tqdm(
+                    as_completed(future_to_idx),
+                    total=len(future_to_idx),
+                    desc="处理任务",
+                    unit="task",
+                    ncols=100
+                )
+                
+                for future in task_pbar:
+                    idx, item = future_to_idx[future]
+                    task_id = item.get("task_id", f"task_{idx}")
+                    
+                    try:
+                        samples = future.result()
+                        with all_samples_lock:
+                            all_samples.extend(samples)
+                        
+                        # 更新统计信息到进度条
+                        with self.stats_lock:
+                            success_rate = self.stats['attack_success'] / self.stats['total_attempts'] * 100 if self.stats['total_attempts'] > 0 else 0
+                        
+                        task_pbar.set_postfix({
+                            'samples': len(all_samples),
+                            'success': self.stats['attack_success'],
+                            'rate': f'{success_rate:.1f}%'
+                        })
+                    except Exception as e:
+                        logger.error(f"❌ {task_id} | 处理失败: {e}")
+                
+                task_pbar.close()
         
         return all_samples
     
@@ -828,6 +923,7 @@ def main():
     parser.add_argument("--attack-base-url", type=str, default=None, help="攻击模型base_url（用于LLM参数生成）")
     parser.add_argument("--attack-model", type=str, default=None, help="攻击模型名称")
     parser.add_argument("--only-valid-samples", action="store_true", help="只保留testbench通过的样本")
+    parser.add_argument("--workers", type=int, default=1, help="并行worker数量（默认1，单线程）")
     parser.add_argument("--verbose", action="store_true", help="详细日志")
     
     args = parser.parse_args()
@@ -890,6 +986,7 @@ def main():
         tb_runner=tb_runner,
         enable_llm_params=args.enable_llm_params,
         use_cot=args.use_cot,
+        workers=args.workers
     )
     
     # 生成数据集
