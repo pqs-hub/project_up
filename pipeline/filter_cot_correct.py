@@ -13,8 +13,51 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 import json
 import argparse
+import time
 from tqdm import tqdm
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from core.target_model import TargetModelClient
+
+
+def process_single_sample(sample, judge_client, max_retries=10, retry_delay=5):
+    """处理单个样本（用于并行）"""
+    task_id = sample.get('task_id', 'unknown')
+    prompt = sample.get('prompt', '')
+    code = sample.get('canonical_solution', '')
+    
+    if not code:
+        return {'status': 'error', 'task_id': task_id, 'reason': 'no code'}
+    
+    for attempt in range(max_retries):
+        try:
+            verdict = judge_client.judge(prompt, code, use_cot=True)
+            
+            if verdict is None:
+                if attempt < max_retries - 1:
+                    time.sleep(retry_delay)
+                    continue
+                else:
+                    return {'status': 'error', 'task_id': task_id, 'reason': 'judgment failed'}
+            
+            if verdict.get('is_correct'):
+                enriched_sample = sample.copy()
+                enriched_sample['judge_verdict'] = {
+                    'is_correct': verdict.get('is_correct'),
+                    'confidence': verdict.get('confidence'),
+                    'cot_reasoning': verdict.get('raw_output')
+                }
+                return {'status': 'correct', 'task_id': task_id, 'sample': enriched_sample}
+            else:
+                return {'status': 'incorrect', 'task_id': task_id}
+        
+        except Exception as e:
+            if attempt < max_retries - 1:
+                time.sleep(retry_delay)
+                continue
+            else:
+                return {'status': 'error', 'task_id': task_id, 'reason': str(e)}
+    
+    return {'status': 'error', 'task_id': task_id, 'reason': 'unknown'}
 
 
 def filter_cot_correct_samples(
@@ -22,9 +65,10 @@ def filter_cot_correct_samples(
     output_file: str,
     judge_base_url: str,
     judge_model: str,
-    max_samples: int = None
+    max_samples: int = None,
+    workers: int = 4
 ):
-    """筛选CoT判断为正确的样本"""
+    """筛选CoT判断为正确的样本（并行版本）"""
     
     # 创建判断模型客户端
     judge_client = TargetModelClient(
@@ -46,7 +90,7 @@ def filter_cot_correct_samples(
     print(f"✅ 加载了 {len(data)} 个样本")
     print()
     
-    # 筛选样本
+    # 筛选样本（并行处理）
     correct_samples = []
     stats = {
         'total': len(data),
@@ -55,70 +99,42 @@ def filter_cot_correct_samples(
         'error': 0
     }
     
-    pbar = tqdm(data, desc="筛选样本", unit="sample", ncols=100)
+    print(f"🔄 使用 {workers} 个并行线程处理...")
+    print()
     
-    for sample in pbar:
-        task_id = sample.get('task_id', 'unknown')
-        prompt = sample.get('prompt', '')
-        code = sample.get('canonical_solution', '')
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        # 提交所有任务
+        future_to_sample = {
+            executor.submit(process_single_sample, sample, judge_client): sample
+            for sample in data
+        }
         
-        if not code:
-            stats['error'] += 1
-            continue
+        # 使用进度条
+        pbar = tqdm(total=len(data), desc="筛选样本", unit="sample", ncols=100)
         
-        max_retries = 10
-        retry_delay = 5
-        
-        for attempt in range(max_retries):
-            try:
-                # 使用CoT判断（现在已修复输出截断问题）
-                verdict = judge_client.judge(prompt, code, use_cot=True)
-                
-                if verdict is None:
-                    if attempt < max_retries - 1:
-                        pbar.write(f"⚠️  {task_id} | 判断失败，第{attempt+1}次重试...")
-                        import time
-                        time.sleep(retry_delay)
-                        continue
-                    else:
-                        stats['error'] += 1
-                        pbar.write(f"❌ {task_id} | 判断最终失败")
-                        break
-                
-                if verdict.get('is_correct'):
-                    # 创建增强样本（包含判断信息）
-                    enriched_sample = sample.copy()
-                    enriched_sample['judge_verdict'] = {
-                        'is_correct': verdict.get('is_correct'),
-                        'confidence': verdict.get('confidence'),
-                        'cot_reasoning': verdict.get('raw_output')  # CoT推理过程
-                    }
-                    correct_samples.append(enriched_sample)
-                    stats['correct'] += 1
-                    break
-                else:
-                    stats['incorrect'] += 1
-                    break
+        # 处理完成的任务
+        for future in as_completed(future_to_sample):
+            result = future.result()
             
-            except Exception as e:
-                if attempt < max_retries - 1:
-                    pbar.write(f"❌ {task_id} | 异常: {e}，第{attempt+1}次重试...")
-                    import time
-                    time.sleep(retry_delay)
-                    continue
-                else:
-                    stats['error'] += 1
-                    pbar.write(f"❌ {task_id} | 最终失败: {e}")
-                    break
+            if result['status'] == 'correct':
+                correct_samples.append(result['sample'])
+                stats['correct'] += 1
+            elif result['status'] == 'incorrect':
+                stats['incorrect'] += 1
+            else:  # error
+                stats['error'] += 1
+                pbar.write(f"❌ {result['task_id']} | {result.get('reason', 'unknown error')}")
+            
+            # 更新进度条
+            pbar.update(1)
+            pbar.set_postfix({
+                'correct': stats['correct'],
+                'incorrect': stats['incorrect'],
+                'error': stats['error'],
+                'rate': f"{stats['correct']/max(1, pbar.n)*100:.1f}%"
+            })
         
-        # 更新进度条统计
-        pbar.set_postfix({
-            'correct': stats['correct'],
-            'incorrect': stats['incorrect'],
-            'error': stats['error']
-        })
-    
-    pbar.close()
+        pbar.close()
     
     # 保存结果
     print()
@@ -174,6 +190,12 @@ def main():
         default=None,
         help="最大处理样本数（用于测试）"
     )
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=8,
+        help="并行worker数量"
+    )
     
     args = parser.parse_args()
     
@@ -182,7 +204,8 @@ def main():
         output_file=args.output,
         judge_base_url=args.judge_base_url,
         judge_model=args.judge_model,
-        max_samples=args.max_samples
+        max_samples=args.max_samples,
+        workers=args.workers
     )
 
 

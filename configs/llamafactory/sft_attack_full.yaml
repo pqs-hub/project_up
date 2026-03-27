@@ -1,0 +1,37 @@
+### Model
+model_name_or_path: /mnt/public/pqs/Model/Qwen2.5-Coder-7B/
+
+### Method
+stage: sft
+do_train: true
+finetuning_type: full
+
+### Dataset
+dataset: verilog_attack_strategy
+template: qwen
+cutoff_len: 4096
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### Output
+output_dir: /mnt/public/pqs/Veri_atack/project_up/saves/attack_full_v1
+logging_steps: 10
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+
+### Train
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 8
+learning_rate: 2.0e-5
+num_train_epochs: 3
+lr_scheduler_type: cosine
+warmup_steps: 100
+fp16: true
+ddp_timeout: 180000000
+
+### Eval
+val_size: 0.1
+per_device_eval_batch_size: 4
+eval_strategy: steps
+eval_steps: 500

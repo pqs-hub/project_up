@@ -1,0 +1,64 @@
+{
+  "description": "束搜索攻击引擎配置模板",
+  "version": "2.0",
+  
+  "search_parameters": {
+    "beam_width": 3,
+    "max_depth": 3,
+    "confidence_threshold": 0.8
+  },
+  
+  "model_config": {
+    "base_url": "http://localhost:8001/v1",
+    "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "timeout": 120,
+    "max_retries": 3
+  },
+  
+  "data_config": {
+    "input_dataset": "data/qualified_dataset.json",
+    "output_path": "data/gold_multi_rule_attacks.json",
+    "limit": null,
+    "save_intermediate": false
+  },
+  
+  "synergy_chains": {
+    "description": "专家协同规则链配置",
+    "chains": {
+      "T34": ["T20", "T12", "T31"],
+      "T12": ["T19", "T31", "T45"],
+      "T32": ["T47", "T48", "T07"],
+      "T20": ["T19", "T34", "T12"]
+    }
+  },
+  
+  "rule_priority": {
+    "description": "规则优先级列表（从高到低）",
+    "rules": [
+      "T34", "T12", "T20", "T19", "T31", 
+      "T32", "T47", "T09", "T10", "T30",
+      "T07", "T48", "T41", "T45", "T03"
+    ]
+  },
+  
+  "execution": {
+    "max_workers": 1,
+    "enable_logging": true,
+    "log_level": "INFO",
+    "log_file": "logs/beam_search_attack.log"
+  },
+  
+  "optimization": {
+    "max_actions_per_depth": 10,
+    "max_candidates_per_rule": 2,
+    "enable_semantic_anchoring": true,
+    "enable_tb_verification": true
+  },
+  
+  "output_format": {
+    "include_thought": true,
+    "include_attack_chain": true,
+    "include_victim_reasoning": true,
+    "save_intermediate_states": false
+  }
+}

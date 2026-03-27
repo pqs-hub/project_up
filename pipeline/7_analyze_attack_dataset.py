@@ -16,6 +16,38 @@ from pathlib import Path
 from collections import Counter, defaultdict
 from typing import List, Dict
 
+# 攻击规则代码到英文名称的映射
+RULE_NAME_MAPPING = {
+    'T03': 'Redundant Logic',
+    'T07': 'Assign Reorder',
+    'T09': 'DeMorgan AND',
+    'T10': 'DeMorgan OR',
+    'T12': 'Intermediate Signal',
+    'T19': 'False Pattern',
+    'T20': 'Flexible Misleading Comment',
+    'T30': 'Constant Identity',
+    'T31': 'Simple Intermediate',
+    'T32': 'Bitwidth Arithmetic',
+    'T34': 'Internal Signal Rename',
+    'T41': 'Case Reorder',
+    'T45': 'Pseudo Loop',
+    'T47': 'Dataflow Shatter',
+    'T48': 'Anti-Topological',
+}
+
+# 反向映射：英文名称到规则代码
+RULE_CODE_MAPPING = {v: k for k, v in RULE_NAME_MAPPING.items()}
+
+
+def get_rule_code(rule_name: str) -> str:
+    """将英文规则名称映射回TX代码"""
+    return RULE_CODE_MAPPING.get(rule_name, rule_name)
+
+
+def get_rule_name(rule_code: str) -> str:
+    """将TX代码映射为英文规则名称"""
+    return RULE_NAME_MAPPING.get(rule_code, rule_code)
+
 
 def load_dataset(file_path: str) -> List[Dict]:
     """加载JSONL数据集"""
@@ -106,9 +138,13 @@ def convert_to_sft_format(samples: List[Dict]) -> List[Dict]:
 {sample['original_code']}
 ```"""
         
+        # 获取攻击规则的英文名称
+        rule_code = sample['attack_rule']
+        rule_name = RULE_NAME_MAPPING.get(rule_code, rule_code)
+        
         # 构建output（攻击策略）
         output = {
-            "attack_name": sample['attack_rule'],
+            "attack_name": rule_name,
             "parameters": sample.get('attack_params', {})
         }
         
@@ -128,12 +164,17 @@ def convert_to_alpaca_format(samples: List[Dict]) -> List[Dict]:
     alpaca_samples = []
     
     for sample in samples:
+        # 获取攻击规则的英文名称
+        rule_code = sample['attack_rule']
+        rule_name = RULE_NAME_MAPPING.get(rule_code, rule_code)
+        
         alpaca_sample = {
             "instruction": "对以下Verilog代码进行混淆，保持功能不变但增加AI理解难度。",
             "input": sample['original_code'],
             "output": sample['transformed_code'],
             "metadata": {
-                "attack_rule": sample['attack_rule'],
+                "attack_rule": rule_name,
+                "rule_code": rule_code,  # 保留原始代码以便追溯
                 "params": sample.get('attack_params', {}),
                 "task_id": sample.get('task_id', ''),
             }

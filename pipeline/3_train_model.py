@@ -22,6 +22,7 @@ def run(args):
     base_model = Path(args.base_model)
     output_dir = Path(args.output) if args.output else Path("models/checkpoints/obfuscation_lora")
     gpus = args.gpus
+    gpu_list = [gpu.strip() for gpu in gpus.split(',') if gpu.strip()]
     config_file = Path(args.config) if args.config else None
     
     # 验证输入
@@ -44,13 +45,24 @@ def run(args):
     env['CUDA_VISIBLE_DEVICES'] = gpus
     
     # 构建训练命令
+    use_multi_gpu = len(gpu_list) > 1
+
     if config_file and config_file.exists():
         # 使用配置文件
         print(f"使用配置文件: {config_file}")
-        cmd = [
-            "llamafactory-cli", "train",
-            str(config_file)
-        ]
+        if use_multi_gpu:
+            cmd = [
+                "torchrun",
+                "--nproc_per_node", str(len(gpu_list)),
+                "-m", "llamafactory.cli",
+                "train",
+                str(config_file.absolute())
+            ]
+        else:
+            cmd = [
+                "llamafactory-cli", "train",
+                str(config_file.absolute())
+            ]
     else:
         # 使用命令行参数（简化版）
         print("使用默认LoRA配置")
@@ -58,10 +70,23 @@ def run(args):
         if not llamafactory_dir.exists():
             llamafactory_dir = Path("/data3/pengqingsong/finetune/LLaMA-Factory")
         
-        cmd = [
-            "llamafactory-cli", "train",
-            f"{llamafactory_dir}/configs/lora_config.yaml"  # 需要预先配置
-        ]
+        default_cfg = f"{llamafactory_dir}/configs/lora_config.yaml"
+        if use_multi_gpu:
+            cmd = [
+                "torchrun",
+                "--nproc_per_node", str(len(gpu_list)),
+                "-m", "llamafactory.cli",
+                "train",
+                default_cfg
+            ]
+        else:
+            cmd = [
+                "llamafactory-cli", "train",
+                default_cfg  # 需要预先配置
+            ]
+    
+    # 创建输出目录
+    output_dir.mkdir(parents=True, exist_ok=True)
     
     # 运行训练
     try:

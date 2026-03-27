@@ -1,0 +1,49 @@
+### Model
+model_name_or_path: /mnt/public/pqs/Model/Qwen2.5-Coder-7B/
+trust_remote_code: true
+
+### Method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_target: all
+
+### Dataset
+dataset: verilog_attack_strategy
+# 注意：请确保此路径下包含 dataset_info.json 文件
+dataset_dir: /mnt/public/pqs/LlamaFactory/data  
+template: qwen
+cutoff_len: 4096
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### Output
+output_dir: /mnt/public/pqs/Veri_atack/project_up/saves/attack_lora_v1
+logging_steps: 10
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+
+### Train
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 8
+learning_rate: 5.0e-4
+num_train_epochs: 5
+lr_scheduler_type: cosine
+warmup_steps: 100
+# A100 优化选项
+bf16: true
+fp16: false
+flash_attn: disabled
+ddp_timeout: 180000000
+
+### LoRA
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.05
+
+### Eval
+val_size: 0.1
+per_device_eval_batch_size: 4
+eval_strategy: steps
+eval_steps: 500
