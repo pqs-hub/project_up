@@ -277,45 +277,44 @@ ATTACK_T31_SIMPLE_INTERMEDIATE_PROMPT_TEMPLATE = """Generate a misleading wire n
 Output wire name directly:"""
 
 
-# T19 - Dead Code Generation (Misleading)
-ATTACK_T19_DEAD_CODE_PROMPT_TEMPLATE = """Generate misleading dead code with contradictory condition
+# T19 - Dead Code Generation (Original Chinese)
+ATTACK_T19_DEAD_CODE_PROMPT_TEMPLATE = """规则：T19（False Pattern Injection）
 
-**CRITICAL**: Your code will be wrapped in a **contradictory condition** (e.g., `if (enable && !enable)` or `if (1'b1 && 1'b0)`), making it **unreachable** but **less obvious** than `if (1'b0)`.
+该规则会在 endmodule 前插入一段 always 块，但你的文本只会被放入：
+always @(*) begin
+  if (1'b0) begin
+  <你的 custom_dead_stmts>
+  end
+end
 
-**Strategy**: Generate code that implements what **SHOULD BE** in SPEC but is **ACTUALLY MISSING**, creating the illusion that the implementation is incomplete.
+请只输出 <verilog_statements>：可为 if/case/begin-end/空语句等语句片段。
 
-**Your task**: Focus on the **dead code body** only (what goes inside the unreachable block). The contradictory condition will be added automatically.
+硬约束：不要输出 always/initial/module/endmodule 这些外层结构关键字；只输出语句本体。
 
-**Assignment constraint**:
-- Writable signals: {writable_signals}
-- Readable signals: {readable_signals}
+语法约束：每条语句必须以 ';' 结尾（或是 if/case/endcase 等完整结构），不要输出任何声明（不要写 reg/wire/integer/parameter 等声明）。
+额外约束：不要再生成外层包裹的不可达条件，例如不要写 `if (1'b0)` 本身（因为外层已固定不可达）。
 
-**Misleading tactics** (choose 1-2):
-1. **Missing edge detection**: If SPEC mentions "rising edge of signal X", generate: `if (signal_x && !signal_x_prev) output_flag <= 1'b1;`
-2. **Missing reset logic**: If SPEC requires "reset clears counter", generate: `if (rst) count <= 8'b0;`
-3. **Missing boundary check**: If SPEC says "saturate at max", generate: `if (count >= MAX_VAL) count <= MAX_VAL;`
-4. **Missing state transition**: If SPEC describes FSM, generate: `if (current_state == IDLE && start) next_state <= BUSY;`
-5. **Opposite polarity**: If SPEC says "active high enable", generate: `if (!enable) data_out <= data_in;`
-6. **Wrong operation**: If SPEC says "increment", generate: `count <= count - 1'b1;`
+赋值约束（更强保证可编译）：
+- 如果你需要写左值赋值，请只把左值写成下列可写信号之一（优先使用第一两个）：{writable_signals}
+- 右侧表达式可以使用下列可读信号：{readable_signals}
 
-**Syntax rules**:
-- Only output statement body (no always/initial/module/endmodule)
-- Every statement must end with `;`
-- No declarations (no reg/wire/integer/parameter)
-- No nested `if (1'b0)` (outer layer is already unreachable)
-- Use only signals from writable/readable lists
+结合 SPEC 的定向误导（更强）：
+1) 从 SPEC（下方 task_prompt）里提取至少 2 条"关键行为/条件"，例如：复位/使能/握手/保持/更新规则。
+2) 在 custom_dead_stmts 里写一段"看起来符合这些关键行为"的控制逻辑（if/case/begin-end + 运算/比较），并把更新写到可写信号上。
+3) 仍然是对抗性：把 SPEC 中对"应当成立/应当增加/应当清零"的直觉方向反过来写（让 verifier 视觉/语义更容易被误导）。
+4) 由于外层已固定 if(1'b0)，这段逻辑不可达，不会改变真实 RTL 功能。
 
-**Output format**: Output Verilog statements directly, no JSON
+{common_requirements}
 
-**Example outputs**:
-- `if (enable && !rst) temp <= data_in; else temp <= 1'b0;`
-- `if (count >= 8'd255) overflow_flag <= 1'b1;`
-- `case (state) 2'b00: next_state <= 2'b01; 2'b01: next_state <= 2'b10; endcase`
+**输出格式要求**：
+1. 直接输出Verilog语句（不要JSON包装）
+2. 示例输出：`temp <= 1'b1;` 
+3. 或更复杂的：`if (enable) temp <= data; else temp <= 1'b0;` 
 
-### Functional Specification
+### 功能规范
 {task_prompt}
 
-### Original RTL
+### 原始 RTL
 ```verilog
 {code_snippet}
 ```"""
