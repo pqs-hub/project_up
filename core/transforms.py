@@ -1702,6 +1702,9 @@ def ast_flexible_comment(
     custom_text: Optional[str] = None,
     custom_description: Optional[str] = None,
     comment_style: Optional[str] = None,
+    strip_existing_inline_comment: bool = False,
+    legacy_comment_literal: Optional[str] = None,
+    legacy_prefer_module_prefix: bool = False,
 ) -> str:
     """
     T04/T20：可在多位置插入误导性注释。
@@ -1714,11 +1717,18 @@ def ast_flexible_comment(
     兼容旧参数：
     - T04: comment_style
     - T20: custom_text, custom_description（二选一即可）
+    - legacy_prefer_module_prefix: 优先选择module前的位置（兼容旧引擎行为）
     """
     vs = analyze(code)
     insert_points = _extract_comment_insert_points(code, vs)
     if not insert_points:
         return code
+
+    # Legacy模式：重新排序插入点，优先选择module前的位置
+    if legacy_prefer_module_prefix:
+        module_points = [p for p in insert_points if p.kind == 'before_line' and 'module' in p.line_text.lower()]
+        other_points = [p for p in insert_points if p not in module_points]
+        insert_points = module_points + other_points
 
     # 解析target_line到target_token
     if target_line is not None:
@@ -1740,15 +1750,31 @@ def ast_flexible_comment(
     if point is None:
         return code
 
+    # 兼容旧数据重放：直接按字面插入历史注释块
+    if isinstance(legacy_comment_literal, str) and legacy_comment_literal:
+        # 若本行已有 // 注释，先截掉原注释（复现旧引擎"替换注释"行为）
+        if point.kind == 'inline_after':
+            line_start = code.rfind('\n', 0, point.insert_offset) + 1
+            raw_line = code[line_start:point.insert_offset]
+            comment_pos = raw_line.find('//')
+            if comment_pos >= 0:
+                prefix = code[:line_start] + raw_line[:comment_pos].rstrip()
+                return prefix + legacy_comment_literal + code[point.insert_offset:]
+        return code[:point.insert_offset] + legacy_comment_literal + code[point.insert_offset:]
+
     text = custom_text if custom_text else custom_description
     
-    # T20改进：删除目标行的原有注释
-    if point.kind == 'inline_after' and '//' in point.line_text:
-        # 删除该行的 // 注释，只保留代码部分
-        code_part = point.line_text.split('//')[0].rstrip()
-        # 更新插入点前的代码，替换整行
-        line_start = point.insert_offset - len(point.line_text)
-        code_before_insert = code[:line_start] + code_part
+    # 兼容旧行为：删除目标行已有的行尾注释，再追加新注释（复现旧引擎"替换注释"行为）。
+    if strip_existing_inline_comment and point.kind == 'inline_after':
+        # 找到本行行首（向前找 \n）
+        line_start = code.rfind('\n', 0, point.insert_offset) + 1
+        raw_line = code[line_start:point.insert_offset]
+        # 找到行内第一个 // 的位置（排除字符串内的）
+        comment_pos = raw_line.find('//')
+        if comment_pos >= 0:
+            code_before_insert = code[:line_start] + raw_line[:comment_pos].rstrip()
+        else:
+            code_before_insert = code[:point.insert_offset]
     else:
         code_before_insert = code[:point.insert_offset]
     
@@ -1928,6 +1954,7 @@ def ast_intermediate_signal(
     vs: VerilogStructure, 
     target: AssignInfo,
     wire_name: str = '',
+    legacy_inline_decl: bool = False,
 ) -> str:
     """T12: 三元 predicate 抽取为 wire。wire_name 指定中间信号名，留空则自动生成 __{first_id}_tmp。"""
     expr = target.rhs_expr
@@ -1953,12 +1980,16 @@ def ast_intermediate_signal(
         else:
             break
     
-    # 使用标准Verilog语法：分离wire声明和assign语句
-    # predicate通常是1位，但为了安全也可以不指定位宽
+    if legacy_inline_decl:
+        # 兼容旧引擎输出：wire 在声明处直接初始化
+        wire_decl = f'{indent}wire {tmp_name} = {expr.predicate};\n'
+        new_assign = f'{indent}assign {target.lhs} = {tmp_name} ? {expr.true_expr} : {expr.false_expr};'
+        return code[:line_start] + wire_decl + new_assign + code[target.end:]
+
+    # 默认保持当前实现：分离声明与赋值
     wire_decl = f'{indent}wire {tmp_name};\n'
     wire_assign = f'{indent}assign {tmp_name} = {expr.predicate};\n'
     new_assign = f'{indent}assign {target.lhs} = {tmp_name} ? {expr.true_expr} : {expr.false_expr};'
-    
     return code[:line_start] + wire_decl + wire_assign + new_assign + code[target.end:]
 
 
@@ -2227,13 +2258,26 @@ def ast_simple_assign_intermediate(
     vs: VerilogStructure, 
     target: AssignInfo,
     wire_name: str = '',
+    legacy_inline_decl: bool = False,
 ) -> str:
     """T31: assign var = expr -> wire <tmp> = expr; assign var = <tmp>（中间信号名可控）"""
     # 若 LLM 未给 wire_name，则兜底生成一个基于 lhs_name 的名字
     if wire_name and re.match(r'^[A-Za-z_]\w*$', wire_name) and wire_name not in VERILOG_KEYWORDS:
         tmp_name = wire_name
     else:
-        tmp_name = f'__{target.lhs_name}_tmp'
+        if legacy_inline_decl:
+            tmp_name = f'__{target.lhs_name}_tmp'
+        else:
+            # 清理lhs_name，移除非法字符（如括号、逗号、空格等）
+            # 只保留字母、数字、下划线
+            clean_lhs = re.sub(r'[^A-Za-z0-9_]', '_', target.lhs_name)
+            # 确保以字母或下划线开头
+            if clean_lhs and clean_lhs[0].isdigit():
+                clean_lhs = '_' + clean_lhs
+            # 限制长度，避免过长的变量名
+            if len(clean_lhs) > 30:
+                clean_lhs = clean_lhs[:30]
+            tmp_name = f'__{clean_lhs}_tmp' if clean_lhs else '__tmp_wire'
 
     # 避免与现有标识符冲突
     while tmp_name in vs.all_identifiers():
@@ -2247,25 +2291,26 @@ def ast_simple_assign_intermediate(
         else:
             break
     
+    if legacy_inline_decl:
+        wire_decl = f'{indent}wire {tmp_name} = {target.rhs};\n'
+        new_assign = f'{indent}assign {target.lhs} = {tmp_name};'
+        return code[:line_start] + wire_decl + new_assign + code[target.end:]
+
     # 获取目标信号的位宽信息
     lhs_signal = None
     for sig in vs.signals:
         if sig.name == target.lhs_name:
             lhs_signal = sig
             break
-    
+
     # 构建wire声明（带位宽）
     if lhs_signal and lhs_signal.range_str:
-        # 有显式位宽声明
         wire_decl = f'{indent}wire {lhs_signal.range_str} {tmp_name};\n'
     else:
-        # 无显式位宽，使用默认（1位）
         wire_decl = f'{indent}wire {tmp_name};\n'
-    
-    # 使用标准assign语句进行赋值
+
     wire_assign = f'{indent}assign {tmp_name} = {target.rhs};\n'
     new_assign = f'{indent}assign {target.lhs} = {tmp_name};'
-    
     return code[:line_start] + wire_decl + wire_assign + new_assign + code[target.end:]
 
 
@@ -2309,7 +2354,7 @@ def ast_universal_rename(
     target_line: Optional[int] = None,
     custom_map: Optional[Dict[str, str]] = None,
     fallback_prefix: str = 'unused_',
-    allow_port_rename: bool = False,  # 默认禁止端口重命名，避免testbench冲突
+    allow_port_rename: bool = False,
 ) -> str:
     """T34: 通用对抗性重命名（仅内部信号，不重命名端口）。
 
@@ -2623,8 +2668,8 @@ def ast_anti_topological_shuffle(code: str, target_token: Optional[int] = None) 
     if len(assigns) < 2: 
         return code
     
-    # 收集所有assign语句的文本
-    assign_texts = [code[a.start:a.end] for a in assigns]
+    # 对齐旧实现：优先使用 full_text（保留原始格式）
+    assign_texts = [getattr(a, 'full_text', code[a.start:a.end]) for a in assigns]
     # 反转顺序
     reversed_texts = list(reversed(assign_texts))
     
@@ -2867,6 +2912,12 @@ AST_TRANSFORM_REGISTRY: Dict[str, Transform] = {
                 default='',
                 description='中间信号名，留空则自动生成 __{sel}_tmp'
             ),
+            ParamSpec(
+                name='legacy_inline_decl',
+                type='bool',
+                default=False,
+                description='兼容旧引擎：使用 wire tmp = predicate; 的内联声明形式'
+            )
         ]
     ),
     
@@ -2892,7 +2943,25 @@ AST_TRANSFORM_REGISTRY: Dict[str, Transform] = {
                 type='str',
                 default='',
                 description='自定义误导性描述'
-            )
+            ),
+            ParamSpec(
+                name='custom_description',
+                type='str',
+                default='',
+                description='旧参数别名：custom_description'
+            ),
+            ParamSpec(
+                name='legacy_comment_literal',
+                type='str',
+                default='',
+                description='旧数据重放：直接插入的原始注释文本片段'
+            ),
+            ParamSpec(
+                name='strip_existing_inline_comment',
+                type='bool',
+                default=False,
+                description='替换目标行已有的行尾注释（而非追加）；默认追加'
+            ),
         ]
     ),
     
@@ -2936,6 +3005,12 @@ AST_TRANSFORM_REGISTRY: Dict[str, Transform] = {
                 type='str',
                 default='',
                 description='中间信号名（空则自动生成 __{lhs}_tmp）'
+            ),
+            ParamSpec(
+                name='legacy_inline_decl',
+                type='bool',
+                default=False,
+                description='兼容旧引擎：使用 wire tmp = rhs; 的内联声明形式'
             )
         ]
     ),

@@ -13,13 +13,14 @@ from ast_transforms_loader import create_engine
 
 # attack_name -> transform_id，与 eval_attack_success / filter_and_convert_sft 一致
 SEMANTIC_NAMES = {
-    "T03": "t03", "T07": "assign_reorder",
+    "T03": "redundant_logic_injection", "T07": "assign_reorder",
     "T09": "demorgan_and", "T10": "demorgan_or",
     "T12": "predicate_extraction",
     "T19": "dead_code_injection", "T20": "misleading_comment",
     "T30": "constant_identity_transform", "T31": "intermediate_wire_injection",
     "T32": "bitwidth_arithmetic_obfuscation", "T34": "semantic_inversion_rename",
     "T35": "constant_wire_injection",
+    "T41": "case_branch_reorder",
     "T45": "pseudo_combinational_loop", "T47": "shannon_expansion",
     "T48": "anti_topological_reorder",
 }

@@ -1,0 +1,179 @@
+{
+  "total_files": 59,
+  "extension_distribution": {
+    ".cpython-310.pyc": 1,
+    ".cpython-39.pyc": 3,
+    ".tar.gz": 1,
+    ".jsonl": 11,
+    ".zip": 2,
+    ".json": 22,
+    ".txt": 14,
+    ".py": 4,
+    ".tmp.json": 1
+  },
+  "category_distribution": {
+    "compiled_cache": 4,
+    "archive": 1,
+    "jsonl_text": 11,
+    "other": 2,
+    "json_struct_or_summary": 23,
+    "txt_log_or_summary": 14,
+    "script": 4
+  },
+  "example_samples": {
+    "compiled_cache": [
+      {
+        "file": "data_all/__pycache__/filter_and_convert_sft.cpython-310.pyc",
+        "note": "binary/archive"
+      },
+      {
+        "file": "data_all/__pycache__/filter_and_convert_sft.cpython-39.pyc",
+        "note": "binary/archive"
+      },
+      {
+        "file": "data_all/__pycache__/supplement_missing_rules.cpython-39.pyc",
+        "note": "binary/archive"
+      }
+    ],
+    "archive": [
+      {
+        "file": "data_all/_archives/data_sft_legacy_20260322_223357.tar.gz",
+        "note": "binary/archive"
+      }
+    ],
+    "jsonl_text": [
+      {
+        "file": "data_all/adversarial_dataset.jsonl",
+        "keys": [
+          "instruction",
+          "input",
+          "output",
+          "history"
+        ]
+      },
+      {
+        "file": "data_all/data/data/adversarial_dataset.jsonl",
+        "keys": [
+          "instruction",
+          "input",
+          "output",
+          "history"
+        ]
+      },
+      {
+        "file": "data_all/data/data/filtered_adversarial_dataset.jsonl",
+        "keys": [
+          "instruction",
+          "input",
+          "output",
+          "history"
+        ]
+      }
+    ],
+    "other": [
+      {
+        "file": "data_all/data.zip",
+        "note": "binary/archive"
+      },
+      {
+        "file": "data_all/data1.zip",
+        "note": "binary/archive"
+      }
+    ],
+    "json_struct_or_summary": [
+      {
+        "file": "data_all/data/coverage_test.json",
+        "list_len": 206
+      },
+      {
+        "file": "data_all/data/data/eval_attack_results.json",
+        "keys": [
+          "pass_at_1",
+          "pass_at_5",
+          "pass_at_10",
+          "count_pass_1",
+          "count_pass_5",
+          "count_pass_10",
+          "total_tasks",
+          "n_originally_correct",
+          "per_task",
+          "diagnostics"
+        ]
+      },
+      {
+        "file": "data_all/data/data/eval_grpo_step70.json",
+        "keys": [
+          "metadata",
+          "pass_at_1",
+          "pass_at_3",
+          "pass_at_5",
+          "count_pass_1",
+          "count_pass_3",
+          "count_pass_5",
+          "total_tasks",
+          "n_originally_correct",
+          "per_task",
+          "diagnostics"
+        ]
+      }
+    ],
+    "txt_log_or_summary": [
+      {
+        "file": "data_all/data/data/eval_results/grpo_step70_merged_attacks_Qwen2.5-Coder-7B/verilog_eval_20260319_223424/success_examples.txt",
+        "head_lines": [
+          "=== 攻击成功规则分布（本次评估所有成功 attempt）===",
+          "  T20: 110 (50.9%)",
+          "  T45: 106 (49.1%)"
+        ]
+      },
+      {
+        "file": "data_all/data/data/eval_results/grpo_step70_merged_attacks_gpt-4o-mini/verilog_eval_20260319_220207/success_examples.txt",
+        "head_lines": [
+          "=== 攻击成功规则分布（本次评估所有成功 attempt）===",
+          "  T20: 95 (54.3%)",
+          "  T45: 80 (45.7%)"
+        ]
+      },
+      {
+        "file": "data_all/data/data/eval_results/verilog_attack_merged_bal300_attacks_Qwen2.5-Coder-7B/verilog_eval_20260319_233404/success_examples.txt",
+        "head_lines": [
+          "=== 攻击成功规则分布（本次评估所有成功 attempt）===",
+          "  T45: 24 (29.3%)",
+          "  T46: 19 (23.2%)"
+        ]
+      }
+    ],
+    "script": [
+      {
+        "file": "data_all/data/data/filter_and_convert_sft.py",
+        "head_lines": [
+          "#!/usr/bin/env python3",
+          "\"\"\"",
+          "两步流程：",
+          "1. 筛选：adversarial_dataset.jsonl + adversarial_dataset.metadata.jsonl",
+          "   → 按原始样本(input)分组、同规则保留 confidence_delta 最大、每样本最多5条、规则均衡(单规则≤40%)"
+        ]
+      },
+      {
+        "file": "data_all/data/data/supplement_missing_rules.py",
+        "head_lines": [
+          "#!/usr/bin/env python3",
+          "\"\"\"",
+          "为 SFT 数据集中缺失或少样本的变换规则「合成」样本并追加到 sft_dataset_final.jsonl。",
+          "",
+          "注意：本脚本不做真实变换、不跑 testbench、不调用判题模型，因此追加的样本不保证「攻击成功」，"
+        ]
+      },
+      {
+        "file": "data_all/filter_and_convert_sft.py",
+        "head_lines": [
+          "#!/usr/bin/env python3",
+          "\"\"\"",
+          "两步流程：",
+          "1. 筛选：adversarial_dataset.jsonl + adversarial_dataset.metadata.jsonl",
+          "   → 按原始样本(input)分组、同规则保留 confidence_delta 最大、每样本最多5条、规则均衡(单规则≤40%)"
+        ]
+      }
+    ]
+  }
+}

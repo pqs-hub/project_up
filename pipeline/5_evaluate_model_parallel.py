@@ -94,7 +94,8 @@ def process_single_task(
         responses = call_attack_model(
             INSTRUCTION, input_text, attack_base_url,
             attack_model, attack_api_key,
-            max_tokens=512, temperature=temperature, n=n_per
+            max_tokens=512, temperature=temperature, n=n_per,
+            system_prompt=eval_module.ATTACK_SYSTEM_PROMPT,
         )
     except Exception as e:
         return result, diag, True
@@ -222,7 +223,7 @@ def main():
     parser.add_argument("--attack-base-url", type=str, default=None, help="攻击模型 base_url")
     parser.add_argument("--max-samples", type=int, default=None, help="最多评估多少条")
     parser.add_argument("--n-per-task", type=int, default=10, help="每个 task 采样数")
-    parser.add_argument("--temperature", type=float, default=0.7, help="采样温度")
+    parser.add_argument("--temperature", type=float, default=0.3, help="采样温度")
     parser.add_argument("--output", type=str, default=None, help="结果 JSON 输出路径")
     parser.add_argument("--max-success-examples", type=int, default=3000, help="最多保存多少条成功样例")
     parser.add_argument("--use-cot", action="store_true", help="启用CoT推理模式")
@@ -362,6 +363,25 @@ def main():
         total_success = sum(success_rule_counter.values())
         for tid, count in success_rule_counter.most_common():
             print(f"  {tid}: {count} ({100*count/total_success:.1f}%)")
+    
+    # 输出诊断信息
+    if total_diag["attempts"] > 0:
+        print("\n=== 失败阶段诊断 ===")
+        print(f"  总尝试次数: {total_diag['attempts']}")
+        print(f"  解析成功: {total_diag['parse_ok']} ({100*total_diag['parse_ok']/total_diag['attempts']:.1f}%)")
+        print(f"  变换成功: {total_diag['transform_changed']} ({100*total_diag['transform_changed']/total_diag['attempts']:.1f}%)")
+        print(f"  Testbench通过: {total_diag['tb_pass']} ({100*total_diag['tb_pass']/total_diag['attempts']:.1f}%)")
+        print(f"  判断翻转(攻击成功): {total_diag['judge_flipped']} ({100*total_diag['judge_flipped']/total_diag['attempts']:.1f}%)")
+        print()
+        print("  🔍 失败漏斗分析:")
+        parse_fail = total_diag['attempts'] - total_diag['parse_ok']
+        transform_fail = total_diag['parse_ok'] - total_diag['transform_changed']
+        tb_fail = total_diag['transform_changed'] - total_diag['tb_pass']
+        judge_fail = total_diag['tb_pass'] - total_diag['judge_flipped']
+        print(f"    解析失败: {parse_fail} ({100*parse_fail/total_diag['attempts']:.1f}%)")
+        print(f"    变换失败: {transform_fail} ({100*transform_fail/total_diag['attempts']:.1f}%)")
+        print(f"    Testbench失败: {tb_fail} ({100*tb_fail/total_diag['attempts']:.1f}%)  ⚠️")
+        print(f"    判断未翻转: {judge_fail} ({100*judge_fail/total_diag['attempts']:.1f}%)")
     
     # 保存结果
     if args.output:

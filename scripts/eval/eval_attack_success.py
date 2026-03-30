@@ -19,11 +19,11 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from ast_transforms_loader import create_engine
 from Testbench_valid import TestbenchRunner
-from taget_model import TargetModelClient
+from core.target_model import TargetModelClient
 
 # 从 filter_and_convert_sft 的 SEMANTIC_NAMES 反推 attack_name -> transform_id（含 T03,T37,T38 等）
 SEMANTIC_NAMES = {
-    "T03": "t03",
+    "T03": "redundant_logic_injection",
     "T07": "assign_reorder",
     "T09": "demorgan_and",
     "T10": "demorgan_or",
@@ -35,6 +35,7 @@ SEMANTIC_NAMES = {
     "T32": "bitwidth_arithmetic_obfuscation",
     "T34": "semantic_inversion_rename",
     "T35": "constant_wire_injection",
+    "T41": "case_branch_reorder",
     "T45": "pseudo_combinational_loop",
     "T47": "shannon_expansion",
     "T48": "anti_topological_reorder",
@@ -51,6 +52,9 @@ ATTACK_NAME_TO_TID["adversarial_rename"] = "T34"
 
 # 兼容旧数据：历史上使用过 "comment_decoy" 命名，现在只保留 T20
 ATTACK_NAME_TO_TID["comment_decoy"] = "T20"
+ATTACK_NAME_TO_TID["t03"] = "T03"  # 旧名称兼容
+ATTACK_NAME_TO_TID["redundant_logic"] = "T03"
+ATTACK_NAME_TO_TID["case_reorder"] = "T41"
 
 
 def _normalize_attack_name(name: str) -> str:

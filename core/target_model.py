@@ -159,19 +159,38 @@ class TargetModelClient:
         if parsed is None:
             return None
 
-        confidence = 1.0
+        p_yes, p_no = None, None
         logprobs = choice.get("logprobs") or {}
         lp_content = logprobs.get("content") if isinstance(logprobs, dict) else None
+        logit_yes, logit_no = None, None
         if lp_content:
-            conf = self._confidence_from_logprobs_content(lp_content)
-            if conf is not None:
-                confidence = conf
+            p_yes, p_no, logit_yes, logit_no = self._extract_yes_no_signals(lp_content)
+        else:
+            p_yes, p_no = None, None
 
-        return {
+        # confidence = p_yes（verifier认为代码正确的概率）
+        if p_yes is not None:
+            confidence = round(float(p_yes), 4)
+        else:
+            confidence = 1.0 if parsed else 0.0
+
+        result = {
             "is_correct": parsed,
-            "confidence": round(float(confidence), 4),
-            "raw_output": content  # 添加原始输出（包含CoT推理过程）
+            "confidence": confidence,  # = p_yes
+            "raw_output": content,
         }
+        if p_yes is not None:
+            result["p_yes"]    = round(float(p_yes), 4)
+            result["p_no"]     = round(float(p_no),  4)
+            # margin = logit_no - logit_yes（正值表示倾向no，负值表示倾向yes）
+            # 用归一化概率的log-odds近似：log(p_no/p_yes)
+            if p_yes > 0 and p_no > 0:
+                import math as _math
+                result["margin"] = round(_math.log(p_no / p_yes), 4)
+        if logit_yes is not None:
+            result["logit_yes"] = round(float(logit_yes), 4)
+            result["logit_no"]  = round(float(logit_no),  4)
+        return result
 
     def _judge_local(self, spec: str, rtl: str, use_cot: bool = False) -> Optional[Dict]:
         logger.warning("use_local_transformers=True is not supported in this build")
@@ -200,8 +219,14 @@ class TargetModelClient:
         return m.group(1) == "yes"
 
     @staticmethod
-    def _confidence_from_logprobs_content(logprobs_content: list) -> Optional[float]:
-        p_yes, p_no = 0.0, 0.0
+    def _extract_yes_no_signals(logprobs_content: list) -> tuple:
+        """返回 (p_yes, p_no, logit_yes, logit_no)。
+        p_yes/p_no 是归一化到 yes+no=1 的概率。
+        logit_yes/logit_no 是第一个输出token位置的原始logprob（未归一化）。
+        失败返回 (None, None, None, None)。
+        """
+        raw_lp_yes, raw_lp_no = None, None  # 第一个token位置的原始logprob
+        prob_yes, prob_no = 0.0, 0.0
 
         for block in (logprobs_content or []):
             top = block.get("top_logprobs") if isinstance(block, dict) else None
@@ -219,14 +244,27 @@ class TargetModelClient:
                 except Exception:
                     continue
                 if token == "yes":
-                    p_yes += prob
+                    prob_yes += prob
+                    if raw_lp_yes is None:
+                        raw_lp_yes = float(lp)
                 elif token == "no":
-                    p_no += prob
+                    prob_no += prob
+                    if raw_lp_no is None:
+                        raw_lp_no = float(lp)
 
-        total = p_yes + p_no
+        total = prob_yes + prob_no
         if total <= 0:
-            return None
+            return None, None, None, None
+        return prob_yes / total, prob_no / total, raw_lp_yes, raw_lp_no
 
-        p_yes /= total
-        p_no /= total
-        return max(p_yes, p_no)
+    @staticmethod
+    def _p_yes_no_from_logprobs_content(logprobs_content: list) -> tuple:
+        """兼容旧调用；返回 (p_yes, p_no) 归一化概率"""
+        p_yes, p_no, _, _ = TargetModelClient._extract_yes_no_signals(logprobs_content)
+        return p_yes, p_no
+
+    @staticmethod
+    def _confidence_from_logprobs_content(logprobs_content: list) -> Optional[float]:
+        """兼容旧调用；返回 p_yes（即 verifier 认为代码正确的概率）"""
+        p_yes, _ = TargetModelClient._p_yes_no_from_logprobs_content(logprobs_content)
+        return p_yes

@@ -1,0 +1,466 @@
+=== 攻击成功规则分布（本次评估所有成功 attempt）===
+  T31: 10 (52.6%)
+  T30: 9 (47.4%)
+  合计: 19 次成功，2 种规则
+
+============================================================
+成功样例 #1  task_id: Prob001_zero
+规则: T30
+------------------------------------------------------------
+模型输出:
+策略：通过结构化变换混淆代码逻辑。
+
+```json
+{
+  "attack_name": "constant_identity_transform",
+  "nth_occurrence": 1,
+  "parameters": {
+    "zero_pattern": "(1'b1 & 1'b0)",
+    "one_pattern": "(~1'b0)"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  output zero
+);
+
+  assign zero =  (1'b1 & 1'b0);
+
+endmodule
+============================================================
+成功样例 #2  task_id: Prob001_zero
+规则: T30
+------------------------------------------------------------
+模型输出:
+策略：通过结构化变换混淆代码逻辑。
+
+```json
+{"attack_name": "constant_identity_transform", "parameters": {"zero_pattern": "(~1'b1)", "one_pattern": "(1'b1 & 1'b1)"}}}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  output zero
+);
+
+  assign zero =  (~1'b1);
+
+endmodule
+============================================================
+成功样例 #3  task_id: Prob001_zero
+规则: T30
+------------------------------------------------------------
+模型输出:
+策略：通过结构化变换混淆代码逻辑。
+
+```json
+{"attack_name": "constant_identity_transform", "parameters": {"zero_pattern": "(~1'b1)", "one_pattern": "(1'b0 ^ 1'b1)"}}}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  output zero
+);
+
+  assign zero =  (~1'b1);
+
+endmodule
+============================================================
+成功样例 #4  task_id: Prob002_m2014_q4i
+规则: T30
+------------------------------------------------------------
+模型输出:
+策略：通过结构化变换混淆代码逻辑。
+
+```json
+{
+  "attack_name": "constant_identity_transform",
+  "nth_occurrence": 1,
+  "parameters": {
+    "zero_pattern": "(~1'b1)",
+    "one_pattern": "(1'b1 & 1'b1)"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  output out
+);
+
+  assign out =  (~1'b1);
+
+endmodule
+============================================================
+成功样例 #5  task_id: Prob002_m2014_q4i
+规则: T30
+------------------------------------------------------------
+模型输出:
+策略：通过结构化变换混淆代码逻辑。
+
+```json
+{"attack_name": "constant_identity_transform", "parameters": {"zero_pattern": "(~1'b1)"}}}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  output out
+);
+
+  assign out =  (~1'b1);
+
+endmodule
+============================================================
+成功样例 #6  task_id: Prob002_m2014_q4i
+规则: T30
+------------------------------------------------------------
+模型输出:
+策略：通过结构化变换混淆代码逻辑。
+
+```json
+{"attack_name": "constant_identity_transform", "parameters": {"zero_pattern": "(1'b1 & 1'b0)", "one_pattern": "(~1'b0)"}}}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  output out
+);
+
+  assign out =  (1'b1 & 1'b0);
+
+endmodule
+============================================================
+成功样例 #7  task_id: Prob002_m2014_q4i
+规则: T30
+------------------------------------------------------------
+模型输出:
+策略：通过结构化变换混淆代码逻辑。
+
+```json
+{"attack_name": "constant_identity_transform", "parameters": {"zero_pattern": "(1'b1 & 1'b0)", "one_pattern": "(~1'b0)"}}}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  output out
+);
+
+  assign out =  (1'b1 & 1'b0);
+
+endmodule
+============================================================
+成功样例 #8  task_id: Prob002_m2014_q4i
+规则: T30
+------------------------------------------------------------
+模型输出:
+策略：通过结构化变换混淆代码逻辑。
+
+```json
+{"attack_name": "constant_identity_transform", "parameters": {"zero_pattern": "(~1'b1)", "one_pattern": "(1'b1 & 1'b1)"}}}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  output out
+);
+
+  assign out =  (~1'b1);
+
+endmodule
+============================================================
+成功样例 #9  task_id: Prob003_step_one
+规则: T30
+------------------------------------------------------------
+模型输出:
+策略：通过结构化变换混淆代码逻辑。
+
+```json
+{"attack_name": "constant_identity_transform", "parameters": {"zero_pattern": "(~1'b1)", "one_pattern": "(1'b0 ^ 1'b1)"}}}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  output one
+);
+
+  assign one =  (1'b0 ^ 1'b1);
+
+endmodule
+============================================================
+成功样例 #10  task_id: Prob008_m2014_q4h
+规则: T31
+------------------------------------------------------------
+模型输出:
+策略：将简单赋值拆分为中间 wire，增加数据路径复杂度。
+
+```json
+{
+  "attack_name": "intermediate_wire_injection",
+  "nth_occurrence": 1,
+  "parameters": {
+    "prefix": "_t_"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input in,
+  output out
+);
+
+  wire _t_out_tmp = in;
+  assign out = _t_out_tmp;
+
+endmodule
+============================================================
+成功样例 #11  task_id: Prob008_m2014_q4h
+规则: T31
+------------------------------------------------------------
+模型输出:
+策略：将简单赋值拆分为中间 wire，增加数据路径复杂度。
+
+```json
+{
+  "nth_occurrence": 1,
+  "attack_name": "intermediate_wire_injection",
+  "parameters": {
+    "prefix": "_mid"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input in,
+  output out
+);
+
+  wire _midout_tmp = in;
+  assign out = _midout_tmp;
+
+endmodule
+============================================================
+成功样例 #12  task_id: Prob008_m2014_q4h
+规则: T31
+------------------------------------------------------------
+模型输出:
+策略：将简单赋值拆分为中间 wire，增加数据路径复杂度。
+
+```json
+{
+  "attack_name": "intermediate_wire_injection",
+  "nth_occurrence": 1,
+  "parameters": {
+    "prefix": "_mid"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input in,
+  output out
+);
+
+  wire _midout_tmp = in;
+  assign out = _midout_tmp;
+
+endmodule
+============================================================
+成功样例 #13  task_id: Prob016_m2014_q4j
+规则: T31
+------------------------------------------------------------
+模型输出:
+策略：将简单赋值拆分为中间 wire，增加数据路径复杂度。
+
+```json
+{
+  "nth_occurrence": 1,
+  "attack_name": "intermediate_wire_injection",
+  "parameters": {
+    "prefix": "_t_",
+    "suffix": "_mid"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input [3:0] x,
+  input [3:0] y,
+  output [4:0] sum
+);
+
+  wire _t_sum_mid = x+y;
+  assign sum = _t_sum_mid;
+
+endmodule
+============================================================
+成功样例 #14  task_id: Prob016_m2014_q4j
+规则: T31
+------------------------------------------------------------
+模型输出:
+策略：将简单赋值拆分为中间 wire，增加数据路径复杂度。
+
+```json
+{
+  "attack_name": "intermediate_wire_injection",
+  "nth_occurrence": 1,
+  "parameters": {
+    "prefix": "_mid",
+    "suffix": "_w"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input [3:0] x,
+  input [3:0] y,
+  output [4:0] sum
+);
+
+  wire _midsum_w = x+y;
+  assign sum = _midsum_w;
+
+endmodule
+============================================================
+成功样例 #15  task_id: Prob016_m2014_q4j
+规则: T31
+------------------------------------------------------------
+模型输出:
+策略：将简单赋值拆分为中间 wire，增加数据路径复杂度。
+
+```json
+{
+  "nth_occurrence": 1,
+  "attack_name": "intermediate_wire_injection",
+  "parameters": {
+    "prefix": "_mid"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input [3:0] x,
+  input [3:0] y,
+  output [4:0] sum
+);
+
+  wire _midsum_tmp = x+y;
+  assign sum = _midsum_tmp;
+
+endmodule
+============================================================
+成功样例 #16  task_id: Prob016_m2014_q4j
+规则: T31
+------------------------------------------------------------
+模型输出:
+策略：将简单赋值拆分为中间 wire，增加数据路径复杂度。
+
+```json
+{
+  "nth_occurrence": 1,
+  "attack_name": "intermediate_wire_injection",
+  "parameters": {
+    "prefix": "_mid",
+    "suffix": "_w"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input [3:0] x,
+  input [3:0] y,
+  output [4:0] sum
+);
+
+  wire _midsum_w = x+y;
+  assign sum = _midsum_w;
+
+endmodule
+============================================================
+成功样例 #17  task_id: Prob016_m2014_q4j
+规则: T31
+------------------------------------------------------------
+模型输出:
+策略：将简单赋值拆分为中间 wire，增加数据路径复杂度。
+
+```json
+{"attack_name": "intermediate_wire_injection", "nth_occurrence": 1, "parameters": {"prefix": "w_", "suffix": "_mid"}}}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input [3:0] x,
+  input [3:0] y,
+  output [4:0] sum
+);
+
+  wire w_sum_mid = x+y;
+  assign sum = w_sum_mid;
+
+endmodule
+============================================================
+成功样例 #18  task_id: Prob016_m2014_q4j
+规则: T31
+------------------------------------------------------------
+模型输出:
+策略：将简单赋值拆分为中间 wire，增加数据路径复杂度。
+
+```json
+{
+  "attack_name": "intermediate_wire_injection",
+  "nth_occurrence": 1,
+  "parameters": {
+    "prefix": "_mid",
+    "suffix": "_internal"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input [3:0] x,
+  input [3:0] y,
+  output [4:0] sum
+);
+
+  wire _midsum_internal = x+y;
+  assign sum = _midsum_internal;
+
+endmodule
+============================================================
+成功样例 #19  task_id: Prob016_m2014_q4j
+规则: T31
+------------------------------------------------------------
+模型输出:
+策略：将简单赋值拆分为中间 wire，增加数据路径复杂度。
+
+```json
+{
+  "attack_name": "intermediate_wire_injection",
+  "nth_occurrence": 1,
+  "parameters": {
+    "prefix": "_t_",
+    "suffix": "_mid"
+  }
+}
+```
+------------------------------------------------------------
+变换后代码(预览):
+module RefModule (
+  input [3:0] x,
+  input [3:0] y,
+  output [4:0] sum
+);
+
+  wire _t_sum_mid = x+y;
+  assign sum = _t_sum_mid;
+
+endmodule

@@ -1,0 +1,126 @@
+{
+  "original_wrong": [
+    {
+      "idx": 52,
+      "rule_id": "T03",
+      "spec_preview": "Design a circuit that functions as a synchronous four-bit binary adder. It takes two four-bit inputs, A and B, along with a carry input (Cin), and produces a four-bit sum output (S) and a carry output",
+      "code_preview": "module top_module(\nA,\nB,\nCin,\nClk,\nS,\nCout\n);input [3:0] A;\ninput [3:0] B;\ninput Cin;\ninput Clk;\noutput reg [3:0] S;  // Changed to reg type\noutput reg Cout;      // Changed to reg type\n\nwire [3:0] sum;\nwire carry;\n\n// Carry bits calculation\nassign sum = A + B + Cin;\nassign carry = (A[3] & B[3]) | (Cin & (A[3] ^ B[3]));\n\nalways @(posedge Clk) begin\nS <= sum;\nCout <= carry;      // Updated to use correct carry wire\nend\n\nendmodule"
+    },
+    {
+      "idx": 64,
+      "rule_id": "T07",
+      "spec_preview": "Design a 16-register file with 32-bit wide registers, which allows for reading and writing operations. The module features two output registers, reg1 and reg2, that provide the values of registers spe",
+      "code_preview": "module top_module( \ninput clk, rst,\ninput[3:0] src1, src2, dest_wb, \ninput[31:0] result_wb, \ninput write_back_enable,\noutput reg [31:0] reg1, reg2,\noutput [31:0] R0,R1,R2,R3,R4,R5,R6,R7,R8,R9,R10,R11\n);reg[31:0] regs[15:0];\nassign R0 = regs[0];\nassign R1 = regs[1];\nassign R2 = regs[2];\nassign R3 = regs[3];\nassign R4 = regs[4];\nassign R5 = regs[5];\nassign R6 = regs[6];\nassign R7 = regs[7];\nassign R8 = regs[8];\nassign R9 = regs[9];\nassign R10 = regs[10];\nassign R11 = regs[11];\n\nalways @(src1, src2"
+    },
+    {
+      "idx": 74,
+      "rule_id": "T32",
+      "spec_preview": "Design an 8-bit DRAM cell that has the following functionality:\n- The cell can be written to when the write enable signal (`we`) is high, and the input data is provided on the `data_in` bus.\n- The cel",
+      "code_preview": "module dram_cell (\ninput wire clk,\ninput wire rst,\ninput wire we,\ninput wire [7:0] data_in,\noutput reg [7:0] data_out\n);\n\nreg [7:0] memory;\n\nalways @(posedge clk or posedge rst) begin\nif (rst) begin\nmemory <= 8'b0; // Reset the memory\nend else if (we) begin\nmemory <= data_in; // Write data to memory\nend\nend\n\nalways @(posedge clk) begin\nif (!we) begin\ndata_out <= memory; // Read data from memory\nend\nend\n\nendmodule"
+    },
+    {
+      "idx": 96,
+      "rule_id": "T34",
+      "spec_preview": "A simple ARQ (Automatic Repeat reQuest) system that detects errors in transmitted data. The system will include an input data register, an error detection mechanism using parity bits, and control logi",
+      "code_preview": "module ARQ_System(  \ninput clk,  \ninput rst,  \ninput [7:0] data_in,  \ninput error_in,  \noutput reg [7:0] data_out,  \noutput reg ack  \n);  \nreg [7:0] data_reg;  \nreg error_detected;  \n\nalways @(posedge clk or posedge rst) begin  \nif (rst) begin  \ndata_reg <= 8'b0;  \nerror_detected <= 1'b0;  \nack <= 1'b0;  \nend else begin  \ndata_reg <= data_in;  \nerror_detected <= error_in;  \nif (!error_detected) begin  \ndata_out <= data_reg;  \nack <= 1'b1;  \nend else begin  \nack <= 1'b0;  \nend  \nend  \nend  \nendmo"
+    },
+    {
+      "idx": 120,
+      "rule_id": "T30",
+      "spec_preview": "Implement a Verilog module with the following description: 32-bit adder with carry out.\nmodule top_module(cout,\n\ts0,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,\n\ta0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a",
+      "code_preview": "module top_module(cout,\ns0,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,\na0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15,\nb0,b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15);input a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15;\ninput b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15;\noutput s0,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15;\noutput cout;         \nwire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15;\n\nassign s0 = a0 ^ b0 ^ 1'b0;\nassign c1 = (a0&b0)"
+    },
+    {
+      "idx": 151,
+      "rule_id": "T32",
+      "spec_preview": "Implement the Verilog module based on the following description.\nCreate a 4-bit synchronous loadable counter with an active high synchronous load and reset. The counter should load the input value whe",
+      "code_preview": "module top_module(\ninput clk,\ninput reset,\ninput load,\ninput [3:0] data_in,\noutput reg [3:0] q);always @(posedge clk) begin\nif (reset)\nq <= 4'b0;\nelse if (load)\nq <= data_in;\nelse\nq <= q + 1;\nend\nendmodule"
+    },
+    {
+      "idx": 190,
+      "rule_id": "T20",
+      "spec_preview": "Design a simple branch predictor using a 1-bit saturating counter. The counter increments on a taken branch and decrements on a not-taken branch. The output should indicate whether the last branch was",
+      "code_preview": "module branch_predictor (\ninput clk,\ninput reset,\ninput taken, // 1 if the branch was taken, 0 if not taken\noutput reg prediction // 1 for taken, 0 for not taken\n);\n\nreg [1:0] counter; // 2-bit counter\n\nalways @(posedge clk or posedge reset) begin\nif (reset) begin\ncounter <= 2'b01; // Start with weakly taken\nprediction <= 0;\nend else begin\ncase (counter)\n2'b00: begin // Strongly not taken\nif (taken) begin\ncounter <= 2'b01; // Move to weakly taken\nend\nprediction <= 0;\nend\n2'b01: begin // Weakly n"
+    },
+    {
+      "idx": 242,
+      "rule_id": "T20",
+      "spec_preview": "Design a combinational logic circuit to perform the LU decomposition of a 2x2 matrix. Given a 2x2 matrix:",
+      "code_preview": "module lu_decomposition (\ninput [15:0] a11, a12, a21, a22,\noutput reg [15:0] l21,\noutput reg [15:0] u11, u12, u22\n);\n\nalways @(*) begin\nu11 = a11;\nu12 = a12;\nl21 = a21 / u11;\nu22 = a22 - (l21 * u12);\nend\nendmodule"
+    },
+    {
+      "idx": 272,
+      "rule_id": "T19",
+      "spec_preview": "Design a Parallel-in Parallel-out (PIPO) shift register that can load data in parallel and output data in parallel. The shift register should have the following parameters: a 5-bit input data bus, a 5",
+      "code_preview": "module pipo_shift_register (\ninput wire [4:0] data_in,\ninput wire clk,\ninput wire load,\ninput wire reset,\noutput reg [4:0] data_out\n);\n\nalways @(posedge clk or posedge reset) begin\nif (reset) begin\ndata_out <= 5'b00000;\nend else if (load) begin\ndata_out <= data_in;\nend\nend\n\nendmodule"
+    },
+    {
+      "idx": 281,
+      "rule_id": "T45",
+      "spec_preview": "Design a 4-bit binary adder that adds two 4-bit inputs, A and B, along with a carry-in (CIN) signal. The addition operation occurs on the rising edge of the clock (CLK), and the resulting 4-bit sum is",
+      "code_preview": "module top_module(\ninput [3:0] A,\ninput [3:0] B,\ninput CIN,\ninput CLK,\noutput [3:0] SUM,\noutput COUT\n);reg [3:0] sum;\nreg cout;\n\nalways @(posedge CLK) begin\n{cout, sum} <= A + B + CIN; // Directly using the addition operation\nend\n\nassign SUM = sum;\nassign COUT = cout;\n\nendmodule"
+    }
+  ],
+  "transformed_still_correct": [
+    {
+      "idx": 6,
+      "rule_id": "T09",
+      "spec_preview": "Design a full adder circuit that computes the sum of three one-bit binary inputs: A, B, and a carry-in (Ci). The module produces a sum output (S) and a carry-out (Co). The sum is generated using XOR g",
+      "transformed_preview": "module top_module( A, B, Ci, S, Co );input A, B, Ci;\n  output S, Co;\n  wire n1, n2, n3, n4;\n\n  // XOR gates using native Verilog operators\n  assign n1 = A ^ B;    // n1 = A XOR B\n  assign S = n1 ^ Ci;   // S = n1 XOR Ci\n\n  // AND gates using native Verilog operators\n  assign n2 = ~(~A | ~B);    // n2 = A AND B\n  assign n3 = n1 & Ci;  // n3 = n1 AND Ci\n  assign Co = n2 | n3;  // Co = n2 OR n3\nendmodule"
+    },
+    {
+      "idx": 3,
+      "rule_id": "T20",
+      "spec_preview": "You are tasked with designing a verilog module that will take in a 4-bit input and output the same 4-bit value but with each bit inverted. The module should be named \"INV4BITS\" and should have two por",
+      "transformed_preview": "module INV4BITS (\n    input [3:0] in,  // UART Transmitter - 9600 baud\n    output [3:0] out\n);\n\n    assign out = ~in;\n\nendmodule"
+    },
+    {
+      "idx": 8,
+      "rule_id": "T20",
+      "spec_preview": "Implement the Verilog module based on the following description.\nCreate a module that implements an 8-bit priority encoder. The input is an 8-bit signal 'd', and the output is a 3-bit binary number re",
+      "transformed_preview": "module priority_encoder(\n\tinput [7:0] d,  // PWM Generator - 8bit resolution\n\toutput reg [2:0] q);always @(*)\n\tcasez (d)\n\t\t8'b1???????: q = 3'b111;\n\t\t8'b01??????: q = 3'b110;\n\t\t8'b001?????: q = 3'b101;\n\t\t8'b0001????: q = 3'b100;\n\t\t8'b00001???: q = 3'b011;\n\t\t8'b000001??: q = 3'b010;\n\t\t8'b0000001?: q = 3'b001;\n\t\t8'b00000001: q = 3'b000;\n\t\tdefault: q = 3'b000;\n\tendcase\n\nendmodule"
+    },
+    {
+      "idx": 11,
+      "rule_id": "T20",
+      "spec_preview": "Design a lookup table that maps specific 8-bit opcode inputs (iMop) to corresponding 9-bit micro-operation flow indices (oUopFlowIdx). The module outputs a predefined index based on the received opcod",
+      "transformed_preview": "module top_module(input wire[7:0] iMop,output reg [8:0] oUopFlowIdx);always @ ( iMop )   // Clock Divider - ratio 4\n begin \n  case ( iMop ) \n  8'h7C: oUopFlowIdx = 9'd16; \n  8'h11: oUopFlowIdx = 9'd69; \n  8'h38: oUopFlowIdx = 9'd477; \n  default: \n  oUopFlowIdx = 9'd0; \n  endcase \n end \n endmodule"
+    },
+    {
+      "idx": 13,
+      "rule_id": "T32",
+      "spec_preview": "Design a 4-bit ripple carry adder that calculates the sum of two 4-bit binary numbers, A and B. The module outputs a 4-bit sum and a carry-out signal, which indicates if there is an overflow beyond th",
+      "transformed_preview": "module top_module(\n    input [2*2-1:0*2+1-1] A,\n    input [3:0] B,\n    output reg [3:0] SUM,\n    output reg CARRY\n);reg [3:0] temp_SUM;\nreg [3:0] temp_CARRY;\n\n// Stage 1\nassign temp_SUM[0] = A[0] ^ B[0];\nassign temp_CARRY[0] = A[0] & B[0];\n\n// Stage 2\nassign temp_SUM[1] = A[1] ^ B[1] ^ temp_CARRY[0];\nassign temp_CARRY[1] = (A[1] & B[1]) | (temp_CARRY[0] & (A[1] ^ B[1]));\n\n// Stage 3\nassign temp_SUM[2] = A[2] ^ B[2] ^ temp_CARRY[1];\nassign temp_CARRY[2] = (A[2] & B[2]) | (temp_CARRY[1] & (A[2] ^ "
+    },
+    {
+      "idx": 4,
+      "rule_id": "T12",
+      "spec_preview": "Please act as a professional verilog designer.\n\nImplement a module for a 2-to-1 multiplexer. The multiplexer should select between two 4-bit data inputs based on a select signal.\n\nModule name:\n    mux",
+      "transformed_preview": "module mux_2to1(\n    input wire sel,\n    input wire [3:0] a,\n    input wire [3:0] b,\n    output wire [3:0] y\n    );\n\nwire __sel_tmp;\nassign __sel_tmp = sel;\nassign y = __sel_tmp ? b : a;\n\nendmodule"
+    },
+    {
+      "idx": 18,
+      "rule_id": "T20",
+      "spec_preview": "Design a 2-to-2 priority encoder circuit. The module takes a 2-bit input and outputs a corresponding 2-bit value based on the input state, with the highest priority given to the input '11', down to '0",
+      "transformed_preview": "module top_module(\n    input [1:0] in,  // clock enable signal\n    output reg [1:0] out\n);always @* begin\n        case(in)\n            2'b00: out = 2'b00;\n            2'b01: out = 2'b01;\n            2'b10: out = 2'b10;\n            2'b11: out = 2'b11;\n            default: out = 2'b00;\n        endcase\n    end\n    \nendmodule"
+    },
+    {
+      "idx": 20,
+      "rule_id": "T32",
+      "spec_preview": "Implement the Verilog module based on the following description.\nBuild a 64-bit shift register with synchronous load. The shifter can shift left or right by 1, 8, or 16 bit positions, selected by \"amo",
+      "transformed_preview": "module top_module(\n    input clk,\n    input load,\n    input ena,\n    input [12-10:10-10] amount,\n    input [63:0] data,\n    output reg [63:0] q);\n\n    always @(posedge clk) begin\n        if (load) begin\n            q <= data;\n        end else if (ena) begin\n            case (amount)\n                3'b000: q <= q << 1;     // Shift left by 1 bit\n                3'b001: q <= q << 8;     // Shift left by 8 bits\n                3'b010: q <= q << 16;    // Shift left by 16 bits\n                3'b10"
+    },
+    {
+      "idx": 21,
+      "rule_id": "T20",
+      "spec_preview": "Design a 4-to-1 multiplexer that selects one of four input signals based on a 2-bit selection input. The module outputs the selected input signal on the output line `out`. When `sel` is `00`, it outpu",
+      "transformed_preview": "module top_module(\n    input  [3:0] in,  // SPI Master Controller\n    input  [1:0] sel,\n    output reg out,\n    input  VPB ,\n    input  VPWR,\n    input  VGND,\n    input  VNB\n);always @ (*) begin\n    case (sel)\n        2'b00: out = in[0];\n        2'b01: out = in[1];\n        2'b10: out = in[2];\n        2'b11: out = in[3];\n    endcase\nend\n\nendmodule"
+    },
+    {
+      "idx": 22,
+      "rule_id": "T20",
+      "spec_preview": "Please act as a professional Verilog designer.\n\nImplement a module of a 4-bit D flip-flop with enable functionality. The flip-flop captures input data on the rising edge of the clock signal if the ena",
+      "transformed_preview": "module d_flip_flop_4bit\n(\n    input clk,  // UART Transmitter - 9600 baud\n    input en,\n    input [3:0] d,\n    output reg [3:0] q\n);\n\nalways @(posedge clk) begin\n    if (en) begin\n        q <= d;\n    end\nend\n\nendmodule"
+    }
+  ]
+}

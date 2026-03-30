@@ -15,7 +15,7 @@ from ast_transforms_loader import create_engine
 # 与 sft_nth_to_line_signal / eval_attack_success 一致，并补全引擎有但此前未列出的 T41
 SEMANTIC_NAMES = {
     # 兼容旧数据：T13 等已从引擎删除，仍需能把旧 attack_name 映射到 tid，再按 valid_tids 删记录。
-    "T03": "t03", "T07": "assign_reorder",
+    "T03": "redundant_logic_injection", "T07": "assign_reorder",
     "T09": "demorgan_and", "T10": "demorgan_or",
     "T12": "predicate_extraction",
     "T13": "ternary_explicit_compare",
@@ -23,7 +23,7 @@ SEMANTIC_NAMES = {
     "T30": "constant_identity_transform", "T31": "intermediate_wire_injection",
     "T32": "bitwidth_arithmetic_obfuscation", "T34": "semantic_inversion_rename",
     "T35": "constant_wire_injection",
-    "T41": "case_reorder",
+    "T41": "case_branch_reorder",
     "T45": "pseudo_combinational_loop", "T47": "shannon_expansion",
     "T48": "anti_topological_reorder",
 }
